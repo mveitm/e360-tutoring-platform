@@ -73,3 +73,12 @@
 - Verified with tsc, build, manual UI test, persistence check, and post-deploy confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase CH — Inline reinforcement editing on enrollment detail
+- Added inline needsReinforcement editing on enrollment detail SkillState cards
+- Canonical options: No reinforce / Reinforce ⚠
+- Reused existing PATCH flow for skill states with boolean mapping
+- Replaced the old conditional amber "Needs reinforcement" label with an inline select
+- Verified with tsc, build, manual UI toggle test, persistence check, sync check, and post-deploy confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
