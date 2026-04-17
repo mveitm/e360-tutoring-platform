@@ -82,3 +82,7 @@
 - Verified with tsc, build, manual UI toggle test, persistence check, sync check, and post-deploy confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+Note:
+- Abacus post-deploy summary mentioned prior Phase CE as part of the shipped checkpoint narrative.
+- No functional issue observed, but future post-deploy summaries should describe only the phase being deployed to avoid custody ambiguity.
