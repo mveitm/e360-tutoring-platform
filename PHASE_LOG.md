@@ -64,3 +64,12 @@
 * Canonical decisionType set: `advance`, `reinforce`, `hold`, `redirect`.
 * Canonical evaluationType values: `diagnostic`, `progress_check`, `cycle_close`.
 * Canonical loadType values: `practice`, `reading`, `video`, `project`, `assessment`.
+
+## Phase CG — Inline confidence editing on enrollment detail
+- Added inline confidenceLevel editing on enrollment detail SkillState cards
+- Canonical options: none / low / medium / high
+- Reused existing PATCH flow for skill states
+- Corrected local confidenceLevel typing from number to string in enrollment-detail-view
+- Verified with tsc, build, manual UI test, persistence check, and post-deploy confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
