@@ -1,0 +1,223 @@
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+    output = "/home/ubuntu/tutoring_platform_mvp/nextjs_space/node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Student {
+  id         String   @id @default(cuid())
+  firstName  String
+  lastName   String
+  email      String   @unique
+  status     String   @default("active")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  programInstances StudentProgramInstance[]
+
+  @@map("students")
+}
+
+model Program {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  name      String
+  vertical  String
+  status    String   @default("active")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  programInstances StudentProgramInstance[]
+  axes             Axis[]
+  skills           Skill[]
+
+  @@map("programs")
+}
+
+model StudentProgramInstance {
+  id                    String    @id @default(cuid())
+  studentId             String
+  programId             String
+  status                String    @default("active")
+  startedAt             DateTime  @default(now())
+  endedAt               DateTime?
+  lastActivityAt        DateTime?
+  currentCycleId        String?
+  currentContinuityState String   @default("normal")
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  student        Student         @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  program        Program         @relation(fields: [programId], references: [id], onDelete: Cascade)
+  skillStates    SkillState[]
+  learningCycles LearningCycle[]
+
+  @@map("student_program_instances")
+}
+
+model Axis {
+  id           String   @id @default(cuid())
+  programId    String
+  code         String
+  name         String
+  displayOrder Int      @default(0)
+  status       String   @default("active")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+  skills  Skill[]
+
+  @@unique([programId, code])
+  @@map("axes")
+}
+
+model Skill {
+  id           String   @id @default(cuid())
+  programId    String
+  axisId       String
+  code         String
+  name         String
+  description  String?
+  displayOrder Int      @default(0)
+  status       String   @default("active")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  program     Program      @relation(fields: [programId], references: [id], onDelete: Cascade)
+  axis        Axis         @relation(fields: [axisId], references: [id], onDelete: Cascade)
+  skillStates SkillState[]
+
+  @@unique([programId, code])
+  @@map("skills")
+}
+
+model SkillState {
+  id                 String    @id @default(cuid())
+  enrollmentId       String
+  skillId            String
+  masteryLevel       String    @default("not_evaluated")
+  confidenceLevel    String    @default("none")
+  needsReinforcement Boolean   @default(false)
+  lastEvaluatedAt    DateTime?
+  stateSource        String    @default("manual")
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  enrollment StudentProgramInstance @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  skill      Skill                  @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, skillId])
+  @@map("skill_states")
+}
+
+model LearningCycle {
+  id           String    @id @default(cuid())
+  enrollmentId String
+  cycleNumber  Int
+  status       String    @default("open")
+  openedAt     DateTime  @default(now())
+  closedAt     DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  enrollment       StudentProgramInstance @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  cycleDecisions   CycleDecision[]
+  studyLoads       StudyLoad[]
+  cycleEvaluations CycleEvaluation[]
+
+  @@unique([enrollmentId, cycleNumber])
+  @@map("learning_cycles")
+}
+
+model CycleDecision {
+  id              String   @id @default(cuid())
+  learningCycleId String
+  decisionType    String
+  rationale       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  learningCycle LearningCycle @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+
+  @@map("cycle_decisions")
+}
+
+model StudyLoad {
+  id              String    @id @default(cuid())
+  learningCycleId String
+  loadType        String
+  title           String
+  status          String    @default("pending")
+  releasedAt      DateTime?
+  dueAt           DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  learningCycle LearningCycle @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+
+  @@map("study_loads")
+}
+
+model CycleEvaluation {
+  id              String   @id @default(cuid())
+  learningCycleId String
+  evaluationType  String
+  resultSummary   String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  learningCycle LearningCycle @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+
+  @@map("cycle_evaluations")
+}
