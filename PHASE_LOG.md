@@ -86,3 +86,23 @@
 Note:
 - Abacus post-deploy summary mentioned prior Phase CE as part of the shipped checkpoint narrative.
 - No functional issue observed, but future post-deploy summaries should describe only the phase being deployed to avoid custody ambiguity.
+
+## Phase CJ-pre — Guarded legacy fallback for StudyLoad loadType
+- Added guarded compatibility fallback for non-canonical StudyLoad.loadType values in read/edit selects
+- Legacy values now render truthfully as `<raw value> (legacy)` instead of collapsing to the first canonical option
+- Applied only to existing persisted-value selects in:
+  - study-loads-view
+  - cycle-detail-view
+- Create paths remain restricted to canonical options
+- Verified with tsc, build, manual UI checks, and post-deploy confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
+## Phase CJ — Study Loads search in cycle detail
+- Added client-side search/filter for Study Loads in cycle detail view
+- Search matches by study load title and loadType
+- Added empty state and "Showing X of Y" indicator
+- Search is hidden when the cycle has no study loads
+- Verified with tsc, build, manual UI checks, and post-deploy confirmation
+- Deployed together with CJ-pre to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
