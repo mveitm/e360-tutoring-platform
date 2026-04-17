@@ -115,3 +115,13 @@ Note:
 - Verified with tsc, build, authenticated post-deploy bundle check, and regression check against Study Loads search
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase CL — Cycle Evaluations search in cycle detail
+- Added client-side search/filter for Cycle Evaluations in cycle detail view
+- Search matches by evaluationType and resultSummary
+- Added empty state and "Showing X of Y" indicator
+- Search renders only when the cycle has evaluations
+- Verified with tsc, build, authenticated post-deploy bundle check, and regression checks against Study Loads and Cycle Decisions search
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
