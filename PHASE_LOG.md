@@ -106,3 +106,12 @@ Note:
 - Verified with tsc, build, manual UI checks, and post-deploy confirmation
 - Deployed together with CJ-pre to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase CK — Cycle Decisions search in cycle detail
+- Added client-side search/filter for Cycle Decisions in cycle detail view
+- Search matches by decisionType and rationale
+- Added empty state and "Showing X of Y" indicator
+- Search renders only when the cycle has decisions
+- Verified with tsc, build, authenticated post-deploy bundle check, and regression check against Study Loads search
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
