@@ -251,4 +251,14 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
-
+## Phase CW — Student Detail Enrollments local search
+- Added local search/filter to the Enrollments subsection in student-detail-view
+- Search matches by:
+  - program name
+  - program code
+  - enrollment status
+  - visible date text
+- Added "Showing X of Y" counter and empty-search-result state
+- Verified with tsc, build, browser checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
