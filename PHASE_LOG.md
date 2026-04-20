@@ -142,3 +142,19 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase CN — Server-side canonical decisionType validation
+- Added server-side canonical validation for CycleDecision.decisionType on:
+  - POST /api/cycle-decisions
+  - PUT /api/cycle-decisions/[id]
+- Canonical allowed values:
+  - advance
+  - reinforce
+  - hold
+  - redirect
+- Non-canonical values now return HTTP 400 with a stable error message
+- PUT requests that omit decisionType remain unaffected
+- GET and DELETE handlers remain unchanged
+- Verified with tsc, build, authenticated local curl matrix, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
