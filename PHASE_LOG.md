@@ -158,3 +158,17 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase CO — Server-side canonical evaluationType validation
+- Added server-side canonical validation for CycleEvaluation.evaluationType on:
+  - POST /api/cycle-evaluations
+  - PUT /api/cycle-evaluations/[id]
+- Canonical allowed values:
+  - diagnostic
+  - progress_check
+  - cycle_close
+- Non-canonical values now return HTTP 400 with a stable error message
+- PUT requests that omit evaluationType remain unaffected
+- Verified with tsc, build, authenticated local curl matrix, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
