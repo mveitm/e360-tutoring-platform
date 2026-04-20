@@ -125,3 +125,20 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase CM — Server-side canonical loadType validation
+- Added server-side canonical validation for StudyLoad.loadType on:
+  - POST /api/study-loads
+  - PUT /api/study-loads/[id]
+- Canonical allowed values:
+  - practice
+  - reading
+  - video
+  - project
+  - assessment
+- Non-canonical values now return HTTP 400 with a stable error message
+- PUT requests that omit loadType remain unaffected
+- GET, PATCH, and DELETE handlers remain unchanged
+- Verified with tsc, build, local curl matrix, authenticated production curl matrix, and cleanup of test data
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
