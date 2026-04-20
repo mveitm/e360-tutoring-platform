@@ -205,3 +205,13 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase CS — Enrollment Detail Cycle Search
+- Added local search/filter to the Learning Cycles subsection in enrollment-detail-view
+- Search includes:
+  - local filtering of cycle cards
+  - "Showing X of Y" counter
+  - empty-search-result state
+- The existing Skill States search remains independent and unchanged
+- Verified with tsc, build, browser checks, deployment confirmation, and final live confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
