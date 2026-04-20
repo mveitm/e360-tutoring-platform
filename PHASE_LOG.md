@@ -262,3 +262,12 @@ Note:
 - Verified with tsc, build, browser checks, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase CX — Cycle Decisions dual empty-state guard
+- Replaced the single zero-result state in cycle-decisions-view with two contextual empty states:
+  - search-empty → Search icon + "No cycle decisions match your search."
+  - dropdown-empty → GitBranch icon + "No cycle decisions for this enrollment."
+- Preserved the existing global data-empty state and "Showing X of Y" behavior
+- Verified with tsc, build, browser checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
