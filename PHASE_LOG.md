@@ -227,4 +227,14 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
-
+## Phase CU — Program Detail Skills local search
+- Added local search/filter to the Skills subsection in program-detail-view
+- Search matches by:
+  - skill code
+  - skill name
+  - skill status
+  - axis name
+- Added "Showing X of Y" counter and empty-search-result state
+- Verified with tsc, build, browser checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
