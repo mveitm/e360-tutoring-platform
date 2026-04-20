@@ -172,3 +172,14 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase CP — Empty-search-result state for Learning Cycles list
+- Added an empty-search-result state to the Learning Cycles list view
+- When a non-empty query matches zero rows, the UI now shows:
+  - Search icon
+  - "No learning cycles match your search." message
+- Existing "Showing X of Y" behavior remains intact
+- Empty search still shows the full list unchanged
+- Verified with tsc, build, browser checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
