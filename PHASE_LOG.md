@@ -238,3 +238,17 @@ Note:
 - Verified with tsc, build, browser checks, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase CV — Program Detail Enrollments local search
+- Added local search/filter to the Enrollments subsection in program-detail-view
+- Search matches by:
+  - student first name
+  - student last name
+  - enrollment status
+  - visible date text
+- Added "Showing X of Y" counter and empty-search-result state
+- Verified with tsc, build, browser checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
+
