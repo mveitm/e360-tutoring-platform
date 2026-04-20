@@ -271,3 +271,12 @@ Note:
 - Verified with tsc, build, browser checks, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase CY — Cycle Evaluations dual empty-state guard
+- Replaced the single zero-result state in cycle-evaluations-view with two contextual empty states:
+  - search-empty → Search icon + "No cycle evaluations match your search."
+  - dropdown-empty → ClipboardCheck icon + "No cycle evaluations for this enrollment."
+- Preserved the existing global data-empty state and "Showing X of Y" behavior
+- Verified with tsc, build, browser checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
