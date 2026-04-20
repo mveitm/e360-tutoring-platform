@@ -280,3 +280,14 @@ Note:
 - Verified with tsc, build, browser checks, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+
+## Phase CZ — Study Loads dual empty-state guard
+- Replaced the single zero-result state in study-loads-view with two contextual empty states:
+  - search-empty → Search icon + "No study loads match your search."
+  - dropdown-empty → FileBox icon + "No study loads for this enrollment."
+- Preserved the existing global data-empty state and "Showing X of Y" behavior
+- Verified with tsc, build, browser checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
