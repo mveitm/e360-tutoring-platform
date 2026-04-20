@@ -300,3 +300,13 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase DB — Learning Cycles dual empty-state guard
+- Added a dropdown-empty state to learning-cycles-view for the case where an enrollment filter yields zero cycles
+- New dropdown-empty state:
+  - RefreshCw icon
+  - "No learning cycles for this enrollment."
+- Preserved the existing search-empty state and "Showing X of Y" behavior
+- Verified with tsc, build, browser checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
