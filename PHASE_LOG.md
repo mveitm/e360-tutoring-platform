@@ -316,3 +316,11 @@ Note:
 - Verified with tsc, build, browser checks, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase DD — Cycle Decisions closed-cycle create guard
+- Filtered out closed learning cycles from the "New Cycle Decision" dialog cycle dropdown
+- Users can no longer select a closed cycle and submit a create request that will always be rejected by the API
+- Verified with tsc, build, browser checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
