@@ -352,3 +352,9 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase DL — Cycle-opening preconditions and enrollment pointer wiring
+- Wired POST /api/learning-cycles to enforce Step 4 contract preconditions before allowing cycle opening
+- Added atomic side-effects to update StudentProgramInstance.currentCycleId and lastActivityAt when a cycle opens
+- Verified with tsc, build, 14 manual API checks, and production deployment
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
