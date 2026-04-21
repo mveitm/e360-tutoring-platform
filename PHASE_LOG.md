@@ -358,3 +358,11 @@ Note:
 - Verified with tsc, build, 14 manual API checks, and production deployment
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase DM — Diagnostic completion → SkillState initialization wiring
+- Wired PATCH /api/diagnostics/[id] to detect the real transition from pending to completed for initial diagnostics
+- Added SE-1 to automatically create missing SkillState records for all active program skills, plus SE-9 to update enrollment lastActivityAt
+- Verified with tsc, build, 11 manual checks, and production deployment
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
