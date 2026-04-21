@@ -330,3 +330,11 @@ Note:
 - Verified with prisma db push, prisma generate, tsc, build, manual API checks, and production deployment
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase DH — Cycle decision skill model API
+- Added the CycleDecisionSkill join model as a persistent bridge between cycle decisions and prioritized skills
+- Added the minimal CRUD API foundation for cycle-decision-skills with closed-cycle guard, unique pair enforcement, and decision/skill existence validation
+- Verified with prisma db push, tsc, build, manual API checks, and production deployment
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
