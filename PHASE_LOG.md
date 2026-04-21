@@ -338,3 +338,9 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase DI — Tutoring session model and API
+- Added the TutoringSession model as a persistent execution container linked to learning cycles and optionally to study loads
+- Added the minimal CRUD API foundation for tutoring-sessions with closed-cycle guard, optional studyLoadId linking, and cycle/study-load existence validation
+- Verified with prisma db push, tsc, build, manual API checks, and production deployment
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
