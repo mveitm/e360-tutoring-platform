@@ -344,3 +344,11 @@ Note:
 - Verified with prisma db push, tsc, build, manual API checks, and production deployment
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase DK — Continuity signal model and API
+- Added the ContinuitySignal model as a persistent continuity/transition record anchored to student-program instances, with optional links to learning cycles and cycle evaluations
+- Added the minimal CRUD API foundation for continuity-signals, supporting both enrollment-only signals and cycle/evaluation-linked signals
+- Verified with prisma db push, tsc, build, manual API checks, and production deployment
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
