@@ -324,3 +324,9 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase DF — Diagnostic model and API
+- Added the Diagnostic model as a persistent entity linked to student-program instances
+- Added the minimal CRUD API foundation for diagnostics without introducing UI surface
+- Verified with prisma db push, prisma generate, tsc, build, manual API checks, and production deployment
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
