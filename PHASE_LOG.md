@@ -381,4 +381,11 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase DS — Admin-only atomic close of an open LearningCycle
+- Added a single admin-only close path for an open LearningCycle through POST /api/learning-cycles/[id]/close
+- Enforced single-path closure with PATCH drift guard and persisted a strictly transcriptive cycle_close snapshot
+- Verified with tsc, build, browser checks, API probes, DB checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: discovered and fixed zero-load close edge case before final live verification; no remaining issues
+
 
