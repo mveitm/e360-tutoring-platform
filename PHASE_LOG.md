@@ -389,3 +389,9 @@ Note:
 - Post-deploy issues: discovered and fixed zero-load close edge case before final live verification; no remaining issues
 
 
+## Phase DT — Admin authorization of cycle continuity
+- Added a single admin-only continuity authorization path through POST /api/learning-cycles/[id]/continue
+- Emitted the minimum valid continue ContinuitySignal required to satisfy DL's existing P4b precondition for opening the next cycle
+- Verified with tsc, build, API probes, happy-chain proof, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
