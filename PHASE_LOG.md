@@ -366,3 +366,10 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+
+## Phase DN — First adaptive StudyLoad generation on cycle open
+- Wired POST /api/learning-cycles to emit an opening cycle snapshot and automatically generate the first adaptive StudyLoad set when a cycle opens
+- Preserved the existing cycle-opening response shape while adding a deterministic selection heuristic based on current SkillState data
+- Verified with tsc, build, local manual API checks, live production verification, and deployment
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
