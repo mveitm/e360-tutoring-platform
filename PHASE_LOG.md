@@ -395,3 +395,10 @@ Note:
 - Verified with tsc, build, API probes, happy-chain proof, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase DU — Minimal adaptive differentiation of the first StudyLoad of cycle N+1
+- Added a single minimal adaptation rule in POST /api/learning-cycles to exclude prior-cycle selected skills during the first generation pass of cycle N+1
+- Persisted the decision trace in the new cycle_open snapshot payload with excludedSkillIds, exclusionRule, and exclusionRelaxed
+- Verified with tsc, build, DB probes, end-to-end cycle advancement, /now regression checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
