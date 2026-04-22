@@ -373,3 +373,12 @@ Note:
 - Verified with tsc, build, local manual API checks, live production verification, and deployment
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase DO — First visible student surface: active cycle and pending StudyLoads
+- Added the first visible student-facing surface at /now to answer “¿qué me toca ahora?” using already-wired adaptive cycle data
+- Rendered the authenticated student's active program, open cycle, and pending StudyLoads with explicit empty states, without mutating any data
+- Verified with tsc, build, manual route checks, middleware/auth checks, and production deployment
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
+
