@@ -402,3 +402,10 @@ Note:
 - Verified with tsc, build, DB probes, end-to-end cycle advancement, /now regression checks, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase DV — Minimal authoritative diagnostic attempt selector
+- Added a pure-read tactical selector through GET /api/diagnostics/authoritative to determine which diagnostic attempt counts for continuity-start logic
+- Returned a deterministic, auditable output contract with authoritativeAttemptId, reason, consideredCount, rejectedCount, and evaluatedAt, including an explicit null branch when no valid attempt exists
+- Verified with tsc, build, rollback-based rule probes, authenticated endpoint checks, regression checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
