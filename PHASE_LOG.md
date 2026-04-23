@@ -458,3 +458,9 @@ Only close DY cleanly after live confirmation.
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase EA — Minimal read-only reconciliation layer between structural start block and shadow start block
+- Added a pure-read reconciliation layer through GET /api/continuity-start/reconciliation, comparing the structural cycle_open start block (DN/DU) against the DZ shadow block under an explicit six-status classifier
+- Introduced a first-class machine-readable witness artifact for how both sides currently relate, without deciding precedence, source of truth, or write-path convergence
+- Verified with tsc, build, offline reconciliation probes, authenticated endpoint checks, regression checks, row-count invariance checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
