@@ -478,3 +478,10 @@ Only close DY cleanly after live confirmation.
 - Verified with tsc, build, offline convergence probes, authenticated endpoint checks, regression checks, row-count invariance checks, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase ED — First official continuity-start governance-reading writeback (recording event only; rescue v1 flat scalar rationale)
+- Added the first minimal official write-path through POST /api/continuity-start/convergence/record, persisting one ContinuitySignal row per explicit admin call with signalType `continuity_start_governance_reading`
+- Persisted a flat scalar rationale envelope (`ed.v1.flat`) containing the current governance posture snapshot and the six contract anchors, while explicitly preserving recording-event-only semantics and leaving DN/DU as structural materializer of record
+- Verified with tsc, build, local probe execution, regression sweeps, manual verification, and live production confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
