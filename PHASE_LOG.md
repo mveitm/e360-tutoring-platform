@@ -464,3 +464,10 @@ Only close DY cleanly after live confirmation.
 - Verified with tsc, build, offline reconciliation probes, authenticated endpoint checks, regression checks, row-count invariance checks, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase EB — Minimal read-only precedence layer between structural materialization and shadow continuity-start
+- Added a pure-read precedence layer through GET /api/continuity-start/precedence, consuming EA and emitting a minimal machine-readable governance result about which side currently has priority of interpretation
+- Introduced a first-class precedence artifact with explicit constants for materializer of record, shadow side, source-of-truth non-resolution, and write-authorization non-resolution, without changing either side or converging write paths
+- Verified with tsc, build, offline precedence probes, authenticated endpoint checks, regression checks, row-count invariance checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
