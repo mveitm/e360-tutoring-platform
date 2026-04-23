@@ -424,3 +424,30 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+Deploy approved.
+
+Proceed to deploy Phase DY now.
+
+After deployment, return a strict post-deploy closure report with this exact structure:
+
+1. Deploy status
+2. Live confirmation
+3. Post-deploy verification
+4. Custody actions completed
+5. Final phase closure statement
+
+Requirements:
+- verify the live app, not only the build
+- confirm the deployed version includes DY
+- confirm the new declarative start-block plan path is live
+- confirm no unexpected regression on /now
+- confirm the demo enrollment state remains unchanged and coherent on live
+- restate explicitly that DY is a declarative operational-read output only, not a materializer or content generator
+- restate explicitly that itemCount is a declarative capacity hint, not a guaranteed future materialization cardinality
+- restate explicitly that provisional_safe remains an evidence-quality / continuity-readiness output, not a student-ability verdict
+- update PHASE_LOG.md for deployed/closed state if that is part of your custody flow
+- if remote is not configured in this environment, state that explicitly rather than implying push completion
+
+Do not open a next phase yet.
+Only close DY cleanly after live confirmation.
+
