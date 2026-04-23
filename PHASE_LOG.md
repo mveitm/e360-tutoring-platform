@@ -471,3 +471,10 @@ Only close DY cleanly after live confirmation.
 - Verified with tsc, build, offline precedence probes, authenticated endpoint checks, regression checks, row-count invariance checks, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase EC — Minimal read-only convergence-reading layer between structural materialization and shadow continuity-start
+- Added a pure-read convergence layer through GET /api/continuity-start/convergence, consuming EA + EB and emitting a minimal machine-readable convergence posture between the structural materialization side and the shadow continuity-start side
+- Introduced a first-class convergence artifact with explicit constants for materializer of record, shadow side, source-of-truth non-resolution, write-authorization non-resolution, convergence-execution non-resolution, and merge-decision non-resolution, without changing either side or converging write paths
+- Verified with tsc, build, offline convergence probes, authenticated endpoint checks, regression checks, row-count invariance checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
