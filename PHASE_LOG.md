@@ -417,3 +417,10 @@ Note:
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase DX — Minimal operational continuity-start output
+- Added a pure-read operational continuity-start layer through GET /api/continuity-start/operational-output, consuming DW and returning one of four canonical operational modes
+- Introduced canonical operational-read outputs only (normal, cautious, provisional, manual_review_needed) without authorizing transitions, mutating continuity state, or emitting signals
+- Verified with tsc, build, rollback-based mode probes, authenticated endpoint checks, regression checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
