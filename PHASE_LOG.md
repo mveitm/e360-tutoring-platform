@@ -409,3 +409,11 @@ Note:
 - Verified with tsc, build, rollback-based rule probes, authenticated endpoint checks, regression checks, and live deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase DW — Minimal tactical reading of the authoritative diagnostic attempt
+- Added a pure-read tactical classifier through GET /api/diagnostics/tactical-reading that consumes DV and returns one of four machine-readable verdicts for continuity-start logic
+- Introduced explicit tactical refusal semantics through insufficient_evidence and low_confidence_evidence, while keeping low_confidence_evidence strictly scoped to evidence quality / continuity-readiness rather than student ability
+- Verified with tsc, build, rollback-based rule probes, authenticated endpoint checks, regression checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
