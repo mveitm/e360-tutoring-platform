@@ -451,3 +451,10 @@ Requirements:
 Do not open a next phase yet.
 Only close DY cleanly after live confirmation.
 
+## Phase DZ — Minimal shadow-materialized continuity-start block
+- Added a pure-read shadow materializer through GET /api/continuity-start/shadow-block, consuming DY and emitting a concrete item-level continuity-start block without persisting any StudyLoad rows
+- Introduced concrete shadow-block outputs with item-level resolution from either safe_generic or skillstate_heuristic sources, preserving refusal semantics and honest downgrades when the available pool is insufficient
+- Verified with tsc, build, rollback-based item-resolution probes, authenticated endpoint checks, regression checks, and live deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
