@@ -511,3 +511,18 @@ Only close DY cleanly after live confirmation.
 - Deployed to `tutoring-platform-mv-l4o1ne.abacusai.app`
 - Post-deploy issues: none
 
+## Phase EI — Open enrollment quick-link on enrollments list
+- Verified that the `Open enrollment` affordance already existed on every enrollment card in `/admin/instances` and already satisfied the approved EI scope
+- No code change was required; no files changed; no checkpoint and no deploy were needed
+- Confirmed locally that:
+  - `All` shows the full list with the link on every card
+  - `attention_required` isolates John Doe / PAES_M1
+  - clicking `Open enrollment` on John Doe navigates correctly to `/admin/instances/cmoadr1x20003syur0rgskn12`
+  - `no_governance_record` shows the expected rows
+  - `monitor` and `stable` preserve the exact EH empty-state copy
+  - filter transitions trigger zero new `/api/instances` requests
+- Regression verified on `/now`, `/admin/instances/[id]`, `/admin/learning-cycles`, and `/admin/learning-cycles/[id]`
+- No files changed
+- No deploy required
+- Post-deploy issues: not applicable
+
