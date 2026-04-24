@@ -493,3 +493,21 @@ Only close DY cleanly after live confirmation.
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
 
+## Phase EH — Attention filter on enrollments list
+- Added a client-side dropdown filter on `/admin/instances` to narrow the already-fetched enrollments list by EG-derived attention signal
+- Reused `mapPostureToAttentionSignal(...)` from `lib/admin/attention-signal.ts`; no new API, no schema change, no persistence, and no refetch on filter change
+- Filter options implemented exactly as: `all`, `attention_required`, `monitor`, `stable`, `no_governance_record`
+- Verified locally and on production that:
+  - `All` shows the full list
+  - `attention_required` shows only John Doe / PAES_M1
+  - `no_governance_record` shows the expected remaining rows
+  - `monitor` and `stable` show the exact empty-state copy: `No enrollments match this filter.`
+  - switching filters triggers zero new `/api/instances` requests
+- Regression verified on `/now`, `/admin/instances/[id]`, `/admin/learning-cycles`, and `/admin/learning-cycles/[id]`
+- Bundle impact on `/admin/instances`: 2.91 kB → 3.13 kB (+0.22 kB)
+- Files touched:
+  - `nextjs_space/app/admin/instances/_components/instances-view.tsx`
+- Verified with tsc, build, browser checks, and live deployment confirmation
+- Deployed to `tutoring-platform-mv-l4o1ne.abacusai.app`
+- Post-deploy issues: none
+
