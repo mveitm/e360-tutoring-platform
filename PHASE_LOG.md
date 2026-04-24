@@ -526,3 +526,33 @@ Only close DY cleanly after live confirmation.
 - No deploy required
 - Post-deploy issues: not applicable
 
+## Phase EI — Open enrollment quick-link on enrollments list
+- Verified that the `Open enrollment` quick-link already existed on every enrollment card in `/admin/instances` and already satisfied the approved EI scope
+- No code change was required; no files changed; no checkpoint and no deploy were needed
+- Confirmed locally that:
+  - `All` shows the full list with the link on every card
+  - `attention_required` isolates John Doe / PAES_M1
+  - clicking `Open enrollment` on John Doe navigates correctly to `/admin/instances/cmoadr1x20003syur0rgskn12`
+  - `no_governance_record` shows the expected rows
+  - `monitor` and `stable` preserve the exact EH empty-state copy
+  - filter transitions trigger zero new `/api/instances` requests
+- Regression verified on `/now`, `/admin/instances/[id]`, `/admin/learning-cycles`, and `/admin/learning-cycles/[id]`
+- No files changed
+- No deploy required
+- Post-deploy issues: not applicable
+
+## Phase EJ — Canonical filter-aware counter on enrollments list
+- Replaced the legacy search-only counter on `/admin/instances` with a single canonical list-orientation counter: `Showing X of Y enrollments`
+- The previous counter was intentionally removed because it only reflected search and ignored the EH attention filter, which could create a contradictory orientation cue relative to the visible cards
+- The new counter is now the single canonical orientation line for the list and composes search + attention filter with the same predicate used by the rendered enrollments
+- Scope remained minimal: single-file edit in `app/admin/instances/_components/instances-view.tsx`
+- No API change, no schema change, no helper change, no detail-page change, no `/now` change
+- Verified that:
+  - `All` shows the full filtered count correctly
+  - `attention_required` shows John Doe only
+  - `no_governance_record` shows the expected rows
+  - `monitor` and `stable` preserve the exact EH empty-state copy
+  - filter transitions trigger zero new `/api/instances` requests
+- Regression verified on `/now`, `/admin/instances/[id]`, `/admin/learning-cycles`, and `/admin/learning-cycles/[id]`
+- Deployed successfully to `tutoring-platform-mv-l4o1ne.abacusai.app`
+- Post-deploy issues: none
