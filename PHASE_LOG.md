@@ -485,3 +485,11 @@ Only close DY cleanly after live confirmation.
 - Verified with tsc, build, local probe execution, regression sweeps, manual verification, and live production confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase EE — Minimal read-only consultation layer for continuity_start_governance_reading records
+- Added the GET companion to `/api/continuity-start/convergence/record`, making ED-written governance-reading records queryable for an authenticated admin with a strict hard-coded filter to `continuity_start_governance_reading`
+- Implemented bounded consultation behavior only: enrollment-scoped listing, rationale parsing tolerance, stable ordering, and cursor pagination, without introducing any workflow influence or behavioral dependency
+- Verified with tsc, build, local EE probe, ED regression probe, regression sweeps, live production probes, malformed-rationale resilience checks, and pagination checks
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
+
