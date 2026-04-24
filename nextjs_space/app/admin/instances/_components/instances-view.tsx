@@ -10,6 +10,12 @@ import { Link2, Plus, Loader2, Calendar, Activity, ExternalLink, Search } from '
 import Link from 'next/link'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { toast } from 'sonner'
+import { AttentionSignalCell } from '@/app/admin/_components/attention-signal'
+import {
+  mapPostureToAttentionSignal,
+  ATTENTION_SIGNAL_LABELS,
+  type AttentionSignal,
+} from '@/lib/admin/attention-signal'
 
 interface StudentOption {
   id: string
@@ -37,6 +43,7 @@ interface Instance {
   createdAt: string
   student?: StudentOption
   program?: ProgramOption
+  latestGovernancePosture?: string | null
 }
 
 export function InstancesView() {
@@ -48,6 +55,8 @@ export function InstancesView() {
   const [saving, setSaving] = useState(false)
   const [form, setForm] = useState({ studentId: '', programId: '', status: 'active', currentContinuityState: 'normal', startedAt: '', endedAt: '', currentCycleId: '' })
   const [search, setSearch] = useState('')
+  // Phase EH: client-side advisory attention filter. Default 'all'. No persistence.
+  const [attentionFilter, setAttentionFilter] = useState<'all' | AttentionSignal>('all')
   const [updatingEnrollmentStatus, setUpdatingEnrollmentStatus] = useState<string | null>(null)
   const [updatingContinuityState, setUpdatingContinuityState] = useState<string | null>(null)
 
@@ -275,7 +284,7 @@ export function InstancesView() {
       </div>
 
       {!loading && instances.length > 0 && (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
           <div className="relative flex-1 max-w-sm">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
@@ -285,14 +294,42 @@ export function InstancesView() {
               className="pl-9"
             />
           </div>
-          {search && (
-            <span className="text-xs text-muted-foreground">
-              Showing {instances.filter((inst) => {
+          {/* ── Phase EH: client-side advisory attention filter (list-scanning affordance only; not a workflow control). ── */}
+          <div className="flex items-center gap-2">
+            <Label htmlFor="attention-filter" className="text-xs text-muted-foreground whitespace-nowrap">
+              Filter by attention signal
+            </Label>
+            <select
+              id="attention-filter"
+              className="rounded-md border border-input bg-background px-2 py-1 text-xs"
+              value={attentionFilter}
+              onChange={(e) => setAttentionFilter(e.target.value as 'all' | AttentionSignal)}
+            >
+              <option value="all">All</option>
+              <option value="attention_required">{ATTENTION_SIGNAL_LABELS.attention_required}</option>
+              <option value="monitor">{ATTENTION_SIGNAL_LABELS.monitor}</option>
+              <option value="stable">{ATTENTION_SIGNAL_LABELS.stable}</option>
+              <option value="no_governance_record">{ATTENTION_SIGNAL_LABELS.no_governance_record}</option>
+            </select>
+          </div>
+          {/* ── Phase EJ: filter-aware orientation counter (read-only; composes EH search + attention filter; no network; no state). ── */}
+          <span className="text-xs text-muted-foreground">
+            Showing {instances.filter((inst) => {
+              if (search) {
                 const q = search.toLowerCase()
-                return (inst.student?.firstName ?? '').toLowerCase().includes(q) || (inst.student?.lastName ?? '').toLowerCase().includes(q) || (inst.program?.code ?? '').toLowerCase().includes(q) || (inst.program?.name ?? '').toLowerCase().includes(q)
-              }).length} of {instances.length}
-            </span>
-          )}
+                const matchesSearch =
+                  (inst.student?.firstName ?? '').toLowerCase().includes(q) ||
+                  (inst.student?.lastName ?? '').toLowerCase().includes(q) ||
+                  (inst.program?.code ?? '').toLowerCase().includes(q) ||
+                  (inst.program?.name ?? '').toLowerCase().includes(q)
+                if (!matchesSearch) return false
+              }
+              if (attentionFilter !== 'all') {
+                if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== attentionFilter) return false
+              }
+              return true
+            }).length} of {instances.length} enrollments
+          </span>
         </div>
       )}
 
@@ -309,11 +346,46 @@ export function InstancesView() {
         </Card>
       ) : (
         <div className="grid gap-3">
-          {instances.filter((inst) => {
-            if (!search) return true
-            const q = search.toLowerCase()
-            return (inst.student?.firstName ?? '').toLowerCase().includes(q) || (inst.student?.lastName ?? '').toLowerCase().includes(q) || (inst.program?.code ?? '').toLowerCase().includes(q) || (inst.program?.name ?? '').toLowerCase().includes(q)
-          }).map((inst: Instance) => (
+          {(() => {
+            const filtered = instances.filter((inst) => {
+              // Phase EH: compose search + attention filter on the already-fetched list.
+              if (search) {
+                const q = search.toLowerCase()
+                const matchesSearch =
+                  (inst.student?.firstName ?? '').toLowerCase().includes(q) ||
+                  (inst.student?.lastName ?? '').toLowerCase().includes(q) ||
+                  (inst.program?.code ?? '').toLowerCase().includes(q) ||
+                  (inst.program?.name ?? '').toLowerCase().includes(q)
+                if (!matchesSearch) return false
+              }
+              if (attentionFilter !== 'all') {
+                if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== attentionFilter) {
+                  return false
+                }
+              }
+              return true
+            })
+            // Phase EH: if the attention filter is active and yields zero rows, show the filter-specific empty state.
+            if (attentionFilter !== 'all' && filtered.length === 0) {
+              return (
+                <Card>
+                  <CardContent className="py-8 text-center">
+                    <p className="text-sm text-muted-foreground">No enrollments match this filter.</p>
+                  </CardContent>
+                </Card>
+              )
+            }
+            if (search && filtered.length === 0) {
+              return (
+                <Card>
+                  <CardContent className="py-8 text-center">
+                    <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                    <p className="text-sm text-muted-foreground">No enrollments match your search.</p>
+                  </CardContent>
+                </Card>
+              )
+            }
+            return filtered.map((inst: Instance) => (
             <Card key={inst.id} className="hover:shadow-md transition-shadow" style={{ boxShadow: 'var(--shadow-sm)' }}>
               <CardContent className="py-4">
                 <div className="flex items-center justify-between">
@@ -378,9 +450,15 @@ export function InstancesView() {
                     <span className="font-mono">Cycle: {inst?.currentCycleId ?? '—'}</span>
                   </div>
                 </div>
+                {/* ── Phase EG: advisory-only attention signal (read-only). Does not block workflow. ── */}
+                <div className="mt-2 flex items-center gap-1.5">
+                  <span className="text-xs text-muted-foreground">Attention:</span>
+                  <AttentionSignalCell posture={inst?.latestGovernancePosture} />
+                </div>
               </CardContent>
             </Card>
-          ))}
+          ))
+          })()}
         </div>
       )}
     </div>

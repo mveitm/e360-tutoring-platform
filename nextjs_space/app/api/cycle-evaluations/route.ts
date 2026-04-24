@@ -51,6 +51,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'learningCycleId and evaluationType are required' }, { status: 400 })
     }
 
+    const CANONICAL_EVALUATION_TYPES = new Set(['diagnostic', 'progress_check', 'cycle_close'])
+    if (!CANONICAL_EVALUATION_TYPES.has(evaluationType)) {
+      return NextResponse.json({ error: 'Invalid evaluationType. Allowed: diagnostic, progress_check, cycle_close' }, { status: 400 })
+    }
+
     const cycle = await prisma.learningCycle.findUnique({ where: { id: learningCycleId }, select: { status: true } })
     if (cycle?.status === 'closed') {
       return NextResponse.json({ error: 'Cannot add evaluations to a closed cycle' }, { status: 400 })

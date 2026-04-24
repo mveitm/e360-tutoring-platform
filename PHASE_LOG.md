@@ -11,8 +11,8 @@
 
 ## Current state
 
-* Latest closed phase: CF
-* Status: D → CF closed and deployed
+* Latest closed phase: EJ (deployed and closed)
+* Status: D → DN closed and deployed; continuity-start governance-reading (ED/EE) closed + deployed; EF rescue v2 (admin consultation panel) closed + deployed; EG (admin-only advisory attention signal) closed + deployed; EH (client-side attention filter) closed + deployed; EI (open-enrollment quick-link) closed as already-satisfied (no code change, no deploy); EJ (filter-aware orientation counter; canonical list counter) closed + deployed
 * Project state: stable, verified, production live
 * Main recent line of work:
 
@@ -20,6 +20,12 @@
   * redundant badge cleanup
   * closed-cycle guard alignment
   * option/label consistency across views
+  * continuity-start governance-reading record + consultation layer (ED/EE)
+  * minimal admin consultation panel on enrollment detail (EF rescue v2)
+  * minimal admin-only advisory attention signal from latest persisted governance-reading record (EG)
+  * minimal client-side attention-signal filter on admin enrollment list (EH)
+  * open-enrollment quick-link confirmed already-satisfied from Phase H (EI, no code change, no deploy)
+  * filter-aware canonical orientation counter on admin enrollment list, replacing the pre-EH search-only counter (EJ)
 
 ## Phase log
 
@@ -49,13 +55,51 @@
 | CD    | Server-side closed-cycle guard on `PATCH /api/study-loads/[id]` | `app/api/study-loads/[id]/route.ts` |        ✅ |
 | CE    | Align `decisionType` options in cycle detail to canonical 4-set | `cycle-detail-view.tsx`             |        ✅ |
 | CF    | Normalize `evaluationType` labels in cycle detail               | `cycle-detail-view.tsx`             |        ✅ |
+| DD    | Closed-cycle create guard for cycle-decisions                   | `cycle-decisions-view.tsx`          |        ✅ |
+| DE    | Closed-cycle create guard for study-loads                       | `study-loads-view.tsx`              |        ✅ |
+| DF    | Diagnostic model and API (structural)                           | `schema.prisma`, `api/diagnostics/` |        ✅ |
+| DG    | CycleSnapshot model and API (structural)                        | `schema.prisma`, `api/cycle-snapshots/` |     ✅ |
+| DH    | CycleDecisionSkill model and API (structural)                   | `schema.prisma`, `api/cycle-decision-skills/` | ✅ |
+| DI    | TutoringSession model and API (structural)                      | `schema.prisma`, `api/tutoring-sessions/` |    ✅ |
+| DJ    | Response model and API (structural)                             | `schema.prisma`, `api/responses/`         |    ✅ |
+| DK    | ContinuitySignal model and API (structural)                     | `schema.prisma`, `api/continuity-signals/` |   ✅ |
+| DL    | Cycle-opening preconditions and enrollment pointer wiring (Line E) | `api/learning-cycles/route.ts`            |   ✅ |
+| DM    | Diagnostic completion → SkillState initialization wiring (Line E)  | `api/diagnostics/[id]/route.ts`           |   ✅ |
+| DN    | First adaptive StudyLoad generation on cycle open + opening snapshot (Line E) | `api/learning-cycles/route.ts`   |   ✅ |
+| DO    | Student `/now` surface, read-only (first visible phase of Line E)             | `app/now/page.tsx`, `middleware.ts` |   ✅ |
+| DP    | Execution bridge: start first StudyLoad from `/now` (Line E)                  | `app/api/study-loads/[id]/start/route.ts`, `app/now/page.tsx`, `app/now/_components/start-load-button.tsx` |   ✅ |
+| DQ    | Complete an in-progress StudyLoad from `/now` with minimal self-report evidence (Line E) | `app/api/study-loads/[id]/complete/route.ts`, `app/now/page.tsx`, `app/now/_components/complete-load-button.tsx` |   ✅ |
+| DR    | `/now` resilience for the "all caught up" state + visible in-cycle history (Line E)   | `app/now/page.tsx` |   ✅ |
+| DS    | Admin-only atomic close of an open LearningCycle (Line E admin bridge) | `app/api/learning-cycles/[id]/close/route.ts`, `app/api/learning-cycles/[id]/route.ts`, `app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx` |   ✅ |
+| DT    | Admin-only continuity authorization for a closed LearningCycle (Line E admin bridge, unblocks N+1 opening) | `app/api/learning-cycles/[id]/continue/route.ts`, `app/api/learning-cycles/[id]/route.ts`, `app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx` |   ✅ |
+| DU    | Minimal adaptive differentiation of the first StudyLoad of cycle N+1: exclude prior-cycle `selectedSkillIds` from the first generation pass only, with auditable `excludedSkillIds` / `exclusionRule` / `exclusionRelaxed` trace in the `cycle_open` snapshot payload (first-load scope only; no product-wide prohibition) | `app/api/learning-cycles/route.ts` |   ✅ |
+| DV    | Minimal authoritative-diagnostic-attempt selector for **tactical continuity-start selection only** (pure read; no interpretation; explicit null branch when no valid attempt exists). Rule: `status='completed' AND completedAt IS NOT NULL`; tiebreak `completedAt DESC, createdAt DESC, id DESC`. Machine-readable `reason` ∈ {`single_valid_attempt`, `latest_of_multiple`, `no_completed_attempts`, `no_attempts`} | `lib/diagnostics/authoritative.ts`, `app/api/diagnostics/authoritative/route.ts` |   ✅ |
+| DW    | Minimal tactical reading of the authoritative diagnostic attempt (pure read; no interpretation of answer content; no schema change). Four-verdict classifier for continuity-start logic: `usable_performance`, `omission_heavy_performance`, `low_confidence_evidence` (quality/readiness — NOT a statement about the student's ability), `insufficient_evidence` (fake-personalization refusal). Thresholds: completion<0.5 ⇒ low_confidence; otherwise omission≥0.4 ⇒ omission_heavy; else usable. Consumes DV; `Diagnostic.resultSummary` parsed as JSON `{totalItems,answered,omitted,correct}` when present | `lib/diagnostics/tactical-reading.ts`, `app/api/diagnostics/tactical-reading/route.ts` |   ✅ |
+| DX    | Minimal operational continuity-start output (pure read; no generation; no schema change). Four-mode canonical operational-read classifier consuming DW, 1:1 total mapping: `usable_performance`→`normal`, `omission_heavy_performance`→`cautious`, `low_confidence_evidence`→`provisional`, `insufficient_evidence`→`manual_review_needed`. Modes are **operational-read outputs only** — they do NOT authorize workflow transitions, mutate continuity state, emit ContinuitySignal rows, or auto-enable/auto-block later structural actions. `provisional` inherits DW's evidence-quality semantics (NOT a statement about the student's ability). Full DV+DW audit passthrough in `source` | `lib/continuity-start/operational-output.ts`, `app/api/continuity-start/operational-output/route.ts` |   ✅ |
+| DY    | Minimal declarative start-block plan from DX (pure read; no materialization; no StudyLoad creation; no schema change). Four-shape 1:1 total mapping from DX mode: `normal`→`standard` (itemCount=3), `cautious`→`standard_with_omission_guard` (itemCount=3, `treat_omission_as_first_class`), `provisional`→`provisional_safe` (itemCount=2, `refuse_high_confidence_personalization` + `prefer_safe_generic_start`, `personalizationAllowed=false`), `manual_review_needed`→`escalate_refuse` (itemCount=0, `refusal=true`, `refusalReason='insufficient_evidence_escalate'`). **`itemCount` is a declarative operational capacity HINT, NOT a guaranteed future materialization cardinality** — later materializers may respect real constraints as long as they do not violate the declared block-shape semantics. `provisional_safe` inherits DW/DX evidence-quality semantics (NOT a student-ability verdict). `escalate_refuse` is a first-class fake-personalization refusal. Full DV+DW+DX audit passthrough in `source` | `lib/continuity-start/start-block-plan.ts`, `app/api/continuity-start/start-block-plan/route.ts` |   ✅ |
+| DZ    | Minimal shadow-materialized continuity-start block from DY (pure read; item-level resolution; no `StudyLoad` creation; no persistence; no schema change; no reconciliation with DN/DU). 1:1 total `blockShape`→resolver mapping: `escalate_refuse`→`items: []` (first-class refusal), `provisional_safe`→2 `safe_generic` items (deterministic generic titles, `skillId=null`, `personalized=false`; NOT a student-ability verdict), `standard_with_omission_guard`→up to 3 `skillstate_heuristic` items from the enrollment's program-scoped `SkillState` pool sorted `needsReinforcement DESC, masteryLevel ASC, skillId ASC` + block-level `omissionGuard=true`, `standard`→same pool/sort without `omissionGuard`. **`itemCountHint` remains a declarative operational capacity hint, NOT a guaranteed materialization cardinality** — `itemsResolvedCount` MAY be less than `itemCountHint` on empty/short pools (honest downgrade; no fake padding). **`source: 'skillstate_heuristic'` means structural resolution from the currently available heuristic inputs only — NOT pedagogically optimal, NOT fully personalized, NOT instructionally validated**; `skillstate_heuristic` is a structural resolution source, not a pedagogical quality claim. DZ does NOT inherit DU's `selectedSkillIds` exclusion (deferred reconciliation). Full DV+DW+DX+DY audit passthrough in `source` | `lib/continuity-start/shadow-materializer.ts`, `app/api/continuity-start/shadow-block/route.ts` |   ✅ |
+| EA    | Minimal read-only reconciliation layer between the structural start block (DN/DU `cycle_open` snapshot) and the DZ shadow start block (pure read; no schema change; no writes; no DN/DU replacement; no DZ replacement; no precedence decision; no source-of-truth resolution; no signal emission; no StudyLoad/CycleSnapshot/ContinuitySignal mutation; no continuity-state mutation). Reuses the DZ resolver verbatim (no duplicated logic). Reference cycle is deterministic: the enrollment's LearningCycle with the lowest `cycleNumber` that has a CycleSnapshot with `snapshotType='cycle_open'`; echoed as `referenceCycleId` / `referenceCycleNumber`; if none exists, classification is `no_structural_block` (first-class, never invented). Reconciliation rule is 1:1 TOTAL over 6 statuses in this binding check order: `no_structural_block`, `shape_divergent_refusal` (shadow=`escalate_refuse` ∧ structural non-empty), `shape_divergent_safe` (shadow=`provisional_safe` ∧ structural non-empty), `shadow_empty_vs_materialized` (shadow heuristic shape ∧ `itemsResolvedCount=0` ∧ structural non-empty), `set_divergent_skillstate` (shadow heuristic shape ∧ at least one shadow `skillId` ∉ structural `selectedSkillIds`), `aligned_skillstate`. **`aligned_skillstate` is a narrow, strictly LOCAL STRUCTURAL status**: it means only that the set of non-null shadow `skillId`s is a SUBSET (not strict equality — honors DZ's honest-downgrade contract) of the structural `selectedSkillIds` for the chosen reference cycle. It does NOT mean pedagogical equivalence, full block equivalence, operational equivalence, precedence resolution, or source-of-truth resolution. `studyLoadCount` is informational only (no semantic-equality assertion vs `selectedSkillIds.length`). DU's `excludedSkillIds` / `exclusionRelaxed` are echoed verbatim (never re-evaluated). Full DV+DW+DX+DY+DZ audit passthrough under `shadow.source` | `lib/continuity-start/reconciliation.ts`, `app/api/continuity-start/reconciliation/route.ts` |   ✅ |
+| EB    | Minimal read-only precedence layer between the structural materialization (DN/DU) and the tactical shadow continuity-start (DZ), consuming EA (pure read; no schema change; no writes; no DN/DU replacement; no DZ replacement; no EA replacement; no ContinuitySignal emission; no StudyLoad/CycleSnapshot/LearningCycle mutation; no enrollment-pointer mutation; no DN/DU precondition gating; no write authorization; no convergence decision; no source-of-truth resolution; no UI surface added). Reuses EA verbatim via `reconcileContinuityStart(...)` (no duplicated classification logic). Emits a machine-readable precedence summary under a **1:1 TOTAL rule** over EA's six statuses: `no_structural_block`→`shadow`/`no_materialized_block_yet`/`low`; `aligned_skillstate`→`structural`/`structural_is_materializer_of_record_and_aligned`/`low`; `shape_divergent_safe`→`structural`/`shadow_low_confidence_vs_materialized_structural`/`medium`; `shape_divergent_refusal`→`structural`/`shadow_refusal_vs_materialized_structural`/`medium`; `shadow_empty_vs_materialized`→`structural`/`shadow_empty_vs_materialized_structural`/`medium`; `set_divergent_skillstate`→`structural`/`shadow_set_escapes_structural_selection`/`high`. Rule is deliberately conservative: structural is preferred in every state with a materialized structural block; shadow is preferred only when no structural block exists yet (and labelled `low` risk precisely because there is nothing to displace). Encoded as a `Record<ReconciliationStatus, PrecedenceRule>` so any new EA status forces a TypeScript compile-time break → explicit EB-successor phase. **MANDATORY semantic clarification of `precedence.preferred`:** it is a **current governance-reading result only** — it states only which side currently has priority of interpretation under the present system posture. It does **NOT** mean the non-preferred side is invalid, deprecated, suppressed, or loses audit value, and it does **NOT** mean source-of-truth resolution has been made. The full DV+DW+DX+DY+DZ audit chain is preserved under `source.ea.shadow.source` and remains authoritative for both sides. Constants emitted on every response as contract anchors: `materializerOfRecord='structural_dn_du'`, `shadowSide='dz_shadow_block'`, `isSourceOfTruthDecision=false`, `isWriteAuthorization=false`. `riskTier` is a typed literal union, not a dynamic score, not a pedagogical signal, not an action threshold | `lib/continuity-start/precedence.ts`, `app/api/continuity-start/precedence/route.ts` |   ✅ |
+| EC    | Minimal read-only convergence-reading layer between the structural materialization (DN/DU) and the tactical shadow continuity-start (DZ), consuming EA + EB (pure read; no schema change; no writes; no DN/DU replacement; no DZ replacement; no EA replacement; no EB replacement; no ContinuitySignal emission; no StudyLoad/CycleSnapshot/LearningCycle mutation; no enrollment-pointer mutation; no DN/DU precondition gating; no write authorization; no convergence execution; no merge decision; no materializer-of-record promotion; no source-of-truth resolution; no UI surface added). Reuses EB verbatim via `resolveContinuityStartPrecedence(...)` (which reuses EA verbatim) — no duplicated classification logic. Emits a machine-readable convergence-posture summary under a **1:1 TOTAL rule** over EA's six statuses: `no_structural_block`→`structurally_deferred`/`none`/`no_materialized_structural_block_yet_to_converge_with`/`low`; `aligned_skillstate`→`convergible_safe`/`narrow_subset_alignment`/`shadow_skillids_subset_of_structural_selection`/`low`; `shape_divergent_safe`→`blocked`/`none`/`shadow_low_confidence_vs_materialized_structural`/`medium`; `shape_divergent_refusal`→`blocked`/`none`/`shadow_refusal_vs_materialized_structural`/`medium`; `shadow_empty_vs_materialized`→`blocked`/`none`/`shadow_empty_vs_materialized_structural`/`medium`; `set_divergent_skillstate`→`blocked`/`none`/`shadow_set_escapes_structural_selection`/`high`. Rule is deliberately conservative: `convergible_safe` + `narrow_subset_alignment` is emitted ONLY for `aligned_skillstate` (EC does NOT exploit EB's `preferred=structural` to upgrade convergence posture — precedence and convergibility are different questions). Encoded as a `Record<ReconciliationStatus, ConvergenceRule>` so any new EA status forces a TypeScript compile-time break → explicit EC-successor phase. Binding kind/posture invariant: `kind==='narrow_subset_alignment'` iff `posture==='convergible_safe'`; `kind==='none'` otherwise. **MANDATORY semantic clarification of `convergence.posture`:** (a) `convergible_safe` is a **current posture reading only** — it means ONLY that the current posture is compatible with a LATER, SEPARATELY SCOPED convergence write (shadow skillIds are a structural SUBSET of the structural `selectedSkillIds` for the chosen reference cycle). It does **NOT** mean "converge now", "recommended to converge now", "scheduled to converge now", automatic merge justification, or automatic materializer-of-record promotion — it is a posture-reading only, NOT an execution recommendation; (b) `blocked` does NOT mean the shadow side is invalid, deprecated, suppressed, or loses audit value (EB-2 clause inherited wholesale); (c) `structurally_deferred` does NOT mean shadow has been promoted or that convergence has been silently performed. The full DV+DW+DX+DY+DZ audit chain is preserved under `source.eb.source.ea.shadow.source` (via EB echo, itself via EA echo). Constants emitted on every response as contract anchors: `materializerOfRecord='structural_dn_du'`, `shadowSide='dz_shadow_block'`, `isSourceOfTruthDecision=false`, `isWriteAuthorization=false`, `isConvergenceExecution=false`, `isMergeDecision=false`. `riskTier` is a typed literal union, not a dynamic score, not a pedagogical signal, not an action threshold. Richer convergence kinds beyond `narrow_subset_alignment` are explicitly deferred to a separately scoped phase | `lib/continuity-start/convergence.ts`, `app/api/continuity-start/convergence/route.ts` |   ✅ |
+| ED | First official continuity-start governance-reading writeback (single POST write path; no schema change; no DN/DU replacement; no DZ replacement; no EA/EB/EC replacement; no convergence execution; no merge decision; no source-of-truth promotion; no materializer-of-record promotion; no enrollment-pointer mutation; no UI). Adds `POST /api/continuity-start/convergence/record` that calls `resolveContinuityStartConvergence(...)` (EC reader) and writes exactly ONE `ContinuitySignal` row per call with `signalType='continuity_start_governance_reading'`, `enrollmentId=<input>`, `learningCycleId=<EC.referenceCycleId or null>`, `evaluationId=null`, and `rationale=<FLAT scalar-only JSON envelope>`. **Rescue v1 uses a FLAT scalar-only rationale payload** `{schemaVersion:'ed.v1.flat', phase:'ED', recordingEventOnly:true, semanticClarification:<literal string>, posture, kind, riskTier, reconciliationStatus, precedencePreferred, referenceCycleId, referenceCycleNumber, materializerOfRecord, shadowSide, isSourceOfTruthDecision, isWriteAuthorization, isConvergenceExecution, isMergeDecision, evaluatedAt}` — replacing the prior ED v1 deeply-nested `rationale.ec=<full ConvergenceResult>` envelope with ONLY scalars derived from the EC read. The full DV+DW+DX+DY+DZ audit chain is NOT persisted into the signal row in rescue v1; it remains reconstructible at read time by calling the EC reader (`GET /api/continuity-start/convergence?enrollmentId=...`). The six constant contract anchors (`materializerOfRecord='structural_dn_du'`, `shadowSide='dz_shadow_block'`, `isSourceOfTruthDecision=false`, `isWriteAuthorization=false`, `isConvergenceExecution=false`, `isMergeDecision=false`) are persisted on every row. `ContinuitySignal.signalType` is a free-form String column (no enum) so no schema change is required. **MANDATORY SEMANTIC CLARIFICATION:** `continuity_start_governance_reading` is a **RECORDING EVENT ONLY** — a persisted audit snapshot of the current EA+EB+EC governance posture at the moment of call. It does **NOT** mean workflow transition, state transition, authorization, trigger, or operational-state-changing checkpoint; it also does NOT mean source-of-truth resolution, write authorization for any subsequent operation, convergence execution, merge decision, materializer-of-record promotion, pedagogical verdict, or instructional equivalence claim. No idempotency/dedup/throttling is applied by design (each call is a distinct point-in-time reading). Richer payload embedding (incl. re-introducing the nested EC+audit chain under `rationale.ec`) is explicitly **deferred to a separately scoped later phase**. DN/DU remains the sole structural materializer of record; DZ remains shadow-only; EA/EB/EC remain pure read layers | `app/api/continuity-start/convergence/record/route.ts`, `scripts/ed_probe.ts` |   ✅ |
+| EE | Minimal read-only consultation layer for `continuity_start_governance_reading` records (GET companion to ED's write path, same URL; pure read; no schema change; no writes; no UI; no DN/DU replacement; no DZ/EA/EB/EC replacement; no ED-semantics change; no idempotency/dedup concern; no enrollment-pointer mutation; no StudyLoad/CycleSnapshot/LearningCycle/ContinuitySignal mutation during normal operation). Adds `GET /api/continuity-start/convergence/record?enrollmentId=<cuid>[&limit=1..50][&cursor=<id>]` as a new handler on the EXISTING ED route file (no new route, no new file). Strict hard-coded filter `signalType='continuity_start_governance_reading'` inside the handler (NOT a query parameter) — EE can return ONLY ED-typed rows even if other signalType values exist in `continuity_signals` for the same enrollment; widening requires an explicit code change, not a URL change. Auth-guarded; 401 unauth; 400 missing enrollmentId; 404 enrollment not found; 200 `{enrollmentId, signalType, count, items[], nextCursor, effectiveLimit}`. Keyset pagination on `createdAt DESC, id DESC` using `ContinuitySignal.id` as an opaque cursor; default limit 20, hard cap 50, out-of-range clamps to cap (echoed as `effectiveLimit`). `rationale` is JSON-parsed per-row (stored as JSON-encoded String by ED); a per-row try/catch returns the raw string with `rationaleParseOk=false` if parse fails — a single corrupt row CAN NEVER 500 the list. **MANDATORY SEMANTIC CLARIFICATION:** this GET endpoint is a **CONSULTATION SURFACE ONLY**. It does NOT mean workflow integration, behavioral dependency, gating dependency, operational decision source, or replacement of direct DB inspection for broader ContinuitySignal semantics. During EE, no other code path is allowed to depend on this endpoint for workflow behavior, gating, or operational decisions; EE output must not be consumed anywhere else in the codebase in this phase (no import of this endpoint from DN/DU, DZ, EA, EB, EC, ED, or any admin / student-facing flow). The ED recording semantics remain unchanged: `continuity_start_governance_reading` rows are still a recording event only, not a workflow transition / state transition / authorization / trigger / operational-state-changing checkpoint. Reversibility: delete the `GET` export from the route file and delete `scripts/ee_probe.ts` — endpoint returns to ED-only POST, zero data cleanup needed. Deferred to separately scoped later phases: richer filters (posture/kind/riskTier/cycleId/date range), aggregation / counting-by-posture, `(enrollmentId, signalType, createdAt DESC)` composite index, any UI surface on top of these records, any behavioral integration that consumes these records | `app/api/continuity-start/convergence/record/route.ts` (modified — `GET` added alongside existing `POST`), `scripts/ee_live_probe.sh` (new), `scripts/ee_malformed_probe_v2.sh` (new) |   ✅ |
+| EF rescue v2 | Minimal read-only admin consultation panel on enrollment detail that consumes EE's `GET /api/continuity-start/convergence/record` (pure read; no schema change; no writes; no new API; no new route; no DN/DU replacement; no DZ/EA/EB/EC/ED/EE replacement; no ED-semantics change; no EE-semantics change; no enrollment-pointer mutation; no StudyLoad/CycleSnapshot/LearningCycle/ContinuitySignal mutation). Adds a single client panel embedded at the bottom of the admin enrollment detail page (`/admin/instances/[id]`) that calls EE exactly ONCE with `limit=3` and renders the returned records inline as plain paragraph rows (no table, no badges, no icons, no collapsibles, no buttons, no pagination UI, no rationale viewer, no JSON dump). Panel copy is verbatim and fixed: title `Governance-reading records`; caption `"This surface shows persisted governance-reading records for this enrollment. It is a record log, not the live authoritative operational state. Not a workflow state surface. Not the current authoritative operational state. Not a source-of-truth surface."`; count line `Total recorded: {json.count}` (always rendered, echoes EE `count` as-is); per-row body `{createdAt} · {posture} · {riskTier}`; empty state `No records.`; loading state `Loading…`; error state `Could not load records.`. Bundle delta on `/admin/instances/[id]`: 7.53 kB (EE) → 8.13 kB (v2) = **+0.60 kB** (< +1.0 kB guardrail). Diff vs EE baseline: `enrollment-detail-view.tsx` +3 insertions (1 import, 1 blank, 1 panel embed); new `governance-readings-panel.tsx` = 66 LOC. **MANDATORY SEMANTIC CLARIFICATION:** this panel is a **CONSULTATION SURFACE ONLY**. `Total recorded: {count}` echoes EE's returned `count` (post-limit items.length — under `limit=3`, enrollments with >3 stored records display `Total recorded: 3`; this is EE's documented semantic, intentionally NOT reinterpreted by the panel). The panel does NOT mean workflow integration, behavioral dependency, gating dependency, operational decision source, or a live authoritative operational state surface; it is a record log, NOT a workflow state surface, NOT the current authoritative operational state, NOT a source-of-truth surface. Reversibility: delete `governance-readings-panel.tsx` and revert the 3-line diff in `enrollment-detail-view.tsx` — enrollment detail returns to pre-v2 state, zero data cleanup needed. Deferred to separately scoped later phases: pagination UI (cursor prev/next), rationale/JSON inspector, posture/kind/riskTier filters, date range filter, per-row deep link, count-vs-total reconciliation UI, any convergence-execution / merge / source-of-truth UI | `app/admin/instances/[id]/_components/governance-readings-panel.tsx` (new), `app/admin/instances/[id]/_components/enrollment-detail-view.tsx` (modified — +3 lines: 1 import, 1 blank, 1 panel embed) |   ✅ |
+| EG | Minimal admin-only operational attention signal derived from the latest persisted governance-reading record per enrollment (pure read; no schema change; no migration; no writes; no new API route; no new API surface; no DN/DU replacement; no DZ/EA/EB/EC/ED/EE replacement; no EF rescue v2 replacement; no ED-semantics change; no EE-semantics change; no `/now` change; no enrollment-pointer mutation; no StudyLoad/CycleSnapshot/LearningCycle/ContinuitySignal mutation; no `lib/continuity-start/**` change; no `/api/continuity-start/**` change; no workflow integration; no blocking warning; no modal/dialog/banner/filter/sorting/tooltip/menu/button/action; no new signal type; no N+1 client fetches). Extends the existing `GET /api/instances` and `GET /api/instances/[id]` handlers with a Prisma nested include on `continuitySignals` (strictly `where: { signalType: 'continuity_start_governance_reading' }`, `orderBy: [{ createdAt: 'desc' }, { id: 'desc' }]`, `take: 1`, `select: { rationale: true }`) and a post-query map that JSON-parses `rationale` and extracts the `posture` scalar as `latestGovernancePosture: string | null` per instance — raw `continuitySignals` is stripped from the response envelope to prevent leakage. Adds a pure mapping module `lib/admin/attention-signal.ts` encoding a **1:1 TOTAL** rule over four attention states: `blocked`→`attention_required`, `structurally_deferred`→`monitor`, `convergible_safe`→`stable`, null/unknown/unmapped→`no_governance_record` (conservative default; widening requires code edit). Adds a shared presentation component `app/admin/_components/attention-signal.tsx` with two named exports: `AttentionSignalLine` (detail-header use; label + muted advisory note `"Advisory only. Does not block workflow."`) and `AttentionSignalCell` (list-row use; compact label only). Color map: `attention_required` → amber-700, `monitor` → blue-700, `stable` → emerald-700, `no_governance_record` → muted-foreground. Surfaces: one `AttentionSignalLine` inserted inside the header Card's `CardContent` on `/admin/instances/[id]` below the Started/Ended/Last activity/Created 4-col grid (separated by `mt-4 pt-4 border-t`), and one `AttentionSignalCell` inserted after the bottom metadata grid on each enrollment row in `/admin/instances` with the prefix `Attention:`. Diff vs EF rescue v2 baseline: 5 files changed, +79/−3 lines (2 new: `lib/admin/attention-signal.ts` 67 LOC, `app/admin/_components/attention-signal.tsx` 60 LOC; 3 modified: `app/api/instances/route.ts` +35/−2 on GET only — POST untouched; `app/api/instances/[id]/route.ts` +31/−1 on GET only — PATCH/PUT/DELETE untouched; `app/admin/instances/_components/instances-view.tsx` +7/−0; `app/admin/instances/[id]/_components/enrollment-detail-view.tsx` +7/−0). Route sizes on deploy: `/admin/instances` 2.91 kB / 129 kB First Load JS, `/admin/instances/[id]` 5.92 kB / 132 kB First Load JS, `/now` 6.22 kB unchanged. **MANDATORY SEMANTIC CLARIFICATION:** the attention signal is an **ADVISORY READING ONLY**. It does **NOT** mean workflow decision, blocking condition, write authorization, write gating, source-of-truth resolution, materializer-of-record change, continuity-state mutation, ContinuitySignal emission, convergence execution, or merge decision. It does **NOT** replace, override, or shadow the EF rescue v2 Governance-reading records panel, which remains the canonical admin consultation surface for the record log; EG coexists with EF rescue v2 on the same detail page without collision. `no_governance_record` does **NOT** mean the enrollment is invalid, deprecated, or blocked from any operation — it means only that no `continuity_start_governance_reading` row is yet persisted for this enrollment. EG reads strictly from the TOP-1 `ContinuitySignal` row per enrollment by the hard-coded filter above; it does NOT aggregate, NOT tally, NOT reconcile, and NOT re-run EA/EB/EC logic. Reversibility: delete `lib/admin/attention-signal.ts` and `app/admin/_components/attention-signal.tsx`, then revert the +7/−0 additions in `instances-view.tsx` and `enrollment-detail-view.tsx`, and revert the +35/−2 and +31/−1 additions on the GET handlers in `app/api/instances/route.ts` and `app/api/instances/[id]/route.ts` — admin views return to pre-EG state, zero data cleanup needed (EG wrote nothing to the database). Deferred to separately scoped later phases: any derivation from richer EC fields (kind, riskTier), any count-of-records surface on the list view, any filter/sort by posture, any workflow gating based on posture, any student-facing surface of the advisory label | `lib/admin/attention-signal.ts` (new), `app/admin/_components/attention-signal.tsx` (new), `app/api/instances/route.ts` (modified — GET only), `app/api/instances/[id]/route.ts` (modified — GET only), `app/admin/instances/_components/instances-view.tsx` (modified — +7), `app/admin/instances/[id]/_components/enrollment-detail-view.tsx` (modified — +7) |   ✅ |
+| EH | Minimal client-side attention-signal filter on the admin enrollment list (pure read; single-file edit; no schema change; no migration; no writes; no new API route; no new API surface; no DN/DU replacement; no DZ/EA/EB/EC/ED/EE replacement; no EF rescue v2 replacement; no EG replacement; no ED-semantics change; no EE-semantics change; no EG-semantics change; no `/now` change; no `/admin/instances/[id]` change; no `/admin/learning-cycles/**` change; no enrollment-pointer mutation; no StudyLoad/CycleSnapshot/LearningCycle/ContinuitySignal mutation; no `lib/continuity-start/**` change; no `/api/continuity-start/**` change; no workflow integration; no blocking warning; no modal/dialog/banner/tooltip/menu/button/action; no re-fetch on filter change; no URL query param; no localStorage; no cookie; no server-side persistence; no sort change; no search change; no new counts/charts/badges beyond EG; no helper addition to `lib/admin/attention-signal.ts`; no change to `AttentionSignalLine`/`AttentionSignalCell` presentation components; no N+1 fetches). Reuses the EG `mapPostureToAttentionSignal` helper verbatim via named import to filter the already-fetched `instances` array in-memory on the admin list page. Adds a 5-option `<select id="attention-filter">` next to the existing search input (wrapped in a `flex-wrap` row so small screens do not crush the controls), with fixed verbatim label `Filter by attention signal` and verbatim options `All` / `Attention required` / `Monitor` / `Stable` / `No governance record` (last four pulled from `ATTENTION_SIGNAL_LABELS` — the literal `"All"` is the non-filter option). Filter composition is strict AND with the existing search predicate inside the existing IIFE (`search` narrows first, then `attentionFilter` narrows further on `mapPostureToAttentionSignal(inst.latestGovernancePosture)`). Empty-state priority: when `attentionFilter !== 'all'` AND filtered rows = 0, a filter-specific empty state renders with the verbatim copy `No enrollments match this filter.` (no icon); the existing `No enrollments match your search.` empty state (Search icon) is preserved for the search-only empty case. The existing per-card EG attention labels (`AttentionSignalCell`) are untouched; the existing "Showing X of Y" counter on search remains untouched and still counts by search only. Local component state only: `const [attentionFilter, setAttentionFilter] = useState<'all' | AttentionSignal>('all')` — dropdown selection is lost on page reload (no persistence by design). Diff vs EG baseline: **1 file changed, +52/−4 lines** — `app/admin/instances/_components/instances-view.tsx` ONLY (added: 1-line `Label` import, 3-line named import from `@/lib/admin/attention-signal`, 1-line `attentionFilter` useState, ~15-line flex-row wrapper + `<select>` control with 5 `<option>` elements, ~14-line composed-filter IIFE with priority empty-state branch; removed: 4 lines of the prior single-filter IIFE replaced by the composed form). Route size on deploy: `/admin/instances` 2.91 kB → **3.13 kB** (+0.22 kB, within "minimal" guardrail); `/admin/instances/[id]` 5.92 kB unchanged; `/admin/learning-cycles` 4.65 kB unchanged; `/admin/learning-cycles/[id]` 8.88 kB unchanged; `/now` 6.22 kB unchanged; shared First Load JS unchanged. Live verification on production (authenticated as `john@doe.com`, API `/api/instances` returned 13 rows with posture distribution `attention_required=1` / `monitor=0` / `stable=0` / `no_governance_record=12`): default filter = **All** → 13 cards with EG labels intact (John Doe amber "Attention required", 12 others muted "No governance record"); **Attention required** → 1 card (John Doe / PAES_M1) only; **Monitor** → empty state `No enrollments match this filter.`; **Stable** → empty state `No enrollments match this filter.`; **No governance record** → 12 cards; return to **All** → 13 cards restored. Network-call interception across all 5 filter transitions: `instancesApiCalls: []` (ZERO `/api/instances` refetches); only `/api/auth/session` (NextAuth background) observed, unrelated to filter state. Regression on untouched routes (all HTTP:200): `/now` 14713B, `/admin/instances/cmoadr1x20003syur0rgskn12` 22870B (blocked posture EG header intact), `/admin/instances/cmoaclitj0002o508m33ya9jb` 22870B (null posture EG header intact), `/admin/learning-cycles` 24502B, `/admin/learning-cycles/cmoadrcic000bsyur194d11bo` 22795B. **MANDATORY SEMANTIC CLARIFICATION:** the attention-signal filter is a **LIST-SCANNING AFFORDANCE ONLY**. It does **NOT** mean workflow priority, workflow urgency, workflow gating, blocking condition, write authorization, source-of-truth resolution, materializer-of-record change, continuity-state mutation, ContinuitySignal emission, convergence execution, merge decision, pedagogical verdict, or operational decision. It does **NOT** change EG semantics (EG per-card/per-header advisory reading is preserved verbatim in both control and content). `attentionFilter='no_governance_record'` showing a populated list does **NOT** mean those enrollments are invalid, deprecated, blocked, or pending action — it means only that no `continuity_start_governance_reading` row is yet persisted for those enrollments; the display is identical to EG's default per-card label and carries no workflow implication. The absence of persistence (no URL param, no localStorage, no cookie) is **INTENTIONAL**: filter state resets on reload because the filter is a transient scanning affordance, NOT a stored view preference, NOT a saved query, NOT a bookmarkable state. The "Showing X of Y" counter on the search input was deliberately NOT extended to account for the attention filter (out of scope: "no new counts/charts/badges beyond EG"). The filter does NOT affect `/admin/instances/[id]` (detail page navigation is a direct route change — the filter is list-only). Reversibility: revert the +52/−4 single-file diff in `instances-view.tsx` — admin list returns to pre-EH state, zero data cleanup needed (EH wrote nothing to the database, nothing to `continuity_signals`, nothing to any persistence layer; the EG reader chain is untouched). Deferred to separately scoped later phases: filter-aware "Showing X of Y" counter, filter persistence via URL query param (e.g. `?attention=monitor`), filter combinability with multi-select (e.g. "attention_required OR monitor"), richer filter dimensions beyond posture (riskTier, kind, referenceCycleId), sort-by-attention, per-posture counts in the dropdown labels (e.g. "Attention required (1)"), student-facing surface of the filter, any workflow integration of the filtered selection | `app/admin/instances/_components/instances-view.tsx` (modified — +52/−4 single-file edit) |   ✅ |
+| EI | Open-enrollment quick-link confirmed **already-satisfied** from Phase H (no code change, no deploy, no checkpoint needed). Inspection of `app/admin/instances/_components/instances-view.tsx` on the current EH-deployed baseline confirmed that each enrollment card already renders an `Open enrollment` quick-link (`next/link` to `/admin/instances/[id]`, `target="_self"`, no `rel="noopener"` needed because no new tab) on all 13 rows, with IDs correctly interpolated (e.g. John Doe card → `cmoadr1x20003syur0rgskn12`). Live click-verification: SPA-style client-side navigation only, zero `/api/instances` refetches on click, zero new tabs opened, no additional network activity beyond the expected single server render of the target detail page. Conclusion: EI's operational goal is materially identical to behavior shipped in Phase H (commit `d50e588`). EI closed as **already-satisfied**. **MANDATORY SEMANTIC CLARIFICATION:** closing EI as already-satisfied does NOT mean the quick-link has been re-validated as a product-level UX decision, nor does it mean any change in link semantics, navigation semantics, or detail-page semantics; it means only that a separate EI implementation phase is redundant because the feature already exists verbatim in the deployed codebase. No schema change, no API change, no component change, no route-size delta, no deploy. Reversibility: trivially — EI changed nothing. | (none — no code change) |   ✅ |
+| EJ | Filter-aware canonical list-orientation counter on the admin enrollment list (`/admin/instances`). The pre-EH **search-only counter** (conditional `{search && ...}` rendering `"Showing X of Y"`, filtering only by student/program substring) was **intentionally removed** because it was semantically obsolete after EH introduced the composed search + attention-signal filter: a counter that ignores the attention filter produces a misleading orientation cue (e.g. under `Attention required` with 1 matching row out of 13, a search-only counter would show nothing, implying no filtering, while the visible list shows a single card). Keeping both counters was ruled out as creating contradictory UI. EJ replaces the pre-EH counter with a **single canonical orientation counter** that always renders inside the controls row, always composes both the search predicate and the EH `attentionFilter` predicate (same strict AND composition used by the list-rendering IIFE), and emits `Showing {filteredCount} of {totalCount} enrollments`. Styling is intentionally minimal (`text-xs text-muted-foreground`) to match the existing pre-EH counter's visual weight and not create a new visual feature beyond orientation. Pure read; single-file edit (`app/admin/instances/_components/instances-view.tsx`); no schema change; no migration; no writes; no new API route; no new API surface; no DN/DU/DZ/EA/EB/EC/ED/EE replacement; no EF rescue v2 replacement; no EG replacement; no EH replacement (EH filter logic preserved verbatim); no ED/EE/EG/EH semantics change; no `/now` change; no `/admin/instances/[id]` change; no `/admin/learning-cycles/**` change; no enrollment-pointer mutation; no StudyLoad/CycleSnapshot/LearningCycle/ContinuitySignal mutation; no `lib/continuity-start/**` change; no `/api/continuity-start/**` change; no workflow integration; no blocking warning; no modal/dialog/banner/tooltip/menu/button/action; no re-fetch on filter/search change; no URL query param; no localStorage; no cookie; no server-side persistence; no N+1 fetches. Diff vs EH baseline: **1 file changed, +18/−8 lines** — `app/admin/instances/_components/instances-view.tsx` ONLY (added: composed-predicate inline IIFE identical in predicate semantics to the list-rendering IIFE, emitting the filtered count; removed: the old `{search && (<span>Showing X of Y</span>)}` pre-EH block in its entirety). Route size on deploy: `/admin/instances` 3.13 kB → **3.12 kB** (−0.01 kB, well within "minimal" guardrail); `/admin/instances/[id]` 5.92 kB unchanged; `/admin/learning-cycles` 4.65 kB unchanged; `/admin/learning-cycles/[id]` 8.88 kB unchanged; `/now` 6.22 kB unchanged; shared First Load JS unchanged. Pre-deploy verification (staging, authenticated as `john@doe.com`, `/api/instances` returns 13 rows with posture distribution `attention_required=1 / monitor=0 / stable=0 / no_governance_record=12`): **All + empty search** → `Showing 13 of 13 enrollments`; **All + search "John"** → `Showing 1 of 13 enrollments`; **Attention required + empty search** → `Showing 1 of 13 enrollments`; **Monitor + empty search** → `Showing 0 of 13 enrollments`; **No governance record + empty search** → `Showing 12 of 13 enrollments`. Zero `/api/instances` refetches across all transitions (network interception confirmed). Regression on untouched routes (all HTTP:200): `/now`, `/admin/instances/cmoadr1x20003syur0rgskn12`, `/admin/learning-cycles/cmoadrcic000bsyur194d11bo` — unaffected. **MANDATORY CLOSURE REPORT (per explicit user directive on the EJ deploy gate):** (a) a **legacy search-only counter previously existed** on `/admin/instances` (conditional `{search && (...)}` render, filtering only by student name / program code / program name substring, ignoring the EH attention-signal filter introduced by EG/EH); (b) this legacy counter was **intentionally removed / replaced** in EJ because it was **incompatible with the current search + attention-filter composed semantics** (it would under-report or misreport the effective visible list size whenever the EH attention filter narrowed the list below the search-matched set, creating a contradictory orientation cue relative to the visible cards); (c) the new `Showing X of Y enrollments` line introduced in EJ is now the **single canonical list-orientation counter** for `/admin/instances`, composing both the search predicate and the EH attention filter in strict AND (identical predicate to the list-rendering IIFE) and always rendered in the controls row (not conditional on search being non-empty). Keeping both counters side-by-side was **explicitly considered and rejected** as producing contradictory UI; EJ is therefore a **replacement, not an addition**. **MANDATORY SEMANTIC CLARIFICATION:** the EJ counter is a **LIST-ORIENTATION READING ONLY**. It does **NOT** mean workflow priority, workflow urgency, workflow gating, blocking condition, write authorization, source-of-truth resolution, materializer-of-record change, continuity-state mutation, ContinuitySignal emission, convergence execution, merge decision, pedagogical verdict, or operational decision. It does **NOT** change EG/EH semantics (EG per-card advisory labels preserved verbatim; EH filter predicate preserved verbatim; EH filter is still list-only, not URL/localStorage/cookie-persisted). `Showing 0 of N enrollments` does **NOT** mean the enrollments are invalid, deprecated, blocked, or pending action — it means only that no row in the already-fetched list currently satisfies the composed search + attention-filter predicate; the existing EH empty-state messages (`No enrollments match this filter.` / `No enrollments match your search.`) continue to render per their own rules and are authoritative over the card area. The absence of persistence (no URL param, no localStorage, no cookie) is **INTENTIONAL** and inherited from EH's transient-affordance contract. Reversibility: revert the +18/−8 single-file diff in `instances-view.tsx` — admin list returns to pre-EJ state (which restores the legacy search-only counter); no data cleanup needed (EJ wrote nothing to the database, nothing to `continuity_signals`, nothing to any persistence layer). Deferred to separately scoped later phases: counter persistence via URL query param, counter-combinability with multi-select filters, per-posture counts in the dropdown labels (e.g. "Attention required (1)"), sort-by-attention with reflected counts, any student-facing surface of the orientation counter, any workflow integration of the filtered count | `app/admin/instances/_components/instances-view.tsx` (modified — +18/−8 single-file edit) |   ✅ |
 
 ## Schema notes
 
 | Block  | Change                                  | Notes                                                 |
 | ------ | --------------------------------------- | ----------------------------------------------------- |
 | A–D    | Core schema established and completed   | Last known schema-expansion block                     |
-| Post-D | No confirmed schema changes in this log | Treat as current assumption unless verified otherwise |
+| DF     | Added `Diagnostic` model                | `diagnostics` table; FK to `StudentProgramInstance`   |
+| DG     | Added `CycleSnapshot` model             | `cycle_snapshots` table; FK to `LearningCycle`        |
+| DH     | Added `CycleDecisionSkill` model        | `cycle_decision_skills` table; FKs to `CycleDecision` + `Skill`; unique `[decisionId, skillId]` |
+| DI     | Added `TutoringSession` model           | `sessions_pedagogical` table; FK to `LearningCycle`; optional FK to `StudyLoad` (SetNull)       |
+| DJ     | Added `Response` model                  | `responses` table; FK to `TutoringSession` (Cascade) + optional FK to `Skill` (SetNull); stores `responseType`, `content`, `isCorrect`, `score`, `feedback` |
+| DK     | Added `ContinuitySignal` model          | `continuity_signals` table; required FK to `StudentProgramInstance` (Cascade); optional FKs to `LearningCycle` (SetNull) + `CycleEvaluation` (SetNull); stores `signalType`, `rationale` |
 
 ## Continuity notes
 
@@ -64,495 +108,3 @@
 * Canonical decisionType set: `advance`, `reinforce`, `hold`, `redirect`.
 * Canonical evaluationType values: `diagnostic`, `progress_check`, `cycle_close`.
 * Canonical loadType values: `practice`, `reading`, `video`, `project`, `assessment`.
-
-## Phase CG — Inline confidence editing on enrollment detail
-- Added inline confidenceLevel editing on enrollment detail SkillState cards
-- Canonical options: none / low / medium / high
-- Reused existing PATCH flow for skill states
-- Corrected local confidenceLevel typing from number to string in enrollment-detail-view
-- Verified with tsc, build, manual UI test, persistence check, and post-deploy confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CH — Inline reinforcement editing on enrollment detail
-- Added inline needsReinforcement editing on enrollment detail SkillState cards
-- Canonical options: No reinforce / Reinforce ⚠
-- Reused existing PATCH flow for skill states with boolean mapping
-- Replaced the old conditional amber "Needs reinforcement" label with an inline select
-- Verified with tsc, build, manual UI toggle test, persistence check, sync check, and post-deploy confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-Note:
-- Abacus post-deploy summary mentioned prior Phase CE as part of the shipped checkpoint narrative.
-- No functional issue observed, but future post-deploy summaries should describe only the phase being deployed to avoid custody ambiguity.
-
-## Phase CJ-pre — Guarded legacy fallback for StudyLoad loadType
-- Added guarded compatibility fallback for non-canonical StudyLoad.loadType values in read/edit selects
-- Legacy values now render truthfully as `<raw value> (legacy)` instead of collapsing to the first canonical option
-- Applied only to existing persisted-value selects in:
-  - study-loads-view
-  - cycle-detail-view
-- Create paths remain restricted to canonical options
-- Verified with tsc, build, manual UI checks, and post-deploy confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CJ — Study Loads search in cycle detail
-- Added client-side search/filter for Study Loads in cycle detail view
-- Search matches by study load title and loadType
-- Added empty state and "Showing X of Y" indicator
-- Search is hidden when the cycle has no study loads
-- Verified with tsc, build, manual UI checks, and post-deploy confirmation
-- Deployed together with CJ-pre to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CK — Cycle Decisions search in cycle detail
-- Added client-side search/filter for Cycle Decisions in cycle detail view
-- Search matches by decisionType and rationale
-- Added empty state and "Showing X of Y" indicator
-- Search renders only when the cycle has decisions
-- Verified with tsc, build, authenticated post-deploy bundle check, and regression check against Study Loads search
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CL — Cycle Evaluations search in cycle detail
-- Added client-side search/filter for Cycle Evaluations in cycle detail view
-- Search matches by evaluationType and resultSummary
-- Added empty state and "Showing X of Y" indicator
-- Search renders only when the cycle has evaluations
-- Verified with tsc, build, authenticated post-deploy bundle check, and regression checks against Study Loads and Cycle Decisions search
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CM — Server-side canonical loadType validation
-- Added server-side canonical validation for StudyLoad.loadType on:
-  - POST /api/study-loads
-  - PUT /api/study-loads/[id]
-- Canonical allowed values:
-  - practice
-  - reading
-  - video
-  - project
-  - assessment
-- Non-canonical values now return HTTP 400 with a stable error message
-- PUT requests that omit loadType remain unaffected
-- GET, PATCH, and DELETE handlers remain unchanged
-- Verified with tsc, build, local curl matrix, authenticated production curl matrix, and cleanup of test data
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CN — Server-side canonical decisionType validation
-- Added server-side canonical validation for CycleDecision.decisionType on:
-  - POST /api/cycle-decisions
-  - PUT /api/cycle-decisions/[id]
-- Canonical allowed values:
-  - advance
-  - reinforce
-  - hold
-  - redirect
-- Non-canonical values now return HTTP 400 with a stable error message
-- PUT requests that omit decisionType remain unaffected
-- GET and DELETE handlers remain unchanged
-- Verified with tsc, build, authenticated local curl matrix, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CO — Server-side canonical evaluationType validation
-- Added server-side canonical validation for CycleEvaluation.evaluationType on:
-  - POST /api/cycle-evaluations
-  - PUT /api/cycle-evaluations/[id]
-- Canonical allowed values:
-  - diagnostic
-  - progress_check
-  - cycle_close
-- Non-canonical values now return HTTP 400 with a stable error message
-- PUT requests that omit evaluationType remain unaffected
-- Verified with tsc, build, authenticated local curl matrix, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CP — Empty-search-result state for Learning Cycles list
-- Added an empty-search-result state to the Learning Cycles list view
-- When a non-empty query matches zero rows, the UI now shows:
-  - Search icon
-  - "No learning cycles match your search." message
-- Existing "Showing X of Y" behavior remains intact
-- Empty search still shows the full list unchanged
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CQ — Empty-search-result state for Students list
-- Added an empty-search-result state to the Students list view
-- When a non-empty query matches zero rows, the UI now shows:
-  - Search icon
-  - "No students match your search." message
-- Existing "Showing X of Y" behavior remains intact
-- Empty search still shows the full list unchanged
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CR — Empty-search-result state for Enrollments list
-- Added an empty-search-result state to the Enrollments (instances) list view
-- When a non-empty query matches zero rows, the UI now shows:
-  - Search icon
-  - "No enrollments match your search." message
-- Existing "Showing X of Y" behavior remains intact
-- Empty search still shows the full list unchanged
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CS — Enrollment Detail Cycle Search
-- Added local search/filter to the Learning Cycles subsection in enrollment-detail-view
-- Search includes:
-  - local filtering of cycle cards
-  - "Showing X of Y" counter
-  - empty-search-result state
-- The existing Skill States search remains independent and unchanged
-- Verified with tsc, build, browser checks, deployment confirmation, and final live confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CT — Program Detail Axes local search
-- Added local search/filter to the Axes subsection in program-detail-view
-- Search matches by:
-  - axis code
-  - axis name
-  - axis status
-- Added "Showing X of Y" counter and empty-search-result state
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CU — Program Detail Skills local search
-- Added local search/filter to the Skills subsection in program-detail-view
-- Search matches by:
-  - skill code
-  - skill name
-  - skill status
-  - axis name
-- Added "Showing X of Y" counter and empty-search-result state
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CV — Program Detail Enrollments local search
-- Added local search/filter to the Enrollments subsection in program-detail-view
-- Search matches by:
-  - student first name
-  - student last name
-  - enrollment status
-  - visible date text
-- Added "Showing X of Y" counter and empty-search-result state
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CW — Student Detail Enrollments local search
-- Added local search/filter to the Enrollments subsection in student-detail-view
-- Search matches by:
-  - program name
-  - program code
-  - enrollment status
-  - visible date text
-- Added "Showing X of Y" counter and empty-search-result state
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CX — Cycle Decisions dual empty-state guard
-- Replaced the single zero-result state in cycle-decisions-view with two contextual empty states:
-  - search-empty → Search icon + "No cycle decisions match your search."
-  - dropdown-empty → GitBranch icon + "No cycle decisions for this enrollment."
-- Preserved the existing global data-empty state and "Showing X of Y" behavior
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase CY — Cycle Evaluations dual empty-state guard
-- Replaced the single zero-result state in cycle-evaluations-view with two contextual empty states:
-  - search-empty → Search icon + "No cycle evaluations match your search."
-  - dropdown-empty → ClipboardCheck icon + "No cycle evaluations for this enrollment."
-- Preserved the existing global data-empty state and "Showing X of Y" behavior
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-
-## Phase CZ — Study Loads dual empty-state guard
-- Replaced the single zero-result state in study-loads-view with two contextual empty states:
-  - search-empty → Search icon + "No study loads match your search."
-  - dropdown-empty → FileBox icon + "No study loads for this enrollment."
-- Preserved the existing global data-empty state and "Showing X of Y" behavior
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DA — Skill States dual empty-state guard
-- Replaced the single zero-result state in skill-states-view with two contextual empty states:
-  - search-empty → Search icon + "No skill states match your search."
-  - dropdown-empty → BarChart3 icon + "No skill states for this enrollment."
-- Preserved the existing global data-empty state and "Showing X of Y" behavior
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DB — Learning Cycles dual empty-state guard
-- Added a dropdown-empty state to learning-cycles-view for the case where an enrollment filter yields zero cycles
-- New dropdown-empty state:
-  - RefreshCw icon
-  - "No learning cycles for this enrollment."
-- Preserved the existing search-empty state and "Showing X of Y" behavior
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DC — Cycle Evaluations closed-cycle create guard
-- Filtered out closed learning cycles from the "New Cycle Evaluation" dialog cycle dropdown
-- Users can no longer select a closed cycle and submit a create request that will always be rejected by the API
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DD — Cycle Decisions closed-cycle create guard
-- Filtered out closed learning cycles from the "New Cycle Decision" dialog cycle dropdown
-- Users can no longer select a closed cycle and submit a create request that will always be rejected by the API
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DF — Diagnostic model and API
-- Added the Diagnostic model as a persistent entity linked to student-program instances
-- Added the minimal CRUD API foundation for diagnostics without introducing UI surface
-- Verified with prisma db push, prisma generate, tsc, build, manual API checks, and production deployment
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DH — Cycle decision skill model API
-- Added the CycleDecisionSkill join model as a persistent bridge between cycle decisions and prioritized skills
-- Added the minimal CRUD API foundation for cycle-decision-skills with closed-cycle guard, unique pair enforcement, and decision/skill existence validation
-- Verified with prisma db push, tsc, build, manual API checks, and production deployment
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DI — Tutoring session model and API
-- Added the TutoringSession model as a persistent execution container linked to learning cycles and optionally to study loads
-- Added the minimal CRUD API foundation for tutoring-sessions with closed-cycle guard, optional studyLoadId linking, and cycle/study-load existence validation
-- Verified with prisma db push, tsc, build, manual API checks, and production deployment
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DK — Continuity signal model and API
-- Added the ContinuitySignal model as a persistent continuity/transition record anchored to student-program instances, with optional links to learning cycles and cycle evaluations
-- Added the minimal CRUD API foundation for continuity-signals, supporting both enrollment-only signals and cycle/evaluation-linked signals
-- Verified with prisma db push, tsc, build, manual API checks, and production deployment
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DL — Cycle-opening preconditions and enrollment pointer wiring
-- Wired POST /api/learning-cycles to enforce Step 4 contract preconditions before allowing cycle opening
-- Added atomic side-effects to update StudentProgramInstance.currentCycleId and lastActivityAt when a cycle opens
-- Verified with tsc, build, 14 manual API checks, and production deployment
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DM — Diagnostic completion → SkillState initialization wiring
-- Wired PATCH /api/diagnostics/[id] to detect the real transition from pending to completed for initial diagnostics
-- Added SE-1 to automatically create missing SkillState records for all active program skills, plus SE-9 to update enrollment lastActivityAt
-- Verified with tsc, build, 11 manual checks, and production deployment
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-
-## Phase DN — First adaptive StudyLoad generation on cycle open
-- Wired POST /api/learning-cycles to emit an opening cycle snapshot and automatically generate the first adaptive StudyLoad set when a cycle opens
-- Preserved the existing cycle-opening response shape while adding a deterministic selection heuristic based on current SkillState data
-- Verified with tsc, build, local manual API checks, live production verification, and deployment
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DO — First visible student surface: active cycle and pending StudyLoads
-- Added the first visible student-facing surface at /now to answer “¿qué me toca ahora?” using already-wired adaptive cycle data
-- Rendered the authenticated student's active program, open cycle, and pending StudyLoads with explicit empty states, without mutating any data
-- Verified with tsc, build, manual route checks, middleware/auth checks, and production deployment
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DS — Admin-only atomic close of an open LearningCycle
-- Added a single admin-only close path for an open LearningCycle through POST /api/learning-cycles/[id]/close
-- Enforced single-path closure with PATCH drift guard and persisted a strictly transcriptive cycle_close snapshot
-- Verified with tsc, build, browser checks, API probes, DB checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: discovered and fixed zero-load close edge case before final live verification; no remaining issues
-
-
-## Phase DT — Admin authorization of cycle continuity
-- Added a single admin-only continuity authorization path through POST /api/learning-cycles/[id]/continue
-- Emitted the minimum valid continue ContinuitySignal required to satisfy DL's existing P4b precondition for opening the next cycle
-- Verified with tsc, build, API probes, happy-chain proof, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DU — Minimal adaptive differentiation of the first StudyLoad of cycle N+1
-- Added a single minimal adaptation rule in POST /api/learning-cycles to exclude prior-cycle selected skills during the first generation pass of cycle N+1
-- Persisted the decision trace in the new cycle_open snapshot payload with excludedSkillIds, exclusionRule, and exclusionRelaxed
-- Verified with tsc, build, DB probes, end-to-end cycle advancement, /now regression checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DV — Minimal authoritative diagnostic attempt selector
-- Added a pure-read tactical selector through GET /api/diagnostics/authoritative to determine which diagnostic attempt counts for continuity-start logic
-- Returned a deterministic, auditable output contract with authoritativeAttemptId, reason, consideredCount, rejectedCount, and evaluatedAt, including an explicit null branch when no valid attempt exists
-- Verified with tsc, build, rollback-based rule probes, authenticated endpoint checks, regression checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DW — Minimal tactical reading of the authoritative diagnostic attempt
-- Added a pure-read tactical classifier through GET /api/diagnostics/tactical-reading that consumes DV and returns one of four machine-readable verdicts for continuity-start logic
-- Introduced explicit tactical refusal semantics through insufficient_evidence and low_confidence_evidence, while keeping low_confidence_evidence strictly scoped to evidence quality / continuity-readiness rather than student ability
-- Verified with tsc, build, rollback-based rule probes, authenticated endpoint checks, regression checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase DX — Minimal operational continuity-start output
-- Added a pure-read operational continuity-start layer through GET /api/continuity-start/operational-output, consuming DW and returning one of four canonical operational modes
-- Introduced canonical operational-read outputs only (normal, cautious, provisional, manual_review_needed) without authorizing transitions, mutating continuity state, or emitting signals
-- Verified with tsc, build, rollback-based mode probes, authenticated endpoint checks, regression checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-Deploy approved.
-
-Proceed to deploy Phase DY now.
-
-After deployment, return a strict post-deploy closure report with this exact structure:
-
-1. Deploy status
-2. Live confirmation
-3. Post-deploy verification
-4. Custody actions completed
-5. Final phase closure statement
-
-Requirements:
-- verify the live app, not only the build
-- confirm the deployed version includes DY
-- confirm the new declarative start-block plan path is live
-- confirm no unexpected regression on /now
-- confirm the demo enrollment state remains unchanged and coherent on live
-- restate explicitly that DY is a declarative operational-read output only, not a materializer or content generator
-- restate explicitly that itemCount is a declarative capacity hint, not a guaranteed future materialization cardinality
-- restate explicitly that provisional_safe remains an evidence-quality / continuity-readiness output, not a student-ability verdict
-- update PHASE_LOG.md for deployed/closed state if that is part of your custody flow
-- if remote is not configured in this environment, state that explicitly rather than implying push completion
-
-Do not open a next phase yet.
-Only close DY cleanly after live confirmation.
-
-## Phase DZ — Minimal shadow-materialized continuity-start block
-- Added a pure-read shadow materializer through GET /api/continuity-start/shadow-block, consuming DY and emitting a concrete item-level continuity-start block without persisting any StudyLoad rows
-- Introduced concrete shadow-block outputs with item-level resolution from either safe_generic or skillstate_heuristic sources, preserving refusal semantics and honest downgrades when the available pool is insufficient
-- Verified with tsc, build, rollback-based item-resolution probes, authenticated endpoint checks, regression checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase EA — Minimal read-only reconciliation layer between structural start block and shadow start block
-- Added a pure-read reconciliation layer through GET /api/continuity-start/reconciliation, comparing the structural cycle_open start block (DN/DU) against the DZ shadow block under an explicit six-status classifier
-- Introduced a first-class machine-readable witness artifact for how both sides currently relate, without deciding precedence, source of truth, or write-path convergence
-- Verified with tsc, build, offline reconciliation probes, authenticated endpoint checks, regression checks, row-count invariance checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase EB — Minimal read-only precedence layer between structural materialization and shadow continuity-start
-- Added a pure-read precedence layer through GET /api/continuity-start/precedence, consuming EA and emitting a minimal machine-readable governance result about which side currently has priority of interpretation
-- Introduced a first-class precedence artifact with explicit constants for materializer of record, shadow side, source-of-truth non-resolution, and write-authorization non-resolution, without changing either side or converging write paths
-- Verified with tsc, build, offline precedence probes, authenticated endpoint checks, regression checks, row-count invariance checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase EC — Minimal read-only convergence-reading layer between structural materialization and shadow continuity-start
-- Added a pure-read convergence layer through GET /api/continuity-start/convergence, consuming EA + EB and emitting a minimal machine-readable convergence posture between the structural materialization side and the shadow continuity-start side
-- Introduced a first-class convergence artifact with explicit constants for materializer of record, shadow side, source-of-truth non-resolution, write-authorization non-resolution, convergence-execution non-resolution, and merge-decision non-resolution, without changing either side or converging write paths
-- Verified with tsc, build, offline convergence probes, authenticated endpoint checks, regression checks, row-count invariance checks, and live deployment confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase ED — First official continuity-start governance-reading writeback (recording event only; rescue v1 flat scalar rationale)
-- Added the first minimal official write-path through POST /api/continuity-start/convergence/record, persisting one ContinuitySignal row per explicit admin call with signalType `continuity_start_governance_reading`
-- Persisted a flat scalar rationale envelope (`ed.v1.flat`) containing the current governance posture snapshot and the six contract anchors, while explicitly preserving recording-event-only semantics and leaving DN/DU as structural materializer of record
-- Verified with tsc, build, local probe execution, regression sweeps, manual verification, and live production confirmation
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase EE — Minimal read-only consultation layer for continuity_start_governance_reading records
-- Added the GET companion to `/api/continuity-start/convergence/record`, making ED-written governance-reading records queryable for an authenticated admin with a strict hard-coded filter to `continuity_start_governance_reading`
-- Implemented bounded consultation behavior only: enrollment-scoped listing, rationale parsing tolerance, stable ordering, and cursor pagination, without introducing any workflow influence or behavioral dependency
-- Verified with tsc, build, local EE probe, ED regression probe, regression sweeps, live production probes, malformed-rationale resilience checks, and pagination checks
-- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
-- Post-deploy issues: none
-
-## Phase EH — Attention filter on enrollments list
-- Added a client-side dropdown filter on `/admin/instances` to narrow the already-fetched enrollments list by EG-derived attention signal
-- Reused `mapPostureToAttentionSignal(...)` from `lib/admin/attention-signal.ts`; no new API, no schema change, no persistence, and no refetch on filter change
-- Filter options implemented exactly as: `all`, `attention_required`, `monitor`, `stable`, `no_governance_record`
-- Verified locally and on production that:
-  - `All` shows the full list
-  - `attention_required` shows only John Doe / PAES_M1
-  - `no_governance_record` shows the expected remaining rows
-  - `monitor` and `stable` show the exact empty-state copy: `No enrollments match this filter.`
-  - switching filters triggers zero new `/api/instances` requests
-- Regression verified on `/now`, `/admin/instances/[id]`, `/admin/learning-cycles`, and `/admin/learning-cycles/[id]`
-- Bundle impact on `/admin/instances`: 2.91 kB → 3.13 kB (+0.22 kB)
-- Files touched:
-  - `nextjs_space/app/admin/instances/_components/instances-view.tsx`
-- Verified with tsc, build, browser checks, and live deployment confirmation
-- Deployed to `tutoring-platform-mv-l4o1ne.abacusai.app`
-- Post-deploy issues: none
-
-## Phase EI — Open enrollment quick-link on enrollments list
-- Verified that the `Open enrollment` affordance already existed on every enrollment card in `/admin/instances` and already satisfied the approved EI scope
-- No code change was required; no files changed; no checkpoint and no deploy were needed
-- Confirmed locally that:
-  - `All` shows the full list with the link on every card
-  - `attention_required` isolates John Doe / PAES_M1
-  - clicking `Open enrollment` on John Doe navigates correctly to `/admin/instances/cmoadr1x20003syur0rgskn12`
-  - `no_governance_record` shows the expected rows
-  - `monitor` and `stable` preserve the exact EH empty-state copy
-  - filter transitions trigger zero new `/api/instances` requests
-- Regression verified on `/now`, `/admin/instances/[id]`, `/admin/learning-cycles`, and `/admin/learning-cycles/[id]`
-- No files changed
-- No deploy required
-- Post-deploy issues: not applicable
-
-## Phase EI — Open enrollment quick-link on enrollments list
-- Verified that the `Open enrollment` quick-link already existed on every enrollment card in `/admin/instances` and already satisfied the approved EI scope
-- No code change was required; no files changed; no checkpoint and no deploy were needed
-- Confirmed locally that:
-  - `All` shows the full list with the link on every card
-  - `attention_required` isolates John Doe / PAES_M1
-  - clicking `Open enrollment` on John Doe navigates correctly to `/admin/instances/cmoadr1x20003syur0rgskn12`
-  - `no_governance_record` shows the expected rows
-  - `monitor` and `stable` preserve the exact EH empty-state copy
-  - filter transitions trigger zero new `/api/instances` requests
-- Regression verified on `/now`, `/admin/instances/[id]`, `/admin/learning-cycles`, and `/admin/learning-cycles/[id]`
-- No files changed
-- No deploy required
-- Post-deploy issues: not applicable
-
-## Phase EJ — Canonical filter-aware counter on enrollments list
-- Replaced the legacy search-only counter on `/admin/instances` with a single canonical list-orientation counter: `Showing X of Y enrollments`
-- The previous counter was intentionally removed because it only reflected search and ignored the EH attention filter, which could create a contradictory orientation cue relative to the visible cards
-- The new counter is now the single canonical orientation line for the list and composes search + attention filter with the same predicate used by the rendered enrollments
-- Scope remained minimal: single-file edit in `app/admin/instances/_components/instances-view.tsx`
-- No API change, no schema change, no helper change, no detail-page change, no `/now` change
-- Verified that:
-  - `All` shows the full filtered count correctly
-  - `attention_required` shows John Doe only
-  - `no_governance_record` shows the expected rows
-  - `monitor` and `stable` preserve the exact EH empty-state copy
-  - filter transitions trigger zero new `/api/instances` requests
-- Regression verified on `/now`, `/admin/instances/[id]`, `/admin/learning-cycles`, and `/admin/learning-cycles/[id]`
-- Deployed successfully to `tutoring-platform-mv-l4o1ne.abacusai.app`
-- Post-deploy issues: none

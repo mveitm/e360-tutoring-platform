@@ -37,6 +37,11 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     const body = await req.json()
     const { evaluationType, resultSummary } = body ?? {}
 
+    const CANONICAL_EVALUATION_TYPES = new Set(['diagnostic', 'progress_check', 'cycle_close'])
+    if (evaluationType !== undefined && !CANONICAL_EVALUATION_TYPES.has(evaluationType)) {
+      return NextResponse.json({ error: 'Invalid evaluationType. Allowed: diagnostic, progress_check, cycle_close' }, { status: 400 })
+    }
+
     const updated = await prisma.cycleEvaluation.update({
       where: { id: params.id },
       data: {

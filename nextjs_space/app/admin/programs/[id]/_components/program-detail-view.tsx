@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, BookOpen, Loader2, Calendar, Layers, Zap, Link2, User, RefreshCw, ExternalLink, Plus } from 'lucide-react'
+import { ArrowLeft, BookOpen, Loader2, Calendar, Layers, Zap, Link2, User, RefreshCw, ExternalLink, Plus, Search } from 'lucide-react'
+import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import Link from 'next/link'
 
@@ -55,17 +56,26 @@ export function ProgramDetailView() {
   const [program, setProgram] = useState<ProgramDetail | null>(null)
   const [loading, setLoading] = useState(true)
 
+  /* ── Axis search ── */
+  const [axisSearch, setAxisSearch] = useState('')
+
   /* ── New Axis inline controls ── */
   const [newAxisCode, setNewAxisCode] = useState('')
   const [newAxisName, setNewAxisName] = useState('')
   const [newAxisOrder, setNewAxisOrder] = useState('0')
   const [creatingAxis, setCreatingAxis] = useState(false)
 
+  /* ── Skill search ── */
+  const [skillSearch, setSkillSearch] = useState('')
+
   /* ── New Skill inline controls ── */
   const [newSkillAxis, setNewSkillAxis] = useState('')
   const [newSkillCode, setNewSkillCode] = useState('')
   const [newSkillName, setNewSkillName] = useState('')
   const [creatingSkill, setCreatingSkill] = useState(false)
+
+  /* ── Enrollment search ── */
+  const [enrollmentSearch, setEnrollmentSearch] = useState('')
 
   /* ── Enroll inline controls ── */
   const [students, setStudents] = useState<{ id: string; firstName: string; lastName: string }[]>([])
@@ -385,34 +395,68 @@ export function ProgramDetailView() {
         {axes.length === 0 ? (
           <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No axes for this program.</CardContent></Card>
         ) : (
-          <div className="grid gap-2">
-            {axes.map((a) => (
-              <Card key={a.id} className="hover:shadow-sm transition-shadow">
-                <CardContent className="py-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <select
-                        className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
-                        value={a.status}
-                        disabled={updatingAxisStatus === a.id}
-                        onChange={(e) => handleAxisStatusChange(a.id, e.target.value)}
-                      >
-                        <option value="active">active</option>
-                        <option value="inactive">inactive</option>
-                      </select>
-                      <div>
-                        <p className="text-sm font-medium">{a.name}</p>
-                        <p className="text-xs text-muted-foreground font-mono">{a.code}</p>
-                      </div>
+          <>
+            <div className="relative mb-2">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                placeholder="Search by code, name, or status…"
+                value={axisSearch}
+                onChange={(e) => setAxisSearch(e.target.value)}
+                className="pl-9 h-8 text-sm"
+              />
+            </div>
+            {(() => {
+              const q = axisSearch.trim().toLowerCase()
+              const filtered = axes.filter((a) => {
+                if (!q) return true
+                return a.code.toLowerCase().includes(q) || a.name.toLowerCase().includes(q) || a.status.toLowerCase().includes(q)
+              })
+              return (
+                <>
+                  {q && (
+                    <p className="text-sm text-muted-foreground mb-2">Showing {filtered.length} of {axes.length}</p>
+                  )}
+                  {q && filtered.length === 0 ? (
+                    <Card>
+                      <CardContent className="py-8 text-center">
+                        <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                        <p className="text-sm text-muted-foreground">No axes match your search.</p>
+                      </CardContent>
+                    </Card>
+                  ) : (
+                    <div className="grid gap-2">
+                      {filtered.map((a) => (
+                        <Card key={a.id} className="hover:shadow-sm transition-shadow">
+                          <CardContent className="py-3">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-3">
+                                <select
+                                  className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
+                                  value={a.status}
+                                  disabled={updatingAxisStatus === a.id}
+                                  onChange={(e) => handleAxisStatusChange(a.id, e.target.value)}
+                                >
+                                  <option value="active">active</option>
+                                  <option value="inactive">inactive</option>
+                                </select>
+                                <div>
+                                  <p className="text-sm font-medium">{a.name}</p>
+                                  <p className="text-xs text-muted-foreground font-mono">{a.code}</p>
+                                </div>
+                              </div>
+                              <div className="text-xs text-muted-foreground flex items-center gap-1">
+                                <Zap className="w-3 h-3" /> {a._count.skills} skill{a._count.skills !== 1 ? 's' : ''}
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
                     </div>
-                    <div className="text-xs text-muted-foreground flex items-center gap-1">
-                      <Zap className="w-3 h-3" /> {a._count.skills} skill{a._count.skills !== 1 ? 's' : ''}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  )}
+                </>
+              )
+            })()}
+          </>
         )}
       </section>
 
@@ -455,35 +499,69 @@ export function ProgramDetailView() {
         {skills.length === 0 ? (
           <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No skills for this program.</CardContent></Card>
         ) : (
-          <div className="grid gap-2">
-            {skills.map((s) => (
-              <Card key={s.id} className="hover:shadow-sm transition-shadow">
-                <CardContent className="py-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <select
-                        className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
-                        value={s.status}
-                        disabled={updatingSkillStatus === s.id}
-                        onChange={(e) => handleSkillStatusChange(s.id, e.target.value)}
-                      >
-                        <option value="active">active</option>
-                        <option value="inactive">inactive</option>
-                      </select>
-                      <div>
-                        <p className="text-sm font-medium">{s.name}</p>
-                        <p className="text-xs text-muted-foreground">
-                          <span className="font-mono">{s.code}</span>
-                          <span className="mx-1">·</span>
-                          {s.axis.name}
-                        </p>
-                      </div>
+          <>
+            <div className="relative mb-2">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                placeholder="Search by code, name, status, or axis…"
+                value={skillSearch}
+                onChange={(e) => setSkillSearch(e.target.value)}
+                className="pl-9 h-8 text-sm"
+              />
+            </div>
+            {(() => {
+              const q = skillSearch.trim().toLowerCase()
+              const filtered = skills.filter((s) => {
+                if (!q) return true
+                return s.code.toLowerCase().includes(q) || s.name.toLowerCase().includes(q) || s.status.toLowerCase().includes(q) || s.axis.name.toLowerCase().includes(q)
+              })
+              return (
+                <>
+                  {q && (
+                    <p className="text-sm text-muted-foreground mb-2">Showing {filtered.length} of {skills.length}</p>
+                  )}
+                  {q && filtered.length === 0 ? (
+                    <Card>
+                      <CardContent className="py-8 text-center">
+                        <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                        <p className="text-sm text-muted-foreground">No skills match your search.</p>
+                      </CardContent>
+                    </Card>
+                  ) : (
+                    <div className="grid gap-2">
+                      {filtered.map((s) => (
+                        <Card key={s.id} className="hover:shadow-sm transition-shadow">
+                          <CardContent className="py-3">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-3">
+                                <select
+                                  className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
+                                  value={s.status}
+                                  disabled={updatingSkillStatus === s.id}
+                                  onChange={(e) => handleSkillStatusChange(s.id, e.target.value)}
+                                >
+                                  <option value="active">active</option>
+                                  <option value="inactive">inactive</option>
+                                </select>
+                                <div>
+                                  <p className="text-sm font-medium">{s.name}</p>
+                                  <p className="text-xs text-muted-foreground">
+                                    <span className="font-mono">{s.code}</span>
+                                    <span className="mx-1">·</span>
+                                    {s.axis.name}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  )}
+                </>
+              )
+            })()}
+          </>
         )}
       </section>
 
@@ -518,49 +596,88 @@ export function ProgramDetailView() {
         {programInstances.length === 0 ? (
           <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No enrollments for this program.</CardContent></Card>
         ) : (
-          <div className="grid gap-2">
-            {programInstances.map((e) => (
-              <Card key={e.id} className="hover:shadow-sm transition-shadow">
-                <CardContent className="py-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div>
-                        <p className="text-sm font-medium flex items-center gap-1">
-                          <User className="w-3.5 h-3.5 text-muted-foreground" />
-                          {e.student.firstName} {e.student.lastName}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {fmt(e.startedAt)}{e.endedAt ? ` → ${fmt(e.endedAt)}` : ''}
-                        </p>
-                      </div>
+          <>
+            <div className="relative mb-2">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                placeholder="Search by student name, status, or date…"
+                value={enrollmentSearch}
+                onChange={(e) => setEnrollmentSearch(e.target.value)}
+                className="pl-9 h-8 text-sm"
+              />
+            </div>
+            {(() => {
+              const q = enrollmentSearch.trim().toLowerCase()
+              const filtered = programInstances.filter((e) => {
+                if (!q) return true
+                const firstName = e.student.firstName.toLowerCase()
+                const lastName = e.student.lastName.toLowerCase()
+                const status = e.status.toLowerCase()
+                const started = fmt(e.startedAt).toLowerCase()
+                const ended = e.endedAt ? fmt(e.endedAt).toLowerCase() : ''
+                return firstName.includes(q) || lastName.includes(q) || status.includes(q) || started.includes(q) || ended.includes(q)
+              })
+              return (
+                <>
+                  {q && (
+                    <p className="text-sm text-muted-foreground mb-2">Showing {filtered.length} of {programInstances.length}</p>
+                  )}
+                  {q && filtered.length === 0 ? (
+                    <Card>
+                      <CardContent className="py-8 text-center">
+                        <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                        <p className="text-sm text-muted-foreground">No enrollments match your search.</p>
+                      </CardContent>
+                    </Card>
+                  ) : (
+                    <div className="grid gap-2">
+                      {filtered.map((e) => (
+                        <Card key={e.id} className="hover:shadow-sm transition-shadow">
+                          <CardContent className="py-3">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-3">
+                                <div>
+                                  <p className="text-sm font-medium flex items-center gap-1">
+                                    <User className="w-3.5 h-3.5 text-muted-foreground" />
+                                    {e.student.firstName} {e.student.lastName}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground">
+                                    {fmt(e.startedAt)}{e.endedAt ? ` → ${fmt(e.endedAt)}` : ''}
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-4">
+                                <div className="text-xs text-muted-foreground text-right flex items-center gap-1">
+                                  <RefreshCw className="w-3 h-3" /> {e._count.learningCycles} cycle{e._count.learningCycles !== 1 ? 's' : ''}
+                                </div>
+                                <select
+                                  className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
+                                  value={e.status}
+                                  disabled={updatingEnrollmentStatus === e.id}
+                                  onChange={(ev) => handleEnrollmentStatusChange(e.id, ev.target.value)}
+                                >
+                                  <option value="active">active</option>
+                                  <option value="paused">paused</option>
+                                  <option value="completed">completed</option>
+                                  <option value="dropped">dropped</option>
+                                </select>
+                                <Link
+                                  href={`/admin/instances/${e.id}`}
+                                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline whitespace-nowrap"
+                                >
+                                  Open enrollment <ExternalLink className="w-3 h-3" />
+                                </Link>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
                     </div>
-                    <div className="flex items-center gap-4">
-                      <div className="text-xs text-muted-foreground text-right flex items-center gap-1">
-                        <RefreshCw className="w-3 h-3" /> {e._count.learningCycles} cycle{e._count.learningCycles !== 1 ? 's' : ''}
-                      </div>
-                      <select
-                        className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
-                        value={e.status}
-                        disabled={updatingEnrollmentStatus === e.id}
-                        onChange={(ev) => handleEnrollmentStatusChange(e.id, ev.target.value)}
-                      >
-                        <option value="active">active</option>
-                        <option value="paused">paused</option>
-                        <option value="completed">completed</option>
-                        <option value="dropped">dropped</option>
-                      </select>
-                      <Link
-                        href={`/admin/instances/${e.id}`}
-                        className="inline-flex items-center gap-1 text-xs text-primary hover:underline whitespace-nowrap"
-                      >
-                        Open enrollment <ExternalLink className="w-3 h-3" />
-                      </Link>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  )}
+                </>
+              )
+            })()}
+          </>
         )}
       </section>
     </div>

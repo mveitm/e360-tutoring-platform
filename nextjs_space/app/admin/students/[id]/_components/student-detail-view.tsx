@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, Users, Loader2, Calendar, Mail, Link2, GraduationCap, ExternalLink, RefreshCw, Plus } from 'lucide-react'
+import { ArrowLeft, Users, Loader2, Calendar, Mail, Link2, GraduationCap, ExternalLink, RefreshCw, Plus, Search } from 'lucide-react'
+import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import Link from 'next/link'
 
@@ -35,6 +36,9 @@ export function StudentDetailView() {
 
   const [student, setStudent] = useState<StudentDetail | null>(null)
   const [loading, setLoading] = useState(true)
+
+  /* ── Enrollment search ── */
+  const [enrollmentSearch, setEnrollmentSearch] = useState('')
 
   /* ── Enroll inline controls ── */
   const [programs, setPrograms] = useState<{ id: string; code: string; name: string }[]>([])
@@ -211,55 +215,94 @@ export function StudentDetailView() {
         {programInstances.length === 0 ? (
           <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No enrollments for this student.</CardContent></Card>
         ) : (
-          <div className="grid gap-2">
-            {programInstances.map((e) => (
-              <Card key={e.id} className="hover:shadow-sm transition-shadow">
-                <CardContent className="py-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div>
-                        <p className="text-sm font-medium flex items-center gap-1">
-                          <GraduationCap className="w-3.5 h-3.5 text-muted-foreground" />
-                          {e.program.name} <span className="font-mono text-xs text-muted-foreground">({e.program.code})</span>
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {fmt(e.startedAt)}{e.endedAt ? ` → ${fmt(e.endedAt)}` : ''}
-                        </p>
-                      </div>
+          <>
+            <div className="relative mb-2">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                placeholder="Search by program, status, or date…"
+                value={enrollmentSearch}
+                onChange={(e) => setEnrollmentSearch(e.target.value)}
+                className="pl-9 h-8 text-sm"
+              />
+            </div>
+            {(() => {
+              const q = enrollmentSearch.trim().toLowerCase()
+              const filtered = programInstances.filter((e) => {
+                if (!q) return true
+                const progName = e.program.name.toLowerCase()
+                const progCode = e.program.code.toLowerCase()
+                const status = e.status.toLowerCase()
+                const started = fmt(e.startedAt).toLowerCase()
+                const ended = e.endedAt ? fmt(e.endedAt).toLowerCase() : ''
+                return progName.includes(q) || progCode.includes(q) || status.includes(q) || started.includes(q) || ended.includes(q)
+              })
+              return (
+                <>
+                  {q && (
+                    <p className="text-sm text-muted-foreground mb-2">Showing {filtered.length} of {programInstances.length}</p>
+                  )}
+                  {q && filtered.length === 0 ? (
+                    <Card>
+                      <CardContent className="py-8 text-center">
+                        <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                        <p className="text-sm text-muted-foreground">No enrollments match your search.</p>
+                      </CardContent>
+                    </Card>
+                  ) : (
+                    <div className="grid gap-2">
+                      {filtered.map((e) => (
+                        <Card key={e.id} className="hover:shadow-sm transition-shadow">
+                          <CardContent className="py-3">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-3">
+                                <div>
+                                  <p className="text-sm font-medium flex items-center gap-1">
+                                    <GraduationCap className="w-3.5 h-3.5 text-muted-foreground" />
+                                    {e.program.name} <span className="font-mono text-xs text-muted-foreground">({e.program.code})</span>
+                                  </p>
+                                  <p className="text-xs text-muted-foreground">
+                                    {fmt(e.startedAt)}{e.endedAt ? ` → ${fmt(e.endedAt)}` : ''}
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-4">
+                                <div className="text-xs text-muted-foreground text-right flex items-center gap-1">
+                                  <RefreshCw className="w-3 h-3" /> {e._count.learningCycles} cycle{e._count.learningCycles !== 1 ? 's' : ''}
+                                </div>
+                                <select
+                                  className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
+                                  value={e.status}
+                                  disabled={updatingEnrollmentStatus === e.id}
+                                  onChange={(ev) => handleEnrollmentStatusChange(e.id, ev.target.value)}
+                                >
+                                  <option value="active">active</option>
+                                  <option value="paused">paused</option>
+                                  <option value="completed">completed</option>
+                                  <option value="dropped">dropped</option>
+                                </select>
+                                <Link
+                                  href={`/admin/programs/${e.program.id}`}
+                                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline whitespace-nowrap"
+                                >
+                                  Open program <ExternalLink className="w-3 h-3" />
+                                </Link>
+                                <Link
+                                  href={`/admin/instances/${e.id}`}
+                                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline whitespace-nowrap"
+                                >
+                                  Open enrollment <ExternalLink className="w-3 h-3" />
+                                </Link>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
                     </div>
-                    <div className="flex items-center gap-4">
-                      <div className="text-xs text-muted-foreground text-right flex items-center gap-1">
-                        <RefreshCw className="w-3 h-3" /> {e._count.learningCycles} cycle{e._count.learningCycles !== 1 ? 's' : ''}
-                      </div>
-                      <select
-                        className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
-                        value={e.status}
-                        disabled={updatingEnrollmentStatus === e.id}
-                        onChange={(ev) => handleEnrollmentStatusChange(e.id, ev.target.value)}
-                      >
-                        <option value="active">active</option>
-                        <option value="paused">paused</option>
-                        <option value="completed">completed</option>
-                        <option value="dropped">dropped</option>
-                      </select>
-                      <Link
-                        href={`/admin/programs/${e.program.id}`}
-                        className="inline-flex items-center gap-1 text-xs text-primary hover:underline whitespace-nowrap"
-                      >
-                        Open program <ExternalLink className="w-3 h-3" />
-                      </Link>
-                      <Link
-                        href={`/admin/instances/${e.id}`}
-                        className="inline-flex items-center gap-1 text-xs text-primary hover:underline whitespace-nowrap"
-                      >
-                        Open enrollment <ExternalLink className="w-3 h-3" />
-                      </Link>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  )}
+                </>
+              )
+            })()}
+          </>
         )}
       </section>
     </div>

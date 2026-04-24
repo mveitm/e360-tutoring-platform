@@ -20,6 +20,8 @@ const cycleInclude = {
   },
 }
 
+const CANONICAL_DECISION_TYPES = new Set(['advance', 'reinforce', 'hold', 'redirect'])
+
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions)
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -36,6 +38,10 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
     const body = await req.json()
     const { decisionType, rationale } = body ?? {}
+
+    if (decisionType !== undefined && !CANONICAL_DECISION_TYPES.has(decisionType)) {
+      return NextResponse.json({ error: 'Invalid decisionType. Allowed: advance, reinforce, hold, redirect' }, { status: 400 })
+    }
 
     const updated = await prisma.cycleDecision.update({
       where: { id: params.id },

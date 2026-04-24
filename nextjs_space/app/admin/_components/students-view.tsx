@@ -292,11 +292,23 @@ export function StudentsView() {
         </Card>
       ) : (
         <div className="grid gap-3">
-          {students.filter((s) => {
-            if (!search) return true
-            const q = search.toLowerCase()
-            return s.firstName.toLowerCase().includes(q) || s.lastName.toLowerCase().includes(q) || s.email.toLowerCase().includes(q)
-          }).map((s: Student) => (
+          {(() => {
+            const filtered = students.filter((s) => {
+              if (!search) return true
+              const q = search.toLowerCase()
+              return s.firstName.toLowerCase().includes(q) || s.lastName.toLowerCase().includes(q) || s.email.toLowerCase().includes(q)
+            })
+            if (search && filtered.length === 0) {
+              return (
+                <Card>
+                  <CardContent className="py-8 text-center">
+                    <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                    <p className="text-sm text-muted-foreground">No students match your search.</p>
+                  </CardContent>
+                </Card>
+              )
+            }
+            return filtered.map((s: Student) => (
             <Card key={s.id} className="hover:shadow-md transition-shadow" style={{ boxShadow: 'var(--shadow-sm)' }}>
               <CardContent className="py-4 flex items-center justify-between">
                 <div className="flex items-center gap-4">
@@ -341,7 +353,8 @@ export function StudentsView() {
                 </div>
               </CardContent>
             </Card>
-          ))}
+          ))
+          })()}
         </div>
       )}
     </div>

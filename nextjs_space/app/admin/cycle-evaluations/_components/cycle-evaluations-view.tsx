@@ -225,7 +225,7 @@ export function CycleEvaluationsView() {
                   required
                 >
                   <option value="">Select a cycle...</option>
-                  {cycles.map((cy) => (
+                  {cycles.filter((cy) => cy.status !== 'closed').map((cy) => (
                     <option key={cy.id} value={cy.id}>
                       Cycle {cy.cycleNumber} — {cy.enrollment?.student?.firstName ?? ''} {cy.enrollment?.student?.lastName ?? ''} ({cy.enrollment?.program?.code ?? ''})
                     </option>
@@ -325,11 +325,18 @@ export function CycleEvaluationsView() {
                 Showing {filtered.length} of {enrollmentFiltered.length}
               </p>
             )}
-            {filtered.length === 0 ? (
+            {q && filtered.length === 0 ? (
               <Card>
                 <CardContent className="py-12 text-center">
                   <Search className="w-12 h-12 text-muted-foreground/40 mx-auto mb-3" />
                   <p className="text-muted-foreground">No cycle evaluations match your search.</p>
+                </CardContent>
+              </Card>
+            ) : !q && filterEnrollment && enrollmentFiltered.length === 0 ? (
+              <Card>
+                <CardContent className="py-12 text-center">
+                  <ClipboardCheck className="w-12 h-12 text-muted-foreground/40 mx-auto mb-3" />
+                  <p className="text-muted-foreground">No cycle evaluations for this enrollment.</p>
                 </CardContent>
               </Card>
             ) : (

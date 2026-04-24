@@ -300,11 +300,18 @@ export function SkillStatesView() {
                 Showing {filtered.length} of {enrollmentFiltered.length}
               </p>
             )}
-            {filtered.length === 0 ? (
+            {q && filtered.length === 0 ? (
               <Card>
                 <CardContent className="py-12 text-center">
                   <Search className="w-12 h-12 text-muted-foreground/40 mx-auto mb-3" />
                   <p className="text-muted-foreground">No skill states match your search.</p>
+                </CardContent>
+              </Card>
+            ) : !q && selectedEnrollment && enrollmentFiltered.length === 0 ? (
+              <Card>
+                <CardContent className="py-12 text-center">
+                  <BarChart3 className="w-12 h-12 text-muted-foreground/40 mx-auto mb-3" />
+                  <p className="text-muted-foreground">No skill states for this enrollment.</p>
                 </CardContent>
               </Card>
             ) : (

@@ -227,7 +227,21 @@ export function LearningCyclesView() {
                 {q && (
                   <p className="text-sm text-muted-foreground">Showing {filtered.length} of {cycles.filter((cy) => !filterEnrollment || cy.enrollmentId === filterEnrollment).length}</p>
                 )}
-                {filtered.map((cy) => (
+                {q && filtered.length === 0 ? (
+                  <Card>
+                    <CardContent className="py-8 text-center">
+                      <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                      <p className="text-sm text-muted-foreground">No learning cycles match your search.</p>
+                    </CardContent>
+                  </Card>
+                ) : !q && filterEnrollment && filtered.length === 0 ? (
+                  <Card>
+                    <CardContent className="py-12 text-center">
+                      <RefreshCw className="w-12 h-12 text-muted-foreground/40 mx-auto mb-3" />
+                      <p className="text-muted-foreground">No learning cycles for this enrollment.</p>
+                    </CardContent>
+                  </Card>
+                ) : filtered.map((cy) => (
             <Card key={cy.id} className="hover:shadow-md transition-shadow" style={{ boxShadow: 'var(--shadow-sm)' }}>
               <CardContent className="py-4">
                 <div className="flex items-center justify-between">

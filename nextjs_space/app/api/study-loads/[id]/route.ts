@@ -52,6 +52,8 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   }
 }
 
+const CANONICAL_LOAD_TYPES = new Set(['practice', 'reading', 'video', 'project', 'assessment'])
+
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions)
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -68,6 +70,10 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
     const body = await req.json()
     const { title, loadType, releasedAt, dueAt } = body ?? {}
+
+    if (loadType !== undefined && !CANONICAL_LOAD_TYPES.has(loadType)) {
+      return NextResponse.json({ error: 'Invalid loadType. Allowed: practice, reading, video, project, assessment' }, { status: 400 })
+    }
 
     const updated = await prisma.studyLoad.update({
       where: { id: params.id },

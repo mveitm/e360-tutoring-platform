@@ -39,6 +39,8 @@ export async function GET(req: NextRequest) {
   }
 }
 
+const CANONICAL_LOAD_TYPES = new Set(['practice', 'reading', 'video', 'project', 'assessment'])
+
 export async function POST(req: NextRequest) {
   const session = await getServerSession(authOptions)
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -49,6 +51,10 @@ export async function POST(req: NextRequest) {
 
     if (!learningCycleId || !loadType || !title) {
       return NextResponse.json({ error: 'learningCycleId, loadType, and title are required' }, { status: 400 })
+    }
+
+    if (!CANONICAL_LOAD_TYPES.has(loadType)) {
+      return NextResponse.json({ error: 'Invalid loadType. Allowed: practice, reading, video, project, assessment' }, { status: 400 })
     }
 
     const cycle = await prisma.learningCycle.findUnique({ where: { id: learningCycleId }, select: { status: true } })

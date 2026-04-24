@@ -1,7 +1,14 @@
+# Dependencies and build outputs
 node_modules/
 .next/
 .build/
 .deploy/
-.env
 *.tsbuildinfo
 .prisma/
+
+# Environment files / secrets
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example

@@ -43,6 +43,19 @@ export async function GET(
             },
           },
         },
+        // Phase EG — minimal admin-only read of the latest persisted
+        // continuity_start_governance_reading record for this
+        // enrollment. Advisory only. Not a workflow decision, not a
+        // write path, not a source-of-truth resolution, not a
+        // materializer-of-record change. Hard-coded signalType filter
+        // is intentional: EG is strictly scoped to ED-typed rows;
+        // widening requires code edits.
+        continuitySignals: {
+          where: { signalType: 'continuity_start_governance_reading' },
+          orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+          take: 1,
+          select: { rationale: true },
+        },
       },
     })
 
@@ -50,7 +63,23 @@ export async function GET(
       return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 })
     }
 
-    return NextResponse.json(instance)
+    // Derive `latestGovernancePosture` scalar and strip the raw
+    // signals array from the response shape.
+    const latest = instance.continuitySignals?.[0]
+    let latestGovernancePosture: string | null = null
+    if (latest?.rationale) {
+      try {
+        const parsed = JSON.parse(latest.rationale)
+        if (typeof parsed?.posture === 'string') {
+          latestGovernancePosture = parsed.posture
+        }
+      } catch {
+        latestGovernancePosture = null
+      }
+    }
+    const { continuitySignals: _discarded, ...rest } = instance
+
+    return NextResponse.json({ ...rest, latestGovernancePosture })
   } catch (error: any) {
     return NextResponse.json({ error: error?.message ?? 'Internal error' }, { status: 500 })
   }

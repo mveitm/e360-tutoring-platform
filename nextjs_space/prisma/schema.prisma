@@ -99,8 +99,10 @@ model StudentProgramInstance {
 
   student        Student         @relation(fields: [studentId], references: [id], onDelete: Cascade)
   program        Program         @relation(fields: [programId], references: [id], onDelete: Cascade)
-  skillStates    SkillState[]
-  learningCycles LearningCycle[]
+  skillStates        SkillState[]
+  learningCycles     LearningCycle[]
+  diagnostics        Diagnostic[]
+  continuitySignals  ContinuitySignal[]
 
   @@map("student_program_instances")
 }
@@ -134,9 +136,11 @@ model Skill {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
-  program     Program      @relation(fields: [programId], references: [id], onDelete: Cascade)
-  axis        Axis         @relation(fields: [axisId], references: [id], onDelete: Cascade)
-  skillStates SkillState[]
+  program             Program              @relation(fields: [programId], references: [id], onDelete: Cascade)
+  axis                Axis                 @relation(fields: [axisId], references: [id], onDelete: Cascade)
+  skillStates         SkillState[]
+  cycleDecisionSkills CycleDecisionSkill[]
+  responses           Response[]
 
   @@unique([programId, code])
   @@map("skills")
@@ -175,6 +179,9 @@ model LearningCycle {
   cycleDecisions   CycleDecision[]
   studyLoads       StudyLoad[]
   cycleEvaluations CycleEvaluation[]
+  cycleSnapshots    CycleSnapshot[]
+  tutoringSessions  TutoringSession[]
+  continuitySignals ContinuitySignal[]
 
   @@unique([enrollmentId, cycleNumber])
   @@map("learning_cycles")
@@ -188,7 +195,8 @@ model CycleDecision {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
-  learningCycle LearningCycle @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+  learningCycle       LearningCycle        @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+  cycleDecisionSkills CycleDecisionSkill[]
 
   @@map("cycle_decisions")
 }
@@ -204,7 +212,8 @@ model StudyLoad {
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
-  learningCycle LearningCycle @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+  learningCycle    LearningCycle    @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+  tutoringSessions TutoringSession[]
 
   @@map("study_loads")
 }
@@ -217,7 +226,107 @@ model CycleEvaluation {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
-  learningCycle LearningCycle @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+  learningCycle     LearningCycle    @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+  continuitySignals ContinuitySignal[]
 
   @@map("cycle_evaluations")
+}
+
+model Diagnostic {
+  id              String    @id @default(cuid())
+  enrollmentId    String
+  diagnosticType  String    @default("initial")
+  status          String    @default("pending")
+  resultSummary   String?
+  completedAt     DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  enrollment StudentProgramInstance @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+
+  @@map("diagnostics")
+}
+
+model CycleSnapshot {
+  id              String   @id @default(cuid())
+  learningCycleId String
+  snapshotType    String   @default("pre_decision")
+  payload         Json?
+  takenAt         DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  learningCycle LearningCycle @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+
+  @@map("cycle_snapshots")
+}
+
+model CycleDecisionSkill {
+  id              String   @id @default(cuid())
+  cycleDecisionId String
+  skillId         String
+  priority        Int      @default(0)
+  reason          String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  cycleDecision CycleDecision @relation(fields: [cycleDecisionId], references: [id], onDelete: Cascade)
+  skill         Skill         @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  @@unique([cycleDecisionId, skillId])
+  @@map("cycle_decision_skills")
+}
+
+model TutoringSession {
+  id              String    @id @default(cuid())
+  learningCycleId String
+  studyLoadId     String?
+  sessionType     String    @default("practice")
+  status          String    @default("in_progress")
+  startedAt       DateTime  @default(now())
+  completedAt     DateTime?
+  notes           String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  learningCycle LearningCycle @relation(fields: [learningCycleId], references: [id], onDelete: Cascade)
+  studyLoad     StudyLoad?    @relation(fields: [studyLoadId], references: [id], onDelete: SetNull)
+  responses     Response[]
+
+  @@map("sessions_pedagogical")
+}
+
+model Response {
+  id                String   @id @default(cuid())
+  tutoringSessionId String
+  skillId           String?
+  responseType      String   @default("answer")
+  content           String?
+  isCorrect         Boolean?
+  score             Float?
+  feedback          String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  tutoringSession TutoringSession @relation(fields: [tutoringSessionId], references: [id], onDelete: Cascade)
+  skill           Skill?          @relation(fields: [skillId], references: [id], onDelete: SetNull)
+
+  @@map("responses")
+}
+
+model ContinuitySignal {
+  id             String   @id @default(cuid())
+  enrollmentId   String
+  learningCycleId String?
+  evaluationId   String?
+  signalType     String
+  rationale      String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  enrollment    StudentProgramInstance @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  learningCycle LearningCycle?         @relation(fields: [learningCycleId], references: [id], onDelete: SetNull)
+  evaluation    CycleEvaluation?       @relation(fields: [evaluationId], references: [id], onDelete: SetNull)
+
+  @@map("continuity_signals")
 }

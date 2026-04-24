@@ -8,14 +8,16 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { ArrowLeft, Link2, RefreshCw, Zap, Loader2, Calendar, Activity, User, GraduationCap, ExternalLink, Pencil, Trash2, Plus } from 'lucide-react'
+import { ArrowLeft, Link2, RefreshCw, Zap, Loader2, Calendar, Activity, User, GraduationCap, ExternalLink, Pencil, Trash2, Plus, Search } from 'lucide-react'
 import { toast } from 'sonner'
 import Link from 'next/link'
+import { GovernanceReadingsPanel } from './governance-readings-panel'
+import { AttentionSignalLine } from '@/app/admin/_components/attention-signal'
 
 interface SkillStateItem {
   id: string
   masteryLevel: string
-  confidenceLevel: number
+  confidenceLevel: string
   needsReinforcement: boolean
   lastEvaluatedAt: string | null
   skill: {
@@ -52,6 +54,7 @@ interface EnrollmentDetail {
   program: { id: string; code: string; name: string }
   learningCycles: LearningCycleItem[]
   skillStates: SkillStateItem[]
+  latestGovernancePosture: string | null
 }
 
 const masteryColors: Record<string, string> = {
@@ -83,6 +86,8 @@ export function EnrollmentDetailView() {
   const [programSkills, setProgramSkills] = useState<{ id: string; code: string; name: string; axis: { code: string; name: string } }[]>([])
   const [selectedSkill, setSelectedSkill] = useState('')
   const [creatingSkillState, setCreatingSkillState] = useState(false)
+  const [skillStateSearch, setSkillStateSearch] = useState('')
+  const [cycleSearch, setCycleSearch] = useState('')
 
   const fetchEnrollment = useCallback(async () => {
     try {
@@ -241,6 +246,50 @@ export function EnrollmentDetailView() {
       } else {
         const data = await res.json().catch(() => null)
         toast.error(data?.error ?? 'Failed to update mastery level')
+      }
+    } catch {
+      toast.error('Something went wrong')
+    } finally {
+      setUpdatingSkillState(null)
+    }
+  }
+
+  const handleSkillStateConfidence = async (id: string, confidenceLevel: string) => {
+    setUpdatingSkillState(id)
+    try {
+      const res = await fetch(`/api/skill-states/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ confidenceLevel }),
+      })
+      if (res.ok) {
+        toast.success('Confidence level updated')
+        fetchEnrollment()
+      } else {
+        const data = await res.json().catch(() => null)
+        toast.error(data?.error ?? 'Failed to update confidence level')
+      }
+    } catch {
+      toast.error('Something went wrong')
+    } finally {
+      setUpdatingSkillState(null)
+    }
+  }
+
+  const handleSkillStateReinforcement = async (id: string, needsReinforcement: boolean) => {
+    setUpdatingSkillState(id)
+    try {
+      const res = await fetch(`/api/skill-states/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ needsReinforcement }),
+      })
+      if (res.ok) {
+        toast.success('Reinforcement flag updated')
+        fetchEnrollment()
+      } else {
+        const data = await res.json().catch(() => null)
+        toast.error(data?.error ?? 'Failed to update reinforcement flag')
       }
     } catch {
       toast.error('Something went wrong')
@@ -410,6 +459,11 @@ export function EnrollmentDetailView() {
               <p className="font-medium">{fmt(enrollment.createdAt)}</p>
             </div>
           </div>
+
+          {/* ── Phase EG: advisory-only attention signal (read-only). Does not block workflow. ── */}
+          <div className="mt-4 pt-4 border-t">
+            <AttentionSignalLine posture={enrollment.latestGovernancePosture} />
+          </div>
         </CardContent>
       </Card>
 
@@ -428,45 +482,83 @@ export function EnrollmentDetailView() {
         {learningCycles.length === 0 ? (
           <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No learning cycles for this enrollment.</CardContent></Card>
         ) : (
-          <div className="grid gap-2">
-            {learningCycles.map((c) => (
-              <Card key={c.id} className="hover:shadow-sm transition-shadow">
-                <CardContent className="py-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div>
-                        <p className="text-sm font-medium">Cycle {c.cycleNumber}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {fmt(c.openedAt)}{c.closedAt ? ` → ${fmt(c.closedAt)}` : ''}
-                        </p>
-                      </div>
+          <>
+            <div className="relative mb-2">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                placeholder="Search by cycle number, status, or date…"
+                value={cycleSearch}
+                onChange={(e) => setCycleSearch(e.target.value)}
+                className="pl-9 h-8 text-sm"
+              />
+            </div>
+            {(() => {
+              const q = cycleSearch.trim().toLowerCase()
+              const filtered = learningCycles.filter((c) => {
+                if (!q) return true
+                const num = String(c.cycleNumber)
+                const status = c.status.toLowerCase()
+                const opened = fmt(c.openedAt).toLowerCase()
+                const closed = c.closedAt ? fmt(c.closedAt).toLowerCase() : ''
+                return num.includes(q) || status.includes(q) || opened.includes(q) || closed.includes(q)
+              })
+              return (
+                <>
+                  {q && (
+                    <p className="text-sm text-muted-foreground mb-2">Showing {filtered.length} of {learningCycles.length}</p>
+                  )}
+                  {q && filtered.length === 0 ? (
+                    <Card>
+                      <CardContent className="py-8 text-center">
+                        <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                        <p className="text-sm text-muted-foreground">No learning cycles match your search.</p>
+                      </CardContent>
+                    </Card>
+                  ) : (
+                    <div className="grid gap-2">
+                      {filtered.map((c) => (
+                        <Card key={c.id} className="hover:shadow-sm transition-shadow">
+                          <CardContent className="py-3">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-3">
+                                <div>
+                                  <p className="text-sm font-medium">Cycle {c.cycleNumber}</p>
+                                  <p className="text-xs text-muted-foreground">
+                                    {fmt(c.openedAt)}{c.closedAt ? ` → ${fmt(c.closedAt)}` : ''}
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-4">
+                                <div className="text-xs text-muted-foreground text-right space-y-0.5">
+                                  <p>{c._count.cycleDecisions} dec · {c._count.studyLoads} loads · {c._count.cycleEvaluations} evals</p>
+                                </div>
+                                <select
+                                  className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
+                                  value={c.status}
+                                  disabled={updatingCycleStatus === c.id}
+                                  onChange={(e) => handleCycleStatusChange(c.id, e.target.value)}
+                                >
+                                  <option value="open">open</option>
+                                  <option value="in_progress">in_progress</option>
+                                  <option value="closed">closed</option>
+                                </select>
+                                <Link
+                                  href={`/admin/learning-cycles/${c.id}`}
+                                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline whitespace-nowrap"
+                                >
+                                  Open cycle <ExternalLink className="w-3 h-3" />
+                                </Link>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
                     </div>
-                    <div className="flex items-center gap-4">
-                      <div className="text-xs text-muted-foreground text-right space-y-0.5">
-                        <p>{c._count.cycleDecisions} dec · {c._count.studyLoads} loads · {c._count.cycleEvaluations} evals</p>
-                      </div>
-                      <select
-                        className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
-                        value={c.status}
-                        disabled={updatingCycleStatus === c.id}
-                        onChange={(e) => handleCycleStatusChange(c.id, e.target.value)}
-                      >
-                        <option value="open">open</option>
-                        <option value="in_progress">in_progress</option>
-                        <option value="closed">closed</option>
-                      </select>
-                      <Link
-                        href={`/admin/learning-cycles/${c.id}`}
-                        className="inline-flex items-center gap-1 text-xs text-primary hover:underline whitespace-nowrap"
-                      >
-                        Open cycle <ExternalLink className="w-3 h-3" />
-                      </Link>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  )}
+                </>
+              )
+            })()}
+          </>
         )}
       </section>
 
@@ -494,12 +586,52 @@ export function EnrollmentDetailView() {
             </Button>
           </div>
         </div>
-        {skillStates.length === 0 ? (
-          <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No skill states tracked for this enrollment.</CardContent></Card>
-        ) : (
-          <div className="grid gap-2">
-            {skillStates.map((ss) => (
-              <Card key={ss.id} className="hover:shadow-sm transition-shadow">
+        {skillStates.length > 0 && (
+          <div className="relative mb-3">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              placeholder="Search by skill code, skill name, or axis…"
+              value={skillStateSearch}
+              onChange={(e) => setSkillStateSearch(e.target.value)}
+              className="pl-9"
+            />
+          </div>
+        )}
+        {(() => {
+          const q = skillStateSearch.trim().toLowerCase()
+          const filtered = q
+            ? skillStates.filter((ss) =>
+                (ss.skill?.code ?? '').toLowerCase().includes(q) ||
+                (ss.skill?.name ?? '').toLowerCase().includes(q) ||
+                (ss.skill?.axis?.name ?? '').toLowerCase().includes(q)
+              )
+            : skillStates
+
+          if (skillStates.length === 0) {
+            return <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No skill states tracked for this enrollment.</CardContent></Card>
+          }
+
+          if (q && filtered.length === 0) {
+            return (
+              <Card>
+                <CardContent className="py-8 text-center">
+                  <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                  <p className="text-sm text-muted-foreground">No skill states match your search.</p>
+                </CardContent>
+              </Card>
+            )
+          }
+
+          return (
+            <>
+              {q && (
+                <p className="text-xs text-muted-foreground mb-2">
+                  Showing {filtered.length} of {skillStates.length}
+                </p>
+              )}
+              <div className="grid gap-2">
+                {filtered.map((ss) => (
+                  <Card key={ss.id} className="hover:shadow-sm transition-shadow">
                 <CardContent className="py-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -529,20 +661,45 @@ export function EnrollmentDetailView() {
                         <option value="mastered">mastered</option>
                       </select>
                       <div className="text-xs text-muted-foreground text-right space-y-0.5">
-                        <p>Confidence: {ss.confidenceLevel}</p>
-                        {ss.needsReinforcement && (
-                          <p className="text-amber-600 font-medium">Needs reinforcement</p>
-                        )}
+                        <div className="flex items-center gap-1 justify-end">
+                          <span>Confidence:</span>
+                          <select
+                            className="rounded-md border border-input bg-background px-1.5 py-0.5 text-xs"
+                            value={ss.confidenceLevel}
+                            disabled={updatingSkillState === ss.id}
+                            onChange={(e) => handleSkillStateConfidence(ss.id, e.target.value)}
+                          >
+                            <option value="none">none</option>
+                            <option value="low">low</option>
+                            <option value="medium">medium</option>
+                            <option value="high">high</option>
+                          </select>
+                        </div>
+                        <div className="flex items-center gap-1 justify-end">
+                          <select
+                            className="rounded-md border border-input bg-background px-1.5 py-0.5 text-xs"
+                            value={ss.needsReinforcement ? 'yes' : 'no'}
+                            disabled={updatingSkillState === ss.id}
+                            onChange={(e) => handleSkillStateReinforcement(ss.id, e.target.value === 'yes')}
+                          >
+                            <option value="no">No reinforce</option>
+                            <option value="yes">Reinforce ⚠</option>
+                          </select>
+                        </div>
                         <p>Evaluated: {fmt(ss.lastEvaluatedAt)}</p>
                       </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        )}
+                ))}
+              </div>
+            </>
+          )
+        })()}
       </section>
+
+      <GovernanceReadingsPanel enrollmentId={enrollmentId} />
 
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
         <DialogContent>

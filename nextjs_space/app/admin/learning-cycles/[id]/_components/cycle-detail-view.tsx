@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { ArrowLeft, RefreshCw, GitBranch, BookOpen, ClipboardCheck, Loader2, Calendar, User, GraduationCap, ExternalLink, Plus, Pencil, Trash2 } from 'lucide-react'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
+import { ArrowLeft, RefreshCw, GitBranch, BookOpen, ClipboardCheck, Loader2, Calendar, User, GraduationCap, ExternalLink, Plus, Pencil, Trash2, Search, Lock, CheckCircle2 } from 'lucide-react'
 import { toast } from 'sonner'
 import Link from 'next/link'
 
@@ -46,6 +46,14 @@ interface CycleDetail {
     resultSummary: string | null
     createdAt: string
   }[]
+  // Phase DT — continuity signals scoped to this cycle. Only used to gate
+  // the "Autorizar continuidad" button. Not rendered anywhere else.
+  continuitySignals: {
+    id: string
+    signalType: string
+    rationale: string | null
+    createdAt: string
+  }[]
 }
 
 const decisionColors: Record<string, string> = {
@@ -62,6 +70,8 @@ const evalColors: Record<string, string> = {
   progress_check: 'bg-blue-100 text-blue-800',
   cycle_close: 'bg-gray-200 text-gray-700',
 }
+
+const CANONICAL_LOAD_TYPES = new Set(['practice', 'reading', 'video', 'project', 'assessment'])
 
 export function CycleDetailView() {
   const params = useParams()
@@ -90,10 +100,21 @@ export function CycleDetailView() {
   const [editDecisionSaving, setEditDecisionSaving] = useState(false)
   const [updatingEvalType, setUpdatingEvalType] = useState<string | null>(null)
   const [updatingLoadType, setUpdatingLoadType] = useState<string | null>(null)
+  const [studyLoadSearch, setStudyLoadSearch] = useState('')
+  const [cycleDecisionSearch, setCycleDecisionSearch] = useState('')
+  const [cycleEvaluationSearch, setCycleEvaluationSearch] = useState('')
   const [editEvalOpen, setEditEvalOpen] = useState(false)
   const [editEvalId, setEditEvalId] = useState<string | null>(null)
   const [editEvalForm, setEditEvalForm] = useState({ evaluationType: '', resultSummary: '' })
   const [editEvalSaving, setEditEvalSaving] = useState(false)
+
+  // Phase DS — admin-only atomic cycle close
+  const [closeOpen, setCloseOpen] = useState(false)
+  const [closing, setClosing] = useState(false)
+
+  // Phase DT — admin-only continuity authorization
+  const [continueOpen, setContinueOpen] = useState(false)
+  const [authorizing, setAuthorizing] = useState(false)
 
   const fetchCycle = useCallback(async () => {
     try {
@@ -138,6 +159,56 @@ export function CycleDetailView() {
       toast.error('Something went wrong')
     } finally {
       setUpdating(false)
+    }
+  }
+
+  // Phase DS — dedicated admin-only close path. Goes through
+  // POST /api/learning-cycles/[id]/close so the closing CycleSnapshot and
+  // the enrollment activity stamp are persisted atomically. The generic
+  // PATCH path now refuses status='closed' by design.
+  const handleCloseCycle = async () => {
+    setClosing(true)
+    try {
+      const res = await fetch(`/api/learning-cycles/${cycleId}/close`, {
+        method: 'POST',
+      })
+      if (res.ok) {
+        toast.success('Ciclo cerrado')
+        setCloseOpen(false)
+        fetchCycle()
+      } else {
+        const data = await res.json().catch(() => ({}))
+        toast.error(data?.error ?? 'No se pudo cerrar el ciclo')
+      }
+    } catch {
+      toast.error('Ocurrió un error inesperado')
+    } finally {
+      setClosing(false)
+    }
+  }
+
+  // Phase DT — dedicated admin-only continuity authorization. Emits the
+  // minimum valid ContinuitySignal{signalType:'continue', rationale:
+  // 'admin_authorize'} so DL's P4b can succeed on the next cycle-open
+  // attempt. This is pure authorization; it does NOT create cycle N+1.
+  const handleAuthorizeContinue = async () => {
+    setAuthorizing(true)
+    try {
+      const res = await fetch(`/api/learning-cycles/${cycleId}/continue`, {
+        method: 'POST',
+      })
+      if (res.ok) {
+        toast.success('Continuidad autorizada')
+        setContinueOpen(false)
+        fetchCycle()
+      } else {
+        const data = await res.json().catch(() => ({}))
+        toast.error(data?.error ?? 'No se pudo autorizar la continuidad')
+      }
+    } catch {
+      toast.error('Ocurrió un error inesperado')
+    } finally {
+      setAuthorizing(false)
     }
   }
 
@@ -536,6 +607,51 @@ export function CycleDetailView() {
                 <option value="in_progress">in_progress</option>
                 <option value="closed">closed</option>
               </select>
+
+              {/* Phase DS — "Cerrar ciclo" action.
+                  Rendered only when the cycle is still open AND every
+                  StudyLoad in the cycle has status='completed'. The button
+                  opens a confirmation dialog; confirmation calls the
+                  dedicated POST /api/learning-cycles/[id]/close endpoint,
+                  which atomically transitions the cycle to 'closed',
+                  writes a strictly transcriptive closing CycleSnapshot
+                  and advances the enrollment's lastActivityAt. */}
+              {cycle.status === 'open' &&
+                cycle.studyLoads.length > 0 &&
+                cycle.studyLoads.every((l) => l.status === 'completed') && (
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    onClick={() => setCloseOpen(true)}
+                    disabled={closing || updating}
+                  >
+                    <Lock className="w-3.5 h-3.5 mr-1.5" />
+                    Cerrar ciclo
+                  </Button>
+                )}
+
+              {/* Phase DT — "Autorizar continuidad" action.
+                  Rendered only when the cycle is already closed AND no
+                  ContinuitySignal with signalType='continue' exists for
+                  this cycle. The button opens a confirmation dialog;
+                  confirmation calls the dedicated POST
+                  /api/learning-cycles/[id]/continue endpoint, which
+                  atomically emits the continuity signal and advances
+                  lastActivityAt. DT does NOT create cycle N+1 — that
+                  remains the DL/DN responsibility at POST
+                  /api/learning-cycles. */}
+              {cycle.status === 'closed' &&
+                !cycle.continuitySignals.some((s) => s.signalType === 'continue') && (
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    onClick={() => setContinueOpen(true)}
+                    disabled={authorizing || updating}
+                  >
+                    <CheckCircle2 className="w-3.5 h-3.5 mr-1.5" />
+                    Autorizar continuidad
+                  </Button>
+                )}
             </div>
           </div>
 
@@ -559,6 +675,82 @@ export function CycleDetailView() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Phase DS — Close-cycle confirmation dialog.
+          Copy is intentionally phase-bounded: it describes the immediate
+          action only and does NOT establish broader reopen-policy doctrine. */}
+      <Dialog open={closeOpen} onOpenChange={(o) => { if (!closing) setCloseOpen(o) }}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Cerrar ciclo</DialogTitle>
+            <DialogDescription asChild>
+              <div className="space-y-2 pt-1 text-sm text-muted-foreground">
+                <p>Esta acción cerrará el ciclo actual.</p>
+                <p>Confirma solo si todas las cargas de este ciclo ya fueron completadas.</p>
+              </div>
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => setCloseOpen(false)}
+              disabled={closing}
+            >
+              Cancelar
+            </Button>
+            <Button
+              onClick={handleCloseCycle}
+              disabled={closing}
+            >
+              {closing ? (
+                <span className="inline-flex items-center gap-2">
+                  <Loader2 className="w-3.5 h-3.5 animate-spin" /> Cerrando…
+                </span>
+              ) : (
+                'Cerrar ciclo'
+              )}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Phase DT — Continuity authorization dialog.
+          Copy is intentionally phase-bounded: it describes the immediate
+          action only (emit a continue signal) and does NOT imply cycle
+          N+1 is created here — DL/DN still owns that creation path. */}
+      <Dialog open={continueOpen} onOpenChange={(o) => { if (!authorizing) setContinueOpen(o) }}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Autorizar continuidad</DialogTitle>
+            <DialogDescription asChild>
+              <div className="space-y-2 pt-1 text-sm text-muted-foreground">
+                <p>Esta acción registrará la autorización para abrir el siguiente ciclo.</p>
+              </div>
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => setContinueOpen(false)}
+              disabled={authorizing}
+            >
+              Cancelar
+            </Button>
+            <Button
+              onClick={handleAuthorizeContinue}
+              disabled={authorizing}
+            >
+              {authorizing ? (
+                <span className="inline-flex items-center gap-2">
+                  <Loader2 className="w-3.5 h-3.5 animate-spin" /> Autorizando…
+                </span>
+              ) : (
+                'Autorizar'
+              )}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* ── Decisions ── */}
       <section>
@@ -587,47 +779,88 @@ export function CycleDetailView() {
             </div>
           )}
         </div>
-        {cycle.cycleDecisions.length === 0 ? (
-          <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No decisions recorded for this cycle.</CardContent></Card>
-        ) : (
-          <div className="grid gap-2">
-            {cycle.cycleDecisions.map((d) => (
-              <Card key={d.id} className="hover:shadow-sm transition-shadow">
-                <CardContent className="py-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <select
-                        value={d.decisionType}
-                        onChange={(e) => handleDecisionTypeChange(d.id, e.target.value)}
-                        disabled={cycle.status === 'closed' || updatingDecisionType === d.id}
-                        className={`text-xs font-semibold rounded-full px-2.5 py-0.5 border-0 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed ${decisionColors[d.decisionType] ?? 'bg-gray-200 text-gray-700'}`}
-                      >
-                        <option value="advance">advance</option>
-                        <option value="reinforce">reinforce</option>
-                        <option value="hold">hold</option>
-                        <option value="redirect">redirect</option>
-                      </select>
-                      {d.rationale && <p className="text-sm text-muted-foreground truncate max-w-md">{d.rationale}</p>}
-                    </div>
-                    <div className="flex items-center gap-3">
-                      {cycle.status !== 'closed' && (
-                        <>
-                          <button onClick={() => openEditDecision(d)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Edit">
-                            <Pencil className="w-3.5 h-3.5 text-muted-foreground" />
-                          </button>
-                          <button onClick={() => handleDeleteDecision(d.id)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Delete">
-                            <Trash2 className="w-3.5 h-3.5 text-destructive" />
-                          </button>
-                        </>
-                      )}
-                      <span className="text-xs text-muted-foreground whitespace-nowrap">{fmtFull(d.createdAt)}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+        {cycle.cycleDecisions.length > 0 && (
+          <div className="relative mb-3">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              placeholder="Search by decision type or rationale…"
+              value={cycleDecisionSearch}
+              onChange={(e) => setCycleDecisionSearch(e.target.value)}
+              className="pl-9"
+            />
           </div>
         )}
+        {(() => {
+          const q = cycleDecisionSearch.trim().toLowerCase()
+          const filtered = q
+            ? cycle.cycleDecisions.filter((d) =>
+                (d.decisionType ?? '').toLowerCase().includes(q) ||
+                (d.rationale ?? '').toLowerCase().includes(q)
+              )
+            : cycle.cycleDecisions
+
+          if (cycle.cycleDecisions.length === 0) {
+            return <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No decisions recorded for this cycle.</CardContent></Card>
+          }
+
+          if (q && filtered.length === 0) {
+            return (
+              <Card>
+                <CardContent className="py-8 text-center">
+                  <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                  <p className="text-sm text-muted-foreground">No decisions match your search.</p>
+                </CardContent>
+              </Card>
+            )
+          }
+
+          return (
+            <>
+              {q && (
+                <p className="text-xs text-muted-foreground mb-2">
+                  Showing {filtered.length} of {cycle.cycleDecisions.length}
+                </p>
+              )}
+              <div className="grid gap-2">
+                {filtered.map((d) => (
+                  <Card key={d.id} className="hover:shadow-sm transition-shadow">
+                    <CardContent className="py-3">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <select
+                            value={d.decisionType}
+                            onChange={(e) => handleDecisionTypeChange(d.id, e.target.value)}
+                            disabled={cycle.status === 'closed' || updatingDecisionType === d.id}
+                            className={`text-xs font-semibold rounded-full px-2.5 py-0.5 border-0 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed ${decisionColors[d.decisionType] ?? 'bg-gray-200 text-gray-700'}`}
+                          >
+                            <option value="advance">advance</option>
+                            <option value="reinforce">reinforce</option>
+                            <option value="hold">hold</option>
+                            <option value="redirect">redirect</option>
+                          </select>
+                          {d.rationale && <p className="text-sm text-muted-foreground truncate max-w-md">{d.rationale}</p>}
+                        </div>
+                        <div className="flex items-center gap-3">
+                          {cycle.status !== 'closed' && (
+                            <>
+                              <button onClick={() => openEditDecision(d)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Edit">
+                                <Pencil className="w-3.5 h-3.5 text-muted-foreground" />
+                              </button>
+                              <button onClick={() => handleDeleteDecision(d.id)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Delete">
+                                <Trash2 className="w-3.5 h-3.5 text-destructive" />
+                              </button>
+                            </>
+                          )}
+                          <span className="text-xs text-muted-foreground whitespace-nowrap">{fmtFull(d.createdAt)}</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </>
+          )
+        })()}
       </section>
 
       {/* ── Edit Decision Dialog ── */}
@@ -695,65 +928,109 @@ export function CycleDetailView() {
             </div>
           )}
         </div>
-        {cycle.studyLoads.length === 0 ? (
-          <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No study loads assigned for this cycle.</CardContent></Card>
-        ) : (
-          <div className="grid gap-2">
-            {cycle.studyLoads.map((ld) => (
-              <Card key={ld.id} className="hover:shadow-sm transition-shadow">
-                <CardContent className="py-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="space-y-1">
-                        <p className="text-sm font-medium">{ld.title}</p>
-                        <select
-                          className="rounded-md border border-input bg-background px-2 py-0.5 text-xs font-medium"
-                          value={ld.loadType}
-                          disabled={cycle.status === 'closed' || updatingLoadType === ld.id}
-                          onChange={(e) => handleLoadTypeChange(ld.id, e.target.value)}
-                        >
-                          <option value="practice">practice</option>
-                          <option value="reading">reading</option>
-                          <option value="video">video</option>
-                          <option value="project">project</option>
-                          <option value="assessment">assessment</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      {cycle.status !== 'closed' && (
-                        <>
-                          <button onClick={() => openEditLoad(ld)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Edit">
-                            <Pencil className="w-3.5 h-3.5 text-muted-foreground" />
-                          </button>
-                          <button onClick={() => handleDeleteLoad(ld.id)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Delete">
-                            <Trash2 className="w-3.5 h-3.5 text-destructive" />
-                          </button>
-                        </>
-                      )}
-                      <select
-                        className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
-                        value={ld.status}
-                        disabled={cycle.status === 'closed' || updatingLoad === ld.id}
-                        onChange={(e) => handleLoadStatus(ld.id, e.target.value)}
-                      >
-                        <option value="pending">pending</option>
-                        <option value="released">released</option>
-                        <option value="in_progress">in_progress</option>
-                        <option value="completed">completed</option>
-                      </select>
-                      <div className="text-xs text-muted-foreground text-right space-y-0.5">
-                        {ld.releasedAt && <p>Released: {fmt(ld.releasedAt)}</p>}
-                        {ld.dueAt && <p>Due: {fmt(ld.dueAt)}</p>}
-                        <p>{fmtFull(ld.createdAt)}</p>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+        {cycle.studyLoads.length > 0 && (
+          <div className="relative mb-3">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              placeholder="Search by title or load type…"
+              value={studyLoadSearch}
+              onChange={(e) => setStudyLoadSearch(e.target.value)}
+              className="pl-9"
+            />
           </div>
         )}
+        {(() => {
+          const q = studyLoadSearch.trim().toLowerCase()
+          const filtered = q
+            ? cycle.studyLoads.filter((ld) =>
+                (ld.title ?? '').toLowerCase().includes(q) ||
+                (ld.loadType ?? '').toLowerCase().includes(q)
+              )
+            : cycle.studyLoads
+
+          if (cycle.studyLoads.length === 0) {
+            return <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No study loads assigned for this cycle.</CardContent></Card>
+          }
+
+          if (q && filtered.length === 0) {
+            return (
+              <Card>
+                <CardContent className="py-8 text-center">
+                  <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                  <p className="text-sm text-muted-foreground">No study loads match your search.</p>
+                </CardContent>
+              </Card>
+            )
+          }
+
+          return (
+            <>
+              {q && (
+                <p className="text-xs text-muted-foreground mb-2">
+                  Showing {filtered.length} of {cycle.studyLoads.length}
+                </p>
+              )}
+              <div className="grid gap-2">
+                {filtered.map((ld) => (
+                  <Card key={ld.id} className="hover:shadow-sm transition-shadow">
+                    <CardContent className="py-3">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="space-y-1">
+                            <p className="text-sm font-medium">{ld.title}</p>
+                            <select
+                              className="rounded-md border border-input bg-background px-2 py-0.5 text-xs font-medium"
+                              value={ld.loadType}
+                              disabled={cycle.status === 'closed' || updatingLoadType === ld.id}
+                              onChange={(e) => handleLoadTypeChange(ld.id, e.target.value)}
+                            >
+                              {ld.loadType && !CANONICAL_LOAD_TYPES.has(ld.loadType) && (
+                                <option value={ld.loadType}>{ld.loadType} (legacy)</option>
+                              )}
+                              <option value="practice">practice</option>
+                              <option value="reading">reading</option>
+                              <option value="video">video</option>
+                              <option value="project">project</option>
+                              <option value="assessment">assessment</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          {cycle.status !== 'closed' && (
+                            <>
+                              <button onClick={() => openEditLoad(ld)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Edit">
+                                <Pencil className="w-3.5 h-3.5 text-muted-foreground" />
+                              </button>
+                              <button onClick={() => handleDeleteLoad(ld.id)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Delete">
+                                <Trash2 className="w-3.5 h-3.5 text-destructive" />
+                              </button>
+                            </>
+                          )}
+                          <select
+                            className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
+                            value={ld.status}
+                            disabled={cycle.status === 'closed' || updatingLoad === ld.id}
+                            onChange={(e) => handleLoadStatus(ld.id, e.target.value)}
+                          >
+                            <option value="pending">pending</option>
+                            <option value="released">released</option>
+                            <option value="in_progress">in_progress</option>
+                            <option value="completed">completed</option>
+                          </select>
+                          <div className="text-xs text-muted-foreground text-right space-y-0.5">
+                            {ld.releasedAt && <p>Released: {fmt(ld.releasedAt)}</p>}
+                            {ld.dueAt && <p>Due: {fmt(ld.dueAt)}</p>}
+                            <p>{fmtFull(ld.createdAt)}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </>
+          )
+        })()}
       </section>
 
       {/* ── Edit Study Load Dialog ── */}
@@ -770,6 +1047,9 @@ export function CycleDetailView() {
             <div className="space-y-2">
               <Label htmlFor="edit-loadType">Load Type</Label>
               <select id="edit-loadType" className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" value={editForm.loadType} onChange={(e) => setEditForm(f => ({ ...f, loadType: e.target.value }))}>
+                {editForm.loadType && !CANONICAL_LOAD_TYPES.has(editForm.loadType) && (
+                  <option value={editForm.loadType}>{editForm.loadType} (legacy)</option>
+                )}
                 <option value="practice">practice</option>
                 <option value="reading">reading</option>
                 <option value="video">video</option>
@@ -822,46 +1102,87 @@ export function CycleDetailView() {
             </div>
           )}
         </div>
-        {cycle.cycleEvaluations.length === 0 ? (
-          <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No evaluations recorded for this cycle.</CardContent></Card>
-        ) : (
-          <div className="grid gap-2">
-            {cycle.cycleEvaluations.map((ev) => (
-              <Card key={ev.id} className="hover:shadow-sm transition-shadow">
-                <CardContent className="py-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <select
-                        value={ev.evaluationType}
-                        onChange={(e) => handleEvalTypeChange(ev.id, e.target.value)}
-                        disabled={cycle.status === 'closed' || updatingEvalType === ev.id}
-                        className={`text-xs font-semibold rounded-full px-2.5 py-0.5 border-0 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed ${evalColors[ev.evaluationType] ?? 'bg-gray-200 text-gray-700'}`}
-                      >
-                        <option value="diagnostic">diagnostic</option>
-                        <option value="progress_check">progress check</option>
-                        <option value="cycle_close">cycle close</option>
-                      </select>
-                      {ev.resultSummary && <p className="text-sm text-muted-foreground truncate max-w-md">{ev.resultSummary}</p>}
-                    </div>
-                    <div className="flex items-center gap-3">
-                      {cycle.status !== 'closed' && (
-                        <>
-                          <button onClick={() => openEditEval(ev)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Edit">
-                            <Pencil className="w-3.5 h-3.5 text-muted-foreground" />
-                          </button>
-                          <button onClick={() => handleDeleteEval(ev.id)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Delete">
-                            <Trash2 className="w-3.5 h-3.5 text-destructive" />
-                          </button>
-                        </>
-                      )}
-                      <span className="text-xs text-muted-foreground whitespace-nowrap">{fmtFull(ev.createdAt)}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+        {cycle.cycleEvaluations.length > 0 && (
+          <div className="relative mb-3">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              placeholder="Search by evaluation type or result summary…"
+              value={cycleEvaluationSearch}
+              onChange={(e) => setCycleEvaluationSearch(e.target.value)}
+              className="pl-9"
+            />
           </div>
         )}
+        {(() => {
+          const q = cycleEvaluationSearch.trim().toLowerCase()
+          const filtered = q
+            ? cycle.cycleEvaluations.filter((ev) =>
+                (ev.evaluationType ?? '').toLowerCase().includes(q) ||
+                (ev.resultSummary ?? '').toLowerCase().includes(q)
+              )
+            : cycle.cycleEvaluations
+
+          if (cycle.cycleEvaluations.length === 0) {
+            return <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">No evaluations recorded for this cycle.</CardContent></Card>
+          }
+
+          if (q && filtered.length === 0) {
+            return (
+              <Card>
+                <CardContent className="py-8 text-center">
+                  <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+                  <p className="text-sm text-muted-foreground">No evaluations match your search.</p>
+                </CardContent>
+              </Card>
+            )
+          }
+
+          return (
+            <>
+              {q && (
+                <p className="text-xs text-muted-foreground mb-2">
+                  Showing {filtered.length} of {cycle.cycleEvaluations.length}
+                </p>
+              )}
+              <div className="grid gap-2">
+                {filtered.map((ev) => (
+                  <Card key={ev.id} className="hover:shadow-sm transition-shadow">
+                    <CardContent className="py-3">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <select
+                            value={ev.evaluationType}
+                            onChange={(e) => handleEvalTypeChange(ev.id, e.target.value)}
+                            disabled={cycle.status === 'closed' || updatingEvalType === ev.id}
+                            className={`text-xs font-semibold rounded-full px-2.5 py-0.5 border-0 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed ${evalColors[ev.evaluationType] ?? 'bg-gray-200 text-gray-700'}`}
+                          >
+                            <option value="diagnostic">diagnostic</option>
+                            <option value="progress_check">progress check</option>
+                            <option value="cycle_close">cycle close</option>
+                          </select>
+                          {ev.resultSummary && <p className="text-sm text-muted-foreground truncate max-w-md">{ev.resultSummary}</p>}
+                        </div>
+                        <div className="flex items-center gap-3">
+                          {cycle.status !== 'closed' && (
+                            <>
+                              <button onClick={() => openEditEval(ev)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Edit">
+                                <Pencil className="w-3.5 h-3.5 text-muted-foreground" />
+                              </button>
+                              <button onClick={() => handleDeleteEval(ev.id)} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Delete">
+                                <Trash2 className="w-3.5 h-3.5 text-destructive" />
+                              </button>
+                            </>
+                          )}
+                          <span className="text-xs text-muted-foreground whitespace-nowrap">{fmtFull(ev.createdAt)}</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </>
+          )
+        })()}
       </section>
 
       {/* ── Edit Evaluation Dialog ── */}

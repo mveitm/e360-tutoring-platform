@@ -47,6 +47,8 @@ interface EnrollmentOption {
   program: { code: string }
 }
 
+const CANONICAL_LOAD_TYPES = new Set(['practice', 'reading', 'video', 'project', 'assessment'])
+
 const toLocalDatetime = (d: string | null) => {
   if (!d) return ''
   try {
@@ -276,7 +278,7 @@ export function StudyLoadsView() {
                   required
                 >
                   <option value="">Select a cycle...</option>
-                  {cycles.map((cy) => (
+                  {cycles.filter((cy) => cy.status !== 'closed').map((cy) => (
                     <option key={cy.id} value={cy.id}>
                       Cycle {cy.cycleNumber} — {cy.enrollment?.student?.firstName ?? ''} {cy.enrollment?.student?.lastName ?? ''} ({cy.enrollment?.program?.code ?? ''})
                     </option>
@@ -342,6 +344,9 @@ export function StudyLoadsView() {
             <div className="space-y-2">
               <Label>Load Type</Label>
               <select className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" value={editForm.loadType} onChange={(e) => setEditForm({ ...editForm, loadType: e.target.value })}>
+                {editForm.loadType && !CANONICAL_LOAD_TYPES.has(editForm.loadType) && (
+                  <option value={editForm.loadType}>{editForm.loadType} (legacy)</option>
+                )}
                 <option value="practice">Practice</option>
                 <option value="reading">Reading</option>
                 <option value="video">Video</option>
@@ -403,9 +408,19 @@ export function StudyLoadsView() {
             <p className="text-muted-foreground">No study loads yet. Create one to assign work blocks to a learning cycle.</p>
           </CardContent>
         </Card>
-      ) : filtered.length === 0 ? (
+      ) : q && filtered.length === 0 ? (
         <Card>
-          <CardContent className="py-8 text-center text-sm text-muted-foreground">No study loads match your search.</CardContent>
+          <CardContent className="py-12 text-center">
+            <Search className="w-12 h-12 text-muted-foreground/40 mx-auto mb-3" />
+            <p className="text-muted-foreground">No study loads match your search.</p>
+          </CardContent>
+        </Card>
+      ) : !q && filterEnrollment && enrollFiltered.length === 0 ? (
+        <Card>
+          <CardContent className="py-12 text-center">
+            <FileBox className="w-12 h-12 text-muted-foreground/40 mx-auto mb-3" />
+            <p className="text-muted-foreground">No study loads for this enrollment.</p>
+          </CardContent>
         </Card>
       ) : (
         <div className="grid gap-3">
@@ -435,6 +450,9 @@ export function StudyLoadsView() {
                       disabled={isClosed(ld) || updatingLoadType === ld.id}
                       onChange={(e) => handleLoadTypeChange(ld.id, e.target.value)}
                     >
+                      {ld.loadType && !CANONICAL_LOAD_TYPES.has(ld.loadType) && (
+                        <option value={ld.loadType}>{ld.loadType} (legacy)</option>
+                      )}
                       <option value="practice">practice</option>
                       <option value="reading">reading</option>
                       <option value="video">video</option>
