@@ -132,3 +132,12 @@
 - Verified with TypeScript, production build, browser checks, and deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase ER — Cycle decision operational summary
+- Added compact read-only cycle-decision summary to learning cycle detail
+- Surfaced total decisions and per-decision-type counts without adding actions or automation
+- Preserved cycle, study-load, decision, skill-state, and adaptive semantics unchanged
+- Kept EN/EO/EQ operational visibility and navigation behavior unaffected
+- Verified with TypeScript, production build, browser checks, and deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none

@@ -752,6 +752,48 @@ export function CycleDetailView() {
         </DialogContent>
       </Dialog>
 
+      {/* ── Phase ER: Cycle decision operational summary (read-only) ── */}
+      {(() => {
+        const decisions = cycle.cycleDecisions
+        const total = decisions.length
+        const advance = decisions.filter((d) => d.decisionType === 'advance').length
+        const reinforce = decisions.filter((d) => d.decisionType === 'reinforce').length
+        const hold = decisions.filter((d) => d.decisionType === 'hold').length
+        const redirect = decisions.filter((d) => d.decisionType === 'redirect').length
+        const indicator = total === 0
+          ? 'No cycle decisions recorded'
+          : 'Cycle has recorded decisions'
+        return (
+          <Card>
+            <CardContent className="py-4">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">Operational decision summary</p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+                <div>
+                  <p className="text-muted-foreground text-xs">Total decisions</p>
+                  <p className="font-medium">{total}</p>
+                </div>
+                <div>
+                  <p className="text-muted-foreground text-xs">By type</p>
+                  <p className="font-medium text-xs">
+                    {advance > 0 && <span className="mr-2">advance {advance}</span>}
+                    {reinforce > 0 && <span className="mr-2">reinforce {reinforce}</span>}
+                    {hold > 0 && <span className="mr-2">hold {hold}</span>}
+                    {redirect > 0 && <span className="mr-2">redirect {redirect}</span>}
+                    {total === 0 && <span className="text-muted-foreground">—</span>}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-muted-foreground text-xs">Indicator</p>
+                  <p className={`font-medium text-xs ${total > 0 ? 'text-emerald-700' : 'text-muted-foreground'}`}>
+                    {indicator}
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )
+      })()}
+
       {/* ── Decisions ── */}
       <section>
         <div className="flex items-center justify-between mb-3">
