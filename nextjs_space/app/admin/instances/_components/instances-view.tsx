@@ -56,9 +56,10 @@ export function InstancesView() {
   const [saving, setSaving] = useState(false)
   const [form, setForm] = useState({ studentId: '', programId: '', status: 'active', currentContinuityState: 'normal', startedAt: '', endedAt: '', currentCycleId: '' })
   const [search, setSearch] = useState('')
-  // Phase EH+EL: client-side advisory attention filter. Default 'all'. No persistence.
+  // Phase EH+EL+EM: client-side advisory attention filter. Default 'all'. No persistence.
   // 'attention_unreviewed' (EL) is a composite filter: attention_required AND not acknowledged.
-  const [attentionFilter, setAttentionFilter] = useState<'all' | AttentionSignal | 'attention_unreviewed'>('all')
+  // 'attention_reviewed' (EM) is a composite filter: attention_required AND acknowledged.
+  const [attentionFilter, setAttentionFilter] = useState<'all' | AttentionSignal | 'attention_unreviewed' | 'attention_reviewed'>('all')
   const [updatingEnrollmentStatus, setUpdatingEnrollmentStatus] = useState<string | null>(null)
   const [updatingContinuityState, setUpdatingContinuityState] = useState<string | null>(null)
 
@@ -305,10 +306,11 @@ export function InstancesView() {
               id="attention-filter"
               className="rounded-md border border-input bg-background px-2 py-1 text-xs"
               value={attentionFilter}
-              onChange={(e) => setAttentionFilter(e.target.value as 'all' | AttentionSignal | 'attention_unreviewed')}
+              onChange={(e) => setAttentionFilter(e.target.value as 'all' | AttentionSignal | 'attention_unreviewed' | 'attention_reviewed')}
             >
               <option value="all">All</option>
               <option value="attention_unreviewed">Attention unreviewed</option>
+              <option value="attention_reviewed">Attention reviewed</option>
               <option value="attention_required">{ATTENTION_SIGNAL_LABELS.attention_required}</option>
               <option value="monitor">{ATTENTION_SIGNAL_LABELS.monitor}</option>
               <option value="stable">{ATTENTION_SIGNAL_LABELS.stable}</option>
@@ -329,6 +331,8 @@ export function InstancesView() {
               }
               if (attentionFilter === 'attention_unreviewed') {
                 if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== 'attention_required' || inst.attentionAcknowledged) return false
+              } else if (attentionFilter === 'attention_reviewed') {
+                if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== 'attention_required' || !inst.attentionAcknowledged) return false
               } else if (attentionFilter !== 'all') {
                 if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== attentionFilter) return false
               }
@@ -365,6 +369,10 @@ export function InstancesView() {
               }
               if (attentionFilter === 'attention_unreviewed') {
                 if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== 'attention_required' || inst.attentionAcknowledged) {
+                  return false
+                }
+              } else if (attentionFilter === 'attention_reviewed') {
+                if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== 'attention_required' || !inst.attentionAcknowledged) {
                   return false
                 }
               } else if (attentionFilter !== 'all') {
