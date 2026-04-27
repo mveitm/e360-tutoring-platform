@@ -150,3 +150,11 @@
 - Verified with TypeScript, production build, browser checks, and deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Operational visibility block closure — through Phase ES
+- Closed the current read-only operational visibility block after EK/EL/EM and EN/EO/EP/EQ/ER/ES
+- Attention workflow now supports signal visibility, reviewed/unreviewed filtering, and acknowledgement
+- Cycle visibility now supports current-cycle summary, cycle navigation, and read-only summaries for study loads, decisions, and evaluations
+- EP was already satisfied by the pre-existing View enrollment link on learning cycle detail
+- No further operational summary cards should be added by inertia; next work should start from a deliberately chosen new functional front
+- No product code, schema, endpoints, actions, automation, or pedagogical logic changed in this custody closure
