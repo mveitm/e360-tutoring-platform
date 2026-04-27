@@ -531,6 +531,16 @@ export function EnrollmentDetailView() {
                   </p>
                 </div>
               </div>
+              {/* Phase EO: quick link to current cycle detail */}
+              <div className="mt-3">
+                <Link
+                  href={`/admin/learning-cycles/${currentCycle.id}`}
+                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  View cycle detail
+                </Link>
+              </div>
             </CardContent>
           </Card>
         )

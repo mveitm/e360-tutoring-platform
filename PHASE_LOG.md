@@ -114,3 +114,12 @@
 * Canonical decisionType set: `advance`, `reinforce`, `hold`, `redirect`.
 * Canonical evaluationType values: `diagnostic`, `progress_check`, `cycle_close`.
 * Canonical loadType values: `practice`, `reading`, `video`, `project`, `assessment`.
+
+## Phase EO — Current cycle quick link
+- Added minimal read-only navigation link from enrollment detail current-cycle summary to the existing cycle detail page
+- Preserved cycle, study-load, decision, skill-state, and adaptive semantics unchanged
+- Added no actions, write endpoints, schema changes, or automation
+- Kept prior attention workflow and EN operational summary behavior unaffected
+- Verified with TypeScript, production build, browser checks, and deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
