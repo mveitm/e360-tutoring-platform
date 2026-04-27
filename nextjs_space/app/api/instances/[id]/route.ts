@@ -28,6 +28,12 @@ export async function GET(
                 cycleEvaluations: true,
               },
             },
+            // Phase EN: include study load statuses for current-cycle operational summary.
+            // Read-only expansion — no write path, no schema change.
+            studyLoads: {
+              select: { status: true },
+              orderBy: { createdAt: 'asc' },
+            },
           },
         },
         skillStates: {

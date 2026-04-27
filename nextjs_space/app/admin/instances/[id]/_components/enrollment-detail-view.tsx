@@ -39,6 +39,8 @@ interface LearningCycleItem {
     studyLoads: number
     cycleEvaluations: number
   }
+  // Phase EN: study load statuses for current-cycle operational summary (read-only).
+  studyLoads?: { status: string }[]
 }
 
 interface EnrollmentDetail {
@@ -472,6 +474,67 @@ export function EnrollmentDetailView() {
           </div>
         </CardContent>
       </Card>
+
+      {/* ── Phase EN: Current Cycle Operational Summary (read-only) ── */}
+      {(() => {
+        const currentCycle = enrollment.currentCycleId
+          ? learningCycles.find((c) => c.id === enrollment.currentCycleId)
+          : null
+        if (!currentCycle) {
+          return (
+            <Card>
+              <CardContent className="py-4">
+                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-1">Operational cycle summary</p>
+                <p className="text-sm text-muted-foreground">No current cycle data</p>
+              </CardContent>
+            </Card>
+          )
+        }
+        const loads = currentCycle.studyLoads ?? []
+        const total = loads.length
+        const pending = loads.filter((l) => l.status === 'pending').length
+        const released = loads.filter((l) => l.status === 'released').length
+        const inProgress = loads.filter((l) => l.status === 'in_progress').length
+        const completed = loads.filter((l) => l.status === 'completed').length
+        const indicator = total === 0
+          ? 'No study loads in cycle'
+          : completed === total
+            ? 'All loads completed'
+            : 'Cycle has incomplete loads'
+        return (
+          <Card>
+            <CardContent className="py-4">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">Operational cycle summary</p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+                <div>
+                  <p className="text-muted-foreground text-xs">Cycle</p>
+                  <p className="font-medium">#{currentCycle.cycleNumber} · <span className="font-mono text-xs">{currentCycle.status}</span></p>
+                </div>
+                <div>
+                  <p className="text-muted-foreground text-xs">Total loads</p>
+                  <p className="font-medium">{total}</p>
+                </div>
+                <div>
+                  <p className="text-muted-foreground text-xs">By status</p>
+                  <p className="font-medium text-xs">
+                    {pending > 0 && <span className="mr-2">pending {pending}</span>}
+                    {released > 0 && <span className="mr-2">released {released}</span>}
+                    {inProgress > 0 && <span className="mr-2">in_progress {inProgress}</span>}
+                    {completed > 0 && <span className="mr-2">completed {completed}</span>}
+                    {total === 0 && <span className="text-muted-foreground">—</span>}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-muted-foreground text-xs">Indicator</p>
+                  <p className={`font-medium text-xs ${completed === total && total > 0 ? 'text-emerald-700' : total === 0 ? 'text-muted-foreground' : 'text-amber-700'}`}>
+                    {indicator}
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )
+      })()}
 
       {/* ── Learning Cycles ── */}
       <section>
