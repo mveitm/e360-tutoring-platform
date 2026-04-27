@@ -44,6 +44,7 @@ interface Instance {
   student?: StudentOption
   program?: ProgramOption
   latestGovernancePosture?: string | null
+  attentionAcknowledged?: boolean
 }
 
 export function InstancesView() {
@@ -453,7 +454,7 @@ export function InstancesView() {
                 {/* ── Phase EG: advisory-only attention signal (read-only). Does not block workflow. ── */}
                 <div className="mt-2 flex items-center gap-1.5">
                   <span className="text-xs text-muted-foreground">Attention:</span>
-                  <AttentionSignalCell posture={inst?.latestGovernancePosture} />
+                  <AttentionSignalCell posture={inst?.latestGovernancePosture} acknowledged={inst?.attentionAcknowledged} />
                 </div>
               </CardContent>
             </Card>

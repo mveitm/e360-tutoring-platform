@@ -22,23 +22,33 @@ export async function GET() {
         // change. Hard-coded signalType filter is intentional: EG is
         // strictly scoped to ED-typed rows; widening requires code edits.
         continuitySignals: {
-          where: { signalType: 'continuity_start_governance_reading' },
+          where: {
+            signalType: {
+              in: [
+                'continuity_start_governance_reading',
+                'attention_acknowledged',
+              ],
+            },
+          },
           orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
-          take: 1,
-          select: { rationale: true },
+          select: { signalType: true, rationale: true, createdAt: true },
         },
       },
     })
 
-    // Derive `latestGovernancePosture` per enrollment and strip the
-    // raw signals array from the response shape (the UI does not need
-    // it; only the scalar posture).
+    // Derive `latestGovernancePosture` and `attentionAcknowledged` per
+    // enrollment and strip the raw signals array from the response shape.
     const withPosture = instances.map((inst) => {
-      const latest = inst.continuitySignals?.[0]
+      const latestReading = inst.continuitySignals?.find(
+        (s) => s.signalType === 'continuity_start_governance_reading'
+      )
+      const latestAck = inst.continuitySignals?.find(
+        (s) => s.signalType === 'attention_acknowledged'
+      )
       let latestGovernancePosture: string | null = null
-      if (latest?.rationale) {
+      if (latestReading?.rationale) {
         try {
-          const parsed = JSON.parse(latest.rationale)
+          const parsed = JSON.parse(latestReading.rationale)
           if (typeof parsed?.posture === 'string') {
             latestGovernancePosture = parsed.posture
           }
@@ -46,8 +56,14 @@ export async function GET() {
           latestGovernancePosture = null
         }
       }
+      // Acknowledged if there is an ack signal created AFTER the latest
+      // governance reading (or if there is an ack but no governance reading).
+      const attentionAcknowledged =
+        latestAck != null &&
+        (latestReading == null ||
+          new Date(latestAck.createdAt) >= new Date(latestReading.createdAt))
       const { continuitySignals: _discarded, ...rest } = inst
-      return { ...rest, latestGovernancePosture }
+      return { ...rest, latestGovernancePosture, attentionAcknowledged }
     })
 
     return NextResponse.json(withPosture)

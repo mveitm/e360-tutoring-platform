@@ -43,18 +43,22 @@ export async function GET(
             },
           },
         },
-        // Phase EG — minimal admin-only read of the latest persisted
-        // continuity_start_governance_reading record for this
-        // enrollment. Advisory only. Not a workflow decision, not a
-        // write path, not a source-of-truth resolution, not a
-        // materializer-of-record change. Hard-coded signalType filter
-        // is intentional: EG is strictly scoped to ED-typed rows;
-        // widening requires code edits.
+        // Phase EG+EK — minimal admin-only read of the latest persisted
+        // governance-reading + acknowledgement signals for this enrollment.
+        // Advisory only. Not a workflow decision, not a write path,
+        // not a source-of-truth resolution, not a materializer-of-record
+        // change.
         continuitySignals: {
-          where: { signalType: 'continuity_start_governance_reading' },
+          where: {
+            signalType: {
+              in: [
+                'continuity_start_governance_reading',
+                'attention_acknowledged',
+              ],
+            },
+          },
           orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
-          take: 1,
-          select: { rationale: true },
+          select: { signalType: true, rationale: true, createdAt: true },
         },
       },
     })
@@ -63,13 +67,18 @@ export async function GET(
       return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 })
     }
 
-    // Derive `latestGovernancePosture` scalar and strip the raw
-    // signals array from the response shape.
-    const latest = instance.continuitySignals?.[0]
+    // Derive `latestGovernancePosture` + `attentionAcknowledged` and
+    // strip the raw signals array from the response shape.
+    const latestReading = instance.continuitySignals?.find(
+      (s) => s.signalType === 'continuity_start_governance_reading'
+    )
+    const latestAck = instance.continuitySignals?.find(
+      (s) => s.signalType === 'attention_acknowledged'
+    )
     let latestGovernancePosture: string | null = null
-    if (latest?.rationale) {
+    if (latestReading?.rationale) {
       try {
-        const parsed = JSON.parse(latest.rationale)
+        const parsed = JSON.parse(latestReading.rationale)
         if (typeof parsed?.posture === 'string') {
           latestGovernancePosture = parsed.posture
         }
@@ -77,9 +86,13 @@ export async function GET(
         latestGovernancePosture = null
       }
     }
+    const attentionAcknowledged =
+      latestAck != null &&
+      (latestReading == null ||
+        new Date(latestAck.createdAt) >= new Date(latestReading.createdAt))
     const { continuitySignals: _discarded, ...rest } = instance
 
-    return NextResponse.json({ ...rest, latestGovernancePosture })
+    return NextResponse.json({ ...rest, latestGovernancePosture, attentionAcknowledged })
   } catch (error: any) {
     return NextResponse.json({ error: error?.message ?? 'Internal error' }, { status: 500 })
   }

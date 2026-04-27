@@ -55,6 +55,7 @@ interface EnrollmentDetail {
   learningCycles: LearningCycleItem[]
   skillStates: SkillStateItem[]
   latestGovernancePosture: string | null
+  attentionAcknowledged: boolean
 }
 
 const masteryColors: Record<string, string> = {
@@ -462,7 +463,12 @@ export function EnrollmentDetailView() {
 
           {/* ── Phase EG: advisory-only attention signal (read-only). Does not block workflow. ── */}
           <div className="mt-4 pt-4 border-t">
-            <AttentionSignalLine posture={enrollment.latestGovernancePosture} />
+            <AttentionSignalLine
+              posture={enrollment.latestGovernancePosture}
+              acknowledged={enrollment.attentionAcknowledged}
+              enrollmentId={enrollment.id}
+              onAcknowledged={fetchEnrollment}
+            />
           </div>
         </CardContent>
       </Card>
