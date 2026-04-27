@@ -56,8 +56,9 @@ export function InstancesView() {
   const [saving, setSaving] = useState(false)
   const [form, setForm] = useState({ studentId: '', programId: '', status: 'active', currentContinuityState: 'normal', startedAt: '', endedAt: '', currentCycleId: '' })
   const [search, setSearch] = useState('')
-  // Phase EH: client-side advisory attention filter. Default 'all'. No persistence.
-  const [attentionFilter, setAttentionFilter] = useState<'all' | AttentionSignal>('all')
+  // Phase EH+EL: client-side advisory attention filter. Default 'all'. No persistence.
+  // 'attention_unreviewed' (EL) is a composite filter: attention_required AND not acknowledged.
+  const [attentionFilter, setAttentionFilter] = useState<'all' | AttentionSignal | 'attention_unreviewed'>('all')
   const [updatingEnrollmentStatus, setUpdatingEnrollmentStatus] = useState<string | null>(null)
   const [updatingContinuityState, setUpdatingContinuityState] = useState<string | null>(null)
 
@@ -304,16 +305,17 @@ export function InstancesView() {
               id="attention-filter"
               className="rounded-md border border-input bg-background px-2 py-1 text-xs"
               value={attentionFilter}
-              onChange={(e) => setAttentionFilter(e.target.value as 'all' | AttentionSignal)}
+              onChange={(e) => setAttentionFilter(e.target.value as 'all' | AttentionSignal | 'attention_unreviewed')}
             >
               <option value="all">All</option>
+              <option value="attention_unreviewed">Attention unreviewed</option>
               <option value="attention_required">{ATTENTION_SIGNAL_LABELS.attention_required}</option>
               <option value="monitor">{ATTENTION_SIGNAL_LABELS.monitor}</option>
               <option value="stable">{ATTENTION_SIGNAL_LABELS.stable}</option>
               <option value="no_governance_record">{ATTENTION_SIGNAL_LABELS.no_governance_record}</option>
             </select>
           </div>
-          {/* ── Phase EJ: filter-aware orientation counter (read-only; composes EH search + attention filter; no network; no state). ── */}
+          {/* ── Phase EJ+EL: filter-aware orientation counter (read-only; composes search + attention filter; no network; no state). ── */}
           <span className="text-xs text-muted-foreground">
             Showing {instances.filter((inst) => {
               if (search) {
@@ -325,7 +327,9 @@ export function InstancesView() {
                   (inst.program?.name ?? '').toLowerCase().includes(q)
                 if (!matchesSearch) return false
               }
-              if (attentionFilter !== 'all') {
+              if (attentionFilter === 'attention_unreviewed') {
+                if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== 'attention_required' || inst.attentionAcknowledged) return false
+              } else if (attentionFilter !== 'all') {
                 if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== attentionFilter) return false
               }
               return true
@@ -349,7 +353,7 @@ export function InstancesView() {
         <div className="grid gap-3">
           {(() => {
             const filtered = instances.filter((inst) => {
-              // Phase EH: compose search + attention filter on the already-fetched list.
+              // Phase EH+EL: compose search + attention filter on the already-fetched list.
               if (search) {
                 const q = search.toLowerCase()
                 const matchesSearch =
@@ -359,7 +363,11 @@ export function InstancesView() {
                   (inst.program?.name ?? '').toLowerCase().includes(q)
                 if (!matchesSearch) return false
               }
-              if (attentionFilter !== 'all') {
+              if (attentionFilter === 'attention_unreviewed') {
+                if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== 'attention_required' || inst.attentionAcknowledged) {
+                  return false
+                }
+              } else if (attentionFilter !== 'all') {
                 if (mapPostureToAttentionSignal(inst.latestGovernancePosture) !== attentionFilter) {
                   return false
                 }
