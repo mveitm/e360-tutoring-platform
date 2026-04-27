@@ -141,3 +141,12 @@
 - Verified with TypeScript, production build, browser checks, and deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase ES — Cycle evaluation operational summary
+- Added compact read-only cycle-evaluation summary to learning cycle detail
+- Surfaced total evaluations and per-evaluation-type counts without adding actions or automation
+- Preserved cycle, study-load, decision, evaluation, skill-state, and adaptive semantics unchanged
+- Kept EN/EO/EQ/ER operational visibility and navigation behavior unaffected
+- Verified with TypeScript, production build, browser checks, and deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none

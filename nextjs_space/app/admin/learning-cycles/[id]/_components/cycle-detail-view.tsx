@@ -1162,6 +1162,46 @@ export function CycleDetailView() {
         </DialogContent>
       </Dialog>
 
+      {/* ── Phase ES: Cycle evaluation operational summary (read-only) ── */}
+      {(() => {
+        const evals = cycle.cycleEvaluations
+        const total = evals.length
+        const diagnostic = evals.filter((e) => e.evaluationType === 'diagnostic').length
+        const progressCheck = evals.filter((e) => e.evaluationType === 'progress_check').length
+        const cycleClose = evals.filter((e) => e.evaluationType === 'cycle_close').length
+        const indicator = total === 0
+          ? 'No cycle evaluations recorded'
+          : 'Cycle has recorded evaluations'
+        return (
+          <Card>
+            <CardContent className="py-4">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">Operational evaluation summary</p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+                <div>
+                  <p className="text-muted-foreground text-xs">Total evaluations</p>
+                  <p className="font-medium">{total}</p>
+                </div>
+                <div>
+                  <p className="text-muted-foreground text-xs">By type</p>
+                  <p className="font-medium text-xs">
+                    {diagnostic > 0 && <span className="mr-2">diagnostic {diagnostic}</span>}
+                    {progressCheck > 0 && <span className="mr-2">progress_check {progressCheck}</span>}
+                    {cycleClose > 0 && <span className="mr-2">cycle_close {cycleClose}</span>}
+                    {total === 0 && <span className="text-muted-foreground">—</span>}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-muted-foreground text-xs">Indicator</p>
+                  <p className={`font-medium text-xs ${total > 0 ? 'text-emerald-700' : 'text-muted-foreground'}`}>
+                    {indicator}
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )
+      })()}
+
       {/* ── Evaluations ── */}
       <section>
         <div className="flex items-center justify-between mb-3">
