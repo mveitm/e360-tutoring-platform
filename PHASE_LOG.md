@@ -321,3 +321,16 @@
 - The block is now closed; additional endpoint instrumentation must happen in separate minimal phases
 - Runtime verification succeeded, but a custody observation was noted: future prompts must strengthen no-secret-printing discipline
 - Specifically: do not print, echo, grep, display, or inline passwords — including seed/test passwords — in any command, log, or output
+
+## Phase FG-0 — Second audit logging instrumentation readiness gate
+- Documentation-only readiness gate; no endpoint was instrumented
+- Recommended second candidate: PUT /api/study-loads/[id] (not PATCH, which is hardened to 405 by Phase EY)
+- Rationale: admin-controlled metadata edit, closed-cycle guard and loadType validation already present, no lifecycle side-effects, tests audit pattern across a second domain
+- Code inspection confirmed PATCH unconditionally returns 405; PUT is the live write surface for title, loadType, releasedAt, dueAt
+- Defined expected audit field values: actorType=admin, actionType=update, domain=study_load, entityType=StudyLoad, method=PUT
+- Defined actor attribution via existing session.user.id and session.user.email
+- Defined operationId strategy: null for single-step metadata edits
+- Defined beforePayload/afterPayload discipline: 9 scalar StudyLoad fields only, no secrets, no nested relations
+- Defined verification steps, rollback criteria, audit failure isolation requirement, and no-secret-printing discipline
+- Created nextjs_space/docs/governance/AUDIT_LOGGING_INSTRUMENTATION_READINESS_FG0.md
+- Added no app code, schema changes, middleware, agents, UI actions, endpoint behavior changes, or data mutation
