@@ -261,3 +261,11 @@
 - This is not a precedent for broad mixed-scope phases; future phases should preserve strict minimal scope unless build restoration is explicitly approved
 - No-secret-printing policy is active for all future work: do not print .env, DATABASE_URL, PROD_DATABASE_URL, tokens, passwords, or connection strings
 - No product code, schema, endpoints, UI actions, deploy, data mutation, or automation changed in this custody closure
+
+## Phase FC — Audit Event Schema Proposal
+- Created documentation-only audit/event schema proposal for future traceability and runtime governance
+- Proposed AuditEvent fields, actor attribution, operationId/correlationId strategy, before/after payloads, rationale capture, and evidence immutability categories
+- Classified audit needs across cycle, study-load, SkillState, decision, evaluation, snapshot, continuity, session, response, and enrollment domains
+- Connected auditability requirements to future human-in-the-loop and AI-agent governance
+- Added no app code, schema changes, migrations, endpoints, middleware, agents, UI actions, deploy, automation, or data mutation
+- Post-deploy issues: none
