@@ -196,3 +196,12 @@
 - EX-0 reviewed snapshots and continuity signals and classified them as a separate evidence/append-only semantics concern, not part of this closed-cycle drift block
 - Future snapshot/signal hardening, if pursued, should open a separate deliberate block rather than be added by inertia
 - No product code, schema, endpoints, UI actions, deploy, data mutation, or automation changed in this custody closure
+## Phase EY — StudyLoad status mutation containment
+- Hardened PATCH /api/study-loads/[id] to reject generic study-load status mutations (405)
+- Replaced generic admin StudyLoad.status selects with read-only status badges in cycle detail view and study loads list
+- Preserved protected start/complete workflows as the only valid status transition paths
+- Preserved tutoring session, response/self-report, cycle, decision, evaluation, skill-state, snapshot, continuity, and adaptive semantics unchanged
+- Added no schema changes, new endpoints, new actions, or automation
+- Verified with TypeScript, production build, API rejection checks (401 unauth, 405 auth), browser checks, and deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none

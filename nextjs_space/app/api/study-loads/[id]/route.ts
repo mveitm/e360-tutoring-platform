@@ -20,36 +20,18 @@ const cycleInclude = {
   },
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+/* Phase EY — Hardened PATCH: generic study-load status mutations are rejected.
+   Status transitions must use the protected workflows:
+     POST /api/study-loads/[id]/start   (pending → in_progress)
+     POST /api/study-loads/[id]/complete (in_progress → completed)            */
+export async function PATCH(_req: NextRequest, { params: _params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions)
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  try {
-    const existing = await prisma.studyLoad.findUnique({
-      where: { id: params.id },
-      include: { learningCycle: { select: { status: true } } },
-    })
-    if (!existing) return NextResponse.json({ error: 'Study load not found' }, { status: 404 })
-    if (existing.learningCycle.status === 'closed') {
-      return NextResponse.json({ error: 'Cannot update loads in a closed cycle' }, { status: 400 })
-    }
-
-    const body = await req.json()
-    const { status } = body ?? {}
-
-    if (!status) {
-      return NextResponse.json({ error: 'status is required' }, { status: 400 })
-    }
-
-    const load = await prisma.studyLoad.update({
-      where: { id: params.id },
-      data: { status },
-      include: cycleInclude,
-    })
-    return NextResponse.json(load)
-  } catch (error: any) {
-    return NextResponse.json({ error: error?.message ?? 'Internal error' }, { status: 500 })
-  }
+  return NextResponse.json(
+    { error: 'Study load status mutations are not allowed via PATCH. Use POST /api/study-loads/[id]/start or POST /api/study-loads/[id]/complete.' },
+    { status: 405 },
+  )
 }
 
 const CANONICAL_LOAD_TYPES = new Set(['practice', 'reading', 'video', 'project', 'assessment'])

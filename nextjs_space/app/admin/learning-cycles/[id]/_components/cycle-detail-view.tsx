@@ -87,7 +87,7 @@ export function CycleDetailView() {
   const [newLoadType, setNewLoadType] = useState('')
   const [newLoadTitle, setNewLoadTitle] = useState('')
   const [creatingLoad, setCreatingLoad] = useState(false)
-  const [updatingLoad, setUpdatingLoad] = useState<string | null>(null)
+  // Phase EY: updatingLoad state removed — status select replaced with read-only badge
   const [editOpen, setEditOpen] = useState(false)
   const [editId, setEditId] = useState<string | null>(null)
   const [editForm, setEditForm] = useState({ title: '', loadType: '', releasedAt: '', dueAt: '' })
@@ -354,27 +354,8 @@ export function CycleDetailView() {
     }
   }
 
-  const handleLoadStatus = async (id: string, status: string) => {
-    setUpdatingLoad(id)
-    try {
-      const res = await fetch(`/api/study-loads/${id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status }),
-      })
-      if (res.ok) {
-        toast.success('Study load status updated')
-        fetchCycle()
-      } else {
-        const data = await res.json().catch(() => null)
-        toast.error(data?.error ?? 'Failed to update status')
-      }
-    } catch {
-      toast.error('Something went wrong')
-    } finally {
-      setUpdatingLoad(null)
-    }
-  }
+  // Phase EY: handleLoadStatus removed — generic status PATCH no longer allowed.
+  // Status transitions use protected POST start/complete workflows.
 
   const openEditLoad = (ld: CycleDetail['studyLoads'][number]) => {
     setEditId(ld.id)
@@ -1072,17 +1053,18 @@ export function CycleDetailView() {
                               </button>
                             </>
                           )}
-                          <select
-                            className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
-                            value={ld.status}
-                            disabled={cycle.status === 'closed' || updatingLoad === ld.id}
-                            onChange={(e) => handleLoadStatus(ld.id, e.target.value)}
-                          >
-                            <option value="pending">pending</option>
-                            <option value="released">released</option>
-                            <option value="in_progress">in_progress</option>
-                            <option value="completed">completed</option>
-                          </select>
+                          {/* Phase EY — Read-only study-load status badge.
+                              Generic status mutation removed; status transitions
+                              use protected POST start/complete workflows. */}
+                          <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                            ld.status === 'completed'
+                              ? 'bg-emerald-100 text-emerald-800'
+                              : ld.status === 'in_progress'
+                                ? 'bg-blue-100 text-blue-800'
+                                : ld.status === 'released'
+                                  ? 'bg-amber-100 text-amber-800'
+                                  : 'bg-gray-200 text-gray-700'
+                          }`}>{ld.status}</span>
                           <div className="text-xs text-muted-foreground text-right space-y-0.5">
                             {ld.releasedAt && <p>Released: {fmt(ld.releasedAt)}</p>}
                             {ld.dueAt && <p>Due: {fmt(ld.dueAt)}</p>}
