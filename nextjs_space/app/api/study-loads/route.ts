@@ -53,6 +53,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'learningCycleId, loadType, and title are required' }, { status: 400 })
     }
 
+    // Phase EZ — StudyLoad creation status normalization.
+    // New loads must start as 'pending'. Non-pending statuses bypass the
+    // protected load → session → response/self-report → evidence chain.
+    if (status !== undefined && status !== 'pending') {
+      return NextResponse.json(
+        { error: 'Study loads must be created as pending. Use POST /api/study-loads/[id]/start or POST /api/study-loads/[id]/complete for status transitions.' },
+        { status: 400 },
+      )
+    }
+
     if (!CANONICAL_LOAD_TYPES.has(loadType)) {
       return NextResponse.json({ error: 'Invalid loadType. Allowed: practice, reading, video, project, assessment' }, { status: 400 })
     }
@@ -67,7 +77,7 @@ export async function POST(req: NextRequest) {
         learningCycleId,
         loadType,
         title,
-        status: status ?? 'pending',
+        status: 'pending',
         releasedAt: releasedAt ? new Date(releasedAt) : null,
         dueAt: dueAt ? new Date(dueAt) : null,
       },

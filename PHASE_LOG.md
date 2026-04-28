@@ -214,3 +214,14 @@
 - Preserved the load → tutoring session → response/self-report → evidence chain
 - Future work on start/complete, tutoring sessions, or response evidence should open a deliberate new block rather than continue by inertia
 - No product code, schema, endpoints, UI actions, deploy, data mutation, or automation changed in this custody closure
+
+## Phase EZ — StudyLoad creation status normalization
+- Normalized StudyLoad creation so new loads can only be created as pending
+- Rejected non-pending create-time statuses to protect the load → session → response/self-report → evidence chain
+- Removed the StudyLoad status selector from the admin create modal
+- Preserved protected start/complete workflows as the only valid status transition paths
+- Preserved tutoring session, response/self-report, cycle, decision, evaluation, skill-state, snapshot, continuity, and adaptive semantics unchanged
+- Added no schema changes, new endpoints, new actions, or automation
+- Verified with TypeScript, production build, API rejection checks, browser checks, and deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none

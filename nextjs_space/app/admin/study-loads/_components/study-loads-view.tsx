@@ -69,7 +69,8 @@ export function StudyLoadsView() {
   const [saving, setSaving] = useState(false)
   // Phase EY: updating state removed — status select replaced with read-only badge
   const [updatingLoadType, setUpdatingLoadType] = useState<string | null>(null)
-  const [form, setForm] = useState({ learningCycleId: '', loadType: 'practice', title: '', status: 'pending', releasedAt: '', dueAt: '' })
+  // Phase EZ: status removed from create form — all new loads start as pending
+  const [form, setForm] = useState({ learningCycleId: '', loadType: 'practice', title: '', releasedAt: '', dueAt: '' })
 
   // Edit state
   const [editOpen, setEditOpen] = useState(false)
@@ -119,7 +120,7 @@ export function StudyLoadsView() {
         toast.error(data?.error ?? 'Failed to create study load')
       } else {
         toast.success('Study load created')
-        setForm({ learningCycleId: '', loadType: 'practice', title: '', status: 'pending', releasedAt: '', dueAt: '' })
+        setForm({ learningCycleId: '', loadType: 'practice', title: '', releasedAt: '', dueAt: '' })
         setOpen(false)
         fetchData()
       }
@@ -266,26 +267,17 @@ export function StudyLoadsView() {
                   ))}
                 </select>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label>Load Type</Label>
-                  <select className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" value={form.loadType} onChange={(e) => setForm({ ...form, loadType: e.target.value })}>
-                    <option value="practice">Practice</option>
-                    <option value="reading">Reading</option>
-                    <option value="video">Video</option>
-                    <option value="project">Project</option>
-                    <option value="assessment">Assessment</option>
-                  </select>
-                </div>
-                <div className="space-y-2">
-                  <Label>Status</Label>
-                  <select className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" value={form.status} onChange={(e) => setForm({ ...form, status: e.target.value })}>
-                    <option value="pending">Pending</option>
-                    <option value="released">Released</option>
-                    <option value="in_progress">In Progress</option>
-                    <option value="completed">Completed</option>
-                  </select>
-                </div>
+              {/* Phase EZ: Status select removed — all new loads start as pending.
+                  Status transitions use protected POST start/complete workflows. */}
+              <div className="space-y-2">
+                <Label>Load Type</Label>
+                <select className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" value={form.loadType} onChange={(e) => setForm({ ...form, loadType: e.target.value })}>
+                  <option value="practice">Practice</option>
+                  <option value="reading">Reading</option>
+                  <option value="video">Video</option>
+                  <option value="project">Project</option>
+                  <option value="assessment">Assessment</option>
+                </select>
               </div>
               <div className="space-y-2">
                 <Label>Title</Label>
