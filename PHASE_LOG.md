@@ -310,3 +310,14 @@
 - No schema, UI, middleware, agents, or other endpoints were changed
 - Verified with TypeScript, production build, and runtime test confirming correct audit row creation and payload discipline
 - Test data restored to original state after verification
+
+## CUST-BLOCK-FE — Close first audit logging instrumentation block
+- FE made PATCH /api/skill-states/[id] the first audited write endpoint
+- AuditEvent is written only after a successful mutation (fire-and-forget with error logging)
+- beforePayload and afterPayload are scalar SkillState snapshots only; no secrets, nested relations, headers, cookies, IP, or user-agent
+- Existing validation (FB guards) and response shape were preserved unchanged
+- No schema, UI, middleware, agents, or other endpoints were changed
+- Test data was restored and audit_events was cleaned back to 0 after runtime verification
+- The block is now closed; additional endpoint instrumentation must happen in separate minimal phases
+- Runtime verification succeeded, but a custody observation was noted: future prompts must strengthen no-secret-printing discipline
+- Specifically: do not print, echo, grep, display, or inline passwords — including seed/test passwords — in any command, log, or output
