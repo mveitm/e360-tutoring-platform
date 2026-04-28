@@ -234,3 +234,11 @@
 - Preserved the load → tutoring session → response/self-report → evidence → cycle close chain
 - Future work on start/complete, tutoring sessions, response evidence, or adaptive load generation should open a deliberate new block rather than continue by inertia
 - No product code, schema, endpoints, UI actions, deploy, data mutation, or automation changed in this custody closure
+
+## Phase FA — Action Governance Registry
+- Created documentation-only Action Governance Registry for current write/action surface
+- Classified major endpoints by authority tier, risk level, human-in-the-loop requirement, future agent permission, and audit need
+- Established governance principles for future agent-safe architecture without implementing agents or runtime middleware
+- Documented known gaps including flat admin authority, missing mutation audit log, actor attribution, evidence mutability, and lack of action budgets/circuit breakers
+- Added no app code, schema changes, endpoints, middleware, agents, UI actions, deploy, automation, or data mutation
+- Post-deploy issues: none
