@@ -46,51 +46,24 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   }
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+// Phase EV — Full PATCH status mutation hardening. After Phase EU removed
+// all UI consumers of this endpoint, there are zero legitimate callers.
+// Every valid lifecycle transition uses a dedicated atomic endpoint:
+//   - open → closed : POST /api/learning-cycles/[id]/close  (Phase DS)
+//   - closed → continue : POST /api/learning-cycles/[id]/continue (Phase DT)
+// Generic status mutation through PATCH is unconditionally rejected to
+// close the backend drift vector against ad-hoc HTTP requests.
+export async function PATCH(_req: NextRequest, { params: _params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions)
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  try {
-    const body = await req.json()
-    const { status } = body ?? {}
-
-    if (!status) {
-      return NextResponse.json({ error: 'status is required' }, { status: 400 })
-    }
-
-    // Phase DS — PATCH drift containment. Closing a cycle must emit a closing
-    // CycleSnapshot (snapshotType='cycle_close') and advance enrollment
-    // activity atomically; those side-effects only live in the dedicated
-    // POST /api/learning-cycles/[id]/close endpoint. Any attempt to flip
-    // status to 'closed' through this generic PATCH is rejected so the
-    // contract artefact cannot be silently bypassed from the list-level
-    // inline status select or from an ad-hoc client.
-    if (status === 'closed') {
-      return NextResponse.json(
-        { error: 'Use POST /api/learning-cycles/[id]/close' },
-        { status: 409 },
-      )
-    }
-
-    const data: any = { status }
-
-    const cycle = await prisma.learningCycle.update({
-      where: { id: params.id },
-      data,
-      include: {
-        enrollment: {
-          select: {
-            id: true,
-            status: true,
-            student: { select: { id: true, firstName: true, lastName: true } },
-            program: { select: { id: true, code: true, name: true } },
-          },
-        },
-        _count: { select: { cycleDecisions: true, studyLoads: true, cycleEvaluations: true } },
-      },
-    })
-    return NextResponse.json(cycle)
-  } catch (error: any) {
-    return NextResponse.json({ error: error?.message ?? 'Internal error' }, { status: 500 })
-  }
+  return NextResponse.json(
+    {
+      error:
+        'Cycle status mutations are not allowed via PATCH. ' +
+        'Use POST /api/learning-cycles/[id]/close or ' +
+        'POST /api/learning-cycles/[id]/continue.',
+    },
+    { status: 405 },
+  )
 }

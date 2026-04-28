@@ -168,3 +168,13 @@
 - Verified with TypeScript, production build, browser checks, and deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase EV — LearningCycle PATCH status mutation hardening
+- Hardened PATCH /api/learning-cycles/[id] to reject generic cycle status mutations
+- Preserved guarded lifecycle transitions through dedicated close-cycle and continue endpoints
+- Closed backend/API drift vector left after UI containment in EU
+- Preserved cycle, study-load, decision, evaluation, skill-state, snapshot, continuity, and adaptive semantics unchanged
+- Added no schema changes, UI actions, new endpoints, or automation
+- Verified with TypeScript, production build, API rejection check, browser checks, and deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
