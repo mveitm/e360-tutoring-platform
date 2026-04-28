@@ -278,3 +278,14 @@
 - Preserved DN/DU/DZ adaptive semantics and existing guards unchanged
 - Verified with Prisma generate, TypeScript/build checks, schema availability check, and deployment confirmation if applicable
 - Post-deploy issues: none
+
+## CUST-BLOCK-FD — Close AuditEvent infrastructure block
+- The AuditEvent infrastructure block is closed through Phase FD
+- FD introduced only:
+  - The approved 14-field AuditEvent Prisma model (id, createdAt, actorType, actorId, actorEmail, actionType, domain, entityType, entityId, endpoint, method, operationId, beforePayload, afterPayload)
+  - The audit helper utility (lib/audit.ts: recordAuditEvent, recordAuditEventTx)
+  - Production schema promotion with audit_events table present and containing 0 rows
+- No endpoints are instrumented yet; no audit rows are being written
+- Future instrumentation must happen through a separate readiness/instrumentation phase (FE or later)
+- No middleware, agents, UI changes, adaptive logic, or business data mutation was added in this block
+- No-secret-printing policy remains active
