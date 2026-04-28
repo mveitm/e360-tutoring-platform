@@ -187,3 +187,12 @@
 - Verified with TypeScript, production build, API/code checks, browser checks, and deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## UI/API mutation hardening block closure — through Phase EW
+- Closed the current UI/API mutation hardening block after EU/EV/EW
+- EU contained generic LearningCycle.status mutation controls in admin UI
+- EV hardened PATCH /api/learning-cycles/[id] against generic cycle status mutation
+- EW added closed-cycle guards for decision-skill PATCH/DELETE mutations
+- EX-0 reviewed snapshots and continuity signals and classified them as a separate evidence/append-only semantics concern, not part of this closed-cycle drift block
+- Future snapshot/signal hardening, if pursued, should open a separate deliberate block rather than be added by inertia
+- No product code, schema, endpoints, UI actions, deploy, data mutation, or automation changed in this custody closure
