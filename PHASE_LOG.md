@@ -252,3 +252,12 @@
 - Verified with TypeScript, production build, API rejection checks, browser checks, and deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## FB exception custody note — mixed-scope acceptance
+- Accepted FB as a valid but exceptional mixed-scope commit
+- Primary scope: SkillState value validation hardening on POST/PATCH
+- Secondary scope: pre-existing TypeScript implicit-any annotation-only fixes needed to restore production build capability
+- The secondary scope is accepted as build-restoration work with no intended runtime behavior change
+- This is not a precedent for broad mixed-scope phases; future phases should preserve strict minimal scope unless build restoration is explicitly approved
+- No-secret-printing policy is active for all future work: do not print .env, DATABASE_URL, PROD_DATABASE_URL, tokens, passwords, or connection strings
+- No product code, schema, endpoints, UI actions, deploy, data mutation, or automation changed in this custody closure
