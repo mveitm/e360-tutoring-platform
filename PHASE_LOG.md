@@ -225,3 +225,12 @@
 - Verified with TypeScript, production build, API rejection checks, browser checks, and deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## StudyLoad status integrity block closure — through Phase EZ
+- Closed the complete StudyLoad.status integrity block after EY/EZ
+- EY hardened PATCH /api/study-loads/[id] to reject generic status mutation and replaced admin status selectors with read-only badges
+- EZ normalized StudyLoad creation so new loads can only be created as pending
+- Protected status transitions remain concentrated in POST /start and POST /complete
+- Preserved the load → tutoring session → response/self-report → evidence → cycle close chain
+- Future work on start/complete, tutoring sessions, response evidence, or adaptive load generation should open a deliberate new block rather than continue by inertia
+- No product code, schema, endpoints, UI actions, deploy, data mutation, or automation changed in this custody closure
