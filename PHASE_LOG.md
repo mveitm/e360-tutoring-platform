@@ -289,3 +289,15 @@
 - Future instrumentation must happen through a separate readiness/instrumentation phase (FE or later)
 - No middleware, agents, UI changes, adaptive logic, or business data mutation was added in this block
 - No-secret-printing policy remains active
+
+## Phase FE-0 — Audit logging first-instrumentation readiness gate
+- Documentation-only readiness gate; no endpoint was instrumented
+- Recommended first candidate: PATCH /api/skill-states/[id]
+- Rationale: already hardened by FB, admin-controlled, no lifecycle side-effects, predictable mutation surface
+- Defined expected audit field values: actorType=human_admin, actionType=update, domain=skill_state, entityType=SkillState
+- Defined actor attribution via existing session.user.id and session.user.email
+- Defined operationId strategy: null for single-step mutations
+- Defined beforePayload/afterPayload discipline: scalar SkillState fields only, no secrets, no nested relations
+- Defined verification steps, rollback criteria, and audit failure isolation requirement
+- Created nextjs_space/docs/governance/AUDIT_LOGGING_INSTRUMENTATION_READINESS_FE0.md
+- Added no app code, schema changes, middleware, agents, UI actions, endpoint behavior changes, or data mutation
