@@ -301,3 +301,12 @@
 - Defined verification steps, rollback criteria, and audit failure isolation requirement
 - Created nextjs_space/docs/governance/AUDIT_LOGGING_INSTRUMENTATION_READINESS_FE0.md
 - Added no app code, schema changes, middleware, agents, UI actions, endpoint behavior changes, or data mutation
+
+## Phase FE — First audit logging instrumentation for SkillState PATCH
+- PATCH /api/skill-states/[id] became the first audited endpoint
+- AuditEvent is written only after a successful mutation (fire-and-forget with error logging)
+- beforePayload and afterPayload contain only scalar SkillState fields; no secrets, headers, cookies, IP, user-agent, or nested relations
+- Existing endpoint behavior, validation (FB guards), response shape, and authorization are preserved unchanged
+- No schema, UI, middleware, agents, or other endpoints were changed
+- Verified with TypeScript, production build, and runtime test confirming correct audit row creation and payload discipline
+- Test data restored to original state after verification

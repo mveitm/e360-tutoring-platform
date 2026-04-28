@@ -4,10 +4,27 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
+import { recordAuditEvent } from '@/lib/audit'
 
 const ALLOWED_MASTERY_LEVELS = ['not_evaluated', 'developing', 'mastered'] as const
 const ALLOWED_CONFIDENCE_LEVELS = ['none', 'low', 'medium', 'high'] as const
 const ALLOWED_STATE_SOURCES = ['manual', 'diagnostic', 'evaluation'] as const
+
+/** Extract only scalar SkillState fields for audit payloads. */
+function scalarSnapshot(record: any) {
+  return {
+    id: record.id,
+    enrollmentId: record.enrollmentId,
+    skillId: record.skillId,
+    masteryLevel: record.masteryLevel,
+    confidenceLevel: record.confidenceLevel,
+    needsReinforcement: record.needsReinforcement,
+    stateSource: record.stateSource,
+    lastEvaluatedAt: record.lastEvaluatedAt,
+    createdAt: record.createdAt,
+    updatedAt: record.updatedAt,
+  }
+}
 
 export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions)
@@ -42,6 +59,9 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
       return NextResponse.json({ error: 'At least one field to update is required' }, { status: 400 })
     }
 
+    // --- FE: Capture before-state for audit (scalar fields only) ---
+    const before = await prisma.skillState.findUnique({ where: { id: params.id } })
+
     const state = await prisma.skillState.update({
       where: { id: params.id },
       data,
@@ -59,6 +79,25 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
         },
       },
     })
+
+    // --- FE: Write audit event after successful mutation (fire-and-forget) ---
+    recordAuditEvent({
+      actorType: 'admin',
+      actorId: (session.user as any)?.id ?? 'unknown',
+      actorEmail: session.user?.email ?? null,
+      actionType: 'update',
+      domain: 'skill_state',
+      entityType: 'SkillState',
+      entityId: params.id,
+      endpoint: '/api/skill-states/[id]',
+      method: 'PATCH',
+      operationId: null,
+      beforePayload: before ? scalarSnapshot(before) : null,
+      afterPayload: scalarSnapshot(state),
+    }).catch((err) => {
+      console.error('[FE] Audit write failed for SkillState PATCH:', err?.message ?? err)
+    })
+
     return NextResponse.json(state)
   } catch (error: any) {
     return NextResponse.json({ error: error?.message ?? 'Internal error' }, { status: 500 })
