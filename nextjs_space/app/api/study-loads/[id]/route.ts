@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
+import { recordAuditEvent } from '@/lib/audit'
 
 const cycleInclude = {
   learningCycle: {
@@ -18,6 +19,21 @@ const cycleInclude = {
       },
     },
   },
+}
+
+/** Extract only scalar StudyLoad fields for audit payloads. */
+function scalarSnapshot(record: any) {
+  return {
+    id: record.id,
+    learningCycleId: record.learningCycleId,
+    loadType: record.loadType,
+    title: record.title,
+    status: record.status,
+    releasedAt: record.releasedAt,
+    dueAt: record.dueAt,
+    createdAt: record.createdAt,
+    updatedAt: record.updatedAt,
+  }
 }
 
 /* Phase EY — Hardened PATCH: generic study-load status mutations are rejected.
@@ -57,6 +73,9 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
       return NextResponse.json({ error: 'Invalid loadType. Allowed: practice, reading, video, project, assessment' }, { status: 400 })
     }
 
+    // --- FG: Capture before-state for audit (scalar fields only) ---
+    const beforeSnapshot = scalarSnapshot(existing)
+
     const updated = await prisma.studyLoad.update({
       where: { id: params.id },
       data: {
@@ -67,6 +86,25 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
       },
       include: cycleInclude,
     })
+
+    // --- FG: Write audit event after successful mutation (fire-and-forget) ---
+    recordAuditEvent({
+      actorType: 'admin',
+      actorId: (session.user as any)?.id ?? 'unknown',
+      actorEmail: session.user?.email ?? null,
+      actionType: 'update',
+      domain: 'study_load',
+      entityType: 'StudyLoad',
+      entityId: params.id,
+      endpoint: '/api/study-loads/[id]',
+      method: 'PUT',
+      operationId: null,
+      beforePayload: beforeSnapshot,
+      afterPayload: scalarSnapshot(updated),
+    }).catch((err) => {
+      console.error('[FG] Audit write failed for StudyLoad PUT:', err?.message ?? err)
+    })
+
     return NextResponse.json(updated)
   } catch (error: any) {
     return NextResponse.json({ error: error?.message ?? 'Internal error' }, { status: 500 })

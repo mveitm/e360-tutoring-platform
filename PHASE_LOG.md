@@ -334,3 +334,14 @@
 - Defined verification steps, rollback criteria, audit failure isolation requirement, and no-secret-printing discipline
 - Created nextjs_space/docs/governance/AUDIT_LOGGING_INSTRUMENTATION_READINESS_FG0.md
 - Added no app code, schema changes, middleware, agents, UI actions, endpoint behavior changes, or data mutation
+
+## Phase FG — Instrument StudyLoad PUT audit logging
+- PUT /api/study-loads/[id] became the second audited write endpoint
+- PATCH /api/study-loads/[id] remains hardened to 405 and was not modified
+- AuditEvent is written only after a successful PUT mutation (fire-and-forget with error logging)
+- beforePayload and afterPayload contain only the 9 scalar StudyLoad fields; no secrets, nested relations, headers, cookies, IP, or user-agent
+- Existing validation (loadType allowlist), closed-cycle guard, response shape, and authorization were preserved unchanged
+- No schema, UI, middleware, agents, lifecycle actions (/start, /complete), or other endpoints were changed
+- Verified with TypeScript, production build, PATCH-still-405 check, and runtime test confirming correct audit row creation and payload discipline
+- Test data was restored and audit_events was cleaned back to 0 after verification
+- No passwords were printed during verification
