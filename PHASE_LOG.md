@@ -205,3 +205,12 @@
 - Verified with TypeScript, production build, API rejection checks (401 unauth, 405 auth), browser checks, and deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## StudyLoad status integrity block closure — through Phase EY
+- Closed the generic StudyLoad.status mutation integrity block after EY
+- EY hardened PATCH /api/study-loads/[id] to reject generic status mutation
+- EY replaced generic admin StudyLoad.status selectors with read-only status badges
+- Protected status transitions remain concentrated in POST /start and POST /complete
+- Preserved the load → tutoring session → response/self-report → evidence chain
+- Future work on start/complete, tutoring sessions, or response evidence should open a deliberate new block rather than continue by inertia
+- No product code, schema, endpoints, UI actions, deploy, data mutation, or automation changed in this custody closure
