@@ -158,3 +158,13 @@
 - EP was already satisfied by the pre-existing View enrollment link on learning cycle detail
 - No further operational summary cards should be added by inertia; next work should start from a deliberately chosen new functional front
 - No product code, schema, endpoints, actions, automation, or pedagogical logic changed in this custody closure
+
+## Phase EU — Generic cycle status mutation containment
+- Contained generic manual LearningCycle.status mutation controls in admin UI
+- Replaced generic status dropdowns with read-only status display where appropriate
+- Preserved guarded lifecycle actions such as close-cycle and continue workflows unchanged
+- Preserved cycle, study-load, decision, evaluation, skill-state, and adaptive semantics unchanged
+- Added no schema changes, API changes, write endpoints, or automation
+- Verified with TypeScript, production build, browser checks, and deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none

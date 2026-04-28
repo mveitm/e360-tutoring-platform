@@ -80,7 +80,6 @@ export function CycleDetailView() {
 
   const [cycle, setCycle] = useState<CycleDetail | null>(null)
   const [loading, setLoading] = useState(true)
-  const [updating, setUpdating] = useState(false)
   const [newDecisionType, setNewDecisionType] = useState('')
   const [creatingDecision, setCreatingDecision] = useState(false)
   const [newEvalType, setNewEvalType] = useState('')
@@ -139,28 +138,6 @@ export function CycleDetailView() {
   useEffect(() => {
     if (cycleId) fetchCycle()
   }, [cycleId, fetchCycle])
-
-  const handleStatusChange = async (newStatus: string) => {
-    setUpdating(true)
-    try {
-      const res = await fetch(`/api/learning-cycles/${cycleId}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status: newStatus }),
-      })
-      if (res.ok) {
-        toast.success(`Cycle ${newStatus === 'closed' ? 'closed' : 'updated'}`)
-        fetchCycle()
-      } else {
-        const data = await res.json()
-        toast.error(data?.error ?? 'Failed to update')
-      }
-    } catch {
-      toast.error('Something went wrong')
-    } finally {
-      setUpdating(false)
-    }
-  }
 
   // Phase DS — dedicated admin-only close path. Goes through
   // POST /api/learning-cycles/[id]/close so the closing CycleSnapshot and
@@ -597,16 +574,19 @@ export function CycleDetailView() {
             </div>
 
             <div className="flex items-center gap-3">
-              <select
-                className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
-                value={cycle.status}
-                onChange={(e) => handleStatusChange(e.target.value)}
-                disabled={updating}
-              >
-                <option value="open">open</option>
-                <option value="in_progress">in_progress</option>
-                <option value="closed">closed</option>
-              </select>
+              {/* Phase EU — Read-only status badge. Generic status mutation
+                  via select is removed; lifecycle transitions happen only
+                  through the guarded "Cerrar ciclo" and "Autorizar
+                  continuidad" buttons below. */}
+              <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                cycle.status === 'open'
+                  ? 'bg-emerald-100 text-emerald-800'
+                  : cycle.status === 'closed'
+                    ? 'bg-gray-200 text-gray-700'
+                    : 'bg-amber-100 text-amber-800'
+              }`}>
+                {cycle.status}
+              </span>
 
               {/* Phase DS — "Cerrar ciclo" action.
                   Rendered only when the cycle is still open AND every
@@ -623,7 +603,7 @@ export function CycleDetailView() {
                     size="sm"
                     variant="secondary"
                     onClick={() => setCloseOpen(true)}
-                    disabled={closing || updating}
+                    disabled={closing}
                   >
                     <Lock className="w-3.5 h-3.5 mr-1.5" />
                     Cerrar ciclo
@@ -646,7 +626,7 @@ export function CycleDetailView() {
                     size="sm"
                     variant="secondary"
                     onClick={() => setContinueOpen(true)}
-                    disabled={authorizing || updating}
+                    disabled={authorizing}
                   >
                     <CheckCircle2 className="w-3.5 h-3.5 mr-1.5" />
                     Autorizar continuidad

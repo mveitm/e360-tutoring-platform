@@ -40,7 +40,7 @@ export function LearningCyclesView() {
   const [loading, setLoading] = useState(true)
   const [open, setOpen] = useState(false)
   const [saving, setSaving] = useState(false)
-  const [updating, setUpdating] = useState<string | null>(null)
+  // Phase EU — updating state removed; cycle status is now read-only.
   const [filterEnrollment, setFilterEnrollment] = useState('')
   const [search, setSearch] = useState('')
   const [form, setForm] = useState({ enrollmentId: '', status: 'open' })
@@ -91,27 +91,9 @@ export function LearningCyclesView() {
     }
   }
 
-  const handleStatusChange = async (id: string, newStatus: string) => {
-    setUpdating(id)
-    try {
-      const res = await fetch(`/api/learning-cycles/${id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status: newStatus }),
-      })
-      if (res.ok) {
-        toast.success(`Cycle ${newStatus === 'closed' ? 'closed' : 'updated'}`)
-        fetchData()
-      } else {
-        const data = await res.json()
-        toast.error(data?.error ?? 'Failed to update')
-      }
-    } catch {
-      toast.error('Something went wrong')
-    } finally {
-      setUpdating(null)
-    }
-  }
+  // Phase EU — handleStatusChange removed; cycle status is now read-only
+  // in this view. Lifecycle transitions use guarded workflows on the cycle
+  // detail page (Cerrar ciclo / Autorizar continuidad).
 
   const formatDate = (d: string | null) => {
     if (!d) return '—'
@@ -261,16 +243,18 @@ export function LearningCyclesView() {
                       </p>
                     </div>
                   </div>
-                  <select
-                    className="rounded-md border border-input bg-background px-2 py-1 text-xs font-medium"
-                    value={cy.status}
-                    onChange={(e) => handleStatusChange(cy.id, e.target.value)}
-                    disabled={updating === cy.id}
-                  >
-                    <option value="open">open</option>
-                    <option value="in_progress">in_progress</option>
-                    <option value="closed">closed</option>
-                  </select>
+                  {/* Phase EU — Read-only cycle status badge.
+                      Generic status mutation removed; lifecycle transitions
+                      use guarded workflows on the cycle detail page. */}
+                  <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                    cy.status === 'open'
+                      ? 'bg-emerald-100 text-emerald-800'
+                      : cy.status === 'closed'
+                        ? 'bg-gray-200 text-gray-700'
+                        : 'bg-amber-100 text-amber-800'
+                  }`}>
+                    {cy.status}
+                  </span>
                 </div>
                 <div className="mt-3 pt-3 border-t flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
                   <span>Opened: {formatDate(cy.openedAt)}</span>
