@@ -269,3 +269,12 @@
 - Connected auditability requirements to future human-in-the-loop and AI-agent governance
 - Added no app code, schema changes, migrations, endpoints, middleware, agents, UI actions, deploy, automation, or data mutation
 - Post-deploy issues: none
+
+## Phase FD — AuditEvent schema and audit helper
+- Added minimal standalone AuditEvent Prisma model for future auditability and evidence traceability
+- Added audit helper utility for future endpoint instrumentation
+- Preserved endpoint behavior unchanged; no routes were instrumented in this phase
+- Added no middleware, agents, UI actions, HITL workflow, endpoint behavior changes, or data mutation
+- Preserved DN/DU/DZ adaptive semantics and existing guards unchanged
+- Verified with Prisma generate, TypeScript/build checks, schema availability check, and deployment confirmation if applicable
+- Post-deploy issues: none

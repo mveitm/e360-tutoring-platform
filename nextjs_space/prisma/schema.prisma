@@ -330,3 +330,36 @@ model ContinuitySignal {
 
   @@map("continuity_signals")
 }
+
+// Phase FD — Append-only audit event log for mutation traceability.
+// No FK to User (actorId stores "system" and future agent identities).
+// No updatedAt (append-only by design — records must never be updated or deleted).
+// No Prisma enums (consistent with project-wide String + application-validation pattern).
+// HITL fields, correlationId, rationale, riskLevel, authorityTier, metadata deferred to later phases.
+model AuditEvent {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+
+  actorType     String   // human_admin | student | system | future_agent | external_tool
+  actorId       String   // User.id, "system", or agent identity
+  actorEmail    String?  // denormalized for query convenience
+
+  actionType    String   // create | update | delete | status_transition
+  domain        String   // learning_cycle | study_load | skill_state | ...
+  entityType    String   // Prisma model name
+  entityId      String   // PK of affected record
+
+  endpoint      String   // API route path
+  method        String   // HTTP method
+
+  operationId   String?  // links multi-step workflow mutations
+
+  beforePayload Json?    // state before mutation
+  afterPayload  Json?    // state after mutation
+
+  @@index([entityType, entityId])
+  @@index([actorType, actorId])
+  @@index([operationId])
+  @@index([createdAt])
+  @@map("audit_events")
+}
