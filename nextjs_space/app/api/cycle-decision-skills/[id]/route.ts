@@ -57,8 +57,16 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   try {
-    const existing = await prisma.cycleDecisionSkill.findUnique({ where: { id: params.id } })
+    // Phase EW — closed-cycle guard: traverse decision → learningCycle to
+    // prevent edits to decision-skill evidence after the parent cycle is closed.
+    const existing = await prisma.cycleDecisionSkill.findUnique({
+      where: { id: params.id },
+      include: { cycleDecision: { select: { learningCycle: { select: { status: true } } } } },
+    })
     if (!existing) return NextResponse.json({ error: 'Cycle decision skill not found' }, { status: 404 })
+    if (existing.cycleDecision.learningCycle.status === 'closed') {
+      return NextResponse.json({ error: 'Cannot edit decision skills in a closed cycle' }, { status: 400 })
+    }
 
     const body = await req.json()
     const { priority, reason } = body ?? {}
@@ -82,8 +90,15 @@ export async function DELETE(_req: NextRequest, { params }: { params: { id: stri
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   try {
-    const existing = await prisma.cycleDecisionSkill.findUnique({ where: { id: params.id } })
+    // Phase EW — closed-cycle guard: same traversal as PATCH above.
+    const existing = await prisma.cycleDecisionSkill.findUnique({
+      where: { id: params.id },
+      include: { cycleDecision: { select: { learningCycle: { select: { status: true } } } } },
+    })
     if (!existing) return NextResponse.json({ error: 'Cycle decision skill not found' }, { status: 404 })
+    if (existing.cycleDecision.learningCycle.status === 'closed') {
+      return NextResponse.json({ error: 'Cannot delete decision skills in a closed cycle' }, { status: 400 })
+    }
 
     await prisma.cycleDecisionSkill.delete({ where: { id: params.id } })
     return NextResponse.json({ success: true })

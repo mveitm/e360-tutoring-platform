@@ -178,3 +178,12 @@
 - Verified with TypeScript, production build, API rejection check, browser checks, and deployment confirmation
 - Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
 - Post-deploy issues: none
+
+## Phase EW — Closed-cycle decision-skill mutation guards
+- Added backend closed-cycle guards to decision-skill junction PATCH and DELETE endpoints
+- Prevented direct API edits/deletes of decision-skill evidence after parent cycle closure
+- Preserved existing decision, evaluation, study-load, snapshot, continuity, and lifecycle semantics unchanged
+- Added no schema changes, UI actions, new endpoints, or automation
+- Verified with TypeScript, production build, API/code checks, browser checks, and deployment confirmation
+- Deployed to tutoring-platform-mv-l4o1ne.abacusai.app
+- Post-deploy issues: none
