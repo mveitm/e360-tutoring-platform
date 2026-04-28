@@ -345,3 +345,15 @@
 - Verified with TypeScript, production build, PATCH-still-405 check, and runtime test confirming correct audit row creation and payload discipline
 - Test data was restored and audit_events was cleaned back to 0 after verification
 - No passwords were printed during verification
+
+## CUST-BLOCK-FG — Close second audit logging instrumentation block
+- FE made PATCH /api/skill-states/[id] the first audited write endpoint
+- FG made PUT /api/study-loads/[id] the second audited write endpoint
+- PATCH /api/study-loads/[id] remains 405 and unchanged
+- AuditEvent writes happen only after successful mutations (fire-and-forget with error logging)
+- Payloads are scalar-only before/after snapshots; no secrets, nested relations, headers, cookies, IP, or user-agent
+- Existing validation, response shapes, closed-cycle guards, and authorization were preserved unchanged
+- No schema, UI, middleware, agents, lifecycle actions (/start, /complete, /close, /continue), or additional endpoints changed
+- Test data was restored and audit_events was cleaned to 0 after verification in both FE and FG
+- The block is now closed; additional endpoint instrumentation must happen in separate minimal phases
+- No-secret-printing discipline continues: do not print, echo, grep, display, or inline secrets or passwords, including seed/test passwords
