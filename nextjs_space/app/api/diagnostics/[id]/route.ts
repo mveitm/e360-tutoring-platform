@@ -69,7 +69,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 
       const now = new Date()
 
-      const updated = await prisma.$transaction(async (tx) => {
+      const updated = await prisma.$transaction(async (tx: any) => {
         // 1. Update the diagnostic
         const diag = await tx.diagnostic.update({
           where: { id: params.id },
@@ -85,7 +85,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
         // 2. SE-1: Create SkillState for each active skill (skip duplicates)
         if (activeSkills.length > 0) {
           await tx.skillState.createMany({
-            data: activeSkills.map((skill) => ({
+            data: activeSkills.map((skill: any) => ({
               enrollmentId: existing.enrollmentId,
               skillId: skill.id,
               masteryLevel: 'not_evaluated',

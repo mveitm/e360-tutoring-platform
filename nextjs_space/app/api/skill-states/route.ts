@@ -36,6 +36,10 @@ export async function GET(req: NextRequest) {
   }
 }
 
+const ALLOWED_MASTERY_LEVELS = ['not_evaluated', 'developing', 'mastered'] as const
+const ALLOWED_CONFIDENCE_LEVELS = ['none', 'low', 'medium', 'high'] as const
+const ALLOWED_STATE_SOURCES = ['manual', 'diagnostic', 'evaluation'] as const
+
 export async function POST(req: NextRequest) {
   const session = await getServerSession(authOptions)
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -46,6 +50,20 @@ export async function POST(req: NextRequest) {
 
     if (!enrollmentId || !skillId) {
       return NextResponse.json({ error: 'enrollmentId and skillId are required' }, { status: 400 })
+    }
+
+    // --- FB: Value validation for enum-like fields ---
+    if (masteryLevel !== undefined && !ALLOWED_MASTERY_LEVELS.includes(masteryLevel)) {
+      return NextResponse.json({ error: `Invalid masteryLevel: "${masteryLevel}". Allowed values: ${ALLOWED_MASTERY_LEVELS.join(', ')}` }, { status: 400 })
+    }
+    if (confidenceLevel !== undefined && !ALLOWED_CONFIDENCE_LEVELS.includes(confidenceLevel)) {
+      return NextResponse.json({ error: `Invalid confidenceLevel: "${confidenceLevel}". Allowed values: ${ALLOWED_CONFIDENCE_LEVELS.join(', ')}` }, { status: 400 })
+    }
+    if (stateSource !== undefined && !ALLOWED_STATE_SOURCES.includes(stateSource)) {
+      return NextResponse.json({ error: `Invalid stateSource: "${stateSource}". Allowed values: ${ALLOWED_STATE_SOURCES.join(', ')}` }, { status: 400 })
+    }
+    if (needsReinforcement !== undefined && typeof needsReinforcement !== 'boolean') {
+      return NextResponse.json({ error: 'needsReinforcement must be a boolean (true or false)' }, { status: 400 })
     }
 
     const state = await prisma.skillState.create({

@@ -36,7 +36,7 @@ import {
   type AuthoritativeDiagnosticReason,
 } from '@/lib/diagnostics/authoritative'
 
-type PrismaLike = PrismaClient | Parameters<Parameters<PrismaClient['$transaction']>[0]>[0]
+type PrismaLike = PrismaClient | any
 
 export type TacticalVerdict =
   | 'usable_performance'

@@ -24,7 +24,7 @@ import { prisma as defaultPrisma } from '@/lib/prisma'
  * Accepts either the singleton client or a Prisma transaction client, so
  * later phases can invoke the selector atomically inside a $transaction.
  */
-type PrismaLike = PrismaClient | Parameters<Parameters<PrismaClient['$transaction']>[0]>[0]
+type PrismaLike = PrismaClient | any
 
 export type AuthoritativeDiagnosticReason =
   | 'single_valid_attempt'
@@ -77,7 +77,7 @@ export async function resolveAuthoritativeDiagnosticAttempt(
   })
 
   const qualifying = all.filter(
-    (d) => d.status === COMPLETED_STATUS && d.completedAt !== null
+    (d: any) => d.status === COMPLETED_STATUS && d.completedAt !== null
   )
   const consideredCount = qualifying.length
   const rejectedCount = all.length - qualifying.length

@@ -187,12 +187,12 @@ export default async function NowPage() {
     },
   })
 
-  const pendingLoads = allLoads.filter((l) => l.status === 'pending')
-  const inProgressLoads = allLoads.filter((l) => l.status === 'in_progress')
+  const pendingLoads = allLoads.filter((l: any) => l.status === 'pending')
+  const inProgressLoads = allLoads.filter((l: any) => l.status === 'in_progress')
   const completedLoads = allLoads
-    .filter((l) => l.status === 'completed')
+    .filter((l: any) => l.status === 'completed')
     .slice()
-    .sort((a, b) => {
+    .sort((a: any, b: any) => {
       const ta = a.tutoringSessions[0]?.completedAt?.getTime() ?? 0
       const tb = b.tutoringSessions[0]?.completedAt?.getTime() ?? 0
       return tb - ta
@@ -236,7 +236,7 @@ export default async function NowPage() {
                 Cargas pendientes ({pendingLoads.length})
               </h2>
               <ul className="space-y-3">
-                {pendingLoads.map((load) => (
+                {pendingLoads.map((load: any) => (
                   <li key={load.id}>
                     <Card>
                       <CardContent className="py-4">
@@ -263,7 +263,7 @@ export default async function NowPage() {
                 En curso ({inProgressLoads.length})
               </h2>
               <ul className="space-y-3">
-                {inProgressLoads.map((load) => (
+                {inProgressLoads.map((load: any) => (
                   <li key={load.id}>
                     <Card>
                       <CardContent className="py-4">
@@ -298,7 +298,7 @@ export default async function NowPage() {
                 Lo que hiciste en este ciclo ({completedLoads.length})
               </h2>
               <ul className="space-y-3">
-                {completedLoads.map((load) => {
+                {completedLoads.map((load: any) => {
                   const report = load.tutoringSessions[0]?.responses[0]?.content ?? null
                   return (
                     <li key={load.id}>

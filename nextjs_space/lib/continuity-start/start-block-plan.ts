@@ -78,7 +78,7 @@ import {
   type OperationalReason,
 } from '@/lib/continuity-start/operational-output'
 
-type PrismaLike = PrismaClient | Parameters<Parameters<PrismaClient['$transaction']>[0]>[0]
+type PrismaLike = PrismaClient | any
 
 export type StartBlockShape =
   | 'standard'

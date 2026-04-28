@@ -98,7 +98,7 @@ import {
   type StartBlockRefusalReason,
 } from '@/lib/continuity-start/start-block-plan'
 
-type PrismaLike = PrismaClient | Parameters<Parameters<PrismaClient['$transaction']>[0]>[0]
+type PrismaLike = PrismaClient | any
 
 export type ShadowItemSource = 'safe_generic' | 'skillstate_heuristic'
 

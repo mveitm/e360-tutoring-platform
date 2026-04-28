@@ -105,7 +105,7 @@ export async function POST(
   }
 
   try {
-    const result = await prisma.$transaction(async (tx) => {
+    const result = await prisma.$transaction(async (tx: any) => {
       // Re-read the load and cycle inside the transaction to guard against
       // a race with an admin-side closure or another start action.
       const fresh = await tx.studyLoad.findUnique({

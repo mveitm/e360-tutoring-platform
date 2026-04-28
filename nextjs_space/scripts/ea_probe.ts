@@ -50,9 +50,9 @@ async function probeNoStructuralBlock() {
       },
     },
   })
-  const candidate = enrollments.find((e) =>
-    e.learningCycles.every((c) =>
-      c.cycleSnapshots.every((s) => s.snapshotType !== 'cycle_open')
+  const candidate = enrollments.find((e: any) =>
+    e.learningCycles.every((c: any) =>
+      c.cycleSnapshots.every((s: any) => s.snapshotType !== 'cycle_open')
     )
   )
   if (!candidate) {
@@ -149,8 +149,8 @@ async function probeReferenceCycleIsLowestOpen() {
   })
   for (const e of enrollments) {
     const expected = e.learningCycles
-      .filter((c) => c.cycleSnapshots.some((s) => s.snapshotType === 'cycle_open'))
-      .map((c) => c.cycleNumber)[0] ?? null
+      .filter((c: any) => c.cycleSnapshots.some((s: any) => s.snapshotType === 'cycle_open'))
+      .map((c: any) => c.cycleNumber)[0] ?? null
     const r = await reconcileContinuityStart(prisma, { enrollmentId: e.id })
     if (!r) continue
     const got = r.referenceCycleNumber

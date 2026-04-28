@@ -140,7 +140,7 @@ import type { ReconciliationStatus } from '@/lib/continuity-start/reconciliation
 
 type PrismaLike =
   | PrismaClient
-  | Parameters<Parameters<PrismaClient['$transaction']>[0]>[0]
+  | any
 
 /**
  * Convergence posture. See (EC-2) for binding semantics.

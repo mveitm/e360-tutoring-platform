@@ -76,10 +76,10 @@ export async function GET(
     // Derive `latestGovernancePosture` + `attentionAcknowledged` and
     // strip the raw signals array from the response shape.
     const latestReading = instance.continuitySignals?.find(
-      (s) => s.signalType === 'continuity_start_governance_reading'
+      (s: any) => s.signalType === 'continuity_start_governance_reading'
     )
     const latestAck = instance.continuitySignals?.find(
-      (s) => s.signalType === 'attention_acknowledged'
+      (s: any) => s.signalType === 'attention_acknowledged'
     )
     let latestGovernancePosture: string | null = null
     if (latestReading?.rationale) {

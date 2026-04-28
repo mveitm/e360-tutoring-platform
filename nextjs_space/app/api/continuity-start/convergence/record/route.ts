@@ -254,7 +254,7 @@ export async function GET(req: NextRequest) {
     const pageRows = hasMore ? rows.slice(0, effectiveLimit) : rows
     const nextCursor = hasMore ? pageRows[pageRows.length - 1].id : null
 
-    const items = pageRows.map((r) => {
+    const items = pageRows.map((r: any) => {
       // Per-row JSON.parse tolerance: a corrupt or null rationale
       // must not take the endpoint down.
       let parsed: unknown = r.rationale

@@ -103,7 +103,7 @@ import {
 
 type PrismaLike =
   | PrismaClient
-  | Parameters<Parameters<PrismaClient['$transaction']>[0]>[0]
+  | any
 
 /**
  * Which side is read as currently holding priority of interpretation.

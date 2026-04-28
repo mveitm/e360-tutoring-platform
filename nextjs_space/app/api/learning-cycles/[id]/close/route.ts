@@ -63,7 +63,7 @@ export async function POST(_req: NextRequest, { params }: { params: { id: string
     return NextResponse.json({ error: 'El ciclo no tiene cargas registradas' }, { status: 409 })
   }
 
-  const anyPending = cycle.studyLoads.some((l) => l.status !== 'completed')
+  const anyPending = cycle.studyLoads.some((l: any) => l.status !== 'completed')
   if (anyPending) {
     return NextResponse.json({ error: 'Aún hay cargas sin completar' }, { status: 409 })
   }
@@ -74,7 +74,7 @@ export async function POST(_req: NextRequest, { params }: { params: { id: string
   // stamp. Closing snapshot payload is intentionally minimal and strictly
   // transcriptive per DS constraints — no metrics, no counters, no scoring.
   try {
-    const result = await prisma.$transaction(async (tx) => {
+    const result = await prisma.$transaction(async (tx: any) => {
       const updatedCycle = await tx.learningCycle.update({
         where: { id: cycleId },
         data: { status: 'closed', closedAt: now },
@@ -95,7 +95,7 @@ export async function POST(_req: NextRequest, { params }: { params: { id: string
           snapshotType: 'cycle_close',
           payload: {
             closedAt: now.toISOString(),
-            studyLoads: cycle.studyLoads.map((l) => ({
+            studyLoads: cycle.studyLoads.map((l: any) => ({
               id: l.id,
               title: l.title,
               loadType: l.loadType,

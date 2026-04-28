@@ -153,7 +153,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const cycle = await prisma.$transaction(async (tx) => {
+    const cycle = await prisma.$transaction(async (tx: any) => {
       const newCycle = await tx.learningCycle.create({
         data: {
           enrollmentId,
@@ -208,7 +208,7 @@ export async function POST(req: NextRequest) {
           payload: {
             heuristic: 'needsReinforcement_desc__masteryLevel_asc__skillId_asc__top3',
             maxFirstLoads: MAX_FIRST_LOADS,
-            skillStates: skillStates.map((s) => ({
+            skillStates: skillStates.map((s: any) => ({
               skillId: s.skillId,
               skillCode: s.skill.code,
               masteryLevel: s.masteryLevel,

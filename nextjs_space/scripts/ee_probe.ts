@@ -214,7 +214,7 @@ async function main() {
     (await prisma.continuitySignal.findMany({
       where: { enrollmentId: DEMO_ENROLLMENT_ID, signalType: ED_SIGNAL_TYPE },
       select: { id: true },
-    })).map((r) => r.id),
+    })).map((r: any) => r.id),
   )
   console.log('baseline counts:', baselineCounts)
   console.log('baseline enrollment pointer:', baselinePointer)

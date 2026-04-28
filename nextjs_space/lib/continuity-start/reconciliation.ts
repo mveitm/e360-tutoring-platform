@@ -78,7 +78,7 @@ import { DEFAULT_DIAGNOSTIC_TYPE } from '@/lib/diagnostics/authoritative'
 
 type PrismaLike =
   | PrismaClient
-  | Parameters<Parameters<PrismaClient['$transaction']>[0]>[0]
+  | any
 
 /**
  * Reconciliation statuses — 1:1 TOTAL. See (EA-4).

@@ -79,7 +79,7 @@ export async function POST(_req: NextRequest, { params }: { params: { id: string
   // activity stamp (consistency with DS/DP/DQ). No other side-effects.
   // Rationale is pinned to the literal 'admin_authorize' for this phase.
   try {
-    const result = await prisma.$transaction(async (tx) => {
+    const result = await prisma.$transaction(async (tx: any) => {
       const signal = await tx.continuitySignal.create({
         data: {
           enrollmentId: cycle.enrollmentId,

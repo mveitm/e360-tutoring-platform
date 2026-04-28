@@ -38,12 +38,12 @@ export async function GET() {
 
     // Derive `latestGovernancePosture` and `attentionAcknowledged` per
     // enrollment and strip the raw signals array from the response shape.
-    const withPosture = instances.map((inst) => {
+    const withPosture = instances.map((inst: any) => {
       const latestReading = inst.continuitySignals?.find(
-        (s) => s.signalType === 'continuity_start_governance_reading'
+        (s: any) => s.signalType === 'continuity_start_governance_reading'
       )
       const latestAck = inst.continuitySignals?.find(
-        (s) => s.signalType === 'attention_acknowledged'
+        (s: any) => s.signalType === 'attention_acknowledged'
       )
       let latestGovernancePosture: string | null = null
       if (latestReading?.rationale) {

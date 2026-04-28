@@ -158,7 +158,7 @@ export async function POST(
   const activeSessionId = activeSessions[0].id
 
   try {
-    const result = await prisma.$transaction(async (tx) => {
+    const result = await prisma.$transaction(async (tx: any) => {
       // Re-read the critical state inside the transaction to close TOCTOU
       // windows against concurrent admin actions or retries.
       const fresh = await tx.studyLoad.findUnique({

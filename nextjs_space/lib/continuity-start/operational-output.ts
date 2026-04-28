@@ -55,7 +55,7 @@ import {
   type TacticalReadingSignals,
 } from '@/lib/diagnostics/tactical-reading'
 
-type PrismaLike = PrismaClient | Parameters<Parameters<PrismaClient['$transaction']>[0]>[0]
+type PrismaLike = PrismaClient | any
 
 export type OperationalMode =
   | 'normal'
