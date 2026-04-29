@@ -22,7 +22,33 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
           },
         },
         cycleDecisions: { orderBy: { createdAt: 'desc' } },
-        studyLoads: { orderBy: { createdAt: 'desc' } },
+        studyLoads: {
+          orderBy: { createdAt: 'desc' },
+          include: {
+            // Phase FJ — include tutoring sessions and their responses so
+            // the cycle detail page can display self-report / evidence
+            // inline with each study load. This is the data the admin
+            // reviews before recording a manual pedagogical decision.
+            tutoringSessions: {
+              orderBy: { createdAt: 'desc' },
+              select: {
+                id: true,
+                status: true,
+                startedAt: true,
+                completedAt: true,
+                responses: {
+                  orderBy: { createdAt: 'desc' },
+                  select: {
+                    id: true,
+                    responseType: true,
+                    content: true,
+                    createdAt: true,
+                  },
+                },
+              },
+            },
+          },
+        },
         cycleEvaluations: { orderBy: { createdAt: 'desc' } },
         // Phase DT — include continuity signals so the cycle detail UI can
         // deterministically gate the "Autorizar continuidad" button without

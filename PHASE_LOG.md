@@ -565,3 +565,34 @@ A `prisma db push --force-reset` command was executed against the **dev** databa
 - No production-like personal data or real student data
 - No secrets, passwords, or connection strings were printed
 - No-secret-printing discipline continues
+
+## FJ — Manual Pedagogical Decision Layer
+- Purpose: ensure the admin can review student evidence/self-report and record a manual pedagogical decision linking the current cycle to the next action
+- Assessment found the manual decision layer was already 95% satisfied by existing surfaces:
+  - CycleDecision model already supports advance / reinforce / hold / redirect + rationale
+  - Full CRUD (create, edit, inline type change, delete) already existed on the cycle detail page
+  - Operational decision summary already existed
+  - Navigation from /admin/beta-operations → cycle detail via "Ver ciclo" links already existed
+  - Cycle close + continuity authorization buttons already existed
+- One gap identified: **self-report/evidence (Response.content) was not visible on the cycle detail page** — the admin could not see what the student reported before making a decision
+- Fix (2 files, 63 lines added):
+  - `app/api/learning-cycles/[id]/route.ts`: extended GET include to fetch tutoringSessions → responses nested inside studyLoads
+  - `app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`: added TypeScript interface for tutoringSessions/responses; added inline self-report display under each completed study load card with MessageSquare icon and "Autorreporte:" label
+- The admin can now answer all FJ target questions from the cycle detail page:
+  1. What evidence/self-report did the student leave? → visible under each completed load
+  2. Which cycle does this evidence belong to? → cycle header with student/program context
+  3. What decision do I make now? → select advance/reinforce/hold/redirect + click "New Decision"
+  4. Why did I make that decision? → edit decision → add rationale
+  5. Where is that decision recorded? → Decisions section on the same cycle detail page
+- Browser-verified: Ana's completed load shows "Autorreporte: Me fue bien" inline; decisions section ready to accept new decisions
+- No test CycleDecision was created (existing UI was already verified working)
+- TypeScript check: clean; production build: clean
+- No schema changes
+- No new endpoints, no modified endpoint behavior, no write path changes
+- No lifecycle semantics, status transitions, middleware, agents, or audit logging changed
+- /api/study-loads/[id]/start, /api/study-loads/[id]/complete, /api/learning-cycles/[id]/close, /api/learning-cycles/[id]/continue were not touched
+- StudyLoad.status allowed transitions were not changed
+- LearningCycle.status semantics were not changed
+- CycleDecision decisionType values remain: advance, reinforce, hold, redirect (no new taxonomy)
+- No business data was mutated
+- No-secret-printing discipline continues

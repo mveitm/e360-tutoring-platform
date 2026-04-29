@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
-import { ArrowLeft, RefreshCw, GitBranch, BookOpen, ClipboardCheck, Loader2, Calendar, User, GraduationCap, ExternalLink, Plus, Pencil, Trash2, Search, Lock, CheckCircle2 } from 'lucide-react'
+import { ArrowLeft, RefreshCw, GitBranch, BookOpen, ClipboardCheck, Loader2, Calendar, User, GraduationCap, ExternalLink, Plus, Pencil, Trash2, Search, Lock, CheckCircle2, MessageSquare } from 'lucide-react'
 import { toast } from 'sonner'
 import Link from 'next/link'
 
@@ -39,6 +39,19 @@ interface CycleDetail {
     releasedAt: string | null
     dueAt: string | null
     createdAt: string
+    // Phase FJ — tutoring sessions with self-report/evidence responses
+    tutoringSessions?: {
+      id: string
+      status: string
+      startedAt: string
+      completedAt: string | null
+      responses: {
+        id: string
+        responseType: string
+        content: string | null
+        createdAt: string
+      }[]
+    }[]
   }[]
   cycleEvaluations: {
     id: string
@@ -1072,6 +1085,28 @@ export function CycleDetailView() {
                           </div>
                         </div>
                       </div>
+                      {/* Phase FJ — Self-report / evidence display.
+                          Shows the student's self-report from the completed
+                          tutoring session linked to this study load. This is
+                          the evidence the admin reviews before recording a
+                          manual pedagogical decision. */}
+                      {(() => {
+                        const allResponses = (ld.tutoringSessions ?? []).flatMap(s => s.responses ?? [])
+                        if (allResponses.length === 0) return null
+                        return (
+                          <div className="mt-2 pt-2 border-t border-dashed">
+                            {allResponses.map((r) => (
+                              <div key={r.id} className="flex items-start gap-2 text-sm">
+                                <MessageSquare className="w-3.5 h-3.5 mt-0.5 text-primary/60 flex-shrink-0" />
+                                <div>
+                                  <span className="text-xs font-medium text-muted-foreground">Autorreporte:</span>
+                                  <p className="text-sm">{r.content ?? '—'}</p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )
+                      })()}
                     </CardContent>
                   </Card>
                 ))}
