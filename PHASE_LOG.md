@@ -687,3 +687,53 @@ Deploy latest codebase → verify FJ evidence visibility → manual student /now
 - No Prisma CLI invoked
 - No checkpoints created
 - No secrets printed
+
+---
+
+## Custody: SCHEMA-CUST-AUDIT-EVENT-DEV-PARITY
+
+**Date:** 2026-04-29
+**Commit:** `Custody: restore dev audit event schema parity`
+**Type:** Dev-only schema correction — no app code, no production changes, no deploy
+
+### Problem
+PRE-FL-DEPLOY was blocked by schema drift: the deploy tool detected that `audit_events` would be dropped from production during `prisma db push` promotion.
+
+### Root cause
+A duplicate `DATABASE_URL` line existed in `.env` (line 5), pointing to the production database host (`db-c8fe4c5ad`) instead of the dev database host (`db-7a1ac7d02`). Because dotenv uses last-wins semantics, **all `prisma db push` operations were silently targeting production** instead of dev. The actual dev database never received the `audit_events` table that was created by an earlier phase.
+
+### State before correction
+- **Prisma schema:** AuditEvent model defined (14 fields, @@map("audit_events")) ✅
+- **Production:** `audit_events` exists, 14 columns, 0 rows, 21 total tables ✅
+- **Dev:** `audit_events` MISSING, 20 total tables ❌
+- **.env:** Duplicate `DATABASE_URL` on line 5 pointing to production ❌
+
+### Correction applied
+1. Removed duplicate `DATABASE_URL` line from `.env` (line 5 → production host removed)
+2. Verified `DATABASE_URL` now correctly points to dev host (`db-7a1ac7d02`)
+3. Ran `yarn prisma db push` targeting dev → created `audit_events` table in dev
+4. Verified dev now has 21 tables with `audit_events` (0 rows, 14 columns)
+5. Verified production unchanged (21 tables, 39 rows — identical to pre-correction snapshot)
+
+### State after correction
+- **Prisma schema:** Unchanged ✅
+- **Production:** `audit_events` 0 rows, 14 columns, 21 tables, 39 total rows — UNCHANGED ✅
+- **Dev:** `audit_events` 0 rows, 14 columns, 21 tables — NOW MATCHES SCHEMA ✅
+- **.env:** Single correct `DATABASE_URL` pointing to dev ✅
+- **Production build:** Compiles successfully ✅
+
+### What was NOT done
+- No app code modified
+- No Prisma schema modified
+- No production database touched
+- No data mutated (dev or prod)
+- No deployment triggered
+- No seeds executed
+- No snapshots restored
+- No checkpoints created
+- No secrets printed
+
+### Impact
+- Schema drift between dev and production is resolved
+- PRE-FL-DEPLOY can be retried — deploy should no longer attempt to drop `audit_events`
+- The `.env` misconfiguration that caused silent prod-targeting has been fixed
