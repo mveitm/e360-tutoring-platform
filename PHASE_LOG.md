@@ -737,3 +737,51 @@ A duplicate `DATABASE_URL` line existed in `.env` (line 5), pointing to the prod
 - Schema drift between dev and production is resolved
 - PRE-FL-DEPLOY can be retried — deploy should no longer attempt to drop `audit_events`
 - The `.env` misconfiguration that caused silent prod-targeting has been fixed
+
+
+---
+
+## PRE-FL-E2E-NOW-LINK-DATA — Isolated /now test student linkage
+
+**Date:** 2026-04-29
+**Type:** Production data creation (no code, no schema, no deploy)
+
+### Purpose
+Create the minimal production data so the existing User account `test.now@student.bexauri.cl` can access `/now` as a student with a visible pending study load.
+
+### What was created (production, via authenticated admin API calls)
+
+| Record | Key fields |
+|---|---|
+| **Student** | firstName=Test, lastName=Now, email=test.now@student.bexauri.cl |
+| **Enrollment (StudentProgramInstance)** | program=PAES_M1, status=active, currentCycleId set |
+| **Diagnostic** | type=initial, status=completed, resultSummary="Diagnóstico inicial placeholder — PRE-FL /now test data" |
+| **LearningCycle** | cycleNumber=1, status=open |
+| **StudyLoad** | title="PAES M1 — Prueba de acceso estudiante /now", loadType=practice, status=pending |
+| **StudyLoad (auto)** | title="Initial practice" (auto-created by cycle POST route), status=pending |
+
+### What was NOT done
+- Did not create or reset any User password
+- Did not modify User row for test.now@student.bexauri.cl
+- Did not touch Ana Beta-M1 or Bruno Beta-L1 data (verified read-only)
+- Did not start, complete, close, or consume any study load
+- Did not modify app code, schema, or endpoints
+- Did not run prisma db push, migrate, or seed
+- Did not deploy
+- Did not create Abacus checkpoints
+- No secrets, passwords, or connection strings printed
+
+### Verification
+1. ✅ User exists for test.now@student.bexauri.cl
+2. ✅ Student exists with matching email
+3. ✅ Enrollment exists, status=active, program=PAES_M1
+4. ✅ currentCycleId set on enrollment
+5. ✅ LearningCycle exists, status=open, cycleNumber=1
+6. ✅ StudyLoad exists, status=pending
+7. ✅ /admin/beta-operations loads correctly, shows 3 active enrollments
+8. ✅ Test Now appears in "Trabajo pendiente" section
+9. ✅ Ana/Bruno data intact (verified enrollments, cycles, statuses unchanged)
+10. ✅ No start/complete/close/continue/decision mutations performed
+
+### Next step
+User manually logs in as test.now@student.bexauri.cl on production and verifies `/now` renders the pending study load.
