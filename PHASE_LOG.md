@@ -477,3 +477,21 @@ A `prisma db push --force-reset` command was executed against the **dev** databa
 - No data mutated in dev or prod
 - No secrets, passwords, or connection strings printed
 - No-secret-printing discipline continues
+
+## DATA-BETA-0 — Minimal Beta Data Reconstruction Plan
+- Documentation-only planning phase: no app code, schema, endpoints, deploy, agents, middleware, seed, scripts, or data mutation
+- Purpose: define the minimal clean beta dataset required to operate a closed MVP beta with 2–5 students after the FI deployment data incident (CUST-INC-FI)
+- Created `nextjs_space/docs/operations/MINIMAL_BETA_DATA_RECONSTRUCTION_PLAN_DATA_BETA_0.md` (12-section planning document)
+- Current baseline: seed-level data (11 rows: 1 User, 3 Programs, 3 Axes, 4 Skills), code intact, GitHub clean
+- Minimal dataset defined: 2–3 test students (Ana/M1, Bruno/L1, optional Camila/M2) with 1 enrollment, 1 open cycle, and 2–3 study loads each
+- Total new rows estimated: 14–30 depending on 2 or 3 students
+- PAES-oriented content: realistic skill names, study load titles, and self-report evidence aligned with PAES preparation
+- Operational states coverage: active enrollments, open cycles, pending/in-progress/completed loads, cycle ready for review, evidence present
+- Data creation method: manual via admin UI recommended (safest after FI incident); controlled script as secondary option
+- Prerequisite identified: PAES_L1 needs at least 1 axis + 1 skill created before Student B enrollment
+- Next recommended phase: DATA-BETA-1 (create minimal beta dataset) — requires explicit user approval before any data mutation
+- FI incident safeguards restated: never force-reset, never db push in read-only phases, snapshot before schema-touching deploys, treat Abacus deploy as potentially schema-promoting
+- No Abacus checkpoint created (documentation-only phase)
+- No data mutated in dev or prod
+- No secrets printed
+- No-secret-printing discipline continues
