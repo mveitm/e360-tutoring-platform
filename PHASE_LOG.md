@@ -414,3 +414,66 @@
 - Browser-verified: page loads, all sections render, links navigate to correct detail pages, counters match data
 - No business data mutated
 - No-secret-printing discipline continues
+
+## CUST-INC-FI — Custody: Document FI Deployment Data Incident
+
+**Incident ID:** CUST-INC-FI
+**Date detected:** 2026-04-29
+**Phase context:** Post-FI deployment
+**Classification:** Documentation-only custody phase — no code, schema, endpoints, deploy, data mutation, seed, or checkpoint operations
+
+### 1. Incident Summary
+During the Phase FI deployment via Abacus AI Agent's `deploy_nextjs_project` tool, production database data was reset to seed-level (11 rows). Approximately 276 rows of developer-created pre-beta test data were lost. No live beta users existed; no real student data was affected.
+
+### 2. Confirmed State (at time of assessment)
+- **Production DB:** 21 tables, 11 rows total (1 User, 3 Programs, 3 Axes, 4 Skills — seed data only)
+- **Dev DB:** 20 tables, 11 rows total (same seed data; `audit_events` table missing due to permission issue)
+- **App code:** Intact — zero diff between local and origin/main (`0bdda22`)
+- **GitHub origin/main:** `0bdda22 Phase FI: admin beta operations view` — clean, no corruption
+- **Deployed app:** Latest checkpoint is live at `tutoring-platform-mv-l4o1ne.abacusai.app`
+- **Abacus checkpoints available:** Phase FD, FB, EZ, EY, EW (with DB snapshot restore option via Settings → Database)
+
+### 3. Root Cause
+A `prisma db push --force-reset` command was executed against the **dev** database during a schema troubleshooting sequence. This wiped the dev DB to seed-level. Subsequently, the Abacus platform's deployment pipeline auto-promoted the dev schema to production using `prisma db push`, despite `promote_dev_db_to_prod: false` being passed to `deploy_nextjs_project`. The platform overrode this flag when it detected schema drift between dev and prod, effectively propagating the dev reset state to production.
+
+**Contributing factors:**
+- `prisma db push --force-reset` is destructive and was used to resolve a schema sync issue on dev
+- The platform's auto-promotion behavior overrides the explicit `promote_dev_db_to_prod: false` parameter
+- The dev DB had a permission issue preventing creation of the `audit_events` table, causing Prisma to report "in sync" despite a missing table — misleading diagnostics
+- No pre-deployment DB backup was taken
+
+### 4. Data Lost
+- ~276 rows of developer-created pre-beta test data:
+  - 139 Users (created via public signup endpoint)
+  - 9 Students, 13 Enrollments, 21 LearningCycles, 21 StudyLoads
+  - 19 Responses, 16 DiagnosticResults, 12 DiagnosticResponses
+  - 10 ContinuitySignals, 8 CycleSnapshots, 5 AuditEvents
+  - 2 Diagnostics, 1 DiagnosticQuestion
+- **No live beta users existed.** All data was developer test data.
+- Seed data (11 rows: 1 admin User, 3 Programs, 3 Axes, 4 Skills) was automatically re-created and is intact.
+
+### 5. Decision
+- **Do not execute recovery in this phase.** Recovery options are documented but deferred.
+- Rationale: The lost data was pre-beta test data with no pedagogical or operational value. Recovery carries risk of introducing inconsistencies. Fresh seed state is acceptable for beta launch.
+
+### 6. Recovery Options (documented, not executed)
+1. **Abacus DB snapshot restore:** Settings → Database → restore from a pre-incident snapshot (Phase FD, FB, EZ, EY, or EW checkpoint). This would restore both schema and data.
+2. **Abacus checkpoint restore:** Use `restore_nextjs_checkpoint` to restore app + DB to a prior phase. Irreversible — would also revert any post-incident code changes.
+3. **Manual re-seed:** Re-create test data via the app's public signup and admin workflows. Lowest risk but most labor-intensive.
+
+### 7. New Safeguards (to be implemented in future phases)
+1. **Pre-deployment DB row-count gate:** Before any deploy, query and log prod row counts. Alert if counts would decrease.
+2. **Never use `prisma db push --force-reset`** in any environment connected to data that matters. Use additive migrations only.
+3. **Explicit DB backup before deploy:** Take a manual DB snapshot before every deployment that touches schema.
+4. **Distrust `promote_dev_db_to_prod: false`:** The platform may override this flag. Treat every deploy as potentially schema-promoting.
+5. **Verify `prisma db push` reports accurately:** A "Your database is in sync" message does not guarantee all tables exist. Cross-check with `\dt` or equivalent.
+
+### 8. Scope Exclusions
+- No app code was changed in this phase
+- No schema changes, no endpoints added/modified/removed
+- No `prisma db push`, `prisma migrate`, `prisma db seed`, or `prisma db push --force-reset` executed
+- No Abacus checkpoint created or restored
+- No deployment executed
+- No data mutated in dev or prod
+- No secrets, passwords, or connection strings printed
+- No-secret-printing discipline continues
