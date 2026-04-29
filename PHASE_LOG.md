@@ -596,3 +596,42 @@ A `prisma db push --force-reset` command was executed against the **dev** databa
 - CycleDecision decisionType values remain: advance, reinforce, hold, redirect (no new taxonomy)
 - No business data was mutated
 - No-secret-printing discipline continues
+
+---
+
+## Phase FK — Beta Launch Protocol (documentation only)
+
+**Date:** 2026-04-29
+**Commit:** `Phase FK: beta launch protocol`
+**Type:** Documentation only — no code, schema, endpoint, deploy, seed, or data changes
+
+### Purpose
+Codify the operational protocol for launching a controlled beta with real students, synthesizing readiness from phases FH (data reconstruction), FI (seeding), FJ (manual pedagogical decision layer), and DATA-BETA-1 (data plan).
+
+### Artifact
+- `nextjs_space/docs/operations/BETA_LAUNCH_PROTOCOL_FK.md` — 19-section protocol covering:
+  - Readiness baseline (FH/FI/FJ/DATA-BETA-1 status)
+  - Beta purpose, scope, and duration (2-week window, 3-5 students)
+  - Student selection criteria and onboarding checklist
+  - Pre-launch technical and data checklists
+  - Session execution protocol (tutor workflow steps)
+  - Daily/weekly monitoring routines
+  - PAES alignment standards for content
+  - Feedback collection instruments (student, tutor, system)
+  - Decision framework: advance / reinforce / hold / redirect
+  - Success criteria and stop criteria (with thresholds)
+  - Risk register with mitigations
+  - Roles and responsibilities (tutor, developer, coordinator)
+  - Privacy and data handling rules
+  - Post-beta evaluation framework
+  - Graduation criteria to move from beta to wider rollout
+  - Next phase recommendation (FL: beta execution + first-cycle data collection)
+
+### What was NOT changed
+- No code modified
+- No schema changes
+- No endpoints added or modified
+- No deployment triggered
+- No business data mutated
+- No seeds executed
+- No Prisma CLI invoked
