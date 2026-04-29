@@ -635,3 +635,55 @@ Codify the operational protocol for launching a controlled beta with real studen
 - No business data mutated
 - No seeds executed
 - No Prisma CLI invoked
+
+---
+
+## Phase FL-0 — Assisted Closed Beta Readiness Check (documentation / readiness gate only)
+
+**Date:** 2026-04-29
+**Commit:** `Phase FL-0: assisted closed beta readiness check`
+**Type:** Documentation and read-only inspection only — no code, schema, endpoint, deploy, seed, or data changes
+
+### Purpose
+Verify whether E360 / Bexauri is ready to begin an assisted closed beta with 2–5 students under the FK protocol. Answer: are we ready, or is there a blocking gap?
+
+### What was checked (all read-only)
+- Git custody state (origin/main, working tree, PHASE_LOG, FK protocol)
+- Live production deployment (FH /now, FI /admin/beta-operations, FJ cycle detail evidence)
+- Production database stats (students, enrollments, cycles, loads, responses, sessions)
+- Student /now page (admin session only — student session not tested)
+- Admin beta-operations counters, tables, and links
+- Cycle detail page (loads, decisions section, evaluations section, evidence visibility)
+- Decision creation surface (advance/reinforce/hold/redirect + rationale)
+- FK protocol completeness (all 19 sections verified)
+- PAES minimum educational readiness (M1 algebra + L1 reading tasks, clear labels, evidence path)
+
+### Final recommendation
+🟡 **READY AFTER ONE PRE-BETA DEPLOY + VERIFICATION**
+
+### Blocking gap
+- **B1:** Live production may not include FJ self-report/evidence visibility on cycle detail. Code is complete but deployment is behind latest checkpoint. Requires deploy + post-deploy verification before beta.
+
+### Non-blocking gaps
+- NB1: Student /now not verified with student session (manual test recommended)
+- NB2: No manual decision tested end-to-end in production (can test in FL)
+
+### Ready areas
+Git custody ✅ · FK protocol ✅ · Production dataset ✅ · Beta-operations ✅ · Cycle detail structure ✅ · Decision surface ✅ · PAES minimum content ✅ · L1+M1 taxonomy ✅
+
+### Artifact
+- `nextjs_space/docs/operations/ASSISTED_CLOSED_BETA_READINESS_FL0.md`
+
+### Next step
+Deploy latest codebase → verify FJ evidence visibility → manual student /now test → proceed to FL (assisted closed beta execution)
+
+### What was NOT changed
+- No code modified
+- No schema changes
+- No endpoints added or modified
+- No deployment triggered
+- No business data created, modified, or deleted
+- No seeds executed
+- No Prisma CLI invoked
+- No checkpoints created
+- No secrets printed
