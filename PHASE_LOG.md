@@ -495,3 +495,73 @@ A `prisma db push --force-reset` command was executed against the **dev** databa
 - No data mutated in dev or prod
 - No secrets printed
 - No-secret-printing discipline continues
+
+## DATA-BETA-1 — Create Minimal Beta Dataset
+- Data mutation phase: controlled beta/test fixture data created through existing admin APIs and student lifecycle endpoints
+- Purpose: reconstruct the smallest safe dataset needed to operate the MVP beta after the FI deployment data incident
+- Data was created using existing app APIs (POST /api/students, /api/instances, /api/diagnostics, /api/learning-cycles, /api/study-loads, /api/signup) and student lifecycle endpoints (POST /api/study-loads/[id]/start, /api/study-loads/[id]/complete)
+- No direct SQL, no Prisma CLI, no seed script, no force-reset
+
+### L1 Taxonomy Created
+- 1 Axis created under PAES_L1: COMP (Comprensión lectora)
+- 2 Skills created under PAES_L1/COMP: COMP_EXPL (Identificar información explícita), COMP_INFER (Inferir propósito y sentido global)
+
+### Student A — Ana Beta-M1
+- Student: Ana Beta-M1 (ana.beta.m1@test.bexauri.cl) — PAES_M1
+- 1 enrollment (active), 1 completed initial diagnostic (placeholder), 1 open learning cycle (cycle 1)
+- 3 study loads created + 1 auto-created by system = 4 total:
+  - "PAES M1 — Practicar ecuaciones lineales" → pending
+  - "PAES M1 — Resolver problemas de planteamiento algebraico" → in_progress (via /start endpoint)
+  - "PAES M1 — Revisión de errores en despeje" → completed (via /start then /complete with self-report "Me fue bien")
+  - "Initial practice" → pending (auto-created by cycle creation)
+- 1 TutoringSession (completed), 1 Response with evidence ("Me fue bien")
+- 1 User account created (ana.beta.m1@test.bexauri.cl) for lifecycle endpoint authentication
+
+### Student B — Bruno Beta-L1
+- Student: Bruno Beta-L1 (bruno.beta.l1@test.bexauri.cl) — PAES_L1
+- 1 enrollment (active), 1 completed initial diagnostic (placeholder), 1 open learning cycle (cycle 1)
+- 2 study loads created + 1 auto-created by system = 3 total:
+  - "PAES L1 — Identificar información explícita en un texto breve" → pending
+  - "PAES L1 — Inferir idea principal y propósito del texto" → completed (via /start then /complete with self-report "Me costó")
+  - "Initial practice" → pending (auto-created by cycle creation)
+- 1 TutoringSession (completed), 1 Response with evidence ("Me costó")
+- 1 User account created (bruno.beta.l1@test.bexauri.cl) for lifecycle endpoint authentication
+
+### Student C — Camila Beta-M2 (skipped)
+- PAES_M2 program exists but has no axes or skills seeded
+- Creating M2 taxonomy was outside the safe minimal scope for this phase
+- Can be added in a future phase if needed
+
+### Record Counts (new records created)
+- Students: 2 | Enrollments: 2 | Diagnostics: 2 | Learning Cycles: 2
+- Study Loads: 7 (5 manual + 2 auto-created) | TutoringSessions: 2 | Responses: 2
+- User accounts: 2 (for lifecycle authentication) | Axes: 1 | Skills: 2
+- Total new rows: ~22
+
+### Operational States Verified on /admin/beta-operations
+- 2 Matrículas activas (Ana/M1, Bruno/L1) ✓
+- 2 Ciclos abiertos ✓
+- 4 Cargas pendientes ✓
+- 1 Carga en progreso (Ana — planteamiento algebraico) ✓
+- 2 Cargas completadas (Ana — despeje, Bruno — idea principal) ✓
+- 0 Ciclos para revisión (expected — no cycle has all loads completed yet)
+- Self-report/evidence present in both completed loads ✓
+- All links (student, enrollment, cycle detail) navigate correctly ✓
+
+### /now Student Flow
+- Not directly tested in browser as admin (requires student-as-user session)
+- Lifecycle endpoints exercised via API: /start transitions pending→in_progress, /complete transitions in_progress→completed with self-report
+- The /start and /complete endpoints enforce ownership (User.email == Student.email), enrollment active, cycle open, and proper status guards
+
+### Confirmations
+- No app code changed (zero diff on app/, components/, lib/, prisma/, middleware)
+- No schema changes
+- No endpoints added, modified, or removed
+- No deploy performed
+- No prisma db push, migrate, seed, or force-reset executed
+- No checkpoints created or restored
+- No snapshots restored
+- All data is clearly marked as fake/test beta data (Beta-M1, Beta-L1, @test.bexauri.cl)
+- No production-like personal data or real student data
+- No secrets, passwords, or connection strings were printed
+- No-secret-printing discipline continues
