@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { signOut } from 'next-auth/react'
-import { GraduationCap, Users, BookOpen, Link2, Layers, Zap, BarChart3, RefreshCw, GitBranch, FileBox, ClipboardCheck, LogOut } from 'lucide-react'
+import { GraduationCap, Users, BookOpen, Link2, Layers, Zap, BarChart3, RefreshCw, GitBranch, FileBox, ClipboardCheck, Activity, LogOut } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -31,6 +31,12 @@ const navGroups = [
       { href: '/admin/cycle-decisions', label: 'Decisions', icon: GitBranch },
       { href: '/admin/study-loads', label: 'Loads', icon: FileBox },
       { href: '/admin/cycle-evaluations', label: 'Evals', icon: ClipboardCheck },
+    ],
+  },
+  {
+    label: 'Ops',
+    items: [
+      { href: '/admin/beta-operations', label: 'Beta Ops', icon: Activity },
     ],
   },
 ]

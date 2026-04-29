@@ -389,3 +389,28 @@
 - /api/study-loads/[id]/start, /api/study-loads/[id]/complete, /api/learning-cycles/[id]/close, /api/learning-cycles/[id]/continue were not touched
 - StudyLoad.status allowed transitions were not changed
 - No-secret-printing discipline continues
+
+## FI — Admin Beta Operations View
+- Created `/admin/beta-operations` — a minimal read-only operational view for running the MVP beta with 2–5 students
+- Purpose: single-page situational awareness for the admin team during assisted PAES preparation
+- Operational questions answered:
+  1. Which students/enrollments are currently active? → "Matrículas activas" section with links to student detail and enrollment detail
+  2. Which cycles are open or in progress? → counter card showing open cycles count
+  3. Which study loads are pending? → "Trabajo pendiente" table with student, program, cycle, load details, and links
+  4. Which study loads are in progress? → "En progreso" table (same format)
+  5. Which study loads are completed? → "Completadas recientemente" table (last 20)
+  6. Which cycles appear ready for review/close? → "Necesita atención / revisión" section (cycles where all loads are completed)
+  7. Where should the admin click next? → every row links to existing student, enrollment, and cycle detail pages
+- Implementation: server component (`page.tsx`) queries Prisma directly — no new API endpoints created
+- Navigation: added "Beta Ops" link under new "Ops" group in admin nav bar (`admin-nav.tsx`)
+- Files added: `app/admin/beta-operations/page.tsx`, `app/admin/beta-operations/_components/beta-operations-view.tsx`
+- Files modified: `app/admin/_components/admin-nav.tsx` (added Activity icon import and Ops nav group)
+- Counter cards: active enrollments, open cycles, pending loads, in-progress loads, completed loads, cycles ready for review
+- All data is fetched read-only via Prisma `findMany` with appropriate filters and includes
+- No new write endpoints, no new GET API endpoints, no schema changes
+- No lifecycle semantics, status transitions, audit logging, middleware, or agents changed
+- `/api/study-loads/[id]/start`, `/api/study-loads/[id]/complete`, `/api/learning-cycles/[id]/close`, `/api/learning-cycles/[id]/continue` were not touched
+- TypeScript check: clean (pre-existing script errors only); production build: clean
+- Browser-verified: page loads, all sections render, links navigate to correct detail pages, counters match data
+- No business data mutated
+- No-secret-printing discipline continues
