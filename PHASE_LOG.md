@@ -370,3 +370,22 @@
 - Proposed next phases: FH (student weekly flow verification), FI (admin beta operations view), FJ (manual pedagogical decision layer), FK (beta launch protocol), FL (assisted closed beta with 2–5 students)
 - No Abacus checkpoint created (documentation-only phase)
 - No-secret-printing discipline continues
+
+## FH — Student Weekly Flow Verification
+- Verified the student-facing weekly study flow on /now against the MVP target: enrollment → see current StudyLoad → understand task → start → complete → self-report → preserved state → admin review
+- 7 of 8 target flow steps were already fully satisfied by existing surfaces (Phases DO, DP, DQ, DR)
+- One small gap identified: no brief instructional text helping the student understand what to do and how to leave evidence
+- Fix: added two instructional lines in /now — one below the "Cargas pendientes" section header and one below the "En curso" section header
+- "Estudia el tema y presiona «Empezar» cuando estés listo." (pending section)
+- "Trabaja en esta actividad. Al terminar, presiona «Terminar» y cuenta cómo te fue." (in-progress section)
+- Change is purely additive: 11 lines inserted in app/now/page.tsx (6 JSX + 5 comment)
+- PAES-minimum orientation: the title field already supports PAES-oriented wording; auto-generated loads use skill names (e.g. "Resolver problemas de ecuaciones lineales"); no content engine needed
+- Self-report evidence is persisted as Response.content via the existing DQ flow (3-option closed set)
+- Completed loads with self-reports remain visible in the "Lo que hiciste en este ciclo" section (DR)
+- Empty states already handled for no-student, no-enrollment, no-cycle, and caught-up conditions
+- TypeScript check: clean; production build: clean
+- No schema, middleware, agents, audit logging, lifecycle semantics, endpoint behavior, or response shapes changed
+- No new endpoints, no modified endpoints, no status transitions changed
+- /api/study-loads/[id]/start, /api/study-loads/[id]/complete, /api/learning-cycles/[id]/close, /api/learning-cycles/[id]/continue were not touched
+- StudyLoad.status allowed transitions were not changed
+- No-secret-printing discipline continues

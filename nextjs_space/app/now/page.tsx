@@ -29,6 +29,11 @@ export const dynamic = 'force-dynamic'
 // non-speculative message: "Estás al día. Tu avance será revisado para
 // preparar tu próxima fase." No schema, no endpoint, no mutation.
 //
+// Phase FH — Student Weekly Flow Verification.
+// Added brief instructional text below "Cargas pendientes" and "En curso" section
+// headers so the student understands what to do and how to leave evidence. No
+// schema, endpoint, lifecycle, audit, or semantic changes.
+//
 // Provisional linkage: session User.email == Student.email.
 // This is intentionally lightweight for MVP and will be replaced when the proper
 // User↔Student relation is introduced.
@@ -235,6 +240,9 @@ export default async function NowPage() {
               <h2 className="text-sm font-medium text-muted-foreground">
                 Cargas pendientes ({pendingLoads.length})
               </h2>
+              <p className="text-xs text-muted-foreground">
+                Estudia el tema y presiona «Empezar» cuando estés listo.
+              </p>
               <ul className="space-y-3">
                 {pendingLoads.map((load: any) => (
                   <li key={load.id}>
@@ -262,6 +270,9 @@ export default async function NowPage() {
               <h2 className="text-sm font-medium text-muted-foreground">
                 En curso ({inProgressLoads.length})
               </h2>
+              <p className="text-xs text-muted-foreground">
+                Trabaja en esta actividad. Al terminar, presiona «Terminar» y cuenta cómo te fue.
+              </p>
               <ul className="space-y-3">
                 {inProgressLoads.map((load: any) => (
                   <li key={load.id}>
