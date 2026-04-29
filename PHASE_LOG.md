@@ -357,3 +357,16 @@
 - Test data was restored and audit_events was cleaned to 0 after verification in both FE and FG
 - The block is now closed; additional endpoint instrumentation must happen in separate minimal phases
 - No-secret-printing discipline continues: do not print, echo, grep, display, or inline secrets or passwords, including seed/test passwords
+## FH-0 — MVP Launch Readiness Gate
+- Documentation-only phase: no app code, schema, endpoints, deploy, agents, middleware, or data mutation
+- Created `nextjs_space/docs/roadmap/MVP_LAUNCH_READINESS_FH0.md` (12-section readiness document)
+- Marks a roadmap shift from defensive hardening to MVP operational spine completion
+- Key finding: the core operational chain appears to exist end-to-end (enrollment → diagnostic → cycle → study load → student starts/completes → self-report → admin review → close → decision → continue → next cycle)
+- All API endpoints and UI surfaces for the chain were inspected (read-only) and confirmed present
+- Student /now surface (Phase DO/DP/DQ/DR), lifecycle endpoints (/start, /complete, /close, /continue), diagnostics, responses, continuity-signals, cycle-snapshots, and 10 admin views all exist
+- PATCH /api/study-loads/[id] hardened to 405 (Phase EY) and PATCH /api/learning-cycles/[id] hardened to 405 (Phase EV) remain unchanged
+- Governance preserved: phase semantics, DN/DU/DZ adaptive rules, EV/EW/EY/EZ guards all intact
+- Non-critical hardening paused in favor of completing the MVP operational flow
+- Proposed next phases: FH (student weekly flow verification), FI (admin beta operations view), FJ (manual pedagogical decision layer), FK (beta launch protocol), FL (assisted closed beta with 2–5 students)
+- No Abacus checkpoint created (documentation-only phase)
+- No-secret-printing discipline continues
