@@ -1852,3 +1852,78 @@ Created exactly one CycleDecision (type: `advance`) for Mauricio Beta-M1 / PAES_
 
 ### Recommended next phase
 FL-UX-3C — Cycle close validation after evidence-backed decision (manual close via admin UI, verify guards, confirm continuity readiness).
+
+---
+
+## FL-UX-3C — Cycle close validation after evidence-backed decision
+**Date:** 2026-04-30
+
+### Summary
+Closed Mauricio Beta-M1 / PAES_M1 / Cycle 1 manually via the production admin UI after verifying all preconditions: all loads completed, MC evidence visible, self-report recorded, and evidence-backed CycleDecision (from FL-UX-3B) exists. This is the first evidence-backed cycle close in the platform.
+
+### Pre-close verification (12 checks — ALL PASSED)
+| # | Condition | Result |
+|---|-----------|--------|
+| 1 | Mauricio Beta-M1 exists unambiguously | ✅ |
+| 2 | Active PAES_M1 enrollment | ✅ |
+| 3 | Cycle 1 exists | ✅ |
+| 4 | Cycle 1 is open | ✅ |
+| 5 | All StudyLoads completed (3/3) | ✅ |
+| 6 | "Problemas con ecuaciones lineales" completed | ✅ |
+| 7 | Self-report "Me fue bien" visible | ✅ |
+| 8 | mc_submission 2/8, q1→B ✓, q2→C ✓ | ✅ |
+| 9 | Evidence-backed CycleDecision from FL-UX-3B | ✅ |
+| 10 | CycleDecisions count: 3 (all advance) | ✅ |
+| 11 | No existing continuity authorization | ✅ |
+| 12 | No existing next cycle from continuity | ✅ |
+
+### Close operation
+- **Method:** Admin UI → cycle detail → "Cerrar ciclo" button → confirmation dialog → "Cerrar ciclo" confirm
+- **Confirmation message:** "Esta acción cerrará el ciclo actual. Confirma solo si todas las cargas de este ciclo ya fueron completadas."
+- **Result:** Toast "Ciclo cerrado", status badge changed open → closed, closedAt set to 30 abr 2026
+- **Button replaced:** "Cerrar ciclo" → "Autorizar continuidad" (NOT clicked)
+
+### Post-close verification (16 checks — ALL PASSED)
+| # | Check | Result |
+|---|-------|--------|
+| 1 | Cycle status: closed | ✅ |
+| 2 | closedAt set (30 abr 2026) | ✅ |
+| 3 | CycleDecisions remain visible (3) | ✅ |
+| 4 | Evidence-backed CycleDecision visible | ✅ |
+| 5 | MC evidence remains visible (2/8, q1→B ✓, q2→C ✓) | ✅ |
+| 6 | Self-report "Me fue bien" visible | ✅ |
+| 7 | StudyLoads remain 3, all completed | ✅ |
+| 8 | Responses unchanged | ✅ |
+| 9 | CycleEvaluations unchanged (0) | ✅ |
+| 10 | No continuity signal created | ✅ |
+| 11 | No new cycle created | ✅ |
+| 12 | No new StudyLoad created | ✅ |
+| 13 | No automatic recommendation shown | ✅ |
+| 14 | No PAES score shown | ✅ |
+| 15 | Other students unchanged (Ana, Bruno, Test Now) | ✅ |
+| 16 | /now does not crash (renders safely, HTTP 200) | ✅ |
+
+### Beta Operations dashboard changes after close
+- Ciclos abiertos: 4 → 3
+- Ciclos para revisión: 1 → 0
+- "Necesita atención / revisión" → "No hay ciclos pendientes de revisión"
+- Mauricio no longer appears in any active section
+- Closed-cycle guards active: edit/delete icons removed from decisions and loads
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No `db push`, no migrations, no seed scripts.
+- No continuity authorized — "Autorizar continuidad" button NOT clicked.
+- No new cycle created, no new StudyLoad created.
+- No Responses created or modified.
+- No CycleDecision created or modified.
+- No CycleEvaluation created.
+- No mc_submission created.
+- No self-report created.
+- No scoring, no PAES score, no adaptive logic, no AI.
+- No `.env` changes, no secrets printed.
+- No student UI changes.
+- Ana, Bruno, Test Now data unchanged.
+
+### Recommended next phase
+FL-UX-3D — Continuity readiness after closed evidence-backed cycle (authorize continuity via admin UI, verify new cycle creation, confirm continuity chain).
