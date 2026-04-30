@@ -2336,3 +2336,129 @@ Mauricio's User account password was temporarily changed for this verification s
 - No `.env` changes, no secrets printed.
 - Cycle 1 data fully preserved.
 - Ana, Bruno, Test Now data unchanged.
+
+---
+
+## FL-UX-3H — Student completes Cycle 2 activity
+**Date:** 2026-04-30
+**Git baseline:** `db0f240` (FL-UX-3G + PHASE_LOG.pdf auto-commit)
+
+### Summary
+Completed Mauricio Beta-M1's Cycle 2 StudyLoad end-to-end as a student: opened the in-progress MC activity, selected 8 answers per the answer key, submitted via "Enviar respuestas", returned to /now, clicked "Terminar", submitted self-report "Me fue bien". Verified admin evidence view shows full MC evidence table and self-report. No code or schema changes.
+
+### Student login
+- **Session:** Reused existing Mauricio session from FL-UX-3G (still active in browser).
+- **No password change required.**
+
+### Student activity execution
+
+#### /now verification (pre-activity)
+- ✅ PAES_M1, Ciclo 2, Abierto: 30 abr 2026
+- ✅ "En curso (1)" — StudyLoad in_progress
+- ✅ "PAES M1 — Problemas con ecuaciones lineales" — PRACTICE
+- ✅ "Ver actividad" and "Terminar" visible
+
+#### MC answer selection
+| Question | Selected | Correct | Result |
+|----------|----------|---------|--------|
+| q1 | B | B | ✅ Correcta |
+| q2 | C | C | ✅ Correcta |
+| q3 | C | C | ✅ Correcta |
+| q4 | C | C | ✅ Correcta |
+| q5 | C | C | ✅ Correcta |
+| q6 | C | C | ✅ Correcta |
+| q7 | C | C | ✅ Correcta |
+| q8 | B | B | ✅ Correcta |
+
+- Counter reached: **8 de 8 respondidas** ✅
+- "Enviar respuestas" clicked exactly once ✅
+- Confirmation: **"Respuestas guardadas. Ahora vuelve a /now y finaliza la carga con tu autorreporte. 8 de 8 respuestas registradas."** ✅
+- No PAES score shown ✅
+- No automatic recommendation ✅
+- No adaptive feedback ✅
+
+#### StudyLoad completion
+- Returned to /now ✅
+- Clicked "Terminar" ✅
+- Self-report modal appeared: "¿Cómo te fue?" ✅
+- Selected "Me fue bien" ✅
+- Clicked "Confirmar" ✅
+- /now now shows:
+  - "Estás al día. Tu avance será revisado para preparar tu próxima fase."
+  - "Lo que hiciste en este ciclo (1)" — "PAES M1 — Problemas con ecuaciones lineales" — PRACTICE — "Tu reporte: Me fue bien"
+
+### Post-student database verification
+| # | Check | Result |
+|---|-------|--------|
+| 1 | Cycle 2 remains open | ✅ |
+| 2 | StudyLoad status: completed | ✅ |
+| 3 | 1 mc_submission Response exists | ✅ |
+| 4 | mc_submission: 8/8 answered, 8/8 correct, hasAnswerKey=true | ✅ |
+| 5 | correctCount: 8 | ✅ |
+| 6 | 1 self-report Response: "Me fue bien" | ✅ |
+| 7 | TutoringSession: completed | ✅ |
+| 8 | 0 CycleDecisions on Cycle 2 | ✅ |
+| 9 | 0 CycleEvaluations on Cycle 2 | ✅ |
+| 10 | No PAES score (visual) | ✅ |
+| 11 | No recommendation (visual) | ✅ |
+| 12 | No adaptive logic triggered | ✅ |
+| 13 | Cycle 1: closed, 3 loads, 3 decisions | ✅ |
+| 14 | Others: Ana(1,4), Bruno(1,3), Test Now(1,2) | ✅ |
+| 15 | Beta Ops: Mauricio in "Necesita atención / revisión", not in "En progreso" | ✅ |
+
+### Admin evidence verification
+| # | Check | Result |
+|---|-------|--------|
+| 1 | StudyLoad shows as completed | ✅ "completed" badge |
+| 2 | Self-report "Me fue bien" visible | ✅ "Autorreporte: Me fue bien" |
+| 3 | "Respuestas de la actividad" section visible | ✅ |
+| 4 | Summary: Respondidas 8/8, Correctas 8/8 | ✅ |
+| 5 | Per-item table: 8 rows, all "Correcta" | ✅ |
+| 6 | Content version: paes_m1_linear_equations_word_problems (v1) | ✅ |
+| 7 | Decisions (0), Evaluations (0) | ✅ |
+| 8 | No automatic score/recommendation | ✅ |
+
+### Beta Operations dashboard (post-completion)
+- 4 Matrículas activas
+- 4 Ciclos abiertos
+- 5 Cargas pendientes
+- 1 Carga en progreso (Mauricio's load completed, only Ana remains)
+- 7 Cargas completadas (was 6)
+- 1 Ciclo para revisión (Mauricio Cycle 2 — all loads completed)
+- **"Necesita atención / revisión":** Mauricio Beta-M1 · PAES_M1 · Ciclo 2 · open · 1 carga completada
+
+### mc_submission evidence structure (from DB)
+```json
+{
+  "kind": "multiple_choice_submission",
+  "schemaVersion": 1,
+  "contentKey": "paes_m1_linear_equations_word_problems",
+  "contentVersion": "v1",
+  "answers": [8 items, all isCorrect: true],
+  "summary": {
+    "answeredCount": 8,
+    "totalItemCount": 8,
+    "correctCount": 8,
+    "hasAnswerKey": true
+  }
+}
+```
+
+### Recommended next phase
+**FL-UX-3I** — Manual evidence-backed CycleDecision for Cycle 2, or **FL-UX-4A** if direction decides to pause and consolidate the beta readiness roadmap. Options:
+- Option A: Create advance CycleDecision for Cycle 2 based on 8/8 MC evidence + "Me fue bien" self-report → close Cycle 2 → authorize continuity → begin Cycle 3
+- Option B: Consolidate — document the complete validated lifecycle (Cycle 1 + Cycle 2) as beta-ready evidence, define what remains for public beta launch
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No `db push`, no migrations, no seed scripts modified.
+- No CycleDecision created.
+- No CycleEvaluation created.
+- No Cycle 2 closed.
+- No continuity authorized.
+- No new LearningCycle or StudyLoad created.
+- No scoring, no PAES score, no adaptive logic, no AI.
+- No `.env` changes, no secrets printed.
+- No password changes (reused existing session).
+- Cycle 1 data fully preserved (closed, 3 loads, 3 decisions, 4 responses, 1 continuity signal).
+- Ana, Bruno, Test Now data unchanged.
