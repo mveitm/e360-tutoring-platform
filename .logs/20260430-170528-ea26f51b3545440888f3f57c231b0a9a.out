@@ -1,0 +1,103 @@
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+  ▲ Next.js 14.2.28
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/17) ...
+   Generating static pages (4/17) 
+   Generating static pages (8/17) 
+   Generating static pages (12/17) 
+ ✓ Generating static pages (17/17)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                   Size     First Load JS
+┌ ƒ /                                         138 B          87.3 kB
+├ ƒ /_not-found                               873 B          88.1 kB
+├ ƒ /admin                                    5.23 kB         128 kB
+├ ƒ /admin/axes                               5.08 kB         119 kB
+├ ƒ /admin/beta-operations                    3.55 kB         107 kB
+├ ƒ /admin/cycle-decisions                    5.28 kB         119 kB
+├ ƒ /admin/cycle-evaluations                  5.33 kB         119 kB
+├ ƒ /admin/instances                          3.2 kB          129 kB
+├ ƒ /admin/instances/[id]                     6.3 kB          132 kB
+├ ƒ /admin/learning-cycles                    4.59 kB         127 kB
+├ ƒ /admin/learning-cycles/[id]               9.49 kB         132 kB
+├ ƒ /admin/programs                           5.11 kB         127 kB
+├ ƒ /admin/programs/[id]                      6.44 kB         118 kB
+├ ƒ /admin/skill-states                       5.01 kB         119 kB
+├ ƒ /admin/skills                             5.28 kB         119 kB
+├ ƒ /admin/students/[id]                      5.5 kB          117 kB
+├ ƒ /admin/study-loads                        5.82 kB         119 kB
+├ ƒ /api/auth/[...nextauth]                   0 B                0 B
+├ ƒ /api/auth/login                           0 B                0 B
+├ ƒ /api/axes                                 0 B                0 B
+├ ƒ /api/axes/[id]                            0 B                0 B
+├ ƒ /api/continuity-signals                   0 B                0 B
+├ ƒ /api/continuity-signals/[id]              0 B                0 B
+├ ƒ /api/continuity-start/convergence         0 B                0 B
+├ ƒ /api/continuity-start/convergence/record  0 B                0 B
+├ ƒ /api/continuity-start/operational-output  0 B                0 B
+├ ƒ /api/continuity-start/precedence          0 B                0 B
+├ ƒ /api/continuity-start/reconciliation      0 B                0 B
+├ ƒ /api/continuity-start/shadow-block        0 B                0 B
+├ ƒ /api/continuity-start/start-block-plan    0 B                0 B
+├ ƒ /api/cycle-decision-skills                0 B                0 B
+├ ƒ /api/cycle-decision-skills/[id]           0 B                0 B
+├ ƒ /api/cycle-decisions                      0 B                0 B
+├ ƒ /api/cycle-decisions/[id]                 0 B                0 B
+├ ƒ /api/cycle-evaluations                    0 B                0 B
+├ ƒ /api/cycle-evaluations/[id]               0 B                0 B
+├ ƒ /api/cycle-snapshots                      0 B                0 B
+├ ƒ /api/cycle-snapshots/[id]                 0 B                0 B
+├ ƒ /api/diagnostics                          0 B                0 B
+├ ƒ /api/diagnostics/[id]                     0 B                0 B
+├ ƒ /api/diagnostics/authoritative            0 B                0 B
+├ ƒ /api/diagnostics/tactical-reading         0 B                0 B
+├ ƒ /api/instances                            0 B                0 B
+├ ƒ /api/instances/[id]                       0 B                0 B
+├ ƒ /api/instances/[id]/acknowledge           0 B                0 B
+├ ƒ /api/learning-cycles                      0 B                0 B
+├ ƒ /api/learning-cycles/[id]                 0 B                0 B
+├ ƒ /api/learning-cycles/[id]/close           0 B                0 B
+├ ƒ /api/learning-cycles/[id]/continue        0 B                0 B
+├ ƒ /api/programs                             0 B                0 B
+├ ƒ /api/programs/[id]                        0 B                0 B
+├ ƒ /api/responses                            0 B                0 B
+├ ƒ /api/responses/[id]                       0 B                0 B
+├ ƒ /api/signup                               0 B                0 B
+├ ƒ /api/skill-states                         0 B                0 B
+├ ƒ /api/skill-states/[id]                    0 B                0 B
+├ ƒ /api/skills                               0 B                0 B
+├ ƒ /api/skills/[id]                          0 B                0 B
+├ ƒ /api/students                             0 B                0 B
+├ ƒ /api/students/[id]                        0 B                0 B
+├ ƒ /api/study-loads                          0 B                0 B
+├ ƒ /api/study-loads/[id]                     0 B                0 B
+├ ƒ /api/study-loads/[id]/complete            0 B                0 B
+├ ƒ /api/study-loads/[id]/start               0 B                0 B
+├ ƒ /api/tutoring-sessions                    0 B                0 B
+├ ƒ /api/tutoring-sessions/[id]               0 B                0 B
+├ ƒ /login                                    3.92 kB         108 kB
+├ ƒ /now                                      6.22 kB         128 kB
+└ ƒ /now/study-loads/[id]                     175 B          96.1 kB
++ First Load JS shared by all                 87.2 kB
+  ├ chunks/117-760cd612.js                    31.6 kB
+  ├ chunks/fd9d1056-8e0367ad.js               53.6 kB
+  └ other shared chunks (total)               1.96 kB
+
+
+ƒ Middleware                                  49.4 kB
+
+ƒ  (Dynamic)  server-rendered on demand
+
+Successfully built app artifact
