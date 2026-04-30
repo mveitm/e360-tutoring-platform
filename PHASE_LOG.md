@@ -2038,3 +2038,49 @@ Authorized continuity for Mauricio Beta-M1 / PAES_M1 / Cycle 1 via the productio
 
 ### Recommended next phase
 FL-UX-3E — Next cycle creation readiness after continuity authorization (audit POST /api/learning-cycles preconditions, SkillState heuristic, auto-load generation, and snapshot behavior before creating Cycle 2).
+
+---
+
+## FL-UX-3E — Next cycle creation readiness after continuity authorization
+**Date:** 2026-04-30
+
+### Summary
+Comprehensive audit of the `POST /api/learning-cycles` endpoint, SkillState heuristic, auto-load generation, CycleSnapshot behavior, enrollment.currentCycleId update, and admin/student UX implications — all before creating Mauricio's Cycle 2.
+
+### Document created
+- **File:** `nextjs_space/docs/operations/FL_UX_3E_NEXT_CYCLE_CREATION_READINESS_AFTER_CONTINUITY.md`
+- **Sections (16):** Executive summary, Current validated lifecycle state, Data model audit, POST /api/learning-cycles endpoint audit, SkillState heuristic audit, Auto StudyLoad generation audit, CycleSnapshot audit, Enrollment/currentCycleId audit, Admin UX / Beta Operations audit, /now student UX audit, Product interpretation, Recommended options (A–D), Recommended next phase, Go/no-go criteria, Risks (12 items), Custody checklist.
+
+### Key findings
+1. **POST /api/learning-cycles is structurally sound:** P1–P4b preconditions are all met for Mauricio. Transaction is atomic. All 15 go/no-go criteria pass.
+2. **SkillState heuristic is deterministic:** Sort by needsReinforcement DESC → masteryLevel ASC (lexicographic) → skillId ASC. Takes top 3. Fallback ensures at least one load is always created.
+3. **Lexicographic masteryLevel sort is a known limitation:** "advanced" < "beginner" < "intermediate" < "not_evaluated" lexicographically. Acceptable for MVP when all values are "not_evaluated" (seed/default state).
+4. **Auto-generated StudyLoad titles will NOT match the content registry:** Titles follow pattern "Practice: <skill.name>" but registry is keyed by titles like "PAES M1 — Ecuaciones lineales básicas". Impact: student sees loads without "Ver actividad" link or interactive MC content.
+5. **DU prior-cycle exclusion works:** Cycle 1's selectedSkillIds are filtered from Cycle 2 candidates. If all candidates are excluded, relaxation activates (auditable in snapshot).
+6. **CycleSnapshot captures full audit trail:** Heuristic, skillStates, selectedSkillIds, exclusion trace all preserved in JSON payload.
+7. **enrollment.currentCycleId is updated atomically:** /now will show Cycle 2 immediately after creation. Cycle 1 remains accessible.
+8. **Beta Operations will show Mauricio again:** Pending loads from Cycle 2 appear in dashboard. Mauricio reappears in active sections.
+
+### Recommended options analysis
+| Option | Description | Recommended? |
+|--------|-------------|:------------:|
+| A | Harden load generation first | No — delays cycle creation, requires code changes |
+| B | Accept auto-loads as-is | Conditional — structurally safe but pedagogically incomplete |
+| **C** | **Create Cycle 2 + immediately curate loads** | **Yes — exercises mechanism + ensures content** |
+| D | Bypass auto-generation entirely | No — over-engineered for MVP |
+
+### Recommended next phase
+**FL-UX-3E-OP** — Create Cycle 2 after continuity authorization (Option C: create via admin UI, review auto-generated loads, curate to ensure at least one has content-registry-matching title).
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No `db push`, no migrations, no seed scripts.
+- No data mutations of any kind.
+- No LearningCycle, StudyLoad, CycleSnapshot, or SkillState created.
+- No enrollment.currentCycleId updated.
+- No continuity authorized again.
+- No cycles created, opened, closed, or modified.
+- No Responses, CycleDecisions, or CycleEvaluations created.
+- No scoring, no PAES score, no adaptive logic, no AI.
+- No `.env` changes, no secrets printed.
+- Ana, Bruno, Test Now data unchanged.
