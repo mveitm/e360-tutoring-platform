@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { StartLoadButton } from './_components/start-load-button'
 import { CompleteLoadButton } from './_components/complete-load-button'
+import { getStudyLoadContent } from '@/lib/study-load-content'
 
 export const dynamic = 'force-dynamic'
 
@@ -244,23 +245,36 @@ export default async function NowPage() {
                 Estudia el tema y presiona «Empezar» cuando estés listo.
               </p>
               <ul className="space-y-3">
-                {pendingLoads.map((load: any) => (
-                  <li key={load.id}>
-                    <Card>
-                      <CardContent className="py-4">
-                        <div className="flex items-start justify-between gap-3">
-                          <p className="flex-1 text-sm font-medium leading-snug">{load.title}</p>
-                          <Badge variant="secondary" className="shrink-0 text-[10px] uppercase tracking-wide">
-                            {load.loadType}
-                          </Badge>
-                        </div>
-                        <div className="mt-3 flex justify-end">
-                          <StartLoadButton loadId={load.id} />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </li>
-                ))}
+                {pendingLoads.map((load: any) => {
+                  const hasContent = !!getStudyLoadContent(load.title)
+                  return (
+                    <li key={load.id}>
+                      <Card>
+                        <CardContent className="py-4">
+                          <div className="flex items-start justify-between gap-3">
+                            <p className="flex-1 text-sm font-medium leading-snug">{load.title}</p>
+                            <Badge variant="secondary" className="shrink-0 text-[10px] uppercase tracking-wide">
+                              {load.loadType}
+                            </Badge>
+                          </div>
+                          <div className="mt-3 flex items-center justify-between gap-2">
+                            {hasContent ? (
+                              <Link
+                                href={`/now/study-loads/${load.id}`}
+                                className="text-xs text-primary hover:underline underline-offset-4"
+                              >
+                                Ver actividad
+                              </Link>
+                            ) : (
+                              <span />
+                            )}
+                            <StartLoadButton loadId={load.id} />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </li>
+                  )
+                })}
               </ul>
             </section>
           )}
@@ -274,27 +288,40 @@ export default async function NowPage() {
                 Trabaja en esta actividad. Al terminar, presiona «Terminar» y cuenta cómo te fue.
               </p>
               <ul className="space-y-3">
-                {inProgressLoads.map((load: any) => (
-                  <li key={load.id}>
-                    <Card>
-                      <CardContent className="py-4">
-                        <div className="flex items-start justify-between gap-3">
-                          <p className="flex-1 text-sm font-medium leading-snug">{load.title}</p>
-                          <Badge variant="secondary" className="shrink-0 text-[10px] uppercase tracking-wide">
-                            {load.loadType}
-                          </Badge>
-                        </div>
-                        <div className="mt-3 flex items-center justify-between gap-2">
-                          <div className="flex items-center gap-2">
-                            <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
-                            <span className="text-xs text-muted-foreground">En curso</span>
+                {inProgressLoads.map((load: any) => {
+                  const hasContent = !!getStudyLoadContent(load.title)
+                  return (
+                    <li key={load.id}>
+                      <Card>
+                        <CardContent className="py-4">
+                          <div className="flex items-start justify-between gap-3">
+                            <p className="flex-1 text-sm font-medium leading-snug">{load.title}</p>
+                            <Badge variant="secondary" className="shrink-0 text-[10px] uppercase tracking-wide">
+                              {load.loadType}
+                            </Badge>
                           </div>
-                          <CompleteLoadButton loadId={load.id} />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </li>
-                ))}
+                          {hasContent && (
+                            <div className="mt-2">
+                              <Link
+                                href={`/now/study-loads/${load.id}`}
+                                className="text-xs text-primary hover:underline underline-offset-4"
+                              >
+                                Ver actividad
+                              </Link>
+                            </div>
+                          )}
+                          <div className="mt-2 flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-2">
+                              <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
+                              <span className="text-xs text-muted-foreground">En curso</span>
+                            </div>
+                            <CompleteLoadButton loadId={load.id} />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </li>
+                  )
+                })}
               </ul>
             </section>
           )}
@@ -311,6 +338,7 @@ export default async function NowPage() {
               <ul className="space-y-3">
                 {completedLoads.map((load: any) => {
                   const report = load.tutoringSessions[0]?.responses[0]?.content ?? null
+                  const hasContent = !!getStudyLoadContent(load.title)
                   return (
                     <li key={load.id}>
                       <Card>
@@ -325,6 +353,16 @@ export default async function NowPage() {
                             <p className="mt-2 text-xs text-muted-foreground">
                               <span className="font-medium">Tu reporte:</span> {report}
                             </p>
+                          )}
+                          {hasContent && (
+                            <div className="mt-2">
+                              <Link
+                                href={`/now/study-loads/${load.id}`}
+                                className="text-xs text-primary hover:underline underline-offset-4"
+                              >
+                                Ver actividad
+                              </Link>
+                            </div>
                           )}
                         </CardContent>
                       </Card>

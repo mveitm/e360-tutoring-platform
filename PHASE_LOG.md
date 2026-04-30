@@ -1182,3 +1182,48 @@ For PAES/enseñanza media: the student is the primary operator; the flow must no
 
 ### Next possible phase
 - FL-UX-1 — Implement minimal in-app StudyLoad content viewer
+
+---
+
+## FL-UX-1 — Minimal In-App StudyLoad Content Viewer
+
+**Date:** 2026-04-30
+**Type:** Frontend/read-layer code (no schema, no write endpoints, no data mutation)
+
+### Purpose
+Implement the smallest safe in-app content viewer for StudyLoads, allowing students to view task instructions and exercises inside Bexauri instead of relying on external documents.
+
+### Implementation
+- **Static content registry:** `lib/study-load-content.ts` — no-schema approach keyed by StudyLoad title. Contains full exercise content for both PAES M1 tasks sourced from versioned docs.
+- **Content viewer route:** `app/now/study-loads/[id]/page.tsx` — authenticated, ownership-verified, read-only page showing title, program, topic, estimated time, instructions, limitation notice, and numbered multiple-choice exercises.
+- **`/now` page changes:** Added "Ver actividad" links on pending, in_progress, and completed StudyLoad cards when static content is available. Existing Empezar/Terminar behavior unchanged.
+
+### Supported content
+- PAES M1 — Ecuaciones lineales básicas (8 exercises)
+- PAES M1 — Problemas con ecuaciones lineales (8 exercises)
+- Loads without registered content show a safe fallback.
+
+### Security
+- Route requires authentication (redirects to /login if no session).
+- Ownership chain verified: User.email → Student.email → active enrollment → cycle → StudyLoad.
+- Non-owners redirected to /now.
+
+### Limitations (explicit in UI)
+- Answers are not captured inside the platform yet.
+- Students still solve on paper and return to /now to use existing Terminar flow.
+
+### What was NOT done
+- No schema changes (no new Prisma models or fields)
+- No write endpoint changes
+- No data mutation
+- No answer capture or scoring
+- No adaptive logic or AI agents
+- No secrets printed
+
+### Build/deploy
+- TypeScript compilation: clean
+- Next.js build: successful
+- Deploy: successful, no schema drift warnings, no data loss
+
+### Next possible phase
+- FL-UX-2 — Multiple-choice answer capture
