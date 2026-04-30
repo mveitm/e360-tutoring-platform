@@ -837,3 +837,40 @@ Student evidence ("Me fue bien") → Admin review (cycle detail) → Manual deci
 
 ### Next possible phase
 FL — Assisted closed beta execution with real students (Ana, Bruno)
+
+
+---
+
+## FL-2 — Beta Participant Readiness and First Session Plan
+
+**Date:** 2026-04-30
+**Type:** Operational planning (documentation only — no code, no schema, no data, no deploy)
+
+### Purpose
+Prepare the first real assisted closed beta session with 1–2 participants without executing it.
+
+### Artifacts created
+- `nextjs_space/docs/operations/BETA_PARTICIPANT_READINESS_FL2.md` — 17-section operational plan covering:
+  - Readiness baseline (FH→FL-1 validated)
+  - Participant selection criteria (1 student, PAES M1 first)
+  - First study load design (ecuaciones lineales, practice, 20–30 min)
+  - Spanish onboarding message draft
+  - Parent/guardian note for minors
+  - Admin operation checklist (before/during/after)
+  - Student feedback questions (7 items)
+  - Decision criteria (advance/reinforce/hold/redirect)
+  - Stop/pause criteria
+  - Anti-patterns (what NOT to do)
+  - Recommended sequence (1 student → review → feedback → decide → expand)
+  - Risks and mitigations
+  - FL execution prerequisites
+
+### What was NOT done
+- No code, schema, or endpoint changes
+- No data created, modified, or deleted
+- No users, students, enrollments, cycles, study loads, responses, or decisions created
+- No deploy, no prisma CLI, no checkpoints
+- No secrets printed
+
+### Next possible phase
+FL — Assisted closed beta execution, after participant/task approval and checklist completion
