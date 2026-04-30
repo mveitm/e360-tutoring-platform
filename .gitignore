@@ -22,3 +22,4 @@ nextjs_space/.yarn/
 # Auto-generated document renderings (docx/pdf from md)
 *.docx
 nextjs_space/docs/operations/*.pdf
+nextjs_space/docs/governance/*.pdf
