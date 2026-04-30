@@ -1956,3 +1956,85 @@ FL-UX-3D-OP — Authorize continuity after closed evidence-backed cycle (click "
 - No continuity authorized, no ContinuitySignal created.
 - No new cycle or StudyLoad created.
 - No student data touched.
+
+---
+
+## FL-UX-3D-OP — Authorized continuity after closed evidence-backed cycle
+**Date:** 2026-04-30
+
+### Summary
+Authorized continuity for Mauricio Beta-M1 / PAES_M1 / Cycle 1 via the production admin UI "Autorizar continuidad" button. This created exactly one ContinuitySignal and performed no other mutations. The button disappeared after authorization (idempotency guard active).
+
+### Pre-authorization verification (13 checks — ALL PASSED)
+| # | Condition | Result |
+|---|-----------|--------|
+| 1 | Mauricio Beta-M1 exists unambiguously | ✅ |
+| 2 | Active PAES_M1 enrollment | ✅ |
+| 3 | Cycle 1 exists | ✅ |
+| 4 | Cycle 1 status: closed | ✅ |
+| 5 | closedAt set (30 abr 2026) | ✅ |
+| 6 | StudyLoads: 3, all completed | ✅ |
+| 7 | Evidence-backed CycleDecision from FL-UX-3B visible | ✅ |
+| 8 | MC evidence visible (2/8, q1→B ✓, q2→C ✓) | ✅ |
+| 9 | Self-report "Me fue bien" visible | ✅ |
+| 10 | No existing ContinuitySignal for this cycle | ✅ |
+| 11 | No existing LearningCycle N+1 | ✅ |
+| 12 | No pending/in_progress StudyLoad after close | ✅ |
+| 13 | Other students recorded (Ana, Bruno, Test Now unchanged) | ✅ |
+
+### Authorization operation
+- **Method:** Admin UI → cycle detail → "Autorizar continuidad" button → confirmation dialog → "Autorizar" confirm
+- **Confirmation message:** "Esta acción registrará la autorización para abrir el siguiente ciclo."
+- **Result:** Toast "Continuidad autorizada", button disappeared
+- **Endpoint called by UI:** POST /api/learning-cycles/[id]/continue
+
+### ContinuitySignal created
+- **signalType:** continue (endpoint-defined)
+- **rationale:** admin_authorize (endpoint-defined)
+- **enrollmentId:** Mauricio's PAES_M1 enrollment
+- **learningCycleId:** Cycle 1
+
+### Post-authorization verification (18 checks — ALL PASSED)
+| # | Check | Result |
+|---|-------|--------|
+| 1 | ContinuitySignal created | ✅ Toast confirmed |
+| 2 | signalType: continue | ✅ |
+| 3 | rationale: admin_authorize | ✅ |
+| 4 | Cycle 1 remains closed | ✅ |
+| 5 | closedAt remains set (30 abr 2026) | ✅ |
+| 6 | Evidence-backed CycleDecision visible | ✅ |
+| 7 | MC evidence visible (2/8, q1→B ✓, q2→C ✓) | ✅ |
+| 8 | Self-report "Me fue bien" visible | ✅ |
+| 9 | No new LearningCycle created | ✅ |
+| 10 | enrollment.currentCycleId not changed to new cycle | ✅ |
+| 11 | No new StudyLoad created | ✅ |
+| 12 | No Response created or modified | ✅ |
+| 13 | No CycleEvaluation created | ✅ |
+| 14 | No automatic recommendation shown | ✅ |
+| 15 | No PAES score shown | ✅ |
+| 16 | No adaptive logic triggered | ✅ |
+| 17 | Other students unchanged (Ana, Bruno, Test Now) | ✅ |
+| 18 | "Autorizar continuidad" button gone (idempotency) | ✅ |
+
+### Beta Operations dashboard after authorization
+- Ciclos abiertos: 3 (unchanged from FL-UX-3C)
+- Mauricio does not appear in any active section (closed cycle, no new cycle)
+- "Necesita atención / revisión": 0 — no pending review
+- Other students: Ana (in_progress + pending), Bruno (2 pending), Test Now (pending) — all unchanged
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No `db push`, no migrations, no seed scripts.
+- No new LearningCycle created — continuity only emits the signal.
+- No new StudyLoad created.
+- No Responses created or modified.
+- No CycleDecision created or modified.
+- No CycleEvaluation created.
+- No cycle reopened or reclosed.
+- No scoring, no PAES score, no adaptive logic, no AI.
+- No `.env` changes, no secrets printed.
+- No student UI changes.
+- Ana, Bruno, Test Now data unchanged.
+
+### Recommended next phase
+FL-UX-3E — Next cycle creation readiness after continuity authorization (audit POST /api/learning-cycles preconditions, SkillState heuristic, auto-load generation, and snapshot behavior before creating Cycle 2).
