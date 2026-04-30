@@ -1540,3 +1540,49 @@ Deployed FL-UX-2C code to production and performed a controlled live readiness v
 - No credentials or secrets printed.
 - No `.abacus.donotdelete` touched.
 - No `.env` changes.
+
+---
+
+## FL-UX-2C-TEST-DATA — Attached registry-matched pending StudyLoad to Mauricio for live MC validation
+**Date:** 2026-04-30
+
+### Summary
+Created exactly one controlled pending StudyLoad in production to enable manual FL-UX-2C validation.
+
+### Data mutation
+- **Created:** `StudyLoad` with ID `cmolv1i4h0001wcnv6626l453`
+- **Title:** `PAES M1 — Problemas con ecuaciones lineales` (exact content registry match)
+- **Load type:** `practice`
+- **Status:** `pending`
+- **Attached to:** Mauricio Beta-M1 → active PAES_M1 enrollment → open Cycle 1
+
+### Pre-mutation state
+- Mauricio had 2 existing loads in Cycle 1, both `completed`.
+- No load with the target title existed in any status.
+
+### Post-mutation verification
+| Check | Result |
+|---|---|
+| New load exists exactly once | ✅ |
+| Status is `pending` | ✅ |
+| Title matches content registry | ✅ |
+| No Response created for new load | ✅ |
+| No CycleDecision created | ✅ (2 pre-existing, unchanged) |
+| Cycle still `open` | ✅ |
+| Other students (Ana, Bruno, Test Now) unchanged | ✅ |
+| Total student count unchanged (4) | ✅ |
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No `db push`, no migrations, no seed scripts.
+- No users, students, enrollments, or cycles created.
+- No load started, completed, or submitted.
+- No Response, mc_submission, or self-report created.
+- No CycleDecision created.
+- No other student's data touched.
+- No credentials or secrets printed.
+- No `.env` changes.
+
+### Purpose
+Enable Mauricio to perform the manual FL-UX-2C validation:
+`/now` → Empezar → Ver actividad → select answers → Enviar respuestas → confirmation → Volver a /now → Terminar + self-report.
