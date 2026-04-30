@@ -1227,3 +1227,43 @@ Implement the smallest safe in-app content viewer for StudyLoads, allowing stude
 
 ### Next possible phase
 - FL-UX-2 — Multiple-choice answer capture
+
+---
+
+## FL-UX-1C — Live Student Validation of In-App Content Viewer
+
+**Date:** 2026-04-30
+**Type:** Documentation/custody (no code, no schema, no data mutation, no deploy)
+
+### Purpose
+Document the completed live student validation of the FL-UX-1 in-app StudyLoad content viewer in production.
+
+### Manual student validation (production)
+- **Validated by:** Mauricio, logged in as mauricio.student@test.bexauri.cl
+- **Environment:** Production (tutoring-platform-mv-l4o1ne.abacusai.app)
+- **Results:**
+  - `/now` showed "Ver actividad" link on the completed PAES M1 load card: **yes**
+  - Content viewer opened correctly at `/now/study-loads/[id]`: **yes**
+  - PAES M1 content (exercises, instructions, alternatives) was visible inside Bexauri: **yes**
+
+### Additional read-only verification
+- `/now/study-loads/[id]` route confirmed in build manifest and production routing.
+- Content registry confirmed: "PAES M1 — Ecuaciones lineales básicas" → 8 items, "PAES M1 — Problemas con ecuaciones lineales" → 8 items, unknown titles → fallback.
+- Ownership protection confirmed: admin session accessing a student-owned load was redirected to `/now`.
+- No Empezar/Terminar mutation performed during validation.
+- No answer capture exists yet (expected — FL-UX-2 scope).
+
+### Outcome
+FL-UX-1 read-only content viewer passed live student validation in production.
+
+### Strategic implication
+Bexauri has moved from operational tracking only (start/complete/self-report) to an in-app pedagogical read-only experience. Students can now view task content — instructions, exercises, and alternatives — inside the platform.
+
+### What was NOT done
+- No code, schema, or endpoint changes
+- No data created, modified, or deleted
+- No deploy, no Prisma CLI, no checkpoints
+- No secrets printed
+
+### Next possible phase
+- FL-UX-2 — Multiple-choice answer capture (only after careful data/UX design)
