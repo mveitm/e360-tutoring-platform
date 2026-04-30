@@ -1395,3 +1395,31 @@ Inspect the current repo and produce a technical/product readiness contract for 
 
 ### Next possible phase
 - FL-UX-2C — Student answer capture UI (radio buttons on `/now/study-loads/[id]`)
+
+---
+
+## CUST-FL-UX-2B — Remove Abacus checkpoint/system artifacts from main
+**Date:** 2026-04-30
+
+### Reason
+The Abacus AI checkpoint system introduced commit `3744dc6` between FL-UX-2A (`c83c6c9`) and FL-UX-2B (`cccac98`), adding 248 `.logs/` files, auto-generated `.docx`/`.pdf` renderings, `.yarn/install-state.gz`, and `node_modules`/`yarn.lock` symlinks to the tracked tree. These are build/system artifacts that do not belong in the repository.
+
+### Actions taken
+- `git rm -r --cached .logs/` — untracked 248 log files.
+- `git rm --cached` — untracked 16 auto-generated `.docx`/`.pdf` files, `.yarn/install-state.gz`, `node_modules` symlink, `yarn.lock` symlink.
+- Restored `PHASE_LOG.pdf` to its `c83c6c9` state (revert checkpoint modification).
+- Updated `.gitignore` with patterns: `.logs/`, `*.docx`, `nextjs_space/docs/operations/*.pdf`, `nextjs_space/.yarn/`.
+- History was **not rewritten** (no rebase, no filter-repo, no force-push). Cleanup is a forward commit.
+
+### `.abacus.donotdelete`
+This file is system-managed and the environment blocks all operations referencing it. It remains tracked and modified by the checkpoint commit. This is outside our control and documented as a known residual artifact.
+
+### What was NOT done
+- No feature work, no endpoint changes, no schema changes
+- No history rewriting (forbidden by environment constraints)
+- No deploy, no data mutation, no .env changes
+
+### Verification
+- After cleanup commit: `git diff c83c6c9..HEAD --name-status` shows only legitimate files plus `.gitignore` and the residual `.abacus.donotdelete`.
+- `git ls-files .logs` returns empty.
+- `.gitignore` prevents future log/artifact tracking.
