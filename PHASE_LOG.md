@@ -874,3 +874,52 @@ Prepare the first real assisted closed beta session with 1–2 participants with
 
 ### Next possible phase
 FL — Assisted closed beta execution, after participant/task approval and checklist completion
+
+
+---
+
+## PRE-FL-MAURICIO-NOW-LINK-DATA — Complete Mauricio self-beta /now linkage
+
+**Date:** 2026-04-30
+**Type:** Production data creation (no code, no schema, no deploy)
+
+### Purpose
+Create the minimal production data so the existing User account `mauricio.student@test.bexauri.cl` can access `/now` as a student with a visible pending study load.
+
+### Pre-existing records confirmed (read-only)
+- User: mauricio.student@test.bexauri.cl — exists
+- Student: Mauricio Beta-M1 — exists, active
+- Enrollment: PAES_M1, active, currentCycleId=null, no diagnostic, no cycles
+
+### Records created (production, via authenticated admin API)
+
+| Record | Key fields |
+|---|---|
+| **Diagnostic** | type=initial, status=completed, summary="Diagnóstico inicial placeholder — Mauricio self-beta /now test" |
+| **LearningCycle** | cycleNumber=1, status=open, currentCycleId set on enrollment |
+| **StudyLoad** | "PAES M1 — Primera práctica beta de Mauricio", practice, pending |
+| **StudyLoad (auto)** | "Initial practice" (auto-created by cycle POST route), practice, pending |
+
+### What was NOT done
+- Did not create or reset any User password
+- Did not create User, Student, or Enrollment (pre-existing)
+- Did not touch Ana Beta-M1, Bruno Beta-L1, or Test Now
+- Did not start, complete, close, or continue any study load or cycle
+- Did not create decisions or responses
+- Did not modify app code, schema, or endpoints
+- Did not run prisma CLI, deploy, or create checkpoints
+- No secrets, passwords, or connection strings printed
+
+### Verification
+1. ✅ User exists for mauricio.student@test.bexauri.cl
+2. ✅ Student exists with matching email (Mauricio Beta-M1)
+3. ✅ Enrollment exists, status=active, program=PAES_M1
+4. ✅ currentCycleId set on enrollment
+5. ✅ LearningCycle exists, status=open, cycleNumber=1
+6. ✅ StudyLoad exists, status=pending (×2)
+7. ✅ /admin/beta-operations loads (4 active enrollments, 4 open cycles)
+8. ✅ Mauricio appears in "Trabajo pendiente" with both pending loads
+9. ✅ Ana, Bruno, Test Now data intact
+
+### Next step
+User manually logs in as mauricio.student@test.bexauri.cl on production and verifies `/now` renders pending study loads.
