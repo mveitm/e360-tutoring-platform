@@ -2084,3 +2084,52 @@ Comprehensive audit of the `POST /api/learning-cycles` endpoint, SkillState heur
 - No scoring, no PAES score, no adaptive logic, no AI.
 - No `.env` changes, no secrets printed.
 - Ana, Bruno, Test Now data unchanged.
+
+---
+
+## FL-UX-3F — Controlled Cycle 2 creation strategy
+**Date:** 2026-04-30
+
+### Summary
+Strategy audit to determine the safest way to create Mauricio's Cycle 2 without exposing non-interactive StudyLoads. Compared five options and recommended a controlled three-step operation using existing endpoints.
+
+### Document created
+- **File:** `nextjs_space/docs/operations/FL_UX_3F_CONTROLLED_CYCLE_2_CREATION_STRATEGY.md`
+- **Sections (13):** Executive summary, Current lifecycle state, Problem statement, Content registry audit, Cycle creation behavior, StudyLoad creation options, Options comparison (A–E), Recommended strategy, Operational contract, Risks (14 items), Go/no-go criteria, Next phase outline, Custody checklist.
+
+### Key findings
+1. **Auto-generated StudyLoad titles don't match content registry.** Titles follow `"Practice: <skill.name>"` but registry keys are `"PAES M1 — ..."`. Student would see loads without interactive MC content.
+2. **Existing endpoints already support the full curation workflow:**
+   - `POST /api/learning-cycles` → creates cycle + auto-loads
+   - `DELETE /api/study-loads/[id]` → deletes unwanted auto-loads (open cycles only)
+   - `POST /api/study-loads` → creates registry-matched load with exact title
+3. **No code changes needed.** The three-step operation (create cycle → delete auto-loads → create registry-matched load) uses existing, tested endpoints.
+4. **Admin UI supports all steps.** "New Cycle" modal, trash button on loads, "New Load" form — all available in production.
+
+### Options comparison
+| Option | Feasible | Code Change | Recommended |
+|--------|:--------:|:-----------:|:-----------:|
+| A — Create + curate | ✅ | None | ✅ |
+| B — Skip auto-loads | ❌ | Yes | ❌ |
+| **C — Create + replace with registry load** | **✅** | **None** | **✅ Primary** |
+| D — Harden first | ✅ | Yes | ❌ (defer) |
+| E — Add to closed cycle | ❌ | Would need | ❌ |
+
+### Recommended strategy
+**Option C:** Controlled three-step operation:
+1. Create Cycle 2 via admin UI (auto-generates loads + snapshot)
+2. Delete auto-generated loads
+3. Create one registry-matched load: `PAES M1 — Problemas con ecuaciones lineales`
+
+### Recommended next phase
+**FL-UX-3F-OP** — Controlled Cycle 2 + registry-matched StudyLoad creation (data mutation via existing endpoints, no code changes).
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No `db push`, no migrations, no seed scripts.
+- No data mutations of any kind.
+- No LearningCycle, StudyLoad, or CycleSnapshot created.
+- No enrollment.currentCycleId updated.
+- No scoring, no PAES score, no adaptive logic, no AI.
+- No `.env` changes, no secrets printed.
+- Ana, Bruno, Test Now data unchanged.
