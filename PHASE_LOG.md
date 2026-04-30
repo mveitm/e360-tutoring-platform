@@ -1770,3 +1770,31 @@ Created governance document defining how OpenAI Codex may be introduced into the
 
 ### Next recommended step
 CX-0 — Codex readiness for E360, read-only repo understanding, no changes.
+
+---
+
+## FL-UX-3A — Manual pedagogical continuity readiness audit
+**Date:** 2026-04-30
+
+### Summary
+Audit of the current repo and product state to define the safest minimal path for manually using MC evidence + self-report to support cycle continuity (evidence → decision → close → continuity → next step).
+
+### Key findings
+1. **Infrastructure already exists.** The cycle detail page already has: inline CycleDecision creation, edit/delete with rationale, "Cerrar ciclo" button, "Autorizar continuidad" button — all with correct backend guards.
+2. **Evidence is visible before decisions.** Admin sees self-report + MC evidence above the Decisions section.
+3. **Close does NOT require a decision.** The close endpoint guards for all-loads-completed and cycle-open, but does NOT require a CycleDecision to exist. Workflow discipline must be manual.
+4. **Continuity chain is guarded.** P4b: close → ContinuitySignal(continue) → new cycle creation. All preconditions enforced.
+5. **Decision creation lacks inline rationale.** Admin creates decision with type only; rationale must be added via a separate edit step. Minor UX friction, not a blocker.
+6. **2/8 partial evidence is ambiguous.** Both answers correct, but low completion rate means admin interpretation matters.
+
+### Document created
+- **File:** `nextjs_space/docs/operations/FL_UX_3A_MANUAL_PEDAGOGICAL_CONTINUITY_READINESS.md`
+- **Sections (13):** Executive summary, Validated evidence loop, Data model audit, Endpoint audit, Admin UX audit, Manual continuity concept, Proposed FL-UX-3 phase split, Go/no-go criteria (3B and 3C), Decision rationale template, Risks, Recommended next phase, Custody checklist.
+
+### What was NOT done
+- No code changes, no schema changes, no deploy, no data mutation.
+- No CycleDecision created, no cycle closed, no continuity authorized.
+- No student data or UI touched.
+
+### Recommended next phase
+FL-UX-3B — Manual evidence-backed CycleDecision for Mauricio (data operation using existing UI and API, no code changes needed).
