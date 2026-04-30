@@ -1143,3 +1143,42 @@ External students should not be invited until the platform supports: a beta-qual
 ### Next possible phase
 - FL-CONTENT-2B — Attach follow-up task to Mauricio next pending load or create next controlled load
 - FL-UX-0 — Define in-app interactive StudyLoad MVP requirements
+
+---
+
+## FL-UX-0 — Interactive StudyLoad MVP Requirements
+
+**Date:** 2026-04-30
+**Type:** Documentation/product requirements (no code, no schema, no data, no deploy)
+
+### Purpose
+Define the minimum in-app interactive StudyLoad experience required before inviting external students. Covers student UX, admin review, pedagogical principles, content model, answer capture, and implementation sequencing.
+
+### Artifact created
+- `nextjs_space/docs/operations/INTERACTIVE_STUDY_LOAD_REQUIREMENTS_FL_UX_0.md` — 22-section product requirements document:
+  - Target student and admin UX flows
+  - Minimum UI elements and content model
+  - Answer capture and admin review requirements
+  - Pedagogical requirements and PAES alignment
+  - First supported task type: multiple-choice PAES-style practice
+  - Proposed Interactive StudyLoad v1 MVP scope
+  - Student autonomy principle for PAES/enseñanza media
+  - External beta readiness gate (8-item checklist)
+  - Risks and mitigations
+  - Data model considerations for future phase
+  - Implementation sequencing (FL-UX-1 through FL-UX-4)
+
+### Strategic rule confirmed
+External students should not be invited until interactive StudyLoad v1 is implemented, tested internally, and the 8-item readiness gate is satisfied.
+
+### Student autonomy principle included
+For PAES/enseñanza media: the student is the primary operator; the flow must not depend on parent supervision or external instructions.
+
+### What was NOT done
+- No code, schema, or endpoint changes
+- No data created, modified, or deleted
+- No deploy, no prisma CLI, no checkpoints
+- No secrets printed
+
+### Next possible phase
+- FL-UX-1 — Implement minimal in-app StudyLoad content viewer
