@@ -2551,3 +2551,57 @@ Alternatively: **FL-UX-3J** — Close Cycle 2 + authorize continuity + create Cy
 - No password changes.
 - Cycle 1 data fully preserved.
 - Ana, Bruno, Test Now data unchanged.
+
+---
+
+## FL-UX-4A — Consolidate beta readiness evidence
+**Date:** 2026-04-30
+**Git baseline:** `71ebe87` (FL-UX-3I + PHASE_LOG.pdf auto-commit)
+
+### Summary
+Created a comprehensive beta readiness consolidation document summarizing the validated two-cycle lifecycle for Mauricio Beta-M1 / PAES_M1. The document covers 16 sections: executive summary, validated lifecycle map, evidence inventory, beta-ready capabilities, manual operations, blockers, product interpretation, technical/pedagogical/operational readiness assessments, risks and debts, recommended roadmap, go/no-go conditions, operating model, custody checklist, and final recommendation.
+
+### Document created
+- **File:** `nextjs_space/docs/operations/FL_UX_4A_BETA_READINESS_CONSOLIDATION.md`
+- **Sections:** 16
+
+### Key conclusions
+
+#### Beta-readiness level
+- **Internal guided beta (1–3 students):** GO — validated with two complete cycles
+- **Public/open beta:** NO-GO — missing onboarding, account protocol, content, support procedures
+
+#### Beta-ready capabilities (14 items)
+- Student /now, Empezar, Ver actividad, MC submission, self-report, completion state
+- Admin evidence review, CycleDecision, cycle close, continuity, cycle creation, load curation
+- Beta Operations dashboard, content registry (2 entries)
+
+#### Manual areas (10 items)
+- Pedagogical decisions, cycle close, continuity, cycle creation, load curation, content selection, evidence interpretation, student follow-up, risk detection, scoring
+
+#### Major risks/debts (12 risks, 6 technical debts)
+- Auto-loads don't match registry, password/account handling, manual curation burden, Beta Ops gaps, limited content (2 entries), direct production operations, schema promotion risk
+
+#### Recommended roadmap
+1. FL-UX-4B — Beta operations protocol / runbook
+2. FL-UX-4C — Student account/password protocol
+3. FL-UX-4D — Content registry expansion
+4. FL-UX-4E — Beta Ops visibility hardening
+5. FL-UX-4F — External beta checklist
+6. FL-UX-3J — Close Cycle 2 (deferred, lifecycle mechanism already validated)
+
+**Strategic recommendation:** Consolidate beta readiness before continuing lifecycle depth.
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No data mutations of any kind.
+- No cycles created, closed, or modified.
+- No StudyLoads created, started, completed, or deleted.
+- No Responses created or modified.
+- No CycleDecisions created or modified.
+- No CycleEvaluations created.
+- No continuity authorized.
+- No scoring, no PAES score, no adaptive logic, no AI.
+- No `.env` changes, no secrets printed.
+- No password changes.
+- Ana, Bruno, Test Now, Mauricio data unchanged.
