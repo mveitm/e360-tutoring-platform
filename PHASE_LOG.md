@@ -1739,3 +1739,34 @@ Live admin verification of the FL-UX-2D MC submission evidence view on productio
 
 ### Conclusion
 FL-UX-2D is verified live on production. The admin evidence view correctly renders Mauricio's MC submission evidence alongside the existing self-report. The component handles all three cases (mc_submission with answer key, no mc_submission, partial submission) as designed.
+
+---
+
+## CUST-CODEX-0 — Document Codex/Abacus workload balancing protocol
+**Date:** 2026-04-30
+
+### Summary
+Created governance document defining how OpenAI Codex may be introduced into the E360/Bexauri development workflow to reduce development cost while preserving technical custody, quality, and architectural discipline.
+
+### Document created
+- **File:** `nextjs_space/docs/governance/CODEX_ABACUS_WORKLOAD_BALANCING_PROTOCOL_v1.md`
+- **Sections (17):** Executive decision, Purpose, Current product context, Tool roles, Core allocation rule, Task matrix, Codex adoption phases (CX-0 through CX-4), Gates before edits, Branch policy, Work modes, Initial prompts, Immediate candidate tasks, Restricted tasks, Operating workflow, Expansion criteria, Stop criteria, Final recommendation.
+
+### Key decisions documented
+- Codex introduced gradually as a low/medium-risk workload balancing layer.
+- Codex is NOT an immediate Abacus replacement.
+- Abacus retained for: production/deploy, schema/migrations, data mutation, write endpoints, auth/guards, cycle transitions, sensitive beta operations, live verification.
+- Codex suitable for: repo reading, audits, documentation, tests, UI read-only, small refactors, PR preparation.
+- Branch policy: Codex works on branches, never directly on main during early adoption.
+- Stop criteria defined for custody protection.
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No Codex installed or configured.
+- No branches created for Codex work.
+- No data mutation, no student/cycle/load changes.
+- No `.env` changes, no secrets printed.
+- No package.json or lockfile changes.
+
+### Next recommended step
+CX-0 — Codex readiness for E360, read-only repo understanding, no changes.
