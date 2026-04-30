@@ -1482,3 +1482,61 @@ Turned the existing read-only content viewer at `/now/study-loads/[id]` into an 
 
 ### Next possible phase
 - FL-UX-2D — Admin evidence view for MC submissions, or live student verification of FL-UX-2C.
+
+---
+
+## FL-UX-2C-LIVE-VERIFY — Live deployment/readiness check for student MC answer capture UI
+**Date:** 2026-04-30
+
+### Summary
+Deployed FL-UX-2C code to production and performed a controlled live readiness verification. No code changes — validation and documentation only.
+
+### Deployment
+- **Hostname:** `tutoring-platform-mv-l4o1ne.abacusai.app`
+- **Status:** Successful.
+- **Schema promotion:** Dev→prod schema promotion was triggered automatically; no destructive changes, no data loss warnings, no manual `db push` or migration required.
+
+### Live routing verification
+| Check | Result |
+|---|---|
+| App loads (root `/`) | ✅ 307 → `/login` |
+| `/now` unauthenticated | ✅ 307 → `/login?callbackUrl=%2Fnow` |
+| `/now/study-loads/[id]` unauthenticated | ✅ 307 → `/login` (route exists, not 404) |
+| `/api/study-loads/[id]/responses` in build | ✅ Present as dynamic route |
+| `/api/study-loads/[id]/start` in build | ✅ Present, unchanged |
+| `/api/study-loads/[id]/complete` in build | ✅ Present, unchanged |
+
+### Authenticated student validation
+**Status:** NOT performed. Documented as pending for manual user verification.
+
+**Reason:** The only `in_progress` StudyLoad in production (`PAES M1 — Resolver problemas de planteamiento algebraico`) does not match any title in the content registry. The FL-UX-2C answer form requires content registry data (items, options, contentKey). Without a matching in_progress load, the page renders the "content not available" fallback — the MC form cannot be exercised.
+
+**Prerequisite for live test:** The beta participant (Mauricio) must start one of the two registered StudyLoads from `/now`:
+- `PAES M1 — Ecuaciones lineales básicas`
+- `PAES M1 — Problemas con ecuaciones lineales`
+
+### Pending manual student validation checklist
+- [ ] Student logs in.
+- [ ] Opens `/now`.
+- [ ] Opens "Ver actividad" for an in_progress StudyLoad with registry content.
+- [ ] Confirms MC options render (A/B/C/D per question).
+- [ ] Confirms progress counter ("N de M respondidas") appears.
+- [ ] Selects answers and sees progress update.
+- [ ] Clicks "Enviar respuestas".
+- [ ] Sees "Respuestas guardadas" success message.
+- [ ] Does NOT see correct/incorrect feedback.
+- [ ] Does NOT see PAES score.
+- [ ] Returns to `/now`.
+- [ ] Completes StudyLoad using existing "Terminar" + self-report.
+- [ ] Admin evidence view is not expected yet.
+
+### What was NOT done
+- No feature changes, no code modifications.
+- No Prisma schema changes, no `db push`, no migrations.
+- No `/start`, `/complete`, or `/responses` endpoint changes.
+- No admin evidence view.
+- No scoring, adaptive logic, or AI.
+- No test users created, no production data mutated.
+- No credentials or secrets printed.
+- No `.abacus.donotdelete` touched.
+- No `.env` changes.
