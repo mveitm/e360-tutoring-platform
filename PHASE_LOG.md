@@ -2462,3 +2462,92 @@ Completed Mauricio Beta-M1's Cycle 2 StudyLoad end-to-end as a student: opened t
 - No password changes (reused existing session).
 - Cycle 1 data fully preserved (closed, 3 loads, 3 decisions, 4 responses, 1 continuity signal).
 - Ana, Bruno, Test Now data unchanged.
+
+---
+
+## FL-UX-3I — Manual evidence-backed CycleDecision for Cycle 2
+**Date:** 2026-04-30
+**Git baseline:** `47b0fff` (FL-UX-3H + PHASE_LOG.pdf auto-commit)
+
+### Summary
+Created exactly one manual CycleDecision (advance) for Mauricio Beta-M1 / PAES_M1 / Cycle 2 via admin UI. The decision references full MC evidence (8/8 correct) and self-report ("Me fue bien"). Cycle 2 remains open. No code or schema changes.
+
+### Operation performed
+
+#### Step 1 — Create decision (advance)
+- **Action:** Admin UI → Cycle 2 detail → Type dropdown → "advance" → "New Decision"
+- **Result:** Decision created (ID `cmom39h1g000fr50801qydn2g`), decisionType: advance, no rationale yet.
+- **Toast:** "Decision created"
+
+#### Step 2 — Add rationale
+- **Action:** Pencil (edit) icon on the advance decision → Rationale field → typed full rationale → "Save"
+- **Result:** Rationale saved (569 characters). Decision now shows truncated rationale in list view.
+- **Toast:** "Decision updated"
+
+### Rationale (stored in DB)
+> Mauricio completó la carga "PAES M1 — Problemas con ecuaciones lineales" en Cycle 2, envió 8 de 8 respuestas de alternativa dentro de Bexauri y reportó "Me fue bien". La evidencia muestra ejecución completa de la actividad interactiva, registro correcto del flujo estudiante → actividad → envío de respuestas → autorreporte → revisión admin, y 8 de 8 respuestas correctas según la pauta disponible. Decisión manual: avanzar, manteniendo revisión humana antes de cerrar el ciclo y evitando interpretar este resultado como automatización adaptativa o puntaje PAES formal.
+
+### Rationale references
+- ✅ StudyLoad title: "PAES M1 — Problemas con ecuaciones lineales"
+- ✅ 8/8 MC answers submitted
+- ✅ 8/8 correct answers
+- ✅ Self-report: "Me fue bien"
+- ✅ Manual advance decision
+- ✅ Explicit: no PAES score/adaptive interpretation
+
+### Post-operation verification
+| # | Check | Result |
+|---|-------|--------|
+| 1 | Exactly 1 CycleDecision for Cycle 2 | ✅ |
+| 2 | decisionType: advance | ✅ |
+| 3 | Rationale: 569 chars, references all evidence | ✅ |
+| 4 | Admin cycle detail shows decision with rationale | ✅ |
+| 5 | MC evidence (8/8 correct) remains visible | ✅ |
+| 6 | Self-report "Me fue bien" remains visible | ✅ |
+| 7 | Cycle 2 remains open (closedAt: NULL) | ✅ |
+| 8 | No cycle close occurred | ✅ |
+| 9 | No continuity authorization (0 signals on Cycle 2) | ✅ |
+| 10 | No new LearningCycle (still 2 total) | ✅ |
+| 11 | No new StudyLoad (still 1 on Cycle 2) | ✅ |
+| 12 | No Response created or modified (still 2) | ✅ |
+| 13 | No CycleEvaluation (0) | ✅ |
+| 14 | No recommendation shown | ✅ |
+| 15 | No PAES score shown | ✅ |
+| 16 | No adaptive logic triggered | ✅ |
+| 17 | Cycle 1: closed, 3 decisions | ✅ |
+| 18 | Others: Ana(1,4), Bruno(1,3), Test(1,2) | ✅ |
+| 19 | Beta Ops: Mauricio in review queue (1 decision) | ✅ |
+
+### Beta Operations dashboard (post-decision)
+- 4 Matrículas activas, 4 Ciclos abiertos
+- 5 Cargas pendientes, 1 en progreso, 7 completadas
+- 1 Ciclo para revisión
+- "Necesita atención / revisión": Mauricio Beta-M1 · PAES_M1 · Ciclo 2 · open · 1 carga completada · 1 decision(es)
+
+### Artifacts
+| Entity | ID | State |
+|--------|----|-------|
+| CycleDecision | `cmom39h1g000fr50801qydn2g` | advance |
+| LearningCycle (Cycle 2) | `cmom1y9ml0001r50865ff6sxn` | open |
+| StudyLoad | `cmom204zx0007r508gmwft6ro` | completed |
+
+### Recommended next phase
+**FL-UX-4A** — Consolidate beta readiness evidence: document the complete validated lifecycle (Cycle 1 + Cycle 2) as beta-ready evidence, define what remains for public beta launch.
+
+Alternatively: **FL-UX-3J** — Close Cycle 2 + authorize continuity + create Cycle 3 to complete a full second iteration of the lifecycle loop.
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No `db push`, no migrations, no seed scripts modified.
+- No Cycle 2 closed.
+- No continuity authorized.
+- No Cycle 3 created.
+- No new StudyLoad created or deleted.
+- No StudyLoad started or completed.
+- No Response created or modified.
+- No CycleEvaluation created.
+- No scoring, no PAES score, no adaptive logic, no AI.
+- No `.env` changes, no secrets printed.
+- No password changes.
+- Cycle 1 data fully preserved.
+- Ana, Bruno, Test Now data unchanged.
