@@ -1586,3 +1586,46 @@ Created exactly one controlled pending StudyLoad in production to enable manual 
 ### Purpose
 Enable Mauricio to perform the manual FL-UX-2C validation:
 `/now` → Empezar → Ver actividad → select answers → Enviar respuestas → confirmation → Volver a /now → Terminar + self-report.
+
+---
+
+## FL-UX-2C-STUDENT-VALIDATION — Live student MC submission validation
+**Date:** 2026-04-30
+
+### Summary
+Mauricio Beta-M1 performed a complete end-to-end live validation of FL-UX-2C on production (`tutoring-platform-mv-l4o1ne.abacusai.app`).
+
+### Student flow validated
+- **Load:** `PAES M1 — Problemas con ecuaciones lineales`
+- **Status flow:** `pending` → `in_progress` → `completed`
+- **Steps:**
+  1. `/now` showed the pending load.
+  2. Clicked "Empezar" → load changed to "En curso".
+  3. `/now` showed "Ver actividad" and "Terminar".
+  4. Clicked "Ver actividad" → activity page rendered 8 questions with A/B/C/D selectable options.
+  5. Progress counter showed "0 de 8 respondidas".
+  6. Selected 2 answers → counter updated to "2 de 8 respondidas".
+  7. Clicked "Enviar respuestas".
+  8. App showed: *"Respuestas guardadas. Ahora vuelve a /now y finaliza la carga con tu autorreporte."* and *"2 de 8 respuestas registradas."*
+  9. No PAES score appeared.
+  10. No correct/incorrect feedback appeared.
+  11. No automatic recommendation appeared.
+  12. Returned to `/now` → load remained "En curso" with "Ver actividad" and "Terminar" (sending answers did NOT automatically complete the StudyLoad).
+  13. Clicked "Terminar" → self-report modal appeared (Me fue bien / Me costó / No la terminé).
+  14. Selected "Me fue bien" → clicked "Confirmar".
+  15. `/now` showed the load in "Lo que hiciste en este ciclo (3)" with "Tu reporte: Me fue bien" and "Ver actividad".
+
+### Validation result
+FL-UX-2C passed live student validation. Bexauri now supports a minimal in-app interactive pedagogical activity with stored evidence:
+- `start` → interactive MC activity → partial `mc_submission` → no scoring/feedback → `complete` + self-report — all intact and working as designed.
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No data mutation (this phase is documentation only).
+- No admin evidence view added.
+- No scoring, adaptive logic, or AI.
+- No PAES score shown to student.
+- No automatic StudyLoad completion on answer submission.
+
+### Conclusion
+FL-UX-2C is validated. Ready to proceed to FL-UX-2D (admin evidence view for MC submissions).
