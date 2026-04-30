@@ -1267,3 +1267,45 @@ Bexauri has moved from operational tracking only (start/complete/self-report) to
 
 ### Next possible phase
 - FL-UX-2 — Multiple-choice answer capture (only after careful data/UX design)
+
+---
+
+## FL-UX-2A — Multiple-Choice Answer Capture Readiness and Data Contract
+
+**Date:** 2026-04-30
+**Type:** Documentation/audit/data contract (no code, no schema, no data, no deploy)
+
+### Purpose
+Inspect the current repo and produce a technical/product readiness contract for multiple-choice answer capture, without implementing the feature.
+
+### Key findings
+- Response model is connected to StudyLoad via TutoringSession (not directly).
+- Response currently used exclusively for self-report (`responseType="answer"`, `content=selfReport`).
+- `/complete` creates the self-report Response atomically with StudyLoad and TutoringSession completion.
+- `/now` and admin cycle detail assume `responses[0]` with `responseType="answer"` is the self-report.
+- No item-level answer model exists.
+
+### Recommended architecture
+- Keep existing self-report Response unchanged (`responseType="answer"`).
+- New MC answer submission uses `responseType="mc_submission"` with JSON payload in `content`.
+- No schema changes for FL-UX-2B (JSON-in-content approach).
+- Future phase: extract into ResponseItem child model when item-level DB queries are needed.
+- New endpoint `POST /api/study-loads/[id]/responses` — separate from `/start` and `/complete`.
+- One submission per load, replaceable while in_progress, frozen on complete.
+
+### Artifact created
+- `nextjs_space/docs/operations/FL_UX_2A_MULTIPLE_CHOICE_ANSWER_CAPTURE_READINESS.md` — 14-section readiness document covering: current state audit, architecture recommendation, data contract, submission rules, endpoint/student/admin UX contracts, risk assessment, phase split, and go/no-go gate.
+
+### Phase split recommended
+- FL-UX-2B — Backend API for MC answer submission (no schema change)
+- FL-UX-2C — Student answer capture UI
+- FL-UX-2D — Admin item-level evidence view
+
+### What was NOT done
+- No code, schema, or endpoint changes
+- No data created, modified, or deleted
+- No deploy, no Prisma CLI, no checkpoints
+- No secrets printed
+
+### Next possible phase
+- FL-UX-2B — Implement MC answer submission endpoint (after go/no-go gate satisfied)
