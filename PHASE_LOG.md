@@ -1024,3 +1024,37 @@ Create and version the first minimal real PAES M1 study task to complete the ped
 
 ### Next possible phase
 FL-CONTENT-1B — Attach first PAES M1 task to Mauricio or first beta participant's study load
+
+---
+
+## FL-CONTENT-1B — Attach PAES M1 Task to Mauricio Load
+
+**Date:** 2026-04-30
+**Type:** Data mutation (admin API, no code/schema/deploy)
+
+### Purpose
+Rename Mauricio's remaining pending "Initial practice" StudyLoad to the first real PAES M1 task title, completing the content-to-load linkage for the self-beta cycle.
+
+### Mutation performed
+- **Target:** StudyLoad `cmoll4tmo000hlg08qdxhr3l3` (Mauricio Beta-M1, Cycle 1)
+- **Before:** title = "Initial practice", loadType = practice, status = pending
+- **After:** title = "PAES M1 — Ecuaciones lineales básicas", loadType = practice, status = pending
+- **Method:** PUT `/api/study-loads/cmoll4tmo000hlg08qdxhr3l3` via production admin API
+- **Content source:** `nextjs_space/docs/operations/PAES_M1_FIRST_BETA_TASK_FL_CONTENT_1.md`
+
+### Verification (post-mutation)
+- Renamed load confirmed pending with correct title (prod DB query)
+- Completed load "PAES M1 — Primera práctica beta de Mauricio" untouched
+- Cycle 1 remains open, enrollment active
+- Ana Beta-M1, Bruno Beta-L1, Test Now — all untouched (verified via prod DB)
+- Admin Beta Ops UI confirms "PAES M1 — Ecuaciones lineales básicas" in Mauricio's pending work
+
+### What was NOT done
+- No new StudyLoad created (reused existing pending load)
+- No code, schema, or endpoint changes
+- No deploy, no prisma CLI, no checkpoints
+- No secrets printed
+- No other participants' data modified
+
+### Next possible phase
+Mauricio executes the real PAES M1 ecuaciones lineales task (external content delivery + platform tracking), then self-reports and completes the admin decision loop.
