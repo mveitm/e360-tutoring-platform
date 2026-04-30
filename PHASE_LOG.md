@@ -2133,3 +2133,85 @@ Strategy audit to determine the safest way to create Mauricio's Cycle 2 without 
 - No scoring, no PAES score, no adaptive logic, no AI.
 - No `.env` changes, no secrets printed.
 - Ana, Bruno, Test Now data unchanged.
+
+---
+
+## FL-UX-3F-OP — Controlled Cycle 2 creation with registry-matched StudyLoad
+**Date:** 2026-04-30
+**Git baseline:** `16c0c78` (FL-UX-3F)
+
+### Summary
+Executed the three-step controlled operation planned in FL-UX-3F: created Cycle 2 for Mauricio Beta-M1 / PAES_M1, deleted the auto-generated fallback StudyLoad, and created one registry-matched interactive StudyLoad. All operations performed via admin UI on production. No code or schema changes.
+
+### Operations performed (chronological)
+
+#### Step 1 — Create Cycle 2
+- **Action:** Admin UI → Learning Cycles → "New Cycle" → selected "Mauricio Beta-M1 — PAES_M1" → "Create Cycle"
+- **Result:** Cycle 2 created (ID `cmom1y9ml0001r50865ff6sxn`)
+  - cycleNumber: 2, status: open, openedAt: 2026-04-30 22:25:20 UTC
+  - enrollment.currentCycleId updated to Cycle 2
+  - CycleSnapshot (cycle_open) created automatically
+- **Auto-generation note:** Only 1 fallback load was created ("Initial practice"), not 3 skill-based loads. This means all SkillState candidates were excluded by DU prior-cycle filter or no qualifying candidates existed. Confirms FL-UX-3E analysis prediction.
+
+#### Step 2 — Delete auto-generated fallback StudyLoad
+- **Action:** Admin UI → Cycle 2 detail → trash icon on "Initial practice"
+- **Result:** Load deleted. Toast confirmed "Study load deleted."
+
+#### Step 3 — Create registry-matched StudyLoad
+- **Action:** Admin UI → Cycle 2 detail → "New Load" form → loadType: practice, title: `PAES M1 — Problemas con ecuaciones lineales` (em dash U+2014 verified via browser console)
+- **Result:** Load created (ID `cmom204zx0007r508gmwft6ro`). Toast confirmed "Study load created."
+
+### Post-operation verification
+
+#### Database verification (psql against PROD_DATABASE_URL)
+| # | Check | Result |
+|---|-------|--------|
+| 1 | Cycle 2 exists, open, cycleNumber=2 | ✅ |
+| 2 | enrollment.currentCycleId → Cycle 2 | ✅ |
+| 3 | Cycle 1 remains closed (closedAt 2026-04-30 21:17:28) | ✅ |
+| 4 | Cycle 1 data intact: 3 loads, 3 decisions, 4 responses, 1 continuity signal | ✅ |
+| 5 | Cycle 2 has exactly 1 StudyLoad | ✅ |
+| 6 | StudyLoad title matches registry key exactly (em dash verified) | ✅ |
+| 7 | StudyLoad: loadType=practice, status=pending | ✅ |
+| 8 | CycleSnapshot (cycle_open) exists for Cycle 2 | ✅ |
+| 9 | 0 Responses, 0 CycleDecisions, 0 CycleEvaluations on Cycle 2 | ✅ |
+| 10 | Other students unchanged: Ana (1 open, 4 loads), Bruno (1 open, 3 loads), Test Now (1 open, 2 loads) | ✅ |
+
+#### Browser verification
+| # | Check | Result |
+|---|-------|--------|
+| 11 | Beta Operations dashboard: Mauricio visible in active sections | ✅ |
+| 12 | Beta Operations: 4 open cycles, 6 pending loads | ✅ |
+| 13 | /now page (student view): NOT VERIFIED — admin session cannot access student-facing content | ⚠️ |
+
+**Note on check 13:** The `/now` page uses `session.user.email → Student.email` linkage. The admin account's email does not match any Student record. Student-facing verification requires logging in as Mauricio, which needs a User account with matching email (`mauricio.student@test.bexauri.cl`). This verification is deferred to FL-UX-3G.
+
+### Artifacts
+| Entity | ID | State |
+|--------|----|-------|
+| LearningCycle (Cycle 2) | `cmom1y9ml0001r50865ff6sxn` | open |
+| StudyLoad (registry-matched) | `cmom204zx0007r508gmwft6ro` | pending |
+| CycleSnapshot (Cycle 2) | auto-generated | cycle_open |
+| Enrollment currentCycleId | → `cmom1y9ml0001r50865ff6sxn` | — |
+
+### Key observations
+1. **Fallback-only auto-generation confirmed:** Only "Initial practice" was generated, not skill-based loads. All SkillState candidates from Cycle 1 were excluded by the DU filter (selectedSkillIds overlap), confirming the heuristic works but produces pedagogy-empty loads when all candidates are consumed.
+2. **Registry-matching is critical for interactive content:** The auto-generated title "Initial practice" would NOT have matched any content registry key. The replacement load title `PAES M1 — Problemas con ecuaciones lineales` matches exactly, enabling the "Ver actividad" link and MC questions.
+3. **Three-step curation is operationally viable:** Create → delete → recreate took ~2 minutes via admin UI. Suitable for MVP beta with manual curation.
+4. **Student-facing /now verification requires student login:** Admin UI verification and DB verification are sufficient for data integrity, but confirming the student experience requires a separate login flow.
+
+### Recommended next phase
+**FL-UX-3G** — Live student verification of Cycle 2 pending interactive load:
+- Create or verify User account for Mauricio's Student email
+- Log in as Mauricio
+- Navigate to `/now` and confirm Cycle 2 load appears with "Ver actividad" link
+- Optionally: start the interactive activity to verify MC questions render
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No `db push`, no migrations, no seed scripts modified.
+- No StudyLoad started (status remains pending).
+- No scoring, no PAES score, no adaptive logic, no AI.
+- No `.env` changes, no secrets printed.
+- Cycle 1 data fully preserved (3 loads, 3 decisions, 4 responses, 1 continuity signal).
+- Ana, Bruno, Test Now data unchanged.
