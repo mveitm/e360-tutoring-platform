@@ -1798,3 +1798,57 @@ Audit of the current repo and product state to define the safest minimal path fo
 
 ### Recommended next phase
 FL-UX-3B — Manual evidence-backed CycleDecision for Mauricio (data operation using existing UI and API, no code changes needed).
+
+---
+
+## FL-UX-3B — Manual evidence-backed CycleDecision for Mauricio
+**Date:** 2026-04-30
+
+### Summary
+Created exactly one CycleDecision (type: `advance`) for Mauricio Beta-M1 / PAES_M1 / Cycle 1 via the production admin UI. The rationale explicitly references MC submission evidence and self-report data, making this the first evidence-backed pedagogical decision in the platform.
+
+### Pre-mutation verification (production admin UI)
+| Item | Expected | Observed |
+|------|----------|----------|
+| Cycle open | ✅ | ✅ Open, closedAt: — |
+| Existing decisions | 2 (both advance) | ✅ 2 |
+| StudyLoads completed | 3 | ✅ 3 |
+| MC evidence (load 3) | 2/8 answers, q1→B ✓, q2→C ✓ | ✅ Confirmed |
+| Self-report (load 3) | "Me fue bien" | ✅ Confirmed |
+| CycleEvaluations | 0 | ✅ 0 |
+
+### Mutation performed
+- **Action:** Created new CycleDecision via admin cycle detail → "New Decision" button (type dropdown → advance → create).
+- **Rationale added:** Edited the new decision to insert evidence-backed rationale (two-step process — creation does not accept inline rationale, confirmed FL-UX-3A finding #5).
+
+### Rationale stored in production
+> Mauricio completó la carga "PAES M1 — Problemas con ecuaciones lineales", envió 2 de 8 respuestas de alternativa dentro de Bexauri y reportó "Me fue bien". La evidencia valida el uso del flujo interactivo estudiante → actividad → envío de respuestas → autorreporte → revisión admin. Sin embargo, como la submission fue parcial, esta decisión no debe interpretarse como dominio completo de problemas con ecuaciones lineales. Decisión manual: avanzar con cautela hacia una práctica levemente más amplia o de refuerzo guiado, manteniendo revisión humana antes de cerrar continuidad pedagógica.
+
+### Post-mutation verification (13 checks — ALL PASSED)
+| # | Check | Result |
+|---|-------|--------|
+| 1 | One new CycleDecision created (2→3) | ✅ |
+| 2 | decisionType: advance | ✅ |
+| 3 | Rationale references MC evidence | ✅ |
+| 4 | Decision visible in admin cycle detail | ✅ |
+| 5 | MC evidence intact (2/8, q1→B ✓, q2→C ✓) | ✅ |
+| 6 | Self-report intact ("Me fue bien" on all 3 loads) | ✅ |
+| 7 | Cycle remains open | ✅ |
+| 8 | No close occurred (closedAt: —) | ✅ |
+| 9 | No continuity authorization | ✅ |
+| 10 | No new StudyLoad (still 3) | ✅ |
+| 11 | No Response created/modified | ✅ |
+| 12 | No CycleEvaluation created (still 0) | ✅ |
+| 13 | Other students unchanged | ✅ |
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No `db push`, no migrations, no seed scripts.
+- No new StudyLoads, Responses, or CycleEvaluations created.
+- No cycle closed, no continuity authorized.
+- No `.env` changes, no secrets printed.
+- No student UI changes.
+- No automated scoring or AI involvement in the decision.
+
+### Recommended next phase
+FL-UX-3C — Cycle close validation after evidence-backed decision (manual close via admin UI, verify guards, confirm continuity readiness).
