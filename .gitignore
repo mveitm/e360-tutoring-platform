@@ -1,5 +1,7 @@
 # Dependencies and build outputs
 node_modules/
+nextjs_space/node_modules
+nextjs_space/yarn.lock
 .next/
 .build/
 .deploy/
