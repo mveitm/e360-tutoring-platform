@@ -785,3 +785,55 @@ Create the minimal production data so the existing User account `test.now@studen
 
 ### Next step
 User manually logs in as test.now@student.bexauri.cl on production and verifies `/now` renders the pending study load.
+
+
+---
+
+## FL-1 — Manual Decision Dry Run with Test Now
+
+**Date:** 2026-04-30
+**Type:** Production data mutation (one CycleDecision only — no code, no schema, no deploy)
+
+### Purpose
+Validate the final MVP beta loop: student evidence → admin review → manual pedagogical decision → traceability.
+
+### Pre-mutation state verified
+- Test Now Cycle 1: open, PAES_M1
+- Completed load: "PAES M1 — Prueba de acceso estudiante /now" (practice, completed)
+- Evidence: "Autorreporte: Me fue bien"
+- Decisions: 0
+- Evaluations: 0
+
+### Mutation performed
+One CycleDecision created via authenticated admin API:
+- **decisionType:** advance
+- **rationale:** "Dry-run decision: Test Now completed the /now test load and reported 'Me fue bien'. This decision validates manual pedagogical traceability before the assisted closed beta."
+- **learningCycleId:** cmokoth030007qo08ve71fnaq (Test Now Cycle 1)
+
+### Post-mutation verification
+1. ✅ Decisions section now shows exactly 1 decision
+2. ✅ Decision type "advance" visible as badge
+3. ✅ Rationale text visible in admin cycle detail
+4. ✅ Completed load and "Autorreporte: Me fue bien" remain visible
+5. ✅ Cycle remains open (not closed or continued)
+6. ✅ No new study loads created
+7. ✅ No cycle close/continue happened
+8. ✅ /admin/beta-operations loads correctly (3 active enrollments)
+9. ✅ Ana Beta-M1 data intact (in_progress load, pending loads unchanged)
+10. ✅ Bruno Beta-L1 data intact (pending loads unchanged)
+
+### What was NOT done
+- No code, schema, or endpoint changes
+- No deploy, no prisma CLI, no checkpoints
+- No start/complete/close/continue actions
+- No new users, students, enrollments, cycles, study loads, or responses created
+- No secrets, passwords, or connection strings printed
+- Ana/Bruno completely untouched
+
+### Dry run loop completed
+```
+Student evidence ("Me fue bien") → Admin review (cycle detail) → Manual decision (advance) → Traceability (visible in admin)
+```
+
+### Next possible phase
+FL — Assisted closed beta execution with real students (Ana, Bruno)
