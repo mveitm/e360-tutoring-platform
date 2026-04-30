@@ -991,3 +991,36 @@ The platform has now been validated by the operator acting as a real student. Th
 
 ### Next possible phase
 FL — Assisted Closed Beta Execution with first external participant
+
+
+---
+
+## FL-CONTENT-1 — First Real PAES M1 Beta Task
+
+**Date:** 2026-04-30
+**Type:** Documentation/content (no code, no schema, no data, no deploy)
+
+### Purpose
+Create and version the first minimal real PAES M1 study task to complete the pedagogical MVP experience before inviting external beta participants.
+
+### Artifact created
+- `nextjs_space/docs/operations/PAES_M1_FIRST_BETA_TASK_FL_CONTENT_1.md` — 13-section pedagogical task document:
+  - Title: "PAES M1 — Ecuaciones lineales básicas"
+  - 8 multiple-choice exercises (progressive difficulty: direct equations → word problems → equation modeling)
+  - Complete answer key with brief resolutions
+  - Student-facing instruction in Spanish (20–30 min, work on paper, return to platform)
+  - Admin decision criteria (advance/reinforce/hold/redirect)
+  - Suggested rationales for each self-report outcome
+  - Student feedback questions (6 items)
+  - MVP integration guide (external content delivery + platform StudyLoad tracking)
+  - Validation scope and explicit non-validation scope
+  - Non-implementation statement
+
+### What was NOT done
+- No code, schema, or endpoint changes
+- No data created, modified, or deleted
+- No deploy, no prisma CLI, no checkpoints
+- No secrets printed
+
+### Next possible phase
+FL-CONTENT-1B — Attach first PAES M1 task to Mauricio or first beta participant's study load
