@@ -1058,3 +1058,52 @@ Rename Mauricio's remaining pending "Initial practice" StudyLoad to the first re
 
 ### Next possible phase
 Mauricio executes the real PAES M1 ecuaciones lineales task (external content delivery + platform tracking), then self-reports and completes the admin decision loop.
+
+---
+
+## FL-CONTENT-1C — First Real PAES M1 Pedagogical Execution Custody
+
+**Date:** 2026-04-30
+**Type:** Documentation/custody (no code, no schema, no data mutation, no deploy)
+
+### Purpose
+Document the completed first real minimal PAES M1 pedagogical execution as a custody and product-learning record. All student/admin mutations were performed manually before this phase — this phase only records what happened.
+
+### Execution summary
+
+- **Student:** Mauricio Beta-M1 (mauricio.student@test.bexauri.cl)
+- **Program:** PAES_M1
+- **Cycle:** Cycle 1
+- **StudyLoad completed:** PAES M1 — Ecuaciones lineales básicas
+- **Content source:** `nextjs_space/docs/operations/PAES_M1_FIRST_BETA_TASK_FL_CONTENT_1.md`
+
+### Student flow completed
+1. Mauricio logged in as mauricio.student@test.bexauri.cl.
+2. `/now` showed PAES_M1, Cycle 1, StudyLoad: "PAES M1 — Ecuaciones lineales básicas".
+3. Mauricio clicked "Empezar".
+4. Mauricio solved the external PAES M1 task (8 ecuaciones lineales, trabajo autónomo en papel).
+5. Mauricio returned to `/now`.
+6. Mauricio clicked "Terminar".
+7. Mauricio submitted self-report: **Me fue bien**.
+
+### Admin evidence and decision
+- Admin opened Mauricio's cycle detail.
+- Confirmed: **Autorreporte: Me fue bien** visible under the completed study load.
+- Admin manually created one CycleDecision: **decisionType: advance**.
+- Rationale: Mauricio completó la cápsula PAES M1 sobre ecuaciones lineales básicas y reportó "Me fue bien". La experiencia valida una primera carga pedagógica mínima con trabajo autónomo, autorreporte y revisión admin. Se recomienda avanzar a una práctica levemente más desafiante.
+
+### Outcome
+First real minimal PAES M1 pedagogical experience completed end-to-end.
+
+### Strategic implication
+The MVP has moved beyond technical dry run into a real minimal pedagogical experience. The validated loop is: student login → /now → Empezar → external task → Terminar → self-report → admin evidence review → manual decision → traceability.
+
+### Next pedagogical recommendation
+Prepare a slightly more challenging follow-up PAES M1 task, or define the first external assisted participant, only after reviewing this self-beta learning.
+
+### What was NOT done (custody confirmation)
+- No additional data mutation performed during this custody phase
+- No code, schema, or endpoint changes
+- No deploy, no prisma CLI, no checkpoints
+- No secrets, passwords, or connection strings printed
+- No other participants' data modified
