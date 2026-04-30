@@ -1676,3 +1676,66 @@ Added a read-only admin evidence panel for multiple-choice submissions in the ad
 | `nextjs_space/app/api/learning-cycles/[id]/route.ts` | Added `updatedAt` to response select, changed orderBy |
 | `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx` | Added McSubmissionEvidence component, separated self-report from MC evidence |
 | `PHASE_LOG.md` | This entry |
+
+---
+
+## FL-UX-2D-ADMIN-VERIFY — Live admin verification of MC submission evidence view
+**Date:** 2026-04-30
+
+### Summary
+Live admin verification of the FL-UX-2D MC submission evidence view on production, confirming Mauricio Beta-M1's stored evidence is visible and correctly rendered.
+
+### Deployment
+- FL-UX-2D was deployed to production (`tutoring-platform-mv-l4o1ne.abacusai.app`).
+- The deploy tool detected a dev→prod schema difference and automatically promoted (`promote_dev_db_to_prod: true`).
+- **No data loss warnings, no migration conflicts, no destructive actions reported.**
+- FL-UX-2D itself made no schema changes — the schema diff likely originates from a prior phase (CycleEvaluation model) not previously promoted.
+- Deploy result: **clean success**.
+
+### Admin visual verification
+
+**Page:** `/admin/learning-cycles/[id]` (Mauricio Beta-M1 · PAES_M1 · Cycle 1)
+
+#### StudyLoad: "PAES M1 — Problemas con ecuaciones lineales" (completed)
+
+| Check | Result |
+|-------|--------|
+| Autorreporte: Me fue bien | ✅ Visible with MessageSquare icon |
+| "Respuestas de la actividad" section | ✅ Visible with FileText icon |
+| Estado: Respuestas enviadas | ✅ |
+| Respondidas: 2 de 8 | ✅ |
+| Correctas: 2 de 2 | ✅ (answer key present in content) |
+| Fecha de envío: 30 abr 2026, 07:26 p. m. | ✅ |
+| Content version: paes_m1_linear_equations_word_problems (v1) | ✅ |
+| Item q1: student B, correct B → Correcta ✓ | ✅ |
+| Item q2: student C, correct C → Correcta ✓ | ✅ |
+| "2 de 8 respuestas registradas" partial note | ✅ |
+
+#### Other StudyLoads without mc_submission
+
+| StudyLoad | Result |
+|-----------|--------|
+| "Primera práctica beta de Mauricio" (completed) | ✅ Autorreporte: Me fue bien + "No hay respuestas de alternativa registradas para esta carga." |
+| "Ecuaciones lineales básicas" (completed) | ✅ Autorreporte: Me fue bien + "No hay respuestas de alternativa registradas para esta carga." |
+
+#### Negative verification (confirmed NOT present)
+
+| Item | Result |
+|------|--------|
+| PAES score | ❌ Not shown |
+| Automatic recommendation | ❌ Not shown |
+| Adaptive decision | ❌ Not shown |
+| Automatic CycleDecision | ❌ Not created |
+| New action buttons from this phase | ❌ Not present |
+
+### What was NOT done
+- No code changes, no schema changes.
+- No data mutation, no users/students/enrollments/cycles/loads/responses/decisions created.
+- No `/start`, `/complete`, `/responses` endpoint changes.
+- No student UI changes.
+- No `.env` changes.
+- No credentials or secrets printed.
+- No `db push`, no migrations, no seed scripts run.
+
+### Conclusion
+FL-UX-2D is verified live on production. The admin evidence view correctly renders Mauricio's MC submission evidence alongside the existing self-report. The component handles all three cases (mc_submission with answer key, no mc_submission, partial submission) as designed.
