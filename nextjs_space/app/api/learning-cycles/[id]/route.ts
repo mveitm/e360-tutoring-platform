@@ -37,12 +37,13 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
                 startedAt: true,
                 completedAt: true,
                 responses: {
-                  orderBy: { createdAt: 'desc' },
+                  orderBy: { updatedAt: 'desc' },
                   select: {
                     id: true,
                     responseType: true,
                     content: true,
                     createdAt: true,
+                    updatedAt: true,
                   },
                 },
               },

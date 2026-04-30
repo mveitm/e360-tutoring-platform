@@ -1629,3 +1629,50 @@ FL-UX-2C passed live student validation. Bexauri now supports a minimal in-app i
 
 ### Conclusion
 FL-UX-2C is validated. Ready to proceed to FL-UX-2D (admin evidence view for MC submissions).
+---
+
+## FL-UX-2D — Admin evidence view for MC submissions
+**Date:** 2026-04-30
+
+### Summary
+Added a read-only admin evidence panel for multiple-choice submissions in the admin cycle detail page (`/admin/learning-cycles/[id]`). Admin can now review what a student submitted before making a manual CycleDecision.
+
+### Changes made
+
+#### 1. API expansion (minimal read-layer)
+- **File:** `nextjs_space/app/api/learning-cycles/[id]/route.ts`
+- Added `updatedAt: true` to the `responses` select inside `tutoringSessions` include.
+- Changed `responses` orderBy from `createdAt: 'desc'` to `updatedAt: 'desc'` (mc_submissions are upserted, so `updatedAt` is the authoritative timestamp).
+- No write endpoints changed. No new endpoints created.
+
+#### 2. Admin UI — McSubmissionEvidence component
+- **File:** `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`
+- Added `McSubmissionEvidence` component (~135 lines) that renders:
+  - Compact summary grid: Estado (enviado/parcial), Respondidas (N de M), Correctas (if answer key present), Fecha de envío.
+  - Content version footnote.
+  - Item-level table: Ítem, Respuesta estudiante, Correcta (if answer key), Resultado (Correcta ✓ / Incorrecta with color coding).
+  - Handles: null mc_submission, JSON parse errors, partial submissions, multiple submissions (shows latest).
+- Separated `responseType === "answer"` (self-report) from `responseType === "mc_submission"` (MC evidence) — Phase FJ self-report rendering remains intact.
+- Evidence only shown for loads with status `completed` or `in_progress`.
+
+### What was NOT done
+- No Prisma schema changes, no `db push`, no migrations.
+- No student UI changes — `/now` and `/now/study-loads/[id]` untouched.
+- No PAES score displayed.
+- No scoring UI, no adaptive logic, no automatic CycleDecision.
+- No write endpoints changed (`/start`, `/complete`, `/responses` untouched).
+- No new API endpoints created.
+- No deploy (dev-only verification).
+
+### Verification
+- TypeScript compilation: ✅ (tsc --noEmit clean)
+- Production build: ✅ (yarn build exit_code=0)
+- Dev server: ✅ (starts and responds)
+- Browser verification of admin panel with Mauricio's data: pending (requires admin login in future session).
+
+### Files changed
+| File | Change |
+|------|--------|
+| `nextjs_space/app/api/learning-cycles/[id]/route.ts` | Added `updatedAt` to response select, changed orderBy |
+| `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx` | Added McSubmissionEvidence component, separated self-report from MC evidence |
+| `PHASE_LOG.md` | This entry |

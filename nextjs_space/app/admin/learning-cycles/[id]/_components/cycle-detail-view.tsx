@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
-import { ArrowLeft, RefreshCw, GitBranch, BookOpen, ClipboardCheck, Loader2, Calendar, User, GraduationCap, ExternalLink, Plus, Pencil, Trash2, Search, Lock, CheckCircle2, MessageSquare } from 'lucide-react'
+import { ArrowLeft, RefreshCw, GitBranch, BookOpen, ClipboardCheck, Loader2, Calendar, User, GraduationCap, ExternalLink, Plus, Pencil, Trash2, Search, Lock, CheckCircle2, MessageSquare, FileText } from 'lucide-react'
 import { toast } from 'sonner'
 import Link from 'next/link'
 
@@ -50,6 +50,7 @@ interface CycleDetail {
         responseType: string
         content: string | null
         createdAt: string
+        updatedAt: string
       }[]
     }[]
   }[]
@@ -85,6 +86,182 @@ const evalColors: Record<string, string> = {
 }
 
 const CANONICAL_LOAD_TYPES = new Set(['practice', 'reading', 'video', 'project', 'assessment'])
+
+// ── FL-UX-2D — MC submission evidence component ─────────────────────
+// Parses the mc_submission JSON from Response.content and renders a
+// read-only compact summary + item-level table for admin review.
+// Does NOT show PAES score, does NOT recommend, does NOT auto-decide.
+
+interface McSubmissionEvidenceProps {
+  latestMc: {
+    id: string
+    content: string | null
+    updatedAt: string
+  } | null
+  hasMultipleMc: boolean
+  fmtFull: (d: string | null) => string
+}
+
+interface ParsedAnswer {
+  itemKey: string
+  selectedOptionKey: string
+  correctOptionKey?: string
+  isCorrect?: boolean
+}
+
+interface ParsedSummary {
+  answeredCount: number
+  totalItemCount: number
+  correctCount: number
+  hasAnswerKey: boolean
+}
+
+interface ParsedMcPayload {
+  kind: string
+  contentKey?: string
+  contentVersion?: string
+  submittedAt?: string
+  answers: ParsedAnswer[]
+  summary: ParsedSummary
+}
+
+function McSubmissionEvidence({ latestMc, hasMultipleMc, fmtFull }: McSubmissionEvidenceProps) {
+  if (!latestMc) {
+    return (
+      <div className="flex items-start gap-2 text-sm">
+        <FileText className="w-3.5 h-3.5 mt-0.5 text-muted-foreground/50 flex-shrink-0" />
+        <p className="text-xs text-muted-foreground">
+          No hay respuestas de alternativa registradas para esta carga.
+        </p>
+      </div>
+    )
+  }
+
+  // Parse JSON safely
+  let parsed: ParsedMcPayload | null = null
+  try {
+    if (latestMc.content) {
+      const raw = JSON.parse(latestMc.content)
+      if (raw?.kind === 'multiple_choice_submission' && raw?.summary && Array.isArray(raw?.answers)) {
+        parsed = raw as ParsedMcPayload
+      }
+    }
+  } catch {
+    // Parse failure — show safe fallback
+  }
+
+  if (!parsed) {
+    return (
+      <div className="flex items-start gap-2 text-sm">
+        <FileText className="w-3.5 h-3.5 mt-0.5 text-amber-500 flex-shrink-0" />
+        <p className="text-xs text-muted-foreground">
+          No se pudo leer el detalle de respuestas.
+        </p>
+      </div>
+    )
+  }
+
+  const { summary, answers } = parsed
+  const showCorrectColumns = summary.hasAnswerKey
+
+  return (
+    <div className="space-y-2">
+      {/* Section header */}
+      <div className="flex items-center gap-2">
+        <FileText className="w-3.5 h-3.5 text-primary/60 flex-shrink-0" />
+        <span className="text-xs font-medium text-muted-foreground">Respuestas de la actividad</span>
+      </div>
+
+      {hasMultipleMc && (
+        <p className="text-[10px] text-muted-foreground italic ml-5">
+          Se muestra el envío más reciente.
+        </p>
+      )}
+
+      {/* Compact summary */}
+      <div className="ml-5 rounded-md border bg-muted/30 p-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+          <div>
+            <p className="text-muted-foreground">Estado</p>
+            <p className="font-medium">Respuestas enviadas</p>
+          </div>
+          <div>
+            <p className="text-muted-foreground">Respondidas</p>
+            <p className="font-medium">{summary.answeredCount} de {summary.totalItemCount}</p>
+          </div>
+          {showCorrectColumns && (
+            <div>
+              <p className="text-muted-foreground">Correctas</p>
+              <p className="font-medium">{summary.correctCount} de {summary.answeredCount}</p>
+            </div>
+          )}
+          <div>
+            <p className="text-muted-foreground">Fecha de envío</p>
+            <p className="font-medium">{fmtFull(parsed.submittedAt ?? latestMc.updatedAt)}</p>
+          </div>
+        </div>
+        {parsed.contentVersion && (
+          <p className="text-[10px] text-muted-foreground mt-1.5">
+            Contenido: {parsed.contentKey ?? '—'} ({parsed.contentVersion})
+          </p>
+        )}
+      </div>
+
+      {/* Item-level table */}
+      {answers.length > 0 && (
+        <div className="ml-5 overflow-x-auto">
+          <table className="w-full text-xs border-collapse">
+            <thead>
+              <tr className="border-b text-left text-muted-foreground">
+                <th className="py-1.5 pr-3 font-medium">Ítem</th>
+                <th className="py-1.5 pr-3 font-medium">Respuesta estudiante</th>
+                {showCorrectColumns && (
+                  <>
+                    <th className="py-1.5 pr-3 font-medium">Correcta</th>
+                    <th className="py-1.5 font-medium">Resultado</th>
+                  </>
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              {answers.map((ans) => (
+                <tr key={ans.itemKey} className="border-b border-dashed last:border-0">
+                  <td className="py-1.5 pr-3 font-mono">{ans.itemKey}</td>
+                  <td className="py-1.5 pr-3 font-medium">{ans.selectedOptionKey}</td>
+                  {showCorrectColumns && (
+                    <>
+                      <td className="py-1.5 pr-3">
+                        {ans.correctOptionKey ?? '—'}
+                      </td>
+                      <td className="py-1.5">
+                        {ans.isCorrect === true && (
+                          <span className="inline-flex items-center gap-1 text-emerald-700">
+                            <CheckCircle2 className="w-3 h-3" /> Correcta
+                          </span>
+                        )}
+                        {ans.isCorrect === false && (
+                          <span className="text-rose-600">Incorrecta</span>
+                        )}
+                        {ans.isCorrect === undefined && (
+                          <span className="text-muted-foreground">—</span>
+                        )}
+                      </td>
+                    </>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {summary.answeredCount < summary.totalItemCount && (
+            <p className="text-[10px] text-muted-foreground mt-1.5 italic">
+              {summary.answeredCount} de {summary.totalItemCount} respuestas registradas.
+            </p>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
 
 export function CycleDetailView() {
   const params = useParams()
@@ -1085,17 +1262,28 @@ export function CycleDetailView() {
                           </div>
                         </div>
                       </div>
-                      {/* Phase FJ — Self-report / evidence display.
-                          Shows the student's self-report from the completed
-                          tutoring session linked to this study load. This is
-                          the evidence the admin reviews before recording a
-                          manual pedagogical decision. */}
+                      {/* Phase FJ — Self-report display.
+                          Phase FL-UX-2D — MC submission evidence display.
+                          Separates responseType="answer" (self-report) from
+                          responseType="mc_submission" (MC evidence). */}
                       {(() => {
                         const allResponses = (ld.tutoringSessions ?? []).flatMap(s => s.responses ?? [])
                         if (allResponses.length === 0) return null
+
+                        // Self-report: responseType === "answer"
+                        const selfReports = allResponses.filter(r => r.responseType === 'answer')
+                        // MC submissions: responseType === "mc_submission"
+                        const mcSubmissions = allResponses.filter(r => r.responseType === 'mc_submission')
+                        // Pick most recent mc_submission by updatedAt
+                        const latestMc = mcSubmissions.length > 0
+                          ? mcSubmissions.reduce((a, b) => (a.updatedAt > b.updatedAt ? a : b))
+                          : null
+                        const hasMultipleMc = mcSubmissions.length > 1
+
                         return (
-                          <div className="mt-2 pt-2 border-t border-dashed">
-                            {allResponses.map((r) => (
+                          <div className="mt-2 pt-2 border-t border-dashed space-y-3">
+                            {/* Self-report section */}
+                            {selfReports.map((r) => (
                               <div key={r.id} className="flex items-start gap-2 text-sm">
                                 <MessageSquare className="w-3.5 h-3.5 mt-0.5 text-primary/60 flex-shrink-0" />
                                 <div>
@@ -1104,6 +1292,15 @@ export function CycleDetailView() {
                                 </div>
                               </div>
                             ))}
+
+                            {/* MC submission evidence section */}
+                            {(ld.status === 'completed' || ld.status === 'in_progress') && (
+                              <McSubmissionEvidence
+                                latestMc={latestMc}
+                                hasMultipleMc={hasMultipleMc}
+                                fmtFull={fmtFull}
+                              />
+                            )}
                           </div>
                         )
                       })()}
