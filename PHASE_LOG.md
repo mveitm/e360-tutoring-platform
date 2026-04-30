@@ -1107,3 +1107,39 @@ Prepare a slightly more challenging follow-up PAES M1 task, or define the first 
 - No deploy, no prisma CLI, no checkpoints
 - No secrets, passwords, or connection strings printed
 - No other participants' data modified
+
+---
+
+## FL-CONTENT-2 — PAES M1 Follow-up Task and In-App Study Load Requirements
+
+**Date:** 2026-04-30
+**Type:** Documentation/content/product requirements (no code, no schema, no data, no deploy)
+
+### Purpose
+Create and version a second PAES M1 task for Mauricio's self-beta continuity after the `advance` decision, and document the minimum in-app study load requirements needed before inviting external participants.
+
+### Artifact created
+- `nextjs_space/docs/operations/PAES_M1_FOLLOW_UP_TASK_AND_IN_APP_REQUIREMENTS_FL_CONTENT_2.md` — 18-section document:
+  - Second PAES M1 task: "PAES M1 — Problemas con ecuaciones lineales"
+  - 8 multiple-choice exercises (equations with parentheses, fractions, word problems, modeling)
+  - Complete answer key with solution notes
+  - Admin decision criteria and suggested rationales
+  - Student feedback questions
+  - Why external students are still not invited
+  - Minimum in-app StudyLoad requirements (student side, admin side, data model)
+  - Proposed minimum interactive StudyLoad v1 specification
+  - Validation scope and explicit non-validation scope
+  - Next recommended phases
+
+### Strategic rule confirmed
+External students should not be invited until the platform supports: a beta-quality student frontend, in-app study load content, interactive task execution, clearer onboarding, stable admin-assisted continuity, and reduced dependence on external documents.
+
+### What was NOT done
+- No code, schema, or endpoint changes
+- No data created, modified, or deleted
+- No deploy, no prisma CLI, no checkpoints
+- No secrets printed
+
+### Next possible phase
+- FL-CONTENT-2B — Attach follow-up task to Mauricio next pending load or create next controlled load
+- FL-UX-0 — Define in-app interactive StudyLoad MVP requirements
