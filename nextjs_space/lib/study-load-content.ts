@@ -143,8 +143,8 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       },
     ],
     currentLimitationNotice:
-      'En esta versi\u00f3n, las respuestas no se guardan dentro de la plataforma. ' +
-      'Resuelve en tu cuaderno y luego vuelve a /now para terminar la carga y reportar c\u00f3mo te fue.',
+      'Puedes seleccionar tus respuestas y enviarlas desde esta p\u00e1gina. ' +
+      'Cuando termines, vuelve a /now para finalizar la carga y completar tu autorreporte.',
   },
 
   'PAES M1 \u2014 Problemas con ecuaciones lineales': {
@@ -257,8 +257,8 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       },
     ],
     currentLimitationNotice:
-      'En esta versi\u00f3n, las respuestas no se guardan dentro de la plataforma. ' +
-      'Resuelve en tu cuaderno y luego vuelve a /now para terminar la carga y reportar c\u00f3mo te fue.',
+      'Puedes seleccionar tus respuestas y enviarlas desde esta p\u00e1gina. ' +
+      'Cuando termines, vuelve a /now para finalizar la carga y completar tu autorreporte.',
   },
 }
 

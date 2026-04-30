@@ -1423,3 +1423,62 @@ This file is system-managed and the environment blocks all operations referencin
 - After cleanup commit: `git diff c83c6c9..HEAD --name-status` shows only legitimate files plus `.gitignore` and the residual `.abacus.donotdelete`.
 - `git ls-files .logs` returns empty.
 - `.gitignore` prevents future log/artifact tracking.
+
+---
+
+## FL-UX-2C — Student multiple-choice answer capture UI
+**Date:** 2026-04-30
+
+### Summary
+Turned the existing read-only content viewer at `/now/study-loads/[id]` into an interactive multiple-choice answer capture form. Students can now select answers, see progress, and submit to the existing `POST /api/study-loads/[id]/responses` endpoint — all within the platform.
+
+### Files changed
+- `nextjs_space/app/now/study-loads/[id]/page.tsx` — **MODIFIED**: integrated `StudyLoadAnswerForm` client component; added server-side prefill of existing mc_submission; strips `correctOptionKey` before passing items to client; removed static question list and limitation notice (now handled by form).
+- `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx` — **NEW**: client component for interactive MC answer capture.
+- `nextjs_space/lib/study-load-content.ts` — **MODIFIED**: updated `currentLimitationNotice` text from "respuestas no se guardan" to "puedes seleccionar y enviar desde esta página".
+
+### Student UX implemented
+1. **Status-aware rendering:**
+   - `pending`/`released` → blue info banner: "Primero debes iniciar esta carga desde /now para poder enviar respuestas."
+   - `in_progress` → interactive answer form with guidance banner.
+   - `completed` → green banner + read-only view with previous selections highlighted.
+2. **Interactive answer selection:** radio-style buttons for each option (A/B/C/D) per question.
+3. **Progress indicator:** "N de M respondidas" text + visual progress bar.
+4. **Submit button:** "Enviar respuestas" — disabled until ≥1 answer selected.
+5. **Success message:** "Respuestas guardadas. Ahora vuelve a /now y finaliza la carga con tu autorreporte."
+6. **Error handling:** API error messages shown in red banner.
+7. **Re-submission:** allowed while `in_progress` — updates the existing `mc_submission`.
+8. **Prefill:** if a previous `mc_submission` exists for the active session, selections are pre-populated.
+9. **Navigation:** "Volver a /now" link preserved at top and bottom.
+
+### Security
+- `correctOptionKey` is NOT passed to the client component — stripped in server page.
+- No correct/incorrect feedback shown to the student.
+- No PAES score shown.
+- Server-side ownership check unchanged.
+- Authentication/authorization logic untouched.
+
+### What was NOT done
+- No Prisma schema changes.
+- No new models.
+- No `prisma db push`, no migrations.
+- No changes to `/api/study-loads/[id]/start`.
+- No changes to `/api/study-loads/[id]/complete`.
+- No changes to `POST /api/study-loads/[id]/responses` (endpoint unchanged).
+- No scoring UI, no adaptive feedback, no AI/agents.
+- No admin evidence view.
+- No automatic StudyLoad completion.
+- No CycleDecision generation.
+- No deploy.
+- No data mutation.
+- No `.env` changes.
+- No `.abacus.donotdelete` touched.
+
+### Verification
+- TypeScript check (`tsc --noEmit`): passed.
+- Production build: passed.
+- Dev server startup: passed.
+- Live student verification: pending (requires authenticated student session with in_progress StudyLoad).
+
+### Next possible phase
+- FL-UX-2D — Admin evidence view for MC submissions, or live student verification of FL-UX-2C.
