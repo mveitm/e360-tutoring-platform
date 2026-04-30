@@ -1309,3 +1309,89 @@ Inspect the current repo and produce a technical/product readiness contract for 
 
 ### Next possible phase
 - FL-UX-2B — Implement MC answer submission endpoint (after go/no-go gate satisfied)
+
+---
+
+## FL-UX-2B — Backend API for multiple-choice answer submission
+**Date:** 2026-04-30
+
+### Endpoint added
+- `POST /api/study-loads/[id]/responses` — Creates or replaces one `mc_submission` Response for the active in-progress TutoringSession of a StudyLoad.
+
+### Architecture
+- JSON-in-Response approach: structured payload stored in `Response.content` with `responseType="mc_submission"`.
+- Stored payload shape: `{ kind, schemaVersion, contentKey, contentVersion, studyLoadId, submittedAt, answers[], summary }`.
+- Each answer includes `itemKey`, `selectedOptionKey`, and optionally `correctOptionKey`/`isCorrect` (when answer key available).
+- Summary includes `answeredCount`, `totalItemCount`, `correctCount`, `hasAnswerKey`.
+
+### Content registry updated
+- `lib/study-load-content.ts` — Added `contentKey`, `contentVersion`, `key` (item identifier), `correctOptionKey` fields.
+- Added `getStudyLoadContentByKey()` lookup function.
+- Both existing content entries (basic + word problems) enriched with stable keys and answer keys.
+- Backward-compatible: existing viewer unchanged (uses `title` lookup and `stem`/`options`).
+
+### Validation implemented
+- Authenticated user (401)
+- Ownership: User.email → Student.email → active Enrollment → open Cycle → StudyLoad (403)
+- Enrollment active (409)
+- Cycle open (409)
+- StudyLoad in_progress required (409); completed loads rejected (409)
+- Content registry lookup by title (400 if no content)
+- `contentKey` and `contentVersion` must match registered content for this load (400)
+- Each `itemKey` must exist in content (400)
+- Each `selectedOptionKey` must be a valid option label for that item (400)
+- Duplicate `itemKey` entries rejected (400)
+- Empty answers array rejected (400)
+- Active TutoringSession must exist (409)
+
+### Submission rules
+- At most one `mc_submission` Response per TutoringSession.
+- Resubmission while `in_progress` replaces the existing `mc_submission` (update, returns 200).
+- First submission creates new Response (returns 201).
+- Completed StudyLoad rejects modification (409).
+
+### Response shape
+```json
+{
+  "ok": true,
+  "responseType": "mc_submission",
+  "studyLoadId": "...",
+  "answeredCount": 2,
+  "totalItemCount": 8,
+  "correctCount": 1,
+  "hasAnswerKey": true
+}
+```
+
+### Files changed
+- `nextjs_space/lib/study-load-content.ts` — Added contentKey, contentVersion, item keys, answer keys, getStudyLoadContentByKey.
+- `nextjs_space/app/api/study-loads/[id]/responses/route.ts` — New endpoint (POST only).
+- `PHASE_LOG.md` — This entry.
+
+### What was NOT done
+- No Prisma schema changes
+- No migrations, db push, or database reset
+- No changes to `/start` or `/complete` endpoints
+- No changes to StudyLoad.status or LearningCycle.status logic
+- No CycleDecision, CycleEvaluation, or next StudyLoad creation
+- No scoring, PAES score, or adaptive logic
+- No student UI
+- No admin evidence UI
+- No AI/agents
+- No deploy
+- No .env changes
+- No secrets printed
+- No production data mutated
+
+### Verification
+- TypeScript check: passed (0 errors)
+- Production build: passed
+- Endpoint visible in build output at `/api/study-loads/[id]/responses`
+
+### Risks / follow-up
+- Answer keys hardcoded in static registry — if content is corrected, old stored payloads retain the old key. `contentVersion` field mitigates this.
+- Title-based content resolution remains the primary linkage. Future: move to content IDs when content goes to DB.
+- TutoringSession must exist (created by `/start`) before answers can be submitted. No session auto-creation.
+
+### Next possible phase
+- FL-UX-2C — Student answer capture UI (radio buttons on `/now/study-loads/[id]`)
