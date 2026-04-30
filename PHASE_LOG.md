@@ -923,3 +923,71 @@ Create the minimal production data so the existing User account `mauricio.studen
 
 ### Next step
 User manually logs in as mauricio.student@test.bexauri.cl on production and verifies `/now` renders pending study loads.
+
+
+---
+
+## FL-SELF-CUSTODY — Mauricio self-beta execution custody
+
+**Date:** 2026-04-30
+**Type:** Custody record (documentation only — no code, no schema, no data mutation by Abacus, no deploy)
+
+### Context
+The user (Mauricio) manually executed a full self-beta loop as both student and admin, validating the platform end-to-end with his own beta account.
+
+### Student details
+- **Student:** Mauricio Beta-M1
+- **Email:** mauricio.student@test.bexauri.cl
+- **Program:** PAES_M1
+- **Cycle:** Cycle 1 (open)
+
+### Manual execution record (performed by the user, not by Abacus)
+
+**Student side:**
+1. Logged in as mauricio.student@test.bexauri.cl
+2. `/now` loaded successfully — PAES_M1, Ciclo 1 visible
+3. Two pending loads visible: "Initial practice", "PAES M1 — Primera práctica beta de Mauricio"
+4. Clicked "Empezar" on "PAES M1 — Primera práctica beta de Mauricio"
+5. Load moved to "En curso"
+6. Clicked "Terminar"
+7. Self-report form opened
+8. Submitted: **"Me fue bien"**
+9. `/now` showed: "Lo que hiciste en este ciclo" → "Tu reporte: Me fue bien"
+
+**Admin side:**
+10. Opened cycle detail in `/admin/beta-operations`
+11. Confirmed: Study Loads (2) — completed 1, pending 1
+12. Confirmed: "Autorreporte: Me fue bien" visible
+13. Created one CycleDecision manually:
+    - **decisionType:** advance
+    - **rationale:** "Mauricio completó la primera práctica beta M1 y reportó 'Me fue bien'. Se valida el flujo self-beta estudiante → evidencia → revisión admin."
+14. Confirmed: Decisions (1), type "advance", rationale visible
+
+### Cycle state after execution
+- Cycle 1: remains **open**
+- "Initial practice": remains **pending**
+- "PAES M1 — Primera práctica beta de Mauricio": **completed**
+- Decisions: 1 (advance)
+
+### What Abacus did NOT do in this custody phase
+- No data mutation (all mutations were performed manually by the user before this phase)
+- No code, schema, or endpoint changes
+- No deploy, no prisma CLI, no checkpoints
+- No start/complete/close/continue actions
+- No decision creation
+- No secrets, passwords, or connection strings printed
+- Ana Beta-M1, Bruno Beta-L1, and Test Now not touched
+
+### Outcome
+**Mauricio self-beta loop: PASSED ✅**
+
+Validated loop:
+```
+Student login → /now → Empezar → Terminar → Self-report ("Me fue bien") → Admin evidence → Manual decision (advance) → Traceability
+```
+
+### Strategic implication
+The platform has now been validated by the operator acting as a real student. The full pedagogical feedback loop works end-to-end. The platform is ready to invite the first external/assisted beta participant under the FL protocol defined in BETA_PARTICIPANT_READINESS_FL2.md.
+
+### Next possible phase
+FL — Assisted Closed Beta Execution with first external participant
