@@ -1927,3 +1927,32 @@ Closed Mauricio Beta-M1 / PAES_M1 / Cycle 1 manually via the production admin UI
 
 ### Recommended next phase
 FL-UX-3D — Continuity readiness after closed evidence-backed cycle (authorize continuity via admin UI, verify new cycle creation, confirm continuity chain).
+
+---
+
+## FL-UX-3D — Continuity readiness after closed evidence-backed cycle
+**Date:** 2026-04-30
+
+### Summary
+Audit of the continuity mechanism after Mauricio Beta-M1 / PAES_M1 / Cycle 1 was closed with an evidence-backed CycleDecision. Examined schema, endpoints, admin UI, and operation semantics to determine the safest next step.
+
+### Document created
+- **File:** `nextjs_space/docs/operations/FL_UX_3D_CONTINUITY_READINESS_AFTER_CLOSED_EVIDENCE_BACKED_CYCLE.md`
+- **Sections (12):** Executive summary, Current validated lifecycle state, Data model audit, Endpoint audit, Admin UX audit, Continuity operation semantics, Product interpretation, Recommended operation path, Go/no-go criteria, Risks, Recommended next phase, Custody checklist.
+
+### Key findings
+1. **Two-step continuity:** Authorization (POST /api/learning-cycles/[id]/continue) creates ONLY a ContinuitySignal. Cycle N+1 creation (POST /api/learning-cycles) is a separate, independent operation.
+2. **Continue endpoint is clean:** Idempotency-guarded (409 on duplicate), creates one ContinuitySignal with signalType='continue', rationale='admin_authorize'. Updates enrollment.lastActivityAt. No LearningCycle, StudyLoad, or evidence mutation.
+3. **Cycle creation is more complex:** POST /api/learning-cycles checks P1–P4b, creates LearningCycle, creates 1–3 StudyLoads via SkillState heuristic, creates CycleSnapshot(cycle_open), updates enrollment.currentCycleId.
+4. **Admin UI is safe:** Confirmation dialog, button disappears after authorization, copy does not imply cycle creation.
+5. **Beta Operations gap:** Closed cycles disappear from dashboard. Between close and next cycle open, student is invisible on Beta Operations. Known limitation.
+6. **Evidence not required by endpoint:** Continue endpoint does not check for CycleDecision or evidence. This is workflow discipline, not API guard. For Mauricio, mitigated by FL-UX-3B evidence-backed decision.
+
+### Recommended next phase
+FL-UX-3D-OP — Authorize continuity after closed evidence-backed cycle (click "Autorizar continuidad" via admin UI, verify ContinuitySignal created, verify no new cycle, verify evidence intact).
+
+### What was NOT done
+- No code changes, no schema changes, no deploy, no data mutation.
+- No continuity authorized, no ContinuitySignal created.
+- No new cycle or StudyLoad created.
+- No student data touched.
