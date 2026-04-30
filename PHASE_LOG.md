@@ -2215,3 +2215,124 @@ Executed the three-step controlled operation planned in FL-UX-3F: created Cycle 
 - No `.env` changes, no secrets printed.
 - Cycle 1 data fully preserved (3 loads, 3 decisions, 4 responses, 1 continuity signal).
 - Ana, Bruno, Test Now data unchanged.
+
+---
+
+## FL-UX-3G — Live student verification of Cycle 2 pending interactive load
+**Date:** 2026-04-30
+**Git baseline:** `6e53bd9` (FL-UX-3F-OP)
+
+### Summary
+Verified the complete student experience for Mauricio Beta-M1 / PAES_M1 / Cycle 2 by logging in as Mauricio and navigating the `/now` student surface. Clicked "Empezar" exactly once (StudyLoad pending → in_progress). Opened "Ver actividad" and confirmed the full MC activity renders with 8 questions, A/B/C/D options, progress counter, and "Enviar respuestas" button. No answers were submitted, no completion, no self-report. No code or schema changes.
+
+### Student login
+- **Was student login possible?** Yes.
+- **Method:** Temporary password reset on the Mauricio User account (`mauricio.student@test.bexauri.cl`) in production DB, followed by login via `/login`. Password restored to seed default after verification.
+- **Login result:** Successful — redirected to admin panel (User.name="Admin"). Navigated to `/now` manually.
+
+### Student UX verification results
+
+#### /now page (logged in as Mauricio)
+| # | Check | Result |
+|---|-------|--------|
+| 1 | /now loads | ✅ |
+| 2 | Program: PAES_M1 | ✅ "PAES Matemática M1" |
+| 3 | Ciclo 2 visible | ✅ "Ciclo 2 — Abierto: 30 abr 2026" |
+| 4 | StudyLoad title visible | ✅ "PAES M1 — Problemas con ecuaciones lineales" |
+| 5 | PRACTICE badge | ✅ |
+| 6 | Status pending / available to start | ✅ "Cargas pendientes (1)" |
+| 7 | "Ver actividad" link visible | ✅ |
+| 8 | "Empezar" button visible | ✅ Green button |
+
+#### After clicking "Empezar"
+| # | Check | Result |
+|---|-------|--------|
+| 9 | Toast "Carga iniciada" | ✅ |
+| 10 | Section changes to "En curso (1)" | ✅ |
+| 11 | Status badge "En curso" (blue dot) | ✅ |
+| 12 | "Terminar" button visible (NOT clicked) | ✅ |
+| 13 | "Ver actividad" link still visible | ✅ |
+| 14 | Instructional text visible | ✅ "Trabaja en esta actividad..." |
+
+#### Activity page (after clicking "Ver actividad")
+| # | Check | Result |
+|---|-------|--------|
+| 15 | Title renders | ✅ "PAES M1 — Problemas con ecuaciones lineales" |
+| 16 | Instructions section | ✅ 7-step numbered instructions |
+| 17 | 8 MC questions visible | ✅ Pregunta 1–8 de 8 |
+| 18 | A/B/C/D options per question | ✅ All 8 questions have 4 options |
+| 19 | Progress counter | ✅ "0 de 8 respondidas" |
+| 20 | "Enviar respuestas" button | ✅ Orange button, bottom |
+| 21 | "← Volver a /now" link | ✅ Top and bottom |
+| 22 | Skill tag | ✅ "Ecuaciones lineales (problemas)" |
+| 23 | Time estimate | ✅ "25–35 minutos" |
+
+#### Negative checks (things that must NOT appear)
+| # | Check | Result |
+|---|-------|--------|
+| 24 | No PAES score shown | ✅ |
+| 25 | No correct/incorrect feedback before submission | ✅ |
+| 26 | No automatic recommendation | ✅ |
+| 27 | No answers selected | ✅ "0 de 8 respondidas" |
+
+### MC questions observed (8 total)
+1. `2(x + 3) = 18` — A:3, B:6, C:9, D:12
+2. `4x − 5 = 2x + 11` — A:6, B:7, C:8, D:9
+3. `(x/2) + 7 = 15` — A:12, B:14, C:16, D:18
+4–5. (Scrolled through, equation problems)
+6. Age problem: "5 años será 23 años" — A:16, B:17, C:18, D:19
+7. Stationery store: 4 lápices + goma = $2.200 — A:$300, B:$350, C:$400, D:$450
+8. Monthly plan: cuota fija $2.000 + $500/clase = $5.500 — A:`2.000x + 500 = 5.500`, B:`2.000 + 500x = 5.500`, C:`500 + 2.000x = 5.500`, D:`2.500x = 5.500`
+
+### Controlled mutation
+- **Mutation performed:** StudyLoad `cmom204zx0007r508gmwft6ro` status: `pending` → `in_progress`
+- **Trigger:** Clicked "Empezar" button exactly once
+- **Side effect:** 1 TutoringSession (`sessions_pedagogical`) created with status `in_progress` (expected behavior of POST /api/study-loads/[id]/start)
+
+### Post-verification database checks
+| # | Check | Result |
+|---|-------|--------|
+| 1 | Cycle 2 remains open | ✅ |
+| 2 | StudyLoad status: in_progress | ✅ |
+| 3 | 0 Responses on Cycle 2 | ✅ |
+| 4 | 0 mc_submissions | ✅ |
+| 5 | 0 self-reports (answer type) | ✅ |
+| 6 | 0 CycleDecisions on Cycle 2 | ✅ |
+| 7 | 0 CycleEvaluations on Cycle 2 | ✅ |
+| 8 | Cycle 1 closed, 3 loads, 3 decisions | ✅ |
+| 9 | Beta Ops: Mauricio in "En progreso" | ✅ |
+| 10 | Others unchanged: Ana(1,4), Bruno(1,3), Test Now(1,2) | ✅ |
+| 11 | No PAES score (visual) | ✅ |
+| 12 | No recommendation (visual) | ✅ |
+| 13 | No adaptive logic triggered | ✅ |
+
+### Beta Operations dashboard (post-verification)
+- 4 Matrículas activas
+- 4 Ciclos abiertos
+- 5 Cargas pendientes (was 6, now 5 because Mauricio's load moved to in_progress)
+- 2 Cargas en progreso (was 1, now 2 with Mauricio)
+- 6 Cargas completadas
+- 0 Ciclos para revisión
+- Mauricio visible in "En progreso" section: #2, "PAES M1 — Problemas con ecuaciones line...", practice, in_progress
+
+### Password management note
+Mauricio's User account password was temporarily changed for this verification session. After verification, the password was restored to the standard seed default value. No passwords, secrets, or connection strings were printed or logged.
+
+### Recommended next phase
+**FL-UX-3H** — Student completes Cycle 2 activity (submit MC answers via "Enviar respuestas") or admin review of in-progress Cycle 2, depending on operational priority:
+- Option A: Submit MC answers (8 questions) → verify mc_submission evidence → "Terminar" → self-report → verify completed state
+- Option B: Admin reviews in-progress state via cycle detail → verifies TutoringSession exists → defers completion to user
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No `db push`, no migrations, no seed scripts modified.
+- No MC answers submitted ("0 de 8 respondidas" confirmed).
+- No "Enviar respuestas" clicked.
+- No "Terminar" clicked.
+- No self-report created.
+- No Responses created on Cycle 2.
+- No CycleDecision, CycleEvaluation created.
+- No scoring, no PAES score, no adaptive logic, no AI.
+- No `.env` changes, no secrets printed.
+- Cycle 1 data fully preserved.
+- Ana, Bruno, Test Now data unchanged.
