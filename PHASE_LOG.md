@@ -3268,3 +3268,34 @@ in a dedicated custody phase if needed.
 - No `ADMIN_EMAILS` value printed or exposed.
 - No credentials, secrets, `.env`, or tokens printed.
 - No Mauricio data touched.
+
+---
+
+## FL-UX-4E — Post-auth internal beta restart checkpoint
+
+**Date:** 2026-05-03
+**Type:** Documentation-only checkpoint
+**Commit:** *(see git log)*
+
+### Summary
+
+- Auth blocker (CUST-AUTH-0 → 1A → 1B → 1C) resolved functionally for internal beta.
+- Current Beta Ops board summarized: 4 active enrollments, 4 open cycles, 5 pending loads, 2 in-progress, 7 completed, 1 cycle for review.
+- Students classified:
+  - **Test Now** = QA validation account (not real beta evidence).
+  - **Mauricio Beta-M1** = primary real beta candidate (completed two-cycle chain, Cycle 2 open for review).
+  - **Ana Beta-M1** = stale/semi-seed account requiring audit before progression.
+  - **Bruno Beta-L1** = stale/semi-seed L1 account requiring audit before progression.
+- Loads classified: registry-matched validated, QA validation, legacy `Initial practice` (operational debt), stale in-progress.
+- Dev/prod schema drift remains as maintenance debt (deferred to dedicated phase).
+- Recommended next phase: **FL-UX-4F — Mauricio Cycle 2 review and close decision readiness**.
+- Alternative phases: CUST-OPS-0 (Test Now QA cleanup), FL-UX-4D-3 (defer), CUST-DB-0 (defer).
+- GO: internal controlled beta restart, Mauricio controlled review.
+- NO-GO: public beta, new students, new content sprint, DB maintenance now.
+
+### Non-actions
+
+- No code, schema, API, UI, middleware, or auth changes.
+- No deploy or database operations.
+- No data mutations, cycle closes, load completions, or cycle decisions.
+- No credentials, secrets, or `.env` values printed.
