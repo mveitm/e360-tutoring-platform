@@ -2930,3 +2930,61 @@ The following must be checked manually by the operator:
 - No credentials printed.
 - No Mauricio data touched.
 - No `.env` changes.
+
+---
+
+## FL-UX-4D-2C — Live student UI validation for reinforcement activity
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Documentation only — no code, schema, deploy, or data changes
+
+### Context
+FL-UX-4D-2B deployed the updated content registry to production and confirmed infrastructure
+readiness. This phase documents the manual operator validation performed in the live production
+environment as student **Test Now**.
+
+### Validation performed
+The operator logged into the production app as **Test Now** and verified the following:
+
+1. **`/now` page:** The study load `PAES M1 — Refuerzo de ecuaciones lineales` appeared with
+   status **En curso** (in_progress). ✅
+2. **`Ver actividad` button:** Visible and clickable on the study load card. ✅
+3. **Activity opens:** Clicking `Ver actividad` successfully opened the activity viewer. ✅
+4. **8 MC items rendered:** All 8 multiple-choice questions from the registry entry
+   (`paes_m1_linear_equations_reinforcement`) were displayed correctly. ✅
+5. **Alternatives A/B/C/D:** Each question showed four labeled alternatives. ✅
+6. **No answers selected:** The operator did not select any answer option. ✅
+7. **No answers submitted:** No submission action was triggered. ✅
+8. **StudyLoad not completed:** The load remained in `in_progress` status throughout. ✅
+9. **Operator exited cleanly:** Returned to `/now` / closed the activity without side effects. ✅
+
+### Validation outcome
+**PASS** — The reinforcement activity renders correctly in the live student UI. The content
+registry expansion (FL-UX-4D-1), the validation load setup (FL-UX-4D-2), and the production
+deploy (FL-UX-4D-2B) are all confirmed functional end-to-end.
+
+### Note on FL-UX-4D-2B schema promotion
+FL-UX-4D-2B documented an automatic schema-promotion incident during deployment
+(`promote_dev_db_to_prod = True` set by the deploy tool). That incident was fully documented
+in FL-UX-4D-2B and confirmed to have caused no data loss. This phase (FL-UX-4D-2C) did **not**
+deploy and therefore did not trigger any schema promotion.
+
+### What was NOT done
+- No code changes.
+- No schema changes.
+- No deployment.
+- No database push, migration, reset, or seed.
+- No data mutations of any kind.
+- No answers submitted.
+- No StudyLoad completed.
+- No Responses, TutoringSessions, CycleDecisions, or ContinuitySignals created.
+- No new users, students, enrollments, cycles, or loads created.
+- No Mauricio data touched.
+- No credentials, secrets, `.env`, DATABASE_URL, or tokens printed.
+
+### Recommended next phase
+- **FL-UX-4D-3:** Design and implement a second new content topic for the registry
+  (e.g., a new PAES M1 skill area beyond linear equations), or begin active student
+  monitoring with Test Now using the validated reinforcement activity.
+- **Maintenance debt:** Dev schema re-sync via `reimage_prod_db_to_dev` remains pending
+  from FL-UX-4D-2B recommendation.
