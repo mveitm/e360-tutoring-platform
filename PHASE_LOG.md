@@ -3368,3 +3368,24 @@ in a dedicated custody phase if needed.
 - Operational follow-up options documented (admin-auth fix, allowlist procedure, pathway-first runbook) — none executed.
 - No app, schema, deploy, auth, data, or secret changes in this phase.
 - Recommended next: FL-UX-4H (continuity/Cycle 3 readiness) or CUST-OPS-1 (admin auth operational fix).
+
+---
+
+## CUST-OPS-1 — Admin auth operational fix readiness
+
+**Date:** 2026-05-03
+**Type:** Documentation-only / operational readiness
+**Baseline:** `8e98213`
+**Commit:** *(see git log)*
+
+### Summary
+
+- Reviewed admin-auth model: email-based allowlist via `ADMIN_EMAILS` env var, enforced by `requireAdminApi()` (APIs) and `requireAdminSession()` (pages).
+- Diagnosed FL-UX-4G failure: `john@doe.com` (seed account used by Abacus) is not in production `ADMIN_EMAILS`; approved pathway returned 403.
+- Near-term fix options documented:
+  - **Option A (preferred):** Human owner performs mutations through the admin UI using their already-allowlisted account.
+  - **Option B:** Add `john@doe.com` to production `ADMIN_EMAILS` with explicit owner authorization.
+- Medium-term fix documented: role-based authorization model replacing `ADMIN_EMAILS`.
+- Production operation runbook rule established: verify admin access before mutations; stop and report if blocked.
+- No data, schema, deploy, auth config, code, or user changes made.
+- Next: human owner decides Option A or B, then proceed to FL-UX-4H (Mauricio Cycle 3 continuity readiness).
