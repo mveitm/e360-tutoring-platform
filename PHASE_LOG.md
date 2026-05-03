@@ -2735,3 +2735,50 @@ FL-UX-4D — Content registry expansion or FL-UX-4E — Beta Ops visibility hard
 - No passwords reset, printed, or stored.
 - No `.env` changes, no secrets printed.
 - All student/admin data unchanged.
+
+---
+
+## FL-UX-4D — Content registry expansion strategy
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Documentation only — no code, no schema, no deploy, no data mutations
+
+### Goal
+Define a safe, minimal content expansion strategy for the guided internal beta.
+
+### Deliverable
+`nextjs_space/docs/operations/FL_UX_4D_CONTENT_REGISTRY_EXPANSION_STRATEGY.md`
+
+### Key findings
+- Content is the current bottleneck: only 2 PAES_M1 linear-equation activities in registry
+- Students exhaust all content after 2 cycles
+- Registry expansion required before adding students or sustaining multi-week beta
+
+### Strategy sections (15)
+1. Executive decision — content is main bottleneck, expansion must be minimal/curated
+2. Current content state — 2 validated entries, both ALG_LINEAR, both 8 MC items
+3. Content expansion objective — support 4–6 cycles per student, 2–4 new activities
+4. Registry-match contract — title/contentKey/itemKeys/answerKey stability rules
+5. Minimum viable content set — 4 proposed activities (P1–P4), M2 deferred
+6. Content item standard — 6–10 MC, unambiguous, no PAES score claim, Spanish
+7. Difficulty and sequencing — 4 levels (acceso/refuerzo/práctica/extensión), manual routing
+8. Pedagogical metadata proposal — 9 fields for documentation-level tracking
+9. Validation checklist — 12-item gate before content enters registry
+10. Operational usage rules — 6 rules for safe content assignment
+11. Risks — 10 identified risks with mitigations
+12. Recommended phase split — FL-UX-4D-1/4D-2/4D-3 sequential implementation
+13. Go/no-go for implementation — explicit criteria
+14. Relationship to FL-UX-4B and FL-UX-4C — three-document operating foundation
+15. Final recommendation — add 1 reinforcement activity first, then expand
+
+### Recommended next phase
+FL-UX-4D-1 — Add 1 new PAES_M1 registry activity (linear equations reinforcement)
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No content registry entries added.
+- No study-load-content.ts modified.
+- No data mutations of any kind.
+- No database queries or modifications.
+- No `.env` changes, no secrets printed.
+- All student/admin data unchanged.
