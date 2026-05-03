@@ -2988,3 +2988,70 @@ deploy and therefore did not trigger any schema promotion.
   monitoring with Test Now using the validated reinforcement activity.
 - **Maintenance debt:** Dev schema re-sync via `reimage_prod_db_to_dev` remains pending
   from FL-UX-4D-2B recommendation.
+
+---
+
+## CUST-AUTH-0 — Student admin access exposure audit
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Read-only security/authorization audit — no code, schema, deploy, or data changes
+
+### Issue identified
+A **critical security/authorization blocker** was identified through manual operator observation
+in production:
+
+1. The **Test Now** student account could access `/admin/beta-operations` and all admin pages.
+2. The `/now` page showed the `Ir al panel de administración` link to Test Now.
+3. A new admin-like account created via signup could access `/admin` but had no programs
+   in `/now` (expected, as it has no Student record).
+
+### Root cause
+The application has **no authorization model**. Key findings:
+
+- The `User` model has no `role`, `isAdmin`, or equivalent field.
+- The middleware (`withAuth`) only checks for a valid session (authentication), not admin role.
+- All admin pages check `if (!session)` — authentication only, not authorization.
+- All admin API routes use `if (!session)` — authentication only.
+- The `isAdminSession` variable in `/now` checks `prisma.user.findUnique({ where: { email } })`,
+  which is always true for any authenticated user (tautology).
+- The `POST /api/signup` endpoint is public — anyone can create a user account.
+- **Result:** Any authenticated user (including students) has full admin read + write access.
+
+### Severity
+**BLOCKER** — internal beta cannot be treated as secure. Public beta cannot proceed.
+
+### Data exposure
+A student account can see and modify:
+- All student records (names, emails)
+- All enrollments, cycles, study loads, decisions, evaluations
+- All mastery data and continuity signals
+- Full Beta Ops dashboard
+
+### Recommended fix
+**CUST-AUTH-1 — Enforce admin-only access boundary** using:
+- Admin email allowlist from `.env` (no schema migration risk)
+- Guard helper for middleware, server components, and API routes
+- Disable or protect public signup endpoint
+- Fix `isAdminSession` in `/now` to use actual admin check
+
+### Immediate operational guidance
+- Do not invite new students until fixed.
+- Do not treat beta as secure.
+- Monitor for unexpected user creation in production.
+- Consider public signup a separate vulnerability.
+
+### What was NOT done
+- No code changes.
+- No auth logic changes.
+- No middleware changes.
+- No schema changes.
+- No deployment.
+- No database push, migration, reset, or seed.
+- No data mutations.
+- No user creation/modification/deletion.
+- No role changes or password resets.
+- No credentials, secrets, `.env`, or tokens printed.
+- No Mauricio data touched.
+
+### Audit document
+`nextjs_space/docs/operations/CUST_AUTH_0_STUDENT_ADMIN_ACCESS_EXPOSURE_AUDIT.md`
