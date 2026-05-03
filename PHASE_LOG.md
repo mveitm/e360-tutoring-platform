@@ -2782,3 +2782,49 @@ FL-UX-4D-1 — Add 1 new PAES_M1 registry activity (linear equations reinforceme
 - No database queries or modifications.
 - No `.env` changes, no secrets printed.
 - All student/admin data unchanged.
+
+---
+
+## FL-UX-4D-1 — Add PAES M1 linear equations reinforcement activity
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Content registry implementation — one new entry added
+
+### Goal
+Add one new registry-matched interactive MC activity to the content registry.
+
+### Activity added
+- **Title:** `PAES M1 — Refuerzo de ecuaciones lineales`
+- **contentKey:** `paes_m1_linear_equations_reinforcement`
+- **contentVersion:** `v1`
+- **Program:** PAES_M1
+- **Skill:** ALG_LINEAR (Resolver problemas de ecuaciones lineales)
+- **Items:** 8 MC questions (q1–q8), all A/B/C/D, all with correctOptionKey
+- **Answer keys:** q1=A, q2=B, q3=C, q4=B, q5=B, q6=C, q7=B, q8=B
+
+### Registry state after this phase
+| # | Title | contentKey | Items |
+|---|-------|-----------|-------|
+| 1 | PAES M1 — Ecuaciones lineales básicas | paes_m1_linear_equations_basic | 8 |
+| 2 | PAES M1 — Problemas con ecuaciones lineales | paes_m1_linear_equations_word_problems | 8 |
+| 3 | PAES M1 — Refuerzo de ecuaciones lineales | paes_m1_linear_equations_reinforcement | 8 |
+
+### Verification
+- Existing 2 entries unchanged (verified by runtime inspection)
+- New entry loads by title and by contentKey
+- All 8 items have 4 options (A/B/C/D) and correctOptionKey
+- TypeScript check: no new errors in study-load-content.ts
+- No student UI, admin UI, API, or schema changes
+
+### What was NOT done
+- No schema changes, no deploy.
+- No data mutations of any kind.
+- No StudyLoads created or assigned to students.
+- No admin UI or student UI changes.
+- No API route changes.
+- No scoring, feedback, or adaptive logic added.
+- No `.env` changes, no secrets printed.
+- All student/admin data unchanged.
+
+### Recommended next phase
+FL-UX-4D-2 — Validate new registry activity in student UI (controlled test)

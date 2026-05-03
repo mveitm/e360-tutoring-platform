@@ -260,6 +260,119 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       'Puedes seleccionar tus respuestas y enviarlas desde esta p\u00e1gina. ' +
       'Cuando termines, vuelve a /now para finalizar la carga y completar tu autorreporte.',
   },
+
+  'PAES M1 \u2014 Refuerzo de ecuaciones lineales': {
+    contentKey: 'paes_m1_linear_equations_reinforcement',
+    contentVersion: 'v1',
+    title: 'PAES M1 \u2014 Refuerzo de ecuaciones lineales',
+    program: 'PAES_M1',
+    topic: 'Ecuaciones lineales (refuerzo)',
+    estimatedMinutes: '20\u201330 minutos',
+    instructions:
+      'Esta actividad tiene 8 ejercicios de opci\u00f3n m\u00faltiple sobre ecuaciones lineales.\n\n' +
+      '1. Trabaja en tu cuaderno o en una hoja de papel.\n' +
+      '2. Lee cada enunciado con atenci\u00f3n.\n' +
+      '3. Escribe la ecuaci\u00f3n cuando corresponda.\n' +
+      '4. Resuelve paso a paso.\n' +
+      '5. Selecciona la alternativa que corresponde.\n' +
+      '6. Presiona \u201cEnviar respuestas\u201d.\n' +
+      '7. Luego vuelve a /now y presiona \u201cTerminar\u201d.\n' +
+      '8. Completa tu autorreporte.\n\n' +
+      'No hay presi\u00f3n por la perfecci\u00f3n. Lo importante es intentar resolver con orden y dejar evidencia de tu trabajo.',
+    items: [
+      {
+        key: 'q1',
+        stem: '\u00bfCu\u00e1l es la soluci\u00f3n de la ecuaci\u00f3n 4x - 7 = 21?',
+        options: [
+          { label: 'A', text: 'x = 7' },
+          { label: 'B', text: 'x = 14' },
+          { label: 'C', text: 'x = 28' },
+          { label: 'D', text: 'x = 3,5' },
+        ],
+        correctOptionKey: 'A',
+      },
+      {
+        key: 'q2',
+        stem: '\u00bfCu\u00e1l es la soluci\u00f3n de la ecuaci\u00f3n 3(x + 2) = 24?',
+        options: [
+          { label: 'A', text: 'x = 4' },
+          { label: 'B', text: 'x = 6' },
+          { label: 'C', text: 'x = 8' },
+          { label: 'D', text: 'x = 10' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q3',
+        stem: '\u00bfCu\u00e1l es la soluci\u00f3n de la ecuaci\u00f3n x/5 + 4 = 9?',
+        options: [
+          { label: 'A', text: 'x = 1' },
+          { label: 'B', text: 'x = 5' },
+          { label: 'C', text: 'x = 25' },
+          { label: 'D', text: 'x = 45' },
+        ],
+        correctOptionKey: 'C',
+      },
+      {
+        key: 'q4',
+        stem: '\u00bfCu\u00e1l es la soluci\u00f3n de la ecuaci\u00f3n 2x + 9 = x + 17?',
+        options: [
+          { label: 'A', text: 'x = 4' },
+          { label: 'B', text: 'x = 8' },
+          { label: 'C', text: 'x = 13' },
+          { label: 'D', text: 'x = 26' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q5',
+        stem: '\u00bfCu\u00e1l es la soluci\u00f3n de la ecuaci\u00f3n 5x - 3 = 2x + 12?',
+        options: [
+          { label: 'A', text: 'x = 3' },
+          { label: 'B', text: 'x = 5' },
+          { label: 'C', text: 'x = 9' },
+          { label: 'D', text: 'x = 15' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q6',
+        stem: 'Un n\u00famero disminuido en 4, y luego multiplicado por 3, da como resultado 27. \u00bfCu\u00e1l es el n\u00famero?',
+        options: [
+          { label: 'A', text: '5' },
+          { label: 'B', text: '9' },
+          { label: 'C', text: '13' },
+          { label: 'D', text: '31' },
+        ],
+        correctOptionKey: 'C',
+      },
+      {
+        key: 'q7',
+        stem: 'Una actividad cobra una entrada fija de $1.200 m\u00e1s $800 por cada hora de uso. Si una persona pag\u00f3 $5.200 en total, \u00bfcu\u00e1ntas horas us\u00f3 la actividad?',
+        options: [
+          { label: 'A', text: '4 horas' },
+          { label: 'B', text: '5 horas' },
+          { label: 'C', text: '6 horas' },
+          { label: 'D', text: '7 horas' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q8',
+        stem: 'Juan tiene x estampillas. Ana tiene el doble de las estampillas de Juan m\u00e1s 6. Si entre ambos tienen 36 estampillas, \u00bfcu\u00e1ntas estampillas tiene Juan?',
+        options: [
+          { label: 'A', text: '6' },
+          { label: 'B', text: '10' },
+          { label: 'C', text: '12' },
+          { label: 'D', text: '18' },
+        ],
+        correctOptionKey: 'B',
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revisi\u00f3n. ' +
+      'No recibir\u00e1s puntaje PAES ni retroalimentaci\u00f3n autom\u00e1tica en esta versi\u00f3n.',
+  },
 }
 
 // Secondary index: contentKey → StudyLoadContent.
