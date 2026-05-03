@@ -2686,3 +2686,52 @@ Section 21 ("Relationship to Codex / Abacus Cost Policy") of FL-UX-4B runbook wa
 - No database queries or modifications.
 - No `.env` changes, no secrets printed.
 - All student/admin data unchanged.
+
+---
+
+## FL-UX-4C — Student account and password protocol
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Documentation only — no code, no schema, no deploy, no data mutations
+
+### Goal
+Define how student accounts, credentials, password resets, access verification, and account-support incidents are handled during a 1–3 student guided internal beta.
+
+### Deliverable
+`nextjs_space/docs/operations/FL_UX_4C_STUDENT_ACCOUNT_AND_PASSWORD_PROTOCOL.md`
+
+### Protocol sections (16)
+1. Executive decision — manual accounts, no public signup, no credentials in docs
+2. Purpose — protect access, avoid leakage, repeatable onboarding, separate beta from production
+3. Internal beta account scope — 1–3 known students, direct support
+4. Account entities to verify — User, Student, email match, enrollment, cycle, load, /now
+5. Pre-onboarding checklist — 8-item verification before credential delivery
+6. Credential handling rules — 8 absolute rules for credential safety
+7. Password reset protocol — manual only, never document the password value
+8. Student onboarding message template — Spanish template with placeholders, no real credentials
+9. Access verification flow — 7-step login-to-activity verification
+10. Lost access / login issue handling — troubleshooting flow, no duplicate accounts
+11. Account incident log guidance — what to log vs. what never to log
+12. What is not supported yet — 10 features not available during internal beta
+13. Future production-grade requirements — 9 requirements for post-beta
+14. Go/no-go for inviting a student — explicit criteria
+15. Relation to FL-UX-4B runbook — complementary documents
+16. Final recommendation — manual private controlled account support
+
+### Key rules documented
+- No credentials stored or printed in any shared artifact
+- Password resets are manual, operator-driven, privately delivered
+- No duplicate User/Student records without explicit future-phase approval
+- Pre-onboarding checklist must complete before FL-UX-4B pre-invitation checklist
+- All credential exposure treated as security incident requiring immediate reset
+
+### Recommended next phase
+FL-UX-4D — Content registry expansion or FL-UX-4E — Beta Ops visibility hardening
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No data mutations of any kind.
+- No database queries or modifications.
+- No passwords reset, printed, or stored.
+- No `.env` changes, no secrets printed.
+- All student/admin data unchanged.
