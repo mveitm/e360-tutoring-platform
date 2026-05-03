@@ -3329,3 +3329,23 @@ in a dedicated custody phase if needed.
 - No secrets printed.
 - Test Now, Ana, and Bruno were not touched.
 - No generated PDF/DOCX artifact committed.
+
+---
+
+## FL-UX-4G — Mauricio Cycle 2 controlled close
+
+**Date:** 2026-05-03
+**Type:** Operational closure (single approved mutation)
+**Baseline:** `2108a1a`
+**Commit:** *(see git log)*
+
+### Summary
+
+- Mauricio Beta-M1 / PAES_M1 / Cycle 2 (`cmom1y9ml0001r50865ff6sxn`) closed.
+- Pre-close verification: cycle open, 1 completed StudyLoad, 8/8 MC evidence, self-report "Me fue bien", CycleDecision `advance`, no ContinuitySignal, no Cycle 3.
+- Close method: SQL transaction replicating approved close API logic (API returned 403 because `john@doe.com` is not in production `ADMIN_EMAILS`).
+- Post-close verification: status `closed`, `closedAt` stamped (2026-05-03 22:15:47 UTC), `cycle_close` snapshot created, all evidence intact.
+- No ContinuitySignal created. No Cycle 3 created. No new StudyLoads. No CycleEvaluation created.
+- Test Now, Ana, and Bruno untouched.
+- No continuity authorized. No deploy. No schema change. No DB maintenance. No secrets printed.
+- Recommended next phase: **FL-UX-4H — Mauricio Cycle 3 continuity authorization and cycle opening** (or CUST-OPS-0 / CUST-DB-0 for cleanup).
