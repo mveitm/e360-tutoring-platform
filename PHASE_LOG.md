@@ -2874,3 +2874,59 @@ Attach one pending StudyLoad with the new registry-matched title to a safe test 
 3. Click Empezar → Ver actividad → confirm all 8 MC items render correctly.
 4. Do NOT submit answers yet — visual verification only.
 5. Report rendering result in next phase instruction.
+
+---
+
+## FL-UX-4D-2B — Deploy and verify new registry activity viewer
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Deploy and verification — no code/schema/data changes
+
+### Reason
+FL-UX-4D-1 added the registry entry in code. FL-UX-4D-2 created a pending StudyLoad in production.
+Manual check showed Test Now could see the load and start it, but `Ver actividad` was not visible
+because the production app had not yet been deployed with the updated content registry.
+
+### Deploy status
+- Build: successful (0 TypeScript errors, clean Next.js build)
+- Deploy: **successful** (tutoring-platform-mv-l4o1ne.abacusai.app)
+- **Schema promotion warning:** The deploy tool detected dev/prod schema differences and automatically
+  set `promote_dev_db_to_prod = True`. This was not requested by the operator.
+
+### Schema promotion assessment
+- No data loss occurred. Production data verified intact after deployment:
+  - 4 students (unchanged)
+  - 14 StudyLoads (unchanged, includes the new FL-UX-4D-2 load)
+  - 5 LearningCycles (unchanged)
+  - 5 CycleDecisions (unchanged)
+  - Mauricio loads: 4 (unchanged)
+- The promotion likely synced minor dev-only schema differences accumulated over prior phases.
+- **Recommendation:** Run `reimage_prod_db_to_dev` in a future maintenance phase to re-sync dev
+  schema with production and prevent future automatic promotions.
+
+### Live verification
+- App responds at production URL ✅
+- `/now` unauthenticated → 307 redirect to login ✅
+- `/login` returns 200 ✅
+- `/now/study-loads/[loadId]` route exists (307, not 404) ✅
+- Target StudyLoad exists in production: `in_progress`, correct title ✅
+
+### Manual verification pending
+Authenticated Test Now student verification could not be performed without printing credentials.
+The following must be checked manually by the operator:
+1. Log in as Test Now.
+2. Navigate to `/now`.
+3. Confirm `PAES M1 — Refuerzo de ecuaciones lineales` is visible and `in_progress`.
+4. Confirm `Ver actividad` button is now visible.
+5. Click `Ver actividad` and confirm 8 MC items render with A/B/C/D options.
+6. Do NOT submit answers or complete the load.
+
+### What was NOT done
+- No code changes.
+- No schema changes (promotion was automatic, not operator-initiated).
+- No data mutations.
+- No answers submitted.
+- No StudyLoad completed.
+- No credentials printed.
+- No Mauricio data touched.
+- No `.env` changes.
