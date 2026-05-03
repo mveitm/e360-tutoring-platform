@@ -3389,3 +3389,22 @@ in a dedicated custody phase if needed.
 - Production operation runbook rule established: verify admin access before mutations; stop and report if blocked.
 - No data, schema, deploy, auth config, code, or user changes made.
 - Next: human owner decides Option A or B, then proceed to FL-UX-4H (Mauricio Cycle 3 continuity readiness).
+
+---
+
+## FL-UX-4H — Mauricio Cycle 3 continuity authorization (guided operation)
+
+**Date:** 2026-05-03
+**Type:** Guided operation / documentation (human-executed)
+**Baseline:** `0fad9a3`
+**Commit:** *(see git log)*
+
+### Summary
+
+- Readiness verified: Mauricio Cycle 2 closed, all evidence intact, no prior ContinuitySignal, no Cycle 3.
+- Human owner executed continuity authorization through approved production admin UI (Option A from CUST-OPS-1).
+- ContinuitySignal created: `signalType: continue`, `rationale: admin_authorize`, `createdAt: 2026-05-03 22:41:50 UTC`.
+- Post-action verification: Cycle 2 remains closed, all evidence intact, no Cycle 3 created, no new StudyLoads, no other students touched.
+- Option A operational model validated: human owner via allowlisted admin UI, Abacus guides and documents.
+- No direct SQL mutation by Abacus. No deploy. No schema change. No DB maintenance. No secrets inspected or printed.
+- Recommended next: **FL-UX-4I — Mauricio Cycle 3 opening and first StudyLoad readiness**.
