@@ -2661,3 +2661,28 @@ FL-UX-4C — Student account and password protocol
 - No database queries or modifications.
 - No `.env` changes, no secrets printed.
 - All student/admin data unchanged.
+
+---
+
+## CUST-FL-UX-4B-COST-NOTE — Clarified Abacus/Codex cost policy wording
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Documentation only — no code, no schema, no deploy, no data mutations
+
+### Change
+Section 21 ("Relationship to Codex / Abacus Cost Policy") of FL-UX-4B runbook was clarified/matized.
+
+### Clarifications made
+- Normal student beta operations (app usage) are distinguished from AI-assisted development work.
+- Abacus AI Agent responses may consume Abacus credits — must be reserved for planned phases.
+- Codex-assisted development may consume Codex/OpenAI usage depending on plan.
+- Database and hosting costs are not guaranteed free — must be verified in the Abacus account.
+- LLM product features must be costed separately before activation.
+- Previous wording ("free tier", "no additional cost") replaced with conservative, non-misleading language.
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No data mutations of any kind.
+- No database queries or modifications.
+- No `.env` changes, no secrets printed.
+- All student/admin data unchanged.

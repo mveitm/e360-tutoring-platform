@@ -364,23 +364,17 @@ Pause beta operations immediately if any of the following occur:
 
 ## 21. Relationship to Codex / Abacus Cost Policy
 
-The Bexauri platform is hosted on Abacus.AI infrastructure. During
-internal beta:
+Bexauri's internal beta currently uses static in-app content and does not call LLM APIs during normal student activity.
 
-- **Database:** Uses Abacus.AI hosted PostgreSQL (free tier). No additional
-  cost expected for 1–3 students.
-- **Hosting:** Deployed via Abacus.AI app hosting. No additional cost
-  expected at this scale.
-- **LLM API calls:** If any future features use LLM APIs, costs will
-  depend on usage volume. Current beta content (static MC items) does
-  not use LLM APIs.
-- **Codex interactions:** Development changes to the platform consume
-  Codex credits. During beta operations (no code changes), no Codex
-  credits are consumed.
+Cost interpretation for this stage:
 
-**Guideline:** Keep beta operations within the documentation-only model.
-Code changes should be batched into planned phases, not performed
-reactively during student sessions.
+- **Student beta operations:** Student use of `/now`, StudyLoads, MC submissions, self-report, and admin evidence review should be treated as normal app usage. Infrastructure and billing impact must still be monitored through the active Abacus account.
+- **Database and hosting:** At the current 1–3 student internal beta scale, no additional infrastructure cost is expected beyond the active Abacus hosting/account arrangement, but this is not a guarantee. Usage limits, hosting limits, database limits, and billing status must be verified in the Abacus account.
+- **Abacus AI Agent:** Any development, repo inspection, browser automation, build/deploy assistance, or AI Agent response may consume Abacus credits. Abacus should therefore be reserved for planned, scoped phases.
+- **Codex:** Codex-assisted development may consume Codex/OpenAI usage depending on plan and usage. Codex should be used first for read-only, documentation, tests, audits, and branch-based low-risk work.
+- **LLM product features:** Current beta content does not use LLM APIs. Any future LLM-powered tutoring, feedback, scoring, or agentic workflow must be costed separately before activation.
+
+**Guideline:** Keep beta operations manual and static-content-based. Batch development work into planned phases. Do not use Abacus or Codex reactively during live student sessions unless necessary for a blocking issue.
 
 ---
 
