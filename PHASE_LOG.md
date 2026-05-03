@@ -3133,3 +3133,77 @@ Implemented a **no-schema admin authorization boundary** using `process.env.ADMI
 - No credentials, secrets, tokens, or passwords printed.
 - No deployment to production.
 - No Mauricio data touched.
+
+---
+
+## CUST-AUTH-1B — Configure and verify production admin allowlist
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Production configuration, deployment, and live verification — no code changes
+
+### ADMIN_EMAILS configuration
+- `ADMIN_EMAILS` configured: **yes** (1 admin email)
+- Configured using `set_env_var` (Abacus safe env mechanism)
+- Value not printed, logged, or exposed in any output or document
+
+### Deploy status
+- Build: successful (0 TypeScript errors, clean Next.js build) ✅
+- Deploy: **successful** (tutoring-platform-mv-l4o1ne.abacusai.app)
+- **Schema promotion warning (known):** The deploy tool again detected dev/prod schema
+  differences and automatically set `promote_dev_db_to_prod = True`. This is the same
+  known drift documented in FL-UX-4D-2B. CUST-AUTH-1A and CUST-AUTH-1B made zero schema
+  changes. Post-deploy data audit confirmed no data loss.
+- Production data verified intact: 4 students, 14 study loads, 5 cycles, 5 decisions,
+  7 users, all unchanged.
+
+### Live verification results
+
+#### Unauthenticated access
+| Target | Result |
+|---|---|
+| `/admin` | 307 → `/login` ✅ |
+| `/now` | 307 → `/login` ✅ |
+| `/admin/beta-operations` | 307 → `/login` ✅ |
+| `GET /api/students` | 401 "No autenticado" ✅ |
+
+#### Student/non-admin authenticated access (Mauricio session in browser)
+| Target | Result |
+|---|---|
+| `/now` | Works normally, shows enrolled program/load ✅ |
+| "Ir al panel de administración" link | **Not visible** ✅ |
+| `/admin` (direct URL) | Redirected to `/now` ✅ |
+| `/admin/beta-operations` (direct URL) | Redirected to `/now` ✅ |
+| `GET /api/students` (from browser JS) | 403 "Acceso denegado" ✅ |
+| `POST /api/signup` (from browser JS) | 403 "Acceso denegado" ✅ |
+
+#### Admin allowlisted access
+| Target | Result |
+|---|---|
+| Admin user exists in prod DB | **yes** ✅ |
+| Admin login + `/admin` access | Pending manual verification by operator |
+| Admin `/admin/beta-operations` | Pending manual verification by operator |
+
+### Pending manual verification by operator
+The following checks require the operator to log in with the allowlisted admin credentials:
+1. Log in as the allowlisted admin email.
+2. Navigate to `/admin` — should load the admin dashboard.
+3. Navigate to `/admin/beta-operations` — should show the operational dashboard.
+4. Navigate to `/now` — should show safe empty state if no Student enrollment matches,
+   or student view if there is a matching Student record. Admin link should be visible.
+
+### What was NOT done
+- No code changes.
+- No Prisma schema changes.
+- No migrations, db push, reset, or seed.
+- No data mutations.
+- No users created, modified, or deleted.
+- No passwords changed.
+- No student answers submitted.
+- No StudyLoads completed.
+- No cycles closed.
+- No `ADMIN_EMAILS` value printed, logged, or exposed.
+- No credentials, secrets, tokens, or passwords printed.
+- No Mauricio data touched.
+
+### Maintenance debt (unchanged)
+- Dev schema re-sync via `reimage_prod_db_to_dev` remains pending since FL-UX-4D-2B.
