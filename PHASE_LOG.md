@@ -2605,3 +2605,59 @@ Created a comprehensive beta readiness consolidation document summarizing the va
 - No `.env` changes, no secrets printed.
 - No password changes.
 - Ana, Bruno, Test Now, Mauricio data unchanged.
+
+---
+
+## FL-UX-4B — Internal Guided Beta Operations Runbook
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Documentation only — no code, no schema, no deploy, no data mutations
+
+### Goal
+Create a concise, actionable operations runbook for safely running a 1–3 student internal guided beta of the Bexauri tutoring platform.
+
+### Deliverable
+`nextjs_space/docs/operations/FL_UX_4B_INTERNAL_GUIDED_BETA_OPERATIONS_RUNBOOK.md`
+
+### Runbook sections (22)
+1. Executive decision (GO internal / NO-GO public)
+2. Purpose
+3. Scope (1–3 students, PAES_M1)
+4. Roles (student, admin/operator, direction)
+5. End-to-end flow
+6. Pre-invitation checklist
+7. Allowed beta content (registry-match rule)
+8. Daily operations checklist
+9. Handling pending/in_progress/completed loads
+10. Manual evidence interpretation (correctCount ≠ PAES score)
+11. CycleDecision guidance with rationale templates
+12. Cycle close protocol
+13. Continuity protocol
+14. Next cycle/load preparation + registry-match rule
+15. Error handling
+16. What NOT to do during internal beta
+17. Weekly direction checklist
+18. Criteria to add another student
+19. Pause criteria
+20. Expected operating model
+21. Relationship to Codex/Abacus cost policy
+22. Final recommendation and next likely blocks
+
+### Key operational rules documented
+- Only 2 content loads are available (both PAES M1 linear equations)
+- Load titles must character-for-character match the content registry
+- correctCount ≠ PAES score (explicitly documented)
+- Operator must drive every post-submission step manually
+- Max 3 students for internal beta; beyond 3 requires phase upgrade
+- No code changes during active student sessions
+- Weekly direction reporting cadence
+
+### Recommended next phase
+FL-UX-4C — Student account and password protocol
+
+### What was NOT done
+- No code changes, no schema changes, no deploy.
+- No data mutations of any kind.
+- No database queries or modifications.
+- No `.env` changes, no secrets printed.
+- All student/admin data unchanged.
