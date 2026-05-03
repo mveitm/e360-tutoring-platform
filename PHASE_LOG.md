@@ -2828,3 +2828,49 @@ Add one new registry-matched interactive MC activity to the content registry.
 
 ### Recommended next phase
 FL-UX-4D-2 — Validate new registry activity in student UI (controlled test)
+
+---
+
+## FL-UX-4D-2 — Controlled validation setup for new registry activity
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Data mutation (production) — one pending StudyLoad created
+
+### Goal
+Attach one pending StudyLoad with the new registry-matched title to a safe test student for validation.
+
+### Data mutation performed
+- **StudyLoad ID:** `cmoq5q7h50001p3td1bg0usjs`
+- **Title:** `PAES M1 — Refuerzo de ecuaciones lineales`
+- **Status:** `pending`
+- **LoadType:** `practice`
+- **Target student:** Test Now (`cmokosc3w0001qo08bmc6a158`)
+- **Enrollment:** PAES_M1 active (`cmokosn2n0003qo08pp1u7eme`)
+- **Cycle:** #1, status `open` (`cmokoth030007qo08ve71fnaq`)
+
+### Post-mutation verification
+- Load exists exactly once with target title ✅
+- Status: pending ✅
+- LoadType: practice ✅
+- 0 TutoringSessions for new load ✅
+- 0 Responses for new load ✅
+- CycleDecisions for Test Now cycle: 1 (unchanged) ✅
+- Mauricio total loads: 4 (unchanged) ✅
+- Ana total loads: 4 (unchanged) ✅
+- Registry lookup by title: OK (8 items) ✅
+- Registry lookup by contentKey: OK ✅
+
+### What was NOT done
+- No student action (start, complete, submit answers).
+- No TutoringSessions, Responses, or CycleDecisions created.
+- No cycle close or continuity authorized.
+- No code/schema/deploy changes.
+- No Mauricio data touched.
+- No `.env` changes, no secrets printed.
+
+### Recommended next manual validation steps
+1. Open production as Test Now (or operator on admin Beta Ops).
+2. Verify the new load appears on Test Now's `/now` page.
+3. Click Empezar → Ver actividad → confirm all 8 MC items render correctly.
+4. Do NOT submit answers yet — visual verification only.
+5. Report rendering result in next phase instruction.
