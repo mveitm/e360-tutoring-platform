@@ -3207,3 +3207,64 @@ The following checks require the operator to log in with the allowlisted admin c
 
 ### Maintenance debt (unchanged)
 - Dev schema re-sync via `reimage_prod_db_to_dev` remains pending since FL-UX-4D-2B.
+
+---
+
+## CUST-AUTH-1C — Document manual admin allowlist verification
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Documentation only — no code, schema, deploy, or data changes
+
+### Context
+CUST-AUTH-1B configured `ADMIN_EMAILS`, deployed the CUST-AUTH-1A admin boundary code, and
+verified most live behavior (unauthenticated blocking, student/non-admin blocking, API 403s).
+Admin-side login verification was left pending for manual operator confirmation.
+
+### Manual verification performed
+The operator logged into the production app with the **allowlisted admin account** and confirmed:
+
+1. **`/admin`** loads correctly. ✅
+2. **`/admin/beta-operations`** loads correctly — operational dashboard visible. ✅
+3. **`/now`** shows a safe no-programs state for the admin account (no Student/Enrollment
+   record matches the admin email, which is expected and correct). ✅
+
+### Verification outcome
+**PASS** — The admin allowlist is fully functional in production. Combined with the
+CUST-AUTH-1B automated verification results:
+
+| Check | Status |
+|---|---|
+| Unauthenticated → `/admin` redirects to login | ✅ (CUST-AUTH-1B) |
+| Unauthenticated → admin APIs return 401 | ✅ (CUST-AUTH-1B) |
+| Student → `/admin` redirected to `/now` | ✅ (CUST-AUTH-1B) |
+| Student → admin APIs return 403 | ✅ (CUST-AUTH-1B) |
+| Student → admin link hidden in `/now` | ✅ (CUST-AUTH-1B) |
+| Student → signup returns 403 | ✅ (CUST-AUTH-1B) |
+| Admin → `/admin` loads | ✅ (this phase) |
+| Admin → `/admin/beta-operations` loads | ✅ (this phase) |
+| Admin → `/now` safe empty state | ✅ (this phase) |
+
+### Authorization blocker status
+The CUST-AUTH-0 **BLOCKER is functionally resolved** for current internal beta constraints.
+Admin access is now restricted to allowlisted emails. Students cannot access admin pages or APIs.
+Public signup is disabled.
+
+### Caution: schema promotion
+The CUST-AUTH-1B deploy triggered automatic dev/prod schema promotion (documented in that phase
+entry). This is a known pre-existing drift issue, not caused by CUST-AUTH-1A/1B/1C. No data loss
+occurred. Do not run reactive DB maintenance now. Future dev/prod schema sync should be handled
+in a dedicated custody phase if needed.
+
+### What was NOT done
+- No code changes.
+- No auth logic changes.
+- No middleware changes.
+- No schema changes.
+- No deployment.
+- No database push, migration, reset, or seed.
+- No data mutations.
+- No users created, modified, or deleted.
+- No passwords changed.
+- No `ADMIN_EMAILS` value printed or exposed.
+- No credentials, secrets, `.env`, or tokens printed.
+- No Mauricio data touched.
