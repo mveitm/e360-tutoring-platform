@@ -8,6 +8,7 @@ import {
   DEFAULT_DIAGNOSTIC_TYPE,
   resolveAuthoritativeDiagnosticAttempt,
 } from '@/lib/diagnostics/authoritative'
+import { requireAdminApi } from '@/lib/admin-guard'
 
 /**
  * Phase DV — GET /api/diagnostics/authoritative
@@ -22,10 +23,8 @@ import {
  *   - diagnosticType (optional, defaults to 'initial')
  */
 export async function GET(req: NextRequest) {
-  const session = await getServerSession(authOptions)
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   const { searchParams } = new URL(req.url)
   const enrollmentId = searchParams.get('enrollmentId')

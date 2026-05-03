@@ -5,6 +5,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
 import { recordAuditEvent } from '@/lib/audit'
+import { requireAdminApi } from '@/lib/admin-guard'
 
 const ALLOWED_MASTERY_LEVELS = ['not_evaluated', 'developing', 'mastered'] as const
 const ALLOWED_CONFIDENCE_LEVELS = ['none', 'low', 'medium', 'high'] as const
@@ -27,8 +28,8 @@ function scalarSnapshot(record: any) {
 }
 
 export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
-  const session = await getServerSession(authOptions)
-  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   try {
     const body = await req.json()

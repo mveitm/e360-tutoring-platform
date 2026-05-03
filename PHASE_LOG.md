@@ -3055,3 +3055,81 @@ A student account can see and modify:
 
 ### Audit document
 `nextjs_space/docs/operations/CUST_AUTH_0_STUDENT_ADMIN_ACCESS_EXPOSURE_AUDIT.md`
+
+---
+
+## CUST-AUTH-1A — Enforce admin-only access boundary
+**Date:** 2026-05-03
+**Commit:** (this commit)
+**Type:** Security implementation — no schema migration, no data mutation
+
+### Problem
+CUST-AUTH-0 identified a BLOCKER: any authenticated user could access all admin pages and APIs.
+No authorization model existed in the application.
+
+### Solution: admin email allowlist
+Implemented a **no-schema admin authorization boundary** using `process.env.ADMIN_EMAILS`:
+
+- Central helper: `lib/admin-guard.ts`
+- Functions: `isAdminEmail()`, `requireAdminSession()` (pages), `requireAdminApi()` (APIs)
+- Missing/empty `ADMIN_EMAILS` → no one is admin (deny-all safe default)
+- Emails parsed as comma-separated, trimmed, lowercased
+
+### Surfaces protected
+
+| Surface | Guard | Non-admin behavior |
+|---|---|---|
+| `/admin` layout (all admin pages) | `requireAdminSession()` | Redirect to `/now` |
+| 44 admin API routes | `requireAdminApi()` | 403 Forbidden |
+| `/now` admin link | `isAdminEmail()` | Hidden |
+| `POST /api/signup` | `requireAdminApi()` | 403 (public signup disabled) |
+| Student APIs (start, complete, responses) | Unchanged (auth-only) | Students can still use `/now` |
+
+### API routes protected (44 total)
+- students, programs, instances, learning-cycles, study-loads, responses
+- cycle-decisions, cycle-evaluations, cycle-decision-skills, cycle-snapshots
+- skill-states, skills, axes, tutoring-sessions
+- diagnostics (all sub-routes), continuity-signals
+- continuity-start (precedence, shadow-block, convergence, convergence/record,
+  reconciliation, operational-output, start-block-plan)
+
+### API routes NOT admin-guarded (correctly excluded)
+- `api/auth/[...nextauth]` — NextAuth handler
+- `api/auth/login` — login endpoint
+- `api/study-loads/[id]/start` — student-facing
+- `api/study-loads/[id]/complete` — student-facing
+- `api/study-loads/[id]/responses` — student-facing
+
+### Verification performed
+- TypeScript check: 0 errors ✅
+- Production build: successful ✅
+- Dev server: starts and responds ✅
+- Checkpoint saved ✅
+- Static code verification:
+  - `ADMIN_EMAILS` value is never printed or logged ✅
+  - `.env` not modified ✅
+  - All 44 admin API routes have `requireAdminApi()` ✅
+  - `/admin/layout.tsx` calls `requireAdminSession()` ✅
+  - `/now` uses `isAdminEmail()` instead of tautological check ✅
+  - Signup requires admin authentication ✅
+
+### Pending for CUST-AUTH-1B
+- Set `ADMIN_EMAILS` env var for production
+- Deploy with the new code
+- Live browser verification:
+  - Non-admin student `/admin` → redirected
+  - Non-admin student `/now` → works, admin link hidden
+  - Admin `/admin` → access granted
+  - Admin APIs reject student tokens with 403
+  - Signup blocked for unauthenticated users
+
+### What was NOT done
+- No Prisma schema changes.
+- No migrations, db push, reset, or seed.
+- No data mutations.
+- No user creation/modification/deletion.
+- No `.env` modified.
+- No `ADMIN_EMAILS` value printed or exposed.
+- No credentials, secrets, tokens, or passwords printed.
+- No deployment to production.
+- No Mauricio data touched.

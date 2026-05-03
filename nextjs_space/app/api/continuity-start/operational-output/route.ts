@@ -6,6 +6,7 @@ import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
 import { DEFAULT_DIAGNOSTIC_TYPE } from '@/lib/diagnostics/authoritative'
 import { resolveContinuityStartMode } from '@/lib/continuity-start/operational-output'
+import { requireAdminApi } from '@/lib/admin-guard'
 
 /**
  * Phase DX — GET /api/continuity-start/operational-output
@@ -25,10 +26,8 @@ import { resolveContinuityStartMode } from '@/lib/continuity-start/operational-o
  *   - diagnosticType (optional, defaults to 'initial')
  */
 export async function GET(req: NextRequest) {
-  const session = await getServerSession(authOptions)
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   const { searchParams } = new URL(req.url)
   const enrollmentId = searchParams.get('enrollmentId')

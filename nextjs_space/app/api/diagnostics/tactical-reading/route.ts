@@ -8,6 +8,7 @@ import {
   DEFAULT_DIAGNOSTIC_TYPE,
 } from '@/lib/diagnostics/authoritative'
 import { readTacticalVerdict } from '@/lib/diagnostics/tactical-reading'
+import { requireAdminApi } from '@/lib/admin-guard'
 
 /**
  * Phase DW — GET /api/diagnostics/tactical-reading
@@ -24,10 +25,8 @@ import { readTacticalVerdict } from '@/lib/diagnostics/tactical-reading'
  *   - diagnosticType (optional, defaults to 'initial')
  */
 export async function GET(req: NextRequest) {
-  const session = await getServerSession(authOptions)
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   const { searchParams } = new URL(req.url)
   const enrollmentId = searchParams.get('enrollmentId')

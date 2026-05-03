@@ -1,6 +1,11 @@
 import { AdminNav } from './_components/admin-nav'
+import { requireAdminSession } from '@/lib/admin-guard'
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  // CUST-AUTH-1A: Enforce admin-only access at the layout level.
+  // Unauthenticated → /login. Authenticated non-admin → /now.
+  await requireAdminSession()
+
   return (
     <div className="min-h-screen bg-background">
       <AdminNav />

@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
+import { isAdminEmail } from '@/lib/admin-guard'
 import { prisma } from '@/lib/prisma'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -75,7 +76,8 @@ export default async function NowPage() {
   }
 
   const email = session.user.email as string
-  const isAdminSession = !!(await prisma.user.findUnique({ where: { email } }))
+  // CUST-AUTH-1A: Replace tautological User-existence check with real admin guard.
+  const isAdminSession = isAdminEmail(email)
 
   // 1) Resolve Student by email (provisional linkage).
   const student = await prisma.student.findUnique({

@@ -6,6 +6,7 @@ import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
 import { DEFAULT_DIAGNOSTIC_TYPE } from '@/lib/diagnostics/authoritative'
 import { resolveContinuityStartConvergence } from '@/lib/continuity-start/convergence'
+import { requireAdminApi } from '@/lib/admin-guard'
 
 /**
  * Phase ED rescue v1 — POST /api/continuity-start/convergence/record
@@ -194,10 +195,8 @@ function parseLimit(raw: string | null): number {
 }
 
 export async function GET(req: NextRequest) {
-  const session = await getServerSession(authOptions)
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   const url = new URL(req.url)
   const enrollmentId = url.searchParams.get('enrollmentId')
@@ -300,10 +299,8 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const session = await getServerSession(authOptions)
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   let body: any
   try {

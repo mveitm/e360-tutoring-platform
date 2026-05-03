@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
+import { requireAdminApi } from '@/lib/admin-guard'
 
 const includeContext = {
   learningCycle: {
@@ -31,8 +32,8 @@ const includeContext = {
 }
 
 export async function GET(req: NextRequest) {
-  const session = await getServerSession(authOptions)
-  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   const { searchParams } = new URL(req.url)
   const learningCycleId = searchParams.get('learningCycleId')
@@ -55,8 +56,8 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const session = await getServerSession(authOptions)
-  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   try {
     const body = await req.json()

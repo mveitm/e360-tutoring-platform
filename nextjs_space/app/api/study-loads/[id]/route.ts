@@ -5,6 +5,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
 import { recordAuditEvent } from '@/lib/audit'
+import { requireAdminApi } from '@/lib/admin-guard'
 
 const cycleInclude = {
   learningCycle: {
@@ -41,8 +42,8 @@ function scalarSnapshot(record: any) {
      POST /api/study-loads/[id]/start   (pending → in_progress)
      POST /api/study-loads/[id]/complete (in_progress → completed)            */
 export async function PATCH(_req: NextRequest, { params: _params }: { params: { id: string } }) {
-  const session = await getServerSession(authOptions)
-  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   return NextResponse.json(
     { error: 'Study load status mutations are not allowed via PATCH. Use POST /api/study-loads/[id]/start or POST /api/study-loads/[id]/complete.' },
@@ -53,8 +54,8 @@ export async function PATCH(_req: NextRequest, { params: _params }: { params: { 
 const CANONICAL_LOAD_TYPES = new Set(['practice', 'reading', 'video', 'project', 'assessment'])
 
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
-  const session = await getServerSession(authOptions)
-  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   try {
     const existing = await prisma.studyLoad.findUnique({
@@ -112,8 +113,8 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 }
 
 export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
-  const session = await getServerSession(authOptions)
-  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const { session, errorResponse } = await requireAdminApi()
+  if (errorResponse) return errorResponse
 
   try {
     const existing = await prisma.studyLoad.findUnique({
