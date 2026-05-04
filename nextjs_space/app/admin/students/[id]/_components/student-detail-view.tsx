@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, Users, Loader2, Calendar, Mail, Link2, GraduationCap, ExternalLink, RefreshCw, Plus, Search } from 'lucide-react'
+import { ArrowLeft, Users, Loader2, Calendar, Mail, Link2, GraduationCap, ExternalLink, RefreshCw, Plus, Search, KeyRound, Eye, EyeOff } from 'lucide-react'
+import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import Link from 'next/link'
@@ -45,6 +46,49 @@ export function StudentDetailView() {
   const [selectedProgram, setSelectedProgram] = useState('')
   const [enrolling, setEnrolling] = useState(false)
   const [updatingEnrollmentStatus, setUpdatingEnrollmentStatus] = useState<string | null>(null)
+
+  /* ── Password reset controls ── */
+  const [resetPw, setResetPw] = useState('')
+  const [resetPwConfirm, setResetPwConfirm] = useState('')
+  const [resettingPw, setResettingPw] = useState(false)
+  const [showResetPw, setShowResetPw] = useState(false)
+  const [showResetPwConfirm, setShowResetPwConfirm] = useState(false)
+
+  const handlePasswordReset = async () => {
+    if (!resetPw || !resetPwConfirm) {
+      toast.error('Ambos campos son obligatorios.')
+      return
+    }
+    if (resetPw.length < 8) {
+      toast.error('La contraseña debe tener al menos 8 caracteres.')
+      return
+    }
+    if (resetPw !== resetPwConfirm) {
+      toast.error('Las contraseñas no coinciden.')
+      return
+    }
+    setResettingPw(true)
+    try {
+      const res = await fetch(`/api/students/${studentId}/reset-password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: resetPw, confirmPassword: resetPwConfirm }),
+      })
+      const data = await res.json().catch(() => null)
+      if (!res.ok) {
+        throw new Error(data?.error ?? 'Error al restablecer la contraseña.')
+      }
+      toast.success('Contraseña restablecida exitosamente.')
+      setResetPw('')
+      setResetPwConfirm('')
+      setShowResetPw(false)
+      setShowResetPwConfirm(false)
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : 'Error al restablecer la contraseña.')
+    } finally {
+      setResettingPw(false)
+    }
+  }
 
   const fetchStudent = useCallback(async () => {
     try {
@@ -180,6 +224,70 @@ export function StudentDetailView() {
                 <Calendar className="w-3.5 h-3.5" /> Created {fmt(student.createdAt)}
               </p>
             </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* ── Password Reset ── */}
+      <Card>
+        <CardContent className="py-5">
+          <h2 className="font-display text-lg font-semibold tracking-tight flex items-center gap-2 mb-4">
+            <KeyRound className="w-5 h-5 text-primary" /> Restablecer contraseña
+          </h2>
+          <div className="grid gap-3 max-w-sm">
+            <div className="space-y-1.5">
+              <Label htmlFor="reset-pw" className="text-sm font-medium">Nueva contraseña</Label>
+              <div className="relative">
+                <Input
+                  id="reset-pw"
+                  type={showResetPw ? 'text' : 'password'}
+                  placeholder="Mínimo 8 caracteres"
+                  value={resetPw}
+                  onChange={(e) => setResetPw(e.target.value)}
+                  disabled={resettingPw}
+                  className="pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowResetPw(!showResetPw)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  tabIndex={-1}
+                >
+                  {showResetPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="reset-pw-confirm" className="text-sm font-medium">Confirmar contraseña</Label>
+              <div className="relative">
+                <Input
+                  id="reset-pw-confirm"
+                  type={showResetPwConfirm ? 'text' : 'password'}
+                  placeholder="Repetir contraseña"
+                  value={resetPwConfirm}
+                  onChange={(e) => setResetPwConfirm(e.target.value)}
+                  disabled={resettingPw}
+                  className="pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowResetPwConfirm(!showResetPwConfirm)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  tabIndex={-1}
+                >
+                  {showResetPwConfirm ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+            <Button
+              size="sm"
+              onClick={handlePasswordReset}
+              disabled={resettingPw || !resetPw || !resetPwConfirm}
+              className="w-fit"
+            >
+              {resettingPw ? <Loader2 className="w-4 h-4 animate-spin mr-1" /> : <KeyRound className="w-4 h-4 mr-1" />}
+              Restablecer contraseña
+            </Button>
           </div>
         </CardContent>
       </Card>

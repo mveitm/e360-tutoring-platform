@@ -3545,3 +3545,30 @@ in a dedicated custody phase if needed.
 - Mauricio's admin-side data remains intact (Cycle 3 open, 1 pending registry-matched StudyLoad).
 - No password/credential inspected or printed. No seed/test credentials used. No .env access. No SQL. No DB mutation. No user directly mutated. No deploy. No schema change. No code change. No auth config modified. No Test Now/Ana/Bruno touched. No student learning data changed. No secrets inspected or printed.
 - Recommended next: **CUST-STUDENT-AUTH-1B — Add admin-mediated student password reset pathway** (code implementation phase: API endpoint + admin UI form, then deploy, then human owner privately sets new password, then retry FL-UX-4J-C).
+
+---
+
+## CUST-STUDENT-AUTH-1B — Admin-mediated student password reset pathway
+
+**Date:** 2026-05-04
+**Type:** Auth infrastructure / admin tooling
+**Status:** ✅ Implemented — awaiting deploy + human execution
+**Baseline:** `eda9f1b` (CUST-STUDENT-AUTH-1A)
+
+### Summary
+
+- Implemented a safe, admin-only endpoint to reset a student's login password.
+- **API:** `POST /api/students/[id]/reset-password` — accepts `{ password, confirmPassword }`, validates input, resolves Student→User by email match, bcrypt-hashes the password, updates User.password, records an audit event with safe payload (no credentials logged).
+- **Admin UI:** Added "Restablecer contraseña" card to student detail page (`/admin/students/[id]`) with password + confirmation fields, show/hide toggles, client-side validation, and success/error toasts.
+- **Custody rules enforced:**
+  - No password or hash ever returned in HTTP responses.
+  - No password or hash in audit payloads (only `{ passwordChanged: true, studentId }`).
+  - Human owner enters the new password privately via the production admin UI.
+  - Abacus never sees, logs, or stores the plaintext password.
+- No schema changes required (existing User.password nullable String is sufficient).
+- No existing student learning data touched. No Test Now, Ana, or Bruno modified.
+- No .env access. No SQL. No Prisma migrations. No seed/test credentials used.
+- **Files created:** `app/api/students/[id]/reset-password/route.ts`
+- **Files modified:** `app/admin/students/[id]/_components/student-detail-view.tsx`
+- **Documentation:** `docs/operations/CUST_STUDENT_AUTH_1B_ADMIN_MEDIATED_PASSWORD_RESET_PATHWAY.md`
+- Recommended next: **Deploy → Human owner resets Mauricio's password via admin UI → Retry FL-UX-4J-C (student-facing `/now` visibility check)**.
