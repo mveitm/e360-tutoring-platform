@@ -3670,3 +3670,40 @@ Possible follow-up phases (each requires explicit approval):
 - **FL-UX-4J-E**: Student answers and submits responses.
 - **FL-UX-4J-F**: StudyLoad completion with self-report.
 - **FL-UX-5**: Next cycle planning based on Cycle 3 results.
+
+---
+
+## FL-UX-4J-E — Mauricio Cycle 3 Student Answers Submission
+
+**Date:** 2026-05-04
+**Type:** Human-executed student answer submission / documentation
+**Status:** ✅ FULL SUCCESS — 8 answers submitted, responses saved
+**Baseline:** `b1ac0d7` (FL-UX-4J-D)
+
+### Summary
+
+- Human owner selected answers for all 8 MC items using the controlled answer set: q1:A, q2:B, q3:C, q4:B, q5:B, q6:C, q7:B, q8:B.
+- Counter reached "8 de 8 respondidas" before submission.
+- Clicked "Enviar respuestas" exactly once.
+- **Success message:** "Respuestas guardadas. Ahora vuelve a /now y finaliza la carga con tu autorreporte."
+- **Post-submit result:** 8 de 8 respuestas registradas.
+- Correct count not visible in student viewer (expected — correctness is admin-side). Expected 8/8 correct based on registry answer key.
+- Viewer remained accessible after submission.
+- No "Terminar" clicked. No StudyLoad completion. No self-report created. No second submission. No answers changed after submit.
+- No .env access. No SQL. No Prisma CLI. No deploy. No schema change. No code change.
+- No Test Now, Ana, or Bruno touched. No Cycle 4 created. No secrets inspected or printed.
+- **Documentation:** `docs/operations/FL_UX_4J_E_MAURICIO_CYCLE_3_STUDENT_ANSWERS_SUBMISSION.md`
+
+### FL-UX-4J chain status
+
+| Phase | Description | Result |
+|-------|-------------|--------|
+| FL-UX-4J-A | Admin-side StudyLoad creation with content registry | ✅ |
+| FL-UX-4J-B | Title curation | ✅ |
+| FL-UX-4J-C | Student-facing visibility | ✅ |
+| FL-UX-4J-D | MC item rendering after start | ✅ |
+| FL-UX-4J-E | Student answers submission | ✅ |
+
+### Recommended next
+- **FL-UX-4J-F**: StudyLoad completion with self-report (requires explicit approval).
+- **FL-UX-5**: Next cycle planning based on Cycle 3 results.
