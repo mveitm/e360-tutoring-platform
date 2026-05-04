@@ -3526,3 +3526,22 @@ in a dedicated custody phase if needed.
 - No StudyLoad started, completed, edited, created, or deleted. No answers selected or submitted. No Responses created.
 - No Cycle 4 created. No Test Now, Ana, or Bruno touched.
 - Recommended next: **CUST-STUDENT-AUTH or FL-UX-4J-C-AUTH** — resolve Mauricio student account/password access via approved protocol, then retry student-facing visibility check.
+
+---
+
+## CUST-STUDENT-AUTH-1A — Mauricio student access recovery readiness (BLOCKED)
+
+**Date:** 2026-05-04
+**Type:** Auth custody / readiness-only
+**Status:** ⛔ BLOCKED — no safe approved password recovery pathway exists
+**Baseline:** `ec06e94`
+
+### Summary
+
+- Audited the application for any safe, approved pathway to restore Mauricio's student account access after the FL-UX-4J-C login blocker.
+- **Finding: No password reset, forgot-password, or admin-mediated password change functionality exists in the app.**
+- The only password-related endpoints are login (read-only bcrypt compare) and signup (create-only, rejects existing emails). No `/api/users` update endpoint exists. No admin UI exposes password management. Student and User are separate entities.
+- No human operation was performed (no safe pathway available).
+- Mauricio's admin-side data remains intact (Cycle 3 open, 1 pending registry-matched StudyLoad).
+- No password/credential inspected or printed. No seed/test credentials used. No .env access. No SQL. No DB mutation. No user directly mutated. No deploy. No schema change. No code change. No auth config modified. No Test Now/Ana/Bruno touched. No student learning data changed. No secrets inspected or printed.
+- Recommended next: **CUST-STUDENT-AUTH-1B — Add admin-mediated student password reset pathway** (code implementation phase: API endpoint + admin UI form, then deploy, then human owner privately sets new password, then retry FL-UX-4J-C).
