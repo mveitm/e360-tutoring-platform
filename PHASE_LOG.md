@@ -3478,3 +3478,30 @@ in a dedicated custody phase if needed.
 - No secrets inspected or printed.
 - No Test Now, Ana, or Bruno touched.
 - Recommended next: **FL-UX-4J-B — Human-guided edit of Cycle 3 pending fallback StudyLoad to registry-matched PAES M1 activity** (target title: `PAES M1 — Refuerzo de ecuaciones lineales`).
+
+---
+
+## FL-UX-4J-B — Mauricio Cycle 3 StudyLoad registry-match edit
+
+**Date:** 2026-05-04
+**Type:** Human-executed guided operation (Option A) + documentation
+**Baseline:** `6d610fa`
+
+### Summary
+
+- Human owner edited the single pending fallback StudyLoad in Mauricio Cycle 3 via the production admin UI.
+- **Title changed from:** `Initial practice` **to:** `PAES M1 — Refuerzo de ecuaciones lineales`
+- Registry title used: `PAES M1 — Refuerzo de ecuaciones lineales` (contentKey: `paes_m1_linear_equations_reinforcement`, v1, 8 interactive MC items).
+- **Unchanged:** loadType = `practice`, status = `pending`, StudyLoad count = 1, Cycle 3 status = `open`.
+- No visible errors. Edit confirmed via human UI observations.
+- Registry match expected: title exactly matches `lib/study-load-content.ts` key → interactive activity should render on student-facing `/now`.
+- Student-facing `/now` not checked in this phase (optional future verification).
+- No direct SQL.
+- No `.env` access.
+- No deploy.
+- No schema change.
+- No StudyLoads created or deleted.
+- No Cycle 4 created.
+- No secrets inspected or printed.
+- No Test Now, Ana, or Bruno touched.
+- Recommended next: **FL-UX-4K — SkillState population for Mauricio / PAES_M1** (enables DN heuristic for future cycles). Optional: student-facing `/now` verification.
