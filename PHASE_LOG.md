@@ -3505,3 +3505,24 @@ in a dedicated custody phase if needed.
 - No secrets inspected or printed.
 - No Test Now, Ana, or Bruno touched.
 - Recommended next: **FL-UX-4K — SkillState population for Mauricio / PAES_M1** (enables DN heuristic for future cycles). Optional: student-facing `/now` verification.
+
+---
+
+## FL-UX-4J-C — Mauricio Cycle 3 student-facing activity visibility check (BLOCKED)
+
+**Date:** 2026-05-04
+**Type:** Student-facing visibility check / documentation-only
+**Status:** ⛔ BLOCKED — student-auth access issue
+**Baseline:** `b13d578`
+
+### Summary
+
+- Attempted to verify that the curated Cycle 3 StudyLoad (`PAES M1 — Refuerzo de ecuaciones lineales`) is visible and interactive from the student-facing `/now` experience.
+- **Blocker:** Mauricio student account password was not recognized during login. The student-facing check could not proceed.
+- **Code audit completed before blocker:** Confirmed from `/now` page code that "Ver actividad" appears on pending loads when the title matches the registry. No status mutation occurs from viewing the activity page. The verification would be safe if login is resolved.
+- **Admin-side state remains valid:** The FL-UX-4J-B title curation is unaffected by this blocker.
+- No password reset attempted. No user account modified. No credentials inspected. No seed/test credentials used.
+- No .env access. No SQL. No deploy. No schema change. No secrets inspected or printed.
+- No StudyLoad started, completed, edited, created, or deleted. No answers selected or submitted. No Responses created.
+- No Cycle 4 created. No Test Now, Ana, or Bruno touched.
+- Recommended next: **CUST-STUDENT-AUTH or FL-UX-4J-C-AUTH** — resolve Mauricio student account/password access via approved protocol, then retry student-facing visibility check.
