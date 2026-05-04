@@ -3572,3 +3572,66 @@ in a dedicated custody phase if needed.
 - **Files modified:** `app/admin/students/[id]/_components/student-detail-view.tsx`
 - **Documentation:** `docs/operations/CUST_STUDENT_AUTH_1B_ADMIN_MEDIATED_PASSWORD_RESET_PATHWAY.md`
 - Recommended next: **Deploy → Human owner resets Mauricio's password via admin UI → Retry FL-UX-4J-C (student-facing `/now` visibility check)**.
+
+---
+
+## FL-UX-4J-C (retry) — Student-facing visibility check
+
+**Date:** 2026-05-04
+**Type:** UX verification / read-only observation
+**Status:** ⚠️ PARTIAL SUCCESS — activity viewer reachable, MC items gated by pending state
+**Baseline:** `ca4ea89` (CUST-STUDENT-AUTH-1B-CLEANUP)
+**Depends on:** CUST-STUDENT-AUTH-1B (password reset deployed), human-owner password reset executed in production
+
+### Observations (human owner, production)
+
+**Access:**
+- Mauricio student login succeeded after the human-owner password reset via the new admin UI.
+- `/now` loaded successfully.
+
+**StudyLoad on `/now`:**
+- Title visible: **PAES M1 — Refuerzo de ecuaciones lineales**
+- Type visible: practice
+- Program visible: PAES_M1
+- "Ver actividad" button opened the activity viewer successfully.
+
+**Activity viewer (`/now/study-loads/[id]`):**
+- Viewer title: **PAES M1 — Refuerzo de ecuaciones lineales**
+- Subtitle visible: Ecuaciones lineales (refuerzo)
+- Duration visible: 20–30 minutos
+- Instructions visible: yes
+- Message visible: "Primero debes iniciar esta carga desde /now para poder enviar respuestas."
+
+**Item rendering:**
+- Questions visible: **no**
+- Number of questions visible: **0**
+- A/B/C/D options visible: **no**
+- Full MC item rendering appears gated until the StudyLoad is started (status transitions from `pending` to `in_progress`).
+
+### Non-actions (confirmed by human owner)
+- Did not click "Empezar" (start).
+- Did not select answers.
+- Did not submit answers.
+- Did not complete the StudyLoad.
+- Only logged in, opened `/now`, and clicked "Ver actividad".
+
+### Interpretation
+
+| Aspect | Result |
+|--------|--------|
+| Student login | ✅ Resolved (CUST-STUDENT-AUTH-1B) |
+| `/now` page loads | ✅ |
+| Registry-matched StudyLoad visible | ✅ Title, type, program all correct |
+| Activity viewer reachable | ✅ Title, subtitle, duration, instructions render correctly |
+| MC items (8 questions) rendered | ⛔ Not yet — gated by `pending` status |
+
+This is **partial success / blocked-by-pending-state**, not a failure. The activity viewer is reachable and renders metadata correctly. The 8 MC items are expected to render only after the StudyLoad is started (status: `in_progress`).
+
+### Custody compliance
+- No data mutated. No StudyLoad started, completed, edited, created, or deleted.
+- No answers selected or submitted. No Responses created.
+- No .env access. No SQL. No Prisma CLI. No deploy. No schema change. No code change.
+- No Test Now, Ana, or Bruno touched. No Cycle 4 created.
+
+### Recommended next
+**FL-UX-4J-D** (separate microphase) — Start the StudyLoad from the student-facing `/now` page to transition it to `in_progress`, then verify the 8 MC items render with A/B/C/D options visible. This requires the human owner to click "Empezar" in production as Mauricio. The action is a controlled, reversible state transition (`pending` → `in_progress`) that does not submit answers or complete the load.
