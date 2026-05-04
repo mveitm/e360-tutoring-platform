@@ -3408,3 +3408,23 @@ in a dedicated custody phase if needed.
 - Option A operational model validated: human owner via allowlisted admin UI, Abacus guides and documents.
 - No direct SQL mutation by Abacus. No deploy. No schema change. No DB maintenance. No secrets inspected or printed.
 - Recommended next: **FL-UX-4I — Mauricio Cycle 3 opening and first StudyLoad readiness**.
+
+---
+
+## FL-UX-4I-A — Mauricio Cycle 3 opening readiness
+
+**Date:** 2026-05-04
+**Type:** Readiness-only / documentation-only
+**Baseline:** `a8cff1d`
+**Commit:** *(see git log)*
+
+### Summary
+
+- Code-only audit of `POST /api/learning-cycles` (cycle creation pathway).
+- Preconditions P1–P4b all appear satisfied for Mauricio Cycle 3 based on documented state.
+- **Key finding: StudyLoad creation IS coupled to cycle creation.** The endpoint auto-creates up to 3 practice StudyLoads via DN heuristic (or 1 fallback `Initial practice` if no SkillStates exist). This cannot be separated through the existing UI/API.
+- Admin UI pathway: "New Cycle" button on `/admin/learning-cycles` list page. Suitable for Option A human execution.
+- Side effects documented: Cycle 3 creation, `currentCycleId` update, `lastActivityAt` update, `cycle_open` snapshot, auto StudyLoads.
+- Revised plan: FL-UX-4I-B should be a combined readiness + operation phase (SkillState analysis + human execution + verification).
+- No Cycle 3 created. No StudyLoads created. No production data mutation. No SQL. No .env access. No secrets inspected or printed. No deploy. No schema change. No Test Now/Ana/Bruno touched.
+- Recommended next: **FL-UX-4I-B — Mauricio Cycle 3 controlled opening**.
