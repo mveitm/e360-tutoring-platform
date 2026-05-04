@@ -3449,3 +3449,32 @@ in a dedicated custody phase if needed.
 - Some side effects not directly verifiable via UI (currentCycleId, lastActivityAt, cycle_open snapshot) — documented as limited by custody restriction.
 - No .env accessed. No SQL. No Prisma CLI. No deploy. No schema change. No StudyLoads manually created/edited/deleted. No Cycle 4 created. No code changes.
 - Recommended next: SkillState population for Mauricio/PAES_M1 and StudyLoad curation for Cycle 3.
+---
+
+## FL-UX-4J-A — Mauricio Cycle 3 StudyLoad curation readiness
+
+**Date:** 2026-05-04
+**Type:** Readiness-only / documentation-only
+**Baseline:** `f615747`
+
+### Summary
+
+- Code-only audit to determine the safest way to curate the Cycle 3 fallback StudyLoad for Mauricio Beta-M1 / PAES_M1.
+- **Current known state (from FL-UX-4I-B):** Cycle 3 open, 1 pending fallback StudyLoad titled `Initial practice`, 0 decisions, 0 evaluations.
+- **Content registry audit:** Three PAES_M1 activities exist in `lib/study-load-content.ts`:
+  1. `PAES M1 — Ecuaciones lineales básicas` (basic, 8 items) — already used in Cycle 1.
+  2. `PAES M1 — Problemas con ecuaciones lineales` (intermediate, 8 items) — already used in Cycle 2.
+  3. `PAES M1 — Refuerzo de ecuaciones lineales` (reinforcement, 8 items) — **not yet used by Mauricio**.
+- **StudyLoad admin/API pathway audit:** Title can be safely edited via admin UI (pencil icon → edit dialog → PUT `/api/study-loads/[id]`). Status is read-only (Phase EY hardened). Closed-cycle guards protect against editing closed-cycle loads. Audit logging captures before/after snapshots.
+- **Curation options analyzed:** Option A (keep as-is), Option B (edit title to registry match), Option C (delete + create), Option D (keep + add new), Option E (populate SkillStates first).
+- **Recommended curation strategy: Option B** — Edit existing pending `Initial practice` title to `PAES M1 — Refuerzo de ecuaciones lineales`. Minimal mutation (single PUT), no schema/deploy needed, audit-logged, preserves record, pedagogically appropriate (only unused PAES_M1 activity).
+- No StudyLoad edited, deleted, or created.
+- No Cycle 4 created.
+- No production data mutation.
+- No SQL.
+- No .env access.
+- No deploy.
+- No schema change.
+- No secrets inspected or printed.
+- No Test Now, Ana, or Bruno touched.
+- Recommended next: **FL-UX-4J-B — Human-guided edit of Cycle 3 pending fallback StudyLoad to registry-matched PAES M1 activity** (target title: `PAES M1 — Refuerzo de ecuaciones lineales`).
