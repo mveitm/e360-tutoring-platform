@@ -3635,3 +3635,38 @@ This is **partial success / blocked-by-pending-state**, not a failure. The activ
 
 ### Recommended next
 **FL-UX-4J-D** (separate microphase) — Start the StudyLoad from the student-facing `/now` page to transition it to `in_progress`, then verify the 8 MC items render with A/B/C/D options visible. This requires the human owner to click "Empezar" in production as Mauricio. The action is a controlled, reversible state transition (`pending` → `in_progress`) that does not submit answers or complete the load.
+
+---
+
+## FL-UX-4J-D — Mauricio Cycle 3 Student Start-Only MC Item Visibility Check
+
+**Date:** 2026-05-04
+**Type:** Human-executed student start-only operation / visibility check
+**Status:** ✅ FULL SUCCESS — 8 MC items with A/B/C/D options visible
+**Baseline:** `58f7a55` (FL-UX-4J-C retry)
+
+### Summary
+
+- Human owner clicked "Empezar" exactly once for the Mauricio Cycle 3 StudyLoad (**PAES M1 — Refuerzo de ecuaciones lineales**) in production.
+- StudyLoad transitioned from `pending` to `in_progress` (clean transition, no error messages).
+- **Activity viewer after start:** title, subtitle (Ecuaciones lineales (refuerzo)), duration (20–30 min), instructions, and message ("Responde las preguntas y luego presiona Enviar respuestas…") all render correctly.
+- **8 MC items visible with A/B/C/D options.** Counter shows "0 de 8 respondidas". Submit button ("Enviar respuestas") and back link ("Volver a /now") visible.
+- No answers selected. No submission performed. No completion performed. No self-report created.
+- No .env access. No SQL. No Prisma CLI. No deploy. No schema change. No code change.
+- No Test Now, Ana, or Bruno touched. No Cycle 4 created. No secrets inspected or printed.
+- **Documentation:** `docs/operations/FL_UX_4J_D_MAURICIO_CYCLE_3_STUDENT_START_ONLY_MC_VISIBILITY_CHECK.md`
+
+### FL-UX-4J chain status
+
+| Phase | Description | Result |
+|-------|-------------|--------|
+| FL-UX-4J-A | Admin-side StudyLoad creation with content registry | ✅ |
+| FL-UX-4J-B | Title curation | ✅ |
+| FL-UX-4J-C | Student-facing visibility | ✅ (partial → full after auth fix) |
+| FL-UX-4J-D | MC item rendering after start | ✅ |
+
+### Recommended next
+Possible follow-up phases (each requires explicit approval):
+- **FL-UX-4J-E**: Student answers and submits responses.
+- **FL-UX-4J-F**: StudyLoad completion with self-report.
+- **FL-UX-5**: Next cycle planning based on Cycle 3 results.
