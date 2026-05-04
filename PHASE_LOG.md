@@ -3428,3 +3428,24 @@ in a dedicated custody phase if needed.
 - Revised plan: FL-UX-4I-B should be a combined readiness + operation phase (SkillState analysis + human execution + verification).
 - No Cycle 3 created. No StudyLoads created. No production data mutation. No SQL. No .env access. No secrets inspected or printed. No deploy. No schema change. No Test Now/Ana/Bruno touched.
 - Recommended next: **FL-UX-4I-B — Mauricio Cycle 3 controlled opening**.
+
+---
+
+## FL-UX-4I-B — Mauricio Cycle 3 controlled opening
+
+**Date:** 2026-05-04
+**Type:** Human-executed operation (Option A) + documentation
+**Baseline:** `cc932b8`
+**Commit:** *(see git log)*
+
+### Summary
+
+- Human owner opened Cycle 3 for Mauricio Beta-M1 / PAES_M1 through the approved production admin UI (Option A).
+- Coupling risk explicitly accepted by human owner before action: auto-created StudyLoads may not be registry-matched.
+- Cycle 3 created: `status: open`, `openedAt: 04 may 2026`.
+- **Fallback path fired:** 1 auto-created StudyLoad (`Initial practice`, `practice`, `pending`). No SkillStates existed for Mauricio/PAES_M1, so DN heuristic had no candidates.
+- Learning Cycles list confirms: Cycle 1 closed (3 loads), Cycle 2 closed (1 load), Cycle 3 open (1 load).
+- Other students not touched: Ana (Cycle 1 open, 4 loads), Bruno (Cycle 1 open, 3 loads), Test Now (Cycle 1 open, 3 loads).
+- Some side effects not directly verifiable via UI (currentCycleId, lastActivityAt, cycle_open snapshot) — documented as limited by custody restriction.
+- No .env accessed. No SQL. No Prisma CLI. No deploy. No schema change. No StudyLoads manually created/edited/deleted. No Cycle 4 created. No code changes.
+- Recommended next: SkillState population for Mauricio/PAES_M1 and StudyLoad curation for Cycle 3.
