@@ -3755,3 +3755,47 @@ Possible follow-up phases (each requires explicit approval):
 Possible follow-up phases (each requires explicit approval):
 - **FL-UX-5**: Admin-side Cycle 3 evaluation (CycleEvaluation + CycleDecision).
 - **FL-UX-6**: Cycle 3 close + Cycle 4 planning.
+
+---
+
+## FL-UX-5-A — Mauricio Cycle 3 Admin Evidence Review Readiness
+
+**Date:** 2026-05-05
+**Type:** Readiness-only / documentation-only / admin evidence review
+**Status:** CONDITIONALLY_READY_WITH_REVIEW_NOTES
+**Baseline:** `a5d657a` (FL-UX-4J-F)
+
+### Summary
+
+- Read-only code review of admin evidence surfaces (`CycleDetailView`, `GET /api/learning-cycles/[id]`, `McSubmissionEvidence` component, content registry).
+- Cross-referenced submitted answers (q1:A, q2:B, q3:C, q4:B, q5:B, q6:C, q7:B, q8:B) against content registry answer keys → expected 8/8 correct.
+- Admin cycle detail page confirmed to surface: cycle context, StudyLoad status, self-report, MC summary (answeredCount, totalItemCount, correctCount, hasAnswerKey, contentKey/version), item-level table (selected/correct/result).
+- Prior documentation (FL-UX-4J-D through FL-UX-4J-F) confirms all expected evidence was saved successfully.
+- Production admin UI not directly observed (custody rules prevent .env/credential access). Human admin UI observation requested.
+
+### Evidence reviewed
+
+- StudyLoad status: completed (per FL-UX-4J-F)
+- MC evidence: 8/8 answered, expected 8/8 correct (registry cross-ref)
+- Item-level evidence: all 8 items documented with selected/correct/result
+- Self-report: "Me fue bien" (per FL-UX-4J-F)
+- Absence confirmed: no CycleDecision, no CycleEvaluation, no cycle closure, no continuity, no Cycle 4
+
+### Readiness classification
+
+**CONDITIONALLY_READY_WITH_REVIEW_NOTES** — all code surfaces exist and prior docs confirm data saved. Conditional on human admin UI observation confirming production state matches.
+
+### Confirmed non-actions
+
+- No CycleDecision created. No CycleEvaluation created. No cycle close. No continuity. No Cycle 4.
+- No StudyLoad/Response edits. No direct SQL. No .env access. No deploy. No schema change.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_5_A_MAURICIO_CYCLE_3_ADMIN_EVIDENCE_REVIEW_READINESS.md`
+
+### Recommended next
+
+- Human admin UI observation to confirm production evidence → upgrade to READY_FOR_EVIDENCE_BACKED_CYCLE_DECISION.
+- Then **FL-UX-5-B**: Create CycleEvaluation + CycleDecision for Mauricio Cycle 3.
