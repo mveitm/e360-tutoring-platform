@@ -4295,3 +4295,54 @@ Submitted 8 multiple-choice responses for Mauricio's Cycle 4 StudyLoad "PAES M1 
 ### Recommended next
 
 - **FL-UX-7-H**: Complete Mauricio Cycle 4 StudyLoad with self-report.
+
+---
+
+## FL-UX-7-H — Mauricio Cycle 4 StudyLoad Completion
+
+**Date:** 2026-05-05
+**Type:** Human-mediated student UI operation / documentation
+**Status:** ✅ PASSED
+**Baseline:** `022e255` (FL-UX-7-G: document Mauricio Cycle 4 MC submission)
+
+### Summary
+
+Completed Mauricio's Cycle 4 StudyLoad "PAES M1 — Funciones lineales básicas" via human-mediated student UI. Clicked "Terminar", recorded self-report "Me fue bien", and verified the StudyLoad moved from in_progress to completed. The `/now` dashboard now shows "Estás al día" with the completed load under "Lo que hiciste en este ciclo (1)".
+
+### State change
+
+| Field | Before | After |
+|-------|--------|-------|
+| status | in_progress | **completed** |
+| self-report | (none) | **Me fue bien** |
+
+### Post-completion `/now`
+
+- Main message: "Estás al día. Tu avance será revisado para preparar tu próxima fase."
+- Completed section: "Lo que hiciste en este ciclo (1)"
+- StudyLoad title: PAES M1 — Funciones lineales básicas
+- Self-report visible: "Tu reporte: Me fue bien"
+
+### Student-facing Cycle 4 flow complete
+
+| Phase | Action | Result |
+|-------|--------|--------|
+| 7-E | Visibility | ✅ title visible |
+| 7-F | Start | ✅ pending → in_progress |
+| 7-G | MC submission | ✅ 8/8 registered |
+| 7-H | Completion + self-report | ✅ in_progress → completed |
+
+### Confirmed non-actions
+
+- No CycleDecision. No CycleEvaluation. Cycle 4 not closed. No continuity. Cycle 5 not created.
+- No admin action. No direct SQL. No `.env` access. No Prisma CLI.
+- No code change. No deploy. No content registry modification.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_7_H_MAURICIO_CYCLE_4_STUDYLOAD_COMPLETION.md`
+
+### Recommended next
+
+- **FL-UX-8-A**: Mauricio Cycle 4 admin evidence review readiness.
