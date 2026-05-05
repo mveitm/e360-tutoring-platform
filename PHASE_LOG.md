@@ -4207,3 +4207,48 @@ Verified, via human-mediated student login, that Mauricio can see and open the c
 ### Recommended next
 
 - **FL-UX-7-F**: Start Mauricio Cycle 4 StudyLoad and verify post-start activity state.
+
+---
+
+## FL-UX-7-F — Mauricio Cycle 4 Start and Activity Readiness
+
+**Date:** 2026-05-05
+**Type:** Human-mediated student UI operation / documentation
+**Status:** ✅ PASSED
+**Baseline:** `3f0c0ae` (FL-UX-7-E: document Mauricio Cycle 4 student visibility verification)
+
+### Summary
+
+Started the Mauricio Beta-M1 / PAES_M1 / Cycle 4 StudyLoad "PAES M1 — Funciones lineales básicas" via human-mediated student UI. Verified post-start activity readiness: answer form enabled, 8 exercises visible with A/B/C/D alternatives, counter at 0 de 8, "Enviar respuestas" button available. No answers were submitted.
+
+### State change
+
+| Field | Before | After |
+|-------|--------|-------|
+| status | pending | **in_progress** |
+| loadType | practice | practice (unchanged) |
+
+### Post-start verification
+
+- `/now` shows StudyLoad under "En curso (1)" ✅
+- "Ver actividad" and "Terminar" visible
+- Activity viewer: 8 exercises, answer form enabled, counter 0 de 8
+- Guard message correctly removed; post-start instruction shown
+- Cycle 4 remains open
+
+### Confirmed non-actions
+
+- No answers selected. No responses submitted. "Enviar respuestas" not clicked.
+- StudyLoad not completed. "Terminar" not clicked. No self-report.
+- No CycleDecision. No CycleEvaluation. Cycle 4 not closed. Cycle 5 not created.
+- No admin mutation. No direct SQL. No `.env` access. No Prisma CLI.
+- No code change. No deploy. No content registry modification.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_7_F_MAURICIO_CYCLE_4_START_AND_ACTIVITY_READINESS.md`
+
+### Recommended next
+
+- **FL-UX-7-G**: Submit Mauricio Cycle 4 MC responses.
