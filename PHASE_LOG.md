@@ -4252,3 +4252,46 @@ Started the Mauricio Beta-M1 / PAES_M1 / Cycle 4 StudyLoad "PAES M1 — Funcione
 ### Recommended next
 
 - **FL-UX-7-G**: Submit Mauricio Cycle 4 MC responses.
+
+---
+
+## FL-UX-7-G — Mauricio Cycle 4 MC Submission
+
+**Date:** 2026-05-05
+**Type:** Human-mediated student UI operation / documentation
+**Status:** ✅ PASSED
+**Baseline:** `95044fb` (FL-UX-7-F: document Mauricio Cycle 4 start and activity readiness)
+
+### Summary
+
+Submitted 8 multiple-choice responses for Mauricio's Cycle 4 StudyLoad "PAES M1 — Funciones lineales básicas" via human-mediated student UI. All 8 answers match the registry answer key (B, B, A, C, D, A, B, C). Submission confirmed with "8 de 8 respuestas registradas".
+
+### Answers submitted
+
+| q1 | q2 | q3 | q4 | q5 | q6 | q7 | q8 |
+|----|----|----|----|----|----|----|---- |
+| B  | B  | A  | C  | D  | A  | B  | C  |
+
+### Submission result
+
+- Counter before: 8 de 8 respondidas
+- Counter after: **8 de 8 respuestas registradas**
+- Success message: "Respuestas guardadas. Ahora vuelve a /now y finaliza la carga con tu autorreporte."
+- StudyLoad status: **in_progress** (unchanged — "Terminar" not clicked)
+
+### Confirmed non-actions
+
+- "Terminar" not clicked. StudyLoad remains in_progress.
+- No self-report written. No StudyLoad completion.
+- No CycleDecision. No CycleEvaluation. Cycle 4 not closed. Cycle 5 not created.
+- No admin mutation. No direct SQL. No `.env` access. No Prisma CLI.
+- No code change. No deploy. No content registry modification.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_7_G_MAURICIO_CYCLE_4_MC_SUBMISSION.md`
+
+### Recommended next
+
+- **FL-UX-7-H**: Complete Mauricio Cycle 4 StudyLoad with self-report.
