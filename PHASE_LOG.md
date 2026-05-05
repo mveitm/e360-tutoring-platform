@@ -4108,3 +4108,53 @@ Opened Mauricio Beta-M1 / PAES_M1 / Cycle 4 via human-mediated production admin 
 ### Recommended next
 
 - **FL-UX-7-D**: Curate Mauricio Cycle 4 StudyLoad with "PAES M1 — Funciones lineales básicas".
+
+---
+
+## FL-UX-7-D — Mauricio Cycle 4 StudyLoad Curation
+
+**Date:** 2026-05-05
+**Type:** Human-mediated production UI operation / documentation
+**Status:** ✅ COMPLETE — StudyLoad curated
+**Baseline:** `0b97432` (CUST-FL-UX-7-C: revert generated PHASE_LOG PDF update)
+
+### Summary
+
+Curated the fallback StudyLoad in Mauricio Beta-M1 / PAES_M1 / Cycle 4 by renaming its title from "Initial practice" to "PAES M1 — Funciones lineales básicas" via human-mediated production admin UI. This matches the registry activity added in FL-UX-7-B-ALT.
+
+### Curation detail
+
+| Field | Before | After |
+|-------|--------|-------|
+| title | Initial practice | PAES M1 — Funciones lineales básicas |
+| loadType | practice | practice (unchanged) |
+| status | pending | pending (unchanged) |
+
+### Verified production state
+
+- **Cycle 4:** open
+- **StudyLoads in Cycle 4:** 1
+- **StudyLoad title:** PAES M1 — Funciones lineales básicas
+- **StudyLoad status:** pending
+- **StudyLoad loadType:** practice
+- **CycleDecisions:** 0
+- **CycleEvaluations:** 0
+- **Cycle 5:** not created
+
+### Confirmed non-actions
+
+- No new StudyLoad created. No StudyLoad deleted.
+- No StudyLoad started/submitted/completed. No student action performed.
+- No student `/now` verification. No CycleDecision. No CycleEvaluation.
+- Cycle 4 not closed. Cycle 5 not created.
+- No direct SQL. No `.env` access. No Prisma CLI. No schema change.
+- No code change. No deploy. No content registry modification.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_7_D_MAURICIO_CYCLE_4_STUDYLOAD_CURATION.md`
+
+### Recommended next
+
+- **FL-UX-7-E**: Verify Mauricio Cycle 4 student visibility of "PAES M1 — Funciones lineales básicas".
