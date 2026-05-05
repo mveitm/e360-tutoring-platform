@@ -4441,3 +4441,50 @@ Created exactly one evidence-backed CycleDecision (advance) for Mauricio Beta-M1
 ### Recommended next
 
 - **FL-UX-8-C**: Close Mauricio Cycle 4 after evidence-backed decision.
+
+---
+
+## FL-UX-8-C — Mauricio Cycle 4 Close
+
+**Date:** 2026-05-05
+**Type:** Human-mediated admin UI operation / documentation
+**Status:** ✅ PASSED
+**Baseline:** `37fe227` (FL-UX-8-B: document Mauricio Cycle 4 evidence-backed CycleDecision)
+
+### Summary
+
+Closed Mauricio Beta-M1 / PAES_M1 Cycle 4 via human-mediated admin UI after completed StudyLoad, MC evidence (8/8 correct), self-report ("Me fue bien"), and evidence-backed CycleDecision (advance).
+
+### State change
+
+| Field | Before | After |
+|-------|--------|-------|
+| Cycle 4 status | open | **closed** |
+| Closed timestamp | — | **05 may 2026** |
+| Enrollment status | active | active (unchanged) |
+
+### Post-close state
+
+- CycleDecision count: **1** (advance)
+- CycleEvaluation count: **0**
+- StudyLoad: 1 / completed
+- Cycle 5: not created
+- Continuity: not authorized ("Autorizar continuidad" visible but not clicked)
+
+### Confirmed non-actions
+
+- No CycleEvaluation. Continuity not authorized. Cycle 5 not created.
+- No second CycleDecision. No StudyLoad/response/self-report edited.
+- No student action. No student `/now` accessed.
+- No admin mutation beyond the cycle close.
+- No direct SQL. No `.env` access. No Prisma CLI.
+- No code change. No deploy. No content registry modification.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_8_C_MAURICIO_CYCLE_4_CLOSE.md`
+
+### Recommended next
+
+- **FL-UX-8-D**: Authorize continuity for Mauricio Cycle 4.
