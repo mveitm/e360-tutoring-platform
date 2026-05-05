@@ -3762,8 +3762,8 @@ Possible follow-up phases (each requires explicit approval):
 
 **Date:** 2026-05-05
 **Type:** Readiness-only / documentation-only / admin evidence review
-**Status:** CONDITIONALLY_READY_WITH_REVIEW_NOTES
-**Baseline:** `a5d657a` (FL-UX-4J-F)
+**Status:** ✅ READY_FOR_EVIDENCE_BACKED_CYCLE_DECISION
+**Baseline:** `a5d657a` (FL-UX-4J-F) → addendum at `7b9cf4f`
 
 ### Summary
 
@@ -3771,19 +3771,22 @@ Possible follow-up phases (each requires explicit approval):
 - Cross-referenced submitted answers (q1:A, q2:B, q3:C, q4:B, q5:B, q6:C, q7:B, q8:B) against content registry answer keys → expected 8/8 correct.
 - Admin cycle detail page confirmed to surface: cycle context, StudyLoad status, self-report, MC summary (answeredCount, totalItemCount, correctCount, hasAnswerKey, contentKey/version), item-level table (selected/correct/result).
 - Prior documentation (FL-UX-4J-D through FL-UX-4J-F) confirms all expected evidence was saved successfully.
-- Production admin UI not directly observed (custody rules prevent .env/credential access). Human admin UI observation requested.
 
-### Evidence reviewed
+### Human admin UI observation addendum (2026-05-05)
 
-- StudyLoad status: completed (per FL-UX-4J-F)
-- MC evidence: 8/8 answered, expected 8/8 correct (registry cross-ref)
-- Item-level evidence: all 8 items documented with selected/correct/result
-- Self-report: "Me fue bien" (per FL-UX-4J-F)
-- Absence confirmed: no CycleDecision, no CycleEvaluation, no cycle closure, no continuity, no Cycle 4
+Human owner reviewed production admin UI and confirmed:
+- Cycle 3 open, Mauricio Beta-M1 / PAES_M1, enrollment active
+- StudyLoad "PAES M1 — Refuerzo de ecuaciones lineales" (practice) — completed
+- Self-report visible: "Me fue bien"
+- MC evidence: 8 de 8 respondidas, **8 de 8 correctas**, fecha 04 may 2026 01:32 p.m.
+- Content: paes_m1_linear_equations_reinforcement (v1)
+- Item-level: q1 A/A ✅, q2 B/B ✅, q3 C/C ✅, q4 B/B ✅, q5 B/B ✅, q6 C/C ✅, q7 B/B ✅, q8 B/B ✅
+- CycleDecision: 0, CycleEvaluation: 0, cycle not closed, no continuity, no Cycle 4
+- "Cerrar ciclo" button visible but not clicked. New Decision/Evaluation controls visible but not used.
 
 ### Readiness classification
 
-**CONDITIONALLY_READY_WITH_REVIEW_NOTES** — all code surfaces exist and prior docs confirm data saved. Conditional on human admin UI observation confirming production state matches.
+**READY_FOR_EVIDENCE_BACKED_CYCLE_DECISION** — upgraded from CONDITIONALLY_READY after human admin UI observation confirmed all production evidence matches.
 
 ### Confirmed non-actions
 
@@ -3797,5 +3800,4 @@ Possible follow-up phases (each requires explicit approval):
 
 ### Recommended next
 
-- Human admin UI observation to confirm production evidence → upgrade to READY_FOR_EVIDENCE_BACKED_CYCLE_DECISION.
-- Then **FL-UX-5-B**: Create CycleEvaluation + CycleDecision for Mauricio Cycle 3.
+- **FL-UX-5-B**: Create CycleEvaluation + CycleDecision for Mauricio Cycle 3 based on confirmed production evidence (requires explicit approval).

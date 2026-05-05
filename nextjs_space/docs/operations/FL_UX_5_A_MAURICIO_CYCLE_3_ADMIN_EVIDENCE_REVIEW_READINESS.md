@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-05
 **Type:** Readiness-only / documentation-only / admin evidence review
-**Status:** CONDITIONALLY_READY_WITH_REVIEW_NOTES
+**Status:** ✅ READY_FOR_EVIDENCE_BACKED_CYCLE_DECISION (upgraded from CONDITIONALLY_READY after human admin UI observation)
 **Baseline commit:** `a5d657a` (FL-UX-4J-F: complete Mauricio Cycle 3 StudyLoad)
 **Depends on:** FL-UX-4J-F (StudyLoad completion with self-report)
 
@@ -132,82 +132,104 @@ Note: Item-level results are expected values based on content registry cross-ref
 
 Note: Absence checks are based on prior documentation. Production admin UI observation by human owner is recommended to confirm current production state has not drifted since FL-UX-4J-F.
 
-## Human admin UI observation pathway
+## Human admin UI observation — Addendum (2026-05-05)
 
-Production evidence has not been directly verified through the admin UI in this phase. To confirm readiness for a future evidence-backed CycleDecision, the human owner should:
+Human owner reviewed production admin UI for Mauricio Beta-M1 / PAES_M1 / Cycle 3 and reported:
 
-1. Open production admin: `https://tutoring-platform-mv-l4o1ne.abacusai.app/admin/learning-cycles`
-2. Open Mauricio Beta-M1 / PAES_M1 / Cycle 3.
-3. Report using the following template:
+### Cycle
 
-```
-FL-UX-5-A actual admin observations:
+| Field | Observed |
+|-------|----------|
+| Student/program | Mauricio Beta-M1 · PAES Matemática M1 (PAES_M1) |
+| Cycle number | 3 |
+| Cycle status | open |
+| Opened | 04 may 2026 |
+| Closed | — |
+| Enrollment status | active |
 
-Cycle:
-- Student/program:
-- Cycle number:
-- Cycle status:
+### StudyLoad
 
-StudyLoad:
-- Title:
-- Type:
-- Status:
+| Field | Observed |
+|-------|----------|
+| Total loads | 1 |
+| By status | completed 1 |
+| Indicator | All loads completed |
+| Title | PAES M1 — Refuerzo de ecuaciones lineales |
+| Type | practice |
+| Status | completed |
+| Created | 04 may 2026, 11:24 a.m. |
 
-Self-report:
-- Visible: yes/no
-- Text:
+### Self-report
 
-MC evidence:
-- Section visible: yes/no
-- Status:
-- Respondidas:
-- Correctas:
-- Date:
-- Content key/version:
-- Item table visible: yes/no
-- q1 selected/correct/result:
-- q2 selected/correct/result:
-- q3 selected/correct/result:
-- q4 selected/correct/result:
-- q5 selected/correct/result:
-- q6 selected/correct/result:
-- q7 selected/correct/result:
-- q8 selected/correct/result:
+| Field | Observed |
+|-------|----------|
+| Visible | yes |
+| Text | Me fue bien |
 
-Absence checks:
-- CycleDecision count:
-- CycleEvaluation count:
-- Cycle closed: yes/no
-- Continuity authorized: yes/no
-- Cycle 4 visible: yes/no
+### MC evidence
 
-Non-actions:
+| Field | Observed |
+|-------|----------|
+| Section visible | yes |
+| Status | Respuestas enviadas |
+| Respondidas | 8 de 8 |
+| Correctas | 8 de 8 |
+| Fecha de envío | 04 may 2026, 01:32 p.m. |
+| Content key/version | paes_m1_linear_equations_reinforcement (v1) |
+| Item table visible | yes |
+
+### Item-level evidence (production admin UI)
+
+| Item | Selected | Correct | Result |
+|------|----------|---------|--------|
+| q1 | A | A | Correcta |
+| q2 | B | B | Correcta |
+| q3 | C | C | Correcta |
+| q4 | B | B | Correcta |
+| q5 | B | B | Correcta |
+| q6 | C | C | Correcta |
+| q7 | B | B | Correcta |
+| q8 | B | B | Correcta |
+
+### Absence checks (production admin UI)
+
+| Field | Observed |
+|-------|----------|
+| CycleDecision count | 0 |
+| CycleEvaluation count | 0 |
+| Cycle closed | no |
+| Continuity authorized | no |
+| Cycle 4 visible/created | no |
+
+### Non-actions confirmed
+
 - No CycleDecision created.
 - No CycleEvaluation created.
 - No cycle close.
 - No continuity.
 - No Cycle 4.
 - No edits.
-```
+- "Cerrar ciclo" button was visible but not clicked.
+- New Decision and New Evaluation controls were visible but not used.
 
 ## Readiness classification
 
-**CONDITIONALLY_READY_WITH_REVIEW_NOTES**
+**READY_FOR_EVIDENCE_BACKED_CYCLE_DECISION**
+
+Upgraded from CONDITIONALLY_READY_WITH_REVIEW_NOTES after human admin UI observation confirmed all evidence matches expected checklist.
 
 Rationale:
-- ✅ Correct cycle/student/program context confirmed from prior documentation.
-- ✅ StudyLoad completed confirmed from FL-UX-4J-F.
-- ✅ 8/8 MC responses confirmed from FL-UX-4J-E.
-- ✅ Self-report ("Me fue bien") confirmed from FL-UX-4J-F.
-- ✅ Item-level evidence parseable — code review confirms McSubmissionEvidence component renders full item table.
-- ✅ Content registry cross-reference confirms expected 8/8 correct.
-- ✅ No CycleDecision/Evaluation already created (per FL-UX-4J-F).
-- ✅ No cycle closure/continuity already performed (per FL-UX-4J-F).
-- ⚠️ Production admin UI has not been directly observed in this phase (conditional note).
-- ⚠️ Multiple submission/latest-only risk is low (FL-UX-4J-E confirmed single submission) but not re-verified in production.
-
-Condition for upgrade to READY_FOR_EVIDENCE_BACKED_CYCLE_DECISION:
-- Human owner confirms production admin UI observations match expected evidence checklist above.
+- ✅ Correct cycle/student/program context confirmed — code review + prior docs + production admin UI.
+- ✅ StudyLoad completed — confirmed in production admin UI.
+- ✅ 8/8 MC responses visible — confirmed in production admin UI.
+- ✅ 8/8 correct — confirmed in production admin UI (Correctas: 8 de 8).
+- ✅ Self-report ("Me fue bien") visible — confirmed in production admin UI.
+- ✅ Item-level evidence fully parseable — all 8 items show selected/correct/result in production.
+- ✅ Content key/version visible — paes_m1_linear_equations_reinforcement (v1).
+- ✅ No conflicting/stale submission risk — single submission confirmed.
+- ✅ No CycleDecision/Evaluation already created — 0 count confirmed in production.
+- ✅ No cycle closure/continuity already performed — confirmed in production.
+- ✅ "Cerrar ciclo" button visible but not clicked — operational controls exist and were not used.
 
 ## Risks assessed
 
@@ -245,7 +267,6 @@ Condition for upgrade to READY_FOR_EVIDENCE_BACKED_CYCLE_DECISION:
 
 ## Recommended next phase
 
-Depending on human admin UI confirmation:
+Human admin UI observations match all expected evidence. Readiness upgraded to **READY_FOR_EVIDENCE_BACKED_CYCLE_DECISION**.
 
-- If observations match → upgrade to **READY_FOR_EVIDENCE_BACKED_CYCLE_DECISION** and proceed to **FL-UX-5-B**: Create CycleEvaluation + CycleDecision for Mauricio Cycle 3 based on confirmed evidence.
-- If observations reveal discrepancies → investigate before proceeding.
+Next: **FL-UX-5-B** — Create CycleEvaluation + CycleDecision for Mauricio Cycle 3 based on confirmed production evidence (requires explicit approval).
