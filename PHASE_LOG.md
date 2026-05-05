@@ -3847,3 +3847,44 @@ Human owner reviewed production admin UI and confirmed:
 
 - **FL-UX-6**: Close Cycle 3 + authorize continuity (requires explicit approval).
 - **FL-UX-7**: Open Cycle 4 + plan next StudyLoad (requires explicit approval).
+
+---
+
+## FL-UX-6-A — Mauricio Cycle 3 Close Readiness
+
+**Date:** 2026-05-05
+**Type:** Readiness-only / documentation-only / cycle close prep
+**Status:** ✅ READY_TO_CLOSE_CYCLE
+**Baseline:** `d144579` (FL-UX-5-B)
+
+### Summary
+
+- Read-only code review of close endpoint (`POST /api/learning-cycles/[id]/close`) and UI close button logic.
+- Close endpoint confirmed safe: atomic transaction sets status='closed', stamps closedAt, creates transcriptive CycleSnapshot, advances enrollment lastActivityAt. **No side-effects** (no CycleEvaluation, no ContinuitySignal, no Cycle 4).
+- UI "Cerrar ciclo" button renders when: cycle open, ≥1 load, all loads completed — all conditions met.
+
+### Evidence basis
+
+- All loads completed: 1/1 (PAES M1 — Refuerzo de ecuaciones lineales)
+- MC: 8/8 correct
+- Self-report: "Me fue bien"
+- CycleDecision: 1 advance (created FL-UX-5-B)
+- CycleEvaluation: 0 (not required for close)
+
+### Close-readiness classification
+
+**READY_TO_CLOSE_CYCLE** — all operational, pedagogical, and custody preconditions satisfied.
+
+### Confirmed non-actions
+
+- No cycle closed. No continuity. No Cycle 4. No CycleDecision/CycleEvaluation creation.
+- No StudyLoad/Response edits. No direct SQL. No .env access. No deploy. No schema change.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_6_A_MAURICIO_CYCLE_3_CLOSE_READINESS.md`
+
+### Recommended next
+
+- **FL-UX-6-B**: Close Mauricio Cycle 3 via admin UI "Cerrar ciclo" (requires explicit approval).
