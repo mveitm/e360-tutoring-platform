@@ -4488,3 +4488,51 @@ Closed Mauricio Beta-M1 / PAES_M1 Cycle 4 via human-mediated admin UI after comp
 ### Recommended next
 
 - **FL-UX-8-D**: Authorize continuity for Mauricio Cycle 4.
+
+---
+
+## FL-UX-8-D — Mauricio Cycle 4 Continuity Authorization
+
+**Date:** 2026-05-05
+**Type:** Human-mediated admin UI operation / documentation
+**Status:** ✅ PASSED
+**Baseline:** `b82e8a4` (FL-UX-8-C: document Mauricio Cycle 4 close)
+
+### Summary
+
+Authorized continuity for Mauricio Beta-M1 / PAES_M1 Cycle 4 via human-mediated admin UI. The continuity action did NOT automatically create Cycle 5. The Learning Cycles list confirms only Cycles 1–4 exist (all closed).
+
+### Post-continuity state
+
+- Cycle 4 status: **closed** (unchanged)
+- CycleDecision count: **1** (advance)
+- CycleEvaluation count: **0**
+- StudyLoad: 1 / completed
+- Cycle 5 automatically created: **no**
+
+### Visible cycles after continuity
+
+| Cycle | Status |
+|-------|--------|
+| Cycle 1 | closed |
+| Cycle 2 | closed |
+| Cycle 3 | closed |
+| Cycle 4 | closed |
+| Cycle 5 | not listed |
+
+### Confirmed non-actions
+
+- Cycle 5 not automatically created. No StudyLoad created/curated for future cycle.
+- No CycleEvaluation. No second CycleDecision. No cycle reopened or re-closed.
+- No student action. No student `/now` accessed.
+- No direct SQL. No `.env` access. No Prisma CLI.
+- No code change. No deploy. No content registry modification.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_8_D_MAURICIO_CYCLE_4_CONTINUITY_AUTHORIZATION.md`
+
+### Recommended next
+
+- **FL-UX-9-A**: Open Mauricio Cycle 5 continuity validation cycle.
