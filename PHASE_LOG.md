@@ -4062,3 +4062,49 @@ Added one new PAES_M1 interactive activity to the content registry to enable Cyc
 ### Recommended next
 
 - **FL-UX-7-C**: Open Cycle 4 for Mauricio Beta-M1 / PAES_M1 and curate first StudyLoad with new content.
+
+---
+
+## FL-UX-7-C — Mauricio Cycle 4 Controlled Opening
+
+**Date:** 2026-05-05
+**Type:** Human-mediated production UI operation / documentation
+**Status:** ✅ COMPLETE — Cycle 4 open
+**Baseline:** `f81f2cd` (CUST-FL-UX-7-C-PREFLIGHT)
+
+### Summary
+
+Opened Mauricio Beta-M1 / PAES_M1 / Cycle 4 via human-mediated production admin UI. Agent did not have admin session access; human owner performed the operation and reported results.
+
+### Verified production state
+
+- **Cycle 4:** open (05 may 2026)
+- **StudyLoads:** 1 — `Initial practice` / practice / pending (fallback, not registry-matched)
+- **CycleDecisions:** 0
+- **CycleEvaluations:** 0
+- **Cycle 3:** remains closed (not modified)
+- **Cycle 5:** not created
+
+### Confirmed non-actions
+
+- No StudyLoad curation (title/loadType unchanged). No StudyLoad started/submitted/completed.
+- No student /now verification. No student action performed.
+- No CycleDecision created. No CycleEvaluation created.
+- Cycle 4 not closed. Cycle 5 not created.
+- No direct SQL. No `.env` access. No Prisma CLI. No schema change.
+- No code change. No deploy. No content registry modification.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Verification limitations
+
+- All verification was human-reported (no agent admin session).
+- CycleSnapshot payload not inspected (requires DB query).
+- Student /now not verified (out of scope).
+
+### Documentation
+
+- `docs/operations/FL_UX_7_C_MAURICIO_CYCLE_4_CONTROLLED_OPENING.md`
+
+### Recommended next
+
+- **FL-UX-7-D**: Curate Mauricio Cycle 4 StudyLoad with "PAES M1 — Funciones lineales básicas".
