@@ -4158,3 +4158,52 @@ Curated the fallback StudyLoad in Mauricio Beta-M1 / PAES_M1 / Cycle 4 by renami
 ### Recommended next
 
 - **FL-UX-7-E**: Verify Mauricio Cycle 4 student visibility of "PAES M1 — Funciones lineales básicas".
+
+---
+
+## FL-UX-7-E — Mauricio Cycle 4 Student Visibility Verification
+
+**Date:** 2026-05-05
+**Type:** Human-mediated student UI observation / documentation
+**Status:** ✅ PASSED
+**Baseline:** `8ebe433` (FL-UX-7-D: document Mauricio Cycle 4 StudyLoad curation)
+
+### Summary
+
+Verified, via human-mediated student login, that Mauricio can see and open the curated Cycle 4 StudyLoad "PAES M1 — Funciones lineales básicas" on `/now`. Observation only — no mutations performed.
+
+### Student `/now` verification
+
+- `/now` shows Mauricio's PAES_M1 context: ✅
+- Cycle 4 visible, opened 05 may 2026
+- Pending loads: 1
+- StudyLoad title: **PAES M1 — Funciones lineales básicas**
+- loadType: practice
+- "Ver actividad" and "Empezar" both visible
+
+### Activity viewer (non-mutating)
+
+- "Ver actividad" clicked → activity viewer opened ✅
+- Title: PAES M1 — Funciones lineales básicas
+- Subtitle: Funciones lineales (inicio)
+- Duration: 20–30 minutos
+- Content: 8 multiple-choice exercises about linear functions
+- Guard message visible: "Primero debes iniciar esta carga desde /now para poder enviar respuestas."
+- "Empezar" was **not** clicked
+
+### Confirmed non-actions
+
+- StudyLoad not started. Status remains `pending`.
+- No answers selected. No responses submitted. No completion. No self-report.
+- No CycleDecision. No CycleEvaluation. Cycle 4 not closed. Cycle 5 not created.
+- No admin mutation. No direct SQL. No `.env` access. No Prisma CLI.
+- No code change. No deploy. No content registry modification.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_7_E_MAURICIO_CYCLE_4_STUDENT_VISIBILITY.md`
+
+### Recommended next
+
+- **FL-UX-7-F**: Start Mauricio Cycle 4 StudyLoad and verify post-start activity state.
