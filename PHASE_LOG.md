@@ -3888,3 +3888,50 @@ Human owner reviewed production admin UI and confirmed:
 ### Recommended next
 
 - **FL-UX-6-B**: Close Mauricio Cycle 3 via admin UI "Cerrar ciclo" (requires explicit approval).
+
+---
+
+## FL-UX-6-B — Close Mauricio Cycle 3
+
+**Date:** 2026-05-05
+**Type:** Human-executed admin mutation / cycle close / documentation
+**Status:** ✅ FULL SUCCESS — Cycle 3 closed
+**Baseline:** `0e49f1f` (FL-UX-6-A)
+
+### Summary
+
+- Human owner clicked "Cerrar ciclo" for Mauricio Beta-M1 / PAES_M1 / Cycle 3 in production admin UI.
+- Confirmation dialog appeared and was confirmed.
+- Cycle 3 status: open → **closed** (05 may 2026).
+- cycle_close CycleSnapshot expected from endpoint (FL-UX-6-A code review).
+- "Autorizar continuidad" button now visible (expected — cycle closed, no ContinuitySignal yet).
+
+### Readiness basis
+
+- All loads completed (1/1), MC 8/8 correct, self-report "Me fue bien"
+- CycleDecision: 1 advance (FL-UX-5-B)
+- READY_TO_CLOSE_CYCLE (FL-UX-6-A)
+
+### Post-close state
+
+- Cycle 3: **closed** (opened 04 may, closed 05 may 2026)
+- CycleDecision: 1 (advance)
+- CycleEvaluation: 0
+- Continuity: not authorized
+- Cycle 4: not created
+- Evidence preserved: StudyLoad, MC 8/8, self-report all still visible
+
+### Confirmed non-actions
+
+- No continuity authorized. No Cycle 4. No CycleEvaluation. No new CycleDecision.
+- No StudyLoad/Response edits. No direct SQL. No .env access. No deploy. No schema change.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_6_B_CLOSE_MAURICIO_CYCLE_3.md`
+
+### Recommended next
+
+- **FL-UX-7-A**: Authorize continuity for Mauricio Cycle 3 (requires explicit approval).
+- **FL-UX-7-B**: Open Cycle 4 + plan next StudyLoad (requires explicit approval).
