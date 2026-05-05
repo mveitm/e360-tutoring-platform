@@ -3801,3 +3801,49 @@ Human owner reviewed production admin UI and confirmed:
 ### Recommended next
 
 - **FL-UX-5-B**: Create CycleEvaluation + CycleDecision for Mauricio Cycle 3 based on confirmed production evidence (requires explicit approval).
+
+---
+
+## FL-UX-5-B — Mauricio Cycle 3 Evidence-Backed CycleDecision
+
+**Date:** 2026-05-05
+**Type:** Human-executed admin mutation / CycleDecision creation / documentation
+**Status:** ✅ FULL SUCCESS — one CycleDecision (advance) created
+**Baseline:** `33cd754` (FL-UX-5-A addendum)
+
+### Summary
+
+- Human owner created exactly one CycleDecision for Mauricio Beta-M1 / PAES_M1 / Cycle 3 via production admin UI.
+- Decision type: **advance**
+- Rationale: La carga del Ciclo 3 "PAES M1 — Refuerzo de ecuaciones lineales" fue completada con 8 de 8 respuestas correctas y autorreporte "Me fue bien". La evidencia permite avanzar al siguiente paso de aprendizaje, manteniendo revisión manual.
+- Created: 05 may 2026, 01:03 p.m.
+
+### Evidence basis
+
+- StudyLoad completed: PAES M1 — Refuerzo de ecuaciones lineales (practice)
+- MC: 8/8 correct
+- Self-report: "Me fue bien"
+- Pre-decision state: 0 CycleDecisions, 0 CycleEvaluations
+
+### Post-creation state
+
+- CycleDecision count: 1 (advance)
+- CycleEvaluation count: 0
+- Cycle 3 status: open
+- Continuity: not authorized
+- Cycle 4: not created
+
+### Confirmed non-actions
+
+- No CycleEvaluation created. No cycle close. No continuity. No Cycle 4.
+- No StudyLoad/Response edits. No second CycleDecision. No direct SQL. No .env access. No deploy. No schema change.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_5_B_MAURICIO_CYCLE_3_EVIDENCE_BACKED_CYCLEDECISION.md`
+
+### Recommended next
+
+- **FL-UX-6**: Close Cycle 3 + authorize continuity (requires explicit approval).
+- **FL-UX-7**: Open Cycle 4 + plan next StudyLoad (requires explicit approval).
