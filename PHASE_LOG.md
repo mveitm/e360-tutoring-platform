@@ -3975,3 +3975,48 @@ Human owner reviewed production admin UI and confirmed:
 
 - **FL-UX-7-A**: Open Cycle 4 for Mauricio Beta-M1 / PAES_M1 (requires explicit approval).
 - **FL-UX-7-B**: Plan and create first StudyLoad for Cycle 4 (requires explicit approval).
+
+---
+
+## FL-UX-7-A — Mauricio Cycle 4 Opening Readiness
+
+**Date:** 2026-05-05
+**Type:** Read-only code review / content inventory / readiness assessment
+**Status:** ✅ ANALYSIS COMPLETE — `READY_TO_OPEN_CYCLE_4_ONLY_AFTER_CONTENT_PREP`
+**Baseline:** `1ed5d52` (FL-UX-6-C)
+
+### Summary
+
+Full review of `POST /api/learning-cycles` endpoint, CONTENT_REGISTRY inventory, SkillState dependencies, and fallback behavior to assess whether Cycle 4 can be safely opened for Mauricio Beta-M1 / PAES_M1.
+
+### Key Findings
+
+1. **Cycle creation endpoint is safe** — well-guarded with P1-P4b preconditions, DN heuristic, DU exclusion, and fallback path.
+2. **All 3 PAES_M1 content entries exhausted** — Cycle 1 used `paes_m1_basicas`, Cycle 2 used `paes_m1_problemas`, Cycle 3 used `paes_m1_refuerzo`.
+3. **No SkillStates exist** for Mauricio/PAES_M1 → SkillState-based StudyLoad path unreachable.
+4. **Fallback "Initial practice"** will fire → non-functional placeholder (no matching CONTENT_REGISTRY entry).
+5. **Auto-generated titles** (`Practice: {skill.name}`) also won't match CONTENT_REGISTRY → still no interactive content.
+
+### Readiness Classification
+
+`READY_TO_OPEN_CYCLE_4_ONLY_AFTER_CONTENT_PREP`
+
+- Technically safe: no crashes, no data corruption, no side-effects on other students.
+- Functionally insufficient: no unused content available → Cycle 4 would have empty/placeholder activities.
+- Recommended: expand PAES_M1 content registry BEFORE opening Cycle 4.
+
+### Confirmed non-actions
+
+- No mutations (no cycle created, no DB writes, no API calls).
+- No direct SQL. No .env access. No deploy. No schema change.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_7_A_MAURICIO_CYCLE_4_OPENING_READINESS.md`
+
+### Recommended next
+
+- **FL-UX-7-B-ALT**: Expand PAES_M1 content registry with new activity (code change + deploy).
+- **MVP-BETA-CONTENT-1**: Broader 4-week content strategy for all subjects.
+- Then: **FL-UX-7-B**: Open Cycle 4 + curate first StudyLoad with new content.
