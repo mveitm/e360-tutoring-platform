@@ -4392,3 +4392,52 @@ Verified from the admin UI that Mauricio's Cycle 4 evidence is visible, coherent
 ### Recommended next
 
 - **FL-UX-8-B**: Create Mauricio Cycle 4 evidence-backed CycleDecision.
+
+---
+
+## FL-UX-8-B — Mauricio Cycle 4 Evidence-Backed CycleDecision
+
+**Date:** 2026-05-05
+**Type:** Human-mediated admin UI operation / documentation
+**Status:** ✅ PASSED
+**Baseline:** `767be4f` (FL-UX-8-A: document Mauricio Cycle 4 admin evidence review readiness)
+
+### Summary
+
+Created exactly one evidence-backed CycleDecision (advance) for Mauricio Beta-M1 / PAES_M1 Cycle 4 via human-mediated admin UI. Based on: completed StudyLoad, MC 8/8 correct on paes_m1_linear_functions_basic v1, self-report "Me fue bien".
+
+### CycleDecision
+
+| Field | Value |
+|-------|-------|
+| decisionType | **advance** |
+| Timestamp | 05 may 2026, 04:02 p. m. |
+| CycleDecision count | **1** |
+
+### Rationale
+
+> Cycle 4 StudyLoad "PAES M1 — Funciones lineales básicas" completed. MC evidence shows 8/8 answered and 8/8 correct on paes_m1_linear_functions_basic v1. Student self-report: "Me fue bien". Evidence supports advancing to the next learning step.
+
+### Post-decision state
+
+- Cycle 4 status: **open** (not closed)
+- CycleEvaluation count: 0
+- Cycle 5: not created
+- Continuity: not authorized
+
+### Confirmed non-actions
+
+- No second CycleDecision. No CycleEvaluation. Cycle 4 not closed. No continuity. Cycle 5 not created.
+- No StudyLoad/response/self-report edited. No student action. No student `/now` accessed.
+- No admin mutation beyond the single CycleDecision.
+- No direct SQL. No `.env` access. No Prisma CLI.
+- No code change. No deploy. No content registry modification.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_8_B_MAURICIO_CYCLE_4_EVIDENCE_BACKED_CYCLE_DECISION.md`
+
+### Recommended next
+
+- **FL-UX-8-C**: Close Mauricio Cycle 4 after evidence-backed decision.
