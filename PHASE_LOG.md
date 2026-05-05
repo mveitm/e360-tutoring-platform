@@ -3935,3 +3935,43 @@ Human owner reviewed production admin UI and confirmed:
 
 - **FL-UX-7-A**: Authorize continuity for Mauricio Cycle 3 (requires explicit approval).
 - **FL-UX-7-B**: Open Cycle 4 + plan next StudyLoad (requires explicit approval).
+
+---
+
+## FL-UX-6-C — Mauricio Cycle 3 Continuity Authorization
+
+**Date:** 2026-05-05
+**Type:** Human-executed admin mutation / continuity authorization / documentation
+**Status:** ✅ FULL SUCCESS — continuity authorized
+**Baseline:** `259912a` (FL-UX-6-B)
+
+### Summary
+
+- Human owner clicked "Autorizar continuidad" for Mauricio Beta-M1 / PAES_M1 / Cycle 3 in production admin UI.
+- Success message: "Continuidad autorizada".
+- "Autorizar continuidad" button no longer visible (expected).
+- ContinuitySignal (signalType='continue', rationale='admin_authorize') expected from endpoint.
+- Cycle 4 NOT created (expected — continuity ≠ next cycle creation).
+
+### Post-authorization state
+
+- Cycle 3: **closed** (05 may 2026), continuity **authorized**
+- CycleDecision: 1 (advance)
+- CycleEvaluation: 0
+- Cycle 4: not created
+- DL/DN precondition P4b now satisfied → Cycle 4 can be opened
+
+### Confirmed non-actions
+
+- No Cycle 4 created. No CycleEvaluation. No new CycleDecision. No StudyLoad edits.
+- No direct SQL. No .env access. No deploy. No schema change.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_6_C_MAURICIO_CYCLE_3_CONTINUITY_AUTHORIZATION.md`
+
+### Recommended next
+
+- **FL-UX-7-A**: Open Cycle 4 for Mauricio Beta-M1 / PAES_M1 (requires explicit approval).
+- **FL-UX-7-B**: Plan and create first StudyLoad for Cycle 4 (requires explicit approval).
