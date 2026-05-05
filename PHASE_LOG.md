@@ -4020,3 +4020,45 @@ Full review of `POST /api/learning-cycles` endpoint, CONTENT_REGISTRY inventory,
 - **FL-UX-7-B-ALT**: Expand PAES_M1 content registry with new activity (code change + deploy).
 - **MVP-BETA-CONTENT-1**: Broader 4-week content strategy for all subjects.
 - Then: **FL-UX-7-B**: Open Cycle 4 + curate first StudyLoad with new content.
+
+---
+
+## FL-UX-7-B-ALT — Add PAES_M1 Functions Registry Activity
+
+**Date:** 2026-05-05
+**Type:** Code change / content registry expansion / no production data mutation
+**Status:** ✅ COMPLETE
+**Baseline:** `6fd6855` (FL-UX-7-A)
+
+### Summary
+
+Added one new PAES_M1 interactive activity to the content registry to enable Cycle 4 content curation.
+
+### New content
+
+- **Title:** `PAES M1 — Funciones lineales básicas`
+- **contentKey:** `paes_m1_linear_functions_basic`
+- **contentVersion:** `v1`
+- **Items:** 8 MC items (q1–q8)
+- **Answer key:** B, B, A, C, D, A, B, C
+
+### Verification
+
+- TypeScript (`tsc --noEmit`): ✅ PASS
+- Build (`yarn run build`): ✅ PASS
+- Registry: 4 entries (3 existing preserved + 1 new), 32 total items, all keys unique
+
+### Confirmed non-actions
+
+- No Cycle 4 created. No StudyLoad created/edited/deleted.
+- No CycleDecision. No CycleEvaluation. No continuity action.
+- No direct SQL. No `.env` access. No schema change. No Prisma CLI.
+- No Test Now, Ana, or Bruno touched. No secrets inspected or printed.
+
+### Documentation
+
+- `docs/operations/FL_UX_7_B_ALT_ADD_PAES_M1_FUNCTIONS_REGISTRY_ACTIVITY.md`
+
+### Recommended next
+
+- **FL-UX-7-C**: Open Cycle 4 for Mauricio Beta-M1 / PAES_M1 and curate first StudyLoad with new content.

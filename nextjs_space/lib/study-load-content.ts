@@ -373,6 +373,119 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       'Tus respuestas se guardan como evidencia para revisi\u00f3n. ' +
       'No recibir\u00e1s puntaje PAES ni retroalimentaci\u00f3n autom\u00e1tica en esta versi\u00f3n.',
   },
+
+  'PAES M1 \u2014 Funciones lineales b\u00e1sicas': {
+    contentKey: 'paes_m1_linear_functions_basic',
+    contentVersion: 'v1',
+    title: 'PAES M1 \u2014 Funciones lineales b\u00e1sicas',
+    program: 'PAES_M1',
+    topic: 'Funciones lineales (inicio)',
+    estimatedMinutes: '20\u201330 minutos',
+    instructions:
+      'Esta actividad tiene 8 ejercicios de opci\u00f3n m\u00faltiple sobre funciones lineales.\n\n' +
+      '1. Trabaja en tu cuaderno o en una hoja de papel.\n' +
+      '2. Identifica la regla de la funci\u00f3n cuando corresponda.\n' +
+      '3. Calcula valores de la funci\u00f3n paso a paso.\n' +
+      '4. Reconoce pendiente e intercepto cuando aparezcan.\n' +
+      '5. Selecciona la alternativa que corresponde.\n' +
+      '6. Presiona \u201cEnviar respuestas\u201d.\n' +
+      '7. Luego vuelve a /now y presiona \u201cTerminar\u201d.\n' +
+      '8. Completa tu autorreporte.\n\n' +
+      'No hay presi\u00f3n por la perfecci\u00f3n. Lo importante es interpretar con orden la relaci\u00f3n entre variables.',
+    items: [
+      {
+        key: 'q1',
+        stem: 'Si f(x) = 2x + 3, \u00bfcu\u00e1l es el valor de f(4)?',
+        options: [
+          { label: 'A', text: '7' },
+          { label: 'B', text: '11' },
+          { label: 'C', text: '14' },
+          { label: 'D', text: '20' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q2',
+        stem: 'Si f(x) = 3x - 5 y f(x) = 10, \u00bfcu\u00e1l es el valor de x?',
+        options: [
+          { label: 'A', text: '3' },
+          { label: 'B', text: '5' },
+          { label: 'C', text: '10' },
+          { label: 'D', text: '15' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q3',
+        stem: 'Una recta pasa por los puntos (0, 2) y (3, 8). \u00bfCu\u00e1l es su pendiente?',
+        options: [
+          { label: 'A', text: '2' },
+          { label: 'B', text: '3' },
+          { label: 'C', text: '6' },
+          { label: 'D', text: '8' },
+        ],
+        correctOptionKey: 'A',
+      },
+      {
+        key: 'q4',
+        stem: 'En la funci\u00f3n y = -2x + 6, \u00bfcu\u00e1l es el intercepto con el eje y?',
+        options: [
+          { label: 'A', text: '-2' },
+          { label: 'B', text: '2' },
+          { label: 'C', text: '6' },
+          { label: 'D', text: '-6' },
+        ],
+        correctOptionKey: 'C',
+      },
+      {
+        key: 'q5',
+        stem: '\u00bfCu\u00e1l de las siguientes funciones tiene pendiente 4 e intercepto -1?',
+        options: [
+          { label: 'A', text: 'y = -x + 4' },
+          { label: 'B', text: 'y = 4x + 1' },
+          { label: 'C', text: 'y = x - 4' },
+          { label: 'D', text: 'y = 4x - 1' },
+        ],
+        correctOptionKey: 'D',
+      },
+      {
+        key: 'q6',
+        stem: 'Un servicio cobra $1.000 fijos m\u00e1s $500 por cada hora de uso. \u00bfQu\u00e9 funci\u00f3n representa el costo C(h)?',
+        options: [
+          { label: 'A', text: 'C(h) = 1000 + 500h' },
+          { label: 'B', text: 'C(h) = 500 + 1000h' },
+          { label: 'C', text: 'C(h) = 1500h' },
+          { label: 'D', text: 'C(h) = 1000h - 500' },
+        ],
+        correctOptionKey: 'A',
+      },
+      {
+        key: 'q7',
+        stem: 'Si f(x) = -x + 9, \u00bfcu\u00e1l es el valor de f(3)?',
+        options: [
+          { label: 'A', text: '3' },
+          { label: 'B', text: '6' },
+          { label: 'C', text: '9' },
+          { label: 'D', text: '12' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q8',
+        stem: 'La siguiente tabla muestra una relaci\u00f3n lineal: x = 0, 1, 2 y y = 1, 4, 7. \u00bfCu\u00e1l es la regla de la funci\u00f3n?',
+        options: [
+          { label: 'A', text: 'y = x + 3' },
+          { label: 'B', text: 'y = 2x + 1' },
+          { label: 'C', text: 'y = 3x + 1' },
+          { label: 'D', text: 'y = 4x' },
+        ],
+        correctOptionKey: 'C',
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revisi\u00f3n. ' +
+      'No recibir\u00e1s puntaje PAES ni retroalimentaci\u00f3n autom\u00e1tica en esta versi\u00f3n.',
+  },
 }
 
 // Secondary index: contentKey → StudyLoadContent.
