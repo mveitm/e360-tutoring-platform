@@ -4708,3 +4708,59 @@ Created a formal internal beta go/no-go protocol based on the validated Cycle 4�
 - **FL-UX-10-B**: Prepare second student replication path, or
 - **FL-UX-10-C**: Internal beta operations checklist, or
 - **FL-UX-9-B**: Curate Mauricio Cycle 5 StudyLoad if Mauricio continuity is the immediate priority.
+
+---
+
+## FL-UX-10-B — Prepare Second Student Replication Path
+
+**Date:** 2026-05-06
+**Baseline:** `06c0fbd` (FL-UX-10-A: internal beta go-no-go protocol)
+**Type:** documentation-only — no production mutation
+
+### Summary
+
+Defined a documentation-only replication path for validating the internal guided beta with a second student. Covers candidate criteria, candidate options (Test Now, Bruno Beta-L1, Ana Beta-M1, new real student), content readiness requirements, account/access protocol, proposed phased MVP flow, risks and guardrails, and a recommended phase sequence.
+
+### Final verdict
+
+**SECOND_STUDENT_REPLICATION_READY_FOR_READINESS_AUDIT**
+
+- Not ready for mutation until candidate state and account/content readiness are confirmed.
+- Ready for read-only audit of candidate students.
+- Replication path is defined and phased.
+
+### Candidate options assessed
+
+| Candidate | Best for | Verdict |
+|-----------|----------|---------|
+| Test Now | QA only | Not valid as beta evidence |
+| Ana Beta-M1 | Same-program (PAES_M1) transfer | Viable after audit |
+| Bruno Beta-L1 | Cross-program (PAES_L1) transfer | Viable after audit + content check |
+| New real student | Full onboarding validation | Best signal, requires protocol readiness |
+
+### Recommended phase sequence
+
+| Phase | Name |
+|-------|------|
+| FL-UX-10-B1 | Read-only candidate state audit |
+| FL-UX-10-B2 | Choose second student and content path |
+| FL-UX-10-B3 | Account/access readiness check |
+| FL-UX-10-B4 | Create/curate first second-student StudyLoad |
+| FL-UX-10-B5+ | Execute student flow in minimal phases |
+
+### Confirmed non-actions
+
+- Documentation-only. No production mutation.
+- No admin/student UI operation. No account creation/modification.
+- No cycle creation. No StudyLoad curation.
+- No CycleDecision. No CycleEvaluation. No cycle close. No continuity.
+- No deploy. No code/schema/content registry changes.
+- No SQL. No `.env` access. No Prisma CLI. No secrets.
+
+### Documentation
+
+- `docs/operations/FL_UX_10_B_SECOND_STUDENT_REPLICATION_PATH.md`
+
+### Recommended next
+
+- **FL-UX-10-B1**: Read-only candidate state audit (Ana Beta-M1 and/or Bruno Beta-L1).
