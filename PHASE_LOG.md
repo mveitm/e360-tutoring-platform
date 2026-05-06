@@ -4893,3 +4893,56 @@ Selected Ana Beta-M1 / PAES_M1 as second-student planning candidate. Defined cle
 ### Recommended next
 
 - **FL-UX-10-B3**: Ana transition readiness audit (confirm Cycle 1 state + account access).
+
+---
+
+## FL-UX-10-B3 — Ana Transition Readiness Audit
+
+**Date:** 2026-05-06
+**Baseline:** `d199eee` (FL-UX-10-B2: choose Ana second student transition path)
+**Type:** read-only audit + documentation — no production mutation
+
+### Summary
+
+Read-only readiness audit confirming Ana Beta-M1 / PAES_M1 state matches FL-UX-10-B1 findings. Discovered critical workflow constraint: close endpoint requires ALL StudyLoads to be `completed` before cycle can be closed. Ana's Cycle 1 has loads in `in_progress` and `pending` states.
+
+### Critical workflow constraint
+
+- Close endpoint guard: `cycle.studyLoads.every(l => l.status === 'completed')`
+- Ana Cycle 1 has 4 loads: completed 1, in_progress 1, pending 2
+- Loads #2–#4 must be transitioned to `completed` (operational cleanup) before close is possible
+- CycleDecision must be created **before** close (API rejects decisions on closed cycles)
+
+### Revised transition sequence for FL-UX-10-B4
+
+1. Transition loads #2, #3, #4 to `completed` via admin inline status select (operational cleanup)
+2. Create CycleDecision type `hold` with explicit non-pedagogical rationale
+3. Close Cycle 1 via "Cerrar ciclo" button
+4. Open Cycle 2 (FL-UX-10-B5)
+5. Curate Cycle 2 StudyLoad (FL-UX-10-B6)
+
+### Final verdict
+
+**READY_FOR_CONTROLLED_TRANSITION**
+
+- Ana state confirmed ✅
+- Close workflow understood ✅
+- Content available for Cycle 2 ✅ (4 PAES_M1 activities)
+- Account access deferred to FL-UX-10-B7+
+- Human approval for transition pending
+
+### Confirmed non-actions
+
+- Read-only audit + documentation only. No production mutation.
+- No admin write operation. No student UI operation.
+- No CycleDecision. No CycleEvaluation. No cycle close. No continuity.
+- No StudyLoad changes. No code/schema/content/deploy changes.
+- No SQL. No `.env` access. No Prisma CLI. No secrets.
+
+### Documentation
+
+- `docs/operations/FL_UX_10_B3_ANA_TRANSITION_READINESS_AUDIT.md`
+
+### Recommended next
+
+- **FL-UX-10-B4**: Ana Cycle 1 legacy cleanup (transition loads → CycleDecision → close), pending human approval of Option C.
