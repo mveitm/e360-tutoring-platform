@@ -4591,3 +4591,64 @@ Opened Mauricio Beta-M1 / PAES_M1 Cycle 5 via human-mediated admin UI after Cycl
 ### Recommended next
 
 - **FL-UX-9-B**: Curate Mauricio Cycle 5 StudyLoad, or pause for beta readiness review.
+
+---
+
+## FL-UX-9-BETA-0 — Consolidate Cycle 4→5 Beta Readiness Evidence
+
+**Date:** 2026-05-06
+**Baseline:** `95bd7fc` (FL-UX-9-A: document Mauricio Cycle 5 opening)
+**Type:** documentation-only consolidation — no production mutation
+
+### Summary
+
+Paused immediate Cycle 5 curation to consolidate beta readiness evidence after the successful Cycle 4→5 continuity validation. The platform has demonstrated a full manual MVP learning regulation loop for Mauricio across 4 completed cycles.
+
+### Validated chain (Cycle 4)
+
+1. Curated StudyLoad → 2. Student visibility → 3. Student start → 4. MC submission → 5. StudyLoad completion → 6. Self-report → 7. Admin evidence review → 8. Evidence-backed CycleDecision → 9. Cycle close → 10. Continuity authorization → 11. Next cycle opening
+
+### Verdict
+
+**BETA_INTERNAL_READY_WITH_MANUAL_GUARDRAILS**
+
+- Not yet public-beta ready.
+- Ready for tightly guided internal beta with 1–3 students if content and account protocols are respected.
+
+### Remaining gaps
+
+- Cycle 5 StudyLoad needs curation if Mauricio continues.
+- Content progression strategy is manual.
+- Admin workflow is labor-intensive (~11 steps per cycle).
+- CycleDecision is fully manual.
+- No scoring/adaptive interpretation.
+- CycleEvaluation entity exists but unused.
+- Need to decide next beta step: more Mauricio continuity vs. broader beta preparation.
+
+### Directional recommendation
+
+Recommended: **FL-UX-10-A** — Internal beta readiness consolidation / go-no-go protocol before further cycle accumulation.
+
+### Suggested next options
+
+| Option | Phase | Description |
+|--------|-------|-------------|
+| A | FL-UX-9-B | Curate Mauricio Cycle 5 StudyLoad — one more continuity run |
+| B | FL-UX-10-A | Internal beta readiness consolidation / go-no-go protocol |
+| C | FL-UX-10-B | Prepare second student replication path |
+
+### Confirmed non-actions
+
+- Documentation-only. No production mutation.
+- No admin/student UI operation. No StudyLoad curation.
+- No CycleDecision. No CycleEvaluation. No cycle close. No continuity.
+- No deploy. No code/schema/content registry changes.
+- No SQL. No `.env` access. No Prisma CLI. No secrets.
+
+### Documentation
+
+- `docs/operations/FL_UX_9_BETA_0_CYCLE_4_TO_5_BETA_READINESS_CONSOLIDATION.md`
+
+### Recommended next
+
+- **FL-UX-10-A**: Internal beta readiness consolidation / go-no-go protocol.
