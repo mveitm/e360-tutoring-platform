@@ -4652,3 +4652,59 @@ Recommended: **FL-UX-10-A** — Internal beta readiness consolidation / go-no-go
 ### Recommended next
 
 - **FL-UX-10-A**: Internal beta readiness consolidation / go-no-go protocol.
+
+---
+
+## FL-UX-10-A — Internal Beta Go/No-Go Protocol
+
+**Date:** 2026-05-06
+**Baseline:** `4f21c82` (FL-UX-9-BETA-0: consolidate Cycle 4 to 5 beta readiness evidence)
+**Type:** documentation-only — no production mutation
+
+### Summary
+
+Created a formal internal beta go/no-go protocol based on the validated Cycle 4→5 evidence. Defines readiness verdict, go/no-go criteria, manual guardrails, public beta blockers, operating model for 1–3 students, and allowed next operational paths.
+
+### Readiness verdict
+
+**BETA_INTERNAL_READY_WITH_MANUAL_GUARDRAILS**
+
+| Dimension | Verdict |
+|-----------|---------|
+| Tightly guided internal beta (1–3 students) | **GO** |
+| Public beta | **NO-GO** |
+| Autonomous/adaptive claims | **NO-GO** |
+| More than 3 students without phase upgrade | **NO-GO** |
+
+### Key decisions
+
+- Platform is ready for tightly guided internal beta under continuous human-admin supervision.
+- All cycle operations remain manual and evidence-backed.
+- No automation, adaptive logic, or scoring interpretation exists.
+- Public beta requires resolving content library, onboarding, scoring, and support blockers.
+
+### Allowed next operational paths
+
+| Option | Phase | Description |
+|--------|-------|-------------|
+| A | FL-UX-9-B | Curate Mauricio Cycle 5 StudyLoad — one more continuity run |
+| B | FL-UX-10-B | Prepare second student replication path |
+| C | FL-UX-10-C | Internal beta operations checklist |
+
+### Confirmed non-actions
+
+- Documentation-only. No production mutation.
+- No admin/student UI operation. No StudyLoad curation.
+- No CycleDecision. No CycleEvaluation. No cycle close. No continuity.
+- No deploy. No code/schema/content registry changes.
+- No SQL. No `.env` access. No Prisma CLI. No secrets.
+
+### Documentation
+
+- `docs/operations/FL_UX_10_A_INTERNAL_BETA_GO_NO_GO_PROTOCOL.md`
+
+### Recommended next
+
+- **FL-UX-10-B**: Prepare second student replication path, or
+- **FL-UX-10-C**: Internal beta operations checklist, or
+- **FL-UX-9-B**: Curate Mauricio Cycle 5 StudyLoad if Mauricio continuity is the immediate priority.
