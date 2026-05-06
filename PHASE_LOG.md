@@ -5104,3 +5104,46 @@ Outcome:
 Recommended next phase:
 - LOCAL-INDEPENDENCE-6 — harden/document local dev workflow and optionally create a repeatable safe dev seed/reset protocol, before using local environment for broader feature work.
 
+
+## LOCAL-INDEPENDENCE-6 — harden local dev workflow documentation
+
+Status: PASSED — documentation-only.
+
+Baseline:
+- Started from b4cec48 — LOCAL-INDEPENDENCE-5: validate local student flow with Neon dev.
+- Repo local was clean and synchronized with origin/main.
+- Local student flow and admin evidence review had already been validated against Neon dev.
+
+Scope:
+- Created nextjs_space/docs/operations/LOCAL_INDEPENDENCE_DEV_WORKFLOW_v1.md.
+- Documented the safe local development workflow for E360 / Bexauri after local independence validation.
+- Documented hard boundaries for local/dev vs production.
+- Documented safe env verification without printing secrets.
+- Documented allowed and prohibited Prisma usage.
+- Documented the validated minimal local student flow.
+- Documented temporary seed script lifecycle.
+- Documented reset guardrails.
+- Documented Git custody checks.
+- Listed recommended next local independence phases.
+
+Guardrails respected:
+- Documentation-only.
+- No app code.
+- No schema change.
+- No DB mutation.
+- No seed execution.
+- No reset execution.
+- No production access.
+- No Abacus operation.
+- No deploy.
+- No secrets printed or committed.
+
+Outcome:
+- Local development now has a written operational protocol.
+- Neon dev can be used more safely as a recurring local validation environment.
+- Future seed/reset work is explicitly gated behind dedicated phases.
+- E360/Bexauri can proceed toward local-first MVP iteration with clearer custody.
+
+Recommended next phase:
+- LOCAL-INDEPENDENCE-6B — optionally create a sanitized reusable local seed/check script, or pause local independence and move to the first small local-first UX hardening phase.
+
