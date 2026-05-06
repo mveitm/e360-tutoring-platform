@@ -5008,3 +5008,11 @@ Load #1 ("PAES M1 — Revisión de errores en despeje") is already completed —
 ### Recommended next
 
 - **FL-UX-10-B4-B**: Transition Ana legacy loads to completed (human-mediated admin mutation), pending human approval.
+## Phase FL-UX-10-B4-B — Ana legacy load status transition BLOCKED
+- Attempted first controlled mutation on Ana Beta-M1 / PAES_M1 Cycle 1 to transition three legacy/stale StudyLoads to completed as operational cleanup.
+- Human admin observation confirmed StudyLoad statuses were visible, but no inline status selector was available in the Cycle 1 detail view.
+- No production mutation occurred: no StudyLoad status changes, no MC responses, no self-report, no CycleDecision, no CycleEvaluation, no cycle close, no continuity, no Cycle 2, and no student action.
+- Preserved no SQL, no Prisma CLI, no .env/secrets, no deploy, no code/schema/content registry changes, no PHASE_LOG.pdf update, no .abacus.donotdelete modification, and no generated artifacts.
+- Result: BLOCKED.
+- Recommended next phase: FL-UX-10-B4-B1 — audit safe admin pathway for StudyLoad status transition.
+- Local timestamp: 2026-05-06 13:42
