@@ -4764,3 +4764,68 @@ Defined a documentation-only replication path for validating the internal guided
 ### Recommended next
 
 - **FL-UX-10-B1**: Read-only candidate state audit (Ana Beta-M1 and/or Bruno Beta-L1).
+
+---
+
+## FL-UX-10-B1 — Second Student Candidate State Audit
+
+**Date:** 2026-05-06
+**Baseline:** `5611e23` (FL-UX-10-B: prepare second student replication path)
+**Type:** read-only audit + documentation — no production mutation
+
+### Summary
+
+Read-only audit of Ana Beta-M1 and Bruno Beta-L1 as candidates for second-student internal beta replication. Neither candidate is ready for immediate mutation. Ana is the recommended planning candidate; Bruno is blocked by content readiness.
+
+### Ana Beta-M1 / PAES_M1
+
+| Field | Value |
+|-------|-------|
+| Enrollment status | active |
+| Open cycles | Cycle 1 (open since 29 abr 2026) |
+| StudyLoads | 4 (completed 1, in_progress 1, pending 2) |
+| MC evidence | none registered |
+| Stale/seed risk | yes — mixed legacy/fallback/incomplete loads |
+| Content readiness | **4 PAES_M1 registry activities available** |
+| Verdict | **NEEDS_CLEANUP / READY_FOR_PLANNING** |
+
+### Bruno Beta-L1 / PAES_L1
+
+| Field | Value |
+|-------|-------|
+| Enrollment status | active |
+| Open cycles | Cycle 1 (open since 29 abr 2026) |
+| StudyLoads | 3 (completed 1, pending 2) |
+| MC evidence | none registered |
+| Stale/seed risk | yes — legacy/fallback loads |
+| Content readiness | **0 PAES_L1 registry activities — HARD BLOCKER** |
+| Verdict | **BLOCKED** |
+
+### Candidate comparison winner
+
+**Ana Beta-M1** — decisive factor is content readiness (4 vs. 0 registry activities).
+
+### Final verdict
+
+**SECOND_STUDENT_REPLICATION_NEEDS_CANDIDATE_CLEANUP_PLAN**
+
+- No candidate ready for immediate mutation.
+- Ana is the recommended planning candidate.
+- Bruno is blocked by PAES_L1 content gap.
+
+### Confirmed non-actions
+
+- Read-only audit + documentation only. No production mutation.
+- No admin/student UI write operations. No account changes.
+- No cycle/StudyLoad creation or modification.
+- No CycleDecision. No CycleEvaluation. No continuity.
+- No deploy. No code/schema/content registry changes.
+- No SQL. No `.env` access. No Prisma CLI. No secrets.
+
+### Documentation
+
+- `docs/operations/FL_UX_10_B1_SECOND_STUDENT_CANDIDATE_STATE_AUDIT.md`
+
+### Recommended next
+
+- **FL-UX-10-B2**: Choose second student path and define Ana cleanup/transition plan.
