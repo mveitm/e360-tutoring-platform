@@ -4829,3 +4829,67 @@ Read-only audit of Ana Beta-M1 and Bruno Beta-L1 as candidates for second-studen
 ### Recommended next
 
 - **FL-UX-10-B2**: Choose second student path and define Ana cleanup/transition plan.
+
+---
+
+## FL-UX-10-B2 — Choose Ana Second Student Transition Path
+
+**Date:** 2026-05-06
+**Baseline:** `8534db0` (FL-UX-10-B1: audit second student candidate states)
+**Type:** documentation-only — no production mutation
+
+### Summary
+
+Selected Ana Beta-M1 / PAES_M1 as second-student planning candidate. Defined cleanup/transition plan (Option C: close legacy Cycle 1, open clean Cycle 2) to isolate stale data from beta evidence. Bruno remains blocked by PAES_L1 content gap.
+
+### Selected candidate
+
+**Ana Beta-M1 / PAES_M1**
+
+### Transition path
+
+**Option C — Close/quarantine Ana legacy Cycle 1, then open clean Cycle 2**
+
+- CycleDecision on Cycle 1: `hold` or `redirect` with explicit non-pedagogical rationale (legacy/stale cleanup).
+- Close Cycle 1.
+- Open Cycle 2 as clean beta cycle.
+- Curate Cycle 2 fallback StudyLoad with registry-matched content.
+- Student interacts only with Cycle 2+.
+
+### Content readiness
+
+4 PAES_M1 registry activities available. Exact selection deferred to curation phase.
+
+### Final verdict
+
+| Dimension | Status |
+|-----------|--------|
+| ANA_SELECTED_FOR_SECOND_STUDENT_PLANNING | ✅ |
+| NOT_READY_FOR_MUTATION | ✅ — requires transition readiness |
+| NEXT_STEP_REQUIRES_TRANSITION_READINESS | ✅ |
+
+### Phase sequence
+
+| Phase | Name |
+|-------|------|
+| FL-UX-10-B3 | Ana transition readiness audit |
+| FL-UX-10-B4 | Close/quarantine Ana legacy Cycle 1 |
+| FL-UX-10-B5 | Open Ana clean beta Cycle 2 |
+| FL-UX-10-B6 | Curate Ana first registry-matched StudyLoad |
+| FL-UX-10-B7+ | Execute Ana student flow in minimal phases |
+
+### Confirmed non-actions
+
+- Documentation-only. No production mutation.
+- No admin/student UI operation. No account/password action.
+- No cycle/load/decision/evaluation/continuity changes.
+- No code/schema/content registry changes.
+- No SQL. No `.env` access. No Prisma CLI. No secrets.
+
+### Documentation
+
+- `docs/operations/FL_UX_10_B2_ANA_SECOND_STUDENT_CLEANUP_TRANSITION_PLAN.md`
+
+### Recommended next
+
+- **FL-UX-10-B3**: Ana transition readiness audit (confirm Cycle 1 state + account access).
