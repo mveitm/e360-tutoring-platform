@@ -5027,3 +5027,80 @@ Load #1 ("PAES M1 — Revisión de errores en despeje") is already completed —
 - No production mutation, no deploy, and no Abacus dependency for this validation.
 - Recommended next phase: LOCAL-INDEPENDENCE-5 — create minimal dev student flow data.
 - Local timestamp: 2026-05-06 17:42
+
+## LOCAL-INDEPENDENCE-5 — create minimal dev student flow data
+
+Status: PASSED — local/dev only.
+
+Baseline:
+- Started from e87721e — LOCAL-INDEPENDENCE-4: validate local app with Neon admin login.
+- Repo local was clean and synchronized with origin/main.
+- Local app was already running against Neon dev with admin login validated.
+
+Scope:
+- Created minimal controlled student-flow data in Neon dev only.
+- No production access.
+- No Abacus.
+- No deploy.
+- No backup restore.
+- No secrets printed or committed.
+
+Data created/validated:
+- Local student user: estudiante.local@bexauri.dev.
+- Student: Estudiante Local.
+- Program: PAES_M1 / PAES Matemática M1.
+- Active enrollment.
+- LearningCycle: Cycle 1, open.
+- StudyLoad: “PAES M1 — Ecuaciones lineales básicas”.
+- StudyLoad type: practice.
+- StudyLoad registry content: paes_m1_linear_equations_basic (v1).
+
+Student UI validation:
+- Student login worked locally.
+- /now showed PAES_M1, Cycle 1, and the pending StudyLoad.
+- “Ver actividad” opened the registered activity while pending and correctly blocked answer submission until start.
+- “Empezar” transitioned StudyLoad from pending to in_progress.
+- Post-start activity viewer showed 8 multiple-choice questions, A/B/C/D options, 0/8 counter, and “Enviar respuestas”.
+- Student submitted 8/8 answers.
+- Activity confirmed responses were saved.
+- Student completed the load with self-report “Me fue bien”.
+- /now showed the completed load and the self-report.
+
+Admin UI validation:
+- /admin/learning-cycles listed Cycle 1 for Estudiante Local / PAES_M1.
+- Cycle detail showed status open, 0 decisions, 1 completed load, 0 evaluations.
+- Admin evidence showed:
+  - Autorreporte: Me fue bien.
+  - Estado: Respuestas enviadas.
+  - Respondidas: 8 de 8.
+  - Correctas: 8 de 8.
+  - Contenido: paes_m1_linear_equations_basic (v1).
+
+Guardrails respected:
+- Neon dev/local only.
+- No production mutation.
+- No Abacus operation.
+- No deploy.
+- No DATABASE_URL/password printed.
+- Temporary seed script removed before commit.
+- No .env, node_modules, package-lock, backups, or sensitive data committed.
+- Cycle was not closed.
+- No CycleDecision created.
+- No CycleEvaluation created.
+- No continuity authorized.
+- No new cycle created.
+
+Non-blocking UX observations:
+- Student /now text showed minor spacing issue: “Ciclo 1Abierto”.
+- Activity metadata showed minor spacing issue: “Ecuaciones lineales20–30 minutos”.
+- Multiple-choice options displayed with cramped labels such as “A5”, “B7”.
+- Admin MC evidence table displayed item order as q8, q1, q2..., not natural q1–q8.
+
+Outcome:
+- Local independence advanced from admin-only validation to full minimal student learning flow validation.
+- E360/Bexauri can now run a complete local dev student loop on Neon dev:
+  student login → /now → start StudyLoad → activity viewer → MC submission → completion/self-report → admin evidence review.
+
+Recommended next phase:
+- LOCAL-INDEPENDENCE-6 — harden/document local dev workflow and optionally create a repeatable safe dev seed/reset protocol, before using local environment for broader feature work.
+
