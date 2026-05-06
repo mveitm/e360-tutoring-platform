@@ -4946,3 +4946,65 @@ Read-only readiness audit confirming Ana Beta-M1 / PAES_M1 state matches FL-UX-1
 ### Recommended next
 
 - **FL-UX-10-B4**: Ana Cycle 1 legacy cleanup (transition loads → CycleDecision → close), pending human approval of Option C.
+
+---
+
+## FL-UX-10-B4-A — Ana Legacy Load Transition Plan
+
+**Date:** 2026-05-06
+**Baseline:** `d2dc234` (FL-UX-10-B3: audit Ana transition readiness)
+**Type:** documentation-only — no production mutation
+
+### Summary
+
+Documented the exact plan for transitioning Ana Beta-M1 Cycle 1 legacy loads before closure. Defined non-pedagogical rationale, guardrails, and microphase sequence for controlled execution.
+
+### Loads to transition (in later mutation phase)
+
+| # | Title | Current | Target |
+|---|-------|---------|--------|
+| 2 | PAES M1 — Resolver problemas de planteamiento algebraico | in_progress | completed |
+| 3 | PAES M1 — Practicar ecuaciones lineales | pending | completed |
+| 4 | Initial practice | pending | completed |
+
+Load #1 ("PAES M1 — Revisión de errores en despeje") is already completed — no change needed.
+
+### Non-pedagogical rationale
+
+> "These StudyLoad status changes are operational cleanup for legacy/stale beta-prep data. They do not represent student completion, MC evidence, mastery, or pedagogical performance. The purpose is to allow Ana Cycle 1 to be closed/quarantined before starting a clean Cycle 2 beta flow."
+
+### Microphase sequence
+
+| Phase | Name |
+|-------|------|
+| FL-UX-10-B4-B | Transition Ana legacy loads to completed |
+| FL-UX-10-B4-C | Create Ana non-pedagogical cleanup CycleDecision |
+| FL-UX-10-B4-D | Close Ana Cycle 1 as legacy/stale |
+| FL-UX-10-B5 | Open Ana clean beta Cycle 2 |
+| FL-UX-10-B6 | Curate Ana Cycle 2 registry-matched StudyLoad |
+
+### Final verdict
+
+**ANA_LEGACY_LOAD_TRANSITION_READY_FOR_CONTROLLED_MUTATION_PLANNING**
+
+- Load transition plan defined ✅
+- Non-pedagogical rationale documented ✅
+- Not ready for student use
+- Mutation pending human approval of FL-UX-10-B4-B
+
+### Confirmed non-actions
+
+- Documentation-only. No production mutation.
+- No admin/student UI operation. No account/password action.
+- No StudyLoad changes. No CycleDecision. No CycleEvaluation.
+- No cycle close. No continuity. No new cycle.
+- No code/schema/deploy/content registry changes.
+- No SQL. No `.env` access. No Prisma CLI. No secrets.
+
+### Documentation
+
+- `docs/operations/FL_UX_10_B4_A_ANA_LEGACY_LOAD_TRANSITION_PLAN.md`
+
+### Recommended next
+
+- **FL-UX-10-B4-B**: Transition Ana legacy loads to completed (human-mediated admin mutation), pending human approval.
