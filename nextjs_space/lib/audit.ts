@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Phase FD — Audit event helper utility.
  *
  * Provides a reusable function to record audit events in the AuditEvent table.
@@ -33,6 +33,10 @@ export type AuditEventInput = {
   afterPayload?: Prisma.InputJsonValue | null
 }
 
+function toNullableJsonValue(value: Prisma.InputJsonValue | null | undefined) {
+  return value === undefined || value === null ? Prisma.JsonNull : value
+}
+
 /**
  * Record an audit event in the audit_events table.
  *
@@ -56,8 +60,8 @@ export async function recordAuditEvent(input: AuditEventInput) {
       endpoint: input.endpoint,
       method: input.method,
       operationId: input.operationId ?? null,
-      beforePayload: input.beforePayload === undefined ? Prisma.DbNull : (input.beforePayload ?? Prisma.DbNull),
-      afterPayload: input.afterPayload === undefined ? Prisma.DbNull : (input.afterPayload ?? Prisma.DbNull),
+      beforePayload: toNullableJsonValue(input.beforePayload),
+      afterPayload: toNullableJsonValue(input.afterPayload),
     },
   })
 }
@@ -88,8 +92,8 @@ export async function recordAuditEventTx(
       endpoint: input.endpoint,
       method: input.method,
       operationId: input.operationId ?? null,
-      beforePayload: input.beforePayload === undefined ? Prisma.DbNull : (input.beforePayload ?? Prisma.DbNull),
-      afterPayload: input.afterPayload === undefined ? Prisma.DbNull : (input.afterPayload ?? Prisma.DbNull),
+      beforePayload: toNullableJsonValue(input.beforePayload),
+      afterPayload: toNullableJsonValue(input.afterPayload),
     },
   })
 }

@@ -1,10 +1,20 @@
-import { getServerSession } from 'next-auth'
+﻿import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
 import { BetaOperationsView } from './_components/beta-operations-view'
 
 export const dynamic = 'force-dynamic'
+
+type StudyLoadStatusLike = 'pending' | 'in_progress' | 'completed' | string
+
+type StudyLoadLike = {
+  status: StudyLoadStatusLike
+}
+
+type CycleWithStudyLoadsLike = {
+  studyLoads: StudyLoadLike[]
+}
 
 export default async function BetaOperationsPage() {
   const session = await getServerSession(authOptions)
@@ -39,14 +49,14 @@ export default async function BetaOperationsPage() {
   ])
 
   /* ---- Compute counters ---- */
-  const pendingLoads = studyLoads.filter((l) => l.status === 'pending')
-  const inProgressLoads = studyLoads.filter((l) => l.status === 'in_progress')
-  const completedLoads = studyLoads.filter((l) => l.status === 'completed')
+  const pendingLoads = studyLoads.filter((l: StudyLoadLike) => l.status === 'pending')
+  const inProgressLoads = studyLoads.filter((l: StudyLoadLike) => l.status === 'in_progress')
+  const completedLoads = studyLoads.filter((l: StudyLoadLike) => l.status === 'completed')
 
-  // Cycles where ALL study loads are completed → may be ready for review/close
-  const cyclesReadyForReview = cycles.filter((c) => {
+  // Cycles where all study loads are completed may be ready for review/close.
+  const cyclesReadyForReview = cycles.filter((c: CycleWithStudyLoadsLike) => {
     if (c.studyLoads.length === 0) return false
-    return c.studyLoads.every((sl) => sl.status === 'completed')
+    return c.studyLoads.every((sl: StudyLoadLike) => sl.status === 'completed')
   })
 
   const counters = {

@@ -1,7 +1,6 @@
 generator client {
     provider = "prisma-client-js"
     binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
-    output = "/home/ubuntu/tutoring_platform_mvp/nextjs_space/node_modules/.prisma/client"
 }
 
 datasource db {
@@ -331,9 +330,9 @@ model ContinuitySignal {
   @@map("continuity_signals")
 }
 
-// Phase FD — Append-only audit event log for mutation traceability.
+// Phase FD â€” Append-only audit event log for mutation traceability.
 // No FK to User (actorId stores "system" and future agent identities).
-// No updatedAt (append-only by design — records must never be updated or deleted).
+// No updatedAt (append-only by design â€” records must never be updated or deleted).
 // No Prisma enums (consistent with project-wide String + application-validation pattern).
 // HITL fields, correlationId, rationale, riskLevel, authorityTier, metadata deferred to later phases.
 model AuditEvent {
@@ -363,3 +362,4 @@ model AuditEvent {
   @@index([createdAt])
   @@map("audit_events")
 }
+
