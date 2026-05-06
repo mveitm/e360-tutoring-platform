@@ -174,6 +174,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
                   <BookOpen className="h-3.5 w-3.5" />
                   {content.topic}
                 </span>
+                <span aria-hidden="true" className="text-muted-foreground/60">?</span>
                 <span className="inline-flex items-center gap-1">
                   <Clock className="h-3.5 w-3.5" />
                   {content.estimatedMinutes}

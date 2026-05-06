@@ -5147,3 +5147,53 @@ Outcome:
 Recommended next phase:
 - LOCAL-INDEPENDENCE-6B — optionally create a sanitized reusable local seed/check script, or pause local independence and move to the first small local-first UX hardening phase.
 
+
+## LOCAL-INDEPENDENCE-7 — local-first UX hardening
+
+Status: PASSED — local-first UX/rendering only.
+
+Baseline:
+- Started from c9b013d — LOCAL-INDEPENDENCE-6: document local dev workflow.
+- Repo local was clean and synchronized with origin/main.
+- Neon dev/local student flow was already validated end-to-end.
+
+Scope:
+- Improved small UX/rendering issues observed during LOCAL-INDEPENDENCE-5 validation.
+- Adjusted /now cycle header spacing so Cycle number and opened date do not appear visually glued.
+- Added a visible separator between StudyLoad topic and estimated duration in the activity viewer.
+- Improved multiple-choice option label rendering from raw labels toward clearer "A)" style labels.
+- Sorted admin MC evidence rows naturally by item key q1 → q8.
+
+Files changed:
+- nextjs_space/app/now/page.tsx
+- nextjs_space/app/now/study-loads/[id]/page.tsx
+- nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx
+- nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx
+
+Validation:
+- Local UI validation showed admin MC evidence now renders q1, q2, q3, q4, q5, q6, q7, q8 in natural order.
+- Student UI visually separates cycle/opened date, activity topic/duration, and MC options.
+- npm run build passed successfully.
+
+Guardrails respected:
+- Local-first only.
+- No schema change.
+- No DB mutation.
+- No seed/reset.
+- No production access.
+- No Abacus operation.
+- No deploy.
+- No pedagogical content change.
+- No endpoint or lifecycle logic change.
+- No secrets printed or committed.
+
+Non-blocking note:
+- Browser visual rendering is improved. When text is selected/copied into plain chat, some inline layout may still collapse or split because of HTML spans; this is not treated as a visual UI blocker.
+
+Outcome:
+- First local-first product improvement completed after local independence baseline.
+- Validated local workflow can now support small UX hardening without Abacus.
+
+Recommended next phase:
+- LOCAL-INDEPENDENCE-8 — choose either another small local-first UX improvement or return to product/beta path planning with local dev as the primary validation environment.
+

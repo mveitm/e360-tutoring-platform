@@ -272,7 +272,7 @@ export default function StudyLoadAnswerForm({
                                     : 'border-muted-foreground/30 text-muted-foreground'
                                 }`}
                               >
-                                {opt.label}
+                                {opt.label})
                               </span>
                               <span className="flex-1">{opt.text}</span>
                             </button>

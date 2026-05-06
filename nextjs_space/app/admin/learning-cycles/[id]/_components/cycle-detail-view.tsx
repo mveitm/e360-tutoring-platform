@@ -164,6 +164,16 @@ function McSubmissionEvidence({ latestMc, hasMultipleMc, fmtFull }: McSubmission
   const { summary, answers } = parsed
   const showCorrectColumns = summary.hasAnswerKey
 
+  const getItemOrder = (itemKey: string) => {
+    const match = itemKey.match(/^q(\d+)$/i)
+    return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER
+  }
+
+  const orderedAnswers = [...answers].sort((a, b) => {
+    const orderDiff = getItemOrder(a.itemKey) - getItemOrder(b.itemKey)
+    return orderDiff !== 0 ? orderDiff : a.itemKey.localeCompare(b.itemKey)
+  })
+
   return (
     <div className="space-y-2">
       {/* Section header */}
@@ -208,7 +218,7 @@ function McSubmissionEvidence({ latestMc, hasMultipleMc, fmtFull }: McSubmission
       </div>
 
       {/* Item-level table */}
-      {answers.length > 0 && (
+      {orderedAnswers.length > 0 && (
         <div className="ml-5 overflow-x-auto">
           <table className="w-full text-xs border-collapse">
             <thead>
@@ -224,7 +234,7 @@ function McSubmissionEvidence({ latestMc, hasMultipleMc, fmtFull }: McSubmission
               </tr>
             </thead>
             <tbody>
-              {answers.map((ans) => (
+              {orderedAnswers.map((ans) => (
                 <tr key={ans.itemKey} className="border-b border-dashed last:border-0">
                   <td className="py-1.5 pr-3 font-mono">{ans.itemKey}</td>
                   <td className="py-1.5 pr-3 font-medium">{ans.selectedOptionKey}</td>

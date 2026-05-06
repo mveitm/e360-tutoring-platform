@@ -227,7 +227,7 @@ export default async function NowPage() {
           <p className="text-sm text-muted-foreground">{enrollment.program.name}</p>
         </CardHeader>
         <CardContent className="pt-0">
-          <div className="flex items-center justify-between text-sm">
+          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-sm">
             <span className="font-medium">Ciclo {cycle.cycleNumber}</span>
             <span className="text-muted-foreground">Abierto: {openedAtLabel}</span>
           </div>
