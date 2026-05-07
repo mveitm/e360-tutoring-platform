@@ -5514,3 +5514,48 @@ Guardrails respected:
 - No student data mutation.
 - No secrets, passwords, DATABASE_URL, tokens, or connection strings printed.
 
+## MVP-LOCAL-2 — Guided MVP gap audit
+
+Status: CLOSED — documentation/direction only.
+
+Baseline:
+- HEAD at phase start: 5aa5bf1
+- Commit: MVP-STUDENT-REQ-1: triage student experience requirements
+- Working tree clean at phase start.
+
+Summary:
+MVP-LOCAL-2 audited the current guided MVP product direction against:
+1. the MVP-LOCAL-1 guided MVP operating slice;
+2. the MVP-STUDENT-REQ-1 student experience triage;
+3. the official MVP-Beta / MVP-Alfa / Post-MVP roadmap vocabulary.
+
+Verdict:
+MVP-Beta is viable as a guided/manual monetizable product, but not yet ready for broader student-facing beta expansion until immediate student-experience gaps are addressed.
+
+Immediate MVP-Beta gaps identified:
+- improve `/now` student clarity;
+- make diagnostic / initial state visible;
+- show post-completion review state;
+- add basic honest post-MC feedback;
+- show student-facing human/admin decision summary;
+- define a simple PAES_M1 four-week map.
+
+Deferred:
+- complete dashboard;
+- native mobile app;
+- L1/M2 activation;
+- full essays;
+- NEM calculator;
+- AI tutor;
+- adaptive theta;
+- push notifications;
+- payment automation.
+
+Guardrails:
+No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint changes, UI changes, secrets, or scripts were used in this phase.
+
+Artifact:
+- `nextjs_space/docs/operations/MVP_LOCAL_2_GUIDED_MVP_GAP_AUDIT.md`
+
+Recommended next phase:
+MVP-LOCAL-3 — Student `/now` clarity pass.
