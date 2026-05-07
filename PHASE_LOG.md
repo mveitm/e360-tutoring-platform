@@ -5425,3 +5425,92 @@ Guardrails respected:
 - No student data mutation.
 - No secrets, passwords, DATABASE_URL, tokens, or connection strings printed.
 
+
+## MVP-STUDENT-REQ-1 — Student experience triage for MVP-Beta and MVP-Alfa
+
+Status: PASSED — direction/product requirements triage.
+
+Baseline:
+- Started from e2842f9 — MVP-LOCAL-1: define guided MVP operating slice.
+- Repo local was clean and synchronized with origin/main.
+- Technical execution was paused to open an owner/director technical conversation focused on the student experience for MVP.
+
+Inputs:
+- Owner draft: MVeit-Bexauri-Definicion de Producto.docx.
+- Gemini and Deep Research optimization: Bexauri_Especificaciones_Director_Proyecto.pdf.
+
+Purpose:
+- Analyze the owner vision for the student experience in Bexauri.
+- Preserve the full product north star without pushing all requirements into immediate development.
+- Classify requirements into MVP-Beta, MVP-Alfa, and Post-MVP.
+- Decide what should pass to development now, what can be manual or operational, and what should wait.
+
+Product evolution terminology:
+- MVP-Beta: first monetizable product; guided, controlled, manually operated where needed, honest in scope.
+- MVP-Alfa: final mature MVP; more complete, polished, repeatable, and less manual.
+- Post-MVP: everything after MVP-Alfa; advanced platform evolution, AI agents, adaptation, analytics, scale, and broader automation.
+
+Deliverable:
+- nextjs_space/docs/operations/MVP_STUDENT_REQ_1_STUDENT_EXPERIENCE_TRIAGE.md
+
+Core chain preserved:
+- Diagnostic / initial state.
+- Learning cycle.
+- StudyLoad.
+- Student execution.
+- Evidence capture.
+- Human/admin review.
+- Pedagogical decision.
+- Continuity.
+
+Key direction:
+- The owner vision is accepted as the student experience north star.
+- The immediate product should not attempt to implement the whole vision at once.
+- MVP-Beta should focus on a guided PAES M1 weekly learning-regulation service.
+- MVP-Alfa should mature the MVP with stronger dashboard, feedback, sequencing, and operational flow.
+- Post-MVP should contain advanced adaptivity, AI agents, full Ensayos, NEM calculator, native app release, apoderado dashboard, and scale.
+
+Immediate development priorities identified:
+- Student clarity in /now.
+- Diagnostic as visible first step.
+- Review state after completion.
+- Basic feedback after MC submission.
+- Admin decision and student-facing review summary.
+- Four-week PAES_M1 sequence.
+
+Deferred from MVP-Beta:
+- Full dashboard.
+- Native mobile app.
+- Active L1/M2 tutoring paths.
+- Full Ensayos module.
+- NEM calculator.
+- AI tutor.
+- Adaptive algorithm.
+- Latent ability model.
+- Full scaffolding.
+- Push notifications.
+- Payment automation.
+
+Recommended next phase:
+- MVP-LOCAL-2 — Guided MVP gap audit, now informed by the student-experience triage.
+- Follow-on candidates:
+  - MVP-STUDENT-UX-1 — strengthen /now as MVP-Beta student work hub.
+  - MVP-DIAGNOSTIC-1 — student-facing diagnostic entrypoint.
+  - MVP-FEEDBACK-1 — basic post-submission feedback.
+  - MVP-CONTENT-1 — four-week PAES_M1 content map.
+  - MVP-OPS-1 — guided paid-pilot operations protocol.
+
+Guardrails respected:
+- Documentation/direction only.
+- No app code change.
+- No schema change.
+- No DB mutation.
+- No production access.
+- No Abacus.
+- No deploy.
+- No endpoint changes.
+- No UI changes.
+- No content registry changes.
+- No student data mutation.
+- No secrets, passwords, DATABASE_URL, tokens, or connection strings printed.
+
