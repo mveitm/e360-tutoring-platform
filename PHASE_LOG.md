@@ -5197,3 +5197,104 @@ Outcome:
 Recommended next phase:
 - LOCAL-INDEPENDENCE-8 — choose either another small local-first UX improvement or return to product/beta path planning with local dev as the primary validation environment.
 
+
+## BETA-SECOND-STUDENT-LOCAL-2 — Validate second local student flow
+
+Status: PASSED — local/dev functional validation completed.
+
+Baseline:
+- Started from `1fa7779` — LOCAL-INDEPENDENCE-7: harden local UX rendering.
+- Repo local was clean and synchronized with origin/main.
+- Local app and Neon dev were already validated through LOCAL-INDEPENDENCE-4/5/6/7.
+- Gemini Code Assist was tested but remained unreliable for execution; UI/API real flow was used instead.
+
+Purpose:
+- Validate that E360 / Bexauri can support a second student locally using the real app surfaces.
+- Reduce dependency on Abacus and avoid long pasted PowerShell/Node scripts.
+- Confirm that a second local PAES_M1 student can complete the same student→activity→submission→self-report→admin-evidence loop.
+
+Student fixture:
+- Student: Ana Local-M1
+- Email: ana.local.m1@bexauri.dev
+- Program: PAES_M1
+- Environment: local app + Neon dev database only
+
+Operations performed:
+- Created Student via local admin UI.
+- Created matching User via local `/api/signup` using authenticated admin session.
+- Created PAES_M1 Enrollment via local admin UI.
+- Created `initial` completed Diagnostic via local `/api/diagnostics` to satisfy Cycle 1 creation gate.
+- Created LearningCycle 1 via local admin UI.
+- Curated auto-created fallback StudyLoad from `Initial practice` to registry-matched title:
+  - `PAES M1 — Funciones lineales básicas`
+- Logged in as Ana Local-M1 in a separate/private browser session.
+- Verified `/now` showed:
+  - PAES_M1
+  - Cycle 1 open
+  - pending StudyLoad
+  - `Ver actividad`
+  - `Empezar`
+- Verified activity viewer before start showed gated message:
+  - `Primero debes iniciar esta carga desde /now para poder enviar respuestas.`
+- Started the StudyLoad through student UI.
+- Verified activity viewer after start rendered:
+  - 8 multiple-choice questions
+  - A/B/C/D alternatives
+  - progress counter
+  - `Enviar respuestas`
+- Submitted 8/8 MC responses.
+- Completed the StudyLoad with self-report:
+  - `Me fue bien`
+- Verified admin cycle detail evidence:
+  - StudyLoad completed
+  - self-report visible
+  - MC submission visible
+  - answeredCount 8/8
+  - correctCount 8/8
+  - contentKey `paes_m1_linear_functions_basic`
+  - contentVersion `v1`
+  - item-level evidence ordered q1 → q8
+
+Final admin evidence:
+- Cycle: Ana Local-M1 / PAES_M1 / Cycle 1
+- Cycle status: open
+- StudyLoads: 1 completed
+- Decisions: 0
+- Evaluations: 0
+- No cycle close performed
+- No continuity authorized
+
+Guardrails respected:
+- Local/Neon dev only.
+- No production access.
+- No Abacus.
+- No deploy.
+- No schema change.
+- No app code change.
+- No direct SQL.
+- No Prisma CLI mutation.
+- No long pasted mutation scripts after the method was judged unsafe.
+- No secrets, passwords, DATABASE_URL, tokens, or connection strings printed.
+- No CycleDecision created.
+- No CycleEvaluation created.
+- No cycle close.
+- No continuity authorization.
+
+Operational lesson:
+- Long pasted PowerShell/Node mutation scripts are too fragile for this workflow and should not be used for data mutations.
+- Preferred future mutation methods:
+  1. Real app UI/API flows.
+  2. Small visible/reviewable scripts created as files in VS Code before execution.
+  3. Gemini Code Assist or similar only after stable read/write behavior is confirmed.
+- For local student fixtures, UI/API real paths are now proven viable.
+
+Outcome:
+- Second local student flow validated end-to-end.
+- Local development environment is now suitable for controlled multi-student MVP/beta preparation.
+- This strengthens the path toward internal guided beta without increasing Abacus dependency.
+
+Recommended next phase:
+- BETA-SECOND-STUDENT-LOCAL-3 — Create an evidence-backed CycleDecision for Ana Local-M1, or
+- BETA-LOCAL-OPS-1 — Document the repeatable UI/API recipe for creating local student fixtures, or
+- CONTENT-LOCAL-L1-1 — Prepare first PAES_L1 registry activity if Bruno/L1 becomes the next target.
+
