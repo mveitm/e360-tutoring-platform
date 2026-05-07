@@ -5355,3 +5355,73 @@ Recommended next phase:
 - CONTENT-LOCAL-L1-1 — Prepare first PAES_L1 registry activity, or
 - BETA-LOCAL-OPS-2 — Add a local fixture checklist or lightweight verification helper.
 
+
+## MVP-LOCAL-1 — Guided MVP operating slice
+
+Status: PASSED — direction/documentation only.
+
+Baseline:
+- Started from `c2f5c43` — BETA-LOCAL-OPS-1: document local student fixture recipe.
+- Repo local was clean and synchronized with origin/main.
+- Local/Neon dev multi-student flow had been validated and documented.
+
+Purpose:
+- Define the first guided MVP operating slice for E360 / Bexauri.
+- Preserve architecture, operativity, and learning-regulation logic while moving toward monetizable MVP value.
+- Prevent the project from drifting into isolated tests, unstructured content growth, or premature automation.
+
+Deliverable:
+- `nextjs_space/docs/operations/MVP_LOCAL_1_GUIDED_MVP_OPERATING_SLICE.md`
+
+MVP slice defined:
+- Guided PAES M1 MVP.
+- 2 to 4 week pilot.
+- 1 student initially.
+- 1 program.
+- 1 cycle per week.
+- 1 registry-matched interactive StudyLoad per cycle.
+- MC submission plus self-report.
+- Admin evidence review.
+- Manual evidence-backed CycleDecision.
+- Manual cycle close and continuity.
+
+Core chain preserved:
+- Diagnostic / initial state.
+- Learning cycle.
+- StudyLoad.
+- Student execution.
+- Evidence capture.
+- Human/admin review.
+- Pedagogical decision.
+- Continuity.
+
+Explicit non-goals:
+- No autonomous adaptation claim.
+- No PAES score prediction.
+- No autonomous AI tutor claim.
+- No public beta.
+- No apoderado dashboard.
+- No large-cohort operation.
+- No automated content sequencing.
+
+Strategic recommendation:
+- Do not keep accumulating local validation cycles indefinitely.
+- Convert the validated technical loop into a guided MVP package.
+
+Recommended next phase:
+- MVP-LOCAL-2 — Guided MVP gap audit.
+
+Guardrails respected:
+- Documentation only.
+- No app code change.
+- No schema change.
+- No DB mutation.
+- No production access.
+- No Abacus.
+- No deploy.
+- No endpoint changes.
+- No UI changes.
+- No content registry changes.
+- No student data mutation.
+- No secrets, passwords, DATABASE_URL, tokens, or connection strings printed.
+
