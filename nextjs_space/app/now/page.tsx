@@ -233,7 +233,21 @@ export default async function NowPage() {
           </div>
         </CardContent>
       </Card>
-
+      <Card className="mb-6">
+        <CardHeader className="pb-2">
+          <p className="text-xs uppercase tracking-wide text-muted-foreground">Ruta de trabajo</p>
+          <CardTitle className="text-lg">Tu ruta de esta semana</CardTitle>
+        </CardHeader>
+        <CardContent className="pt-0">
+          <ol className="list-decimal space-y-1 pl-4 text-sm text-muted-foreground">
+            <li>Revisa tu carga actual.</li>
+            <li>Presiona Empezar cuando vayas a trabajar.</li>
+            <li>Abre Ver actividad si hay ejercicios disponibles.</li>
+            <li>Al terminar, presiona Terminar y deja tu reporte.</li>
+            <li>Tu avance será revisado para definir el siguiente paso.</li>
+          </ol>
+        </CardContent>
+      </Card>
       {!hasActiveLoads && !hasHistory ? (
         <EmptyState message="Tu ciclo está al día. Pronto recibirás nueva carga." />
       ) : (

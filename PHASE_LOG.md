@@ -5559,3 +5559,41 @@ Artifact:
 
 Recommended next phase:
 MVP-LOCAL-3 — Student `/now` clarity pass.
+
+## MVP-LOCAL-3 — Student /now clarity pass
+
+Status: CLOSED — local UI/copy change.
+
+Baseline:
+- HEAD at phase start: 1d57b38
+- Commit: MVP-LOCAL-2: audit guided MVP gaps
+- Working tree clean at phase start.
+
+Summary:
+MVP-LOCAL-3 improved the student `/now` page clarity by adding a small orientation card after the program/cycle card.
+
+Student-facing addition:
+- "Ruta de trabajo"
+- "Tu ruta de esta semana"
+- a short ordered list explaining:
+  1. review the current load;
+  2. press Start when ready to work;
+  3. open the activity when exercises are available;
+  4. press Complete and leave a report after finishing;
+  5. wait for review to define the next step.
+
+Files changed:
+- `nextjs_space/app/now/page.tsx`
+
+Verification:
+- `npm run build` completed successfully locally.
+- `git diff --check` passed with no output.
+
+Guardrails:
+No schema change, DB mutation, endpoint change, lifecycle change, adaptive logic, scoring logic, AI tutor, production operation, deploy, Abacus operation, secrets, or long scripts.
+
+Result:
+`/now` is clearer as the student's main weekly operating surface while preserving the existing learning-regulation chain.
+
+Recommended next phase:
+MVP-LOCAL-4 — Review pending state.
