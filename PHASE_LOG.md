@@ -5298,3 +5298,60 @@ Recommended next phase:
 - BETA-LOCAL-OPS-1 — Document the repeatable UI/API recipe for creating local student fixtures, or
 - CONTENT-LOCAL-L1-1 — Prepare first PAES_L1 registry activity if Bruno/L1 becomes the next target.
 
+
+## BETA-LOCAL-OPS-1 — Document repeatable local student fixture recipe
+
+Status: PASSED — documentation-only.
+
+Baseline:
+- Started from `0df0392` — BETA-SECOND-STUDENT-LOCAL-2: validate second local student flow.
+- Repo local was clean and synchronized with origin/main.
+- Ana Local-M1 second-student flow had just been validated end-to-end in local/Neon dev.
+
+Purpose:
+- Preserve the safe repeatable recipe discovered during Ana Local-M1 validation.
+- Avoid future reliance on long pasted PowerShell/Node mutation scripts.
+- Establish UI/API real app flows as the preferred local fixture creation method.
+
+Deliverable:
+- `nextjs_space/docs/operations/BETA_LOCAL_OPS_1_LOCAL_STUDENT_FIXTURE_RECIPE.md`
+
+Documented recipe:
+- Start from clean Git state.
+- Run local app.
+- Login as local admin.
+- Create Student through admin UI.
+- Create matching User through local `/api/signup` using admin session.
+- Create Enrollment through admin UI.
+- Create completed initial Diagnostic through local `/api/diagnostics`.
+- Create Cycle 1 through admin UI.
+- Curate fallback StudyLoad to a registry-matched title through admin UI.
+- Login as student.
+- Validate `/now`, `Ver actividad`, `Empezar`, MC submission, `Terminar`, self-report, and admin evidence.
+
+Key operational rule:
+- Do not use long pasted mutation scripts for local data creation.
+- Prefer real app UI/API flows, small visible scripts created in VS Code, or Gemini/assistant tooling only after stable behavior is confirmed.
+
+Guardrails respected:
+- Documentation only.
+- No app code change.
+- No schema change.
+- No DB mutation.
+- No production access.
+- No Abacus.
+- No deploy.
+- No direct SQL.
+- No Prisma CLI.
+- No credentials, secrets, DATABASE_URL, tokens, or passwords printed.
+
+Outcome:
+- Local student fixture creation is now operationally documented.
+- Local/Neon dev is suitable for controlled multi-student beta rehearsals.
+- Future PAES_L1/PAES_M2 local fixture work should first ensure registry-matched content exists.
+
+Recommended next phase:
+- BETA-SECOND-STUDENT-LOCAL-3 — Create evidence-backed CycleDecision for Ana Local-M1, or
+- CONTENT-LOCAL-L1-1 — Prepare first PAES_L1 registry activity, or
+- BETA-LOCAL-OPS-2 — Add a local fixture checklist or lightweight verification helper.
+
