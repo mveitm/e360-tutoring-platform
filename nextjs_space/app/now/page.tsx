@@ -343,7 +343,17 @@ export default async function NowPage() {
           )}
 
           {showCaughtUpMessage && (
-            <EmptyState message="Estás al día. Tu avance será revisado para preparar tu próxima fase." />
+            <Card>
+              <CardContent className="py-10 text-center">
+                <h2 className="text-sm font-semibold mb-2">Actividad registrada</h2>
+                <p className="text-sm text-muted-foreground">
+                  Tu avance quedó guardado. Estamos preparando tu siguiente paso y tu tutor podrá revisar la evidencia si corresponde.
+                </p>
+                <p className="mt-4 text-xs text-muted-foreground">
+                  Mientras tanto, puedes revisar lo que hiciste en este ciclo.
+                </p>
+              </CardContent>
+            </Card>
           )}
 
           {completedLoads.length > 0 && (

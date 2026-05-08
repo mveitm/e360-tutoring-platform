@@ -5787,3 +5787,45 @@ No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint
 
 Recommended next phase:
 MVP-LOCAL-4R - Review / continuity state copy re-scope.
+
+## MVP-LOCAL-4R - Review / continuity state copy re-scope
+
+Status: CLOSED - local UI/copy change.
+
+Baseline:
+- HEAD at phase start: c4646f9
+- Commit: MVP-DIRECTION-3: define microlearning as SRA principle
+- Working tree clean at phase start.
+
+Summary:
+MVP-LOCAL-4R re-scoped the completed-work state on the student `/now` page to align with the microlearning-as-SRA operating principle.
+
+Change:
+Replaced the previous generic caught-up/review message with a clearer non-blocking continuity card.
+
+Previous message:
+- "Estás al día. Tu avance será revisado para preparar tu próxima fase."
+
+New student-facing state:
+- Title: "Actividad registrada"
+- Body: "Tu avance quedó guardado. Estamos preparando tu siguiente paso y tu tutor podrá revisar la evidencia si corresponde."
+- Secondary note: "Mientras tanto, puedes revisar lo que hiciste en este ciclo."
+
+Files changed:
+- `nextjs_space/app/now/page.tsx`
+
+Gemini usage:
+Gemini Code Assist was used as a controlled local editor with Agent mode OFF. The change was limited to the allowed file and remained within the requested UI/copy scope.
+
+Verification:
+- `npm run build` completed successfully locally.
+- Git showed only `nextjs_space/app/now/page.tsx` modified after build.
+
+Guardrails:
+No schema change, DB mutation, endpoint change, lifecycle change, Prisma query change, adaptive logic, scoring logic, AI tutor, production operation, deploy, Abacus operation, secrets, or long scripts.
+
+Result:
+The student now sees completed work as registered evidence and continuity in preparation, without making "waiting for review" the main learning state.
+
+Recommended next phase:
+MVP-LOCAL-5R - Basic post-MC feedback.
