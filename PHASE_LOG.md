@@ -6250,3 +6250,45 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-CONTENT-8 — Create or attach PAES M1 balanced entry StudyLoad in a controlled local/dev context`
+
+## MVP-CONTENT-8 — Local/dev validation for PAES M1 balanced entry StudyLoad
+
+Status: CLOSED
+
+MVP-CONTENT-8 validated the PAES M1 balanced entry registry content in a controlled local/dev context.
+
+Scope:
+- Local/dev operational validation only.
+- Created one local StudyLoad for Ana Local-M1 / PAES_M1 / Cycle 1.
+- Used exact title `PAES M1 — Entrada balanceada inicial`.
+- Confirmed `/now` showed the StudyLoad as pending.
+- Confirmed the viewer found the registry content while pending and displayed the expected start guard.
+- Started the load locally.
+- Confirmed the viewer rendered 4 items from `paes_m1_balanced_entry_initial`.
+- Submitted answers C/B/C/B.
+- Confirmed responses were saved.
+- Completed the activity with self-report `Me fue bien`.
+- Confirmed admin evidence: 4/4 answered, 4/4 correct, content `paes_m1_balanced_entry_initial (v1)`.
+- Created `nextjs_space/docs/operations/MVP_CONTENT_8_LOCAL_DEV_BALANCED_ENTRY_STUDYLOAD_VALIDATION.md`.
+
+Verification:
+- Student `/now` showed the new load.
+- Student viewer rendered instructions and 4 questions.
+- Student answer submission succeeded.
+- Student completion succeeded.
+- Admin cycle detail showed completed StudyLoad and item-level evidence.
+
+Non-goals preserved:
+- No production change.
+- No deploy.
+- No schema changes.
+- No app code changes.
+- No endpoint changes.
+- No UI changes.
+- No Abacus.
+- No secrets.
+- No real student data.
+- No production DB mutation.
+
+Next recommended phase:
+`MVP-CONTENT-9 — Decide operational path for attaching PAES M1 balanced entry to beta/internal student flow`
