@@ -6047,3 +6047,50 @@ No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint
 
 Recommended next phase:
 MVP-CONTENT-3 - PAES_M1 first micro StudyLoad set.
+
+## MVP-CONTENT-3 - PAES_M1 first micro StudyLoad set
+
+Status: CLOSED - content/direction only.
+
+Baseline:
+- HEAD at phase start: 938eac0
+- Commit: MVP-CONTENT-2: define PAES M1 first active slice
+- Working tree clean at phase start.
+
+Summary:
+MVP-CONTENT-3 defined the first PAES_M1 micro StudyLoad set from the first active slice.
+
+Purpose:
+This phase translates the first active slice into a concrete micro StudyLoad set for MVP-Beta planning, while keeping implementation documentation/content-only.
+
+Registry alignment:
+The current content registry already contains PAES_M1 StudyLoads focused on algebra and functions:
+- `PAES M1 — Ecuaciones lineales básicas`
+- `PAES M1 — Problemas con ecuaciones lineales`
+- `PAES M1 — Refuerzo de ecuaciones lineales`
+- `PAES M1 — Funciones lineales básicas`
+
+Important distinction:
+These existing registry activities are useful and should be preserved, but they are not yet the ideal balanced first microcontact for a new PAES_M1 student with unknown level.
+
+Pedagogical direction:
+The ideal first PAES_M1 microcontact should be balanced across axes:
+- one item from Números;
+- one item from Álgebra y funciones;
+- one item from Geometría;
+- one item from Probabilidad y estadística.
+
+MVP-Beta decision:
+MVP-Beta may use the existing algebra/function registry content as a transitional first set, but should explicitly recognize that this is registry-aligned continuation content, not the final balanced-entry design.
+
+MVP-Alfa direction:
+After MVP-Beta, Bexauri should evolve toward a roadmap balanced with official PAES information, axis relevance, cross-cutting skills, prerequisites, and accumulated student evidence.
+
+Artifact:
+- `nextjs_space/docs/operations/MVP_CONTENT_3_PAES_M1_FIRST_MICRO_STUDYLOAD_SET.md`
+
+Guardrails:
+No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint changes, UI changes, secrets, scripts, adaptive engine, theta model, challenge engine, ensayo integration, PAES score model, or AI tutor were created in this phase.
+
+Recommended next phase:
+MVP-CONTENT-4 - PAES_M1 balanced entry micro StudyLoad registry proposal.
