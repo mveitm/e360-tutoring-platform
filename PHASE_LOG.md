@@ -5992,3 +5992,58 @@ Artifact:
 
 Recommended next phase:
 MVP-CONTENT-2 - PAES_M1 first active slice.
+
+## MVP-CONTENT-2 - PAES_M1 first active slice
+
+Status: CLOSED - content/direction only.
+
+Baseline:
+- HEAD at phase start: bbefc31
+- Commit: MVP-CONTENT-1: define PAES M1 master roadmap skeleton
+- Working tree clean at phase start.
+
+Summary:
+MVP-CONTENT-2 extracted the first PAES_M1 active slice from the master roadmap skeleton.
+
+Purpose:
+The first active slice is designed as a lightweight MVP-Beta entry point for students with unknown or partially known PAES_M1 level. It is not a heavy diagnostic, not a fixed calendar, and not a full adaptive engine.
+
+Active slice goal:
+Observe early evidence quickly through a small sequence of micro StudyLoads focused on high-signal PAES_M1 foundations.
+
+Scope:
+The slice prioritizes:
+- algebraic expressions;
+- linear equations;
+- linear functions;
+- proportional reasoning;
+- data interpretation;
+- basic geometry / measurement where useful.
+
+SRA alignment:
+The active slice follows the dynamic SRA model:
+
+master roadmap
+-> active slice
+-> micro StudyLoad
+-> evidence
+-> supervised adjustment
+-> next active slice
+
+MVP-Beta rules:
+- Keep the slice small.
+- Use it to observe evidence, not to assign a fixed level.
+- Allow fast progress if evidence is strong.
+- Allow reinforcement if evidence shows fragility.
+- Avoid PAES score claims.
+- Avoid automatic mastery decisions.
+- Keep adaptation manual/supervised for now.
+
+Artifact:
+- `nextjs_space/docs/operations/MVP_CONTENT_2_PAES_M1_FIRST_ACTIVE_SLICE.md`
+
+Guardrails:
+No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint changes, UI changes, secrets, scripts, adaptive engine, theta model, challenge engine, ensayo integration, PAES score model, or AI tutor were created in this phase.
+
+Recommended next phase:
+MVP-CONTENT-3 - PAES_M1 first micro StudyLoad set.
