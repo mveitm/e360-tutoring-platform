@@ -5597,3 +5597,56 @@ Result:
 
 Recommended next phase:
 MVP-LOCAL-4 — Review pending state.
+
+## MVP-DIRECTION-1 — Integrated microlearning loop adoption decision
+
+Status: CLOSED — documentation/direction only.
+
+Baseline:
+- HEAD at phase start: 14761a5
+- Commit: MVP-LOCAL-3: clarify student now page
+- Working tree clean at phase start.
+
+Summary:
+MVP-DIRECTION-1 accepted the integrated microlearning loop proposal into the central Bexauri product vision.
+
+Decision:
+The proposal does not replace the Bexauri learning-regulation chain. It refines the student experience and supervisor operating model by shifting from a heavy diagnostic / review-gated tutoring flow toward a continuous microlearning tutoring loop.
+
+Accepted into Bexauri vision:
+- invisible / progressive diagnostic direction;
+- micro StudyLoad as preferred future learning unit;
+- dynamic roadmap as the future internal continuity object;
+- layered feedback as a core learning-quality pattern;
+- human supervisor as coach, reviewer, quality safeguard, and exception handler;
+- reduced dependency on human review as a blocking step after every learning action.
+
+Accepted for MVP-Beta as direction, not full implementation:
+- smaller learning units;
+- less diagnostic friction;
+- `/now` as always-available learning surface;
+- manual or semi-manual roadmap representation before automation;
+- basic feedback and next-step clarity before adaptive intelligence.
+
+Not accepted yet for MVP-Beta implementation:
+- full adaptive theta model;
+- automatic skill mastery engine;
+- automatic dynamic roadmap generation;
+- timed challenge system;
+- AI tutor;
+- fully automated next-load generation;
+- PAES score estimation from micro exercises;
+- push notifications;
+- native mobile app.
+
+Roadmap effect:
+Original MVP-LOCAL-4 should be re-scoped before implementation. The product should communicate that work is registered and may be reviewed, but should avoid making "waiting for review" feel like the main learning state.
+
+Artifact:
+- `nextjs_space/docs/operations/MVP_DIRECTION_1_MICROLEARNING_LOOP_ADOPTION_DECISION.md`
+
+Guardrails:
+No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint changes, UI changes, secrets, or scripts were used in this phase.
+
+Recommended next phase:
+MVP-DIRECTION-2 — MVP-Beta microlearning scope cut.
