@@ -486,6 +486,74 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       'Tus respuestas se guardan como evidencia para revisi\u00f3n. ' +
       'No recibir\u00e1s puntaje PAES ni retroalimentaci\u00f3n autom\u00e1tica en esta versi\u00f3n.',
   },
+  'PAES M1 \u2014 Entrada balanceada inicial': {
+    contentKey: 'paes_m1_balanced_entry_initial',
+    contentVersion: 'v1',
+    title: 'PAES M1 \u2014 Entrada balanceada inicial',
+    program: 'PAES_M1',
+    topic: 'Entrada balanceada inicial',
+    estimatedMinutes: '8\u201312 minutos',
+    instructions:
+      'Esta actividad tiene 4 preguntas breves de opci\u00f3n m\u00faltiple. ' +
+      'Cada una observa un eje distinto de Matem\u00e1tica M1: N\u00fameros, \u00c1lgebra y funciones, Geometr\u00eda, y Probabilidad y estad\u00edstica.\n\n' +
+      'No es una prueba final ni un puntaje PAES. La idea es obtener una primera se\u00f1al para orientar tus siguientes cargas de estudio.\n\n' +
+      '1. Lee cada enunciado con calma.\n' +
+      '2. Trabaja en tu cuaderno o en una hoja de papel si lo necesitas.\n' +
+      '3. Selecciona una alternativa por pregunta.\n' +
+      '4. Env\u00eda tus respuestas.\n' +
+      '5. Luego vuelve a /now y presiona \u00abTerminar\u00bb.\n' +
+      '6. Completa tu autorreporte.\n\n' +
+      'No hay presi\u00f3n por la perfecci\u00f3n. Lo importante es observar c\u00f3mo partes y decidir el siguiente paso con cuidado.',
+    items: [
+      {
+        key: 'q1',
+        stem: 'Una tienda ofrece un descuento de 20% en un producto que cuesta $15.000. \u00bfCu\u00e1nto dinero se descuenta?',
+        options: [
+          { label: 'A', text: '$1.500' },
+          { label: 'B', text: '$2.000' },
+          { label: 'C', text: '$3.000' },
+          { label: 'D', text: '$12.000' },
+        ],
+        correctOptionKey: 'C',
+      },
+      {
+        key: 'q2',
+        stem: 'Un servicio de arriendo de bicicletas cobra $1.000 fijos y $500 por cada hora de uso. Si h representa la cantidad de horas, \u00bfqu\u00e9 expresi\u00f3n representa el costo total?',
+        options: [
+          { label: 'A', text: '1000h + 500' },
+          { label: 'B', text: '1000 + 500h' },
+          { label: 'C', text: '(1000 + 500)h' },
+          { label: 'D', text: '1500h' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q3',
+        stem: 'Un terreno rectangular mide 8 metros de largo y 5 metros de ancho. \u00bfCu\u00e1l es el \u00e1rea del terreno?',
+        options: [
+          { label: 'A', text: '13 m2' },
+          { label: 'B', text: '26 m2' },
+          { label: 'C', text: '40 m2' },
+          { label: 'D', text: '80 m2' },
+        ],
+        correctOptionKey: 'C',
+      },
+      {
+        key: 'q4',
+        stem: 'En una bolsa hay 3 bolitas rojas y 2 bolitas azules, todas del mismo tama\u00f1o. Si se saca una bolita al azar, \u00bfcu\u00e1l es la probabilidad de que sea azul?',
+        options: [
+          { label: 'A', text: '2/3' },
+          { label: 'B', text: '2/5' },
+          { label: 'C', text: '3/5' },
+          { label: 'D', text: '1/2' },
+        ],
+        correctOptionKey: 'B',
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia inicial para revisi\u00f3n. ' +
+      'No recibir\u00e1s puntaje PAES ni diagn\u00f3stico autom\u00e1tico en esta versi\u00f3n.',
+  },
 }
 
 // Secondary index: contentKey → StudyLoadContent.

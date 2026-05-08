@@ -6207,3 +6207,46 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-CONTENT-7 — Implement PAES M1 balanced entry item set in content registry`
+
+## MVP-CONTENT-7 — Implement PAES M1 balanced entry item set in content registry
+
+Status: CLOSED
+
+MVP-CONTENT-7 implemented the PAES M1 balanced entry item set in the static StudyLoad content registry.
+
+Scope:
+- Minimal app-code/content-registry change only.
+- Updated `nextjs_space/lib/study-load-content.ts`.
+- Added new registry entry keyed by StudyLoad title `PAES M1 — Entrada balanceada inicial`.
+- Added stable `contentKey: paes_m1_balanced_entry_initial`.
+- Added `contentVersion: v1`.
+- Added 4 multiple-choice items from MVP-CONTENT-6:
+  - q1 Números / porcentaje simple — correct option C.
+  - q2 Álgebra y funciones / función lineal-afín — correct option B.
+  - q3 Geometría / área de rectángulo — correct option C.
+  - q4 Probabilidad y estadística / probabilidad simple — correct option B.
+- Preserved the existing registry interface and lookup functions.
+- Preserved all existing StudyLoad content entries.
+- Preserved no-schema static registry approach.
+
+Verification:
+- `git diff --check` passed.
+- `npm run build` passed inside `nextjs_space`.
+- Next.js build compiled successfully.
+- Type validity check passed.
+- Static page generation completed successfully.
+
+Non-goals preserved:
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No Abacus.
+- No deploy.
+- No endpoints.
+- No UI changes.
+- No secrets.
+- No StudyLoad created.
+- No student/admin workflow executed.
+
+Next recommended phase:
+`MVP-CONTENT-8 — Create or attach PAES M1 balanced entry StudyLoad in a controlled local/dev context`
