@@ -5650,3 +5650,73 @@ No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint
 
 Recommended next phase:
 MVP-DIRECTION-2 — MVP-Beta microlearning scope cut.
+
+## MVP-DIRECTION-2 - MVP-Beta microlearning scope cut
+
+Status: CLOSED - documentation/direction only.
+
+Baseline:
+- HEAD at phase start: 6b8793a
+- Commit: MVP-DIRECTION-1: adopt integrated microlearning loop
+- Working tree clean at phase start.
+
+Summary:
+MVP-DIRECTION-2 converted the integrated microlearning direction into an executable MVP-Beta scope cut.
+
+Decision:
+MVP-Beta should become a guided microlearning MVP, not a full adaptive platform.
+
+Accepted now:
+- microlearning as product direction;
+- `/now` as main learning surface;
+- small activities as preferred future content unit;
+- evidence-first loop;
+- basic feedback;
+- manual roadmap;
+- human-supervised continuity;
+- non-blocking review language.
+
+Manual for now:
+- onboarding;
+- payment;
+- roadmap curation;
+- next-load selection;
+- expert review;
+- student/parent communication;
+- ensayo calibration.
+
+Moved to MVP-Alfa:
+- richer roadmap UI;
+- challenge system;
+- better dashboard;
+- broader content coverage;
+- semi-automated content generation;
+- stronger supervisor tooling.
+
+Moved to Post-MVP:
+- adaptive theta;
+- AI tutor;
+- agentic roadmap;
+- automatic next-load generation;
+- predictive models;
+- native app;
+- push notifications;
+- deep analytics.
+
+Not recommended yet:
+- automatic PAES score from micro work;
+- automatic mastery decisions;
+- schema-first roadmap rebuild;
+- unsupervised AI explanations.
+
+Roadmap effect:
+The original MVP-LOCAL-4 is replaced by MVP-LOCAL-4R. The next UX change should communicate that completed work is registered and continuity is being prepared, without making "waiting for review" the main learning state.
+
+Artifact:
+- `nextjs_space/docs/operations/MVP_DIRECTION_2_MVP_BETA_MICROLEARNING_SCOPE_CUT.md`
+
+Guardrails:
+No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint changes, UI changes, secrets, or scripts were used in this phase.
+
+Recommended next phase:
+MVP-LOCAL-4R - Review / continuity state copy re-scope.
