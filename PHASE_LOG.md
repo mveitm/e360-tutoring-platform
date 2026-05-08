@@ -5876,3 +5876,62 @@ The activity page now better supports Bexauri's microlearning SRA loop by lettin
 
 Recommended next phase:
 MVP-CONTENT-1 - PAES_M1 four-week micro-roadmap.
+
+## MVP-DIRECTION-4 - Dynamic SRA roadmap and human supervision
+
+Status: CLOSED - documentation/direction only.
+
+Baseline:
+- HEAD at phase start: 32d403d
+- Commit: MVP-LOCAL-5R: add in-activity MC feedback and completion
+- Working tree clean at phase start.
+
+Summary:
+MVP-DIRECTION-4 records that the Bexauri roadmap is not a fixed calendar, not a rigid four-week micro-roadmap, and not the same sequence for every student.
+
+Decision:
+Bexauri will use a dynamic SRA roadmap model:
+
+master roadmap
+-> active slice
+-> micro StudyLoad
+-> evidence
+-> supervised adjustment
+-> next active slice
+
+Roadmap principle:
+The master roadmap provides the complete pedagogical structure. Active slices are extracted from it according to student evidence, rhythm, human supervision, and continuous improvement.
+
+Student rhythm principle:
+Students may progress through the roadmap at different speeds. A student with stronger evidence may accelerate; a student who needs consolidation may slow down, reinforce, or revisit prerequisites.
+
+Pause principle:
+Bexauri should wait without punishment when a student pauses, preserving continuity and resuming from the best available evidence when the student returns.
+
+Subtle leadership principle:
+Bexauri should lead learning subtly by proposing the next useful step, reducing uncertainty, supporting autonomy, and adapting to the student's real rhythm without enforcing a rigid calendar.
+
+Human supervision principle:
+Bexauri and the human supervisor together form the Sistema Regulador del Aprendizaje. The supervisor is part of the SRA as coach, evidence reviewer, quality safeguard, exception handler, roadmap adjuster, and strategic learning guide.
+
+Effective learning priority:
+Bexauri prioritizes effective learning over artificial speed, excessive engagement, rigid completion metrics, premature automation, unsupervised AI decisions, superficial progress, or misleading PAES score claims.
+
+Roadmap architecture rule:
+Correct:
+master roadmap -> active slice -> micro StudyLoad -> evidence -> supervised adjustment -> next active slice.
+
+Incorrect:
+fixed four-week micro-roadmap -> same sequence for all students -> same pace for all students.
+
+Content roadmap effect:
+The next content phase should not be a four-week micro-roadmap. It should be a master PAES_M1 roadmap skeleton from which future active slices and micro StudyLoads can be extracted.
+
+Artifact:
+- `nextjs_space/docs/operations/MVP_DIRECTION_4_DYNAMIC_SRA_ROADMAP_AND_HUMAN_SUPERVISION.md`
+
+Guardrails:
+No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint changes, UI changes, secrets, or scripts were used in this phase.
+
+Recommended next phase:
+MVP-CONTENT-1 - PAES_M1 master roadmap skeleton.
