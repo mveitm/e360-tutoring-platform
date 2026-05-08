@@ -6142,3 +6142,33 @@ No app code, registry code change, schema, DB mutation, production operation, Ab
 
 Recommended next phase:
 MVP-CONTENT-5 - PAES_M1 item blueprint / exercise template.
+
+## MVP-CONTENT-5 — PAES M1 item blueprint / exercise template
+
+Status: CLOSED
+
+MVP-CONTENT-5 defined the PAES M1 item blueprint and exercise template for future Bexauri / E360 content work.
+
+Scope:
+- Documentation/content only.
+- Created `nextjs_space/docs/operations/MVP_CONTENT_5_PAES_M1_ITEM_BLUEPRINT_EXERCISE_TEMPLATE.md`.
+- Defined the pedagogical and content-quality contract for future PAES M1 items.
+- Established required item fields, official PAES M1 skills, thematic axes, internal difficulty bands, distractor rationale rules, evidence interpretation limits, overdiagnosis protections, rejection rules, and future use for `paes_m1_balanced_entry_initial`.
+- Clarified that Bexauri items may use daily-life contexts or mathematical contexts when aligned with PAES M1 and useful for SRA evidence.
+- Confirmed that microlearning evidence must remain cautious, cumulative, and human-supervised.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No Abacus.
+- No deploy.
+- No endpoints.
+- No UI changes.
+- No secrets.
+- No `study-load-content.ts` implementation.
+- No final item set created yet.
+
+Next recommended phase:
+`MVP-CONTENT-6 — PAES M1 balanced entry item set`
