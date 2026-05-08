@@ -6172,3 +6172,38 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-CONTENT-6 — PAES M1 balanced entry item set`
+
+## MVP-CONTENT-6 — PAES M1 balanced entry item set
+
+Status: CLOSED
+
+MVP-CONTENT-6 defined the first concrete PAES M1 balanced entry item set for the future activity `PAES M1 — Entrada balanceada inicial`.
+
+Scope:
+- Documentation/content only.
+- Created `nextjs_space/docs/operations/MVP_CONTENT_6_PAES_M1_BALANCED_ENTRY_ITEM_SET.md`.
+- Defined the proposed item set for `contentKey: paes_m1_balanced_entry_initial`.
+- Created 4 D1 items, one per official PAES M1 axis:
+  - Números
+  - Álgebra y funciones
+  - Geometría
+  - Probabilidad y estadística
+- Applied the item blueprint from MVP-CONTENT-5.
+- Included itemKey, axis, unit, primarySkill, secondaryActions, difficultyBand, sraRole, prompt, options, correctOptionKey, solutionBrief, distractorRationales, expectedEvidence, notFor, and reviewNotes for each item.
+- Included a student-facing activity draft, answer key, SRA interpretation rules, and pre-registry implementation review notes.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No Abacus.
+- No deploy.
+- No endpoints.
+- No UI changes.
+- No secrets.
+- No `study-load-content.ts` implementation.
+- No StudyLoad created.
+
+Next recommended phase:
+`MVP-CONTENT-7 — Implement PAES M1 balanced entry item set in content registry`
