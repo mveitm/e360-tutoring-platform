@@ -5720,3 +5720,70 @@ No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint
 
 Recommended next phase:
 MVP-LOCAL-4R - Review / continuity state copy re-scope.
+
+## MVP-DIRECTION-3 - Microlearning as SRA operating principle
+
+Status: CLOSED - documentation/direction only.
+
+Baseline:
+- HEAD at phase start: 5130805
+- Commit: MVP-DIRECTION-2: cut MVP-Beta microlearning scope
+- Working tree clean at phase start.
+
+Summary:
+MVP-DIRECTION-3 records microlearning as an operating principle of the Bexauri SRA.
+
+Decision:
+Microlearning is accepted as the operating pulse of the Bexauri SRA.
+
+Definition:
+In Bexauri, microlearning does not mean simply making exercises shorter. It means using small, frequent, meaningful learning interactions as evidence for regulation, feedback, continuity, and human-supervised improvement.
+
+SRA loop:
+microactivity
+-> student response
+-> evidence capture
+-> basic feedback
+-> continuity signal
+-> supervised adjustment
+-> next learning action
+
+Pedagogical principle:
+A small activity provides evidence, not a final verdict. Microlearning supports continuity, confidence, feedback, and progressive regulation, but it does not by itself prove mastery.
+
+Ethical principle:
+The diagnostic may become less visible as a student-facing burden, but it must not become invisible as a data practice. Bexauri must remain honest that student responses help guide the learning path.
+
+Technical principle:
+Microlearning should simplify the MVP, not force a premature platform rewrite. Existing primitives should be reused before introducing roadmap schema, adaptive engines, theta models, or agentic systems.
+
+Human supervisor principle:
+The supervisor remains central as coach, evidence reviewer, quality safeguard, exception handler, roadmap adjuster, and student support layer, but should not be a mandatory blocker after every microinteraction.
+
+MVP-Beta implication:
+Accepted now:
+- smaller learning units as preferred future pattern;
+- evidence-first loop;
+- basic feedback;
+- manual roadmap;
+- non-blocking review language;
+- human-supervised continuity;
+- `/now` as the main student learning surface.
+
+Not accepted now:
+- full adaptive theta;
+- automatic mastery decisions;
+- automatic next-load generation;
+- AI tutor;
+- PAES score prediction from micro work;
+- unsupervised AI explanations;
+- schema-first roadmap rebuild.
+
+Artifact:
+- `nextjs_space/docs/operations/MVP_DIRECTION_3_MICROLEARNING_AS_SRA_OPERATING_PRINCIPLE.md`
+
+Guardrails:
+No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint changes, UI changes, secrets, or scripts were used in this phase.
+
+Recommended next phase:
+MVP-LOCAL-4R - Review / continuity state copy re-scope.
