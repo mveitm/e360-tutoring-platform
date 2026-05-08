@@ -6094,3 +6094,51 @@ No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint
 
 Recommended next phase:
 MVP-CONTENT-4 - PAES_M1 balanced entry micro StudyLoad registry proposal.
+
+## MVP-CONTENT-4 - PAES_M1 balanced entry micro StudyLoad registry proposal
+
+Status: CLOSED - content/direction only.
+
+Baseline:
+- HEAD at phase start: 34e6865
+- Commit: MVP-CONTENT-3: define PAES M1 first micro StudyLoad set
+- Working tree clean at phase start.
+
+Summary:
+MVP-CONTENT-4 prepared a registry-ready proposal for a balanced PAES_M1 entry micro StudyLoad.
+
+Purpose:
+Define a concrete, safe, documentation-first proposal for `PAES M1 — Entrada balanceada inicial`, without modifying the content registry yet.
+
+Proposed registry entry:
+- Title: `PAES M1 — Entrada balanceada inicial`
+- contentKey: `paes_m1_balanced_entry_initial`
+- active slice: `AS1`
+- micro StudyLoad: `AS1-MSL-00`
+- item count: 4
+- intended duration: 8-12 minutes
+
+Pedagogical design:
+The proposed activity includes one foundational item from each PAES M1 axis:
+- Números;
+- Álgebra y funciones;
+- Geometría;
+- Probabilidad y estadística.
+
+Product rationale:
+The activity is designed as a broad first evidence signal for students with unknown or partially known PAES_M1 level. It is not a diagnostic conclusion, not a PAES score estimate, and not an automatic placement decision.
+
+Relationship with existing registry:
+The existing PAES_M1 registry activities focused on algebra/functions are preserved. This proposal fills the missing balanced-entry role before the student is routed into narrower active slices.
+
+Implementation decision:
+This phase does not modify `nextjs_space/lib/study-load-content.ts`. A later implementation phase may add the activity to the registry after the PAES_M1 item blueprint is defined.
+
+Artifact:
+- `nextjs_space/docs/operations/MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md`
+
+Guardrails:
+No app code, registry code change, schema, DB mutation, production operation, Abacus, deploy, endpoint changes, UI changes, secrets, scripts, adaptive engine, theta model, challenge engine, ensayo integration, PAES score model, AI tutor, or production deploy were created in this phase.
+
+Recommended next phase:
+MVP-CONTENT-5 - PAES_M1 item blueprint / exercise template.
