@@ -5935,3 +5935,60 @@ No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint
 
 Recommended next phase:
 MVP-CONTENT-1 - PAES_M1 master roadmap skeleton.
+
+## MVP-CONTENT-1 - PAES_M1 master roadmap skeleton
+
+Status: CLOSED - content/direction only.
+
+Baseline:
+- HEAD at phase start: b480baf
+- Commit: MVP-DIRECTION-4: define dynamic SRA roadmap principle
+- Working tree clean at phase start.
+
+Summary:
+MVP-CONTENT-1 created the first PAES_M1 master roadmap skeleton for Bexauri.
+
+Purpose:
+This document defines the master pedagogical structure from which future active slices and micro StudyLoads can be extracted.
+
+Important distinction:
+This is not a fixed four-week plan, not a micro-roadmap, and not a complete exercise bank. It is the master roadmap skeleton.
+
+Source basis:
+The roadmap skeleton is organized from the official PAES M1 structure:
+- Números;
+- Álgebra y funciones;
+- Geometría;
+- Probabilidad y estadística;
+- cross-cutting skills: Resolver problemas, Modelar, Representar, Argumentar.
+
+Roadmap structure:
+The skeleton defines:
+- practical difficulty bands D0-D4;
+- MVP-Beta evidence types;
+- axis-level and subskill-level organization;
+- exercise type categories;
+- evidence expectations;
+- progression bands;
+- active slice extraction rules;
+- future micro StudyLoad standard;
+- first MVP-Beta content priorities.
+
+Architecture alignment:
+The document follows the dynamic SRA roadmap rule:
+
+master roadmap
+-> active slice
+-> micro StudyLoad
+-> evidence
+-> supervised adjustment
+-> next active slice
+
+Guardrails:
+No app code, schema, DB mutation, production operation, Abacus, deploy, endpoint changes, UI changes, secrets, scripts, adaptive engine, theta model, challenge engine, ensayo system, PAES score prediction, or AI tutor were created in this phase.
+
+Artifact:
+- `nextjs_space/docs/operations/MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md`
+
+Recommended next phase:
+MVP-CONTENT-2 - PAES_M1 first active slice.
