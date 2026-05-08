@@ -5829,3 +5829,50 @@ The student now sees completed work as registered evidence and continuity in pre
 
 Recommended next phase:
 MVP-LOCAL-5R - Basic post-MC feedback.
+
+## MVP-LOCAL-5R - Basic post-MC feedback and in-activity completion
+
+Status: CLOSED - local UI/flow change.
+
+Baseline:
+- HEAD at phase start: 853c205
+- Commit: MVP-LOCAL-4R: re-scope student continuity state
+- Working tree clean at phase start.
+
+Summary:
+MVP-LOCAL-5R added basic honest post-MC feedback inside the activity page and allowed the student to finish the activity from the same page with a short self-report.
+
+Product decision:
+The student should not be sent back to `/now` just to complete an administrative step after submitting answers. The activity page should support the full microlearning flow: answer, submit, see feedback, self-report, finalize.
+
+Student flow after this phase:
+1. Student answers MC items.
+2. Student submits answers.
+3. Student sees "Respuestas guardadas".
+4. Student sees answered count.
+5. Student sees a non-PAES / non-automatic-decision note.
+6. Student chooses a short self-report.
+7. Student clicks "Finalizar actividad".
+8. The existing complete endpoint finalizes the StudyLoad.
+9. Student sees "Actividad finalizada. Tu avance quedó registrado."
+10. Student may return to `/now`.
+
+Files changed:
+- `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`
+
+Gemini usage:
+Gemini Code Assist was used as a controlled local editor with Agent mode OFF. The first broader proposal was rejected because it changed `/now/page.tsx` and Prisma query behavior. A narrower follow-up was accepted after re-scoping the phase to in-activity completion.
+
+Verification:
+- `npm run build` completed successfully locally.
+- The affected `/now/study-loads/[id]` route compiled successfully.
+- Git showed only the activity answer form modified after build.
+
+Guardrails:
+No schema change, Prisma model change, endpoint change, Response storage change, StudyLoad status semantic change, PAES score calculation, mastery claim, adaptive logic, AI tutor logic, dependency change, production operation, deploy, Abacus operation, secrets, or long scripts.
+
+Result:
+The activity page now better supports Bexauri's microlearning SRA loop by letting the student complete the learning unit without unnecessary navigation friction.
+
+Recommended next phase:
+MVP-CONTENT-1 - PAES_M1 four-week micro-roadmap.

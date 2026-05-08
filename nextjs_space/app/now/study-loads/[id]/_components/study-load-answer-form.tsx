@@ -8,11 +8,14 @@
 // Receives only safe props — no correctOptionKey, no scoring data.
 // Server-side ownership check remains in the parent page.tsx.
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useTransition } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Label } from '@/components/ui/label'
 import { Send, CheckCircle2, AlertCircle, Loader2, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 // ── Props (safe subset — no answer keys) ────────────────────────
 
@@ -47,10 +50,17 @@ export default function StudyLoadAnswerForm({
   items,
   initialAnswers,
 }: StudyLoadAnswerFormProps) {
+  const router = useRouter()
+  const [isPendingRefresh, startTransition] = useTransition()
+
   // Selection state: itemKey → selectedOptionKey
   const [selections, setSelections] = useState<Record<string, string>>(
     () => initialAnswers ?? {},
   )
+
+  const [selfReport, setSelfReport] = useState<string>('')
+  const [completing, setCompleting] = useState(false)
+  const [completeSuccess, setCompleteSuccess] = useState(false)
 
   const [submitting, setSubmitting] = useState(false)
   const [submitResult, setSubmitResult] = useState<{
@@ -70,12 +80,12 @@ export default function StudyLoadAnswerForm({
   // ── Select handler ──────────────────────────────────────────
   const handleSelect = useCallback(
     (itemKey: string, optionLabel: string) => {
-      if (!isInProgress) return
+      if (!isInProgress || completeSuccess) return
       setSelections((prev) => ({ ...prev, [itemKey]: optionLabel }))
       // Clear previous result on new interaction
       setSubmitResult(null)
     },
-    [isInProgress],
+    [isInProgress, completeSuccess],
   )
 
   // ── Submit handler ──────────────────────────────────────────
@@ -105,7 +115,7 @@ export default function StudyLoadAnswerForm({
       if (res.ok && data.ok) {
         setSubmitResult({
           ok: true,
-          message: 'Respuestas guardadas. Ahora vuelve a /now y finaliza la carga con tu autorreporte.',
+          message: 'Respuestas guardadas',
           answeredCount: data.answeredCount,
           totalItemCount: data.totalItemCount,
         })
@@ -124,6 +134,34 @@ export default function StudyLoadAnswerForm({
       setSubmitting(false)
     }
   }, [isInProgress, answeredCount, contentKey, contentVersion, selections, studyLoadId])
+
+  // ── Complete handler ────────────────────────────────────────
+  const handleComplete = useCallback(async () => {
+    if (!isInProgress || !selfReport) return
+    setCompleting(true)
+    try {
+      const res = await fetch(`/api/study-loads/${studyLoadId}/complete`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ selfReport }),
+      })
+
+      if (res.ok) {
+        setCompleteSuccess(true)
+        startTransition(() => router.refresh())
+      } else {
+        const data = await res.json()
+        setSubmitResult({
+          ok: false,
+          message: data.error || 'No se pudo finalizar la actividad.',
+        })
+      }
+    } catch {
+      setSubmitResult({ ok: false, message: 'Error de conexión al finalizar.' })
+    } finally {
+      setCompleting(false)
+    }
+  }, [isInProgress, selfReport, studyLoadId, router])
 
   // ── Status banners ──────────────────────────────────────────
 
@@ -212,10 +250,8 @@ export default function StudyLoadAnswerForm({
       {/* Guidance banner */}
       <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950/30 p-4 mb-6">
         <p className="text-sm text-blue-800 dark:text-blue-300 leading-relaxed">
-          Responde las preguntas y luego presiona <strong>Enviar respuestas</strong>.
-          Después vuelve a{' '}
-          <Link href="/now" className="font-medium underline underline-offset-2">/now</Link>{' '}
-          para finalizar la carga con tu autorreporte.
+          Responde las preguntas, presiona <strong>Enviar respuestas</strong> y luego finaliza la actividad al final
+          de la página.
         </p>
       </div>
 
@@ -306,11 +342,65 @@ export default function StudyLoadAnswerForm({
                 <AlertCircle className="h-4 w-4 mt-0.5 shrink-0" />
               )}
               <div>
-                <p className="leading-relaxed">{submitResult.message}</p>
+                <p className={`leading-relaxed ${submitResult.ok ? 'font-semibold' : ''}`}>
+                  {submitResult.message}
+                </p>
                 {submitResult.ok && submitResult.answeredCount != null && (
-                  <p className="mt-1 text-xs opacity-80">
-                    {submitResult.answeredCount} de {submitResult.totalItemCount} respuestas registradas.
-                  </p>
+                  <div className="mt-2 space-y-2 border-t border-current/10 pt-2">
+                    <p className="text-sm">
+                      Respondiste {submitResult.answeredCount} de {submitResult.totalItemCount} ejercicios.
+                    </p>
+                    <p className="text-xs italic opacity-80 leading-relaxed">
+                      Este resultado es solo evidencia de esta actividad; no es un puntaje PAES ni una decisión automática de avance.
+                    </p>
+
+                    {!completeSuccess ? (
+                      <div className="mt-4 pt-4 border-t border-current/10 space-y-3 text-foreground">
+                        <p className="font-medium text-sm">
+                          Para cerrar esta actividad, cuéntanos brevemente cómo te fue.
+                        </p>
+                        <RadioGroup
+                          value={selfReport}
+                          onValueChange={setSelfReport}
+                          className="gap-2"
+                        >
+                          {['Me fue bien', 'Me costó', 'No estoy seguro'].map((opt) => (
+                            <div key={opt} className="flex items-center gap-3 rounded-md border border-current/10 p-2">
+                              <RadioGroupItem value={opt} id={`sr-${opt}`} />
+                              <Label htmlFor={`sr-${opt}`} className="flex-1 cursor-pointer text-sm font-normal">
+                                {opt}
+                              </Label>
+                            </div>
+                          ))}
+                        </RadioGroup>
+                        <Button
+                          onClick={handleComplete}
+                          disabled={completing || !selfReport || isPendingRefresh}
+                          size="sm"
+                          className="w-full mt-2"
+                        >
+                          {completing || isPendingRefresh ? (
+                            <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                          ) : (
+                            <CheckCircle2 className="h-4 w-4 mr-2" />
+                          )}
+                          Finalizar actividad
+                        </Button>
+                      </div>
+                    ) : (
+                      <div className="mt-4 pt-4 border-t border-current/10 space-y-3">
+                        <p className="text-sm font-semibold text-green-700 dark:text-green-400">
+                          Actividad finalizada. Tu avance quedó registrado.
+                        </p>
+                        <Button asChild variant="outline" size="sm" className="w-full">
+                          <Link href="/now" className="gap-1.5">
+                            <ArrowLeft className="h-4 w-4" />
+                            Volver a /now
+                          </Link>
+                        </Button>
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
             </div>
@@ -322,9 +412,10 @@ export default function StudyLoadAnswerForm({
           <p className="text-xs text-muted-foreground">
             {answeredCount} de {totalItemCount} respondidas
           </p>
-          <Button
+          {!completeSuccess && (
+            <Button
             onClick={handleSubmit}
-            disabled={submitting || answeredCount === 0}
+            disabled={submitting || answeredCount === 0 || completing || isPendingRefresh}
             size="sm"
             className="gap-1.5"
           >
@@ -335,6 +426,7 @@ export default function StudyLoadAnswerForm({
             )}
             Enviar respuestas
           </Button>
+          )}
         </div>
       </div>
 
