@@ -6364,3 +6364,49 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-CONTENT-10 — Prepare controlled internal PAES_M1 balanced entry attachment`
+
+## MVP-CONTENT-10 — Controlled PAES M1 balanced entry attachment preparation
+
+Status: CLOSED
+
+MVP-CONTENT-10 prepared the controlled internal operation for attaching `PAES M1 — Entrada balanceada inicial` to an internal/beta PAES_M1 student.
+
+Scope:
+- Readiness / operation planning only.
+- Created `nextjs_space/docs/operations/MVP_CONTENT_10_CONTROLLED_BALANCED_ENTRY_ATTACHMENT_PREP.md`.
+- Confirmed the preferred target profile: new or early-stage PAES_M1 internal/beta student.
+- Confirmed non-recommended targets: advanced students, students in focused roadmap cycles, students with sufficient recent baseline evidence, or any production student without explicit operation approval.
+- Defined required StudyLoad fields:
+  - title: `PAES M1 — Entrada balanceada inicial`
+  - loadType: `practice`
+  - status: `pending`
+  - expected contentKey: `paes_m1_balanced_entry_initial`
+  - expected contentVersion: `v1`
+- Defined required pre-attachment context checks.
+- Defined preferred operation path.
+- Defined expected student-facing experience.
+- Defined admin verification checklist.
+- Defined rollback/cleanup notes and production guardrails.
+- Recommended selecting target student/environment before any attachment mutation.
+
+Key principle:
+New or early-stage PAES_M1 student → active enrollment → open internal LearningCycle → pending exact-title StudyLoad → `/now` → response evidence → self-report → admin verification → supervised next-step planning.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No deploy.
+- No endpoints.
+- No UI changes.
+- No Abacus.
+- No secrets.
+- No StudyLoad created.
+- No content attached to any student.
+- No LearningCycle opened or closed.
+- No CycleDecision or CycleEvaluation created.
+- No continuity authorized.
+
+Next recommended phase:
+`MVP-CONTENT-10A — Select controlled internal PAES_M1 target for balanced entry attachment`
