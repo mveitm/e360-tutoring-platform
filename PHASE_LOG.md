@@ -6410,3 +6410,48 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-CONTENT-10A — Select controlled internal PAES_M1 target for balanced entry attachment`
+
+## MVP-CONTENT-10A — Select controlled internal PAES_M1 target for balanced entry attachment
+
+Status: CLOSED
+
+MVP-CONTENT-10A selected the safest target category for a future controlled attachment of `PAES M1 — Entrada balanceada inicial`.
+
+Scope:
+- Readiness / target-selection only.
+- Created `nextjs_space/docs/operations/MVP_CONTENT_10A_SELECT_BALANCED_ENTRY_TARGET.md`.
+- Reviewed candidate target categories:
+  - new controlled internal PAES_M1 student,
+  - Mauricio / advanced PAES_M1 student,
+  - Ana Local-M1 validation fixture,
+  - existing beta/internal PAES_M1 student with stale evidence,
+  - production student without explicit approval.
+- Selected default target category: new controlled internal PAES_M1 student.
+- Rejected advanced/active students as default targets.
+- Kept Ana Local-M1 as validation fixture only.
+- Allowed existing stale/unclear PAES_M1 students only after separate audit/readiness.
+- Confirmed no concrete student is selected in this phase because selecting or creating a concrete target may require data mutation.
+- Defined required target properties, StudyLoad attachment fields, student experience goal, admin verification goal, risks, and mitigations.
+
+Decision:
+The preferred future target for balanced entry attachment is a new controlled internal PAES_M1 student.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No deploy.
+- No endpoints.
+- No UI changes.
+- No Abacus.
+- No secrets.
+- No student created.
+- No StudyLoad created.
+- No content attached to any student.
+- No LearningCycle opened or closed.
+- No CycleDecision or CycleEvaluation created.
+- No continuity authorized.
+
+Next recommended phase:
+`MVP-CONTENT-10B — Prepare or create controlled internal PAES_M1 target student`
