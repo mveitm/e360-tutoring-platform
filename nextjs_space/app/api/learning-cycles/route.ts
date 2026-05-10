@@ -91,17 +91,9 @@ export async function POST(req: NextRequest) {
     const nextCycleNumber = (lastCycle?.cycleNumber ?? 0) + 1
 
     if (nextCycleNumber === 1) {
-      // --- P4a: First cycle requires a completed initial diagnostic ---
-      const completedDiagnostic = await prisma.diagnostic.findFirst({
-        where: { enrollmentId, diagnosticType: 'initial', status: 'completed' },
-        select: { id: true },
-      })
-      if (!completedDiagnostic) {
-        return NextResponse.json(
-          { error: 'A completed initial diagnostic is required before the first cycle' },
-          { status: 400 }
-        )
-      }
+      // --- MVP-LEARNING-2: First cycle supports dynamic diagnosis ---
+      // A completed initial diagnostic is no longer a blocking prerequisite.
+      // Early StudyLoads may produce the first diagnostic evidence progressively.
     } else {
       // --- P4b: Subsequent cycles require previous cycle closed + continue signal ---
       if (lastCycle!.status !== 'closed') {

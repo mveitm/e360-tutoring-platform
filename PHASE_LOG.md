@@ -6494,3 +6494,50 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-LEARNING-2 — Reconcile first-cycle creation with dynamic diagnosis principle`
+
+## MVP-LEARNING-2 — Reconcile first-cycle creation with dynamic diagnosis principle
+
+Status: CLOSED
+
+MVP-LEARNING-2 removed the legacy initial-diagnostic blocker from first LearningCycle creation.
+
+Scope:
+- Minimal app-code change.
+- Updated `nextjs_space/app/api/learning-cycles/route.ts`.
+- Created `nextjs_space/docs/operations/MVP_LEARNING_2_RECONCILE_FIRST_CYCLE_DYNAMIC_DIAGNOSIS.md`.
+- Removed the requirement that the first LearningCycle needs a completed `initial` diagnostic.
+- Replaced the old gate with an explicit dynamic-diagnosis note.
+- Preserved subsequent-cycle requirements:
+  - previous cycle must be closed,
+  - continue signal is required.
+
+Product rationale:
+The student should be able to begin studying without waiting for an administrative diagnostic prerequisite. Diagnosis is now treated as dynamic evidence progressively built from interactions and early StudyLoads.
+
+Validation:
+- `git diff --check` passed.
+- `npm run build` passed.
+- First LearningCycle was successfully created in local/dev for `Entrada Balanceada Local-M1` / PAES_M1 without a completed initial diagnostic.
+- Resulting Cycle 1 is open.
+- Decisions: 0.
+- Evaluations: 0.
+- Auto-created fallback StudyLoad observed: `Initial practice` pending.
+- The temporary visual error `Failed to load cycle details` did not persist after refresh/restart.
+
+Secondary observation:
+The existing cycle-opening endpoint still auto-creates fallback `Initial practice` when no SkillStates are available. This behavior was not introduced by MVP-LEARNING-2 and should be handled separately before attaching the intended balanced-entry StudyLoad.
+
+Non-goals preserved:
+- No schema changes.
+- No production change.
+- No deploy.
+- No Abacus.
+- No student UI changes.
+- No admin UI changes.
+- No fake diagnostic created.
+- No production data mutation.
+- No CycleDecision or CycleEvaluation created.
+- No continuity authorized.
+
+Next recommended phase:
+`MVP-CONTENT-10C — Curate controlled PAES_M1 balanced entry first StudyLoad`
