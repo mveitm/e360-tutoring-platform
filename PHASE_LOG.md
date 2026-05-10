@@ -6455,3 +6455,42 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-CONTENT-10B — Prepare or create controlled internal PAES_M1 target student`
+
+## MVP-CONTENT-10B — Target prep blocked by legacy diagnostic gate
+
+Status: CLOSED — BLOCKED
+
+MVP-CONTENT-10B attempted to prepare a controlled local/dev PAES_M1 target student for future attachment of `PAES M1 — Entrada balanceada inicial`.
+
+Scope:
+- Local/dev operational readiness only.
+- Created controlled local/dev student `Entrada Balanceada Local-M1`.
+- Created active PAES_M1 enrollment for `entrada.balanceada.local.m1@bexauri.dev`.
+- Attempted to prepare first open LearningCycle.
+- Observed blocking legacy rule: `A completed initial diagnostic is required before the first cycle`.
+- Documented the blockage in `nextjs_space/docs/operations/MVP_CONTENT_10B_TARGET_PREP_BLOCKED_BY_LEGACY_DIAGNOSTIC_GATE.md`.
+
+Decision:
+- Do not create a fake or placeholder diagnostic to satisfy the legacy gate.
+- Do not bypass the rule manually in this phase.
+- Do not attach the balanced entry StudyLoad yet.
+- Treat the diagnostic prerequisite as legacy behavior that conflicts with MVP-LEARNING-1 and the dynamic diagnosis direction.
+
+Product interpretation:
+The initial diagnostic may be useful evidence, but it should not be a blocking prerequisite for beginning study. Early StudyLoads such as `PAES M1 — Entrada balanceada inicial` can themselves produce dynamic diagnostic evidence.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No production change.
+- No deploy.
+- No Abacus.
+- No fake diagnostic created.
+- No StudyLoad created.
+- No content attached to any student.
+- No LearningCycle opened or closed.
+- No CycleDecision or CycleEvaluation created.
+- No continuity authorized.
+
+Next recommended phase:
+`MVP-LEARNING-2 — Reconcile first-cycle creation with dynamic diagnosis principle`
