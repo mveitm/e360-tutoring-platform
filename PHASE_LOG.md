@@ -6292,3 +6292,39 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-CONTENT-9 — Decide operational path for attaching PAES M1 balanced entry to beta/internal student flow`
+
+## MVP-LEARNING-1 — Invisible and non-blocking LearningCycle principle
+
+Status: CLOSED
+
+MVP-LEARNING-1 defined the product, learning-design, and operational principle that LearningCycles are internal SRA structures, not student-facing workflow units.
+
+Scope:
+- Documentation only.
+- Created `nextjs_space/docs/operations/MVP_LEARNING_1_INVISIBLE_AND_NON_BLOCKING_LEARNING_CYCLE_PRINCIPLE.md`.
+- Defined LearningCycles as internal operating windows for regulation.
+- Clarified that the tutoring experience is a continuous student trajectory, while LearningCycles are internal stages used by the SRA/supervisor.
+- Defined the invisible-to-student principle: students should not need to understand, start, close, or manage LearningCycles.
+- Defined the non-blocking continuity principle: students should be able to continue learning without unnecessary waits caused by internal SRA operations.
+- Clarified that StudyLoads are visible units of student work, while LearningCycles are internal containers for evidence, interpretation, and decisions.
+- Defined guidance for opening and closing cycles without creating operational bottlenecks.
+- Added implications for student UI, admin/supervisor UI, roadmap alignment, and future AI agents.
+
+Key principle:
+The student learns continuously. Bexauri regulates internally.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No deploy.
+- No endpoints.
+- No UI changes.
+- No Abacus.
+- No secrets.
+- No StudyLoad created.
+- No LearningCycle opened or closed.
+
+Next recommended phase:
+`MVP-CONTENT-9 — Decide operational path for attaching PAES M1 balanced entry to beta/internal student flow`
