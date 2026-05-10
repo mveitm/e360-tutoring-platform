@@ -6541,3 +6541,57 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-CONTENT-10C — Curate controlled PAES_M1 balanced entry first StudyLoad`
+
+## MVP-CONTENT-10C — Curate controlled PAES_M1 balanced entry first StudyLoad
+
+Status: CLOSED
+
+MVP-CONTENT-10C curated the controlled local/dev first StudyLoad for `Entrada Balanceada Local-M1`.
+
+Scope:
+- Local/dev operation only.
+- Created `nextjs_space/docs/operations/MVP_CONTENT_10C_CURATE_BALANCED_ENTRY_FIRST_STUDYLOAD.md`.
+- Used the existing controlled target:
+  - Student: `Entrada Balanceada Local-M1`
+  - Email: `entrada.balanceada.local.m1@bexauri.dev`
+  - Program: `PAES_M1`
+  - Cycle 1: open
+- Resolved the fallback StudyLoad `Initial practice` by editing it through admin UI.
+- Changed title to `PAES M1 — Entrada balanceada inicial`.
+- Preserved:
+  - loadType: `practice`
+  - status: `pending`
+  - releasedAt: empty
+  - dueAt: empty
+- Confirmed no duplicate StudyLoad was created.
+- Confirmed no StudyLoad was deleted.
+- Confirmed `/now` student visibility:
+  - `PAES M1 — Entrada balanceada inicial`
+  - `practice`
+  - `Ver actividad`
+  - `Empezar`
+- Confirmed viewer pending guard before start:
+  - `Primero debes iniciar esta carga desde /now para poder enviar respuestas.`
+- Confirmed registry connection to `paes_m1_balanced_entry_initial (v1)`.
+- Deleted temporary local/dev user-creation script before documentation; working tree was clean before creating this documentation.
+
+Observation:
+`/now` still exposes student-facing cycle language such as `Ciclo 1` and `Abierto`. This partially conflicts with MVP-LEARNING-1 and should be handled in a future UI/learning phase.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No production change.
+- No deploy.
+- No Abacus.
+- No duplicate StudyLoad created.
+- No StudyLoad deleted.
+- No activity started.
+- No responses submitted.
+- No StudyLoad completed.
+- No LearningCycle closed.
+- No CycleDecision or CycleEvaluation created.
+- No continuity authorized.
+
+Next recommended phase:
+`MVP-CONTENT-10D — Validate controlled balanced entry student execution`
