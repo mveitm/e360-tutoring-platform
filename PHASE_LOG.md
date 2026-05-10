@@ -6328,3 +6328,39 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-CONTENT-9 — Decide operational path for attaching PAES M1 balanced entry to beta/internal student flow`
+
+## MVP-CONTENT-9 — Balanced entry operational path decision
+
+Status: CLOSED
+
+MVP-CONTENT-9 defined the operational path decision for using `PAES M1 — Entrada balanceada inicial`.
+
+Scope:
+- Documentation/readiness only.
+- Created `nextjs_space/docs/operations/MVP_CONTENT_9_BALANCED_ENTRY_OPERATIONAL_PATH_DECISION.md`.
+- Reviewed candidate operational paths for the balanced entry activity.
+- Confirmed the recommended default path: use the balanced entry activity as the first StudyLoad for new or early-stage PAES_M1 internal/beta students.
+- Confirmed a secondary allowed path: use it for an existing PAES_M1 student only when there is supervised justification, such as stale evidence, incomplete baseline, or deliberate re-baselining.
+- Confirmed it should not be attached retroactively by default to advanced students or cycles already progressing through focused roadmap work.
+- Applied the MVP-LEARNING-1 principle: LearningCycles remain invisible to students and should not block visible learning continuity.
+- Defined operational rules, anti-patterns, and production readiness notes.
+
+Decision:
+`PAES M1 — Entrada balanceada inicial` should become the first balanced evidence activity for new or early-stage PAES_M1 internal/beta students, not a retroactive default for advanced students.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No deploy.
+- No endpoints.
+- No UI changes.
+- No Abacus.
+- No secrets.
+- No StudyLoad created.
+- No content attached to a real student.
+- No LearningCycle opened or closed.
+
+Next recommended phase:
+`MVP-CONTENT-10 — Prepare controlled internal PAES_M1 balanced entry attachment`
