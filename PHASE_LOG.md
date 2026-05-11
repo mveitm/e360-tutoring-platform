@@ -7145,3 +7145,56 @@ MVP-FLOW-3-D closed MVP-FLOW-3 as a coherent guided MVP-Beta student activity fl
 
 Next recommended step:
 MVP-FLOW-4-A - Post-completion next-step readiness audit.
+
+## MVP-FLOW-4-A - Post-completion next-step readiness audit
+
+Status: CLOSED
+
+MVP-FLOW-4-A audited post-completion readiness after MVP-FLOW-3 and decided not to automate next StudyLoad creation yet.
+
+Scope:
+- Documentation, audit, and decision only.
+- Created `nextjs_space/docs/operations/MVP_FLOW_4_A_POST_COMPLETION_NEXT_STEP_READINESS_AUDIT.md`.
+- No app code, endpoint, schema, registry, lifecycle logic, deploy, production operation, or data mutation changed.
+
+Current post-completion behavior:
+- Student completes a content-backed StudyLoad.
+- `/now` has no pending or `in_progress` loads.
+- `completedLoads` has history and `showCaughtUpMessage` becomes true.
+- `/now` shows `Actividad registrada`, says Bexauri is preparing the next step, and shows `Actividades registradas`.
+
+Admin/readiness observations:
+- Admin beta-operations can see pending, `in_progress`, and completed loads.
+- Admin surfaces can see CycleDecision and StudyLoad entities.
+- Cycles with all StudyLoads completed can be detected as ready for review.
+- `/api/study-loads/[id]/complete` does not create CycleDecision, CycleEvaluation, ContinuitySignal, cycle close, or next StudyLoad.
+- `/api/learning-cycles/[id]/continue` does not generate a second StudyLoad.
+- Continuity-start modules remain pure-read and avoid StudyLoad creation.
+
+Decision:
+- Do not auto-create the next StudyLoad yet.
+- Keep guided MVP-Beta control.
+- Human or supervisor review remains appropriate before the next flow increment.
+- Avoid premature adaptive automation without clear pedagogical selection rules.
+
+Risks if automated too early:
+- Wrong next activity.
+- Hidden pedagogical decision.
+- Loss of human supervision.
+- Premature adaptive claims.
+- Harder rollback/debugging.
+
+Non-goals preserved:
+- No automatic StudyLoad generation.
+- No next cycle creation.
+- No CycleDecision, CycleEvaluation, or ContinuitySignal creation.
+- No endpoint changes.
+- No schema changes.
+- No production or deploy.
+- No registry mutation.
+
+Result:
+MVP-FLOW-4-A closed as a documentation-only readiness audit. The platform should preserve guided MVP-Beta control while the next-step UX and supervisor readiness requirements are clarified.
+
+Next recommended step:
+MVP-FLOW-4-B - Post-completion next-step UX/readiness improvement.
