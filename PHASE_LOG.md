@@ -6645,3 +6645,70 @@ Recommended next development phases:
 2. `MVP-FLOW-3 — Consolidate activity completion into one in-activity flow`.
 3. `MVP-UI-FLOW-2 — Remove obsolete /now and cycle-facing student language`.
 4. `MVP-SUPERVISION-1 — Define evidence review surface for human supervisor`.
+
+## GEMINI-OPS-1 — Controlled Gemini local editor protocol
+
+Status: CLOSED
+
+GEMINI-OPS-1 defines how Gemini may participate as a stronger controlled local support actor in the Bexauri / E360 development workflow.
+
+Scope:
+- Documentation-only phase.
+- Created `nextjs_space/docs/operations/GEMINI_OPS_1_CONTROLLED_LOCAL_EDITOR_PROTOCOL.md`.
+- Defined Gemini as a contextual support actor, local proposal generator, controlled local editor, PowerShell friction reducer, documentation assistant, UX/product logic reviewer, and implementation assistant for small scoped changes.
+- Preserved ChatGPT as project director, architecture/product auditor, phase designer, scope guardian, and final reviewer before commit/push.
+- Preserved the user as owner/executor of minimum local commands and product direction confirmer.
+- Preserved repo, PHASE_LOG, and docs as source of truth.
+- Confirmed Abacus remains paused until further notice.
+
+Protocol decisions:
+- Gemini may propose and edit local files within explicit scope.
+- Gemini should not become final authority.
+- Gemini should not independently commit or push by default.
+- Initial mode: Gemini edits, user runs verification, ChatGPT reviews, user commits/pushes after approval.
+- Commit/push automation by Gemini is not active yet.
+- Advanced Gemini autonomy requires several successful controlled phases first.
+
+Safe Gemini scope:
+- documentation drafts,
+- PHASE_LOG draft entries,
+- small UI copy changes,
+- small local code edits with narrow file scope,
+- local reasoning about flow logic,
+- implementation plans,
+- prompts,
+- repo-context reading,
+- PowerShell friction reduction,
+- test/checklist proposals.
+
+Restricted Gemini scope:
+- no production changes,
+- no deploys,
+- no schema/migration work,
+- no secret handling,
+- no direct production data mutation,
+- no large architecture rewrites,
+- no destructive Git operations,
+- no force pushes,
+- no dependency upgrades,
+- no uncontrolled broad refactors,
+- no commits/pushes without explicit authorization.
+
+Required verification:
+- documentation-only phases: `git diff --stat`, `git diff --check`, `git status`.
+- code phases: `git diff --stat`, `git diff --check`, `npm run build`, `git status`, plus UI validation when applicable.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No deploy.
+- No Abacus.
+- No UI change.
+- No endpoint change.
+- No Gemini direct push.
+- No commit automation.
+
+Next recommended use:
+`MVP-FLOW-2 — Auto-create first cycle and first StudyLoad on first enrollment`, with Gemini first auditing the relevant enrollment and cycle creation endpoints and proposing the smallest implementation plan before any code edits.
