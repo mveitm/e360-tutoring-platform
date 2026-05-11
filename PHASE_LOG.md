@@ -6595,3 +6595,53 @@ Non-goals preserved:
 
 Next recommended phase:
 `MVP-CONTENT-10D — Validate controlled balanced entry student execution`
+
+## MVP-UI-FLOW-1 — Define canonical student UI journey for MVP tutoring experience
+
+Status: CLOSED
+
+MVP-UI-FLOW-1 documents the canonical MVP student UI journey for Bexauri.
+
+Scope:
+- Documentation-only phase.
+- Created `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`.
+- Converted the cierre-día canvas document into a versioned repository operation document.
+- Defined the student-facing MVP tutoring experience from mobile app entry through onboarding, dashboard, tutoring selection, enrollment, first StudyLoad, activity execution, autorreporte, inline feedback, continuation, and dashboard return.
+- Aligned the UI journey with the Bexauri/SRA principles:
+  - the student learns continuously,
+  - Bexauri regulates internally,
+  - LearningCycles remain internal/invisible,
+  - the student does not administer cycles, states, or internal tasks,
+  - first enrollment should create first internal cycle and first visible StudyLoad,
+  - diagnosis is dynamic and interaction-based,
+  - activity completion happens inside the activity,
+  - feedback inline and expandable is the pedagogical core,
+  - the student chooses whether to continue or return to dashboard,
+  - supervisor review must not become a normal continuity bottleneck.
+- Incorporated Gemini as a stronger contextual support actor for proposal generation, synthesis, contradiction detection, and friction reduction, while ChatGPT remains director/auditor and the repo/PHASE_LOG/docs remain source of truth.
+
+Key UI principle:
+The Bexauri UI must never turn the student into an administrative operator of the system. The student studies; Bexauri manages cycle, state, evidence, continuity, and supervision internally.
+
+Current implementation gaps documented:
+- First enrollment does not yet automatically create first LearningCycle + first StudyLoad.
+- `/now` still exposes student-facing cycle language.
+- Some activity copy still tells the student to return to `/now` to finish.
+- The in-activity response/autorreporte/feedback/completion flow must be consolidated.
+- Fallback `Initial practice` behavior still exists when no SkillStates are available.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No deploy.
+- No Abacus.
+- No UI implementation change.
+- No endpoint change.
+
+Recommended next development phases:
+1. `MVP-FLOW-2 — Auto-create first cycle and first StudyLoad on first enrollment`.
+2. `MVP-FLOW-3 — Consolidate activity completion into one in-activity flow`.
+3. `MVP-UI-FLOW-2 — Remove obsolete /now and cycle-facing student language`.
+4. `MVP-SUPERVISION-1 — Define evidence review surface for human supervisor`.
