@@ -6712,3 +6712,55 @@ Non-goals preserved:
 
 Next recommended use:
 `MVP-FLOW-2 — Auto-create first cycle and first StudyLoad on first enrollment`, with Gemini first auditing the relevant enrollment and cycle creation endpoints and proposing the smallest implementation plan before any code edits.
+
+## AGENT-OPS-1A — Validate Codex local editor smoke test
+
+Status: CLOSED
+
+AGENT-OPS-1A validated Codex CLI as a controlled local editor candidate for Bexauri / E360.
+
+Scope:
+- Local tooling validation only.
+- Codex CLI was installed and authenticated.
+- Codex sandbox was configured successfully.
+- Codex was launched from the repo root:
+  `C:\projects\e360-tutoring-platform\tutoring_platform_mvp`.
+- Codex was asked to create a single documentation-only file:
+  `nextjs_space/docs/operations/AGENT_OPS_1_CODEX_LOCAL_EDITOR_SMOKE_TEST.md`.
+- Codex requested confirmation before applying the edit.
+- The user selected the one-time approval option, not the persistent approval option.
+- Codex created the requested file.
+- Codex did not modify other files.
+- Codex did not run build.
+- Codex did not commit.
+- Codex did not push.
+
+Validation:
+- `git status` showed exactly one untracked file:
+  `nextjs_space/docs/operations/AGENT_OPS_1_CODEX_LOCAL_EDITOR_SMOKE_TEST.md`.
+- `git diff --stat` was empty because the file was untracked.
+- The created file contains `## Phase Result`.
+- The file was created under the expected operations documentation path.
+
+Result:
+Codex passed the first controlled local editor smoke test.
+
+Operational conclusion:
+Codex is now a viable candidate for controlled local editing under Bexauri governance. It has not yet been validated for functional code changes, but it successfully performed a scoped repository file creation with explicit user approval.
+
+Protocol note:
+Gemini remains useful for proposal generation and contextual reasoning. Codex is now the stronger candidate for real local file editing.
+
+Non-goals preserved:
+- No app code.
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No deploy.
+- No Abacus.
+- No functional behavior change.
+- No commit or push performed by Codex.
+- No persistent blanket edit permission granted.
+
+Next recommended step:
+Use Codex for a second controlled task before returning to MVP-FLOW-2. The next test should be a small documentation or PHASE_LOG edit, followed by a narrow code-read/audit task.
