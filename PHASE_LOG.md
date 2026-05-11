@@ -7061,3 +7061,46 @@ MVP-FLOW-3-C1 passed. `/now` now avoids competing completion paths for content-b
 
 Next recommended step:
 MVP-FLOW-3-C2 - Validate in_progress content-backed `/now` behavior with a fresh local StudyLoad fixture.
+
+## MVP-FLOW-3-C2 - Validate in_progress content-backed /now behavior
+
+Status: CLOSED
+
+MVP-FLOW-3-C2 validated with a fresh local PAES_M1 fixture that content-backed in-progress StudyLoads use `Ver actividad` as the completion path and do not show the legacy `/now` `Terminar` button.
+
+Scope:
+- Documentation-only validation phase.
+- Created `nextjs_space/docs/operations/MVP_FLOW_3_C2_VALIDATE_IN_PROGRESS_CONTENT_BACKED_NOW_BEHAVIOR.md`.
+- No app code, endpoint, schema, registry, or lifecycle logic changed.
+
+Local fixture:
+- Fresh local PAES_M1 student fixture for Flow3 C2.
+- Student enrolled in `PAES_M1`.
+- MVP-FLOW-2 bootstrap created `PAES M1 - Entrada balanceada inicial`.
+
+Validation:
+- Student opened `/now`.
+- Pending load showed `Ver actividad` and `Empezar`.
+- Student pressed `Empezar`.
+- `/now` refreshed to `in_progress`.
+- `/now` showed `En curso (1)`.
+- `/now` showed `PAES M1 - Entrada balanceada inicial`.
+- `/now` showed `Ver actividad`.
+- `/now` did not show `Terminar`.
+
+Observed result:
+The content-backed in-progress StudyLoad used `Ver actividad` as the visible continuation and completion path, and the legacy `/now` `Terminar` button was hidden as intended.
+
+Non-goals preserved:
+- No app code changes.
+- No endpoint changes.
+- No schema changes.
+- No registry changes.
+- No StudyLoad lifecycle logic changes.
+- No build, commit, or push.
+
+Result:
+MVP-FLOW-3-C2 passed. Fresh local validation confirmed the C1 behavior for an in-progress content-backed StudyLoad.
+
+Next recommended step:
+MVP-FLOW-3-D - Consolidate MVP-FLOW-3 closure evidence and decide next flow increment.
