@@ -7252,3 +7252,43 @@ MVP-FLOW-4-A2 corrected the strategic interpretation and restored the canonical 
 
 Next recommended step:
 MVP-FLOW-4-B - Design minimal non-blocking next StudyLoad continuity.
+
+## MVP-FLOW-4-B - Minimal non-blocking next StudyLoad continuity design
+
+Status: CLOSED
+
+MVP-FLOW-4-B designed the minimal safe MVP direction for automatic next StudyLoad continuity after a content-backed StudyLoad is completed.
+
+Phase type:
+- Documentation/design-only.
+
+Files changed:
+- `PHASE_LOG.md`.
+- `nextjs_space/docs/operations/MVP_FLOW_4_B_MINIMAL_NON_BLOCKING_NEXT_STUDYLOAD_CONTINUITY_DESIGN.md`.
+
+Canonical anchor:
+- Re-read `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`.
+- Re-read `nextjs_space/docs/operations/MVP_FLOW_4_A2_REALIGN_POST_COMPLETION_CONTINUITY_WITH_CANONICAL_FLOW.md`.
+- Anchor: student and supervisor work in parallel; the student must not normally wait for supervisor/admin action after completing a StudyLoad; Bexauri should prepare the next visible StudyLoad automatically unless there is a clear pedagogical, operational, or safety reason to pause.
+
+Conclusion:
+- MVP-FLOW-4-A remains valid only as an audit of the current technical gap, not as a blocking product principle.
+- The desired steady state is automatic, non-blocking, rule-based next StudyLoad continuity.
+- The minimal MVP selection rule should use a small explicit program-scoped progression map keyed by contentKey, not adaptive AI and not display-title ordering.
+- The recommended future implementation path is a dedicated continuity service called after completion, with idempotency and structured fallback reasons.
+- Supervisor review remains parallel quality control and intervention, not the normal release bottleneck.
+
+Forbidden actions respected:
+- No code changes.
+- No endpoint changes.
+- No Prisma/schema changes.
+- No database mutation.
+- No seed changes.
+- No registry/content implementation changes.
+- No UI changes.
+- No build or deploy.
+- No `.env` access or secrets.
+- No generated PDF/DOCX or unrelated artifacts.
+
+Next recommended phase:
+MVP-FLOW-4-C - Minimal continuity implementation readiness audit.
