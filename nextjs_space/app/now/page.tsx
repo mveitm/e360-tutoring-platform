@@ -228,23 +228,22 @@ export default async function NowPage() {
         </CardHeader>
         <CardContent className="pt-0">
           <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-sm">
-            <span className="font-medium">Ciclo {cycle.cycleNumber}</span>
-            <span className="text-muted-foreground">Abierto: {openedAtLabel}</span>
+            <span className="font-medium">Actividad actual</span>
+            <span className="text-muted-foreground">Disponible desde: {openedAtLabel}</span>
           </div>
         </CardContent>
       </Card>
       <Card className="mb-6">
         <CardHeader className="pb-2">
-          <p className="text-xs uppercase tracking-wide text-muted-foreground">Ruta de trabajo</p>
-          <CardTitle className="text-lg">Tu ruta de esta semana</CardTitle>
+          <p className="text-xs uppercase tracking-wide text-muted-foreground">Próxima actividad</p>
+          <CardTitle className="text-lg">Tu actividad lista para trabajar</CardTitle>
         </CardHeader>
         <CardContent className="pt-0">
           <ol className="list-decimal space-y-1 pl-4 text-sm text-muted-foreground">
-            <li>Revisa tu carga actual.</li>
+            <li>Revisa la actividad disponible.</li>
             <li>Presiona Empezar cuando vayas a trabajar.</li>
-            <li>Abre Ver actividad si hay ejercicios disponibles.</li>
-            <li>Al terminar, presiona Terminar y deja tu reporte.</li>
-            <li>Tu avance será revisado para definir el siguiente paso.</li>
+            <li>Abre Ver actividad para responder los ejercicios.</li>
+            <li>Guarda tu avance cuando completes la actividad.</li>
           </ol>
         </CardContent>
       </Card>
@@ -258,7 +257,7 @@ export default async function NowPage() {
                 Cargas pendientes ({pendingLoads.length})
               </h2>
               <p className="text-xs text-muted-foreground">
-                Estudia el tema y presiona «Empezar» cuando estés listo.
+                Revisa la actividad y presiona «Empezar» cuando estés listo.
               </p>
               <ul className="space-y-3">
                 {pendingLoads.map((load: any) => {
@@ -301,7 +300,7 @@ export default async function NowPage() {
                 En curso ({inProgressLoads.length})
               </h2>
               <p className="text-xs text-muted-foreground">
-                Trabaja en esta actividad. Al terminar, presiona «Terminar» y cuenta cómo te fue.
+                Continúa tu actividad y registra tu cierre cuando hayas terminado.
               </p>
               <ul className="space-y-3">
                 {inProgressLoads.map((load: any) => {
