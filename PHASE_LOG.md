@@ -7022,3 +7022,42 @@ MVP-FLOW-3-B2 passed. Student-facing copy now matches in-activity completion and
 
 Next recommended step:
 MVP-FLOW-3-C - Decide whether to remove or de-emphasize the legacy `/now` Terminar button for in-progress loads.
+
+## MVP-FLOW-3-C1 - Hide /now Terminar for content-backed in-progress loads
+
+Status: CLOSED
+
+MVP-FLOW-3-C1 hid the legacy `/now` `Terminar` button for in-progress StudyLoads that have registered content, so the activity page remains the completion path.
+
+Scope:
+- Modified only `nextjs_space/app/now/page.tsx`.
+- Used the existing `hasContent` value in the in-progress StudyLoad card.
+- Rendered `CompleteLoadButton` only when `hasContent` is false.
+
+Behavior:
+- Content-backed in-progress loads still show `Ver actividad` in `/now`.
+- Content-backed in-progress loads no longer show legacy `Terminar` in `/now`.
+- In-progress loads without registered content still show `Terminar` as fallback.
+
+Validation:
+- `npm run build` passed.
+- `/now` visual smoke check passed with the existing completed local fixture.
+- Code diff reviewed as a minimal render condition using existing `hasContent`.
+
+Validation limitation:
+No direct visual validation of an in-progress content-backed load was available because the current local Flow2 fixture had already been completed. This is acceptable for C1 because the change does not touch lifecycle, endpoints, data fetching, or backend behavior.
+
+Non-goals preserved:
+- No endpoint changes.
+- No schema changes.
+- No registry changes.
+- No StudyLoad lifecycle logic changes.
+- No answer submission logic changes.
+- No self-report option changes.
+- No pending-load or completed-history behavior changes.
+
+Result:
+MVP-FLOW-3-C1 passed. `/now` now avoids competing completion paths for content-backed in-progress loads while preserving fallback completion for loads without registered content.
+
+Next recommended step:
+MVP-FLOW-3-C2 - Validate in_progress content-backed `/now` behavior with a fresh local StudyLoad fixture.

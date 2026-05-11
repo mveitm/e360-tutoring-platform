@@ -330,7 +330,7 @@ export default async function NowPage() {
                               <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
                               <span className="text-xs text-muted-foreground">En curso</span>
                             </div>
-                            <CompleteLoadButton loadId={load.id} />
+                            {!hasContent && <CompleteLoadButton loadId={load.id} />}
                           </div>
                         </CardContent>
                       </Card>
