@@ -6985,3 +6985,40 @@ MVP-FLOW-3-B1 passed. The in-activity self-report options now align with the com
 
 Next recommended step:
 MVP-FLOW-3-B2 - Refresh activity instructions and completed-history copy.
+
+## MVP-FLOW-3-B2 - Refresh activity instructions and completed-history copy
+
+Status: CLOSED
+
+MVP-FLOW-3-B2 refreshed student-facing copy so `/now` history and activity instructions match the current in-activity completion flow.
+
+Scope:
+- Modified `nextjs_space/app/now/page.tsx`.
+- Modified `nextjs_space/lib/study-load-content.ts`.
+- Replaced completed-history copy from `Lo que hiciste en este ciclo` to `Actividades registradas`.
+- Updated activity instructions that previously told students to return to `/now`, press `Terminar`, or complete autorreporte separately.
+- Preserved questions, options, answer keys, content keys, versions, item keys, titles, estimated minutes, and registry structure.
+
+Validation:
+- Visual verification passed in `/now`.
+- `/now` showed `Actividades registradas`.
+- `/now` no longer showed `Lo que hiciste en este ciclo`.
+- Visual verification passed in `Ver actividad`.
+- Activity instructions now tell the student to send answers, leave autorreporte, and finish inside the same page.
+- Activity instructions no longer tell the student to return to `/now`, press `Terminar`, or complete autorreporte separately.
+- `npm run build` passed.
+
+Non-goals preserved:
+- No endpoint changes.
+- No schema changes.
+- No StudyLoad lifecycle logic changes.
+- No answer submission logic changes.
+- No self-report option changes.
+- No scoring or evidence logic changes.
+- No registry structure changes.
+
+Result:
+MVP-FLOW-3-B2 passed. Student-facing copy now matches in-activity completion and avoids LearningCycle language in the completed-history section.
+
+Next recommended step:
+MVP-FLOW-3-C - Decide whether to remove or de-emphasize the legacy `/now` Terminar button for in-progress loads.

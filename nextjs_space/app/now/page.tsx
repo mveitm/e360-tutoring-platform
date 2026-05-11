@@ -25,7 +25,7 @@ export const dynamic = 'force-dynamic'
 // history. Read-only phase: extends the StudyLoad query to also include
 // completed loads of the current open cycle (with their most recent completed
 // TutoringSession and its most recent 'answer' Response). Adds a new
-// "Lo que hiciste en este ciclo" section rendering each completed load with
+// "Actividades registradas" section rendering each completed load with
 // its self-report (from Response.content). When the cycle is open but has no
 // pending/in_progress loads and at least one completed load, renders a new
 // non-speculative message: "Estás al día. Tu avance será revisado para
@@ -161,7 +161,7 @@ export default async function NowPage() {
 
   // 4) Load the cycle's StudyLoads split by status for three visible sections
   // on /now: "Cargas pendientes" (pending), "En curso" (in_progress), and
-  // "Lo que hiciste en este ciclo" (completed, DR). For each completed load
+  // "Actividades registradas" (completed, DR). For each completed load
   // we fetch its most recent completed TutoringSession and, within that
   // session, its most recent Response of type 'answer' (which is the minimal
   // self-report captured by DQ in Response.content). This block is read-only
@@ -349,16 +349,16 @@ export default async function NowPage() {
                   Tu avance quedó guardado. Estamos preparando tu siguiente paso y tu tutor podrá revisar la evidencia si corresponde.
                 </p>
                 <p className="mt-4 text-xs text-muted-foreground">
-                  Mientras tanto, puedes revisar lo que hiciste en este ciclo.
+                  Mientras tanto, puedes revisar tus actividades registradas.
                 </p>
               </CardContent>
             </Card>
           )}
 
           {completedLoads.length > 0 && (
-            <section aria-label="Lo que hiciste en este ciclo" className="space-y-3">
+            <section aria-label="Actividades registradas" className="space-y-3">
               <h2 className="text-sm font-medium text-muted-foreground">
-                Lo que hiciste en este ciclo ({completedLoads.length})
+                Actividades registradas ({completedLoads.length})
               </h2>
               <ul className="space-y-3">
                 {completedLoads.map((load: any) => {

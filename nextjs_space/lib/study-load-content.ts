@@ -48,9 +48,9 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       '2. Lee cada enunciado con atenci\u00f3n.\n' +
       '3. Resuelve la ecuaci\u00f3n paso a paso.\n' +
       '4. Selecciona la alternativa correcta.\n' +
-      '5. Cuando termines, vuelve a /now.\n' +
-      '6. Presiona \u00abTerminar\u00bb.\n' +
-      '7. Completa tu autorreporte.\n\n' +
+      '5. Env\u00eda tus respuestas.\n' +
+      '6. Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.\n' +
+      '7. No necesitas volver a /now para cerrar la actividad.\n\n' +
       'No hay presi\u00f3n por la perfecci\u00f3n. Lo importante es intentar cada ejercicio.',
     items: [
       {
@@ -144,7 +144,7 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     ],
     currentLimitationNotice:
       'Puedes seleccionar tus respuestas y enviarlas desde esta p\u00e1gina. ' +
-      'Cuando termines, vuelve a /now para finalizar la carga y completar tu autorreporte.',
+      'Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.',
   },
 
   'PAES M1 \u2014 Problemas con ecuaciones lineales': {
@@ -162,9 +162,9 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       '2. Lee cada enunciado con atenci\u00f3n.\n' +
       '3. Si el ejercicio es un problema, escribe primero la ecuaci\u00f3n y luego resu\u00e9lvela.\n' +
       '4. Selecciona la alternativa correcta para cada ejercicio.\n' +
-      '5. Cuando termines, vuelve a /now.\n' +
-      '6. Presiona \u00abTerminar\u00bb.\n' +
-      '7. Completa tu autorreporte.\n\n' +
+      '5. Env\u00eda tus respuestas.\n' +
+      '6. Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.\n' +
+      '7. No necesitas volver a /now para cerrar la actividad.\n\n' +
       'No hay presi\u00f3n por la perfecci\u00f3n. Lo importante es intentar cada ejercicio y reflexionar sobre c\u00f3mo te fue.',
     items: [
       {
@@ -258,7 +258,7 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     ],
     currentLimitationNotice:
       'Puedes seleccionar tus respuestas y enviarlas desde esta p\u00e1gina. ' +
-      'Cuando termines, vuelve a /now para finalizar la carga y completar tu autorreporte.',
+      'Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.',
   },
 
   'PAES M1 \u2014 Refuerzo de ecuaciones lineales': {
@@ -276,8 +276,8 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       '4. Resuelve paso a paso.\n' +
       '5. Selecciona la alternativa que corresponde.\n' +
       '6. Presiona \u201cEnviar respuestas\u201d.\n' +
-      '7. Luego vuelve a /now y presiona \u201cTerminar\u201d.\n' +
-      '8. Completa tu autorreporte.\n\n' +
+      '7. Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.\n' +
+      '8. No necesitas volver a /now para cerrar la actividad.\n\n' +
       'No hay presi\u00f3n por la perfecci\u00f3n. Lo importante es intentar resolver con orden y dejar evidencia de tu trabajo.',
     items: [
       {
@@ -389,8 +389,8 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       '4. Reconoce pendiente e intercepto cuando aparezcan.\n' +
       '5. Selecciona la alternativa que corresponde.\n' +
       '6. Presiona \u201cEnviar respuestas\u201d.\n' +
-      '7. Luego vuelve a /now y presiona \u201cTerminar\u201d.\n' +
-      '8. Completa tu autorreporte.\n\n' +
+      '7. Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.\n' +
+      '8. No necesitas volver a /now para cerrar la actividad.\n\n' +
       'No hay presi\u00f3n por la perfecci\u00f3n. Lo importante es interpretar con orden la relaci\u00f3n entre variables.',
     items: [
       {
@@ -501,8 +501,8 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       '2. Trabaja en tu cuaderno o en una hoja de papel si lo necesitas.\n' +
       '3. Selecciona una alternativa por pregunta.\n' +
       '4. Env\u00eda tus respuestas.\n' +
-      '5. Luego vuelve a /now y presiona \u00abTerminar\u00bb.\n' +
-      '6. Completa tu autorreporte.\n\n' +
+      '5. Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.\n' +
+      '6. No necesitas volver a /now para cerrar la actividad.\n\n' +
       'No hay presi\u00f3n por la perfecci\u00f3n. Lo importante es observar c\u00f3mo partes y decidir el siguiente paso con cuidado.',
     items: [
       {
