@@ -7104,3 +7104,44 @@ MVP-FLOW-3-C2 passed. Fresh local validation confirmed the C1 behavior for an in
 
 Next recommended step:
 MVP-FLOW-3-D - Consolidate MVP-FLOW-3 closure evidence and decide next flow increment.
+
+## MVP-FLOW-3-D - Closure evidence and next increment decision
+
+Status: CLOSED
+
+MVP-FLOW-3-D consolidated MVP-FLOW-3 closure evidence and selected the next recommended flow increment.
+
+Scope:
+- Documentation and decision only.
+- Created `nextjs_space/docs/operations/MVP_FLOW_3_D_CLOSURE_EVIDENCE_AND_NEXT_INCREMENT_DECISION.md`.
+- No app code, endpoint, schema, registry, lifecycle logic, deploy, production operation, or data mutation changed.
+
+Evidence consolidated:
+- MVP-FLOW-3-B1 aligned the in-activity self-report option with the complete endpoint and validated the `No la termine` path without invalid self-report errors.
+- MVP-FLOW-3-B2 aligned activity instructions with in-activity completion and changed `/now` history copy to `Actividades registradas`.
+- MVP-FLOW-3-C1 hid legacy `/now` `Terminar` for content-backed `in_progress` loads while preserving fallback `Terminar` for no-content loads.
+- MVP-FLOW-3-C2 validated the fresh local pending to `in_progress` fixture: `/now` showed `En curso` and `Ver actividad`, and did not show `Terminar`.
+
+Decision:
+MVP-FLOW-3 has reached a coherent MVP-Beta student flow for content-backed StudyLoads: the student receives the first StudyLoad, starts it from `/now`, works inside `Ver actividad`, submits answers, leaves self-report, finishes inside the activity page, and sees registered activity/history in `/now` without LearningCycle language.
+
+Remaining limitations:
+- Still guided MVP-Beta, not fully automated adaptive learning.
+- Feedback remains basic and evidence-level, not full pedagogical tutoring.
+- No automatic next StudyLoad generation after completion in this closure.
+- Some legacy comments may remain, but visible student flow is aligned.
+- Fallback `Terminar` remains for no-content loads.
+
+Non-goals preserved:
+- No endpoint changes.
+- No schema changes.
+- No lifecycle changes.
+- No production or deploy.
+- No registry item or content mutation.
+- No automation of next cycle or next StudyLoad.
+
+Result:
+MVP-FLOW-3-D closed MVP-FLOW-3 as a coherent guided MVP-Beta student activity flow.
+
+Next recommended step:
+MVP-FLOW-4-A - Post-completion next-step readiness audit.
