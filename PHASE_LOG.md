@@ -7198,3 +7198,57 @@ MVP-FLOW-4-A closed as a documentation-only readiness audit. The platform should
 
 Next recommended step:
 MVP-FLOW-4-B - Post-completion next-step UX/readiness improvement.
+
+## MVP-FLOW-4-A2 - Realign post-completion continuity with canonical flow
+
+Status: CLOSED
+
+MVP-FLOW-4-A2 re-anchored post-completion continuity to the canonical student journey and corrected the interpretation risk introduced by MVP-FLOW-4-A.
+
+Scope:
+- Documentation, decision, and governance only.
+- Re-read `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` as the canonical anchor.
+- Created `nextjs_space/docs/operations/MVP_FLOW_4_A2_REALIGN_POST_COMPLETION_CONTINUITY_WITH_CANONICAL_FLOW.md`.
+- No app code, endpoint, schema, registry, lifecycle logic, deploy, production operation, or data mutation changed.
+
+Context-loss incident:
+- MVP-FLOW-4-A interpreted the post-completion state too much from current technical behavior.
+- The assistant failed to re-anchor to the canonical student journey before recommending next-step direction.
+- This created a blocking interpretation risk: the student could be seen as waiting for supervisor review.
+- The owner corrected this and pointed back to the canonical sequence.
+
+Canonical correction:
+- Student and supervisor operate in parallel, not in series.
+- Student continuity must not normally depend on supervisor/admin action.
+- After StudyLoad completion, Bexauri should prepare the next visible StudyLoad automatically except where there is a clear pedagogical, operational, or safety reason to stop continuity.
+- Supervisor review can happen in parallel and should not be the normal bottleneck.
+- MVP can use simple controlled rules or predefined sequences before advanced adaptive automation exists.
+
+Reinterpretation of MVP-FLOW-4-A:
+- MVP-FLOW-4-A remains valid as an audit of the current state.
+- It must not justify a blocking wait-for-supervisor model.
+- `Do not automate yet` means do not implement automation without a dedicated safe design phase.
+- It does not mean the product principle is waiting for human review before the next StudyLoad.
+
+Updated decision:
+- Target product direction is non-blocking automatic next StudyLoad continuity.
+- Current post-completion waiting is a temporary gap/fallback, not the desired steady-state MVP flow.
+- MVP-FLOW-4-B should design the minimal safe mechanism for automatic next StudyLoad readiness after completion.
+
+Canonical re-anchor rule:
+Before any phase that affects student flow, post-completion, StudyLoad continuity, supervisor/admin relation, LearningCycle behavior, or automation, re-read the relevant canonical document and explicitly state the anchor before deciding roadmap.
+
+Non-goals preserved:
+- No implementation.
+- No endpoint changes.
+- No schema changes.
+- No StudyLoad generation yet.
+- No CycleDecision or CycleEvaluation creation.
+- No production or deploy.
+- No registry mutation.
+
+Result:
+MVP-FLOW-4-A2 corrected the strategic interpretation and restored the canonical non-blocking continuity principle for the next design phase.
+
+Next recommended step:
+MVP-FLOW-4-B - Design minimal non-blocking next StudyLoad continuity.
