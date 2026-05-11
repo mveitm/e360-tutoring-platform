@@ -86,16 +86,96 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'studentId and programId are required' }, { status: 400 })
     }
 
+    const program = await prisma.program.findUnique({
+      where: { id: programId },
+      select: { id: true, code: true, name: true },
+    })
+
+    if (!program) {
+      return NextResponse.json({ error: 'Program not found' }, { status: 404 })
+    }
+
+    const effectiveStatus = status ?? 'active'
+    const effectiveContinuityState = currentContinuityState ?? 'normal'
+    const shouldCreateFirstCycle =
+      program.code === 'PAES_M1' &&
+      effectiveStatus === 'active' &&
+      effectiveContinuityState === 'normal' &&
+      !currentCycleId
+
+    if (shouldCreateFirstCycle) {
+      const instance = await prisma.$transaction(async (tx) => {
+        const newInstance = await tx.studentProgramInstance.create({
+          data: {
+            studentId,
+            programId,
+            status: effectiveStatus,
+            startedAt: startedAt ? new Date(startedAt) : undefined,
+            endedAt: endedAt ? new Date(endedAt) : null,
+            lastActivityAt: lastActivityAt ? new Date(lastActivityAt) : null,
+            currentCycleId: null,
+            currentContinuityState: effectiveContinuityState,
+          },
+        })
+
+        const newCycle = await tx.learningCycle.create({
+          data: {
+            enrollmentId: newInstance.id,
+            cycleNumber: 1,
+            status: 'open',
+          },
+        })
+
+        await tx.cycleSnapshot.create({
+          data: {
+            learningCycleId: newCycle.id,
+            snapshotType: 'cycle_open',
+            payload: {
+              heuristic: 'mvp_flow_2_first_enrollment_balanced_entry',
+              reason: 'auto_created_first_cycle_and_first_study_load_on_first_paes_m1_enrollment',
+              selectedStudyLoadTitle: 'PAES M1 — Entrada balanceada inicial',
+              selectedSkillIds: [],
+              skillStates: [],
+              maxFirstLoads: 1,
+            },
+          },
+        })
+
+        await tx.studyLoad.create({
+          data: {
+            learningCycleId: newCycle.id,
+            title: 'PAES M1 — Entrada balanceada inicial',
+            loadType: 'practice',
+            status: 'pending',
+          },
+        })
+
+        return tx.studentProgramInstance.update({
+          where: { id: newInstance.id },
+          data: {
+            currentCycleId: newCycle.id,
+            lastActivityAt: new Date(),
+          },
+          include: {
+            student: { select: { id: true, firstName: true, lastName: true, email: true } },
+            program: { select: { id: true, code: true, name: true } },
+          },
+        })
+      })
+
+      return NextResponse.json(instance, { status: 201 })
+    }
+
     const instance = await prisma.studentProgramInstance.create({
       data: {
         studentId,
         programId,
-        status: status ?? 'active',
+        status: effectiveStatus,
         startedAt: startedAt ? new Date(startedAt) : undefined,
         endedAt: endedAt ? new Date(endedAt) : null,
         lastActivityAt: lastActivityAt ? new Date(lastActivityAt) : null,
         currentCycleId: currentCycleId || null,
-        currentContinuityState: currentContinuityState ?? 'normal',
+        currentContinuityState: effectiveContinuityState,
       },
       include: {
         student: { select: { id: true, firstName: true, lastName: true, email: true } },
