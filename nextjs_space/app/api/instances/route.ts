@@ -73,6 +73,7 @@ export async function GET() {
   }
 }
 
+// AGENT-OPS-1B: Candidate endpoint for MVP-FLOW-2 first-enrollment automatic cycle and StudyLoad creation.
 export async function POST(req: NextRequest) {
   const { session, errorResponse } = await requireAdminApi()
   if (errorResponse) return errorResponse

@@ -6764,3 +6764,49 @@ Non-goals preserved:
 
 Next recommended step:
 Use Codex for a second controlled task before returning to MVP-FLOW-2. The next test should be a small documentation or PHASE_LOG edit, followed by a narrow code-read/audit task.
+
+## AGENT-OPS-1B — Validate Codex narrow code-edit workflow
+
+Status: CLOSED
+
+AGENT-OPS-1B validated Codex as a controlled local editor for a narrow code edit.
+
+Scope:
+- Local tooling validation only.
+- Codex edited exactly one code file:
+  `nextjs_space/app/api/instances/route.ts`.
+- Codex added one non-functional custody comment above the POST handler.
+- Created documentation:
+  `nextjs_space/docs/operations/AGENT_OPS_1B_CODEX_NARROW_CODE_EDIT_WORKFLOW.md`.
+- Codex requested explicit user approval before applying the edit.
+- The user granted one-time approval only.
+- Codex did not commit.
+- Codex did not push.
+- Codex did not run build.
+
+Validation:
+- `git diff --stat` showed exactly one insertion in `nextjs_space/app/api/instances/route.ts`.
+- `git diff --check` produced no blocking whitespace errors.
+- `npm run build` passed successfully.
+- Next.js compiled successfully and type validity checks passed.
+
+Result:
+Codex passed the narrow code-edit workflow test.
+
+Operational conclusion:
+Codex is now validated beyond documentation-only file creation and becomes the strongest current candidate for controlled local editing. Gemini remains useful for proposal generation and contextual reasoning. ChatGPT remains director/auditor. The user remains owner/executor of minimum local commands. Abacus remains paused.
+
+Non-goals preserved:
+- No app behavior change.
+- No schema changes.
+- No DB mutation.
+- No production change.
+- No deploy.
+- No Abacus.
+- No UI change.
+- No auth/admin/security change.
+- No commit or push by Codex.
+- No persistent edit permission granted.
+
+Next recommended step:
+Return to `MVP-FLOW-2 — Auto-create first cycle and first StudyLoad on first enrollment`, using Codex as the preferred local editor candidate under tight scope and ChatGPT diff audit before build and commit.
