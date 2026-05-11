@@ -364,7 +364,7 @@ export default function StudyLoadAnswerForm({
                           onValueChange={setSelfReport}
                           className="gap-2"
                         >
-                          {['Me fue bien', 'Me costó', 'No estoy seguro'].map((opt) => (
+                          {['Me fue bien', 'Me costó', 'No la terminé'].map((opt) => (
                             <div key={opt} className="flex items-center gap-3 rounded-md border border-current/10 p-2">
                               <RadioGroupItem value={opt} id={`sr-${opt}`} />
                               <Label htmlFor={`sr-${opt}`} className="flex-1 cursor-pointer text-sm font-normal">

@@ -6947,3 +6947,41 @@ MVP-UI-FLOW-2 passed. The student view now avoids administrative cycle language 
 
 Next recommended step:
 MVP-FLOW-3 - consolidate activity completion, feedback, self-report, and closure in the activity page.
+
+## MVP-FLOW-3-B1 - Align in-activity self-report options with complete endpoint
+
+Status: CLOSED
+
+MVP-FLOW-3-B1 aligned the self-report options shown inside the activity page with the server-side allowed options used by the StudyLoad complete endpoint.
+
+Scope:
+- Modified only `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+- Replaced the in-activity option `No estoy seguro` with the endpoint-compatible option `No la termine`.
+- Preserved the existing in-activity answer submission, self-report selection, and completion flow.
+
+Validation:
+- `npm run build` passed.
+- Local student flow was tested end-to-end from `/now` through `Ver actividad`, answer submission, self-report selection, and `Finalizar actividad`.
+- `/complete` accepted the self-report.
+- No `Autorreporte invalido` error appeared.
+- `/now` showed `Actividad registrada`.
+- Completed history showed `Tu reporte: No la termine`.
+
+Non-goals preserved:
+- No endpoint changes.
+- No `/complete` behavior changes.
+- No response route changes.
+- No `/now` page changes.
+- No StudyLoad lifecycle logic changes.
+- No schema or registry changes.
+
+Observed UX debt:
+- Activity instructions still tell the student to return to `/now` and press `Terminar`.
+- `/now` completed-history copy still says `Lo que hiciste en este ciclo`.
+- This is deferred to MVP-FLOW-3-B2.
+
+Result:
+MVP-FLOW-3-B1 passed. The in-activity self-report options now align with the complete endpoint and avoid the invalid self-report path.
+
+Next recommended step:
+MVP-FLOW-3-B2 - Refresh activity instructions and completed-history copy.
