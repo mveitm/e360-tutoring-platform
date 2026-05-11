@@ -7341,3 +7341,63 @@ Forbidden actions respected:
 
 Next recommended phase:
 MVP-FLOW-4-D - Implement minimal rule-based next StudyLoad continuity.
+
+## MVP-FLOW-4-D - Implement minimal rule-based next StudyLoad continuity
+
+Status: CLOSED
+
+MVP-FLOW-4-D implemented the first minimal rule-based next StudyLoad continuity path after content-backed StudyLoad completion.
+
+Phase type:
+- Narrow implementation.
+
+Files changed:
+- `nextjs_space/lib/study-load-continuity.ts`.
+- `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+- `PHASE_LOG.md`.
+
+Canonical anchor:
+- Re-read `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`.
+- Re-read `nextjs_space/docs/operations/MVP_FLOW_4_A2_REALIGN_POST_COMPLETION_CONTINUITY_WITH_CANONICAL_FLOW.md`.
+- Re-read `nextjs_space/docs/operations/MVP_FLOW_4_B_MINIMAL_NON_BLOCKING_NEXT_STUDYLOAD_CONTINUITY_DESIGN.md`.
+- Re-read `nextjs_space/docs/operations/MVP_FLOW_4_C_MINIMAL_CONTINUITY_IMPLEMENTATION_READINESS_AUDIT.md`.
+- Anchor: student continuity should be non-blocking; supervisor review runs in parallel; next StudyLoad continuity is rule-based, not adaptive AI.
+
+Implemented behavior:
+- Added `prepareNextStudyLoadAfterCompletion` in `nextjs_space/lib/study-load-continuity.ts`.
+- The service resolves current content by StudyLoad title, uses contentKey as progression source of truth, resolves next content by contentKey, and creates one pending practice StudyLoad in the same learningCycle when guardrails pass.
+- Completion route calls the service after the completion transaction succeeds.
+- Completion response shape remains stable.
+- Continuity failures are caught and logged generically so they do not fail or roll back StudyLoad completion/self-report.
+
+Exact progression pair:
+- `PAES_M1`: `paes_m1_balanced_entry_initial` -> `paes_m1_linear_equations_basic`.
+
+Idempotency rule:
+- Before creating the next load, the service checks for an existing StudyLoad in the same learningCycle with the resolved next content title and status in `pending`, `in_progress`, or `completed`.
+- If found, it returns `skipped_existing` and creates nothing.
+
+Completion failure-protection decision:
+- Existing completion writes remain in their original transaction.
+- Next-load preparation runs in a separate post-completion transaction.
+- Expected no-op outcomes do not fail completion.
+- Unexpected continuity errors are caught after completion and logged without secrets.
+
+Forbidden actions respected:
+- No Prisma/schema changes.
+- No seed changes.
+- No registry/content changes.
+- No UI changes.
+- No start, responses, or instances endpoint changes.
+- No LearningCycle close behavior.
+- No CycleDecision, CycleEvaluation, or ContinuitySignal creation.
+- No auth model changes.
+- No deploy, production operation, `.env` access, secrets, npm install, Prisma CLI, generated PDF/DOCX, or unrelated artifacts.
+
+Validation results:
+- `git diff --check` passed with line-ending warnings only.
+- `npm run build` passed.
+- Only allowed files were modified.
+
+Next recommended phase:
+MVP-FLOW-4-D-VERIFY - Validate automatic next StudyLoad continuity locally with a fresh PAES_M1 fixture.

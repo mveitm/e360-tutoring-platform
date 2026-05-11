@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
+import { prepareNextStudyLoadAfterCompletion } from '@/lib/study-load-continuity'
 
 // Phase DQ — Visible wiring phase of Line E.
 //
@@ -27,8 +28,11 @@ import { prisma } from '@/lib/prisma'
 //   - no ContinuitySignal creation
 //   - no SkillState recalculation
 //   - no cycle-close
-//   - no second-load generation
 //   - no scoring, isCorrect, or skill linkage on the Response row
+//
+// MVP-FLOW-4-D adds a post-completion best-effort continuity step outside the
+// completion transaction. It may create one rule-based next StudyLoad when safe,
+// but continuity failures never roll back completion.
 
 const ALLOWED_SELF_REPORTS = [
   'Me fue bien',
@@ -82,6 +86,7 @@ export async function POST(
     where: { id: studyLoadId },
     select: {
       id: true,
+      title: true,
       status: true,
       learningCycleId: true,
       learningCycle: {
@@ -94,6 +99,7 @@ export async function POST(
               id: true,
               status: true,
               currentContinuityState: true,
+              program: { select: { code: true } },
               student: { select: { email: true } },
             },
           },
@@ -223,13 +229,38 @@ export async function POST(
       })
 
       return {
-        studyLoad: updatedLoad,
-        session: updatedSession,
-        response: createdResponse,
+        responsePayload: {
+          studyLoad: updatedLoad,
+          session: updatedSession,
+          response: createdResponse,
+        },
+        continuityInput: {
+          completedStudyLoadTitle: load.title,
+          learningCycleId: load.learningCycleId,
+          programCode: load.learningCycle.enrollment.program.code,
+        },
       }
     })
 
-    return NextResponse.json(result, { status: 201 })
+    try {
+      await prisma.$transaction(async (tx: any) => {
+        await prepareNextStudyLoadAfterCompletion({
+          tx,
+          ...result.continuityInput,
+        })
+      })
+    } catch (continuityError) {
+      console.error('MVP-FLOW-4-D continuity preparation failed', {
+        studyLoadId: load.id,
+        learningCycleId: load.learningCycleId,
+        error:
+          continuityError instanceof Error
+            ? continuityError.message
+            : 'Unknown continuity error',
+      })
+    }
+
+    return NextResponse.json(result.responsePayload, { status: 201 })
   } catch (error: any) {
     if (error && typeof error === 'object' && 'httpStatus' in error) {
       return NextResponse.json(
