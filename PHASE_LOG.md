@@ -6870,3 +6870,45 @@ Next recommended steps:
 2. Verify `/now` renders the auto-created StudyLoad correctly.
 3. Confirm `Ver actividad` appears immediately after enrollment.
 4. Prepare `MVP-FLOW-3 - Consolidate activity completion into one in-activity flow`.
+
+## MVP-FLOW-2-VERIFY - Validate auto-created first StudyLoad in local student flow
+
+Status: CLOSED
+
+MVP-FLOW-2-VERIFY validated the MVP-FLOW-2 bootstrap flow end-to-end in the local app through admin and student surfaces.
+
+Scope:
+- Verification/documentation only.
+- Created `nextjs_space/docs/operations/MVP_FLOW_2_VERIFY_LOCAL_END_TO_END.md`.
+- No app code, schema, registry, UI, auth, production data, deploy, Abacus, or automation logic changed.
+
+Local validation:
+- Created Student `Flow2 Verify M1` with email `flow2.verify.m1@bexauri.dev`.
+- Enrolled the student in `PAES_M1`.
+- Confirmed Bexauri automatically created LearningCycle `Cycle 1` with status `open`.
+- Confirmed Bexauri automatically created StudyLoad `PAES M1 — Entrada balanceada inicial` with status `pending`.
+- Confirmed CycleDecision count remained 0.
+- Confirmed CycleEvaluation count remained 0.
+- Created the associated local User through admin-only `/api/signup` from an authenticated admin browser session.
+- Logged in as the student.
+- Confirmed `/now` displayed PAES_M1 / PAES Matematica M1, the auto-created StudyLoad, `Ver actividad`, and `Empezar`.
+
+Result:
+MVP-FLOW-2 passed local end-to-end verification. The first eligible PAES_M1 enrollment now produces an immediately visible first StudyLoad for the student without requiring manual cycle creation.
+
+Observation:
+`/now` still exposes UX debt: it shows `Ciclo 1` and older copy such as `Tu ruta de esta semana`, `Tu avance sera revisado...`, and instructions around `Terminar`. This does not invalidate MVP-FLOW-2, but should be handled in MVP-UI-FLOW-2 or MVP-FLOW-3.
+
+Non-goals preserved:
+- Did not press `Empezar`.
+- Did not start or complete the StudyLoad.
+- Did not submit answers.
+- Did not create CycleDecision or CycleEvaluation.
+- Did not create another cycle.
+- No deploy.
+- No production.
+- No Abacus.
+- No code/schema/registry mutation.
+
+Next recommended step:
+Prepare MVP-FLOW-3 - consolidate activity completion, feedback, and self-report into one in-activity flow, with student-facing copy cleanup considered in scope or as a nearby UX phase.
