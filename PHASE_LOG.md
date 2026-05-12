@@ -7933,3 +7933,67 @@ Forbidden actions respected:
 - No `.env` access or secrets.
 - No generated PDF/DOCX.
 - No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, commit, or push.
+
+## MVP-FLOW-4-E4A - Implement minimal feedback UI for M1 MC activities
+
+Status: CLOSED
+
+MVP-FLOW-4-E4A implemented the minimal post-submission/post-completion feedback UI defined in E4 for PAES_M1 multiple-choice StudyLoads.
+
+Phase type:
+- Narrow runtime UI/API response implementation.
+
+Files changed:
+- `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+- `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+- `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+- `PHASE_LOG.md`.
+
+Implemented behavior:
+- Before submission, the activity viewer still receives only safe item props with no `correctOptionKey`.
+- After response submission, the existing MC response route returns a feedback payload with selected option, correctness when `correctOptionKey` exists, correct option label/text when available, unanswered state support, and activity-level counts.
+- Submitted or completed activities show selected answers, per-question correct/incorrect feedback when safe, correct option text when safe, and a concise activity-level evidence summary.
+- Feedback copy states that responses are evidence for the activity and that the result is not a PAES score or a complete-level definition.
+
+Scope preserved:
+- No schema changes.
+- No Prisma model changes.
+- No continuity-rule changes.
+- No StudyLoad creation changes.
+- No `/now` continuity logic changes.
+- No admin-surface changes.
+- No content registry changes.
+- No scoring engine, adaptive AI, theta, mastery, PAES score prediction, definitive diagnosis, or L1/M2 behavior.
+- No explanations were invented or added.
+
+Context note:
+- Live Git preflight was `HEAD = origin/main = 6f39689`.
+- Some context documents may still contain stale `213fccb` baseline values; Git preflight remains the live source of truth.
+
+Validation:
+- `git diff --check` passed.
+- Build from `nextjs_space` with `npm.cmd run build` passed.
+- Browser validation PASSED on local fixture:
+  - Student fixture: `Flow4D Verify M` / `PAES_M1`.
+  - Activity validated: `PAES M1 - Problemas con ecuaciones lineales`.
+  - Post-submit feedback appeared correctly.
+  - Per-question feedback remained visible.
+  - Answer choices became read-only after submission.
+  - Clicking answer choices after feedback did not clear feedback.
+  - The `Enviar respuestas` button no longer appeared after persisted feedback.
+  - Spanish copy displayed correctly: `cuéntanos`, `cómo`, `costó`, `terminé`, `quedó`.
+  - Self-report options remained available.
+  - `Finalizar actividad` worked.
+  - After completion, `/now` showed the activity under `Actividades registradas` with self-report `Me fue bien`.
+  - `/now` showed no next pending StudyLoad because no continuity edge beyond `paes_m1_linear_equations_word_problems` exists yet in this phase.
+  - Observed non-blocking UX note: after completion, returning to `/now` still requires scrolling to the top/back link in the activity view; this can be addressed later as navigation polish.
+
+Forbidden actions respected:
+- No SQL.
+- No Prisma CLI.
+- No `npm install`.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets inspected.
+- No generated PDF/DOCX.
+- No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, commit, or push.

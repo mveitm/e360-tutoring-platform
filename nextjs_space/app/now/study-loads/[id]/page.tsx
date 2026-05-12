@@ -25,6 +25,28 @@ interface PageProps {
   params: { id: string }
 }
 
+interface StoredAnswer {
+  itemKey: string
+  selectedOptionKey: string
+}
+
+interface McFeedbackItem {
+  itemKey: string
+  selectedOptionKey?: string
+  selectedOptionText?: string
+  correctOptionKey?: string
+  correctOptionText?: string
+  isCorrect?: boolean
+}
+
+interface McFeedback {
+  answeredCount: number
+  totalItemCount: number
+  correctCount: number
+  hasAnswerKey: boolean
+  items: McFeedbackItem[]
+}
+
 export default async function StudyLoadViewerPage({ params }: PageProps) {
   const session = await getServerSession(authOptions)
   if (!session?.user?.email) {
@@ -81,8 +103,9 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
   // 4) Look up static content by title
   const content = getStudyLoadContent(studyLoad.title)
 
-  // 5) Try to load existing mc_submission for prefill (best effort)
+  // 5) Try to load existing mc_submission for prefill/feedback (best effort)
   let initialAnswers: Record<string, string> | undefined
+  let initialFeedback: McFeedback | undefined
   if (content) {
     try {
       const existingResponse = await prisma.response.findFirst({
@@ -90,7 +113,6 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
           responseType: 'mc_submission',
           tutoringSession: {
             studyLoadId: studyLoad.id,
-            status: 'in_progress',
           },
         },
         select: { content: true },
@@ -104,23 +126,63 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
           Array.isArray(parsed.answers)
         ) {
           initialAnswers = {}
+          const storedAnswers: StoredAnswer[] = []
           for (const ans of parsed.answers) {
             if (
               typeof ans.itemKey === 'string' &&
               typeof ans.selectedOptionKey === 'string'
             ) {
               initialAnswers[ans.itemKey] = ans.selectedOptionKey
+              storedAnswers.push({
+                itemKey: ans.itemKey,
+                selectedOptionKey: ans.selectedOptionKey,
+              })
             }
           }
           // Empty object → undefined
           if (Object.keys(initialAnswers).length === 0) {
             initialAnswers = undefined
           }
+          const answerMap = new Map(
+            storedAnswers.map((ans) => [ans.itemKey, ans.selectedOptionKey]),
+          )
+          const feedbackItems = content.items.map((item) => {
+            const selectedOptionKey = answerMap.get(item.key)
+            const selectedOption = selectedOptionKey
+              ? item.options.find((opt) => opt.label === selectedOptionKey)
+              : undefined
+            const correctOption = item.correctOptionKey
+              ? item.options.find((opt) => opt.label === item.correctOptionKey)
+              : undefined
+
+            return {
+              itemKey: item.key,
+              selectedOptionKey,
+              selectedOptionText: selectedOption?.text,
+              correctOptionKey: item.correctOptionKey,
+              correctOptionText: correctOption?.text,
+              isCorrect:
+                selectedOptionKey && item.correctOptionKey
+                  ? selectedOptionKey === item.correctOptionKey
+                  : undefined,
+            }
+          })
+
+          initialFeedback = {
+            answeredCount: storedAnswers.length,
+            totalItemCount: content.items.length,
+            correctCount: feedbackItems.filter((item) => item.isCorrect).length,
+            hasAnswerKey: content.items.some(
+              (item) => item.correctOptionKey !== undefined,
+            ),
+            items: feedbackItems,
+          }
         }
       }
     } catch {
       // Best effort — do not break the page if prefill fails
       initialAnswers = undefined
+      initialFeedback = undefined
     }
   }
 
@@ -208,6 +270,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
               contentVersion={content.contentVersion}
               items={safeItems}
               initialAnswers={initialAnswers}
+              initialFeedback={initialFeedback}
             />
           </>
         ) : (

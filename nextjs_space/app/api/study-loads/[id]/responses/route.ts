@@ -63,6 +63,15 @@ interface StoredPayload {
   }
 }
 
+interface FeedbackItem {
+  itemKey: string
+  selectedOptionKey?: string
+  selectedOptionText?: string
+  correctOptionKey?: string
+  correctOptionText?: string
+  isCorrect?: boolean
+}
+
 export async function POST(
   req: NextRequest,
   { params }: { params: { id: string } },
@@ -302,6 +311,28 @@ export async function POST(
     },
   }
 
+  const answerMap = new Map(
+    storedAnswers.map((answer) => [answer.itemKey, answer]),
+  )
+  const feedbackItems: FeedbackItem[] = content.items.map((item) => {
+    const answer = answerMap.get(item.key)
+    const selectedOption = answer
+      ? item.options.find((option) => option.label === answer.selectedOptionKey)
+      : undefined
+    const correctOption = item.correctOptionKey
+      ? item.options.find((option) => option.label === item.correctOptionKey)
+      : undefined
+
+    return {
+      itemKey: item.key,
+      selectedOptionKey: answer?.selectedOptionKey,
+      selectedOptionText: selectedOption?.text,
+      correctOptionKey: item.correctOptionKey,
+      correctOptionText: correctOption?.text,
+      isCorrect: answer?.isCorrect,
+    }
+  })
+
   // ── 12. Upsert mc_submission Response ─────────────────────────
   // Find existing mc_submission for this session, if any.
   const existing = await prisma.response.findFirst({
@@ -346,6 +377,13 @@ export async function POST(
       totalItemCount: payload.summary.totalItemCount,
       correctCount: payload.summary.correctCount,
       hasAnswerKey: payload.summary.hasAnswerKey,
+      feedback: {
+        answeredCount: payload.summary.answeredCount,
+        totalItemCount: payload.summary.totalItemCount,
+        correctCount: payload.summary.correctCount,
+        hasAnswerKey: payload.summary.hasAnswerKey,
+        items: feedbackItems,
+      },
     },
     { status: isNew ? 201 : 200 },
   )
