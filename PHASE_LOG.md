@@ -7722,3 +7722,57 @@ Forbidden actions respected:
 - No production operation.
 - No `.env` access or secrets.
 - No generated PDF/DOCX, `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, staging, or commit.
+
+## MVP-FLOW-4-E2A - Canonical context transfer template
+
+Status: CLOSED
+
+MVP-FLOW-4-E2A created a stable canonical context-transfer template for future MVP-M1 chat handoffs before runtime phase E3.
+
+Phase type:
+- Documentation / context-protocol hardening only.
+
+Files changed:
+- `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+- `PHASE_LOG.md`.
+
+Purpose:
+- Make future context propagation more robust by replacing free-form handoff memory with a reusable stable template.
+- Clearly separate stable required sections from variable state fields.
+- Preserve the rule that Git preflight is live truth and overrides stale embedded documentation baselines.
+
+Template created:
+- Defines purpose and stability rule.
+- Lists required immutable or near-immutable sections.
+- Lists required variable fields.
+- Provides a canonical ready-to-paste handoff skeleton with placeholders and default E2/E3 values.
+- Defines anti-drift rules.
+- Defines relationship to existing handoff and index docs.
+- Recommends E3 as the next phase.
+
+Narrow handoff/index updates:
+- Corrected current baseline to `213fccb`.
+- Corrected last accepted commit to `MVP-FLOW-4-E2: define shortest safe M1 tutoring path`.
+- Added references to `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+
+Next recommended phase:
+- `MVP-FLOW-4-E3 - Implement and validate the next continuity edge after linear equations basic`.
+- Candidate edge: `paes_m1_linear_equations_basic` -> `paes_m1_linear_equations_word_problems`.
+
+Forbidden actions respected:
+- No runtime code changes.
+- No endpoint changes.
+- No Prisma/schema changes.
+- No registry/content changes.
+- No UI changes.
+- No DB mutation.
+- No SQL.
+- No Prisma CLI.
+- No npm install.
+- No build.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX, `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, staging, or commit.

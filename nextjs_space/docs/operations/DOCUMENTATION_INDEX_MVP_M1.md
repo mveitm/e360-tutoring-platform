@@ -8,14 +8,15 @@ It tells future agents what documents are canonical, what each document is for, 
 
 ## 2. Repo baseline
 
-- HEAD = origin/main = `5980ede`.
-- Last accepted commit: `MVP-FLOW-4-E1: add M1 documentation index and transfer protocol`.
+- HEAD = origin/main = `213fccb`.
+- Last accepted commit: `MVP-FLOW-4-E2: define shortest safe M1 tutoring path`.
 - Working tree expected clean.
 
 ## 3. Documentation hierarchy
 
 - `PHASE_LOG.md` = audit trail / continuity ledger, not a full content repository.
 - `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md` = first-read operational handoff.
+- `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` = stable next-chat handoff template/contract.
 - `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` = canonical student/SRA experience.
 - `nextjs_space/docs/operations/MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md` through `MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md` = PAES_M1 roadmap/content chain.
 - `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md` = latest runtime validation evidence.
@@ -28,6 +29,7 @@ It tells future agents what documents are canonical, what each document is for, 
 |---|---|---|---|---|---|---|
 | `PHASE_LOG.md` | Present | Audit trail and continuity ledger | High for phase history | Recover last closed phases, decisions, validation summaries, forbidden actions | Replacing focused canonical docs or reading as a content repository | Yes |
 | `CURRENT_AGENT_HANDOFF_MVP_M1.md` | Present | First-read operational handoff | High for onboarding | Fast context transfer, current direction, guardrails, quickstart prompt | Detailed source evidence or final implementation specs | Yes |
+| `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` | Present | Stable next-chat handoff template/contract | High for context transfer protocol | Creating future handoff prompts with required sections and variable fields | Replacing live Git preflight or source docs | Yes for chat migration |
 | `MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` | Present | Canonical student/SRA experience | Highest for student flow | Student journey, SRA principle, supervisor role, non-blocking continuity | Runtime proof or code-level behavior | Yes |
 | `MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md` | Present | PAES_M1 master roadmap skeleton | High for pedagogy | Master roadmap, axes, difficulty bands, evidence principles | Registry truth or implemented content status | Yes for PAES_M1 work |
 | `MVP_CONTENT_2_PAES_M1_FIRST_ACTIVE_SLICE.md` | Present | First PAES_M1 active slice | High for first slice direction | Algebra/linear entry focus, manual branching rules, first active slice purpose | Automatic placement, score, mastery, or engine behavior | Yes for PAES_M1 work |
@@ -140,6 +142,7 @@ Act as a senior product/technical operator for E360 / Bexauri.
 First read:
 - nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
 - nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+- nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
 
 Then verify:
 - git status --short
