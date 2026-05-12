@@ -8,8 +8,8 @@ Use this document to understand the current direction before proposing or implem
 
 ## 2. Current repo baseline
 
-- HEAD = origin/main = `65a3e8d`.
-- Last accepted commit: `MVP-FLOW-4-E0: create current M1 agent handoff`.
+- HEAD = origin/main = `5980ede`.
+- Last accepted commit: `MVP-FLOW-4-E1: add M1 documentation index and transfer protocol`.
 - Working tree expected clean.
 
 ## 3. Current strategic objective
@@ -100,9 +100,9 @@ Only the first automatic pair is currently validated:
 
 Recommended next phase:
 
-`MVP-FLOW-4-E2 - Define shortest safe path to first complete M1 tutoring experience`
+`MVP-FLOW-4-E3 - Implement and validate the next continuity edge after linear equations basic`
 
-Reason: E1 created the documentation index and context-transfer protocol. The next safe step is to define the shortest implementation roadmap for the first complete minimal PAES_M1 tutoring experience before runtime behavior changes.
+Reason: E2 defines the shortest safe implementation roadmap and repairs the context self-propagation protocol. The next safe runtime increment is the next explicit PAES_M1 continuity edge after the validated first pair.
 
 ## 12. Implementation boundaries for the next phase
 
@@ -132,7 +132,11 @@ The assistant/agent is responsible for preserving continuity across chats.
 
 If the chat becomes long, loses focus, approaches context saturation, or Mauricio asks whether to change chats, the assistant must proactively generate a complete next-chat handoff. Do not make Mauricio responsible for remembering or reconstructing context.
 
-The handoff must include HEAD, origin/main, last accepted commit, expected working tree state, last closed phase, next recommended phase, canonical documents, this handoff file, `DOCUMENTATION_INDEX_MVP_M1.md`, validated capabilities, immature capabilities, guardrails, preflight commands, a ready-to-paste prompt, and this same protocol so the next chat propagates it again.
+Git preflight output is the live source of truth for HEAD, origin/main, and working tree state. This handoff and the documentation index are versioned context documents, not absolute live state. If Git preflight contradicts an embedded baseline in this handoff or the index, Git preflight wins and the assistant/agent must explicitly flag the mismatch.
+
+If the current phase allows documentation changes, the assistant/agent must correct stale baseline and next-phase references. If the current phase does not allow documentation changes, the assistant/agent must include the mismatch in the next-chat handoff.
+
+The handoff must include HEAD, origin/main, last accepted commit, expected working tree state, last closed phase, next recommended phase, canonical documents, this handoff file, `DOCUMENTATION_INDEX_MVP_M1.md`, validated capabilities, immature capabilities, guardrails, preflight commands, a ready-to-paste prompt, the latest verified Git state if available, and this same Git-preflight-overrides-stale-docs protocol so the next chat propagates it again.
 
 ## 15. Quickstart prompt for future agents
 
@@ -148,6 +152,7 @@ git status --short
 git log -1 --pretty=format:"%h %s"
 
 Do not implement before reading the canonical docs listed in the handoff.
+Git preflight output is live truth. If it contradicts embedded baselines in the handoff or index, flag the mismatch and prefer Git preflight.
 
 Assume the next task is documentation/direction for the first complete minimal PAES_M1 tutoring experience unless Mauricio explicitly instructs runtime implementation.
 
@@ -158,4 +163,5 @@ Guardrails:
 - student continuity should not normally wait for supervisor/admin action;
 - LearningCycles are internal and should stay invisible to students.
 - if chat migration is needed, generate the next-chat handoff automatically.
+- every future handoff must propagate the rule that Git preflight overrides stale documentation baselines.
 ```

@@ -8,8 +8,8 @@ It tells future agents what documents are canonical, what each document is for, 
 
 ## 2. Repo baseline
 
-- HEAD = origin/main = `65a3e8d`.
-- Last accepted commit: `MVP-FLOW-4-E0: create current M1 agent handoff`.
+- HEAD = origin/main = `5980ede`.
+- Last accepted commit: `MVP-FLOW-4-E1: add M1 documentation index and transfer protocol`.
 - Working tree expected clean.
 
 ## 3. Documentation hierarchy
@@ -100,6 +100,12 @@ If the chat becomes long, loses focus, approaches context saturation, or Maurici
 
 Do not make Mauricio responsible for remembering or reconstructing context.
 
+Git preflight output is the live source of truth for HEAD, origin/main, and working tree state. The handoff and documentation index are versioned context documents, not absolute live state.
+
+If Git preflight contradicts the baseline written in the handoff or documentation index, Git preflight wins. The assistant/agent must explicitly flag the mismatch. If the current phase allows documentation changes, the assistant/agent must correct stale baseline and next-phase references. If the current phase does not allow documentation changes, the assistant/agent must include the mismatch in the next-chat handoff.
+
+Every next-chat handoff must include both the latest verified Git state, if available, and this same Git-preflight-overrides-stale-docs rule. This rule must be propagated again in every future handoff.
+
 The next-chat handoff must include:
 
 - HEAD;
@@ -117,6 +123,7 @@ The next-chat handoff must include:
 - preflight commands;
 - ready-to-paste prompt for the next chat;
 - this same Context Transfer Protocol so the next chat propagates it again.
+- the rule that Git preflight overrides stale documentation baselines.
 
 Minimum preflight commands for the next chat:
 
@@ -139,16 +146,17 @@ Then verify:
 - git log -1 --pretty=format:"%h %s"
 
 Do not implement before reading the canonical docs listed in the index.
+Git preflight output is live truth. If it contradicts embedded baselines in the handoff or index, flag the mismatch and prefer Git preflight.
 The current objective remains the first complete minimal PAES_M1 tutoring experience before L1/M2.
 Rule-based continuity is allowed in MVP-Beta; do not claim adaptive AI, theta, mastery, or PAES score prediction.
 
-If this chat becomes long or needs migration, generate the next-chat handoff automatically. Do not make Mauricio carry the context manually.
+If this chat becomes long or needs migration, generate the next-chat handoff automatically. Do not make Mauricio carry the context manually. Every future handoff must propagate the rule that Git preflight overrides stale documentation baselines.
 ```
 
 ## 10. Recommended next phase
 
 Recommended next phase:
 
-`MVP-FLOW-4-E2 - Define shortest safe path to first complete M1 tutoring experience`
+`MVP-FLOW-4-E3 - Implement and validate the next continuity edge after linear equations basic`
 
-Reason: E1 creates the source-alignment and transfer protocol, but it does not yet convert the aligned sources into a concrete shortest-safe-path roadmap. E2 should remain documentation/direction first and define the next implementation sequence before runtime behavior changes.
+Reason: E2 defines the shortest safe implementation roadmap and repairs the context self-propagation protocol. The next safe runtime increment is the next explicit PAES_M1 continuity edge after the validated first pair.

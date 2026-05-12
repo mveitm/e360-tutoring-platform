@@ -7654,3 +7654,71 @@ Forbidden actions respected:
 - No production operation.
 - No `.env` access or secrets.
 - No generated PDF/DOCX, `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, unrelated files, staging, or commit.
+
+## MVP-FLOW-4-E2 - Define shortest safe path to first complete M1 tutoring experience and repair context self-propagation protocol
+
+Status: CLOSED
+
+MVP-FLOW-4-E2 converted the current M1 handoff, documentation index, validated first automatic continuity pair, and PAES_M1 content roadmap into the shortest safe implementation roadmap toward the first complete minimal PAES_M1 tutoring experience.
+
+Phase type:
+- Documentation / direction / implementation-roadmap / context-protocol-repair only.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_FLOW_4_E2_SHORTEST_SAFE_PATH_FIRST_COMPLETE_M1_TUTORING_EXPERIENCE.md`.
+- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+- `PHASE_LOG.md`.
+
+Purpose:
+- Define what counts as the first complete minimal PAES_M1 tutoring experience.
+- Define the student-facing loop and internal SRA loop required for MVP-Beta.
+- Identify the minimum PAES_M1 content path and missing continuity/evidence/feedback behavior.
+- Define the shortest safe implementation sequence after E2.
+- Repair the Context Transfer Protocol so stale embedded baselines do not override live Git preflight.
+
+Context protocol repaired:
+- Git preflight output is the live source of truth for HEAD, origin/main, and working tree state.
+- Handoff and index docs are versioned context documents, not absolute live state.
+- If Git preflight contradicts embedded baseline text, Git preflight wins and the mismatch must be flagged.
+- If documentation changes are allowed, stale baseline and next-phase references must be corrected.
+- If documentation changes are not allowed, the mismatch must be included in the next-chat handoff.
+- Every future handoff must propagate this same Git-preflight-overrides-stale-docs rule.
+- Mauricio must not be responsible for remembering or reconstructing this rule manually.
+
+Current baseline corrected in handoff/index:
+- HEAD = origin/main = `5980ede`.
+- Last accepted commit: `MVP-FLOW-4-E1: add M1 documentation index and transfer protocol`.
+- Next recommended phase updated to `MVP-FLOW-4-E3 - Implement and validate the next continuity edge after linear equations basic`.
+
+Shortest safe implementation sequence after E2:
+- E3: implement/validate the next continuity edge after linear equations basic.
+- E4: define minimal in-activity feedback standard for M1 MC activities.
+- E5: complete a 3 to 5 StudyLoad M1 path locally with one student fixture.
+- E6: add minimal supervisor review/readiness view only after the student loop works.
+- E7: run a second-student local validation.
+- E8: decide whether MVP-Beta internal guided use is ready.
+
+Explicit non-goals preserved:
+- No adaptive AI.
+- No theta.
+- No PAES score prediction.
+- No automatic mastery claims.
+- No L1/M2 expansion.
+- No full roadmap engine.
+
+Forbidden actions respected:
+- No runtime code changes.
+- No endpoint changes.
+- No Prisma/schema changes.
+- No registry/content changes.
+- No UI changes.
+- No DB mutation.
+- No SQL.
+- No Prisma CLI.
+- No npm install.
+- No build.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX, `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, staging, or commit.
