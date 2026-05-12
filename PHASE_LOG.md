@@ -7776,3 +7776,118 @@ Forbidden actions respected:
 - No production operation.
 - No `.env` access or secrets.
 - No generated PDF/DOCX, `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, staging, or commit.
+
+## MVP-FLOW-4-E3 - Implement next PAES_M1 continuity edge
+
+Status: CLOSED
+
+MVP-FLOW-4-E3 implemented the next explicit PAES_M1 rule-based StudyLoad continuity edge.
+
+Phase type:
+- Narrow runtime continuity implementation.
+
+Files changed:
+- `nextjs_space/lib/study-load-continuity.ts`.
+
+Implemented edge:
+- `paes_m1_linear_equations_basic` -> `paes_m1_linear_equations_word_problems`.
+
+Code change:
+- Added one mapping line inside `NEXT_STUDYLOAD_BY_PROGRAM_AND_CONTENT_KEY.PAES_M1`.
+
+Scope preserved:
+- No full roadmap engine.
+- No branching.
+- No adaptive AI.
+- No theta.
+- No mastery.
+- No PAES score prediction.
+- No L1/M2 expansion.
+- No schema, endpoint, UI, automatic cycle close, CycleDecision, CycleEvaluation, or governance record logic.
+
+Validation:
+- Confirmed existing first edge remained:
+  `paes_m1_balanced_entry_initial` -> `paes_m1_linear_equations_basic`.
+- Confirmed target content key existed in `study-load-content.ts` with `program: 'PAES_M1'`.
+- `git diff --check` passed.
+- Build from `nextjs_space` passed.
+
+Functional validation note:
+- E3 functional validation was paused because `PAES M1 - Ecuaciones lineales basicas` still displayed 8 exercises, contradicting the accepted micro StudyLoad rule: max 4 exercises.
+- This was addressed in MVP-FLOW-4-E3A before completing functional validation.
+
+Forbidden actions respected:
+- No endpoint changes.
+- No Prisma/schema changes.
+- No registry/content changes in E3.
+- No UI changes.
+- No DB mutation.
+- No SQL.
+- No Prisma CLI.
+- No npm install.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX, `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, commit, or push.
+
+## MVP-FLOW-4-E3A - Align E3 StudyLoads with 4-item microload limit
+
+Status: CLOSED
+
+MVP-FLOW-4-E3A aligned the two StudyLoads involved in the E3 continuity path with the accepted micro StudyLoad rule: maximum 4 exercises.
+
+Phase type:
+- Narrow content registry alignment for E3 validation.
+
+Files changed:
+- `nextjs_space/lib/study-load-content.ts`.
+
+Context:
+- During E3 functional validation, Mauricio found that `PAES M1 - Ecuaciones lineales basicas` still displayed 8 exercises.
+- E3 validation was paused until the E3-involved StudyLoads respected the 4-exercise microload limit.
+
+StudyLoads aligned:
+- `PAES M1 - Ecuaciones lineales basicas`.
+- `PAES M1 - Problemas con ecuaciones lineales`.
+
+Changes:
+- Updated instructions from 8 exercises to 4 exercises in both activities.
+- Removed q5-q8 from both activities.
+- Preserved q1-q4 and their existing `correctOptionKey` values.
+- Did not touch `PAES M1 - Refuerzo de ecuaciones lineales`.
+- Did not touch `PAES M1 - Funciones lineales basicas`.
+
+Validation evidence:
+- `git diff --check` passed.
+- Build from `nextjs_space` passed.
+- Student fixture: `Flow4D Verify M` / `flow4d.verify@student.bexauri.local` / `PAES_M1`.
+- Initial admin state before E3 validation: Cycle #1 open, total loads 2, pending 1, completed 1, LearningCycles 1, CycleDecisions 0, CycleEvaluations 0, governance records 0.
+- Student `/now` before start showed pending `PAES M1 - Ecuaciones lineales basicas` with `Ver actividad` and `Empezar`.
+- Start validation: load moved to `En curso`, `Empezar` disappeared, and `Ver actividad` remained.
+- E3A visual validation: `PAES M1 - Ecuaciones lineales basicas` showed 4 exercises and 4 of 4 responded after refresh.
+- Completion validation: `PAES M1 - Ecuaciones lineales basicas` finalized successfully and responses were saved as evidence.
+- Student `/now` after completion showed pending `PAES M1 - Problemas con ecuaciones lineales` with `Ver actividad` and `Empezar`.
+- Registered activities showed:
+  - `PAES M1 - Ecuaciones lineales basicas`, self-report `Me fue bien`.
+  - `PAES M1 - Entrada balanceada inicial`, self-report `Me fue bien`.
+- Final admin state: Cycle #1 open, total loads 3, pending 1, completed 2, LearningCycles 1, Cycle 1 with 0 decisions and 0 evaluations, governance-reading records 0.
+
+Side-effect validation:
+- Same LearningCycle remained open.
+- No new LearningCycle.
+- No CycleDecision.
+- No CycleEvaluation.
+- No governance record.
+
+Forbidden actions respected:
+- No endpoint changes.
+- No Prisma/schema changes.
+- No UI changes.
+- No DB mutation.
+- No SQL.
+- No Prisma CLI.
+- No npm install.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX, `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, commit, or push.

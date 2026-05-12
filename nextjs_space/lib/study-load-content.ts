@@ -43,7 +43,7 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     topic: 'Ecuaciones lineales',
     estimatedMinutes: '20\u201330 minutos',
     instructions:
-      'Esta actividad tiene 8 ejercicios de opci\u00f3n m\u00faltiple sobre ecuaciones lineales b\u00e1sicas.\n\n' +
+      'Esta actividad tiene 4 ejercicios de opci\u00f3n m\u00faltiple sobre ecuaciones lineales b\u00e1sicas.\n\n' +
       '1. Trabaja en tu cuaderno o en una hoja de papel.\n' +
       '2. Lee cada enunciado con atenci\u00f3n.\n' +
       '3. Resuelve la ecuaci\u00f3n paso a paso.\n' +
@@ -97,50 +97,6 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
         ],
         correctOptionKey: 'C',
       },
-      {
-        key: 'q5',
-        stem: 'Un n\u00famero aumentado en 8 es igual a 20. \u00bfCu\u00e1l es el n\u00famero?',
-        options: [
-          { label: 'A', text: '8' },
-          { label: 'B', text: '12' },
-          { label: 'C', text: '20' },
-          { label: 'D', text: '28' },
-        ],
-        correctOptionKey: 'B',
-      },
-      {
-        key: 'q6',
-        stem: 'El triple de un n\u00famero es 45. \u00bfCu\u00e1l es el n\u00famero?',
-        options: [
-          { label: 'A', text: '9' },
-          { label: 'B', text: '15' },
-          { label: 'C', text: '30' },
-          { label: 'D', text: '45' },
-        ],
-        correctOptionKey: 'B',
-      },
-      {
-        key: 'q7',
-        stem: 'Si compro 5 cuadernos iguales y pago $3.500 en total, \u00bfcu\u00e1nto cuesta cada cuaderno?',
-        options: [
-          { label: 'A', text: '$500' },
-          { label: 'B', text: '$600' },
-          { label: 'C', text: '$700' },
-          { label: 'D', text: '$750' },
-        ],
-        correctOptionKey: 'C',
-      },
-      {
-        key: 'q8',
-        stem: 'La edad de Pedro m\u00e1s 4 a\u00f1os ser\u00e1 igual a 18 a\u00f1os. Si x representa su edad actual, \u00bfcu\u00e1l ecuaci\u00f3n modela la situaci\u00f3n?',
-        options: [
-          { label: 'A', text: 'x - 4 = 18' },
-          { label: 'B', text: 'x + 4 = 18' },
-          { label: 'C', text: '4x = 18' },
-          { label: 'D', text: 'x = 18 + 4' },
-        ],
-        correctOptionKey: 'B',
-      },
     ],
     currentLimitationNotice:
       'Puedes seleccionar tus respuestas y enviarlas desde esta p\u00e1gina. ' +
@@ -155,7 +111,7 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     topic: 'Ecuaciones lineales (problemas)',
     estimatedMinutes: '25\u201335 minutos',
     instructions:
-      'Esta actividad tiene 8 ejercicios de opci\u00f3n m\u00faltiple sobre ecuaciones lineales, ' +
+      'Esta actividad tiene 4 ejercicios de opci\u00f3n m\u00faltiple sobre ecuaciones lineales, ' +
       'un paso m\u00e1s desafiantes que la pr\u00e1ctica anterior.\n\n' +
       'Algunos ejercicios incluyen par\u00e9ntesis, fracciones y problemas donde debes plantear la ecuaci\u00f3n antes de resolverla.\n\n' +
       '1. Trabaja en tu cuaderno o en una hoja de papel.\n' +
@@ -210,50 +166,6 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '12' },
         ],
         correctOptionKey: 'C',
-      },
-      {
-        key: 'q5',
-        stem: 'Un n\u00famero aumentado en el doble del mismo n\u00famero es igual a 36. \u00bfCu\u00e1l es el n\u00famero?',
-        options: [
-          { label: 'A', text: '9' },
-          { label: 'B', text: '10' },
-          { label: 'C', text: '12' },
-          { label: 'D', text: '18' },
-        ],
-        correctOptionKey: 'C',
-      },
-      {
-        key: 'q6',
-        stem: 'La edad de una persona dentro de 5 a\u00f1os ser\u00e1 23 a\u00f1os. Si x representa su edad actual, \u00bfcu\u00e1l es su edad actual?',
-        options: [
-          { label: 'A', text: '16' },
-          { label: 'B', text: '17' },
-          { label: 'C', text: '18' },
-          { label: 'D', text: '19' },
-        ],
-        correctOptionKey: 'C',
-      },
-      {
-        key: 'q7',
-        stem: 'En una librer\u00eda, 4 l\u00e1pices iguales y una goma de $600 cuestan $2.200. Si x representa el precio de un l\u00e1piz, \u00bfcu\u00e1l es el valor de x?',
-        options: [
-          { label: 'A', text: '$300' },
-          { label: 'B', text: '$350' },
-          { label: 'C', text: '$400' },
-          { label: 'D', text: '$450' },
-        ],
-        correctOptionKey: 'C',
-      },
-      {
-        key: 'q8',
-        stem: 'Un plan mensual cuesta una cuota fija de $2.000 m\u00e1s $500 por cada clase asistida. Si x representa el n\u00famero de clases y el total pagado fue $5.500, \u00bfcu\u00e1l ecuaci\u00f3n modela la situaci\u00f3n?',
-        options: [
-          { label: 'A', text: '2.000x + 500 = 5.500' },
-          { label: 'B', text: '2.000 + 500x = 5.500' },
-          { label: 'C', text: '500 + 2.000x = 5.500' },
-          { label: 'D', text: '2.500x = 5.500' },
-        ],
-        correctOptionKey: 'B',
       },
     ],
     currentLimitationNotice:
