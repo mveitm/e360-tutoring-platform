@@ -7891,3 +7891,45 @@ Forbidden actions respected:
 - No production operation.
 - No `.env` access or secrets.
 - No generated PDF/DOCX, `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, commit, or push.
+
+## MVP-FLOW-4-E4 - Define minimal in-activity feedback standard for M1 MC activities
+
+Status: CLOSED
+
+MVP-FLOW-4-E4 defined the minimal in-activity feedback standard for PAES_M1 multiple-choice StudyLoads.
+
+Phase type:
+- Documentation / design only.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_FLOW_4_E4_MINIMAL_M1_MC_FEEDBACK_STANDARD.md`.
+- `PHASE_LOG.md`.
+
+Purpose:
+- Define the student-facing feedback standard after E3/E3A.
+- Clarify per-question feedback fields, activity-level summary, copy guardrails, forbidden claims, content requirements, evidence interpretation, implementation readiness, future acceptance criteria, non-goals, and risks.
+- Keep feedback honest: activity evidence only, not PAES score, theta, mastery, adaptive AI, or definitive diagnosis.
+
+Current baseline documented:
+- Live Git preflight was `HEAD = origin/main = 4ed548b`.
+- Last accepted commit was `MVP-FLOW-4-E3: extend M1 continuity edge`.
+- Some context docs still contained stale `213fccb` baseline values; E4 documented that Git preflight is live truth and stale embedded baselines do not override it.
+- E3/E3A completed and pushed at `4ed548b`.
+- First two PAES_M1 continuity edges now exist up to word problems.
+- E3A corrected the two E3-involved StudyLoads to 4 items.
+
+Next recommended phase:
+- `MVP-FLOW-4-E4A - Implement minimal feedback UI for M1 MC activities`, if implementing the feedback standard is next.
+- `MVP-FLOW-4-E5 - Complete a 3 to 5 StudyLoad M1 path locally with one student fixture`, if current feedback limitations are accepted temporarily.
+
+Forbidden actions respected:
+- No runtime code changes.
+- No schema changes.
+- No endpoint changes.
+- No UI changes.
+- No DB mutation.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX.
+- No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, commit, or push.
