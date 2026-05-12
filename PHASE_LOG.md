@@ -7540,3 +7540,57 @@ Forbidden actions respected:
 
 Next recommended phase:
 MVP-FLOW-4-E - Decide next continuity increment after validated first automatic next StudyLoad.
+
+## MVP-FLOW-4-E0 - Create current agent handoff for first complete M1 tutoring experience
+
+Status: CLOSED
+
+MVP-FLOW-4-E0 created a concise first-read handoff for future agents working on the Bexauri MVP-M1 tutoring line.
+
+Phase type:
+- Documentation / agent-handoff only.
+
+Files changed:
+- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+- `PHASE_LOG.md`.
+
+Purpose:
+- Preserve the current operational direction before future phases.
+- Help ChatGPT, Codex, Abacus, or another development copiloto enter the repo without reconstructing context from chats, loose files, or the long phase history.
+- Keep focus on the shortest safe path to the first complete minimal PAES_M1 tutoring experience.
+
+Source hierarchy captured:
+- `PHASE_LOG.md` as audit trail.
+- `MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` as canonical student/SRA journey.
+- `MVP_CONTENT_1` through `MVP_CONTENT_4` as the PAES_M1 roadmap/content chain.
+- `MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md` as latest runtime validation evidence.
+- Current code behavior as executable truth.
+- Optional strategy context noted where present or not found.
+
+Current validated capability captured:
+- First rule-based PAES_M1 continuity pair is implemented and locally validated:
+  `paes_m1_balanced_entry_initial` -> `paes_m1_linear_equations_basic`.
+- `/now` shows the next pending StudyLoad after completion.
+- Cycle remains open.
+- No CycleDecision, CycleEvaluation, ContinuitySignal/governance record, LearningCycle close, or new LearningCycle is created by this continuity.
+- This validates only the first pair, not a complete M1 path, adaptive behavior, scoring, mastery, cycle close, or supervisor evidence workflow.
+
+Next recommended phase:
+- `MVP-FLOW-4-E1 - Documentation index and source alignment for first complete M1 tutoring experience`.
+- Reason: the repo now has a compact handoff, but the next safe step is to align the existing source documents into a working implementation roadmap before changing runtime behavior.
+
+Forbidden actions respected:
+- No code changes.
+- No endpoint changes.
+- No Prisma/schema changes.
+- No registry/content changes.
+- No UI changes.
+- No seed changes.
+- No SQL.
+- No Prisma CLI.
+- No npm install.
+- No build.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX, checkpoint artifacts, unrelated files, staging, or commit.
