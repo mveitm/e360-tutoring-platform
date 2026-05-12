@@ -7594,3 +7594,63 @@ Forbidden actions respected:
 - No production operation.
 - No `.env` access or secrets.
 - No generated PDF/DOCX, checkpoint artifacts, unrelated files, staging, or commit.
+
+## MVP-FLOW-4-E1 - Documentation index and source alignment for first complete M1 tutoring experience
+
+Status: CLOSED
+
+MVP-FLOW-4-E1 created the documentation index and source-alignment layer for the first complete minimal PAES_M1 tutoring experience.
+
+Phase type:
+- Documentation / source-alignment / context-transfer-protocol only.
+
+Files changed:
+- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+- `PHASE_LOG.md`.
+
+Purpose:
+- Make clear what documents are canonical, what each document is for, what is already validated, what is still immature, what sources are missing or external, and how future agents should transfer context.
+- Keep future work anchored on the first complete minimal PAES_M1 tutoring experience before L1/M2.
+
+Documentation index created:
+- Defines the documentation hierarchy.
+- Adds a document index table with status, role, canonical level, use, non-use, and implementation-read requirements.
+- Summarizes current source alignment, validated capabilities, immature capabilities, missing/external sources, and the next recommended phase.
+
+Handoff updated:
+- References `DOCUMENTATION_INDEX_MVP_M1.md`.
+- Updates the current baseline to `65a3e8d`.
+- Updates the next recommended phase after E1.
+- Adds the Context Transfer Protocol summary.
+
+Context Transfer Protocol formalized:
+- The assistant/agent is responsible for preserving continuity across chats.
+- If a chat becomes long, loses focus, approaches context saturation, or Mauricio asks whether to change chats, the assistant must generate a complete next-chat handoff automatically.
+- Mauricio must not be responsible for remembering or reconstructing context manually.
+
+Optional/external docs noted:
+- `BEXAURI_PROPUESTA_INTEGRADA_MVP_v1.md` was external / not versioned in repo during E1.
+- `AUDITORIA_ESTRATEGICA_MVP_MONETIZACION_E360_BEXAURI_MAYO_2026.md` was external / not versioned in repo during E1.
+- `Bexauri_Especificaciones_Director_Proyecto.pdf` was external / not versioned in repo during E1.
+- `MVP_DIRECTION_1_MICROLEARNING_LOOP_ADOPTION_DECISION.md` was present and indexed as supporting strategic direction.
+
+Next recommended phase:
+- `MVP-FLOW-4-E2 - Define shortest safe path to first complete M1 tutoring experience`.
+- Reason: E1 aligns sources and transfer protocol, but does not yet define the concrete shortest-safe-path implementation roadmap.
+
+Forbidden actions respected:
+- No code changes.
+- No endpoint changes.
+- No Prisma/schema changes.
+- No registry/content changes.
+- No UI changes.
+- No seed changes.
+- No SQL.
+- No Prisma CLI.
+- No npm install.
+- No build.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX, `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, unrelated files, staging, or commit.

@@ -8,8 +8,8 @@ Use this document to understand the current direction before proposing or implem
 
 ## 2. Current repo baseline
 
-- HEAD = origin/main = `09672f6`.
-- Last accepted commit: `MVP-FLOW-4-D-VERIFY-RETRY: validate automatic StudyLoad continuity`.
+- HEAD = origin/main = `65a3e8d`.
+- Last accepted commit: `MVP-FLOW-4-E0: create current M1 agent handoff`.
 - Working tree expected clean.
 
 ## 3. Current strategic objective
@@ -21,11 +21,12 @@ Do not expand to L1 or M2 yet. Do not keep adding isolated verifications by iner
 ## 4. Source-of-truth hierarchy
 
 1. `PHASE_LOG.md` is the audit trail and continuity ledger.
-2. `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` is the canonical student/SRA journey.
-3. `MVP_CONTENT_1` through `MVP_CONTENT_4` define the PAES_M1 roadmap/content chain.
-4. `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md` is the latest runtime validation evidence.
-5. Current code behavior is the executable truth.
-6. Optional business/strategy documents, if present, provide product context. During E0, `BEXAURI_PROPUESTA_INTEGRADA_MVP_v1.md` and `AUDITORIA_ESTRATEGICA_MVP_MONETIZACION_E360_BEXAURI_MAYO_2026.md` were not found in repo. `MVP_DIRECTION_1_MICROLEARNING_LOOP_ADOPTION_DECISION.md` was found as local strategic direction context.
+2. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md` is the working documentation index and source-alignment layer.
+3. `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` is the canonical student/SRA journey.
+4. `MVP_CONTENT_1` through `MVP_CONTENT_4` define the PAES_M1 roadmap/content chain.
+5. `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md` is the latest runtime validation evidence.
+6. Current code behavior is the executable truth.
+7. Optional business/strategy documents, if present, provide product context. During E1, `BEXAURI_PROPUESTA_INTEGRADA_MVP_v1.md`, `AUDITORIA_ESTRATEGICA_MVP_MONETIZACION_E360_BEXAURI_MAYO_2026.md`, and `Bexauri_Especificaciones_Director_Proyecto.pdf` were external / not versioned in repo. `MVP_DIRECTION_1_MICROLEARNING_LOOP_ADOPTION_DECISION.md` was found as local strategic direction context.
 
 ## 5. Canonical student/SRA flow
 
@@ -99,9 +100,9 @@ Only the first automatic pair is currently validated:
 
 Recommended next phase:
 
-`MVP-FLOW-4-E1 - Documentation index and source alignment for first complete M1 tutoring experience`
+`MVP-FLOW-4-E2 - Define shortest safe path to first complete M1 tutoring experience`
 
-Reason: after E0, the repo has a compact handoff but still needs a source-aligned working index that turns the existing canonical docs into a clear implementation roadmap. This should happen before defining or expanding runtime behavior, so the next implementation phase does not reconstruct context from long logs or accidentally optimize isolated verifications.
+Reason: E1 created the documentation index and context-transfer protocol. The next safe step is to define the shortest implementation roadmap for the first complete minimal PAES_M1 tutoring experience before runtime behavior changes.
 
 ## 12. Implementation boundaries for the next phase
 
@@ -123,14 +124,24 @@ It should not implement runtime behavior, change endpoints, change Prisma/schema
 - `nextjs_space/docs/operations/MVP_CONTENT_2_PAES_M1_FIRST_ACTIVE_SLICE.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_3_PAES_M1_FIRST_MICRO_STUDYLOAD_SET.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md`
+- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
 
-## 14. Quickstart prompt for future agents
+## 14. Context Transfer Protocol
+
+The assistant/agent is responsible for preserving continuity across chats.
+
+If the chat becomes long, loses focus, approaches context saturation, or Mauricio asks whether to change chats, the assistant must proactively generate a complete next-chat handoff. Do not make Mauricio responsible for remembering or reconstructing context.
+
+The handoff must include HEAD, origin/main, last accepted commit, expected working tree state, last closed phase, next recommended phase, canonical documents, this handoff file, `DOCUMENTATION_INDEX_MVP_M1.md`, validated capabilities, immature capabilities, guardrails, preflight commands, a ready-to-paste prompt, and this same protocol so the next chat propagates it again.
+
+## 15. Quickstart prompt for future agents
 
 ```text
 You are entering the E360 / Bexauri repo for the MVP-M1 tutoring line.
 
 First read:
 nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
 
 Then verify:
 git status --short
@@ -146,4 +157,5 @@ Guardrails:
 - no theta, mastery, or PAES score claims;
 - student continuity should not normally wait for supervisor/admin action;
 - LearningCycles are internal and should stay invisible to students.
+- if chat migration is needed, generate the next-chat handoff automatically.
 ```
