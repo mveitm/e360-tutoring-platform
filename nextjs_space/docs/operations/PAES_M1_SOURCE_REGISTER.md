@@ -4,17 +4,19 @@
 
 Versioned source register for official and expert references required to validate the PAES_M1 master roadmap, content metadata, item design, and next-load decision layer.
 
-This document supports MVP-SRA-ROADMAP-2A.
+This document supports MVP-SRA-ROADMAP-2A and MVP-SRA-ROADMAP-2A-1.
 
 It is documentation only. It does not import PDFs, change runtime, update content registry, mutate data, deploy, touch production, use SQL, use Prisma CLI, access `.env`, or print secrets.
 
 ## 2. Live baseline
 
-Latest accepted state before this phase:
+Latest accepted state before 2A:
 
 - HEAD = origin/main = `74dad0a`
 - Last accepted commit = `MVP-SRA-ROADMAP-1C: update context transfer template for pedagogy layer`
 - Working tree expected = clean
+
+2A-1 later updated this register after HEAD = origin/main = `32423e2`.
 
 Future agents must still run Git preflight:
 
@@ -106,25 +108,25 @@ Git preflight remains the live source of truth if this embedded baseline becomes
 - Use: official index for applied PAES questions, regular selections, winter tests, and answer keys.
 - Key captured fact: DEMRE publishes official material after PAES Invierno and Regular; from PAES Regular 2024 onward, regular PAES publishes selected questions, while winter PAES is published in full.
 
-### S-M1-007 — DEMRE PAES Regular 2025 / Admision 2026 selected M1 questions and answer key
+### S-M1-007 — DEMRE PAES Regular 2025 / Admision 2026 selected M1 questions and answer key page
 
 - Institution: DEMRE, Universidad de Chile
 - Type: official question selection and clavijero page
 - URL: https://demre.cl/publicaciones/2026/pruebas-oficiales-paes-regular-p2026
 - Process: Admision 2026
 - Status: `captured_url`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
-- Use: official item-style reference for selected M1 questions and official answer key from PAES Regular 2025.
-- Required next action: retrieve M1 selected-question PDF and M1 clavijero links from this page, then map item types to roadmap nodes and skills.
+- Use: official item-style reference page for selected M1 questions and official answer key from PAES Regular 2025.
+- Related exact PDFs: S-M1-011 and S-M1-012.
 
-### S-M1-008 — DEMRE PAES Invierno 2025 / Admision 2026 full M1 test and answer key
+### S-M1-008 — DEMRE PAES Invierno 2025 / Admision 2026 full M1 test and answer key page
 
 - Institution: DEMRE, Universidad de Chile
 - Type: official full test and clavijero page
 - URL: https://demre.cl/publicaciones/2026/pruebas-oficiales-paes-invierno-p2026
 - Process: Admision 2026
 - Status: `captured_url`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
-- Use: official full M1 applied test source for item-style, difficulty, distractor, and skill mapping.
-- Required next action: retrieve official M1 test PDF and M1 clavijero links from this page, then map items to roadmap nodes.
+- Use: official full M1 applied test source page for item-style, difficulty, distractor, and skill mapping.
+- Related exact PDFs: S-M1-013 and S-M1-014.
 
 ### S-M1-009 — Acceso Mineduc FAQ: Informacion General PAES
 
@@ -147,6 +149,74 @@ Git preflight remains the live source of truth if this embedded baseline becomes
 - Status: `captured_url`, `accepted_for_reference`, `pending_extraction`
 - Use: official curriculum context behind DEMRE's 7° basico to 2° medio reference.
 - Required next action: locate and register the exact 7° basico, 8° basico, 1° medio, and 2° medio mathematics curriculum pages / documents used for PAES_M1 roadmap validation.
+
+### S-M1-011 — DEMRE PAES Regular 2025 selected M1 questions, PDF
+
+- Institution: DEMRE, Universidad de Chile
+- Type: official PDF, selected questions
+- URL: https://demre.cl/publicaciones/pdf/2026-25-12-03-paes-regular-matematica1-p2026.pdf
+- Source page: https://demre.cl/publicaciones/2026/2026-25-12-03-paes-regular-competencia-matematica1-p2026
+- Process: Admision 2026
+- Applied date: 2025-12-03
+- Publication date: 2025-12-03
+- Pages: 41
+- Status: `captured_url`, `not_archived`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
+- Use: official selected-question style source for PAES Regular M1; useful for item types, context style, representation demands, distractors, and roadmap-node mapping.
+- Key captured fact: DEMRE describes this as a selection of 45 questions from the PAES Regular Competencia Matematica 1 (M1), Admision 2026, applied on 2025-12-03.
+- Required next action: map selected items to axes, skills, difficulty bands, item types, and evidence signals.
+
+### S-M1-012 — DEMRE PAES Regular 2025 M1 clavijero, PDF
+
+- Institution: DEMRE, Universidad de Chile
+- Type: official PDF, answer key / score transformation
+- URL: https://demre.cl/publicaciones/pdf/2026-26-01-05-clavijero-paes-regular-m1.pdf
+- Source page: https://demre.cl/publicaciones/2026/2026-26-01-05-clavijero-paes-regular-m1-p2026
+- Process: Admision 2026
+- Applied date: 2025-12-03
+- Publication date: 2026-01-05
+- Pages: 6
+- Status: `captured_url`, `not_archived`, `accepted_for_reference`, `pending_extraction`
+- Use: official keys for PAES Regular M1 and transformation table reference.
+- Key captured facts:
+  - M1 has 65 questions.
+  - 60 questions are used for score calculation.
+  - All scored questions have equal weight, independent of difficulty.
+  - Five starred questions are excluded from Puntaje P.
+- Required next action: use only for official answer/reference mapping, not for Bexauri PAES score claims.
+
+### S-M1-013 — DEMRE PAES Invierno 2025 full M1 test, PDF
+
+- Institution: DEMRE, Universidad de Chile
+- Type: official PDF, full applied test
+- URL: https://demre.cl/publicaciones/pdf/2026-25-06-18-paes-invierno-oficial-matematica1-p2026.pdf
+- Source page: https://demre.cl/publicaciones/2026/2026-25-06-18-paes-invierno-competencia-matematica1-p2026
+- Process: Admision 2026
+- Applied date: 2025-06-18
+- Publication date: 2025-06-18
+- Pages: 57
+- Status: `captured_url`, `not_archived`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
+- Use: official full M1 applied test source; stronger grounding than selected Regular questions for item distribution, item style, and roadmap coverage.
+- Key captured fact: DEMRE describes this as the PAES de Invierno Competencia Matematica 1 (M1), applied on 2025-06-18.
+- Required next action: map all 65 items to axes, skills, difficulty bands, item types, and evidence signals.
+
+### S-M1-014 — DEMRE PAES Invierno 2025 M1 clavijero, PDF
+
+- Institution: DEMRE, Universidad de Chile
+- Type: official PDF, answer key / score transformation
+- URL: https://demre.cl/publicaciones/pdf/2026-25-07-18-clavijero-paes-invierno-m1.pdf
+- Source page: https://demre.cl/publicaciones/2026/2026-25-07-18-clavijero-paes-invierno-m1-p2026
+- Process: Admision 2026
+- Applied date: 2025-06-18
+- Publication date: 2025-07-18
+- Pages: 6
+- Status: `captured_url`, `not_archived`, `accepted_for_reference`, `pending_extraction`
+- Use: official keys for PAES Invierno M1 and transformation table reference.
+- Key captured facts:
+  - M1 has 65 questions.
+  - 60 questions are used for score calculation.
+  - All scored questions have equal weight, independent of difficulty.
+  - Five starred questions are excluded from Puntaje P.
+- Required next action: use only for official answer/reference mapping, not for Bexauri PAES score claims.
 
 ## 5. Tier 1 expert pedagogical sources
 
@@ -201,11 +271,12 @@ AI output must not become canonical unless checked against Tier 0 official sourc
 
 ## 8. Immediate source gaps
 
-- Exact official PDF files for selected PAES Regular 2025 M1 questions and M1 clavijero still need to be opened and registered directly.
-- Exact official PDF files for full PAES Invierno 2025 M1 and M1 clavijero still need to be opened and registered directly.
-- Exact Curriculum Nacional 7° basico to 2° medio mathematics documents need to be identified and registered.
+- Exact official PDF files for selected PAES Regular 2025 M1 questions and M1 clavijero are now registered as S-M1-011 and S-M1-012.
+- Exact official PDF files for full PAES Invierno 2025 M1 and M1 clavijero are now registered as S-M1-013 and S-M1-014.
+- Exact Curriculum Nacional 7° basico to 2° medio mathematics documents still need to be identified and registered.
 - Expert reviewer identity and review workflow remain pending.
 - No official source has been archived locally; only URLs and metadata are captured.
+- The official M1 item PDFs have not yet been mapped to Bexauri roadmap nodes.
 
 ## 9. Rules for future source use
 
@@ -216,6 +287,7 @@ AI output must not become canonical unless checked against Tier 0 official sourc
 - Do not treat AI classification as authority.
 - Do not let source/expert review become a normal student-facing gate.
 - Preserve non-blocking continuity: review improves the system asynchronously.
+- Do not use DEMRE clavijeros or transformation tables to make Bexauri PAES score claims in MVP-Beta.
 
 ## 10. Recommended next phase
 
@@ -225,15 +297,15 @@ Recommended next phase:
 
 Purpose:
 
-- map existing internal roadmap axes/nodes against S-M1-003 and S-M1-005;
+- map existing internal roadmap axes/nodes against S-M1-003, S-M1-005, S-M1-011, and S-M1-013;
 - identify gaps, overreach, missing nodes, and ambiguous mappings;
 - prepare expert review checklist.
 
 Alternative narrower phase:
 
-`MVP-SRA-ROADMAP-2A-1 - Register exact official M1 question PDFs and clavijeros`
+`MVP-SRA-ROADMAP-2A-2 - Register exact Curriculum Nacional 7° basico to 2° medio mathematics sources`
 
-Use this if the team wants stronger item-style grounding before roadmap mapping.
+Use this if the team wants complete curriculum grounding before roadmap mapping.
 
 ## 11. Handoff requirements
 
