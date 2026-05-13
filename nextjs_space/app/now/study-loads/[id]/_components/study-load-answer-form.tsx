@@ -8,7 +8,7 @@
 // Receives only safe props — no correctOptionKey, no scoring data.
 // Server-side ownership check remains in the parent page.tsx.
 
-import { useState, useCallback, useRef, useTransition } from 'react'
+import { useState, useCallback, useEffect, useRef, useTransition } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
@@ -114,6 +114,19 @@ export default function StudyLoadAnswerForm({
     submitResult?.hasAnswerKey ?? feedback?.hasAnswerKey
   const isPendingOrReleased =
     studyLoadStatus === 'pending' || studyLoadStatus === 'released'
+
+  useEffect(() => {
+    if (!canFinalizeAfterSubmission) return
+
+    const timeoutId = window.setTimeout(() => {
+      closureBlockRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }, 50)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [canFinalizeAfterSubmission])
 
   // ── Select handler ──────────────────────────────────────────
   const handleSelect = useCallback(
