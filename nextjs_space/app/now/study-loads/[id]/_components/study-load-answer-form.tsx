@@ -355,16 +355,11 @@ export default function StudyLoadAnswerForm({
                   </Button>
                 </div>
               ) : (
-                <div className="mt-4 pt-4 border-t border-current/10 space-y-3">
-                  <p className="text-sm font-semibold text-green-700 dark:text-green-400">
-                    Actividad finalizada. Tu avance quedó registrado.
-                  </p>
-                  <Button asChild variant="outline" size="sm" className="w-full">
-                    <Link href="/now" className="gap-1.5">
-                      <ArrowLeft className="h-4 w-4" />
-                      Volver a /now
-                    </Link>
-                  </Button>
+                <div className="mt-4 pt-4 border-t border-current/10">
+                  <div className="flex items-center justify-center gap-2 text-sm font-medium text-green-700 dark:text-green-400">
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Actualizando tu avance…
+                  </div>
                 </div>
               )}
             </div>
