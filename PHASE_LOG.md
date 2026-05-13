@@ -8306,3 +8306,69 @@ Scope preserved:
 
 Next recommended phase:
 - `MVP-FLOW-4-E5E - Improve post-completion navigation after Finalizar actividad`.
+
+## MVP-FLOW-4-E5E - Improve post-completion navigation after Finalizar actividad
+
+Status: CLOSED
+
+MVP-FLOW-4-E5E improved the student post-completion navigation so a completed activity returns the student to `/now` immediately after `Finalizar actividad`.
+
+Phase type:
+- Narrow student UX navigation improvement.
+
+Files changed:
+- `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+- `PHASE_LOG.md`.
+
+Implemented behavior:
+- After successful `POST /api/study-loads/[id]/complete`, the student is redirected to `/now`.
+- Replaced activity-page refresh after completion with `router.push('/now')`.
+- Completion API behavior preserved.
+- Response submission behavior preserved.
+- E4A feedback behavior preserved.
+- Continuity behavior preserved.
+
+Validation:
+- `git diff --check` passed, CRLF warning only.
+- Build from `nextjs_space` with `npm.cmd run build` passed.
+- Browser validation passed.
+
+Browser validation evidence:
+- Fixture: `Flow5B Verify M 1` / `flow5b.verify@student.bexauri.local` / `PAES_M1`.
+- Activity used: `PAES M1 - Refuerzo de ecuaciones lineales`.
+- Before validation, `/now` showed Refuerzo as `En curso`.
+- Student opened the activity, answered 4 questions, submitted responses, saw feedback, selected self-report, and clicked `Finalizar actividad`.
+- After `Finalizar actividad`, the app automatically returned to `/now`.
+- `/now` showed `Actividad registrada` message.
+- `/now` showed `Actividades registradas (4)`:
+  - `PAES M1 - Refuerzo de ecuaciones lineales`, self-report `Me fue bien`.
+  - `PAES M1 - Problemas con ecuaciones lineales`, self-report `Me fue bien`.
+  - `PAES M1 - Ecuaciones lineales basicas`, self-report `Me fue bien`.
+  - `PAES M1 - Entrada balanceada inicial`, self-report `Me fue bien`.
+- No next pending StudyLoad appeared, as expected, because no continuity edge beyond reinforcement exists yet.
+
+Scope preserved:
+- No schema changes.
+- No Prisma model changes.
+- No content registry changes.
+- No continuity-rule changes.
+- No StudyLoad creation logic changes.
+- No response submission API changes.
+- No completion API changes.
+- No admin surface changes.
+- No scoring, mastery, theta, PAES score, adaptive AI, or diagnosis claims.
+- No SQL.
+- No Prisma CLI.
+- No `npm install`.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX.
+- No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts.
+- No commit or push during validation before review.
+
+Next recommended phase:
+- `MVP-FLOW-4-E5F - Direction checkpoint after first complete 4-load PAES_M1 path`:
+  - Option A: prepare manual review / CycleDecision readiness.
+  - Option B: add and validate the next edge from reinforcement to functions.
+  - Option C: document the first complete M1 guided tutoring path as MVP-Beta-ready locally.
