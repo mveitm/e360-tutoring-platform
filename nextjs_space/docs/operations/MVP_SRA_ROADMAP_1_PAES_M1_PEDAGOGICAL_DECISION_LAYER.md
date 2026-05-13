@@ -51,7 +51,9 @@ The answer may be:
 - cycle checkpoint;
 - mini-ensayo;
 - guided error review;
-- or human/expert review.
+- or an asynchronous human/expert review request.
+
+A review request is not a normal student-facing gate. If no operator acts, Bexauri must still preserve efficient student continuity through the best available safe rule-based or agent-supported next action.
 
 ## 4. Layer separation
 
@@ -80,7 +82,7 @@ The pedagogical layer decides:
 - which next load type best serves the student's trajectory;
 - how to preserve motivation and avoid monotony;
 - when to introduce cycle milestones, checkpoints, or mini-ensayos;
-- when human/expert review should intervene.
+- when to request asynchronous operator/expert review without blocking normal continuity.
 
 ### Future tutor agent layer
 
@@ -88,7 +90,31 @@ The future agent per tutoring program should execute or assist this pedagogical 
 
 It should not invent the roadmap freely. It should operate inside a governed PAES_M1 roadmap, using evidence and constraints defined by Bexauri.
 
-## 5. Expert PAES_M1 requirement
+## 5. Non-blocking operator principle
+
+Bexauri operators, supervisors, and expert reviewers do not normally stop, gate, or condition the student's next learning action.
+
+Their work is asynchronous and parallel to the student experience:
+
+- administration;
+- quality review;
+- pedagogical optimization;
+- evidence review;
+- content improvement;
+- roadmap refinement;
+- insertion of special loads or cycle milestones when useful.
+
+If operators do not act, the system must still continue efficiently for the student through the best available safe rule-based or agent-supported next-load decision.
+
+Human/expert intervention may modify, improve, correct, or override the path, but it must not become the default bottleneck.
+
+Only explicit future safety, integrity, or exceptional pedagogical policies may pause student continuity. Those policies must be separately defined, versioned, and justified.
+
+Operational rule:
+
+`review != gate; supervision != bottleneck; operator action != prerequisite for normal student continuity.`
+
+## 6. Expert PAES_M1 requirement
 
 The PAES_M1 roadmap must not be only an internal product guess.
 
@@ -98,6 +124,8 @@ Before it becomes production-grade, it must be grounded in:
 2. expert pedagogical review for PAES M1 preparation;
 3. Bexauri's own evidence from student work;
 4. documented product guardrails.
+
+The expert review should validate the roadmap and improve Bexauri's decision quality, without becoming the default gate for normal student progression.
 
 The expert review should validate:
 
@@ -113,7 +141,7 @@ The expert review should validate:
 
 AI may help draft, classify, and propose decisions, but it is not the sole authority for PAES_M1 pedagogy.
 
-## 6. Roadmap model
+## 7. Roadmap model
 
 A complete PAES_M1 tutoring roadmap should include at least:
 
@@ -143,7 +171,7 @@ The active slice is the current useful segment for a student.
 
 The next learning action is not always a normal StudyLoad; it may later be a special checkpoint, mini-ensayo, guided review, or cycle closure action.
 
-## 7. Student state model
+## 8. Student state model
 
 Bexauri should track a student state that is richer than completed/not completed.
 
@@ -159,12 +187,12 @@ Minimum conceptual dimensions:
 - novelty tolerance;
 - coverage history across axes;
 - recent monotony risk;
-- pending expert review flag;
+- asynchronous expert review flag;
 - last cycle milestone status.
 
 MVP-Beta may track some of this manually or implicitly. Future versions should make the state more explicit and machine-readable.
 
-## 8. Evidence model
+## 9. Evidence model
 
 Evidence may include:
 
@@ -187,7 +215,7 @@ Evidence may include:
 
 No single micro activity should produce a definitive PAES score, theta estimate, or mastery claim in MVP-Beta.
 
-## 9. Next-load decision types
+## 10. Next-load decision types
 
 The pedagogical layer should choose between these decision types:
 
@@ -232,7 +260,13 @@ Use when the student should return to another axis or skill to preserve coverage
 
 Use when the student has completed a meaningful local segment and should receive a checkpoint, guided review, mini-ensayo, or cycle closure action.
 
-## 10. Anti-monotony principle
+### Async review request
+
+Use when the system should ask an operator, supervisor, or expert to review evidence or improve the route in parallel.
+
+This is not a default pause. Student continuity should proceed using the safest available next action unless a separately defined exceptional policy says otherwise.
+
+## 11. Anti-monotony principle
 
 Bexauri must not trap the student in endless reinforcement of the same item type.
 
@@ -245,7 +279,7 @@ After one or two similar reinforcements, the system should change strategy. Opti
 - use a bridge load;
 - use a confidence-building load;
 - switch temporarily to another axis;
-- trigger expert review;
+- request asynchronous expert review;
 - create a guided error review;
 - prepare a checkpoint or cycle milestone.
 
@@ -253,7 +287,7 @@ Pedagogical goal:
 
 `I can do this -> I can also do this with something new -> I am progressing across the roadmap.`
 
-## 11. Progression rhythm
+## 12. Progression rhythm
 
 A healthy tutoring path should not feel like a task queue.
 
@@ -271,7 +305,7 @@ It should have rhythm:
 
 This rhythm should preserve student confidence while introducing gradual challenge.
 
-## 12. Cycle milestones and special learning actions
+## 13. Cycle milestones and special learning actions
 
 Future cycle closures do not need to be normal StudyLoads.
 
@@ -292,7 +326,9 @@ These special actions can make the experience more motivating and prevent monoto
 
 MVP-Beta may represent them manually or as normal StudyLoads first, but the target model should allow non-StudyLoad cycle milestones later.
 
-## 13. Coverage policy
+Manual insertion of a special action by an operator is allowed as an optimization, not as a prerequisite for the system to keep serving the student.
+
+## 14. Coverage policy
 
 A complete PAES_M1 tutoring path must not overfit only to the first algebra/functions chain.
 
@@ -311,7 +347,7 @@ The decision layer should consider:
 - time horizon to exam;
 - expert pedagogical priority.
 
-## 14. Feedback in-load role
+## 15. Feedback in-load role
 
 Feedback is not just a result display.
 
@@ -326,7 +362,7 @@ Each item should eventually help identify:
 
 MVP-Beta feedback can remain basic, but future item design should include feedback metadata.
 
-## 15. MVP-Beta version
+## 16. MVP-Beta version
 
 MVP-Beta should not implement a full adaptive engine yet.
 
@@ -335,11 +371,13 @@ The MVP-Beta version can be:
 - roadmap documented manually;
 - content tagged lightly in registry or docs;
 - rule-based next-load selection for the first paths;
-- human-supervised adjustment;
+- asynchronous human-supervised adjustment as a parallel optimization layer;
 - no PAES score claims;
 - no theta;
 - no automatic mastery;
-- no autonomous agent decisions without review.
+- no autonomous exceptional/high-stakes decisions without governance and auditability.
+
+Default student continuity must not wait for operator review. If no operator acts, the system should continue with the safest available rule-based path.
 
 Minimum decision rule format for MVP-Beta:
 
@@ -351,7 +389,7 @@ Minimum decision rule format for MVP-Beta:
 - rationale;
 - guardrail notes.
 
-## 16. Future tutor agent
+## 17. Future tutor agent
 
 A future PAES_M1 tutor agent should:
 
@@ -364,11 +402,11 @@ A future PAES_M1 tutor agent should:
 - explain the rationale for supervisor audit;
 - respect anti-monotony and coverage rules;
 - avoid unsupported PAES score or mastery claims;
-- escalate uncertain cases to human review.
+- request asynchronous human review for uncertain cases while preserving safe fallback continuity unless a separately defined exceptional policy applies.
 
 The agent should be program-specific. A PAES_M1 agent should not freely generalize from L1 or M2 without a program-specific roadmap.
 
-## 17. Required next work
+## 18. Required next work
 
 Before implementing an intelligent next-load selector, Bexauri should complete:
 
@@ -378,9 +416,9 @@ Before implementing an intelligent next-load selector, Bexauri should complete:
 4. MVP-Beta rule format.
 5. Anti-monotony limits.
 6. Cycle milestone policy.
-7. Expert review workflow.
+7. Asynchronous expert review workflow.
 
-## 18. Recommended next phase
+## 19. Recommended next phase
 
 Recommended next phase:
 
