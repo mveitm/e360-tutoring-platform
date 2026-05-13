@@ -2,9 +2,9 @@
 
 ## 1. Purpose
 
-This is the first-read context document for agents working on the Bexauri MVP-M1 tutoring line. It is intended for ChatGPT, Codex, Abacus, or another development copiloto entering the repo without the prior chat context.
+This is the first-read operational handoff for agents working on the Bexauri MVP-M1 tutoring line.
 
-Use this document to understand the current direction before proposing or implementing future phases.
+Its job is to prevent loss of context when switching chats or tools, especially now that Bexauri is moving from operational continuity into its most important layer: the PAES_M1 pedagogical roadmap and next-load decision layer.
 
 ## 2. Live-state rule
 
@@ -19,169 +19,206 @@ git log --oneline --decorate --graph -8
 
 Git preflight is the live truth. If Git preflight contradicts embedded baselines in this handoff, the documentation index, the context-transfer template, PHASE_LOG excerpts, or any phase-specific handoff, Git wins and the mismatch must be explicitly flagged.
 
-## 3. Last verified Git state before E5G hardening
+## 3. Latest accepted state before this handoff refresh
 
-The E5G direction-checkpoint chat verified this intake state:
+Latest accepted state before refreshing this file:
 
-- HEAD = origin/main = `283851a`.
-- Last accepted commit at intake: `MVP-FLOW-4-E5G-0: add direction checkpoint handoff`.
-- Working tree: clean.
+- HEAD = origin/main = `fcb88c1`
+- Last accepted commit = `MVP-SRA-ROADMAP-1A: clarify non-blocking operator principle`
+- Working tree expected = clean
 
-After this document is edited and committed, live `HEAD` will be newer than `283851a`. That is expected. Future chats must use live Git preflight, not this static paragraph, as truth.
+If this file is edited and committed, live `HEAD` will be newer than `fcb88c1`. Future agents must use live Git preflight as truth.
 
 ## 4. Current strategic objective
 
-The current objective is the first complete minimal `PAES_M1` tutoring experience.
+The current objective is no longer only to prove a linear local PAES_M1 path.
 
-Do not expand to L1 or M2 yet. Do not keep adding isolated verifications by inertia. The path should be the shortest safe path to MVP-Beta, not maximal architecture.
+The validated operational loop now allows Bexauri to move a student through StudyLoads. The next strategic objective is to define and protect the pedagogical layer that decides the next learning action across a complete PAES_M1 tutoring roadmap.
 
-## 5. Source-of-truth hierarchy
+The goal is a full M1 tutoring experience where the student progresses through relevant axes, skills, difficulty levels, evidence, feedback, and cycle milestones without depending on manual operator action as a normal bottleneck.
 
-1. Live Git preflight = current repo state.
-2. Current code behavior = executable truth.
-3. `PHASE_LOG.md` = audit trail and continuity ledger.
-4. `nextjs_space/docs/operations/MVP_FLOW_4_E5G_0_DIRECTION_CHECKPOINT_HANDOFF.md` = latest E5G direction checkpoint / immediate next-phase handoff.
-5. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md` = working documentation index and source-alignment layer.
-6. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` = stable next-chat handoff template/contract.
-7. `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` = canonical student/SRA journey.
-8. `MVP_CONTENT_1` through `MVP_CONTENT_4` = PAES_M1 roadmap/content chain.
-9. `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md` = runtime validation evidence for the first automatic pair.
-10. Optional business/strategy documents, if present, provide product context. They are supporting context, not runtime source of truth unless explicitly versioned and accepted.
+## 5. Current canonical documents
 
-## 6. Canonical student/SRA flow
+Read these first for the current phase context:
 
-Student enters tutoring -> receives first StudyLoad -> starts activity -> answers -> self-reports -> completes in activity -> Bexauri records evidence -> Bexauri prepares next StudyLoad -> supervisor reviews in parallel.
+1. `nextjs_space/docs/operations/MVP_SRA_ROADMAP_1_PAES_M1_PEDAGOGICAL_DECISION_LAYER.md`
+2. `nextjs_space/docs/operations/MVP_FLOW_4_E5M_M1_LOCAL_PATH_VALIDATION_AND_CONTENT_ALIGNMENT.md`
+3. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
+4. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+5. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`
+6. `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`
+7. `nextjs_space/docs/operations/MVP_DIRECTION_1_MICROLEARNING_LOOP_ADOPTION_DECISION.md`
+8. `nextjs_space/docs/operations/MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md`
+9. `nextjs_space/docs/operations/MVP_CONTENT_2_PAES_M1_FIRST_ACTIVE_SLICE.md`
+10. `nextjs_space/docs/operations/MVP_CONTENT_3_PAES_M1_FIRST_MICRO_STUDYLOAD_SET.md`
+11. `nextjs_space/docs/operations/MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md`
 
-The student should experience learning continuity. LearningCycles, internal status transitions, evidence custody, and supervisor review should remain internal unless explicitly needed for student orientation.
+## 6. Validated operational loop
 
-## 7. Current validated capabilities
+The local PAES_M1 flow has been validated through:
 
-- MVP-FLOW-2 first enrollment bootstrap exists.
-- `/now` hides cycle-facing language from the student.
-- Content-backed StudyLoad viewer exists.
-- MC responses can be submitted.
-- In-activity completion and self-report exist.
-- First rule-based continuity pair is implemented and locally validated:
-  - `paes_m1_balanced_entry_initial` -> `paes_m1_linear_equations_basic`.
-- `/now` shows the next pending StudyLoad after completion.
-- Cycle remains open and no CycleDecision, CycleEvaluation, or new cycle is created by this continuity.
-- E5A-E5F closed the latest student-flow debts:
-  - `paes_m1_linear_equations_word_problems` -> `paes_m1_linear_equations_reinforcement` exists and was locally validated.
-  - `Empezar` starts a pending StudyLoad and opens the activity directly.
-  - Admin-mediated student account creation exists; public signup remains closed.
-  - `Finalizar actividad` returns the student to `/now`.
-  - Submitted-but-not-completed loads are shown as `Pendiente de cierre`.
-  - In pending-closure state, the closure block appears before instructions in the activity view.
+```text
+PAES M1 - Entrada balanceada inicial
+-> PAES M1 - Ecuaciones lineales basicas
+-> PAES M1 - Problemas con ecuaciones lineales
+-> PAES M1 - Refuerzo de ecuaciones lineales
+-> PAES M1 - Funciones lineales basicas
+-> /now final state with all activities registered and no pending loads
+```
 
-## 8. Current PAES_M1 pedagogical interpretation
+Student-facing behavior validated:
 
-The PAES_M1 operating chain is:
+- answer questions;
+- submit answers;
+- self-report block appears without manual scroll;
+- finalize activity;
+- loading state appears: `Actualizando tu avance...`;
+- `/now` opens updated without manual refresh.
 
-master roadmap -> active slice -> micro StudyLoad -> evidence -> supervised adjustment -> next active slice.
+Preserved guardrails:
 
-The first active slice focuses on:
+- no deploy;
+- no production operation;
+- no SQL;
+- no Prisma CLI;
+- no `.env` or secrets;
+- no schema changes;
+- no CycleDecision creation;
+- no CycleEvaluation creation;
+- no LearningCycle close;
+- no new LearningCycle creation;
+- no adaptive AI, theta, mastery, scoring, or PAES score claim.
 
-- algebraic readiness;
-- linear equations;
-- context to equation;
-- linear functions;
-- proportional reasoning as support;
-- data interpretation as low-friction observation.
+## 7. Pedagogical decision layer context
 
-This is a supervised MVP-Beta roadmap interpretation, not a full adaptive engine.
+This context must be propagated in every future handoff.
 
-## 9. Existing first M1 content path
+Bexauri is now defining the layer that decides the next learning action. A linear continuity map is not sufficient.
 
-Current first path:
+The pedagogical layer must decide based on:
 
-1. PAES M1 - Entrada balanceada inicial.
-2. PAES M1 - Ecuaciones lineales basicas.
-3. PAES M1 - Problemas con ecuaciones lineales.
-4. PAES M1 - Refuerzo de ecuaciones lineales.
-5. PAES M1 - Funciones lineales basicas.
+- PAES_M1 roadmap position;
+- current active slice;
+- recent evidence;
+- self-report;
+- repeated errors;
+- prerequisite risk;
+- confidence / frustration signals;
+- novelty tolerance;
+- coverage history across axes and skills;
+- monotony risk;
+- expert PAES_M1 relevance;
+- cycle milestone state.
 
-Validated automatic edges currently include:
+Possible decision types include:
 
-- `paes_m1_balanced_entry_initial` -> `paes_m1_linear_equations_basic`.
-- `paes_m1_linear_equations_basic` -> `paes_m1_linear_equations_word_problems`.
-- `paes_m1_linear_equations_word_problems` -> `paes_m1_linear_equations_reinforcement`.
+- practice;
+- reinforce;
+- bridge;
+- advance;
+- validate;
+- hold;
+- redirect;
+- spiral;
+- cycle milestone;
+- asynchronous review request.
 
-E5G decision: the next edge should be added and validated before calling the first M1 path MVP-Beta-ready locally:
+The future PAES_M1 tutor agent must operate inside a governed roadmap. It must not freely invent the roadmap or make unsupported PAES score, theta, mastery, or adaptive AI claims.
 
-- `paes_m1_linear_equations_reinforcement` -> `paes_m1_linear_functions_basic`.
+## 8. Non-blocking operator principle
+
+This principle is critical and must be preserved in every future handoff:
+
+```text
+review != gate
+supervision != bottleneck
+operator action != prerequisite for normal student continuity
+```
+
+Operators, supervisors, and expert reviewers work asynchronously and in parallel. They may administer, review, optimize, improve content, adjust the roadmap, insert special loads, or add cycle milestones.
+
+But if operators do not act, Bexauri must still continue efficiently for the student through the best available safe rule-based or agent-supported next-load decision.
+
+Human/expert intervention may improve or override the path, but it must not become the default bottleneck. Only separately defined, versioned, and justified exceptional policies may pause student continuity.
+
+## 9. Content alignment status
+
+The current validated path uses some 8-item registry-aligned activities.
+
+Current verdict:
+
+```text
+8-item registry-aligned activities are allowed as transitional content,
+but they are not the ideal final micro StudyLoad format.
+```
+
+Target direction remains:
+
+```text
+Micro StudyLoad = ideally 4 exercises where appropriate.
+```
+
+Do not reduce the roadmap question to item count. First define the pedagogical decision layer and expert PAES_M1 roadmap. Then decide how to split or redesign loads.
 
 ## 10. What is not mature yet
 
+- No full PAES_M1 expert-validated roadmap.
+- No intelligent next-load selector.
+- No full content metadata model for roadmap nodes/item purpose.
+- No autonomous tutor agent.
 - No adaptive AI.
 - No theta.
 - No PAES score prediction.
 - No automatic mastery.
-- No full roadmap engine.
-- No full supervisor evidence workflow.
 - No L1/M2 replication.
-- No complete M1 tutoring path validated through functions yet.
+- No production beta invitation decision.
 
 ## 11. Product guardrails
 
 - Avoid overpromising.
 - Do not call rule-based progression adaptive AI.
-- Do not make PAES score or mastery claims from micro StudyLoads.
-- Supervisor is asynchronous quality control, not the normal release bottleneck.
-- LearningCycles are internal and should stay invisible to students.
-- Preserve student continuity as the default path unless a later explicit phase introduces a justified review gate.
+- Do not make PAES score, theta, or mastery claims from micro StudyLoads.
+- Do not let operator or supervisor review become the normal student-facing gate.
+- LearningCycles are internal and should stay invisible to students unless an accepted future phase changes that rule.
+- Preserve student continuity as the default path.
+- Treat special cycle milestones, mini-ensayos, checkpoints, and guided reviews as future pedagogical actions, not as blockers.
+- Keep L1/M2 out of scope until PAES_M1 core is stable.
 
-## 12. Current next phase
+## 12. Recommended next phase
 
 Recommended next phase:
 
 ```text
-MVP-FLOW-4-E5H - Add and validate reinforcement -> linear functions continuity edge
+MVP-SRA-ROADMAP-2 - PAES M1 expert roadmap source and validation plan
 ```
 
-Reason: E5G chose option B. The path has validated continuity through `Refuerzo de ecuaciones lineales`, and the functions content already exists in the registry. The shortest safe path to a first complete M1 guided local MVP-Beta candidate is to add and validate the missing rule-based continuity edge to `Funciones lineales basicas`.
+Purpose:
 
-## 13. Implementation boundaries for E5H
+- identify official and expert sources;
+- define how the PAES_M1 master roadmap will be validated;
+- decide what must be versioned before implementing smarter next-load selection;
+- prevent Bexauri from building a plausible but pedagogically weak roadmap.
 
-E5H may implement only the narrow runtime edge and local validation required for:
+Alternative if staying closer to implementation:
 
 ```text
-paes_m1_linear_equations_reinforcement -> paes_m1_linear_functions_basic
+MVP-SRA-ROADMAP-2 - Define MVP-Beta next-load decision record format
 ```
 
-It should not change schema, add AI/adaptive logic, change content beyond what is necessary for the continuity edge, deploy, touch production, run SQL, use Prisma CLI, access `.env`, print secrets, or expand to L1/M2.
+Recommended order:
 
-Validation must confirm:
+1. Expert/source validation plan.
+2. Decision record format.
+3. Content metadata alignment.
+4. Rule-based selector prototype.
 
-- completing reinforcement creates functions as pending;
-- student returns to `/now`;
-- `/now` shows the new pending functions load;
-- no CycleDecision is created;
-- no CycleEvaluation is created;
-- no LearningCycle close occurs;
-- no new LearningCycle is created.
-
-## 14. Files likely relevant for E5H
-
-- `PHASE_LOG.md`
-- `nextjs_space/lib/study-load-continuity.ts`
-- `nextjs_space/lib/study-load-content.ts`
-- `nextjs_space/app/api/study-loads/[id]/complete/route.ts`
-- `nextjs_space/app/now/page.tsx`
-- `nextjs_space/app/now/study-loads/[id]/page.tsx`
-- `nextjs_space/docs/operations/MVP_FLOW_4_E5G_0_DIRECTION_CHECKPOINT_HANDOFF.md`
-- `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`
-- `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_2_PAES_M1_FIRST_ACTIVE_SLICE.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_3_PAES_M1_FIRST_MICRO_STUDYLOAD_SET.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md`
-- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
-
-## 15. Context Transfer Protocol
+## 13. Context Transfer Protocol
 
 The assistant/agent is responsible for preserving continuity across chats.
 
-If the chat becomes long, loses focus, approaches context saturation, or Mauricio asks whether to change chats, the assistant must proactively generate a complete next-chat handoff. Do not make Mauricio responsible for remembering or reconstructing context.
+If the chat becomes long, loses focus, approaches context saturation, or Mauricio asks whether to change chats, the assistant must proactively generate a complete next-chat handoff.
+
+Do not make Mauricio responsible for remembering or reconstructing context.
 
 Every next-chat handoff must include:
 
@@ -192,18 +229,16 @@ Every next-chat handoff must include:
 - last closed phase;
 - next recommended phase;
 - canonical documents;
-- current phase handoff file;
-- documentation index file;
-- validated capabilities;
+- current pedagogical decision layer context;
+- non-blocking operator principle;
+- validated operational capabilities;
 - immature capabilities;
 - product and technical guardrails;
 - preflight commands;
 - ready-to-paste prompt;
-- the same Context Transfer Protocol so the next chat propagates it again.
+- this same Context Transfer Protocol so the next chat propagates it again.
 
-Future next-chat handoffs should use `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` as the canonical template.
-
-## 16. Quickstart prompt for future agents
+## 14. Quickstart prompt for future agents
 
 ```text
 You are entering the E360 / Bexauri repo for the MVP-M1 tutoring line.
@@ -212,27 +247,34 @@ First verify Git preflight:
 git status --short
 git log --oneline --decorate --graph -8
 
-Git preflight output is live truth. If it contradicts embedded baselines in the handoff, index, template, or PHASE_LOG excerpts, flag the mismatch and prefer Git preflight.
+Git preflight output is live truth. If it contradicts embedded baselines in handoff/index/template/PHASE_LOG excerpts, flag the mismatch and prefer Git preflight.
 
 First read:
-nextjs_space/docs/operations/MVP_FLOW_4_E5G_0_DIRECTION_CHECKPOINT_HANDOFF.md
+nextjs_space/docs/operations/MVP_SRA_ROADMAP_1_PAES_M1_PEDAGOGICAL_DECISION_LAYER.md
+nextjs_space/docs/operations/MVP_FLOW_4_E5M_M1_LOCAL_PATH_VALIDATION_AND_CONTENT_ALIGNMENT.md
 nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
 nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
 nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
-PHASE_LOG.md latest MVP-FLOW-4 entries
+nextjs_space/docs/operations/MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md
+nextjs_space/docs/operations/MVP_CONTENT_2_PAES_M1_FIRST_ACTIVE_SLICE.md
+nextjs_space/docs/operations/MVP_CONTENT_3_PAES_M1_FIRST_MICRO_STUDYLOAD_SET.md
+nextjs_space/docs/operations/MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md
 
-Assume the next task is MVP-FLOW-4-E5H unless Mauricio explicitly changes direction:
-Add and validate the rule-based continuity edge
-paes_m1_linear_equations_reinforcement -> paes_m1_linear_functions_basic.
+Current strategic focus:
+Define and protect the PAES_M1 pedagogical roadmap / next-load decision layer before building smarter selector logic.
+
+Critical principle:
+review != gate; supervision != bottleneck; operator action != prerequisite for normal student continuity.
+
+Recommended next phase:
+MVP-SRA-ROADMAP-2 - PAES M1 expert roadmap source and validation plan.
 
 Guardrails:
-- first complete M1 tutoring experience before L1/M2;
-- rule-based continuity in MVP-Beta, not adaptive AI;
-- no theta, mastery, scoring, or PAES score claims;
 - no deploy or production;
 - no SQL, Prisma CLI, .env, or secrets;
-- student continuity should not normally wait for supervisor/admin action;
-- LearningCycles are internal and should stay invisible to students;
-- if chat migration is needed, generate the next-chat handoff automatically;
-- every future handoff must propagate the rule that Git preflight overrides stale documentation baselines.
+- no schema or runtime changes unless explicitly authorized in a later phase;
+- no adaptive AI, theta, mastery, scoring, or PAES score claims;
+- no L1/M2 expansion;
+- preserve student continuity as the default path;
+- every future handoff must carry the pedagogical decision layer and non-blocking operator principle.
 ```
