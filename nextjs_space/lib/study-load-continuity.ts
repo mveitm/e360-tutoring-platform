@@ -8,6 +8,7 @@ const NEXT_STUDYLOAD_BY_PROGRAM_AND_CONTENT_KEY: Record<string, Record<string, s
   PAES_M1: {
     paes_m1_balanced_entry_initial: 'paes_m1_linear_equations_basic',
     paes_m1_linear_equations_basic: 'paes_m1_linear_equations_word_problems',
+    paes_m1_linear_equations_word_problems: 'paes_m1_linear_equations_reinforcement',
   },
 }
 

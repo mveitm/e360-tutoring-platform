@@ -7997,3 +7997,72 @@ Forbidden actions respected:
 - No `.env` access or secrets inspected.
 - No generated PDF/DOCX.
 - No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts, commit, or push.
+
+## MVP-FLOW-4-E5A - Add next PAES_M1 continuity edge to reinforcement
+
+Status: CLOSED
+
+MVP-FLOW-4-E5A added the next explicit PAES_M1 rule-based continuity edge and aligned the target reinforcement StudyLoad with the accepted micro StudyLoad limit.
+
+Phase type:
+- Narrow runtime continuity edge + narrow content registry alignment.
+
+Files changed:
+- `nextjs_space/lib/study-load-continuity.ts`.
+- `nextjs_space/lib/study-load-content.ts`.
+- `PHASE_LOG.md`.
+
+Implemented edge:
+- `paes_m1_linear_equations_word_problems` -> `paes_m1_linear_equations_reinforcement`.
+
+Existing edges preserved:
+- `paes_m1_balanced_entry_initial` -> `paes_m1_linear_equations_basic`.
+- `paes_m1_linear_equations_basic` -> `paes_m1_linear_equations_word_problems`.
+
+Content alignment:
+- `PAES M1 - Refuerzo de ecuaciones lineales` was aligned with the accepted micro StudyLoad rule: maximum 4 exercises.
+- Instructions changed from 8 exercises to 4 exercises.
+- q5-q8 removed.
+- q1-q4 and their `correctOptionKey` values preserved.
+- No explanations added.
+- No redesign of content.
+- `PAES M1 - Funciones lineales basicas` was not touched.
+
+Validation:
+- `git diff --check` passed, with CRLF warnings only.
+- Build from `nextjs_space` with `npm.cmd run build` passed.
+- Browser/fixture validation not yet executed in this phase.
+- Existing `Flow4D Verify M` already completed `word_problems` before this edge existed, so this edge is not retroactive for that already-completed StudyLoad.
+- Functional validation will require a new fixture or a not-yet-completed `word_problems` load.
+
+Scope preserved:
+- No full roadmap engine.
+- No branching.
+- No adaptive AI.
+- No theta.
+- No mastery.
+- No PAES score prediction.
+- No L1/M2 expansion.
+- No supervisor workflow.
+- No automatic cycle close.
+- No automatic CycleDecision.
+- No automatic CycleEvaluation.
+- No governance records.
+- No schema changes.
+- No endpoint changes.
+- No UI changes.
+- No `/now` changes.
+- No admin changes.
+- No feedback UI changes.
+- No deploy.
+- No production operation.
+- No SQL.
+- No Prisma CLI.
+- No `npm install`.
+- No `.env` access or secrets.
+- No generated PDF/DOCX.
+- No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts.
+- No commit or push.
+
+Next recommended phase:
+- `MVP-FLOW-4-E5B - Validate word_problems -> reinforcement continuity with a local fixture`.

@@ -181,7 +181,7 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     topic: 'Ecuaciones lineales (refuerzo)',
     estimatedMinutes: '20\u201330 minutos',
     instructions:
-      'Esta actividad tiene 8 ejercicios de opci\u00f3n m\u00faltiple sobre ecuaciones lineales.\n\n' +
+      'Esta actividad tiene 4 ejercicios de opci\u00f3n m\u00faltiple sobre ecuaciones lineales.\n\n' +
       '1. Trabaja en tu cuaderno o en una hoja de papel.\n' +
       '2. Lee cada enunciado con atenci\u00f3n.\n' +
       '3. Escribe la ecuaci\u00f3n cuando corresponda.\n' +
@@ -233,50 +233,6 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'B', text: 'x = 8' },
           { label: 'C', text: 'x = 13' },
           { label: 'D', text: 'x = 26' },
-        ],
-        correctOptionKey: 'B',
-      },
-      {
-        key: 'q5',
-        stem: '\u00bfCu\u00e1l es la soluci\u00f3n de la ecuaci\u00f3n 5x - 3 = 2x + 12?',
-        options: [
-          { label: 'A', text: 'x = 3' },
-          { label: 'B', text: 'x = 5' },
-          { label: 'C', text: 'x = 9' },
-          { label: 'D', text: 'x = 15' },
-        ],
-        correctOptionKey: 'B',
-      },
-      {
-        key: 'q6',
-        stem: 'Un n\u00famero disminuido en 4, y luego multiplicado por 3, da como resultado 27. \u00bfCu\u00e1l es el n\u00famero?',
-        options: [
-          { label: 'A', text: '5' },
-          { label: 'B', text: '9' },
-          { label: 'C', text: '13' },
-          { label: 'D', text: '31' },
-        ],
-        correctOptionKey: 'C',
-      },
-      {
-        key: 'q7',
-        stem: 'Una actividad cobra una entrada fija de $1.200 m\u00e1s $800 por cada hora de uso. Si una persona pag\u00f3 $5.200 en total, \u00bfcu\u00e1ntas horas us\u00f3 la actividad?',
-        options: [
-          { label: 'A', text: '4 horas' },
-          { label: 'B', text: '5 horas' },
-          { label: 'C', text: '6 horas' },
-          { label: 'D', text: '7 horas' },
-        ],
-        correctOptionKey: 'B',
-      },
-      {
-        key: 'q8',
-        stem: 'Juan tiene x estampillas. Ana tiene el doble de las estampillas de Juan m\u00e1s 6. Si entre ambos tienen 36 estampillas, \u00bfcu\u00e1ntas estampillas tiene Juan?',
-        options: [
-          { label: 'A', text: '6' },
-          { label: 'B', text: '10' },
-          { label: 'C', text: '12' },
-          { label: 'D', text: '18' },
         ],
         correctOptionKey: 'B',
       },
