@@ -12,7 +12,7 @@ The purpose is to make continuity robust without depending on free-form assistan
 
 The template structure is stable.
 
-Variable state fields may be updated when a handoff is generated. Required sections must not be removed.
+Variable state fields must be updated when a handoff is generated. Required sections must not be removed.
 
 Structural changes to this template require an explicit documentation/protocol phase.
 
@@ -36,13 +36,15 @@ Every future MVP-M1 context handoff must preserve these sections:
 - No commit/push without explicit Mauricio authorization.
 - Obligation to generate next handoff if chat becomes long, loses focus, approaches saturation, or Mauricio asks whether to change chats.
 - Obligation to propagate this same rule in the next handoff.
+- Obligation to distinguish live Git state from embedded historical baseline text.
+- Obligation to include known documentation drift rather than silently normalizing it away.
 
 ## 4. Required variable fields
 
 Every future MVP-M1 context handoff must include these variable fields:
 
-- Expected HEAD.
-- Expected origin/main.
+- Expected HEAD or latest verified HEAD.
+- Expected origin/main or latest verified origin/main.
 - Last accepted commit.
 - Expected working tree state.
 - Last closed phase.
@@ -51,6 +53,7 @@ Every future MVP-M1 context handoff must include these variable fields:
 - Current handoff file.
 - Documentation index file.
 - Latest phase document.
+- Known documentation drift or stale baselines.
 - Validated capabilities.
 - Immature capabilities.
 - Current strategic objective.
@@ -63,23 +66,16 @@ Every future MVP-M1 context handoff must include these variable fields:
 
 Use this skeleton for future next-chat prompts. Replace placeholders with the latest verified values when available.
 
-Default MVP-M1 values at template creation:
-
-- Expected HEAD: `213fccb`.
-- Expected origin/main: `213fccb`.
-- Last accepted commit: `MVP-FLOW-4-E2: define shortest safe M1 tutoring path`.
-- Last closed phase: `MVP-FLOW-4-E2`.
-- Next recommended phase: `MVP-FLOW-4-E3 - Implement and validate the next continuity edge after linear equations basic`.
-- Candidate E3 edge: `paes_m1_linear_equations_basic` -> `paes_m1_linear_equations_word_problems`.
+Never leave the historical default values in a generated handoff. If live preflight is unavailable, say `latest verified state unavailable in this chat` rather than inventing a baseline.
 
 ````text
-Act as a senior product/technical operator for E360 / Bexauri.
+Actua como director tecnico/producto senior para E360 / Bexauri.
 
-Do not wait for a greeting or extra context. Start by running or reviewing preflight, then read the listed canonical docs before proposing or implementing anything.
+No esperes saludo ni contexto adicional. Primero solicita/revisa preflight, luego lee los documentos canonicos antes de proponer o implementar.
 
 Current expected repo state:
-- Expected HEAD: <EXPECTED_HEAD>
-- Expected origin/main: <EXPECTED_ORIGIN_MAIN>
+- Expected HEAD or latest verified HEAD: <EXPECTED_OR_LATEST_VERIFIED_HEAD>
+- Expected origin/main or latest verified origin/main: <EXPECTED_OR_LATEST_VERIFIED_ORIGIN_MAIN>
 - Last accepted commit: <LAST_ACCEPTED_COMMIT>
 - Expected working tree state: <EXPECTED_WORKING_TREE_STATE>
 - Last closed phase: <LAST_CLOSED_PHASE>
@@ -87,7 +83,7 @@ Current expected repo state:
 
 Critical context-transfer rule:
 - Git preflight output is the live source of truth for HEAD, origin/main, and working tree state.
-- Handoff, index, and template documents are versioned context, not absolute live state.
+- Handoff, index, PHASE_LOG excerpts, and template documents are versioned context, not absolute live state.
 - If Git preflight contradicts embedded baseline text, Git preflight wins.
 - The assistant/agent must explicitly flag the mismatch.
 - If the current phase allows documentation changes, correct stale baseline and next-phase references.
@@ -95,33 +91,25 @@ Critical context-transfer rule:
 - Mauricio must not be responsible for reconstructing or remembering this rule manually.
 - This rule must be propagated again in every future handoff.
 
+Known documentation drift / baseline warnings:
+- <KNOWN_DRIFT_OR_STALE_BASELINES>
+
 First read:
-1. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
-2. nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
-3. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
-4. <LATEST_PHASE_DOCUMENT>
-5. PHASE_LOG.md, especially the latest MVP-FLOW-4 entries
+1. nextjs_space/docs/operations/MVP_FLOW_4_E5G_0_DIRECTION_CHECKPOINT_HANDOFF.md
+2. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+3. nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+4. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
+5. <LATEST_PHASE_DOCUMENT>
+6. PHASE_LOG.md, especially the latest MVP-FLOW-4 entries
 
 Canonical documents:
 - <CANONICAL_DOCUMENTS>
 
 Validated capabilities:
-- First rule-based PAES_M1 continuity pair validated:
-  `paes_m1_balanced_entry_initial` -> `paes_m1_linear_equations_basic`.
-- `/now` shows the next pending StudyLoad after completion.
-- Previous load appears under registered activities with self-report.
-- Cycle remains open.
-- No CycleDecision, CycleEvaluation, governance record, LearningCycle close, or new LearningCycle was created by that continuity.
+- <VALIDATED_CAPABILITIES>
 
 Immature capabilities:
-- No complete M1 tutoring path across several StudyLoads.
-- No full roadmap engine.
-- No supervisor evidence review workflow.
-- No adaptive AI.
-- No theta.
-- No PAES score prediction.
-- No automatic mastery.
-- No L1/M2 replication.
+- <IMMATURE_CAPABILITIES>
 
 Current strategic objective:
 - <CURRENT_STRATEGIC_OBJECTIVE>
@@ -143,7 +131,8 @@ Standing guardrails:
 - No generated PDF/DOCX.
 - No `.logs`, `node_modules`, `yarn.lock`, or checkpoint artifacts.
 - No commit or push without explicit Mauricio authorization.
-- Do not weaken product guardrails: no adaptive AI, theta, mastery, or PAES score claims unless a later accepted phase explicitly implements and validates them.
+- Do not weaken product guardrails: no adaptive AI, theta, mastery, scoring, or PAES score claims unless a later accepted phase explicitly implements and validates them.
+- Keep LearningCycles internal and invisible to students unless a later accepted phase explicitly changes that product rule.
 
 Mandatory preflight:
 ```text
@@ -162,7 +151,7 @@ First response instructions for the next chat:
 
 Context preservation obligation:
 - If this chat becomes long, loses focus, approaches context saturation, or Mauricio asks whether to change chats, generate a complete next-chat handoff automatically.
-- The next handoff must include latest verified Git state if available, canonical docs, validated/immature capabilities, guardrails, next phase, preflight commands, and this same context-transfer rule.
+- The next handoff must include latest verified Git state if available, canonical docs, known drift, validated/immature capabilities, guardrails, next phase, preflight commands, and this same context-transfer rule.
 - Do not make Mauricio carry context manually.
 ````
 
@@ -171,20 +160,32 @@ Context preservation obligation:
 - Do not shorten the handoff by omitting required sections.
 - Do not replace Git preflight with memory.
 - Do not weaken guardrails.
+- Do not leave historical default baselines in generated handoffs.
+- Do not hide known stale baselines; name them explicitly.
 - Do not add runtime permissions into the handoff unless Mauricio explicitly authorized them.
 - If unsure, preserve more context rather than less.
 - If the handoff becomes too long, compress only explanatory prose, not required state or guardrail sections.
+- If a documentation update changes HEAD, the handoff must say that future Git preflight may be newer than the latest baseline paragraph.
 
 ## 7. Relationship to existing docs
 
 - `CURRENT_AGENT_HANDOFF_MVP_M1.md` remains the current operational state handoff.
 - `DOCUMENTATION_INDEX_MVP_M1.md` remains the source-alignment index.
+- `MVP_FLOW_4_E5G_0_DIRECTION_CHECKPOINT_HANDOFF.md` remains the latest immediate phase handoff until superseded by a newer phase handoff.
 - `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` is the stable template/contract used when creating future next-chat prompts.
 
-## 8. Next recommended phase after E2A
+## 8. Current known next phase at E5G hardening
 
-`MVP-FLOW-4-E3 - Implement and validate the next continuity edge after linear equations basic`.
+At E5G hardening, the recommended next phase is:
+
+```text
+MVP-FLOW-4-E5H - Add and validate reinforcement -> linear functions continuity edge
+```
 
 Candidate edge:
 
-`paes_m1_linear_equations_basic` -> `paes_m1_linear_equations_word_problems`.
+```text
+paes_m1_linear_equations_reinforcement -> paes_m1_linear_functions_basic
+```
+
+This section is a convenience note, not a substitute for live Git preflight or the latest phase handoff. If later commits supersede E5H, the latest accepted phase handoff and Git preflight win.
