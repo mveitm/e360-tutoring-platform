@@ -7,8 +7,7 @@ import { Loader2, Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 // Phase DP — client control for the single-action "Empezar" verb on /now.
-// Posts to the orchestration endpoint and refreshes the Server Component
-// so the page re-reads pending and in-progress loads.
+// Posts to the orchestration endpoint and opens the activity directly.
 
 export function StartLoadButton({ loadId }: { loadId: string }) {
   const router = useRouter()
@@ -37,7 +36,7 @@ export function StartLoadButton({ loadId }: { loadId: string }) {
         return
       }
       toast.success('Carga iniciada')
-      startTransition(() => router.refresh())
+      startTransition(() => router.push(`/now/study-loads/${loadId}`))
     } catch {
       toast.error('Error de red. Intenta de nuevo.')
     } finally {

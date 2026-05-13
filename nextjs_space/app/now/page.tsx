@@ -242,7 +242,7 @@ export default async function NowPage() {
           <ol className="list-decimal space-y-1 pl-4 text-sm text-muted-foreground">
             <li>Revisa la actividad disponible.</li>
             <li>Presiona Empezar cuando vayas a trabajar.</li>
-            <li>Abre Ver actividad para responder los ejercicios.</li>
+            <li>La actividad se abrirá para responder los ejercicios.</li>
             <li>Guarda tu avance cuando completes la actividad.</li>
           </ol>
         </CardContent>
@@ -257,7 +257,7 @@ export default async function NowPage() {
                 Cargas pendientes ({pendingLoads.length})
               </h2>
               <p className="text-xs text-muted-foreground">
-                Revisa la actividad y presiona «Empezar» cuando estés listo.
+                Presiona «Empezar» cuando estés listo para abrir la actividad.
               </p>
               <ul className="space-y-3">
                 {pendingLoads.map((load: any) => {

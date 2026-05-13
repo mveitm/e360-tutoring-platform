@@ -8159,3 +8159,71 @@ Next recommended phase:
   - Option A: implement `Empezar` direct-to-activity UX polish.
   - Option B: add next continuity edge from reinforcement to functions.
   - Option C: complete/refine the 4-load path evidence and prepare manual review/CycleDecision readiness.
+
+## MVP-FLOW-4-E5C - Make Empezar start and open the activity
+
+Status: CLOSED
+
+MVP-FLOW-4-E5C improved the pending StudyLoad student flow so `Empezar` starts the load and opens the activity directly.
+
+Phase type:
+- Narrow local UX flow improvement.
+
+Files changed:
+- `nextjs_space/app/now/_components/start-load-button.tsx`.
+- `nextjs_space/app/now/page.tsx`.
+- `PHASE_LOG.md`.
+
+Implemented behavior:
+- Pending StudyLoad `Empezar` now starts the load and navigates directly to `/now/study-loads/[id]`.
+- Student no longer needs to press `Ver actividad` after `Empezar`.
+- Existing `POST /api/study-loads/[id]/start` behavior was preserved.
+- Existing in-progress and completed `Ver actividad` behavior remains available.
+- `/now` guidance copy was updated so it no longer instructs the extra `Ver actividad` step.
+
+Browser validation:
+- Fixture: `Flow5B Verify M 1` / `PAES_M1`.
+- Pending load used: `PAES M1 - Refuerzo de ecuaciones lineales`.
+- Clicking `Empezar` navigated directly to the activity page.
+- Activity viewer rendered:
+  - `PAES M1 - Refuerzo de ecuaciones lineales`.
+  - 4 exercises.
+  - 0 of 4 responded.
+  - `Enviar respuestas` visible.
+  - `Volver a /now` visible.
+- Returning to `/now` showed:
+  - `En curso (1)`.
+  - `PAES M1 - Refuerzo de ecuaciones lineales`.
+  - `Ver actividad`.
+  - `En curso`.
+- Registered activities remained visible:
+  - `PAES M1 - Problemas con ecuaciones lineales`.
+  - `PAES M1 - Ecuaciones lineales basicas`.
+  - `PAES M1 - Entrada balanceada inicial`.
+
+Validation:
+- `git diff --check` passed.
+- Build from `nextjs_space` with `npm.cmd run build` passed.
+- Browser validation passed.
+
+Scope preserved:
+- No schema changes.
+- No Prisma model changes.
+- No content registry changes.
+- No continuity-rule changes.
+- No StudyLoad creation logic changes.
+- No feedback UI changes.
+- No admin surface changes.
+- No scoring, mastery, theta, PAES score, adaptive AI, or diagnosis claims.
+- No SQL.
+- No Prisma CLI.
+- No `npm install`.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX.
+- No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts.
+- No commit or push during validation before review.
+
+Next recommended phase:
+- `MVP-FLOW-4-E5D - Decide whether to complete reinforcement and add/validate the next edge to functions, or prepare CycleDecision/manual review readiness after the 4-load path`.
