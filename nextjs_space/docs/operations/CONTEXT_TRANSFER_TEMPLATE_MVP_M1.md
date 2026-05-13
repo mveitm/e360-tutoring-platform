@@ -6,7 +6,7 @@ This is the canonical context-transfer contract for MVP-M1 chats.
 
 It is not a casual prompt draft. Future chats and agents must preserve the required sections when creating next-chat handoffs for the Bexauri MVP-M1 tutoring line.
 
-The purpose is to make continuity robust without depending on free-form assistant memory.
+The purpose is to make continuity robust without depending on free-form assistant memory, especially now that the project is defining the PAES_M1 pedagogical roadmap and next-load decision layer.
 
 ## 2. Stability rule
 
@@ -28,6 +28,9 @@ Every future MVP-M1 context handoff must preserve these sections:
 - Mandatory preflight.
 - Do not implement before reviewing preflight.
 - Technical/product guardrails.
+- Current PAES_M1 pedagogical roadmap / next-load decision layer context.
+- Non-blocking operator principle.
+- PAES_M1 source/expert validation requirement.
 - No-secret-printing.
 - No `.env` or secrets.
 - No production, deploy, SQL, Prisma CLI, or npm install without explicit authorization.
@@ -57,6 +60,9 @@ Every future MVP-M1 context handoff must include these variable fields:
 - Validated capabilities.
 - Immature capabilities.
 - Current strategic objective.
+- Current pedagogical decision layer context.
+- Source/expert validation status.
+- Non-blocking operator principle.
 - Scope of next phase.
 - Phase-specific guardrails.
 - Preflight commands.
@@ -66,7 +72,7 @@ Every future MVP-M1 context handoff must include these variable fields:
 
 Use this skeleton for future next-chat prompts. Replace placeholders with the latest verified values when available.
 
-Never leave the historical default values in a generated handoff. If live preflight is unavailable, say `latest verified state unavailable in this chat` rather than inventing a baseline.
+Never leave historical default values in a generated handoff. If live preflight is unavailable, say `latest verified state unavailable in this chat` rather than inventing a baseline.
 
 ````text
 Actua como director tecnico/producto senior para E360 / Bexauri.
@@ -95,12 +101,14 @@ Known documentation drift / baseline warnings:
 - <KNOWN_DRIFT_OR_STALE_BASELINES>
 
 First read:
-1. nextjs_space/docs/operations/MVP_FLOW_4_E5G_0_DIRECTION_CHECKPOINT_HANDOFF.md
-2. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
-3. nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
-4. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
-5. <LATEST_PHASE_DOCUMENT>
-6. PHASE_LOG.md, especially the latest MVP-FLOW-4 entries
+1. nextjs_space/docs/operations/MVP_SRA_ROADMAP_1_PAES_M1_PEDAGOGICAL_DECISION_LAYER.md
+2. nextjs_space/docs/operations/MVP_SRA_ROADMAP_2_PAES_M1_EXPERT_ROADMAP_SOURCE_AND_VALIDATION_PLAN.md
+3. nextjs_space/docs/operations/MVP_FLOW_4_E5M_M1_LOCAL_PATH_VALIDATION_AND_CONTENT_ALIGNMENT.md
+4. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+5. nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+6. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
+7. <LATEST_PHASE_DOCUMENT>
+8. PHASE_LOG.md, latest relevant entries only if safe to inspect without full-file overwrite risk
 
 Canonical documents:
 - <CANONICAL_DOCUMENTS>
@@ -112,7 +120,25 @@ Immature capabilities:
 - <IMMATURE_CAPABILITIES>
 
 Current strategic objective:
-- <CURRENT_STRATEGIC_OBJECTIVE>
+- Define and protect the PAES_M1 pedagogical roadmap / next-load decision layer before implementing smarter selector logic.
+- <ADDITIONAL_CURRENT_STRATEGIC_OBJECTIVE>
+
+Current pedagogical decision layer context:
+- The next-load decision cannot be only a linear continuity edge.
+- It must consider PAES_M1 roadmap position, current active slice, student evidence, self-report, prerequisite risk, confidence/frustration, novelty tolerance, coverage across axes/skills, monotony risk, and cycle milestone state.
+- Possible decision types include practice, reinforce, bridge, advance, validate, hold, redirect, spiral, cycle milestone, or asynchronous review request.
+- The future tutor agent must operate inside a governed PAES_M1 roadmap and must not freely invent the roadmap.
+
+Source/expert validation status:
+- Official/expert PAES_M1 source validation is required before implementing smarter next-load selection.
+- Current recommended source layer is Tier 0 official sources, Tier 1 expert pedagogical review, Tier 2 Bexauri evidence, Tier 3 AI-assisted analysis only as advisory support.
+- <CURRENT_SOURCE_VALIDATION_STATUS>
+
+Non-blocking operator principle:
+- review != gate
+- supervision != bottleneck
+- operator action != prerequisite for normal student continuity
+- Operators, supervisors, and experts work asynchronously and in parallel. They may improve or override the path, insert special loads, or optimize the roadmap, but default student continuity must proceed through the best safe available rule-based or agent-supported next action unless a separately versioned exceptional policy says otherwise.
 
 Scope of next phase:
 - <SCOPE_OF_NEXT_PHASE>
@@ -133,6 +159,7 @@ Standing guardrails:
 - No commit or push without explicit Mauricio authorization.
 - Do not weaken product guardrails: no adaptive AI, theta, mastery, scoring, or PAES score claims unless a later accepted phase explicitly implements and validates them.
 - Keep LearningCycles internal and invisible to students unless a later accepted phase explicitly changes that product rule.
+- Preserve student continuity as the default path.
 
 Mandatory preflight:
 ```text
@@ -151,7 +178,7 @@ First response instructions for the next chat:
 
 Context preservation obligation:
 - If this chat becomes long, loses focus, approaches context saturation, or Mauricio asks whether to change chats, generate a complete next-chat handoff automatically.
-- The next handoff must include latest verified Git state if available, canonical docs, known drift, validated/immature capabilities, guardrails, next phase, preflight commands, and this same context-transfer rule.
+- The next handoff must include latest verified Git state if available, canonical docs, known drift, validated/immature capabilities, guardrails, next phase, preflight commands, the pedagogical decision layer context, the source/expert validation status, the non-blocking operator principle, and this same context-transfer rule.
 - Do not make Mauricio carry context manually.
 ````
 
@@ -162,6 +189,9 @@ Context preservation obligation:
 - Do not weaken guardrails.
 - Do not leave historical default baselines in generated handoffs.
 - Do not hide known stale baselines; name them explicitly.
+- Do not omit the pedagogical decision layer context.
+- Do not omit the non-blocking operator principle.
+- Do not omit source/expert validation status while PAES_M1 roadmap intelligence is being defined.
 - Do not add runtime permissions into the handoff unless Mauricio explicitly authorized them.
 - If unsure, preserve more context rather than less.
 - If the handoff becomes too long, compress only explanatory prose, not required state or guardrail sections.
@@ -171,21 +201,23 @@ Context preservation obligation:
 
 - `CURRENT_AGENT_HANDOFF_MVP_M1.md` remains the current operational state handoff.
 - `DOCUMENTATION_INDEX_MVP_M1.md` remains the source-alignment index.
-- `MVP_FLOW_4_E5G_0_DIRECTION_CHECKPOINT_HANDOFF.md` remains the latest immediate phase handoff until superseded by a newer phase handoff.
 - `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` is the stable template/contract used when creating future next-chat prompts.
+- `MVP_SRA_ROADMAP_1_PAES_M1_PEDAGOGICAL_DECISION_LAYER.md` is now mandatory context for the pedagogical decision layer.
+- `MVP_SRA_ROADMAP_2_PAES_M1_EXPERT_ROADMAP_SOURCE_AND_VALIDATION_PLAN.md` is now mandatory context for source/expert validation before smarter next-load selection.
 
-## 8. Current known next phase at E5G hardening
+## 8. Current known next phase after ROADMAP-2
 
-At E5G hardening, the recommended next phase is:
-
-```text
-MVP-FLOW-4-E5H - Add and validate reinforcement -> linear functions continuity edge
-```
-
-Candidate edge:
+After ROADMAP-2, the recommended next phase is:
 
 ```text
-paes_m1_linear_equations_reinforcement -> paes_m1_linear_functions_basic
+MVP-SRA-ROADMAP-2A - Create PAES M1 source register
 ```
 
-This section is a convenience note, not a substitute for live Git preflight or the latest phase handoff. If later commits supersede E5H, the latest accepted phase handoff and Git preflight win.
+Purpose:
+
+- list official DEMRE / Sistema de Acceso sources;
+- mark captured, pending, missing, accepted, superseded, or uncertain sources;
+- avoid building the roadmap from memory or weak secondary summaries;
+- prepare future roadmap-to-source mapping and expert review.
+
+This section is a convenience note, not a substitute for live Git preflight or the latest accepted phase handoff. If later commits supersede ROADMAP-2A, live Git preflight and the latest accepted phase handoff win.
