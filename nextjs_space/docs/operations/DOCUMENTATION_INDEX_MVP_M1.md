@@ -2,99 +2,205 @@
 
 ## 1. Purpose
 
-This is the working documentation index for the MVP-M1 tutoring line and the first complete minimal PAES_M1 tutoring experience.
+This is the working documentation index for the Bexauri MVP-M1 tutoring line and the PAES_M1 pedagogical scope-first block.
 
-It tells future agents what documents are canonical, what each document is for, what is already validated, what is still immature, what sources are missing or external, and how context must be transferred to future chats.
+It tells future agents what documents are canonical, what each document is for, what is already validated, what remains immature, and how context must be transferred to future chats.
 
-## 2. Repo baseline
+Current strategic state:
 
-- HEAD = origin/main = `213fccb`.
-- Last accepted commit: `MVP-FLOW-4-E2: define shortest safe M1 tutoring path`.
-- Working tree expected clean.
+```text
+Construction paused.
+Documentation may continue.
+Implementation requires explicit restart authorization.
+```
 
-## 3. Documentation hierarchy
+## 2. Live-state rule
+
+This document is versioned context, not live Git truth.
+
+Every new chat or agent must first request/review:
+
+```text
+git status --short
+git log --oneline --decorate --graph -8
+```
+
+Git preflight is the live source of truth for HEAD, origin/main, and working tree state.
+
+If Git preflight contradicts this index, `CURRENT_AGENT_HANDOFF_MVP_M1.md`, `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`, PHASE_LOG excerpts, or any phase-specific handoff, Git wins and the mismatch must be explicitly flagged.
+
+## 3. Latest accepted state before this index refresh
+
+Latest accepted state before refreshing this index:
+
+- HEAD = origin/main = `145833b`
+- Last accepted commit = `MVP-SRA-SCOPE-5E: document index update after scope block`
+- Working tree expected = clean
+
+If this file is edited and committed, live `HEAD` will be newer than `145833b`. Future agents must use live Git preflight as truth.
+
+## 4. Documentation hierarchy
 
 - `PHASE_LOG.md` = audit trail / continuity ledger, not a full content repository.
-- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md` = first-read operational handoff.
-- `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` = stable next-chat handoff template/contract.
-- `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` = canonical student/SRA experience.
-- `nextjs_space/docs/operations/MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md` through `MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md` = PAES_M1 roadmap/content chain.
-- `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md` = latest runtime validation evidence.
-- Current code behavior = executable truth.
-- Strategy/business docs = supporting context, not runtime source of truth.
+- `CURRENT_AGENT_HANDOFF_MVP_M1.md` = first-read operational handoff.
+- `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` = stable next-chat handoff template/contract.
+- `DOCUMENTATION_INDEX_MVP_M1.md` = document map and source-alignment index.
+- Scope-first SCOPE docs = current canonical PAES_M1 pedagogical direction.
+- ROADMAP docs = source/taxonomy/decision/metadata foundation.
+- MVP-FLOW/MVP-CONTENT docs = earlier implementation/content history and supporting evidence.
+- Current code behavior = executable truth, but construction is currently paused.
+- Strategy/business docs = supporting context, not runtime source of truth unless synthesized into repo docs.
 
-## 4. Documentation index table
+## 5. Current canonical first-read documents
+
+Read these first in current chats:
+
+1. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
+2. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`
+3. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+4. `nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md`
+5. `nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md`
+6. `nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md`
+7. `nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md`
+8. `nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md`
+9. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md`
+10. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md`
+11. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md`
+12. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md`
+13. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md`
+14. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5E_DOCUMENTATION_INDEX_UPDATE_AFTER_SCOPE_FIRST_BLOCK.md`
+
+## 6. Supporting roadmap/source documents
+
+These remain important upstream sources:
+
+- `nextjs_space/docs/operations/PAES_M1_SOURCE_REGISTER.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_1_PAES_M1_PEDAGOGICAL_DECISION_LAYER.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2_PAES_M1_EXPERT_ROADMAP_SOURCE_AND_VALIDATION_PLAN.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2B_0_OFFICIAL_PAES_M1_AXES_OA_INVENTORY.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2B_1_PAES_M1_ROADMAP_NODE_TAXONOMY.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2B_INTERNAL_M1_ROADMAP_TO_OFFICIAL_TAXONOMY_MAPPING.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2C_MVP_BETA_NEXT_LOAD_DECISION_RECORD_FORMAT.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2D_PAES_M1_EXPERT_REVIEW_CHECKLIST.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2E_TAXONOMY_ALIGNED_STUDYLOAD_METADATA_PROPOSAL.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2E_1_AS1_ALGEBRA_FUNCTIONS_CORRIDOR_METADATA_AND_ASSIGNMENT_CONSTRAINTS.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2F_FIRST_NON_ALGEBRA_SLICE_PROPOSALS.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2G_PAES_M1_EXPERT_REVIEW_PACKET_ASSEMBLY.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2H_SCOPE_FIRST_CONSTRUCTION_PAUSE.md`
+
+## 7. Documentation index table
 
 | Document | Status | Role | Canonical level | Use for | Do not use for | Read before implementation? |
 |---|---|---|---|---|---|---|
-| `PHASE_LOG.md` | Present | Audit trail and continuity ledger | High for phase history | Recover last closed phases, decisions, validation summaries, forbidden actions | Replacing focused canonical docs or reading as a content repository | Yes |
-| `CURRENT_AGENT_HANDOFF_MVP_M1.md` | Present | First-read operational handoff | High for onboarding | Fast context transfer, current direction, guardrails, quickstart prompt | Detailed source evidence or final implementation specs | Yes |
-| `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` | Present | Stable next-chat handoff template/contract | High for context transfer protocol | Creating future handoff prompts with required sections and variable fields | Replacing live Git preflight or source docs | Yes for chat migration |
-| `MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` | Present | Canonical student/SRA experience | Highest for student flow | Student journey, SRA principle, supervisor role, non-blocking continuity | Runtime proof or code-level behavior | Yes |
-| `MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md` | Present | PAES_M1 master roadmap skeleton | High for pedagogy | Master roadmap, axes, difficulty bands, evidence principles | Registry truth or implemented content status | Yes for PAES_M1 work |
-| `MVP_CONTENT_2_PAES_M1_FIRST_ACTIVE_SLICE.md` | Present | First PAES_M1 active slice | High for first slice direction | Algebra/linear entry focus, manual branching rules, first active slice purpose | Automatic placement, score, mastery, or engine behavior | Yes for PAES_M1 work |
-| `MVP_CONTENT_3_PAES_M1_FIRST_MICRO_STUDYLOAD_SET.md` | Present | First micro StudyLoad set | High for content path | Balanced entry concept and existing algebra/function continuation path | Final fixed order for every student or full roadmap engine | Yes for PAES_M1 work |
-| `MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md` | Present | Registry-ready balanced entry proposal | High for balanced entry content | Proposed `paes_m1_balanced_entry_initial` content and guardrails | Claiming registry implementation by itself | Yes for balanced entry changes |
-| `MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md` | Present | Latest runtime validation evidence | High for validated behavior | Confirm first automatic continuity pair and lifecycle side-effect checks | Generalizing to a complete M1 path or adaptive behavior | Yes for continuity changes |
-| `MVP_DIRECTION_1_MICROLEARNING_LOOP_ADOPTION_DECISION.md` | Present | Strategic microlearning direction | Supporting canonical product direction | Microlearning loop, supervisor non-bottleneck principle, roadmap direction | Runtime source of truth or implementation permission | Yes for direction changes |
-| `BEXAURI_PROPUESTA_INTEGRADA_MVP_v1.md` | External / not versioned in repo during E1 | Business/product strategy input | Supporting if later incorporated | Product rationale if imported or synthesized later | Runtime truth or direct implementation without repo synthesis | No, unless later added |
-| `AUDITORIA_ESTRATEGICA_MVP_MONETIZACION_E360_BEXAURI_MAYO_2026.md` | External / not versioned in repo during E1 | Business/monetization audit input | Supporting if later incorporated | Strategic constraints if imported or synthesized later | Runtime truth or direct implementation without repo synthesis | No, unless later added |
-| `Bexauri_Especificaciones_Director_Proyecto.pdf` | External / not versioned in repo during E1 | Director specifications input | Supporting if later incorporated | Director-level constraints if imported or synthesized later | Runtime truth or direct implementation without repo synthesis | No, unless later added |
+| `PHASE_LOG.md` | Present | Audit trail and continuity ledger | High for phase history | Recover last closed phases, validation summaries, forbidden actions | Replacing focused canonical docs | Yes |
+| `CURRENT_AGENT_HANDOFF_MVP_M1.md` | Present | First-read operational handoff | Highest for onboarding | Current state, construction authorization, guardrails, quickstart | Detailed source evidence | Yes |
+| `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` | Present | Stable next-chat handoff template | Highest for context transfer | Creating future handoffs | Replacing live Git preflight | Yes |
+| `DOCUMENTATION_INDEX_MVP_M1.md` | Present | Documentation map | High | Identify canonical docs and current phase chain | Runtime truth or implementation permission | Yes |
+| `MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md` | Present | Complete tutoring scope | Highest for PAES_M1 scope | Scope of full tutoring experience | Implementation authorization | Yes |
+| `MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md` | Present | Canonical student journey | Highest for flow | Student/SRA journey, roadmap traversal | Runtime proof | Yes |
+| `MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md` | Present | Milestone model | High | Milestones, checkpoints, special actions | Treating milestones as gates | Yes |
+| `MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md` | Present | Human/operator model | High | Operator roles, async review, risk monitoring | Making operators default bottleneck | Yes |
+| `MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md` | Present | Future tutor-agent governance | High | Agent constraints and future use cases | Claiming agent implemented | Yes |
+| `MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md` | Present | Restart options review | High | Compare implementation restart options | Authorizing implementation by itself | Yes |
+| `MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md` | Present | Future metadata implementation spec | High | Future IMPL-1 scope | Editing registry now | Yes |
+| `MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md` | Present | Future PE1 candidate spec | High | First non-algebra candidate | Implementing PE1 now | Yes |
+| `MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md` | Present | Expert review request package | High | Ask expert for review | Claiming expert review happened | Yes |
+| `MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md` | Present | Handoff hardening | High | Scope-first continuity | Implementation authorization | Yes |
+| `MVP_SRA_SCOPE_5E_DOCUMENTATION_INDEX_UPDATE_AFTER_SCOPE_FIRST_BLOCK.md` | Present | Index update phase | High | Why this index changed | Runtime proof | Yes |
+| `PAES_M1_SOURCE_REGISTER.md` | Present | Source register | High for source grounding | Official source tracking | Runtime behavior | Yes for roadmap/content |
+| `MVP_SRA_ROADMAP_2B_0_OFFICIAL_PAES_M1_AXES_OA_INVENTORY.md` | Present | Official inventory | High | Axes/OA/skills grounding | Final roadmap alone | Yes |
+| `MVP_SRA_ROADMAP_2B_1_PAES_M1_ROADMAP_NODE_TAXONOMY.md` | Present | Node taxonomy | High | Taxonomy families/nodes | Claiming expert validation | Yes |
+| `MVP_SRA_ROADMAP_2B_INTERNAL_M1_ROADMAP_TO_OFFICIAL_TAXONOMY_MAPPING.md` | Present | Mapping | High | AS1 coverage and gaps | Treating AS1 as full roadmap | Yes |
+| `MVP_SRA_ROADMAP_2C_MVP_BETA_NEXT_LOAD_DECISION_RECORD_FORMAT.md` | Present | Decision record format | High | Future auditable next-load decisions | Runtime selector proof | Yes |
+| `MVP_SRA_ROADMAP_2D_PAES_M1_EXPERT_REVIEW_CHECKLIST.md` | Present | Expert checklist | High | Expert review structure | Claiming review completion | Yes |
+| `MVP_SRA_ROADMAP_2E_TAXONOMY_ALIGNED_STUDYLOAD_METADATA_PROPOSAL.md` | Present | Metadata proposal | High | Future StudyLoad metadata | Claiming registry implementation | Yes |
+| `MVP_SRA_ROADMAP_2E_1_AS1_ALGEBRA_FUNCTIONS_CORRIDOR_METADATA_AND_ASSIGNMENT_CONSTRAINTS.md` | Present | AS1 assignment constraints | High | AS1 available-not-universal rules | Universal AS1 route | Yes |
+| `MVP_SRA_ROADMAP_2F_FIRST_NON_ALGEBRA_SLICE_PROPOSALS.md` | Present | N1/G1/PE1 proposals | High | Non-algebra complement design | Claiming implementation | Yes |
+| `MVP_SRA_ROADMAP_2G_PAES_M1_EXPERT_REVIEW_PACKET_ASSEMBLY.md` | Present | Expert packet assembly | High | Full expert packet | Claiming review occurred | Yes |
+| `MVP_FLOW_4_E5M_M1_LOCAL_PATH_VALIDATION_AND_CONTENT_ALIGNMENT.md` | Present | Runtime/local validation evidence | High for validated behavior | AS1 local loop evidence | Generalizing to full roadmap | Yes for flow changes |
+| `MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` | Present | Earlier student UI journey | Supporting/high | UI journey historical basis | Overriding newer SCOPE docs | Yes for UI changes |
+| `MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md` through `MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md` | Present | Earlier content chain | Supporting/high | Historical roadmap/content proposals | Current implementation authorization | Yes for content work |
 
-## 5. Current source alignment summary
+## 8. Current source alignment summary
 
 The aligned direction is:
 
-- First complete minimal PAES_M1 tutoring experience before L1/M2.
+- PAES_M1 first before L1/M2 expansion.
+- Bexauri PAES_M1 = guided, evidence-aware roadmap traversal.
 - Student continuity without supervisor bottleneck.
-- Micro StudyLoads and roadmap-driven evidence.
-- Rule-based continuity in MVP-Beta.
-- Supervisor as asynchronous quality control.
-- No adaptive AI, theta, mastery, or PAES score claims yet.
+- AS1 algebra/functions available but not universal.
+- N1/G1/PE1 proposed complements, not implemented routes.
+- PE1-MSL-01 data/table/graph reading is the first non-algebra candidate, not implemented.
+- Expert review request package exists but review has not occurred.
+- Future implementation candidate is metadata-first, not selector-first.
+- No adaptive AI, theta, mastery, or PAES score claims.
 
-The system should move toward a continuous tutoring loop where the student can study, answer, self-report, receive feedback where available, and continue without needing to understand internal LearningCycle mechanics.
+## 9. What is already validated
 
-## 6. What is already validated
+Validated local operational loop:
 
-- First rule-based continuity pair validated:
-  - `paes_m1_balanced_entry_initial` -> `paes_m1_linear_equations_basic`.
-- `/now` shows the next pending StudyLoad after completion.
-- Previous load appears under `Actividades registradas` with self-report.
-- Cycle remains open.
-- No CycleDecision was created.
-- No CycleEvaluation was created.
-- No governance record / ContinuitySignal was created.
-- No LearningCycle close occurred.
-- No new LearningCycle was created.
+```text
+PAES M1 - Entrada balanceada inicial
+-> PAES M1 - Ecuaciones lineales basicas
+-> PAES M1 - Problemas con ecuaciones lineales
+-> PAES M1 - Refuerzo de ecuaciones lineales
+-> PAES M1 - Funciones lineales basicas
+-> /now final state with all activities registered and no pending loads
+```
 
-## 7. What is not yet mature
+Validated student-facing behavior includes:
 
-- No complete M1 tutoring path across several StudyLoads.
-- No full roadmap engine.
-- No supervisor evidence review workflow.
+- answer questions;
+- submit answers;
+- self-report visible without manual scroll;
+- finalize activity;
+- loading state after completion;
+- `/now` updated without manual refresh.
+
+This validates an operational AS1 path, not the complete PAES_M1 roadmap.
+
+## 10. What is not yet mature
+
+- No expert-validated full PAES_M1 roadmap.
+- No runtime decision-record implementation.
+- No provisional registry metadata implementation.
+- No PE1/N1/G1 StudyLoad implementation.
+- No intelligent next-load selector.
+- No tutor-agent implementation.
 - No adaptive AI.
 - No theta.
 - No PAES score prediction.
 - No automatic mastery.
 - No L1/M2 replication.
+- No external beta readiness decision.
 
-## 8. Missing or external source documents
+## 11. Current implementation authorization state
 
-The following known strategy documents were not versioned in the repo during E1:
+No implementation is currently authorized.
 
-- `BEXAURI_PROPUESTA_INTEGRADA_MVP_v1.md`.
-- `AUDITORIA_ESTRATEGICA_MVP_MONETIZACION_E360_BEXAURI_MAYO_2026.md`.
-- `Bexauri_Especificaciones_Director_Proyecto.pdf`.
+Prepared but not authorized:
 
-Recommended later decision:
+```text
+MVP-SRA-IMPL-1 - Add provisional taxonomy metadata to current M1 registry activities
+```
 
-- Import them later as versioned docs, if their full text must become repo-governed.
-- Or synthesize them into a canonical repo document, if only decisions and constraints matter.
-- Or keep them external and reference only their accepted decisions in source-alignment docs.
+Implementation requires explicit restart authorization from Mauricio and a scoped phase.
 
-Do not choose the final import path in this phase.
+Do not treat SCOPE-5, 5A, 5B, 5C, 5D, or 5E as implementation authorization.
 
-## 9. Context Transfer Protocol
+## 12. Non-blocking operator principle
+
+This principle is central:
+
+```text
+review != gate
+supervision != bottleneck
+operator action != prerequisite for normal student continuity
+```
+
+Operators, supervisors, and experts work asynchronously and in parallel. They may improve the route, review evidence, insert milestones, correct content, and prepare expert validation. They do not normally block the student's next useful action.
+
+## 13. Context Transfer Protocol
 
 The assistant/agent is responsible for preserving continuity across chats.
 
@@ -104,62 +210,70 @@ Do not make Mauricio responsible for remembering or reconstructing context.
 
 Git preflight output is the live source of truth for HEAD, origin/main, and working tree state. The handoff and documentation index are versioned context documents, not absolute live state.
 
-If Git preflight contradicts the baseline written in the handoff or documentation index, Git preflight wins. The assistant/agent must explicitly flag the mismatch. If the current phase allows documentation changes, the assistant/agent must correct stale baseline and next-phase references. If the current phase does not allow documentation changes, the assistant/agent must include the mismatch in the next-chat handoff.
+If Git preflight contradicts the baseline written in the handoff or documentation index, Git preflight wins. The assistant/agent must explicitly flag the mismatch.
 
-Every next-chat handoff must include both the latest verified Git state, if available, and this same Git-preflight-overrides-stale-docs rule. This rule must be propagated again in every future handoff.
+Every next-chat handoff must include:
 
-The next-chat handoff must include:
-
-- HEAD;
-- origin/main;
-- last accepted commit;
+- HEAD / origin/main / last accepted commit;
 - expected working tree state;
 - last closed phase;
 - next recommended phase;
 - canonical documents;
-- current handoff file;
-- documentation index file;
+- construction authorization state;
+- AS1/N1/G1/PE1 status;
+- expert review status;
+- implementation candidate status;
 - validated capabilities;
 - immature capabilities;
 - product and technical guardrails;
+- non-blocking operator principle;
 - preflight commands;
-- ready-to-paste prompt for the next chat;
-- this same Context Transfer Protocol so the next chat propagates it again.
-- the rule that Git preflight overrides stale documentation baselines.
+- ready-to-paste prompt;
+- this same Context Transfer Protocol.
 
 Minimum preflight commands for the next chat:
 
 ```text
 git status --short
-git log -1 --pretty=format:"%h %s"
+git log --oneline --decorate --graph -8
 ```
 
-Minimum ready-to-paste prompt shape:
+## 14. Current recommended next phase
+
+If continuing documentation-only:
 
 ```text
-Act as a senior product/technical operator for E360 / Bexauri.
-
-First read:
-- nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
-- nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
-- nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
-
-Then verify:
-- git status --short
-- git log -1 --pretty=format:"%h %s"
-
-Do not implement before reading the canonical docs listed in the index.
-Git preflight output is live truth. If it contradicts embedded baselines in the handoff or index, flag the mismatch and prefer Git preflight.
-The current objective remains the first complete minimal PAES_M1 tutoring experience before L1/M2.
-Rule-based continuity is allowed in MVP-Beta; do not claim adaptive AI, theta, mastery, or PAES score prediction.
-
-If this chat becomes long or needs migration, generate the next-chat handoff automatically. Do not make Mauricio carry the context manually. Every future handoff must propagate the rule that Git preflight overrides stale documentation baselines.
+MVP-SRA-SCOPE-5F - Next-chat handoff package after scope-first block
 ```
 
-## 10. Recommended next phase
+Purpose:
 
-Recommended next phase:
+- create a ready-to-paste next-chat handoff using the updated handoff/template/index.
 
-`MVP-FLOW-4-E3 - Implement and validate the next continuity edge after linear equations basic`
+If implementation is desired later:
 
-Reason: E2 defines the shortest safe implementation roadmap and repairs the context self-propagation protocol. The next safe runtime increment is the next explicit PAES_M1 continuity edge after the validated first pair.
+```text
+MVP-SRA-IMPL-1 - Add provisional taxonomy metadata to current M1 registry activities
+```
+
+Only after explicit authorization from Mauricio.
+
+## 15. Standing guardrails
+
+Unless explicitly authorized in a later phase:
+
+- no implementation;
+- no registry edits;
+- no new StudyLoads;
+- no selector logic;
+- no continuity map changes;
+- no UI/API/schema/database changes;
+- no SQL;
+- no Prisma CLI;
+- no `.env` or secrets;
+- no deploy;
+- no production;
+- no npm install;
+- no generated PDF/DOCX;
+- no `.logs`, `node_modules`, `yarn.lock`, or checkpoint artifacts;
+- no PAES score, theta, mastery, or adaptive AI claims.
