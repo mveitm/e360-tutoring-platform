@@ -373,7 +373,10 @@ export default function StudyLoadAnswerForm({
 
       if (res.ok) {
         setCompleteSuccess(true)
-        startTransition(() => router.push('/now'))
+        startTransition(() => {
+          router.push('/now')
+          router.refresh()
+        })
       } else {
         const data = await res.json()
         setSubmitResult({
