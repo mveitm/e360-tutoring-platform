@@ -248,26 +248,13 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
 
         {content ? (
           <>
-            {/* Instructions */}
-            <section className="mb-6">
-              <h2 className="text-sm font-medium text-muted-foreground mb-2">
-                Instrucciones
-              </h2>
-              <Card>
-                <CardContent className="py-4">
-                  <div className="text-sm leading-relaxed whitespace-pre-line">
-                    {content.instructions}
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-
             {/* Answer form — handles status-aware rendering */}
             <StudyLoadAnswerForm
               studyLoadId={studyLoad.id}
               studyLoadStatus={studyLoad.status}
               contentKey={content.contentKey}
               contentVersion={content.contentVersion}
+              instructions={content.instructions}
               items={safeItems}
               initialAnswers={initialAnswers}
               initialFeedback={initialFeedback}

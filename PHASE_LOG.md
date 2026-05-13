@@ -8372,3 +8372,92 @@ Next recommended phase:
   - Option A: prepare manual review / CycleDecision readiness.
   - Option B: add and validate the next edge from reinforcement to functions.
   - Option C: document the first complete M1 guided tutoring path as MVP-Beta-ready locally.
+
+## MVP-FLOW-4-E5F - Make submitted-but-not-completed state explicit
+
+Status: CLOSED
+
+MVP-FLOW-4-E5F made the submitted-but-not-completed state explicit for students and operators.
+
+Phase type:
+- Narrow student UX / operational state clarity improvement.
+
+Files changed:
+- `nextjs_space/app/now/page.tsx`.
+- `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+- `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+- `PHASE_LOG.md`.
+
+Problem addressed:
+- If a student sent MC answers but closed the app before self-report and `Finalizar actividad`, the answers were saved but the StudyLoad remained `in_progress`.
+- This was technically valid but UX/operationally ambiguous, especially on mobile.
+- Product rule confirmed:
+  - `Enviar respuestas` = evidence saved.
+  - `Finalizar actividad` = activity closed + self-report + continuity can advance.
+
+Implemented behavior:
+- `/now` now detects `in_progress` StudyLoads with saved `mc_submission` evidence.
+- Those loads are shown as `Pendiente de cierre`, not generic `En curso`.
+- `/now` copy says: `Tus respuestas ya están guardadas. Falta tu autorreporte para cerrar.`
+- `/now` action label changes to `Finalizar actividad`.
+- Activity page now shows a compact closure block when answers are saved but the activity is not completed.
+- Closure block appears before instructions in submitted-but-not-completed state.
+- Closure block says:
+  - `Tus respuestas ya están guardadas.`
+  - `Falta 1 paso para cerrar esta actividad.`
+- Self-report options and `Finalizar actividad` are visible near the top.
+- Instructions render below the closure block in pending-closure state.
+- Questions and detailed feedback remain below.
+- Answers remain locked after submission.
+- `Enviar respuestas` remains unavailable after feedback exists.
+- After fresh submission, the page scrolls to the closure block.
+- `Finalizar actividad` still returns to `/now` via E5E behavior.
+
+Validation:
+- `git diff --check` passed, CRLF warnings only.
+- Build from `nextjs_space` with `npm.cmd run build` passed.
+- Browser validation passed.
+
+Browser validation evidence:
+- Fixture: `FlowE5F.Cierre@bexauri.dev` / `PAES_M1`.
+- Student submitted answers and did not finalize.
+- `/now` showed the load as `Pendiente de cierre`.
+- `/now` displayed: `Tus respuestas ya están guardadas. Falta tu autorreporte para cerrar.`
+- Reopening the activity showed the closure block near the top before instructions.
+- No `Enviar respuestas` button appeared after feedback existed.
+- Answers remained locked.
+- Per-question feedback remained visible below.
+- Closure block was understandable without searching at the bottom.
+- Student selected self-report `Me fue bien` and clicked `Finalizar actividad`.
+- App returned automatically to `/now`.
+- `/now` showed the activity under `Actividades registradas` with self-report `Me fue bien`.
+- `/now` showed the next pending load `PAES M1 - Ecuaciones lineales basicas`, as expected because the edge from balanced entry to linear equations basic exists.
+
+Scope preserved:
+- No schema changes.
+- No Prisma model changes.
+- No content registry changes.
+- No continuity-rule changes.
+- No StudyLoad creation logic changes.
+- No response submission API changes.
+- No completion API changes.
+- No admin surface changes.
+- No login/account creation changes.
+- No automatic completion without self-report.
+- No automatic continuity without `Finalizar actividad`.
+- No scoring, mastery, theta, PAES score, adaptive AI, or diagnosis claims.
+- No SQL.
+- No Prisma CLI.
+- No `npm install`.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX.
+- No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts.
+- No commit or push during validation before review.
+
+Next recommended phase:
+- `MVP-FLOW-4-E5G - Direction checkpoint after closing UX/account/mobile completion debts`:
+  - Option A: prepare manual review / CycleDecision readiness.
+  - Option B: add and validate the next edge from reinforcement to functions.
+  - Option C: document the first complete M1 guided tutoring path as MVP-Beta-ready locally.

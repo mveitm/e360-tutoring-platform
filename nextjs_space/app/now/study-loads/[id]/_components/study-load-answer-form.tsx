@@ -8,7 +8,7 @@
 // Receives only safe props — no correctOptionKey, no scoring data.
 // Server-side ownership check remains in the parent page.tsx.
 
-import { useState, useCallback, useTransition } from 'react'
+import { useState, useCallback, useRef, useTransition } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
@@ -52,6 +52,7 @@ interface StudyLoadAnswerFormProps {
   studyLoadStatus: string   // "pending" | "released" | "in_progress" | "completed"
   contentKey: string
   contentVersion: string
+  instructions: string
   items: Item[]
   initialFeedback?: Feedback
   /** Pre-filled answers from a previous mc_submission, if available */
@@ -65,12 +66,14 @@ export default function StudyLoadAnswerForm({
   studyLoadStatus,
   contentKey,
   contentVersion,
+  instructions,
   items,
   initialAnswers,
   initialFeedback,
 }: StudyLoadAnswerFormProps) {
   const router = useRouter()
   const [isPendingRefresh, startTransition] = useTransition()
+  const closureBlockRef = useRef<HTMLDivElement | null>(null)
 
   // Selection state: itemKey → selectedOptionKey
   const [selections, setSelections] = useState<Record<string, string>>(
@@ -158,6 +161,12 @@ export default function StudyLoadAnswerForm({
           hasAnswerKey: data.hasAnswerKey,
         })
         setFeedback(data.feedback ?? null)
+        window.setTimeout(() => {
+          closureBlockRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          })
+        }, 0)
       } else {
         setSubmitResult({
           ok: false,
@@ -177,6 +186,23 @@ export default function StudyLoadAnswerForm({
   const feedbackByItemKey = new Map(
     feedback?.items.map((item) => [item.itemKey, item]) ?? [],
   )
+
+  function renderInstructions() {
+    return (
+      <section className="mb-6">
+        <h2 className="text-sm font-medium text-muted-foreground mb-2">
+          Instrucciones
+        </h2>
+        <Card>
+          <CardContent className="py-4">
+            <div className="text-sm leading-relaxed whitespace-pre-line">
+              {instructions}
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+    )
+  }
 
   function renderFeedbackSummary() {
     if (!feedback) return null
@@ -250,6 +276,91 @@ export default function StudyLoadAnswerForm({
   }
 
   // ── Complete handler ────────────────────────────────────────
+  function renderClosureBlock() {
+    if (!canFinalizeAfterSubmission && !completeSuccess) return null
+
+    return (
+      <div
+        ref={closureBlockRef}
+        className="mb-4 rounded-lg border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300"
+      >
+        <div className="flex items-start gap-2">
+          <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0" />
+          <div className="w-full">
+            <p className="font-semibold leading-relaxed">
+              Tus respuestas ya están guardadas.
+            </p>
+            <p className="mt-1 leading-relaxed">
+              Falta 1 paso para cerrar esta actividad.
+            </p>
+            <div className="mt-2 space-y-2 border-t border-current/10 pt-2">
+              {displayedAnsweredCount != null && displayedTotalItemCount != null && (
+                <p className="text-sm">
+                  Respondiste {displayedAnsweredCount} de {displayedTotalItemCount} ejercicios.
+                </p>
+              )}
+              {displayedHasAnswerKey && displayedCorrectCount != null && displayedTotalItemCount != null && (
+                <p className="text-sm">
+                  Correctas: {displayedCorrectCount} de {displayedTotalItemCount}.
+                </p>
+              )}
+              <p className="text-xs italic opacity-80 leading-relaxed">
+                Este resultado no es un puntaje PAES. Tus respuestas quedaron registradas como evidencia de esta actividad.
+              </p>
+
+              {canFinalizeAfterSubmission ? (
+                <div className="mt-3 pt-3 border-t border-current/10 space-y-2 text-foreground">
+                  <p className="font-medium text-sm">
+                    Cuéntanos cómo te fue y finaliza.
+                  </p>
+                  <RadioGroup
+                    value={selfReport}
+                    onValueChange={setSelfReport}
+                    className="gap-2"
+                  >
+                    {['Me fue bien', 'Me costó', 'No la terminé'].map((opt) => (
+                      <div key={opt} className="flex items-center gap-3 rounded-md border border-current/10 p-2">
+                        <RadioGroupItem value={opt} id={`sr-${opt}`} />
+                        <Label htmlFor={`sr-${opt}`} className="flex-1 cursor-pointer text-sm font-normal">
+                          {opt}
+                        </Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
+                  <Button
+                    onClick={handleComplete}
+                    disabled={completing || !selfReport || isPendingRefresh}
+                    size="sm"
+                    className="w-full mt-2"
+                  >
+                    {completing || isPendingRefresh ? (
+                      <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                    ) : (
+                      <CheckCircle2 className="h-4 w-4 mr-2" />
+                    )}
+                    Finalizar actividad
+                  </Button>
+                </div>
+              ) : (
+                <div className="mt-4 pt-4 border-t border-current/10 space-y-3">
+                  <p className="text-sm font-semibold text-green-700 dark:text-green-400">
+                    Actividad finalizada. Tu avance quedó registrado.
+                  </p>
+                  <Button asChild variant="outline" size="sm" className="w-full">
+                    <Link href="/now" className="gap-1.5">
+                      <ArrowLeft className="h-4 w-4" />
+                      Volver a /now
+                    </Link>
+                  </Button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   const handleComplete = useCallback(async () => {
     if (!isInProgress || !selfReport) return
     setCompleting(true)
@@ -281,24 +392,28 @@ export default function StudyLoadAnswerForm({
 
   if (isPendingOrReleased) {
     return (
-      <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950/30 p-4">
-        <div className="flex items-start gap-2">
-          <AlertCircle className="h-4 w-4 mt-0.5 text-blue-600 dark:text-blue-400 shrink-0" />
-          <div>
-            <p className="text-sm text-blue-800 dark:text-blue-300 leading-relaxed">
-              Primero debes iniciar esta carga desde{' '}
-              <Link href="/now" className="font-medium underline underline-offset-2">/now</Link>{' '}
-              para poder enviar respuestas.
-            </p>
+      <>
+        {renderInstructions()}
+        <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950/30 p-4">
+          <div className="flex items-start gap-2">
+            <AlertCircle className="h-4 w-4 mt-0.5 text-blue-600 dark:text-blue-400 shrink-0" />
+            <div>
+              <p className="text-sm text-blue-800 dark:text-blue-300 leading-relaxed">
+                Primero debes iniciar esta carga desde{' '}
+                <Link href="/now" className="font-medium underline underline-offset-2">/now</Link>{' '}
+                para poder enviar respuestas.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     )
   }
 
   if (isCompleted) {
     return (
       <>
+        {renderInstructions()}
         <div className="rounded-lg border border-green-200 bg-green-50 dark:border-green-900 dark:bg-green-950/30 p-4 mb-6">
           <div className="flex items-start gap-2">
             <CheckCircle2 className="h-4 w-4 mt-0.5 text-green-600 dark:text-green-400 shrink-0" />
@@ -363,13 +478,17 @@ export default function StudyLoadAnswerForm({
   // ── In-progress: interactive form ───────────────────────────
   return (
     <>
+      {hasSubmittedFeedback && renderClosureBlock()}
+      {renderInstructions()}
+
       {/* Guidance banner */}
+      {!hasSubmittedFeedback && (
       <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950/30 p-4 mb-6">
         <p className="text-sm text-blue-800 dark:text-blue-300 leading-relaxed">
-          Responde las preguntas, presiona <strong>Enviar respuestas</strong> y luego finaliza la actividad al final
-          de la página.
+          Responde las preguntas, presiona <strong>Enviar respuestas</strong> y luego completa el cierre de la actividad.
         </p>
       </div>
+      )}
 
       {/* Progress indicator */}
       <div className="mb-4 flex items-center justify-between">
@@ -527,81 +646,6 @@ export default function StudyLoadAnswerForm({
                     )}
                   </div>
                 )}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {(canFinalizeAfterSubmission || completeSuccess) && (
-          <div className="mb-3 rounded-lg border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300">
-            <div className="flex items-start gap-2">
-              <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0" />
-              <div>
-                <p className="font-semibold leading-relaxed">
-                  Respuestas guardadas
-                </p>
-                <div className="mt-2 space-y-2 border-t border-current/10 pt-2">
-                  {displayedAnsweredCount != null && displayedTotalItemCount != null && (
-                    <p className="text-sm">
-                      Respondiste {displayedAnsweredCount} de {displayedTotalItemCount} ejercicios.
-                    </p>
-                  )}
-                  {displayedHasAnswerKey && displayedCorrectCount != null && displayedTotalItemCount != null && (
-                    <p className="text-sm">
-                      Correctas: {displayedCorrectCount} de {displayedTotalItemCount}.
-                    </p>
-                  )}
-                  <p className="text-xs italic opacity-80 leading-relaxed">
-                    Este resultado no es un puntaje PAES. Tus respuestas quedaron registradas como evidencia de esta actividad.
-                  </p>
-
-                  {canFinalizeAfterSubmission ? (
-                    <div className="mt-4 pt-4 border-t border-current/10 space-y-3 text-foreground">
-                      <p className="font-medium text-sm">
-                        Para cerrar esta actividad, cuéntanos brevemente cómo te fue.
-                      </p>
-                      <RadioGroup
-                        value={selfReport}
-                        onValueChange={setSelfReport}
-                        className="gap-2"
-                      >
-                        {['Me fue bien', 'Me costó', 'No la terminé'].map((opt) => (
-                          <div key={opt} className="flex items-center gap-3 rounded-md border border-current/10 p-2">
-                            <RadioGroupItem value={opt} id={`sr-${opt}`} />
-                            <Label htmlFor={`sr-${opt}`} className="flex-1 cursor-pointer text-sm font-normal">
-                              {opt}
-                            </Label>
-                          </div>
-                        ))}
-                      </RadioGroup>
-                      <Button
-                        onClick={handleComplete}
-                        disabled={completing || !selfReport || isPendingRefresh}
-                        size="sm"
-                        className="w-full mt-2"
-                      >
-                        {completing || isPendingRefresh ? (
-                          <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                        ) : (
-                          <CheckCircle2 className="h-4 w-4 mr-2" />
-                        )}
-                        Finalizar actividad
-                      </Button>
-                    </div>
-                  ) : (
-                    <div className="mt-4 pt-4 border-t border-current/10 space-y-3">
-                      <p className="text-sm font-semibold text-green-700 dark:text-green-400">
-                        Actividad finalizada. Tu avance quedó registrado.
-                      </p>
-                      <Button asChild variant="outline" size="sm" className="w-full">
-                        <Link href="/now" className="gap-1.5">
-                          <ArrowLeft className="h-4 w-4" />
-                          Volver a /now
-                        </Link>
-                      </Button>
-                    </div>
-                  )}
-                </div>
               </div>
             </div>
           </div>

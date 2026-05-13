@@ -178,17 +178,16 @@ export default async function NowPage() {
       loadType: true,
       status: true,
       tutoringSessions: {
-        where: { status: 'completed' },
-        orderBy: { completedAt: 'desc' },
-        take: 1,
+        where: { status: { in: ['in_progress', 'completed'] } },
+        orderBy: { updatedAt: 'desc' },
         select: {
           id: true,
+          status: true,
           completedAt: true,
           responses: {
-            where: { responseType: 'answer' },
+            where: { responseType: { in: ['answer', 'mc_submission'] } },
             orderBy: { createdAt: 'desc' },
-            take: 1,
-            select: { id: true, content: true },
+            select: { id: true, responseType: true, content: true },
           },
         },
       },
@@ -201,8 +200,10 @@ export default async function NowPage() {
     .filter((l: any) => l.status === 'completed')
     .slice()
     .sort((a: any, b: any) => {
-      const ta = a.tutoringSessions[0]?.completedAt?.getTime() ?? 0
-      const tb = b.tutoringSessions[0]?.completedAt?.getTime() ?? 0
+      const aCompletedSession = a.tutoringSessions.find((session: any) => session.status === 'completed')
+      const bCompletedSession = b.tutoringSessions.find((session: any) => session.status === 'completed')
+      const ta = aCompletedSession?.completedAt?.getTime() ?? 0
+      const tb = bCompletedSession?.completedAt?.getTime() ?? 0
       return tb - ta
     })
 
@@ -305,6 +306,10 @@ export default async function NowPage() {
               <ul className="space-y-3">
                 {inProgressLoads.map((load: any) => {
                   const hasContent = !!getStudyLoadContent(load.title)
+                  const hasSubmittedMcEvidence = load.tutoringSessions.some((session: any) =>
+                    session.status === 'in_progress' &&
+                    session.responses.some((response: any) => response.responseType === 'mc_submission'),
+                  )
                   return (
                     <li key={load.id}>
                       <Card>
@@ -312,23 +317,35 @@ export default async function NowPage() {
                           <div className="flex items-start justify-between gap-3">
                             <p className="flex-1 text-sm font-medium leading-snug">{load.title}</p>
                             <Badge variant="secondary" className="shrink-0 text-[10px] uppercase tracking-wide">
-                              {load.loadType}
+                              {hasSubmittedMcEvidence ? 'Pendiente de cierre' : load.loadType}
                             </Badge>
                           </div>
+                          {hasSubmittedMcEvidence && (
+                            <p className="mt-2 text-xs text-muted-foreground">
+                              Tus respuestas ya están guardadas. Falta tu autorreporte para cerrar.
+                            </p>
+                          )}
                           {hasContent && (
                             <div className="mt-2">
                               <Link
                                 href={`/now/study-loads/${load.id}`}
-                                className="text-xs text-primary hover:underline underline-offset-4"
+                                className="text-xs font-medium text-primary hover:underline underline-offset-4"
                               >
-                                Ver actividad
+                                {hasSubmittedMcEvidence ? 'Finalizar actividad' : 'Ver actividad'}
                               </Link>
                             </div>
                           )}
                           <div className="mt-2 flex items-center justify-between gap-2">
                             <div className="flex items-center gap-2">
-                              <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
-                              <span className="text-xs text-muted-foreground">En curso</span>
+                              <span
+                                className={`inline-block h-1.5 w-1.5 rounded-full ${
+                                  hasSubmittedMcEvidence ? 'bg-amber-500' : 'bg-primary'
+                                }`}
+                                aria-hidden="true"
+                              />
+                              <span className="text-xs text-muted-foreground">
+                                {hasSubmittedMcEvidence ? 'Pendiente de cierre' : 'En curso'}
+                              </span>
                             </div>
                             {!hasContent && <CompleteLoadButton loadId={load.id} />}
                           </div>
@@ -362,7 +379,8 @@ export default async function NowPage() {
               </h2>
               <ul className="space-y-3">
                 {completedLoads.map((load: any) => {
-                  const report = load.tutoringSessions[0]?.responses[0]?.content ?? null
+                  const completedSession = load.tutoringSessions.find((session: any) => session.status === 'completed')
+                  const report = completedSession?.responses.find((response: any) => response.responseType === 'answer')?.content ?? null
                   const hasContent = !!getStudyLoadContent(load.title)
                   return (
                     <li key={load.id}>
