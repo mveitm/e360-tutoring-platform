@@ -8227,3 +8227,82 @@ Scope preserved:
 
 Next recommended phase:
 - `MVP-FLOW-4-E5D - Decide whether to complete reinforcement and add/validate the next edge to functions, or prepare CycleDecision/manual review readiness after the 4-load path`.
+
+## MVP-FLOW-4-E5D - Admin-mediated student account creation
+
+Status: CLOSED
+
+MVP-FLOW-4-E5D added an admin-mediated path to create a missing User account for an existing Student, without enabling public signup.
+
+Phase type:
+- Narrow admin auth/account UX implementation.
+
+Files changed:
+- `nextjs_space/app/api/students/[id]/create-user/route.ts`.
+- `nextjs_space/app/api/students/[id]/route.ts`.
+- `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+- `PHASE_LOG.md`.
+
+Problem addressed:
+- Admin-created Student records did not automatically create matching User accounts.
+- Reset password failed if no User existed.
+- Public unauthenticated signup correctly returned `No autenticado`.
+- The prior workaround required calling admin-authenticated `/api/signup` from browser console.
+- Direction decision: do not enable public signup; implement admin-mediated account creation.
+
+Implemented behavior:
+- Added admin-only `POST /api/students/[id]/create-user`.
+- Endpoint resolves Student by id.
+- Endpoint rejects missing Student.
+- Endpoint rejects Student without email.
+- Endpoint rejects duplicate matching User.
+- Endpoint validates password minimum 8 characters and password confirmation.
+- Endpoint hashes password with `bcryptjs`.
+- Endpoint creates User using Student.email and Student name.
+- Endpoint never returns password or password hash.
+- Endpoint records safe fire-and-forget audit event.
+- `GET /api/students/[id]` now returns `hasUserAccount` and `userAccountEmail`.
+- Admin Student detail shows `Cuenta de acceso`.
+- If no User exists, admin sees `Crear cuenta de acceso`.
+- If User exists, admin sees account-created state and existing `Restablecer contraseña` flow.
+
+Validation:
+- `git diff --check` passed, CRLF warnings only.
+- Build from `nextjs_space` with `npm.cmd run build` passed.
+- Browser/admin validation passed.
+
+Browser/admin validation evidence:
+- Test student: `Flow5D Account Test`.
+- Test email: `flow5d.account@student.bexauri.local`.
+- Student detail showed missing account state and `Crear cuenta de acceso`.
+- Admin created account with private password entered by Mauricio; password was not printed or documented.
+- UI changed to `Cuenta creada para flow5d.account@student.bexauri.local`.
+- `Restablecer contraseña` appeared after account creation.
+- Create-account form disappeared after User existed, preventing duplicate creation from UI.
+- Student login succeeded in incognito with the newly created account.
+- Since the test student had no enrollment, `/now` correctly showed `No tienes un programa activo todavía`.
+- Regression check: Student with existing User showed account-created state and reset-password block, not create-account form.
+
+Scope preserved:
+- No public signup enabled.
+- No login behavior change.
+- No NextAuth behavior change.
+- No schema change.
+- No Prisma migration.
+- No SQL.
+- No Prisma CLI.
+- No `.env` access or secrets inspected/printed.
+- No password, hash, token, or cookie printed.
+- No deploy.
+- No production operation.
+- No invitation/token/email system.
+- No bulk user import.
+- No StudyLoad continuity change.
+- No `/now` student flow change.
+- No feedback UI change.
+- No generated PDF/DOCX.
+- No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts.
+- No commit or push during validation before review.
+
+Next recommended phase:
+- `MVP-FLOW-4-E5E - Improve post-completion navigation after Finalizar actividad`.

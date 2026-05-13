@@ -31,7 +31,16 @@ export async function GET(
       return NextResponse.json({ error: 'Student not found' }, { status: 404 })
     }
 
-    return NextResponse.json(student)
+    const user = await prisma.user.findUnique({
+      where: { email: student.email },
+      select: { id: true, email: true },
+    })
+
+    return NextResponse.json({
+      ...student,
+      hasUserAccount: user !== null,
+      userAccountEmail: user?.email ?? null,
+    })
   } catch (error: any) {
     return NextResponse.json({ error: error?.message ?? 'Internal error' }, { status: 500 })
   }

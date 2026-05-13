@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, Users, Loader2, Calendar, Mail, Link2, GraduationCap, ExternalLink, RefreshCw, Plus, Search, KeyRound, Eye, EyeOff } from 'lucide-react'
+import { ArrowLeft, Users, Loader2, Calendar, Mail, Link2, GraduationCap, ExternalLink, RefreshCw, Plus, Search, KeyRound, Eye, EyeOff, UserPlus } from 'lucide-react'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
@@ -26,6 +26,8 @@ interface StudentDetail {
   lastName: string
   email: string
   createdAt: string
+  hasUserAccount: boolean
+  userAccountEmail: string | null
   programInstances: EnrollmentItem[]
 }
 
@@ -53,6 +55,50 @@ export function StudentDetailView() {
   const [resettingPw, setResettingPw] = useState(false)
   const [showResetPw, setShowResetPw] = useState(false)
   const [showResetPwConfirm, setShowResetPwConfirm] = useState(false)
+
+  /* ── Account creation controls ── */
+  const [createPw, setCreatePw] = useState('')
+  const [createPwConfirm, setCreatePwConfirm] = useState('')
+  const [creatingUser, setCreatingUser] = useState(false)
+  const [showCreatePw, setShowCreatePw] = useState(false)
+  const [showCreatePwConfirm, setShowCreatePwConfirm] = useState(false)
+
+  const handleCreateUser = async () => {
+    if (!createPw || !createPwConfirm) {
+      toast.error('Ambos campos son obligatorios.')
+      return
+    }
+    if (createPw.length < 8) {
+      toast.error('La contraseña debe tener al menos 8 caracteres.')
+      return
+    }
+    if (createPw !== createPwConfirm) {
+      toast.error('Las contraseñas no coinciden.')
+      return
+    }
+    setCreatingUser(true)
+    try {
+      const res = await fetch(`/api/students/${studentId}/create-user`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: createPw, confirmPassword: createPwConfirm }),
+      })
+      const data = await res.json().catch(() => null)
+      if (!res.ok) {
+        throw new Error(data?.error ?? 'Error al crear la cuenta de acceso.')
+      }
+      toast.success('Cuenta de acceso creada exitosamente.')
+      setCreatePw('')
+      setCreatePwConfirm('')
+      setShowCreatePw(false)
+      setShowCreatePwConfirm(false)
+      await fetchStudent()
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : 'Error al crear la cuenta de acceso.')
+    } finally {
+      setCreatingUser(false)
+    }
+  }
 
   const handlePasswordReset = async () => {
     if (!resetPw || !resetPwConfirm) {
@@ -228,7 +274,79 @@ export function StudentDetailView() {
         </CardContent>
       </Card>
 
+      {/* ── Account Access ── */}
+      <Card>
+        <CardContent className="py-5">
+          <h2 className="font-display text-lg font-semibold tracking-tight flex items-center gap-2 mb-2">
+            <UserPlus className="w-5 h-5 text-primary" /> Cuenta de acceso
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            {student.hasUserAccount
+              ? `Cuenta creada para ${student.userAccountEmail ?? student.email}.`
+              : 'Este estudiante todavía no tiene una cuenta de acceso para iniciar sesión.'}
+          </p>
+          {!student.hasUserAccount && (
+            <div className="mt-4 grid gap-3 max-w-sm">
+              <div className="space-y-1.5">
+                <Label htmlFor="create-pw" className="text-sm font-medium">Contraseña inicial</Label>
+                <div className="relative">
+                  <Input
+                    id="create-pw"
+                    type={showCreatePw ? 'text' : 'password'}
+                    placeholder="Mínimo 8 caracteres"
+                    value={createPw}
+                    onChange={(e) => setCreatePw(e.target.value)}
+                    disabled={creatingUser}
+                    className="pr-10"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowCreatePw(!showCreatePw)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    tabIndex={-1}
+                  >
+                    {showCreatePw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="create-pw-confirm" className="text-sm font-medium">Confirmar contraseña</Label>
+                <div className="relative">
+                  <Input
+                    id="create-pw-confirm"
+                    type={showCreatePwConfirm ? 'text' : 'password'}
+                    placeholder="Repetir contraseña"
+                    value={createPwConfirm}
+                    onChange={(e) => setCreatePwConfirm(e.target.value)}
+                    disabled={creatingUser}
+                    className="pr-10"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowCreatePwConfirm(!showCreatePwConfirm)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    tabIndex={-1}
+                  >
+                    {showCreatePwConfirm ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+              <Button
+                size="sm"
+                onClick={handleCreateUser}
+                disabled={creatingUser || !createPw || !createPwConfirm}
+                className="w-fit"
+              >
+                {creatingUser ? <Loader2 className="w-4 h-4 animate-spin mr-1" /> : <UserPlus className="w-4 h-4 mr-1" />}
+                Crear cuenta de acceso
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
       {/* ── Password Reset ── */}
+      {student.hasUserAccount && (
       <Card>
         <CardContent className="py-5">
           <h2 className="font-display text-lg font-semibold tracking-tight flex items-center gap-2 mb-4">
@@ -291,6 +409,7 @@ export function StudentDetailView() {
           </div>
         </CardContent>
       </Card>
+      )}
 
       {/* ── Enrollments ── */}
       <section>
