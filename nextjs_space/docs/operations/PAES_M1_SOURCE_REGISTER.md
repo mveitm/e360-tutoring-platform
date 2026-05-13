@@ -4,7 +4,7 @@
 
 Versioned source register for official and expert references required to validate the PAES_M1 master roadmap, content metadata, item design, and next-load decision layer.
 
-This document supports MVP-SRA-ROADMAP-2A and MVP-SRA-ROADMAP-2A-1.
+This document supports MVP-SRA-ROADMAP-2A, MVP-SRA-ROADMAP-2A-1, and MVP-SRA-ROADMAP-2A-2.
 
 It is documentation only. It does not import PDFs, change runtime, update content registry, mutate data, deploy, touch production, use SQL, use Prisma CLI, access `.env`, or print secrets.
 
@@ -17,6 +17,8 @@ Latest accepted state before 2A:
 - Working tree expected = clean
 
 2A-1 later updated this register after HEAD = origin/main = `32423e2`.
+
+2A-2 later updated this register after HEAD = origin/main = `722fd4f`.
 
 Future agents must still run Git preflight:
 
@@ -146,9 +148,9 @@ Git preflight remains the live source of truth if this embedded baseline becomes
 - Institution: Unidad de Curriculum y Evaluacion / Ministerio de Educacion
 - Type: official curriculum portal
 - URL: https://www.curriculumnacional.cl/
-- Status: `captured_url`, `accepted_for_reference`, `pending_extraction`
+- Status: `captured_url`, `accepted_for_reference`
 - Use: official curriculum context behind DEMRE's 7° basico to 2° medio reference.
-- Required next action: locate and register the exact 7° basico, 8° basico, 1° medio, and 2° medio mathematics curriculum pages / documents used for PAES_M1 roadmap validation.
+- Related exact sources: S-M1-015 through S-M1-022.
 
 ### S-M1-011 — DEMRE PAES Regular 2025 selected M1 questions, PDF
 
@@ -218,6 +220,98 @@ Git preflight remains the live source of truth if this embedded baseline becomes
   - Five starred questions are excluded from Puntaje P.
 - Required next action: use only for official answer/reference mapping, not for Bexauri PAES score claims.
 
+### S-M1-015 — Curriculum Nacional Matemática 7° basico page
+
+- Institution: Unidad de Curriculum y Evaluacion / Ministerio de Educacion
+- Type: official course/asignatura page
+- URL: https://www.curriculumnacional.cl/curriculum/7o-basico-2o-medio/matematica/7-basico
+- Status: `captured_url`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
+- Use: official OA-level reference for 7° basico mathematics, including axes and skill categories.
+- Key captured facts:
+  - Course/asignatura page exposes Eje: Numeros, Algebra y funciones, Geometria, Probabilidad y estadistica.
+  - Habilidad categories include Resolver problemas, Argumentar y comunicar, Modelar, Representar.
+  - Includes OA such as integer operations, fractions/decimals, percentages, powers of 10, algebraic language, proportions, linear equations/inequalities, geometry, data, and probability.
+- Related exact PDF: S-M1-016.
+
+### S-M1-016 — Programa de Estudio Matemática 7° basico, PDF
+
+- Institution: Unidad de Curriculum y Evaluacion / Ministerio de Educacion
+- Type: official PDF, Programa de Estudio
+- URL: https://www.curriculumnacional.cl/sites/default/files/adjuntos/recursos/2024-12/Matem%C3%A1tica%207.pdf
+- Source page: https://www.curriculumnacional.cl/recursos/programa-estudio-matematica-7-basico
+- Source page publication year: 2024
+- PDF pages: 236
+- Status: `captured_url`, `not_archived`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
+- Use: detailed curriculum program for 7° basico, including OA, suggested sequencing, learning/evaluation guidance, and progression annexes.
+- Key captured fact: the program states that OA integrate knowledge, skills, and attitudes and that programs support implementation of the Bases Curriculares.
+
+### S-M1-017 — Curriculum Nacional Matemática 8° basico page
+
+- Institution: Unidad de Curriculum y Evaluacion / Ministerio de Educacion
+- Type: official course/asignatura page
+- URL: https://www.curriculumnacional.cl/curriculum/7o-basico-2o-medio/matematica/8-basico
+- Status: `captured_url`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
+- Use: official OA-level reference for 8° basico mathematics, including axes and skill categories.
+- Key captured facts:
+  - Course/asignatura page exposes the same four axes and skill categories.
+  - Includes OA on integer and rational operations, powers/roots, percentage variation, algebraic expressions, linear function, affine function, linear equations/inequalities, geometry, data, and probability/combinatorics.
+- Related exact PDF: S-M1-018.
+
+### S-M1-018 — Programa de Estudio Matemática 8° basico, PDF
+
+- Institution: Unidad de Curriculum y Evaluacion / Ministerio de Educacion
+- Type: official PDF, Programa de Estudio
+- URL: https://www.curriculumnacional.cl/sites/default/files/newtenberg/614/articles-18983_programa.pdf
+- Source page: https://www.curriculumnacional.cl/recursos/programa-estudio-matematica-8-basico
+- Source page publication year: 2024
+- PDF pages: 242
+- Status: `captured_url`, `not_archived`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
+- Use: detailed curriculum program for 8° basico, useful for prerequisite progression and detailed sequence behind M1.
+
+### S-M1-019 — Curriculum Nacional Matemática 1° medio page
+
+- Institution: Unidad de Curriculum y Evaluacion / Ministerio de Educacion
+- Type: official course/asignatura page
+- URL: https://www.curriculumnacional.cl/curriculum/7o-basico-2o-medio/matematica/1-medio
+- Status: `captured_url`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
+- Use: official OA-level reference for 1° medio mathematics, including axes and skill categories.
+- Key captured facts:
+  - Includes OA on rational operations, powers with rational base and integer exponent, products, 2x2 systems of linear equations, linear relations in two variables, circle/sector geometry, cone, homothety, similarity/proportionality, bivariate data, and probability rules.
+- Related exact PDF: S-M1-020.
+
+### S-M1-020 — Programa de Estudio Matemática 1° medio, PDF
+
+- Institution: Unidad de Curriculum y Evaluacion / Ministerio de Educacion
+- Type: official PDF, Programa de Estudio
+- URL: https://www.curriculumnacional.cl/sites/default/files/newtenberg/614/articles-34359_programa.pdf
+- Source page: https://www.curriculumnacional.cl/recursos/programa-estudio-matematica-1-medio
+- Source page publication year: 2024
+- PDF pages: 244
+- Status: `captured_url`, `not_archived`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
+- Use: detailed curriculum program for 1° medio, useful for mid-roadmap prerequisite progression and transfer into PAES_M1 item design.
+
+### S-M1-021 — Curriculum Nacional Matemática 2° medio page
+
+- Institution: Unidad de Curriculum y Evaluacion / Ministerio de Educacion
+- Type: official course/asignatura page
+- URL: https://www.curriculumnacional.cl/curriculum/7o-basico-2o-medio/matematica/2-medio
+- Status: `captured_url`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
+- Use: official OA-level reference for 2° medio mathematics, including axes and skill categories.
+- Key captured facts:
+  - Includes OA on real-number operations with roots, powers/roots/logarithms, quadratic function, quadratic equations, inverse function, constant percentage change, sphere, trigonometric ratios, vectors, random variables, permutations/combinatorics, and probability in society.
+- Related exact PDF: S-M1-022.
+
+### S-M1-022 — Programa de Estudio Matemática 2° medio, PDF
+
+- Institution: Unidad de Curriculum y Evaluacion / Ministerio de Educacion
+- Type: official PDF, Programa de Estudio
+- URL: https://www.curriculumnacional.cl/sites/default/files/adjuntos/recursos/2024-12/Matem%C3%A1tica%202M.pdf
+- Source page: https://www.curriculumnacional.cl/recursos/programa-estudio-matematica-2-medio
+- Source page publication year: 2024
+- PDF pages: 228
+- Status: `captured_url`, `not_archived`, `accepted_for_reference`, `pending_extraction`, `pending_expert_review`
+- Use: detailed curriculum program for 2° medio, useful for upper-bound M1 curriculum scope and prerequisite/advanced node separation.
+
 ## 5. Tier 1 expert pedagogical sources
 
 ### E-M1-001 — PAES_M1 expert reviewer
@@ -271,12 +365,12 @@ AI output must not become canonical unless checked against Tier 0 official sourc
 
 ## 8. Immediate source gaps
 
-- Exact official PDF files for selected PAES Regular 2025 M1 questions and M1 clavijero are now registered as S-M1-011 and S-M1-012.
-- Exact official PDF files for full PAES Invierno 2025 M1 and M1 clavijero are now registered as S-M1-013 and S-M1-014.
-- Exact Curriculum Nacional 7° basico to 2° medio mathematics documents still need to be identified and registered.
+- Exact official PDF files for selected PAES Regular 2025 M1 questions and M1 clavijero are registered as S-M1-011 and S-M1-012.
+- Exact official PDF files for full PAES Invierno 2025 M1 and M1 clavijero are registered as S-M1-013 and S-M1-014.
+- Exact Curriculum Nacional 7° basico to 2° medio mathematics pages and Programas de Estudio PDFs are registered as S-M1-015 through S-M1-022.
 - Expert reviewer identity and review workflow remain pending.
 - No official source has been archived locally; only URLs and metadata are captured.
-- The official M1 item PDFs have not yet been mapped to Bexauri roadmap nodes.
+- Official M1 item PDFs and curriculum sources have not yet been mapped to Bexauri roadmap nodes.
 
 ## 9. Rules for future source use
 
@@ -288,6 +382,7 @@ AI output must not become canonical unless checked against Tier 0 official sourc
 - Do not let source/expert review become a normal student-facing gate.
 - Preserve non-blocking continuity: review improves the system asynchronously.
 - Do not use DEMRE clavijeros or transformation tables to make Bexauri PAES score claims in MVP-Beta.
+- Do not use Curriculum Nacional pages as a complete PAES_M1 roadmap by themselves; map them through DEMRE M1 scope and expert review.
 
 ## 10. Recommended next phase
 
@@ -297,15 +392,15 @@ Recommended next phase:
 
 Purpose:
 
-- map existing internal roadmap axes/nodes against S-M1-003, S-M1-005, S-M1-011, and S-M1-013;
+- map existing internal roadmap axes/nodes against S-M1-003, S-M1-005, S-M1-011, S-M1-013, and S-M1-015 through S-M1-022;
 - identify gaps, overreach, missing nodes, and ambiguous mappings;
 - prepare expert review checklist.
 
 Alternative narrower phase:
 
-`MVP-SRA-ROADMAP-2A-2 - Register exact Curriculum Nacional 7° basico to 2° medio mathematics sources`
+`MVP-SRA-ROADMAP-2B-0 - Extract official PAES_M1 axes/OA inventory from source register`
 
-Use this if the team wants complete curriculum grounding before roadmap mapping.
+Use this if the team wants an intermediate official inventory before mapping internal roadmap docs.
 
 ## 11. Handoff requirements
 
