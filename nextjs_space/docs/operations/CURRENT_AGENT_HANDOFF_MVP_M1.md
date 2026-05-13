@@ -8,8 +8,8 @@ Use this document to understand the current direction before proposing or implem
 
 ## 2. Current repo baseline
 
-- HEAD = origin/main = `213fccb`.
-- Last accepted commit: `MVP-FLOW-4-E2: define shortest safe M1 tutoring path`.
+- HEAD = origin/main = `ee7e9af`.
+- Last accepted commit: `MVP-FLOW-4-E5F: clarify pending closure state`.
 - Working tree expected clean.
 
 ## 3. Current strategic objective
@@ -23,11 +23,12 @@ Do not expand to L1 or M2 yet. Do not keep adding isolated verifications by iner
 1. `PHASE_LOG.md` is the audit trail and continuity ledger.
 2. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md` is the working documentation index and source-alignment layer.
 3. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` is the stable next-chat handoff template/contract.
-4. `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` is the canonical student/SRA journey.
-5. `MVP_CONTENT_1` through `MVP_CONTENT_4` define the PAES_M1 roadmap/content chain.
-6. `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md` is the latest runtime validation evidence.
-7. Current code behavior is the executable truth.
-8. Optional business/strategy documents, if present, provide product context. During E1, `BEXAURI_PROPUESTA_INTEGRADA_MVP_v1.md`, `AUDITORIA_ESTRATEGICA_MVP_MONETIZACION_E360_BEXAURI_MAYO_2026.md`, and `Bexauri_Especificaciones_Director_Proyecto.pdf` were external / not versioned in repo. `MVP_DIRECTION_1_MICROLEARNING_LOOP_ADOPTION_DECISION.md` was found as local strategic direction context.
+4. `nextjs_space/docs/operations/MVP_FLOW_4_E5G_0_DIRECTION_CHECKPOINT_HANDOFF.md` is the immediate context-transfer document for the E5G direction checkpoint.
+5. `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` is the canonical student/SRA journey.
+6. `MVP_CONTENT_1` through `MVP_CONTENT_4` define the PAES_M1 roadmap/content chain.
+7. `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md` is runtime validation evidence for the first automatic pair.
+8. Current code behavior is the executable truth.
+9. Optional business/strategy documents, if present, provide product context. During E1, `BEXAURI_PROPUESTA_INTEGRADA_MVP_v1.md`, `AUDITORIA_ESTRATEGICA_MVP_MONETIZACION_E360_BEXAURI_MAYO_2026.md`, and `Bexauri_Especificaciones_Director_Proyecto.pdf` were external / not versioned in repo. `MVP_DIRECTION_1_MICROLEARNING_LOOP_ADOPTION_DECISION.md` was found as local strategic direction context.
 
 ## 5. Canonical student/SRA flow
 
@@ -46,6 +47,13 @@ The student should experience learning continuity. LearningCycles, internal stat
   - `paes_m1_balanced_entry_initial` -> `paes_m1_linear_equations_basic`.
 - `/now` shows the next pending StudyLoad after completion.
 - Cycle remains open and no CycleDecision, CycleEvaluation, or new cycle is created by this continuity.
+- E5A-E5F closed the latest student-flow debts:
+  - `paes_m1_linear_equations_word_problems` -> `paes_m1_linear_equations_reinforcement` exists and was locally validated.
+  - `Empezar` starts a pending StudyLoad and opens the activity directly.
+  - Admin-mediated student account creation exists; public signup remains closed.
+  - `Finalizar actividad` returns the student to `/now`.
+  - Submitted-but-not-completed loads are shown as `Pendiente de cierre`.
+  - In pending-closure state, the closure block appears before instructions in the activity view.
 
 ## 7. Current PAES_M1 pedagogical interpretation
 
@@ -74,9 +82,13 @@ Current/proposed first path:
 4. PAES M1 - Refuerzo de ecuaciones lineales.
 5. PAES M1 - Funciones lineales basicas.
 
-Only the first automatic pair is currently validated:
+Validated automatic edges currently include:
 
 - `paes_m1_balanced_entry_initial` -> `paes_m1_linear_equations_basic`.
+- `paes_m1_linear_equations_basic` -> `paes_m1_linear_equations_word_problems`.
+- `paes_m1_linear_equations_word_problems` -> `paes_m1_linear_equations_reinforcement`.
+
+No continuity edge beyond reinforcement is accepted yet.
 
 ## 9. What is not mature yet
 
@@ -101,9 +113,9 @@ Only the first automatic pair is currently validated:
 
 Recommended next phase:
 
-`MVP-FLOW-4-E3 - Implement and validate the next continuity edge after linear equations basic`
+`MVP-FLOW-4-E5G - Direction checkpoint after closing UX/account/mobile completion debts`
 
-Reason: E2 defines the shortest safe implementation roadmap and repairs the context self-propagation protocol. The next safe runtime increment is the next explicit PAES_M1 continuity edge after the validated first pair.
+Reason: E5A-E5F closed key continuity, account-access, completion-navigation, and pending-closure debts. The next safe step is a direction checkpoint before choosing manual review / CycleDecision readiness, the next continuity edge to functions, or documentation of the first complete M1 guided tutoring path as locally MVP-Beta-ready.
 
 ## 12. Implementation boundaries for the next phase
 
@@ -147,6 +159,7 @@ Future next-chat handoffs should use `nextjs_space/docs/operations/CONTEXT_TRANS
 You are entering the E360 / Bexauri repo for the MVP-M1 tutoring line.
 
 First read:
+nextjs_space/docs/operations/MVP_FLOW_4_E5G_0_DIRECTION_CHECKPOINT_HANDOFF.md
 nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
 nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
 nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
@@ -158,7 +171,7 @@ git log -1 --pretty=format:"%h %s"
 Do not implement before reading the canonical docs listed in the handoff.
 Git preflight output is live truth. If it contradicts embedded baselines in the handoff or index, flag the mismatch and prefer Git preflight.
 
-Assume the next task is documentation/direction for the first complete minimal PAES_M1 tutoring experience unless Mauricio explicitly instructs runtime implementation.
+Assume the next task is MVP-FLOW-4-E5G, a documentation/direction checkpoint, unless Mauricio explicitly instructs runtime implementation.
 
 Guardrails:
 - first complete M1 tutoring experience before L1/M2;

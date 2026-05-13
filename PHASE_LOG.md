@@ -8461,3 +8461,53 @@ Next recommended phase:
   - Option A: prepare manual review / CycleDecision readiness.
   - Option B: add and validate the next edge from reinforcement to functions.
   - Option C: document the first complete M1 guided tutoring path as MVP-Beta-ready locally.
+
+## MVP-FLOW-4-E5G-0 - Direction checkpoint handoff after E5F
+
+Status: CLOSED
+
+MVP-FLOW-4-E5G-0 created a short versioned context-transfer handoff for switching to a new chat before the E5G direction decision.
+
+Phase type:
+- Documentation / context-transfer only.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_FLOW_4_E5G_0_DIRECTION_CHECKPOINT_HANDOFF.md`.
+- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+- `PHASE_LOG.md`.
+
+Implemented documentation:
+- Created the E5G-0 direction checkpoint handoff.
+- Captured live accepted baseline: HEAD = origin/main = `ee7e9af`.
+- Captured last accepted commit: `MVP-FLOW-4-E5F: clarify pending closure state`.
+- Summarized closed E5A-E5F debts:
+  - reinforcement continuity edge;
+  - word_problems -> reinforcement validation;
+  - direct `Empezar` activity open;
+  - admin-mediated student account creation;
+  - post-completion return to `/now`;
+  - explicit `Pendiente de cierre` state.
+- Captured current product rule:
+  - `Enviar respuestas` = evidence saved.
+  - `Finalizar actividad` = activity closed + self-report + continuity can advance.
+  - Bexauri should not auto-complete without self-report.
+- Captured account/access rule:
+  - public signup remains closed;
+  - admin can create missing User account from Student detail;
+  - reset password is available once User exists.
+- Added a compact new-chat starter prompt for E5G.
+- Updated `CURRENT_AGENT_HANDOFF_MVP_M1.md` to point to the current baseline and the new E5G-0 handoff.
+
+Scope preserved:
+- No runtime code changes.
+- No schema changes.
+- No DB mutation.
+- No deploy.
+- No production operation.
+- No `.env` access or secrets.
+- No generated PDF/DOCX.
+- No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts.
+- No commit or push during validation before review.
+
+Next recommended phase:
+- `MVP-FLOW-4-E5G - Direction checkpoint in a new chat`.
