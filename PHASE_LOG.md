@@ -8066,3 +8066,96 @@ Scope preserved:
 
 Next recommended phase:
 - `MVP-FLOW-4-E5B - Validate word_problems -> reinforcement continuity with a local fixture`.
+
+## MVP-FLOW-4-E5B - Validate word_problems -> reinforcement continuity with a local fixture
+
+Status: CLOSED
+
+MVP-FLOW-4-E5B validated locally that completing `PAES M1 - Problemas con ecuaciones lineales` automatically creates `PAES M1 - Refuerzo de ecuaciones lineales` as the next pending StudyLoad.
+
+Phase type:
+- Local browser validation / documentation only.
+
+Files changed:
+- `PHASE_LOG.md` only.
+
+Fixture:
+- Student: `Flow5B Verify M 1`.
+- User/email: `flow5b.verify@student.bexauri.local`.
+- Program: `PAES_M1`.
+- Path used: Path A, full natural local path.
+
+Fixture setup note:
+- Public unauthenticated signup returned `No autenticado`, as expected.
+- Admin-created Student did not automatically create User.
+- Reset password failed until User existed.
+- Existing admin-authenticated `/api/signup` route was inspected and used safely from the browser console while logged in as local admin.
+- User creation returned status `201` / `ok true`.
+- Password was entered privately by Mauricio and was not printed or documented.
+- No `.env` or secrets were inspected.
+
+Student path validated:
+1. `/now` initially showed pending `PAES M1 - Entrada balanceada inicial`.
+2. Student completed `PAES M1 - Entrada balanceada inicial`.
+3. `/now` showed pending `PAES M1 - Ecuaciones lineales basicas`.
+4. Student completed `PAES M1 - Ecuaciones lineales basicas`.
+5. `/now` showed pending `PAES M1 - Problemas con ecuaciones lineales`.
+6. Student completed `PAES M1 - Problemas con ecuaciones lineales`.
+7. `/now` showed pending `PAES M1 - Refuerzo de ecuaciones lineales`.
+
+Critical edge validated:
+- `paes_m1_linear_equations_word_problems` -> `paes_m1_linear_equations_reinforcement`.
+
+Student final `/now` state:
+- Pending:
+  - `PAES M1 - Refuerzo de ecuaciones lineales`.
+- Registered/completed:
+  - `PAES M1 - Problemas con ecuaciones lineales`, self-report `Me fue bien`.
+  - `PAES M1 - Ecuaciones lineales basicas`, self-report `Me fue bien`.
+  - `PAES M1 - Entrada balanceada inicial`, self-report `Me fue bien`.
+
+Admin final state:
+- Enrollment: `Flow5B Verify M 1` / `PAES_M1`.
+- Cycle #1: open.
+- LearningCycles: 1.
+- Total loads: 4.
+- By status: pending 1 / completed 3.
+- Cycle 1 summary: 0 decisions, 4 loads, 0 evaluations.
+- Governance-reading records: 0.
+- SkillStates: 0.
+- No new LearningCycle.
+- No CycleDecision.
+- No CycleEvaluation.
+- No ContinuitySignal/governance record.
+- No automatic cycle close.
+
+E4A regression check:
+- Feedback and self-report flow worked during the path.
+- Completed activities were registered with self-report.
+- No PAES score, theta, mastery, adaptive AI, or definitive diagnosis claims observed.
+
+Non-blocking UX observations:
+- UX-CTA-1: In pending loads, `Empezar` should start the load and navigate directly to the activity. `Ver actividad` may remain as secondary/reference, but should not be a required extra step.
+- UX-NAV-1: After `Finalizar actividad`, the student should return to `/now` automatically or see a primary return button without needing to scroll.
+
+Scope preserved:
+- No code changes.
+- No schema changes.
+- No endpoint changes.
+- No UI changes.
+- No content registry changes.
+- No continuity-rule changes.
+- No deploy.
+- No production operation.
+- No SQL.
+- No Prisma CLI.
+- No `.env` or secrets printed/inspected.
+- No generated PDF/DOCX.
+- No `.logs`, `node_modules`, `yarn.lock`, checkpoint artifacts.
+- No commit or push during validation before review.
+
+Next recommended phase:
+- `MVP-FLOW-4-E5C - Decide next path action`:
+  - Option A: implement `Empezar` direct-to-activity UX polish.
+  - Option B: add next continuity edge from reinforcement to functions.
+  - Option C: complete/refine the 4-load path evidence and prepare manual review/CycleDecision readiness.
