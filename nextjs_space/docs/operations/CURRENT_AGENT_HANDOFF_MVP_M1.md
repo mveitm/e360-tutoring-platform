@@ -4,7 +4,9 @@
 
 This is the first-read operational handoff for agents working on the Bexauri MVP-M1 tutoring line.
 
-Its job is to prevent loss of context when switching chats or tools, especially now that Bexauri is moving from operational continuity into its most important layer: the PAES_M1 pedagogical roadmap and next-load decision layer.
+Its job is to prevent loss of context when switching chats or tools. The current project state has shifted from implementation momentum to a scope-first documentation block for the PAES_M1 pedagogical layer.
+
+Future agents must not assume the next step is code, registry work, selector logic, new StudyLoads, or tutor-agent implementation.
 
 ## 2. Live-state rule
 
@@ -23,37 +25,81 @@ Git preflight is the live truth. If Git preflight contradicts embedded baselines
 
 Latest accepted state before refreshing this file:
 
-- HEAD = origin/main = `fcb88c1`
-- Last accepted commit = `MVP-SRA-ROADMAP-1A: clarify non-blocking operator principle`
+- HEAD = origin/main = `30f5d91`
+- Last accepted commit = `MVP-SRA-SCOPE-5D: harden handoff after scope-first block`
 - Working tree expected = clean
 
-If this file is edited and committed, live `HEAD` will be newer than `fcb88c1`. Future agents must use live Git preflight as truth.
+If this file is edited and committed, live `HEAD` will be newer than `30f5d91`. Future agents must use live Git preflight as truth.
 
-## 4. Current strategic objective
+## 4. Current strategic state
 
-The current objective is no longer only to prove a linear local PAES_M1 path.
+Construction is paused.
 
-The validated operational loop now allows Bexauri to move a student through StudyLoads. The next strategic objective is to define and protect the pedagogical layer that decides the next learning action across a complete PAES_M1 tutoring roadmap.
+Documentation may continue.
 
-The goal is a full M1 tutoring experience where the student progresses through relevant axes, skills, difficulty levels, evidence, feedback, and cycle milestones without depending on manual operator action as a normal bottleneck.
+Implementation requires explicit restart authorization.
 
-## 5. Current canonical documents
+Canonical decision:
 
-Read these first for the current phase context:
+```text
+Pause construction. Continue documentation. Define scope before implementation.
+```
 
-1. `nextjs_space/docs/operations/MVP_SRA_ROADMAP_1_PAES_M1_PEDAGOGICAL_DECISION_LAYER.md`
-2. `nextjs_space/docs/operations/MVP_FLOW_4_E5M_M1_LOCAL_PATH_VALIDATION_AND_CONTENT_ALIGNMENT.md`
-3. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
-4. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
-5. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`
-6. `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`
-7. `nextjs_space/docs/operations/MVP_DIRECTION_1_MICROLEARNING_LOOP_ADOPTION_DECISION.md`
-8. `nextjs_space/docs/operations/MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md`
-9. `nextjs_space/docs/operations/MVP_CONTENT_2_PAES_M1_FIRST_ACTIVE_SLICE.md`
-10. `nextjs_space/docs/operations/MVP_CONTENT_3_PAES_M1_FIRST_MICRO_STUDYLOAD_SET.md`
-11. `nextjs_space/docs/operations/MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md`
+Bexauri PAES_M1 is now framed as:
 
-## 6. Validated operational loop
+```text
+guided, evidence-aware roadmap traversal
+```
+
+not as a static chain of StudyLoads.
+
+## 5. Scope-first block now established
+
+The current scope-first block includes:
+
+- `MVP-SRA-ROADMAP-2H` — construction pause / scope-first decision.
+- `MVP-SRA-SCOPE-1` — complete PAES_M1 tutoring scope charter.
+- `MVP-SRA-SCOPE-2` — canonical student journey and roadmap traversal.
+- `MVP-SRA-SCOPE-2A` — cycle milestone and special action model.
+- `MVP-SRA-SCOPE-3` — human/operator parallel role model.
+- `MVP-SRA-SCOPE-4` — future tutor-agent governance model.
+- `MVP-SRA-SCOPE-5` — construction restart options and readiness review.
+- `MVP-SRA-SCOPE-5A` — implementation spec for provisional registry metadata.
+- `MVP-SRA-SCOPE-5B` — implementation spec for first non-algebra slice candidate.
+- `MVP-SRA-SCOPE-5C` — expert review request package.
+- `MVP-SRA-SCOPE-5D` — handoff hardening after scope-first block.
+
+## 6. Current canonical first-read documents
+
+Read these first for current phase context:
+
+1. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
+2. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`
+3. `nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md`
+4. `nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md`
+5. `nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md`
+6. `nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md`
+7. `nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md`
+8. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md`
+9. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md`
+10. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md`
+11. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md`
+12. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md`
+
+Supporting roadmap/source docs:
+
+- `nextjs_space/docs/operations/PAES_M1_SOURCE_REGISTER.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2B_0_OFFICIAL_PAES_M1_AXES_OA_INVENTORY.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2B_1_PAES_M1_ROADMAP_NODE_TAXONOMY.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2B_INTERNAL_M1_ROADMAP_TO_OFFICIAL_TAXONOMY_MAPPING.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2C_MVP_BETA_NEXT_LOAD_DECISION_RECORD_FORMAT.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2D_PAES_M1_EXPERT_REVIEW_CHECKLIST.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2E_TAXONOMY_ALIGNED_STUDYLOAD_METADATA_PROPOSAL.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2E_1_AS1_ALGEBRA_FUNCTIONS_CORRIDOR_METADATA_AND_ASSIGNMENT_CONSTRAINTS.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2F_FIRST_NON_ALGEBRA_SLICE_PROPOSALS.md`
+- `nextjs_space/docs/operations/MVP_SRA_ROADMAP_2G_PAES_M1_EXPERT_REVIEW_PACKET_ASSEMBLY.md`
+
+## 7. Validated operational loop
 
 The local PAES_M1 flow has been validated through:
 
@@ -72,60 +118,103 @@ Student-facing behavior validated:
 - submit answers;
 - self-report block appears without manual scroll;
 - finalize activity;
-- loading state appears: `Actualizando tu avance...`;
+- loading state appears after completion;
 - `/now` opens updated without manual refresh.
 
-Preserved guardrails:
+This validated loop is an operational asset, not the complete PAES_M1 roadmap.
 
-- no deploy;
-- no production operation;
-- no SQL;
-- no Prisma CLI;
-- no `.env` or secrets;
-- no schema changes;
-- no CycleDecision creation;
-- no CycleEvaluation creation;
-- no LearningCycle close;
-- no new LearningCycle creation;
-- no adaptive AI, theta, mastery, scoring, or PAES score claim.
+## 8. AS1 status
 
-## 7. Pedagogical decision layer context
+AS1 algebra/functions corridor is:
 
-This context must be propagated in every future handoff.
+- operationally validated;
+- useful;
+- metadata-constrained;
+- expert-review pending;
+- available for some students;
+- not universal;
+- not the complete PAES_M1 roadmap.
 
-Bexauri is now defining the layer that decides the next learning action. A linear continuity map is not sufficient.
+Do not convert AS1 into a fixed route for every student.
 
-The pedagogical layer must decide based on:
+## 9. N1/G1/PE1 status
+
+First non-algebra slice families are proposal-only:
+
+- N1 — Numbers prerequisite and proportional reasoning.
+- G1 — Geometry measurement and visual reasoning.
+- PE1 — Data and probability entry.
+
+They are not implemented and are not mandatory detours.
+
+Recommended future first non-algebra content candidate:
+
+```text
+PE1-MSL-01 - Lectura de tablas y graficos
+Suggested contentKey: paes_m1_data_representation_entry
+```
+
+This is not implemented and no automatic routing is authorized.
+
+## 10. Expert review status
+
+Expert review request package exists:
+
+```text
+MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md
+```
+
+Expert review has not occurred unless a later phase documents it.
+
+Do not claim expert validation.
+
+## 11. Implementation status
+
+No implementation is currently authorized.
+
+Prepared but not authorized:
+
+```text
+MVP-SRA-IMPL-1 - Add provisional taxonomy metadata to current M1 registry activities
+```
+
+This would be additive registry metadata only, no behavior change, and only after explicit authorization.
+
+The safest future implementation candidate remains metadata-first, not selector-first.
+
+## 12. Pedagogical decision layer context
+
+The next-load decision cannot be only a linear continuity edge.
+
+It must consider:
 
 - PAES_M1 roadmap position;
 - current active slice;
-- recent evidence;
+- student evidence;
 - self-report;
 - repeated errors;
 - prerequisite risk;
-- confidence / frustration signals;
+- confidence/frustration;
 - novelty tolerance;
-- coverage history across axes and skills;
+- coverage across axes/skills;
 - monotony risk;
-- expert PAES_M1 relevance;
-- cycle milestone state.
+- milestone state;
+- expert/source validation status;
+- fallback availability.
 
 Possible decision types include:
 
-- practice;
+- advance;
 - reinforce;
 - bridge;
-- advance;
 - validate;
 - hold;
 - redirect;
 - spiral;
-- cycle milestone;
-- asynchronous review request.
+- cycle_milestone;
+- async_review_request.
 
-The future PAES_M1 tutor agent must operate inside a governed roadmap. It must not freely invent the roadmap or make unsupported PAES score, theta, mastery, or adaptive AI claims.
-
-## 8. Non-blocking operator principle
+## 13. Non-blocking operator principle
 
 This principle is critical and must be preserved in every future handoff:
 
@@ -135,84 +224,79 @@ supervision != bottleneck
 operator action != prerequisite for normal student continuity
 ```
 
-Operators, supervisors, and expert reviewers work asynchronously and in parallel. They may administer, review, optimize, improve content, adjust the roadmap, insert special loads, or add cycle milestones.
+Operators, supervisors, and experts work asynchronously and in parallel. They improve the system, review evidence, insert milestones, correct content, and prepare expert validation. They do not normally block the student's next useful action.
 
-But if operators do not act, Bexauri must still continue efficiently for the student through the best available safe rule-based or agent-supported next-load decision.
+Only separately defined, versioned, and justified exceptional policies may pause student continuity.
 
-Human/expert intervention may improve or override the path, but it must not become the default bottleneck. Only separately defined, versioned, and justified exceptional policies may pause student continuity.
+## 14. Future tutor-agent status
 
-## 9. Content alignment status
+Future tutor-agent is not implemented.
 
-The current validated path uses some 8-item registry-aligned activities.
-
-Current verdict:
+Governance stance:
 
 ```text
-8-item registry-aligned activities are allowed as transitional content,
-but they are not the ideal final micro StudyLoad format.
+Tutor agent = governed decision-support actor inside the SRA, not autonomous pedagogical authority.
 ```
 
-Target direction remains:
+No adaptive AI claim is allowed in MVP-Beta.
 
-```text
-Micro StudyLoad = ideally 4 exercises where appropriate.
-```
+First future agent use case, if ever authorized, should be internal auditable decision proposal only, not autonomous selector.
 
-Do not reduce the roadmap question to item count. First define the pedagogical decision layer and expert PAES_M1 roadmap. Then decide how to split or redesign loads.
+## 15. Product guardrails
 
-## 10. What is not mature yet
-
-- No full PAES_M1 expert-validated roadmap.
-- No intelligent next-load selector.
-- No full content metadata model for roadmap nodes/item purpose.
-- No autonomous tutor agent.
-- No adaptive AI.
-- No theta.
-- No PAES score prediction.
-- No automatic mastery.
-- No L1/M2 replication.
-- No production beta invitation decision.
-
-## 11. Product guardrails
-
-- Avoid overpromising.
-- Do not call rule-based progression adaptive AI.
-- Do not make PAES score, theta, or mastery claims from micro StudyLoads.
-- Do not let operator or supervisor review become the normal student-facing gate.
-- LearningCycles are internal and should stay invisible to students unless an accepted future phase changes that rule.
-- Preserve student continuity as the default path.
-- Treat special cycle milestones, mini-ensayos, checkpoints, and guided reviews as future pedagogical actions, not as blockers.
+- No PAES score claim.
+- No theta claim.
+- No mastery claim.
+- No adaptive AI claim in MVP-Beta.
+- No full PAES_M1 coverage claim unless enough validated slices exist.
+- No expert-validation claim until expert review occurs.
+- No AS1 universal routing.
+- No hidden operator gate.
+- Preserve student continuity as default.
+- Keep LearningCycles internal unless a later accepted phase changes that rule.
 - Keep L1/M2 out of scope until PAES_M1 core is stable.
 
-## 12. Recommended next phase
+## 16. Technical guardrails
 
-Recommended next phase:
+Unless explicitly authorized in a later phase:
+
+- no implementation;
+- no code changes beyond documentation;
+- no registry edits;
+- no new StudyLoads;
+- no selector logic;
+- no continuity map changes;
+- no UI/API/schema/database changes;
+- no SQL;
+- no Prisma CLI;
+- no `.env` or secrets;
+- no deploy;
+- no production;
+- no npm install;
+- no generated PDF/DOCX;
+- no `.logs`, `node_modules`, `yarn.lock`, or checkpoint artifacts.
+
+## 17. Recommended next phase
+
+If continuing documentation-only:
 
 ```text
-MVP-SRA-ROADMAP-2 - PAES M1 expert roadmap source and validation plan
+MVP-SRA-SCOPE-5E - Documentation index update after scope-first block
 ```
 
 Purpose:
 
-- identify official and expert sources;
-- define how the PAES_M1 master roadmap will be validated;
-- decide what must be versioned before implementing smarter next-load selection;
-- prevent Bexauri from building a plausible but pedagogically weak roadmap.
+- update `DOCUMENTATION_INDEX_MVP_M1.md` so it reflects the current scope-first canonical chain and latest next-phase logic.
 
-Alternative if staying closer to implementation:
+If switching chats:
 
-```text
-MVP-SRA-ROADMAP-2 - Define MVP-Beta next-load decision record format
-```
+- generate a next-chat handoff using the updated `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
 
-Recommended order:
+If implementation is later desired:
 
-1. Expert/source validation plan.
-2. Decision record format.
-3. Content metadata alignment.
-4. Rule-based selector prototype.
+- require explicit authorization before `MVP-SRA-IMPL-1`.
 
-## 13. Context Transfer Protocol
+## 18. Context Transfer Protocol
 
 The assistant/agent is responsible for preserving continuity across chats.
 
@@ -229,7 +313,10 @@ Every next-chat handoff must include:
 - last closed phase;
 - next recommended phase;
 - canonical documents;
-- current pedagogical decision layer context;
+- construction-paused status;
+- AS1/N1/G1/PE1 status;
+- expert review status;
+- implementation authorization status;
 - non-blocking operator principle;
 - validated operational capabilities;
 - immature capabilities;
@@ -238,43 +325,57 @@ Every next-chat handoff must include:
 - ready-to-paste prompt;
 - this same Context Transfer Protocol so the next chat propagates it again.
 
-## 14. Quickstart prompt for future agents
+## 19. Quickstart prompt for future agents
 
 ```text
-You are entering the E360 / Bexauri repo for the MVP-M1 tutoring line.
+Actua como director tecnico/producto senior para E360 / Bexauri.
 
-First verify Git preflight:
+No esperes saludo ni contexto adicional. Primero solicita/revisa Git preflight:
+
 git status --short
 git log --oneline --decorate --graph -8
 
-Git preflight output is live truth. If it contradicts embedded baselines in handoff/index/template/PHASE_LOG excerpts, flag the mismatch and prefer Git preflight.
+Git preflight output is the live source of truth for HEAD, origin/main, and working tree state. If it contradicts embedded baselines in handoff/index/template/PHASE_LOG excerpts, flag the mismatch and prefer Git.
+
+Current expected strategic state:
+- Construction is paused.
+- Documentation may continue.
+- Implementation requires explicit restart authorization.
+- Last known accepted phase: MVP-SRA-SCOPE-5D - Handoff hardening after scope-first block.
+- Next recommended documentation phase: MVP-SRA-SCOPE-5E - Documentation index update after scope-first block.
 
 First read:
-nextjs_space/docs/operations/MVP_SRA_ROADMAP_1_PAES_M1_PEDAGOGICAL_DECISION_LAYER.md
-nextjs_space/docs/operations/MVP_FLOW_4_E5M_M1_LOCAL_PATH_VALIDATION_AND_CONTENT_ALIGNMENT.md
-nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
-nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
-nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
-nextjs_space/docs/operations/MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md
-nextjs_space/docs/operations/MVP_CONTENT_2_PAES_M1_FIRST_ACTIVE_SLICE.md
-nextjs_space/docs/operations/MVP_CONTENT_3_PAES_M1_FIRST_MICRO_STUDYLOAD_SET.md
-nextjs_space/docs/operations/MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md
+1. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+2. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
+3. nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md
+4. nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md
+5. nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md
+6. nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md
+7. nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md
+8. nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md
+9. nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md
+10. nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md
+11. nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md
+12. nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md
 
-Current strategic focus:
-Define and protect the PAES_M1 pedagogical roadmap / next-load decision layer before building smarter selector logic.
+Critical decisions:
+- Bexauri PAES_M1 = guided, evidence-aware roadmap traversal, not a static content sequence.
+- AS1 algebra/functions is available and validated operationally, but not universal.
+- N1/G1/PE1 are proposed complements, not implemented routes.
+- PE1-MSL-01 Lectura de tablas y graficos is the first non-algebra candidate, not implemented.
+- Expert review package exists, but expert review has not occurred unless later documented.
+- Future implementation candidate is metadata-first, but not authorized.
 
 Critical principle:
 review != gate; supervision != bottleneck; operator action != prerequisite for normal student continuity.
 
-Recommended next phase:
-MVP-SRA-ROADMAP-2 - PAES M1 expert roadmap source and validation plan.
-
 Guardrails:
+- no implementation unless explicitly authorized;
+- no registry edit;
+- no new StudyLoads;
+- no selector logic;
+- no UI/API/schema/database changes;
 - no deploy or production;
-- no SQL, Prisma CLI, .env, or secrets;
-- no schema or runtime changes unless explicitly authorized in a later phase;
-- no adaptive AI, theta, mastery, scoring, or PAES score claims;
-- no L1/M2 expansion;
-- preserve student continuity as the default path;
-- every future handoff must carry the pedagogical decision layer and non-blocking operator principle.
+- no SQL, Prisma CLI, .env, secrets, or npm install;
+- no PAES score, theta, mastery, or adaptive AI claims.
 ```
