@@ -8624,3 +8624,36 @@ Build result:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-SRA-IMPL-3 - Add non-invasive next-load decision record v0
+
+Status: IMPLEMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `2b84834`.
+- Last accepted commit = `MVP-SRA-IMPL-2: add pedagogical metadata helper`.
+- Working tree was clean before implementation.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/lib/study-load-pedagogical-decision.ts`.
+- `PHASE_LOG.md`.
+
+Scope preserved:
+- Helper/record-only change.
+- No behavior change.
+- No selector change.
+- No new StudyLoads.
+- No UI/API/schema/database changes.
+- No SQL.
+- No Prisma CLI.
+- No `.env` access or secrets.
+- No deploy.
+- No production operation.
+- No PAES score, theta, mastery, or adaptive AI claims.
+
+Build result:
+- `npm.cmd run build` from `nextjs_space` passed.
+
+Working tree state:
+- Commit pending Mauricio review.
