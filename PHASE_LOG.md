@@ -8691,3 +8691,37 @@ Next possible implementation phase:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-SRA-IMPL-4 - Add PE1-MSL-01 registry activity
+
+Status: IMPLEMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `0e09526`.
+- Last accepted commit = `MVP-SRA-IMPL-4R: prepare PE1 registry activity`.
+- Working tree was clean before implementation.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/lib/study-load-content.ts`.
+- `PHASE_LOG.md`.
+
+Scope preserved:
+- Exactly one registry activity added: `PAES M1 — Lectura de tablas y gráficos`.
+- PE1 metadata type additions only: `sliceId: 'PE1'` and `axis: 'data_probability'`.
+- No selector or routing change.
+- No automatic route from AS1 to PE1.
+- No new StudyLoads in DB.
+- No UI/API/schema/database changes.
+- No SQL.
+- No Prisma CLI.
+- No `.env` access or secrets.
+- No deploy.
+- No production operation.
+- No PAES score, theta, mastery, or adaptive AI claims.
+
+Build result:
+- `npm.cmd run build` from `nextjs_space` passed.
+
+Working tree state:
+- Commit pending Mauricio review.

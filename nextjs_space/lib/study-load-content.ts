@@ -24,9 +24,9 @@ export interface StudyLoadItem {
 
 export interface StudyLoadPedagogicalMetadata {
   programCode: 'PAES_M1'
-  sliceId: 'BALANCED_ENTRY' | 'AS1'
+  sliceId: 'BALANCED_ENTRY' | 'AS1' | 'PE1'
   sliceName: string
-  axis: 'balanced_entry' | 'algebra_functions'
+  axis: 'balanced_entry' | 'algebra_functions' | 'data_probability'
   roadmapNodes: string[]
   officialSkillRefs: string[]
   difficultyBand: 'entry' | 'basic' | 'reinforcement' | 'transition'
@@ -509,6 +509,137 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       primaryPurpose: 'diagnose',
       evidenceType: 'mc_submission',
       estimatedMinutes: 10,
+      reviewStatus: 'internal_provisional',
+      expertReviewed: false,
+      routingStatus: 'available_not_universal',
+    },
+  },
+  'PAES M1 \u2014 Lectura de tablas y gr\u00e1ficos': {
+    contentKey: 'paes_m1_data_representation_entry',
+    contentVersion: 'v1',
+    title: 'PAES M1 \u2014 Lectura de tablas y gr\u00e1ficos',
+    program: 'PAES_M1',
+    topic: 'Lectura de tablas y gr\u00e1ficos',
+    estimatedMinutes: '10\u201315 minutos',
+    instructions:
+      'Esta actividad tiene 8 preguntas de opci\u00f3n m\u00faltiple sobre lectura de tablas y gr\u00e1ficos simples.\n\n' +
+      '1. Lee cada tabla o descripci\u00f3n con calma.\n' +
+      '2. Busca el dato pedido antes de elegir una alternativa.\n' +
+      '3. Si necesitas sumar o promediar, usa c\u00e1lculos breves y ordenados.\n' +
+      '4. Selecciona una alternativa por pregunta.\n' +
+      '5. Env\u00eda tus respuestas.\n' +
+      '6. Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.\n\n' +
+      'La idea es observar c\u00f3mo interpretas informaci\u00f3n presentada en tablas y gr\u00e1ficos simples.',
+    items: [
+      {
+        key: 'q1',
+        stem: 'La tabla muestra libros le\u00eddos por curso: 1\u00ba medio = 12, 2\u00ba medio = 15, 3\u00ba medio = 9, 4\u00ba medio = 14. \u00bfCu\u00e1ntos libros ley\u00f3 2\u00ba medio?',
+        options: [
+          { label: 'A', text: '9' },
+          { label: 'B', text: '12' },
+          { label: 'C', text: '14' },
+          { label: 'D', text: '15' },
+        ],
+        correctOptionKey: 'D',
+      },
+      {
+        key: 'q2',
+        stem: 'La tabla muestra asistentes a talleres: Arte = 18, Ciencias = 24, M\u00fasica = 16. \u00bfCu\u00e1ntos asistentes m\u00e1s tuvo Ciencias que M\u00fasica?',
+        options: [
+          { label: 'A', text: '6' },
+          { label: 'B', text: '8' },
+          { label: 'C', text: '10' },
+          { label: 'D', text: '40' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q3',
+        stem: 'La tabla muestra ventas por d\u00eda: lunes = 20, martes = 18, mi\u00e9rcoles = 25, jueves = 21. \u00bfQu\u00e9 d\u00eda tuvo la mayor venta?',
+        options: [
+          { label: 'A', text: 'Lunes' },
+          { label: 'B', text: 'Martes' },
+          { label: 'C', text: 'Mi\u00e9rcoles' },
+          { label: 'D', text: 'Jueves' },
+        ],
+        correctOptionKey: 'C',
+      },
+      {
+        key: 'q4',
+        stem: 'Un gr\u00e1fico de barras describe visitas a una biblioteca: marzo = 30, abril = 36, mayo = 42. \u00bfQu\u00e9 tendencia muestran las visitas?',
+        options: [
+          { label: 'A', text: 'Aumentan mes a mes' },
+          { label: 'B', text: 'Disminuyen mes a mes' },
+          { label: 'C', text: 'Se mantienen iguales' },
+          { label: 'D', text: 'Primero bajan y luego suben' },
+        ],
+        correctOptionKey: 'A',
+      },
+      {
+        key: 'q5',
+        stem: 'La tabla muestra colaciones vendidas: frutas = 10, yogures = 8, jugos = 12. \u00bfCu\u00e1ntas colaciones se vendieron en total?',
+        options: [
+          { label: 'A', text: '20' },
+          { label: 'B', text: '28' },
+          { label: 'C', text: '30' },
+          { label: 'D', text: '32' },
+        ],
+        correctOptionKey: 'C',
+      },
+      {
+        key: 'q6',
+        stem: 'La tabla muestra temperaturas de tres d\u00edas: lunes = 18 \u00b0C, martes = 20 \u00b0C, mi\u00e9rcoles = 22 \u00b0C. \u00bfCu\u00e1l es el promedio?',
+        options: [
+          { label: 'A', text: '18 \u00b0C' },
+          { label: 'B', text: '20 \u00b0C' },
+          { label: 'C', text: '21 \u00b0C' },
+          { label: 'D', text: '22 \u00b0C' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q7',
+        stem: 'La tabla muestra estudiantes que prefieren actividades: deporte = 14, lectura = 9, videojuegos = 11. \u00bfQu\u00e9 conclusi\u00f3n est\u00e1 apoyada por la tabla?',
+        options: [
+          { label: 'A', text: 'La lectura es la actividad m\u00e1s preferida' },
+          { label: 'B', text: 'El deporte es la actividad m\u00e1s preferida' },
+          { label: 'C', text: 'Videojuegos y lectura tienen la misma preferencia' },
+          { label: 'D', text: 'Ning\u00fan estudiante prefiere deporte' },
+        ],
+        correctOptionKey: 'B',
+      },
+      {
+        key: 'q8',
+        stem: 'La tabla muestra colores elegidos por un grupo: azul = 7, verde = 5, rojo = 7, amarillo = 3. \u00bfQu\u00e9 colores tienen la misma frecuencia?',
+        options: [
+          { label: 'A', text: 'Azul y rojo' },
+          { label: 'B', text: 'Verde y amarillo' },
+          { label: 'C', text: 'Azul y verde' },
+          { label: 'D', text: 'Rojo y amarillo' },
+        ],
+        correctOptionKey: 'A',
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revisi\u00f3n. ' +
+      'No recibir\u00e1s puntaje PAES ni diagn\u00f3stico autom\u00e1tico en esta versi\u00f3n.',
+    pedagogicalMetadata: {
+      programCode: 'PAES_M1',
+      sliceId: 'PE1',
+      sliceName: 'PE1 data and probability entry',
+      axis: 'data_probability',
+      roadmapNodes: [
+        'internal:pe1_data_representation_entry',
+        'internal:pe1_tables_and_graphs_reading',
+      ],
+      officialSkillRefs: [
+        'internal:interpretar_representaciones',
+        'internal:leer_tablas_y_graficos',
+      ],
+      difficultyBand: 'entry',
+      primaryPurpose: 'bridge',
+      evidenceType: 'mc_submission',
+      estimatedMinutes: 12,
       reviewStatus: 'internal_provisional',
       expertReviewed: false,
       routingStatus: 'available_not_universal',
