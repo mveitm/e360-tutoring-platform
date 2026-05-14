@@ -8511,3 +8511,48 @@ Scope preserved:
 
 Next recommended phase:
 - `MVP-FLOW-4-E5G - Direction checkpoint in a new chat`.
+
+## MVP-SRA-SCOPE-5G - Scope-first block closure and next decision memo
+
+Status: CLOSED
+
+MVP-SRA-SCOPE-5G created a documentation-only closure memo for the PAES_M1 scope-first block.
+
+Baseline:
+- HEAD = origin/main = `5ba6311`.
+- Last accepted commit = `MVP-SRA-SCOPE-5F: create next-chat handoff package`.
+- Working tree expected clean.
+- Git preflight remains the live truth if older documentation baselines are stale.
+
+Files changed:
+- `PHASE_LOG.md`.
+- `nextjs_space/docs/operations/MVP_SRA_SCOPE_5G_SCOPE_FIRST_BLOCK_CLOSURE_AND_NEXT_DECISION_MEMO.md`.
+
+Scope preserved:
+- No code changes.
+- No runtime changes.
+- No registry edits.
+- No selector logic.
+- No UI/API/schema/database changes.
+- No SQL.
+- No Prisma CLI.
+- No `.env` access or secrets.
+- No deploy.
+- No production operation.
+- No new StudyLoads.
+- No PAES score, theta, mastery, or adaptive AI claims.
+
+Closure summary:
+- Construction remains paused.
+- Implementation remains unauthorized.
+- Bexauri PAES_M1 remains guided, evidence-aware roadmap traversal, not a static StudyLoad chain.
+- AS1 remains valuable and operationally validated, but not universal.
+- N1/G1/PE1 remain proposed complements.
+- PE1-MSL-01 remains the first recommended non-algebra candidate, not implemented.
+- Expert review package is prepared, but review has not occurred.
+- MVP-SRA-IMPL-1 is conceptually prepared but not authorized.
+
+Next decision paths:
+- A. Pause remains active: no repo work.
+- B. Continue documentation: possible expert-review preparation or refinement.
+- C. Explicit implementation restart: only by narrow authorization, likely MVP-SRA-IMPL-1.
