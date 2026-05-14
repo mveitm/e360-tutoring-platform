@@ -8791,3 +8791,41 @@ Build result:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-SRA-IMPL-5V - Verify PE1 bridge policy locally
+
+Status: VERIFIED PARTIAL - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `39942fd`.
+- Last accepted commit = `MVP-SRA-IMPL-5: add PE1 bridge policy`.
+- Working tree was clean before verification.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_SRA_IMPL_5V_PE1_BRIDGE_POLICY_LOCAL_VERIFICATION.md`.
+- `PHASE_LOG.md`.
+
+Verification scope:
+- Verification-only.
+- No code changes.
+- No selector/schema/UI/API changes.
+- No production access.
+- No deploy.
+- No direct SQL.
+- No migrations.
+- No local database mutation.
+- No PAES score, theta, mastery, or adaptive AI claims.
+
+Static verification result:
+- PASSED. Existing AS1 continuity is preserved, and the only PE1 continuity edge is `paes_m1_linear_functions_basic -> paes_m1_data_representation_entry`.
+
+Build result:
+- `npm.cmd run build` from `nextjs_space` passed.
+
+Runtime result:
+- PARTIAL. The continuity helper was verified with a mock transaction: the final AS1 activity creates `PAES M1 — Lectura de tablas y gráficos`, earlier AS1 transitions remain unchanged, duplicate PE1 creation is skipped, and PE1 itself is terminal.
+- Full UI/API completion was not run because it would require authenticated local test data setup and database mutation.
+
+Working tree state:
+- Commit pending Mauricio review.
