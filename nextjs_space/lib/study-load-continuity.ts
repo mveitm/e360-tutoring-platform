@@ -10,6 +10,10 @@ const NEXT_STUDYLOAD_BY_PROGRAM_AND_CONTENT_KEY: Record<string, Record<string, s
     paes_m1_linear_equations_basic: 'paes_m1_linear_equations_word_problems',
     paes_m1_linear_equations_word_problems: 'paes_m1_linear_equations_reinforcement',
     paes_m1_linear_equations_reinforcement: 'paes_m1_linear_functions_basic',
+    // Rule-based bridge v0: PE1 is available_not_universal after the current
+    // AS1 endpoint. This is not adaptive AI and makes no score/theta/mastery
+    // or diagnosis claim.
+    paes_m1_linear_functions_basic: 'paes_m1_data_representation_entry',
   },
 }
 

@@ -8760,3 +8760,34 @@ Next possible implementation phase:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-SRA-IMPL-5 - Minimal rule-based next-load policy v0
+
+Status: IMPLEMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `130e93b`.
+- Last accepted commit = `MVP-SRA-IMPL-5R: prepare next-load policy`.
+- Working tree was clean before implementation.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/lib/study-load-continuity.ts`.
+- `PHASE_LOG.md`.
+
+Scope preserved:
+- Exactly one continuity edge added: `paes_m1_linear_functions_basic -> paes_m1_data_representation_entry`.
+- Existing AS1 progression preserved.
+- PE1 added only as final bridge after `paes_m1_linear_functions_basic`.
+- No broad selector.
+- No route/API/UI/schema/database changes.
+- No decision-record persistence.
+- No deploy.
+- No production operation.
+- No PAES score, theta, mastery, or adaptive AI claims.
+
+Build result:
+- `npm.cmd run build` from `nextjs_space` passed.
+
+Working tree state:
+- Commit pending Mauricio review.
