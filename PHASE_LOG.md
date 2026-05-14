@@ -8556,3 +8556,38 @@ Next decision paths:
 - A. Pause remains active: no repo work.
 - B. Continue documentation: possible expert-review preparation or refinement.
 - C. Explicit implementation restart: only by narrow authorization, likely MVP-SRA-IMPL-1.
+
+## MVP-SRA-IMPL-1 - Add provisional taxonomy metadata to current M1 registry activities
+
+Status: IMPLEMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `f36e705`.
+- Last accepted commit = `MVP-SRA-SCOPE-5G: close scope-first block`.
+- Working tree was clean before implementation.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/lib/study-load-content.ts`.
+- `PHASE_LOG.md`.
+
+Scope preserved:
+- Metadata-only registry change.
+- No behavior change.
+- No selector logic.
+- No new StudyLoads.
+- No UI/API/schema/database changes.
+- No SQL.
+- No Prisma CLI.
+- No `.env` access or secrets.
+- No deploy.
+- No production operation.
+- No PAES score, theta, mastery, or adaptive AI claims.
+
+Build result:
+- `npm run build` from repo root was blocked by PowerShell execution policy for `npm.ps1`.
+- `npm.cmd run build` from repo root failed because the root has no `package.json`.
+- `npm.cmd run build` from `nextjs_space` passed.
+
+Working tree state:
+- Commit pending Mauricio review.

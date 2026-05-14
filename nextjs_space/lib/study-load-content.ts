@@ -22,6 +22,22 @@ export interface StudyLoadItem {
   correctOptionKey?: string  // e.g. "B"; undefined if answer key unavailable
 }
 
+export interface StudyLoadPedagogicalMetadata {
+  programCode: 'PAES_M1'
+  sliceId: 'BALANCED_ENTRY' | 'AS1'
+  sliceName: string
+  axis: 'balanced_entry' | 'algebra_functions'
+  roadmapNodes: string[]
+  officialSkillRefs: string[]
+  difficultyBand: 'entry' | 'basic' | 'reinforcement' | 'transition'
+  primaryPurpose: 'diagnose' | 'practice' | 'reinforce' | 'validate' | 'bridge'
+  evidenceType: 'mc_submission'
+  estimatedMinutes: number
+  reviewStatus: 'internal_provisional'
+  expertReviewed: false
+  routingStatus: 'available_not_universal'
+}
+
 export interface StudyLoadContent {
   contentKey: string       // stable slug, e.g. "paes_m1_linear_equations_basic"
   contentVersion: string   // e.g. "v1"
@@ -32,6 +48,7 @@ export interface StudyLoadContent {
   instructions: string
   items: StudyLoadItem[]
   currentLimitationNotice: string
+  pedagogicalMetadata?: StudyLoadPedagogicalMetadata
 }
 
 const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
@@ -101,6 +118,21 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     currentLimitationNotice:
       'Puedes seleccionar tus respuestas y enviarlas desde esta p\u00e1gina. ' +
       'Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.',
+    pedagogicalMetadata: {
+      programCode: 'PAES_M1',
+      sliceId: 'AS1',
+      sliceName: 'AS1 algebra/functions - initial corridor',
+      axis: 'algebra_functions',
+      roadmapNodes: ['internal:as1_linear_equations_basic', 'internal:as1_equation_mechanics'],
+      officialSkillRefs: ['internal:resolver_problemas', 'internal:representar'],
+      difficultyBand: 'basic',
+      primaryPurpose: 'practice',
+      evidenceType: 'mc_submission',
+      estimatedMinutes: 25,
+      reviewStatus: 'internal_provisional',
+      expertReviewed: false,
+      routingStatus: 'available_not_universal',
+    },
   },
 
   'PAES M1 \u2014 Problemas con ecuaciones lineales': {
@@ -171,6 +203,21 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     currentLimitationNotice:
       'Puedes seleccionar tus respuestas y enviarlas desde esta p\u00e1gina. ' +
       'Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.',
+    pedagogicalMetadata: {
+      programCode: 'PAES_M1',
+      sliceId: 'AS1',
+      sliceName: 'AS1 algebra/functions - initial corridor',
+      axis: 'algebra_functions',
+      roadmapNodes: ['internal:as1_linear_equations_word_problems', 'internal:as1_context_to_equation'],
+      officialSkillRefs: ['internal:modelar', 'internal:resolver_problemas', 'internal:representar'],
+      difficultyBand: 'transition',
+      primaryPurpose: 'bridge',
+      evidenceType: 'mc_submission',
+      estimatedMinutes: 30,
+      reviewStatus: 'internal_provisional',
+      expertReviewed: false,
+      routingStatus: 'available_not_universal',
+    },
   },
 
   'PAES M1 \u2014 Refuerzo de ecuaciones lineales': {
@@ -240,6 +287,21 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     currentLimitationNotice:
       'Tus respuestas se guardan como evidencia para revisi\u00f3n. ' +
       'No recibir\u00e1s puntaje PAES ni retroalimentaci\u00f3n autom\u00e1tica en esta versi\u00f3n.',
+    pedagogicalMetadata: {
+      programCode: 'PAES_M1',
+      sliceId: 'AS1',
+      sliceName: 'AS1 algebra/functions - initial corridor',
+      axis: 'algebra_functions',
+      roadmapNodes: ['internal:as1_linear_equations_reinforcement', 'internal:as1_equation_mechanics'],
+      officialSkillRefs: ['internal:resolver_problemas', 'internal:representar'],
+      difficultyBand: 'reinforcement',
+      primaryPurpose: 'reinforce',
+      evidenceType: 'mc_submission',
+      estimatedMinutes: 25,
+      reviewStatus: 'internal_provisional',
+      expertReviewed: false,
+      routingStatus: 'available_not_universal',
+    },
   },
 
   'PAES M1 \u2014 Funciones lineales b\u00e1sicas': {
@@ -353,6 +415,21 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     currentLimitationNotice:
       'Tus respuestas se guardan como evidencia para revisi\u00f3n. ' +
       'No recibir\u00e1s puntaje PAES ni retroalimentaci\u00f3n autom\u00e1tica en esta versi\u00f3n.',
+    pedagogicalMetadata: {
+      programCode: 'PAES_M1',
+      sliceId: 'AS1',
+      sliceName: 'AS1 algebra/functions - initial corridor',
+      axis: 'algebra_functions',
+      roadmapNodes: ['internal:as1_linear_functions_basic', 'internal:as1_linear_representation'],
+      officialSkillRefs: ['internal:representar', 'internal:resolver_problemas', 'internal:modelar'],
+      difficultyBand: 'transition',
+      primaryPurpose: 'bridge',
+      evidenceType: 'mc_submission',
+      estimatedMinutes: 25,
+      reviewStatus: 'internal_provisional',
+      expertReviewed: false,
+      routingStatus: 'available_not_universal',
+    },
   },
   'PAES M1 \u2014 Entrada balanceada inicial': {
     contentKey: 'paes_m1_balanced_entry_initial',
@@ -421,6 +498,21 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     currentLimitationNotice:
       'Tus respuestas se guardan como evidencia inicial para revisi\u00f3n. ' +
       'No recibir\u00e1s puntaje PAES ni diagn\u00f3stico autom\u00e1tico en esta versi\u00f3n.',
+    pedagogicalMetadata: {
+      programCode: 'PAES_M1',
+      sliceId: 'BALANCED_ENTRY',
+      sliceName: 'PAES M1 balanced entry signal',
+      axis: 'balanced_entry',
+      roadmapNodes: ['internal:balanced_entry_signal', 'internal:as1_entry'],
+      officialSkillRefs: ['internal:resolver_problemas', 'internal:modelar', 'internal:representar'],
+      difficultyBand: 'entry',
+      primaryPurpose: 'diagnose',
+      evidenceType: 'mc_submission',
+      estimatedMinutes: 10,
+      reviewStatus: 'internal_provisional',
+      expertReviewed: false,
+      routingStatus: 'available_not_universal',
+    },
   },
 }
 
