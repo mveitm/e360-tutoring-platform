@@ -8657,3 +8657,37 @@ Build result:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-SRA-IMPL-4R - PE1-MSL-01 registry activity readiness before implementation
+
+Status: IMPLEMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `689b1bc`.
+- Last accepted commit = `MVP-SRA-IMPL-3: add pedagogical decision record helper`.
+- Working tree was clean before implementation.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_SRA_IMPL_4R_PE1_MSL_01_REGISTRY_ACTIVITY_READINESS.md`.
+- `PHASE_LOG.md`.
+
+Scope preserved:
+- Documentation/readiness-only change.
+- No code changes.
+- No registry edits.
+- No selector or runtime behavior change.
+- No new StudyLoads.
+- No UI/API/schema/database changes.
+- No SQL.
+- No Prisma CLI.
+- No `.env` access or secrets.
+- No deploy.
+- No production operation.
+- No PAES score, theta, mastery, or adaptive AI claims.
+
+Next possible implementation phase:
+- `MVP-SRA-IMPL-4 - Add PE1-MSL-01 registry activity`, not authorized by 4R.
+
+Working tree state:
+- Commit pending Mauricio review.
