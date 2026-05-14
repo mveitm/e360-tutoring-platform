@@ -8725,3 +8725,38 @@ Build result:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-SRA-IMPL-5R - Readiness for minimal rule-based next-load policy
+
+Status: IMPLEMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `b3de1c8`.
+- Last accepted commit = `MVP-SRA-IMPL-4: add PE1 registry activity`.
+- Working tree was clean before implementation.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_SRA_IMPL_5R_MINIMAL_RULE_BASED_NEXT_LOAD_POLICY_READINESS.md`.
+- `PHASE_LOG.md`.
+
+Scope preserved:
+- Documentation/readiness-only change.
+- No code changes.
+- No registry edits.
+- No selector or runtime behavior change.
+- No continuity map change.
+- No new StudyLoads.
+- No UI/API/schema/database changes.
+- No SQL.
+- No Prisma CLI.
+- No `.env` access or secrets.
+- No deploy.
+- No production operation.
+- No PAES score, theta, mastery, or adaptive AI claims.
+
+Next possible implementation phase:
+- `MVP-SRA-IMPL-5 - Minimal rule-based next-load policy v0`, not authorized by 5R.
+
+Working tree state:
+- Commit pending Mauricio review.
