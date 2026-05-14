@@ -1,5 +1,27 @@
 # Current Agent Handoff - MVP M1
 
+## Current 5H Checkpoint
+
+This file contains older scope-first baseline sections below. The current checkpoint after the first pedagogical implementation block is:
+
+- Latest accepted commit before 5H: `MVP-SRA-IMPL-5V: verify PE1 bridge policy`.
+- Expected HEAD before 5H: origin/main = `b0569e0`.
+- Current checkpoint document: `nextjs_space/docs/operations/MVP_SRA_IMPL_5H_PEDAGOGICAL_LAYER_IMPLEMENTATION_CHECKPOINT_HANDOFF.md`.
+- IMPL-1 through IMPL-5V are accepted.
+- PE1 registry activity exists: `PAES M1 - Lectura de tablas y graficos`.
+- PE1 is connected only as final bridge: `paes_m1_linear_functions_basic -> paes_m1_data_representation_entry`.
+- Existing AS1 flow remains preserved.
+- No broad selector, adaptive AI, decision-record persistence, admin decision view, production deploy, or full authenticated UI/API verification exists yet.
+
+Git preflight remains authoritative. If any older section below says PE1 is proposal-only, metadata is not implemented, or construction is still pre-IMPL-1, treat that as stale historical context unless live Git or later phase documents confirm it.
+
+Recommended next paths after 5H:
+
+- `MVP-SRA-IMPL-5V2 - Full local UI/API verification of PE1 bridge with test data`.
+- `MVP-SRA-IMPL-6R - Readiness for admin read-only pedagogical decision/evidence view`.
+- Expert/product review.
+- Pause implementation and keep current state.
+
 ## 1. Purpose
 
 This is the first-read operational handoff for agents working on the Bexauri MVP-M1 tutoring line.

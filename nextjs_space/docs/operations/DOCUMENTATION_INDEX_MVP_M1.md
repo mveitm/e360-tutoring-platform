@@ -1,5 +1,25 @@
 # Documentation Index - MVP M1
 
+## Current 5H Checkpoint
+
+This index contains older scope-first baseline sections below. The current checkpoint after the first pedagogical implementation block is:
+
+- Latest accepted commit before 5H: `MVP-SRA-IMPL-5V: verify PE1 bridge policy`.
+- Expected HEAD before 5H: origin/main = `b0569e0`.
+- Current checkpoint document: `nextjs_space/docs/operations/MVP_SRA_IMPL_5H_PEDAGOGICAL_LAYER_IMPLEMENTATION_CHECKPOINT_HANDOFF.md`.
+- `MVP-SRA-IMPL-1` through `MVP-SRA-IMPL-5V` are accepted.
+- PE1 registry activity exists and is connected only as the final AS1 bridge.
+- Full authenticated local UI/API verification remains pending.
+
+Git preflight is authoritative where older index entries, handoff text, template text, or phase docs contain stale baselines.
+
+Add this to the current first-read set for future work:
+
+1. `nextjs_space/docs/operations/MVP_SRA_IMPL_5H_PEDAGOGICAL_LAYER_IMPLEMENTATION_CHECKPOINT_HANDOFF.md`
+2. `PHASE_LOG.md` latest entries only
+3. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
+4. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+
 ## 1. Purpose
 
 This is the working documentation index for the Bexauri MVP-M1 tutoring line and the PAES_M1 pedagogical scope-first block.
