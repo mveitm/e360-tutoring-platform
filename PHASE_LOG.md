@@ -8998,3 +8998,38 @@ Local data mutation summary:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-SRA-IMPL-6R - Readiness for admin read-only pedagogical decision/evidence view
+
+Status: DOCUMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `0fd2b7c`.
+- Last accepted commit = `MVP-SRA-IMPL-5V2B: verify PE1 bridge via local UI`.
+- Working tree was clean before documentation.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_SRA_IMPL_6R_ADMIN_READ_ONLY_PEDAGOGICAL_DECISION_EVIDENCE_VIEW_READINESS.md`.
+- `PHASE_LOG.md`.
+
+Scope preserved:
+- Documentation/readiness-only.
+- No code changes.
+- No runtime behavior changes.
+- No registry edits.
+- No selector changes.
+- No continuity map changes.
+- No schema/UI/API/database changes.
+- No StudyLoad DB creation.
+- No SQL.
+- No Prisma CLI.
+- No deploy.
+- No production operation.
+- No PAES score, theta, mastery, automatic diagnosis, or adaptive AI claims.
+
+Next possible phase:
+- `MVP-SRA-IMPL-6 - Admin read-only pedagogical decision/evidence view`, not authorized by 6R.
+
+Working tree state:
+- Commit pending Mauricio review.
