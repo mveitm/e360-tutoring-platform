@@ -9285,3 +9285,43 @@ Recommendation:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-DEPLOY-INDEPENDENCE-3 - Environment variable inventory and secret-handling checklist
+
+Status: DOCUMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `adf435b`.
+- Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-2: select Vercel Neon architecture`.
+- Working tree was clean before documentation/checklist work.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_DEPLOY_INDEPENDENCE_3_ENVIRONMENT_VARIABLE_INVENTORY_AND_SECRET_HANDLING_CHECKLIST.md`.
+- `PHASE_LOG.md`.
+
+Architecture context:
+- Vercel + Neon selected in `MVP-DEPLOY-INDEPENDENCE-2`.
+- Architecture verdict: `ARCHITECTURE_SELECTED_VERCEL_NEON`.
+- Selection is for staging/beta architecture planning, not deploy authorization.
+
+Scope preserved:
+- Documentation/checklist-only.
+- No code changes.
+- No runtime behavior changes.
+- No package changes.
+- No schema/UI/API/database changes.
+- No deploy.
+- No production operation.
+- No provider setup.
+- No database mutation, SQL, Prisma db push, or Prisma reset.
+- No `.env` inspection.
+- No secrets printed.
+
+Recommendation:
+- Move next to `MVP-DEPLOY-INDEPENDENCE-4 - Vercel + Neon staging setup checklist`.
+- Do not deploy immediately.
+- Do not create provider accounts or configure Vercel/Neon without a separate authorized phase.
+
+Working tree state:
+- Commit pending Mauricio review.
