@@ -1,24 +1,29 @@
 # Documentation Index - MVP M1
 
-## Current 5H Checkpoint
+## Current 6H Checkpoint
 
-This index contains older scope-first baseline sections below. The current checkpoint after the first pedagogical implementation block is:
+This index contains older scope-first and 5H baseline sections below. The current checkpoint after the admin read-only pedagogy context block is:
 
-- Latest accepted commit before 5H: `MVP-SRA-IMPL-5V: verify PE1 bridge policy`.
-- Expected HEAD before 5H: origin/main = `b0569e0`.
-- Current checkpoint document: `nextjs_space/docs/operations/MVP_SRA_IMPL_5H_PEDAGOGICAL_LAYER_IMPLEMENTATION_CHECKPOINT_HANDOFF.md`.
-- `MVP-SRA-IMPL-1` through `MVP-SRA-IMPL-5V` are accepted.
+- Latest accepted commit before 6H: `MVP-SRA-IMPL-6: add admin read-only pedagogy context`.
+- Expected HEAD before 6H: origin/main = `775d5f2`.
+- Current checkpoint document: `nextjs_space/docs/operations/MVP_SRA_IMPL_6H_ADMIN_READ_ONLY_PEDAGOGY_CONTEXT_CHECKPOINT_HANDOFF.md`.
+- `MVP-SRA-IMPL-1` through `MVP-SRA-IMPL-6` are accepted.
 - PE1 registry activity exists and is connected only as the final AS1 bridge.
-- Full authenticated local UI/API verification remains pending.
+- Full local UI/API PE1 bridge verification passed.
+- Admin cycle detail shows read-only `Contexto pedagogico` per StudyLoad.
+- Completed StudyLoads with MC evidence resolve metadata from `contentKey` / `contentVersion`.
+- Pending registry-backed StudyLoads, including PE1, resolve metadata by title fallback.
 
 Git preflight is authoritative where older index entries, handoff text, template text, or phase docs contain stale baselines.
 
 Add this to the current first-read set for future work:
 
-1. `nextjs_space/docs/operations/MVP_SRA_IMPL_5H_PEDAGOGICAL_LAYER_IMPLEMENTATION_CHECKPOINT_HANDOFF.md`
+1. `nextjs_space/docs/operations/MVP_SRA_IMPL_6H_ADMIN_READ_ONLY_PEDAGOGY_CONTEXT_CHECKPOINT_HANDOFF.md`
 2. `PHASE_LOG.md` latest entries only
 3. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
 4. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+5. `nextjs_space/docs/operations/MVP_SRA_IMPL_6R_ADMIN_READ_ONLY_PEDAGOGICAL_DECISION_EVIDENCE_VIEW_READINESS.md`
+6. `nextjs_space/docs/operations/MVP_SRA_IMPL_5V2B_PE1_BRIDGE_FULL_LOCAL_UI_API_VERIFICATION_RESULT.md`
 
 ## 1. Purpose
 

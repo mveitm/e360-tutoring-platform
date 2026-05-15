@@ -1,26 +1,31 @@
 # Current Agent Handoff - MVP M1
 
-## Current 5H Checkpoint
+## Current 6H Checkpoint
 
-This file contains older scope-first baseline sections below. The current checkpoint after the first pedagogical implementation block is:
+This file contains older scope-first and 5H baseline sections below. The current checkpoint after the admin read-only pedagogy context block is:
 
-- Latest accepted commit before 5H: `MVP-SRA-IMPL-5V: verify PE1 bridge policy`.
-- Expected HEAD before 5H: origin/main = `b0569e0`.
-- Current checkpoint document: `nextjs_space/docs/operations/MVP_SRA_IMPL_5H_PEDAGOGICAL_LAYER_IMPLEMENTATION_CHECKPOINT_HANDOFF.md`.
-- IMPL-1 through IMPL-5V are accepted.
+- Latest accepted commit before 6H: `MVP-SRA-IMPL-6: add admin read-only pedagogy context`.
+- Expected HEAD before 6H: origin/main = `775d5f2`.
+- Current checkpoint document: `nextjs_space/docs/operations/MVP_SRA_IMPL_6H_ADMIN_READ_ONLY_PEDAGOGY_CONTEXT_CHECKPOINT_HANDOFF.md`.
+- IMPL-1 through IMPL-6 are accepted.
 - PE1 registry activity exists: `PAES M1 - Lectura de tablas y graficos`.
 - PE1 is connected only as final bridge: `paes_m1_linear_functions_basic -> paes_m1_data_representation_entry`.
+- PE1 bridge was verified by real local student UI/API.
+- Admin cycle detail now shows read-only `Contexto pedagogico` per StudyLoad.
+- Completed StudyLoads with MC evidence resolve metadata from `contentKey` / `contentVersion`.
+- Pending registry-backed StudyLoads, including PE1, resolve metadata by title fallback.
 - Existing AS1 flow remains preserved.
-- No broad selector, adaptive AI, decision-record persistence, admin decision view, production deploy, or full authenticated UI/API verification exists yet.
+- No broad selector, adaptive AI, decision-record persistence, production deploy, or expert validation exists yet.
 
-Git preflight remains authoritative. If any older section below says PE1 is proposal-only, metadata is not implemented, or construction is still pre-IMPL-1, treat that as stale historical context unless live Git or later phase documents confirm it.
+Git preflight remains authoritative. If any older section below says PE1 is proposal-only, metadata is not implemented, PE1 is not connected, full PE1 UI/API verification is pending, or admin pedagogy context does not exist, treat that as stale historical context unless live Git or later phase documents confirm it.
 
-Recommended next paths after 5H:
+Recommended next paths after 6H:
 
-- `MVP-SRA-IMPL-5V2 - Full local UI/API verification of PE1 bridge with test data`.
-- `MVP-SRA-IMPL-6R - Readiness for admin read-only pedagogical decision/evidence view`.
-- Expert/product review.
+- `MVP-SRA-IMPL-7R - Deploy readiness after verified local pedagogy/admin context`.
+- Expert/product review of PE1, metadata, bridge policy, and admin context.
+- `MVP-SRA-IMPL-6V - Optional focused validation doc for admin read-only context` if needed.
 - Pause implementation and keep current state.
+- Deploy only after explicit authorization and deployment safeguards.
 
 ## 1. Purpose
 
