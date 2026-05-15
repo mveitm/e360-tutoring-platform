@@ -8622,6 +8622,13 @@ Scope preserved:
 Build result:
 - `npm.cmd run build` from `nextjs_space` passed.
 
+Local admin UI check:
+- PASSED after root-cause fix.
+- Pending PE1 StudyLoad now resolves metadata by title fallback: `paes_m1_data_representation_entry`, `v1`, `PE1`, `data_probability`.
+- Completed AS1 loads still resolve metadata from MC evidence.
+- No new buttons/actions.
+- No PAES score, theta, mastery, diagnosis, or adaptive AI claim.
+
 Working tree state:
 - Commit pending Mauricio review.
 
@@ -9030,6 +9037,39 @@ Scope preserved:
 
 Next possible phase:
 - `MVP-SRA-IMPL-6 - Admin read-only pedagogical decision/evidence view`, not authorized by 6R.
+
+Working tree state:
+- Commit pending Mauricio review.
+
+## MVP-SRA-IMPL-6 - Implement admin read-only pedagogical decision/evidence view
+
+Status: IMPLEMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `2cf4a53`.
+- Last accepted commit = `MVP-SRA-IMPL-6R: prepare admin read-only pedagogy view`.
+- Working tree was clean before implementation.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+- `PHASE_LOG.md`.
+
+Scope preserved:
+- Read-only admin display only.
+- No write behavior.
+- No new mutation buttons.
+- No selector changes.
+- No continuity map changes.
+- No registry edits.
+- No API/schema/database changes.
+- No StudyLoad DB creation.
+- No decision-record persistence.
+- No production or deploy.
+- No PAES score, theta, mastery, automatic diagnosis, or adaptive AI claims.
+
+Build result:
+- `npm.cmd run build` from `nextjs_space` passed.
 
 Working tree state:
 - Commit pending Mauricio review.

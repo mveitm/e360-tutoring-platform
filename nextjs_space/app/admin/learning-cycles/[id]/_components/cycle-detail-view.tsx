@@ -10,6 +10,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { ArrowLeft, RefreshCw, GitBranch, BookOpen, ClipboardCheck, Loader2, Calendar, User, GraduationCap, ExternalLink, Plus, Pencil, Trash2, Search, Lock, CheckCircle2, MessageSquare, FileText } from 'lucide-react'
 import { toast } from 'sonner'
 import Link from 'next/link'
+import { getStudyLoadContent, getStudyLoadContentByKey } from '@/lib/study-load-content'
+import { describePedagogicalEvidenceForContent } from '@/lib/study-load-pedagogy'
 
 interface CycleDetail {
   id: string
@@ -269,6 +271,153 @@ function McSubmissionEvidence({ latestMc, hasMultipleMc, fmtFull }: McSubmission
           )}
         </div>
       )}
+    </div>
+  )
+}
+
+interface PedagogicalContextProps {
+  title: string
+  latestMc: {
+    content: string | null
+  } | null
+}
+
+function getMcPayloadContentIdentity(latestMc: PedagogicalContextProps['latestMc']) {
+  if (!latestMc?.content) {
+    return null
+  }
+
+  try {
+    const raw = JSON.parse(latestMc.content)
+    if (
+      raw?.kind === 'multiple_choice_submission' &&
+      typeof raw?.contentKey === 'string' &&
+      typeof raw?.contentVersion === 'string'
+    ) {
+      return {
+        contentKey: raw.contentKey as string,
+        contentVersion: raw.contentVersion as string,
+      }
+    }
+  } catch {
+    return null
+  }
+
+  return null
+}
+
+function normalizeStudyLoadTitleForLookup(title: string) {
+  return title
+    .trim()
+    .replace(/[\u2010-\u2015]/g, '-')
+    .replace(/\s*-\s*/g, ' - ')
+    .replace(/\s+/g, ' ')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+}
+
+const STUDY_LOAD_TITLE_CONTENT_KEY_ALIASES: Record<string, string> = {
+  [normalizeStudyLoadTitleForLookup('PAES M1 - Ecuaciones lineales basicas')]:
+    'paes_m1_linear_equations_basic',
+  [normalizeStudyLoadTitleForLookup('PAES M1 - Problemas con ecuaciones lineales')]:
+    'paes_m1_linear_equations_word_problems',
+  [normalizeStudyLoadTitleForLookup('PAES M1 - Refuerzo de ecuaciones lineales')]:
+    'paes_m1_linear_equations_reinforcement',
+  [normalizeStudyLoadTitleForLookup('PAES M1 - Funciones lineales basicas')]:
+    'paes_m1_linear_functions_basic',
+  [normalizeStudyLoadTitleForLookup('PAES M1 - Entrada balanceada inicial')]:
+    'paes_m1_balanced_entry_initial',
+  [normalizeStudyLoadTitleForLookup('PAES M1 - Lectura de tablas y graficos')]:
+    'paes_m1_data_representation_entry',
+}
+
+function getStudyLoadContentByDisplayTitle(title: string) {
+  const exactContent = getStudyLoadContent(title)
+  if (exactContent) {
+    return exactContent
+  }
+
+  const aliasContentKey = STUDY_LOAD_TITLE_CONTENT_KEY_ALIASES[normalizeStudyLoadTitleForLookup(title)]
+  return aliasContentKey ? getStudyLoadContentByKey(aliasContentKey) : undefined
+}
+
+function PedagogicalContext({ title, latestMc }: PedagogicalContextProps) {
+  const mcIdentity = getMcPayloadContentIdentity(latestMc)
+  const contentFromMc = mcIdentity ? getStudyLoadContentByKey(mcIdentity.contentKey) : undefined
+  const content =
+    mcIdentity && contentFromMc?.contentVersion === mcIdentity.contentVersion
+      ? contentFromMc
+      : getStudyLoadContentByDisplayTitle(title)
+
+  if (!content) {
+    return (
+      <div className="mt-2 pt-2 border-t border-dashed">
+        <div className="rounded-md border bg-muted/20 p-3">
+          <p className="text-xs font-medium text-muted-foreground mb-1">Contexto pedagogico</p>
+          <p className="text-xs text-muted-foreground">
+            No registry pedagogical metadata found for this StudyLoad.
+          </p>
+          <p className="text-[10px] text-muted-foreground mt-2">
+            Missing metadata is content context only; it is not a student failure or workflow gate.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  const evidence = describePedagogicalEvidenceForContent(content)
+
+  if (!evidence.reviewStatus) {
+    return (
+      <div className="mt-2 pt-2 border-t border-dashed">
+        <div className="rounded-md border bg-muted/20 p-3">
+          <p className="text-xs font-medium text-muted-foreground mb-1">Contexto pedagogico</p>
+          <p className="text-xs text-muted-foreground">
+            No registry pedagogical metadata found for this StudyLoad.
+          </p>
+          <p className="text-[10px] text-muted-foreground mt-2">
+            Content key: <span className="font-mono">{evidence.contentKey}</span>. Missing metadata is not a student failure or workflow gate.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  const fields = [
+    ['contentKey', evidence.contentKey],
+    ['contentVersion', evidence.contentVersion],
+    ['programCode', evidence.programCode],
+    ['sliceId', evidence.sliceId],
+    ['axis', evidence.axis],
+    ['primaryPurpose', evidence.primaryPurpose],
+    ['evidenceType', evidence.evidenceType],
+    ['reviewStatus', evidence.reviewStatus],
+    ['expertReviewed', evidence.expertReviewed === true ? 'true' : 'false'],
+    ['routingStatus', evidence.routingStatus],
+  ] as const
+
+  return (
+    <div className="mt-2 pt-2 border-t border-dashed">
+      <div className="rounded-md border bg-muted/20 p-3 space-y-2">
+        <div className="flex items-center justify-between gap-2">
+          <p className="text-xs font-medium text-muted-foreground">Contexto pedagogico</p>
+          {mcIdentity && content === contentFromMc && (
+            <span className="text-[10px] text-muted-foreground">identity from MC evidence</span>
+          )}
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs">
+          {fields.map(([label, value]) => (
+            <div key={label} className="min-w-0">
+              <p className="text-muted-foreground">{label}</p>
+              <p className="font-medium break-words">{value ?? '-'}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-[10px] text-muted-foreground">
+          Internal/provisional metadata. Evidence for review, not PAES score. No theta, mastery, automatic diagnosis, or adaptive AI claim.
+        </p>
+      </div>
     </div>
   )
 }
@@ -1312,6 +1461,20 @@ export function CycleDetailView() {
                               />
                             )}
                           </div>
+                        )
+                      })()}
+                      {(() => {
+                        const allResponses = (ld.tutoringSessions ?? []).flatMap(s => s.responses ?? [])
+                        const mcSubmissions = allResponses.filter(r => r.responseType === 'mc_submission')
+                        const latestMc = mcSubmissions.length > 0
+                          ? mcSubmissions.reduce((a, b) => (a.updatedAt > b.updatedAt ? a : b))
+                          : null
+
+                        return (
+                          <PedagogicalContext
+                            title={ld.title}
+                            latestMc={latestMc}
+                          />
                         )
                       })()}
                     </CardContent>
