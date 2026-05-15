@@ -9325,3 +9325,44 @@ Recommendation:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-DEPLOY-INDEPENDENCE-4 - Vercel + Neon staging setup checklist
+
+Status: DOCUMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `ff410af`.
+- Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-3: document env secret checklist`.
+- Working tree was clean before documentation/setup-checklist work.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_DEPLOY_INDEPENDENCE_4_VERCEL_NEON_STAGING_SETUP_CHECKLIST.md`.
+- `PHASE_LOG.md`.
+
+Architecture context:
+- Vercel + Neon selected in `MVP-DEPLOY-INDEPENDENCE-2`.
+- Env/secret checklist completed in `MVP-DEPLOY-INDEPENDENCE-3`.
+- This phase translates those decisions into a future manual staging setup checklist.
+
+Scope preserved:
+- Documentation/setup-checklist-only.
+- No code changes.
+- No runtime behavior changes.
+- No package changes.
+- No schema/UI/API/database changes.
+- No deploy.
+- No production operation.
+- No provider setup.
+- No account creation.
+- No database mutation, SQL, Prisma db push, or Prisma reset.
+- No `.env` inspection.
+- No secrets printed.
+
+Recommendation:
+- Move next to `MVP-DEPLOY-INDEPENDENCE-5 - Vercel + Neon provider setup execution`, only if Mauricio is ready to perform manual provider setup.
+- Do not deploy immediately.
+- Do not create or configure providers without separate authorization.
+
+Working tree state:
+- Commit pending Mauricio review.
