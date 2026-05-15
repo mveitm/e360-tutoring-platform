@@ -9209,3 +9209,39 @@ Scope preserved:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-DEPLOY-INDEPENDENCE-1 - Non-Abacus deployment path readiness
+
+Status: DOCUMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `0d8dad6`.
+- Last accepted commit = `MVP-SRA-IMPL-7D: document blocked deploy mechanism`.
+- Working tree was clean before documentation.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_DEPLOY_INDEPENDENCE_1_NON_ABACUS_DEPLOYMENT_PATH_READINESS.md`.
+- `PHASE_LOG.md`.
+
+Reason:
+- Abacus is unavailable as an active deploy path because the account is blocked due to non-payment and Mauricio does not have dashboard access.
+- A non-Abacus deployment path is needed before any future deploy attempt.
+
+Scope preserved:
+- Documentation/readiness-only.
+- No code changes.
+- No runtime behavior changes.
+- No schema/UI/API/database changes.
+- No deploy.
+- No production operation.
+- No database mutation.
+- No secrets printed.
+
+Recommendation:
+- Move next to provider-selection/deployment architecture planning.
+- Do not deploy immediately.
+- Do not rely on Abacus while account/dashboard access is blocked.
+
+Working tree state:
+- Commit pending Mauricio review.
