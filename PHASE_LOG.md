@@ -9245,3 +9245,43 @@ Recommendation:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-DEPLOY-INDEPENDENCE-2 - Provider selection and deployment architecture decision
+
+Status: DOCUMENTED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `1889c6a`.
+- Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-1: prepare non-Abacus deploy path`.
+- Working tree was clean before documentation/research.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_DEPLOY_INDEPENDENCE_2_PROVIDER_SELECTION_AND_DEPLOYMENT_ARCHITECTURE_DECISION.md`.
+- `PHASE_LOG.md`.
+
+Decision:
+- Preferred non-Abacus architecture: Vercel for the Next.js app + Neon for managed PostgreSQL.
+- Decision status: `ARCHITECTURE_SELECTED_VERCEL_NEON`, selected for staging/beta architecture planning, not deploy authorization.
+- Render and Railway remain alternatives.
+- Continue local-only remains valid if budget cannot support provider setup.
+
+Scope preserved:
+- Documentation/research/architecture decision only.
+- No code changes.
+- No runtime behavior changes.
+- No package changes.
+- No schema/UI/API/database changes.
+- No provider account creation or setup.
+- No deploy.
+- No production operation.
+- No database mutation, SQL, Prisma db push, or Prisma reset.
+- No secrets printed.
+
+Recommendation:
+- Move next to `MVP-DEPLOY-INDEPENDENCE-3 - Environment variable inventory and secret-handling checklist`.
+- Do not deploy immediately.
+- Do not rely on Abacus while account/dashboard access is blocked.
+
+Working tree state:
+- Commit pending Mauricio review.
