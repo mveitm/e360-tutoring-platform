@@ -9366,3 +9366,53 @@ Recommendation:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-BETA-SCOPE-1 - Implementation beta scope review for L1/M1/M2
+
+Status: SCOPE_REVIEW_PARTIAL_NEEDS_L1_M2_SOURCE - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `9528305`.
+- Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-4: document Vercel Neon setup checklist`.
+- Working tree was clean before documentation/review work.
+- Git preflight is the live truth; older embedded documentation baselines and user-provided older baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_BETA_SCOPE_1_IMPLEMENTATION_BETA_SCOPE_REVIEW_L1_M1_M2.md`.
+- `PHASE_LOG.md`.
+
+Scope:
+- Documentation/review-only.
+- Corrected context reviewed: sustained implementation beta, not short operational demo.
+- L1, M1, and M2 included.
+- External master documentation reviewed read-only from `G:\Mi unidad\YO 2026\E360\E360_System`.
+
+Key verdict:
+- Strategic scope is confirmed for PAES L1/M1/M2, with L1+M1 and L1+M1+M2 offer logic in active external master docs.
+- Implementation state is partial and M1-heavy.
+- L1 is not sales-ready: current repo evidence shows PAES_L1 registry content gap and needs scope/content definition.
+- M2 is not sales-ready: no current M2 roadmap/content/registry path found; needs scope/content definition.
+- M1 is partial: validated local path and SRA foundation exist, but sustained multi-month sales-ready operation requires broader content, deployment, operations, payment/access, legal/support, and go/no-go criteria.
+- Abacus preliminary decision: `OPTIONAL_TACTICAL`; current normal path remains Mauricio + ChatGPT/Codex + GitHub + Vercel/Neon.
+- Budget readiness: `BUDGET_NEEDS_INPUT`.
+
+Scope preserved:
+- No code changes.
+- No runtime behavior changes.
+- No package changes.
+- No schema/UI/API changes.
+- No database mutation.
+- No SQL, Prisma db push/reset, or migrations.
+- No deploy.
+- No production operation.
+- No provider setup or account creation.
+- No `.env` inspection.
+- No secrets printed.
+- No generated PDF/DOCX.
+- No PAES score, theta, mastery, automatic diagnosis, or adaptive AI claims.
+
+Next recommended phase:
+- `MVP-BETA-SCOPE-2 - Define sales-ready implementation beta acceptance criteria and macro roadmap`.
+
+Working tree state:
+- Commit pending Mauricio review.
