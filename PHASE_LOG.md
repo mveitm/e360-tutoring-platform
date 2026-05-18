@@ -9679,3 +9679,49 @@ Next recommended action:
 - Commit and push `MVP-DEPLOY-INDEPENDENCE-5B`.
 - Then review the Vercel deployment from the new commit.
 - If the build passes, configure `NEXTAUTH_URL` with the exact Vercel staging URL before auth smoke verification.
+
+## MVP-DEPLOY-INDEPENDENCE-5C - Add Prisma generate for Vercel build
+
+Status: LOCAL_BUILD_PASSED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `90af7be`.
+- Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-5B: mark NextAuth route dynamic`.
+- Working tree was clean before this microphase.
+- Git preflight is the live truth.
+
+Trigger:
+- Vercel deployment from commit `90af7be` passed dependency installation but failed during `npm run build`.
+- Vercel reported: Prisma detected the project was built on Vercel with cached dependencies, causing outdated Prisma Client because auto-generation was not triggered.
+- The recommended fix was to run `prisma generate` during the build/install process.
+
+Files changed:
+- `nextjs_space/package.json`.
+- `PHASE_LOG.md`.
+
+Change:
+- Added `scripts.postinstall = "prisma generate"`.
+- This makes Prisma Client generation explicit during install/build on Vercel.
+
+Verification:
+- `npm run postinstall` passed locally and generated Prisma Client v6.7.0.
+- `npm run build` passed locally.
+
+Scope preserved:
+- No app code changes.
+- No auth logic changes.
+- No UI/API/schema changes.
+- No Prisma schema change.
+- No Prisma migrate/db push/reset.
+- No database mutation.
+- No `.env` inspection.
+- No secrets printed.
+- No runtime smoke test.
+- No production operation.
+- No custom domain.
+- Prisma 7 upgrade warning observed but intentionally not acted on.
+
+Next recommended action:
+- Commit and push `MVP-DEPLOY-INDEPENDENCE-5C`.
+- Then review the Vercel deployment from the new commit.
+- If the build passes, configure `NEXTAUTH_URL` with the exact Vercel staging URL before auth smoke verification.
