@@ -1,5 +1,33 @@
 # Documentation Index - MVP M1
 
+## Current MVP-Beta Target Checkpoint
+
+This index name remains M1-centric for continuity, but the current canonical target now covers the autonomous-basic commercial MVP-Beta v1 across PAES L1, M1, M2, payments/subscriptions, and multi-student operation.
+
+Current expected repo state before `MVP-BETA-TARGET-1`:
+
+- HEAD = origin/main = `f6cbf21`.
+- Last accepted commit = `MVP-BETA-BUDGET-1: estimate sales-ready beta budget`.
+- Working tree expected clean.
+- Git preflight remains authoritative over stale embedded baselines below.
+
+Canonical target document:
+
+- `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md` - canonical place for the corrected MVP-Beta v1 destination.
+
+Current beta target chain:
+
+1. `nextjs_space/docs/operations/MVP_BETA_SCOPE_1_IMPLEMENTATION_BETA_SCOPE_REVIEW_L1_M1_M2.md`
+2. `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`
+3. `nextjs_space/docs/operations/MVP_BETA_BUDGET_1_BUDGET_SCENARIO_ESTIMATE_FOR_SALES_READY_IMPLEMENTATION_BETA.md`
+4. `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`
+
+Canonical MVP-Beta v1 target summary:
+
+```text
+Bexauri MVP-Beta v1 is the first autonomous-basic commercial version: published, multi-student, L1/M1/M2-capable, payment/subscription-capable, evidence-aware, tutor/admin operable, and human-supervised, without requiring technical manual intervention for each signup, payment, program assignment, or basic continuity action.
+```
+
 ## Current 6H Checkpoint
 
 This index contains older scope-first and 5H baseline sections below. The current checkpoint after the admin read-only pedagogy context block is:
@@ -145,6 +173,10 @@ These remain important upstream sources:
 | `MVP_FLOW_4_E5M_M1_LOCAL_PATH_VALIDATION_AND_CONTENT_ALIGNMENT.md` | Present | Runtime/local validation evidence | High for validated behavior | AS1 local loop evidence | Generalizing to full roadmap | Yes for flow changes |
 | `MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md` | Present | Earlier student UI journey | Supporting/high | UI journey historical basis | Overriding newer SCOPE docs | Yes for UI changes |
 | `MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md` through `MVP_CONTENT_4_PAES_M1_BALANCED_ENTRY_MICRO_STUDYLOAD_REGISTRY_PROPOSAL.md` | Present | Earlier content chain | Supporting/high | Historical roadmap/content proposals | Current implementation authorization | Yes for content work |
+| `MVP_BETA_SCOPE_1_IMPLEMENTATION_BETA_SCOPE_REVIEW_L1_M1_M2.md` | Present | Sustained L1/M1/M2 beta scope review | Highest for corrected beta scope | L1/M1/M2 readiness and gap framing | Runtime proof | Yes |
+| `MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md` | Present | Sales-ready acceptance criteria and roadmap | Highest for sales-ready roadmap foundation | Critical path and program-specific readiness | Final budget or target lock alone | Yes |
+| `MVP_BETA_BUDGET_1_BUDGET_SCENARIO_ESTIMATE_FOR_SALES_READY_IMPLEMENTATION_BETA.md` | Present | Budget scenario estimate | High for budget planning | Scenario ranges, cost drivers, Abacus budget decision | Final accounting budget | Yes for budget/commercial work |
+| `MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md` | Present | Corrected autonomous-basic target lock | Highest for MVP-Beta v1 destination | Preventing regression to manual/demo beta interpretation | Runtime implementation authorization | Yes |
 
 ## 8. Current source alignment summary
 

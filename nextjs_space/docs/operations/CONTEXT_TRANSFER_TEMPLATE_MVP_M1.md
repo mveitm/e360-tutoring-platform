@@ -1,5 +1,19 @@
 # Context Transfer Template - MVP M1
 
+## Current MVP-Beta v1 Target Block
+
+Future agents should paste/retain this block in any new handoff:
+
+```text
+Canonical MVP-Beta v1 target:
+Bexauri MVP-Beta v1 is the first autonomous-basic commercial version: published, multi-student, L1/M1/M2-capable, payment/subscription-capable, evidence-aware, tutor/admin operable, and human-supervised, without requiring technical manual intervention for each signup, payment, program assignment, or basic continuity action.
+
+Control phrase:
+We are not building only an operational beta. We are building the first autonomous-basic commercial version of Bexauri.
+```
+
+This target supersedes narrower M1-only, local-only, staging-only, 7-day-demo, or manually assembled beta interpretations. Git preflight remains the live truth for current HEAD and working tree state.
+
 ## 1. Purpose
 
 This is the canonical context-transfer contract for MVP-M1 chats.

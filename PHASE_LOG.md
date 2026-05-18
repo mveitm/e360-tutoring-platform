@@ -9520,3 +9520,56 @@ Scope preserved:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-BETA-TARGET-1 - Lock autonomous sales-ready MVP target and handoff propagation
+
+Status: TARGET_LOCKED_FOR_HANDOFF - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `f6cbf21`.
+- Last accepted commit = `MVP-BETA-BUDGET-1: estimate sales-ready beta budget`.
+- Working tree was clean before documentation/custody/handoff work.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+- `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+- `PHASE_LOG.md`.
+
+Scope:
+- Documentation/custody/handoff-only.
+- Scope derived from `MVP-BETA-SCOPE-1`, `MVP-BETA-SCOPE-2`, and `MVP-BETA-BUDGET-1`.
+- Canonical MVP-Beta v1 target definition locked.
+- Handoff docs updated so future chats preserve the autonomous-basic commercial target across L1/M1/M2, payments/subscriptions, and multi-student operation.
+
+Canonical target locked:
+- Bexauri MVP-Beta v1 is the first sales-ready published autonomous-basic commercial version capable of receiving several students in parallel, activating access according to plan, managing payments/subscriptions, allowing initial and sustained work in PAES L1/M1/M2, capturing learning evidence, showing operational state to student and tutor/admin, and sustaining human tutoring accompaniment without technical manual intervention for each signup, payment, program assignment, or basic continuity action.
+- Control phrase: `We are not building only an operational beta. We are building the first autonomous-basic commercial version of Bexauri.`
+
+Final target verdict:
+- Target lock state: `TARGET_LOCKED_FOR_HANDOFF`.
+- MVP-Beta v1 target: `AUTONOMOUS_BASIC_SALES_READY`.
+- Sales-ready current state: `NOT_READY`.
+- Roadmap impact: `PAYMENTS_SUBSCRIPTIONS_AND_MULTI_PROGRAM_ACCESS_ARE_CORE`.
+- Abacus decision: `ABACUS_NOT_RECOMMENDED_FOR_BASE_PATH`.
+- Next recommended phase: `MVP-DEPLOY-INDEPENDENCE-5`.
+
+Scope preserved:
+- No code changes.
+- No runtime behavior changes.
+- No package changes.
+- No schema/UI/API/database changes.
+- No deploy.
+- No production operation.
+- No provider setup.
+- No account creation.
+- No database mutation, SQL, Prisma db push/reset, or migrations.
+- No `.env` inspection.
+- No secrets printed.
+- No generated PDF/DOCX.
+- No PAES score, theta, mastery, automatic diagnosis, guaranteed score increase, or adaptive AI claims.
+
+Working tree state:
+- Commit pending Mauricio review.

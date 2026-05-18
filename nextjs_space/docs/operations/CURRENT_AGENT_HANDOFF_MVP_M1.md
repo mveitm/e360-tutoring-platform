@@ -1,5 +1,44 @@
 # Current Agent Handoff - MVP M1
 
+## Current MVP-Beta Target Checkpoint
+
+This file name remains M1-centric for continuity, but the current target is broader than M1.
+
+Current expected repo state before `MVP-BETA-TARGET-1`:
+
+- HEAD = origin/main = `f6cbf21`.
+- Last accepted commit = `MVP-BETA-BUDGET-1: estimate sales-ready beta budget`.
+- Working tree expected clean.
+- Git preflight remains the live truth. Older sections below contain stale M1-era baselines and narrower scope language.
+
+Canonical MVP-Beta v1 target:
+
+> The objective of Bexauri MVP-Beta v1 is to reach a first sales-ready published version capable of receiving several students in parallel, activating access according to plan, managing payments and subscriptions, allowing initial and sustained work in PAES L1, M1, and M2, capturing learning evidence, showing operational state to the student and tutor/admin, and sustaining human tutoring accompaniment without requiring technical manual intervention for each signup, payment, program assignment, or basic continuity action.
+
+Control phrase:
+
+> We are not building only an operational beta. We are building the first autonomous-basic commercial version of Bexauri.
+
+Current roadmap state:
+
+- `MVP-BETA-SCOPE-1` reviewed the sustained L1/M1/M2 implementation beta.
+- `MVP-BETA-SCOPE-2` defined the sales-ready macro roadmap.
+- `MVP-BETA-BUDGET-1` estimated budget scenarios and kept budget at `NEEDS_INPUT`.
+- `MVP-BETA-TARGET-1` locks the autonomous-basic sales-ready target and propagates it into handoff docs.
+
+Current strategic state:
+
+- Sales-ready current state: `NOT_READY`.
+- L1: `NOT_READY`.
+- M1: `PARTIAL`.
+- M2: `NOT_READY`.
+- Payments/subscriptions and multi-program access are core to MVP-Beta v1, not optional post-MVP.
+- Abacus decision: `ABACUS_NOT_RECOMMENDED_FOR_BASE_PATH`.
+- Recommended base stack: Mauricio + ChatGPT/Codex + GitHub + Vercel/Neon.
+- Next recommended phase: `MVP-DEPLOY-INDEPENDENCE-5 - Vercel + Neon provider setup execution`.
+
+Future agents must preserve that human tutoring/review can remain manual, but technical setup per student must not remain manual. Do not regress to local-only, staging-only, 7-day-demo, or one-off manually assembled beta assumptions.
+
 ## Current 6H Checkpoint
 
 This file contains older scope-first and 5H baseline sections below. The current checkpoint after the admin read-only pedagogy context block is:
