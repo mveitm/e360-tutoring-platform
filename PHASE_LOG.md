@@ -9882,3 +9882,58 @@ Deferred:
 
 Next recommended phase:
 - `MVP-DEPLOY-INDEPENDENCE-6C - Staging auth and admin smoke verification`.
+
+## MVP-DEPLOY-INDEPENDENCE-6C - Staging auth and admin smoke verification
+
+Status: STAGING_AUTH_ADMIN_SMOKE_PASSED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `fe022e9`.
+- Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6B: bootstrap staging admin user`.
+- Working tree was clean before this smoke verification.
+- Git preflight is the live truth.
+
+Preconditions:
+- Vercel staging was deployed at `https://bexauri-staging.vercel.app`.
+- `NEXTAUTH_URL` was configured with the stable staging URL.
+- Neon staging schema was applied.
+- One staging admin `User` was bootstrapped with an email matching `ADMIN_EMAILS`.
+
+Verification:
+- `/login` loaded on staging.
+- Mauricio logged in with the staging admin account.
+- Login succeeded.
+- Admin session resolved correctly.
+- User landed in the admin students surface.
+- `/admin/students` loaded and displayed an empty/minimal state: `No students yet`.
+- `/admin/programs` loaded.
+- `/admin` does not currently behave as a standalone home page; this is not blocking because `/admin/students` is acting as the effective admin landing surface.
+
+Result:
+- Staging auth smoke: PASSED.
+- Staging admin access smoke: PASSED.
+- Empty/minimal DB state confirmed.
+- No student/program/cycle data was created during smoke verification.
+
+Scope preserved:
+- No code changes.
+- No package changes.
+- No deploy.
+- No DB mutation.
+- No seed.
+- No students created.
+- No programs created.
+- No cycles created.
+- No `.env` inspection.
+- No secrets printed.
+- No password printed in chat.
+- No production commercial operation.
+
+Deferred:
+- Decide whether `/admin` should redirect to `/admin/students` or show a dashboard later.
+- Decide controlled staging seed/minimal data policy.
+- Plan student-flow smoke only after explicit authorization.
+- Keep current staging DB empty/minimal until a separate data phase.
+
+Next recommended phase:
+- `MVP-DEPLOY-INDEPENDENCE-6D - Document staging readiness and decide next operational branch`.
