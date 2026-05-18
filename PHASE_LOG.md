@@ -9467,3 +9467,56 @@ Next recommended phase:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-BETA-BUDGET-1 - Budget scenario estimate for sales-ready implementation beta
+
+Status: SCENARIO_ESTIMATE_READY_NEEDS_INPUT - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `ee44f22`.
+- Last accepted commit = `MVP-BETA-SCOPE-2: define sales-ready beta roadmap`.
+- Working tree was clean before documentation/business-estimate work.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_BETA_BUDGET_1_BUDGET_SCENARIO_ESTIMATE_FOR_SALES_READY_IMPLEMENTATION_BETA.md`.
+- `PHASE_LOG.md`.
+
+Scope:
+- Documentation/business-estimate-only.
+- Scope derived from SCOPE-2: sustained implementation beta, not short 7-day demo.
+- L1, M1, and M2 included.
+- Sales-ready state carried forward: `NOT_READY`.
+- Budget readiness previously: `BUDGET_NEEDS_INPUT`.
+
+Research:
+- Current public/provider pricing checked where accessible for Vercel, Neon, GitHub, ChatGPT/OpenAI, Abacus, Flow, Transbank/Webpay, Mercado Pago, Stripe availability, and approximate USD/CLP planning conversion.
+- No provider dashboards were opened.
+- No account login or account creation occurred.
+
+Final budget verdict:
+- Budget estimate state: `SCENARIO_ESTIMATE_READY / NEEDS_INPUT`.
+- Cash-cost risk: `MODERATE`.
+- Owner-time risk: `HIGH`.
+- Content-cost risk: `HIGH`.
+- Abacus decision: `ABACUS_NOT_RECOMMENDED_FOR_BASE_PATH`.
+- Recommended base stack: Mauricio + ChatGPT/Codex + GitHub + Vercel/Neon.
+- Next recommended phase: `MVP-DEPLOY-INDEPENDENCE-5 - Vercel + Neon provider setup execution`.
+
+Scope preserved:
+- No code changes.
+- No runtime behavior changes.
+- No package changes.
+- No schema/UI/API/database changes.
+- No deploy.
+- No production operation.
+- No provider setup.
+- No account creation.
+- No database mutation, SQL, Prisma db push/reset, or migrations.
+- No `.env` inspection.
+- No secrets printed.
+- No generated PDF/DOCX.
+- No PAES score, theta, mastery, automatic diagnosis, or adaptive AI claims.
+
+Working tree state:
+- Commit pending Mauricio review.
