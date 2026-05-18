@@ -9628,3 +9628,54 @@ Next recommended action:
 - Commit and push `MVP-DEPLOY-INDEPENDENCE-5A`.
 - Then retry Vercel preview/staging deployment from the new commit.
 - Configure `NEXTAUTH_URL` only after Vercel exposes the exact staging URL.
+
+## MVP-DEPLOY-INDEPENDENCE-5B - Mark NextAuth route as dynamic Node runtime for Vercel build
+
+Status: LOCAL_BUILD_PASSED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `bf9523e`.
+- Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-5A: fix Vercel npm install resolution`.
+- Working tree was clean before this microphase.
+- Git preflight is the live truth.
+
+Trigger:
+- Vercel deployment from commit `bf9523e` passed dependency installation but failed during `npm run build`.
+- Failure occurred while collecting page data for `/api/auth/[...nextauth]`.
+- The route imports `authOptions`, which uses `PrismaAdapter(prisma)` and top-level Prisma client initialization.
+- Local build passed because local environment is available; Vercel build required explicit dynamic/runtime route handling.
+
+Files changed:
+- `nextjs_space/app/api/auth/[...nextauth]/route.ts`.
+- `PHASE_LOG.md`.
+
+Change:
+- Added `export const runtime = 'nodejs'`.
+- Added `export const dynamic = 'force-dynamic'`.
+- Did not change NextAuth provider logic.
+- Did not change Prisma adapter logic.
+- Did not change auth callbacks, pages, or session strategy.
+
+Verification:
+- `npm run build` passed locally.
+- `/api/auth/[...nextauth]` remains listed as dynamic server-rendered on demand.
+- `git diff --check` returned no real errors; only Windows LF/CRLF warnings.
+
+Scope preserved:
+- No package changes.
+- No app UI changes.
+- No API behavior changes beyond route segment config.
+- No Prisma schema change.
+- No Prisma command.
+- No migration.
+- No database mutation.
+- No `.env` inspection.
+- No secrets printed.
+- No runtime smoke test.
+- No production operation.
+- No custom domain.
+
+Next recommended action:
+- Commit and push `MVP-DEPLOY-INDEPENDENCE-5B`.
+- Then review the Vercel deployment from the new commit.
+- If the build passes, configure `NEXTAUTH_URL` with the exact Vercel staging URL before auth smoke verification.
