@@ -9780,3 +9780,54 @@ Deferred:
 
 Next recommended phase:
 - `MVP-DEPLOY-INDEPENDENCE-6 - Staging schema/admin readiness and smoke verification planning`.
+
+## MVP-DEPLOY-INDEPENDENCE-6A - Apply Prisma schema to empty Neon staging DB
+
+Status: STAGING_SCHEMA_APPLIED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `e9bf029`.
+- Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-5D: document staging baseline`.
+- Working tree was clean before this controlled DB schema operation.
+- Git preflight is the live truth.
+
+Trigger:
+- Neon staging project `bexauri-staging` existed and `/login` loaded on Vercel staging.
+- Neon Tables view was empty before schema application.
+- Auth/admin smoke verification was intentionally deferred until schema readiness.
+
+Authorized operation:
+- Mauricio explicitly authorized applying Prisma schema to the empty Neon staging DB with controlled `prisma db push`.
+- Direct/unpooled Neon connection string was used only in a temporary PowerShell session variable.
+- No connection string or password was printed, pasted into chat, committed, or documented.
+
+Result:
+- `npx prisma db push --schema prisma/schema.prisma` completed successfully.
+- Prisma reported: `Your database is now in sync with your Prisma schema`.
+- Prisma Client v6.7.0 was generated.
+- Neon Tables view now shows tables after db push.
+
+Scope preserved:
+- No code changes.
+- No package changes.
+- No deploy.
+- No seed.
+- No login attempted.
+- No auth/admin smoke verification yet.
+- No Prisma migrate.
+- No Prisma reset.
+- No force reset.
+- No SQL executed manually.
+- No `.env` inspection.
+- No secrets printed.
+- No production commercial operation.
+- Prisma 7 output-path warning observed but intentionally not acted on.
+
+Deferred:
+- Create or verify a staging admin user through a safe authorized path.
+- Confirm minimal auth/admin smoke verification.
+- Decide whether staging needs seed data beyond admin access.
+- Document smoke verification separately.
+
+Next recommended phase:
+- `MVP-DEPLOY-INDEPENDENCE-6B - Staging admin user readiness`.
