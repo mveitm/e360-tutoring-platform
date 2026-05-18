@@ -9573,3 +9573,58 @@ Scope preserved:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-DEPLOY-INDEPENDENCE-5A - Fix Vercel npm dependency resolution
+
+Status: LOCAL_BUILD_PASSED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `0c06279`.
+- Last accepted commit = `MVP-BETA-TARGET-1: lock sales-ready target`.
+- Working tree was clean before Vercel/Neon setup and dependency fix work.
+- Git preflight is the live truth.
+
+Trigger:
+- Vercel preview/staging import deploy for `bexauri-staging` failed during dependency installation with `npm ERESOLVE`.
+- Failure occurred before app build/runtime and before any smoke verification.
+- No database runtime operation was reached.
+
+Files changed:
+- `nextjs_space/package.json`.
+- `nextjs_space/package-lock.json`.
+- `PHASE_LOG.md`.
+
+Dependency fix:
+- Aligned lint dependency block conservatively with `next@14.2.28`.
+- Set `eslint` to `8.57.1`.
+- Set `eslint-config-next` to `14.2.28`.
+- Set `@typescript-eslint/eslint-plugin` to `6.21.0`.
+- Set `@typescript-eslint/parser` to `6.21.0`.
+- Created `package-lock.json` for reproducible npm install on Vercel.
+
+Verification:
+- `npm install --ignore-scripts` completed locally.
+- `npm ls eslint eslint-config-next next @typescript-eslint/eslint-plugin @typescript-eslint/parser --depth=0` confirmed:
+  - `next@14.2.28`
+  - `eslint@8.57.1`
+  - `eslint-config-next@14.2.28`
+  - `@typescript-eslint/eslint-plugin@6.21.0`
+  - `@typescript-eslint/parser@6.21.0`
+- `npm run build` passed locally.
+
+Scope preserved:
+- No app code changes.
+- No UI/API/schema changes.
+- No Prisma command.
+- No migration.
+- No database mutation.
+- No `.env` inspection.
+- No secrets printed.
+- No runtime smoke test.
+- No production operation.
+- No custom domain.
+
+Next recommended action:
+- Commit and push `MVP-DEPLOY-INDEPENDENCE-5A`.
+- Then retry Vercel preview/staging deployment from the new commit.
+- Configure `NEXTAUTH_URL` only after Vercel exposes the exact staging URL.
