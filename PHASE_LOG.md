@@ -9416,3 +9416,54 @@ Next recommended phase:
 
 Working tree state:
 - Commit pending Mauricio review.
+
+## MVP-BETA-SCOPE-2 - Sales-ready implementation beta acceptance criteria and macro roadmap
+
+Status: ROADMAP_READY_FOR_ACCEPTANCE_CRITERIA_REVIEW - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `a795ac3`.
+- Last accepted commit = `MVP-BETA-SCOPE-1: review implementation beta scope`.
+- Working tree was clean before documentation/roadmap work.
+- Git preflight is the live truth; older embedded documentation baselines are stale where they differ.
+
+Files changed:
+- `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+- `PHASE_LOG.md`.
+
+Scope:
+- Documentation/roadmap/acceptance-criteria-only.
+- Scope derived from SCOPE-1: sustained implementation beta, not short demo.
+- L1, M1, and M2 included.
+- Current state carried forward: M1 partial; L1 and M2 not ready.
+
+Final roadmap verdict:
+- Sales-ready state: `NOT_READY`.
+- Roadmap readiness: `READY_FOR_ACCEPTANCE_CRITERIA_REVIEW`.
+- Critical path: staging -> auth/admin/student smoke -> L1/M2 scope -> M1 sustained expansion -> access/payment/legal/support -> internal pilot -> go/no-go.
+- L1: `NOT_READY`.
+- M1: `PARTIAL`.
+- M2: `NOT_READY`.
+- Budget readiness: `BUDGET_NEEDS_INPUT`.
+- Abacus decision: `ABACUS_NOT_RECOMMENDED_FOR_BASE_PATH` (`OPTIONAL_TACTICAL` only for a specific missing capability if access/budget is restored).
+
+Scope preserved:
+- No code changes.
+- No runtime behavior changes.
+- No package changes.
+- No schema/UI/API changes.
+- No database mutation.
+- No SQL, Prisma db push/reset, or migrations.
+- No deploy.
+- No production operation.
+- No provider setup or account creation.
+- No `.env` inspection.
+- No secrets printed.
+- No generated PDF/DOCX.
+- No PAES score, theta, mastery, automatic diagnosis, or adaptive AI claims.
+
+Next recommended phase:
+- `MVP-DEPLOY-INDEPENDENCE-5 - Vercel + Neon provider setup execution`.
+
+Working tree state:
+- Commit pending Mauricio review.
