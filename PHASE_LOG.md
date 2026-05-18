@@ -9725,3 +9725,58 @@ Next recommended action:
 - Commit and push `MVP-DEPLOY-INDEPENDENCE-5C`.
 - Then review the Vercel deployment from the new commit.
 - If the build passes, configure `NEXTAUTH_URL` with the exact Vercel staging URL before auth smoke verification.
+
+## MVP-DEPLOY-INDEPENDENCE-5D - Document Vercel Neon staging baseline
+
+Status: STAGING_BASELINE_REACHED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `59fea29`.
+- Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-5C: add Prisma generate postinstall`.
+- Working tree was clean before this documentation/custody checkpoint.
+- Git preflight is the live truth.
+
+Staging provider setup:
+- Neon project `bexauri-staging` was created.
+- Neon region selected: AWS South America East 1 (S�o Paulo).
+- Neon database currently treated as empty/minimal staging DB.
+- Pooled/runtime and direct/unpooled connection strings were located, but no values were printed.
+- Neon Auth was not enabled.
+
+Vercel staging setup:
+- Vercel project `bexauri-staging` was created from GitHub repo `mveitm/e360-tutoring-platform`.
+- Branch: `main`.
+- Root directory: `nextjs_space`.
+- Framework: Next.js.
+- Build command: `npm run build`.
+- Stable staging URL confirmed: `https://bexauri-staging.vercel.app`.
+
+Deployment result:
+- Deployment from commit `59fea29` passed after:
+  - `MVP-DEPLOY-INDEPENDENCE-5A` fixed npm dependency resolution.
+  - `MVP-DEPLOY-INDEPENDENCE-5B` marked the NextAuth route as dynamic Node runtime.
+  - `MVP-DEPLOY-INDEPENDENCE-5C` added `prisma generate` as `postinstall`.
+- `NEXTAUTH_URL` was configured in Vercel with `https://bexauri-staging.vercel.app`.
+- Redeploy after `NEXTAUTH_URL` passed.
+- `/login` loads at `https://bexauri-staging.vercel.app/login`.
+
+Scope preserved:
+- No secrets printed.
+- No `.env` inspection.
+- No Prisma migrate/db push/reset.
+- No database mutation.
+- No seed.
+- No login attempted.
+- No admin/auth smoke verification yet.
+- No custom domain.
+- No external students.
+- No production commercial launch.
+
+Deferred:
+- Confirm whether Prisma schema is applied in Neon staging.
+- Create or verify staging admin account through an authorized path.
+- Run auth/admin smoke verification in a separate phase.
+- Decide controlled staging seed/data policy in a separate phase.
+
+Next recommended phase:
+- `MVP-DEPLOY-INDEPENDENCE-6 - Staging schema/admin readiness and smoke verification planning`.
