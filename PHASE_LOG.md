@@ -9831,3 +9831,54 @@ Deferred:
 
 Next recommended phase:
 - `MVP-DEPLOY-INDEPENDENCE-6B - Staging admin user readiness`.
+
+## MVP-DEPLOY-INDEPENDENCE-6B - Bootstrap staging admin user
+
+Status: STAGING_ADMIN_BOOTSTRAPPED - commit pending Mauricio review
+
+Baseline:
+- HEAD = origin/main = `8101ed5`.
+- Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6A: apply staging Prisma schema`.
+- Working tree was clean before this controlled admin bootstrap operation.
+- Git preflight is the live truth.
+
+Trigger:
+- Neon staging schema was applied successfully.
+- `/login` loaded on Vercel staging.
+- First admin could not be created through `/api/signup` because signup is admin-only.
+- Student create-user and reset-password routes are also admin-only and require an existing admin session.
+
+Authorized operation:
+- Mauricio explicitly authorized creating/upserting 1 staging admin `User` with the same email configured in Vercel `ADMIN_EMAILS`.
+- Direct/unpooled Neon connection string was used only in a temporary PowerShell session variable.
+- Admin password was entered by Mauricio through hidden console input.
+- A temporary local `.cjs` bootstrap file was created, executed, and removed in the same operation.
+
+Result:
+- Staging admin user upserted successfully.
+- Password/hash were not printed.
+- No temporary bootstrap file remained.
+- `git status --short` returned clean after the operation.
+
+Scope preserved:
+- No code changes.
+- No package changes.
+- No deploy.
+- No general seed.
+- No programs/students/cycles created.
+- No Prisma migrate/db push/reset.
+- No SQL executed manually.
+- No `.env` inspection.
+- No secrets printed.
+- No login attempted yet.
+- No auth/admin smoke verification yet.
+- No production commercial operation.
+
+Deferred:
+- Run controlled staging login smoke test.
+- Verify admin access to `/admin`.
+- Verify safe non-admin fallback only if needed later.
+- Decide whether staging needs minimal seed data beyond admin access.
+
+Next recommended phase:
+- `MVP-DEPLOY-INDEPENDENCE-6C - Staging auth and admin smoke verification`.
