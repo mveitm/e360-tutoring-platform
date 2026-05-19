@@ -10876,3 +10876,86 @@ Next recommended phase:
 * Do not create CycleDecision or CycleEvaluation.
 * Do not mutate production.
 * Do not print or pass passwords/secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-6O - Complete staging StudyLoad smoke
+
+Status: STAGING_STUDYLOAD_COMPLETION_SMOKE_PASSED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `e72e29a`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6N: decide staging completion path`.
+* Working tree was clean before this documentation step.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6N` authorized a controlled completion smoke for the in-progress StudyLoad.
+* The StudyLoad was `PAES M1 — Entrada balanceada inicial`.
+* The answer submission evidence from 6M showed `4 de 4 respondidas` and `Correctas: 1 de 4`.
+* 6N selected `Me costó` as the coherent controlled self-report for completion.
+
+Authorized staging operation:
+
+* Mauricio logged into staging as `student-smoke-m1@bexauri.test`.
+* Mauricio selected self-report `Me costó`.
+* Mauricio pressed `Finalizar actividad` exactly once.
+
+Verification:
+
+* The original StudyLoad became `completed`.
+* `/now` showed the completed activity as registered.
+* The self-report was visible as `Me costó`.
+* A new automatic StudyLoad appeared.
+* The new automatic StudyLoad title was visible in the UI as `Ecuaciones lineales básicas`.
+* The new automatic StudyLoad status was visible as pending.
+
+Result:
+
+* Staging StudyLoad completion smoke passed.
+* Student-facing answer submission plus self-report completion works end-to-end.
+* The completed StudyLoad is visible in `/now` as registered activity.
+* The system created the expected next StudyLoad through continuity preparation.
+* The controlled staging fixture has progressed from first pending load to completed first load plus pending follow-up load.
+
+Scope preserved:
+
+* No next StudyLoad started.
+* No next StudyLoad answered.
+* No next StudyLoad completed.
+* No cycle closed.
+* No CycleDecision created.
+* No CycleEvaluation created.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles manually created.
+* No manual StudyLoads created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No password printed or pasted.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+* No other data created beyond the intended completion transition, self-report response, continuity-created next StudyLoad, and normal session artifacts.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6P - Verify staging admin evidence after student completion`.
+
+6P guardrails:
+
+* Use admin UI observation only.
+* Verify the completed StudyLoad, MC submission evidence, self-report, and pending next StudyLoad from admin surfaces.
+* Do not create CycleDecision.
+* Do not create CycleEvaluation.
+* Do not close the cycle.
+* Do not start the next StudyLoad.
+* Do not mutate production.
+* Do not print or pass passwords/secrets.
