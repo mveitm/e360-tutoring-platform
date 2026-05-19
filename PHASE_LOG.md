@@ -10360,3 +10360,74 @@ Next recommended phase:
 * Do not create new data beyond normal login/session artifacts.
 * Do not mutate production.
 * Do not print or pass passwords/secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-6I - Student login /now smoke verification
+
+Status: STAGING_STUDENT_NOW_SMOKE_PASSED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `1465079`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6H: create staging M1 enrollment`.
+* Working tree was clean before this documentation step.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6H` created the controlled PAES_M1 staging fixture for `student-smoke-m1@bexauri.test`.
+* The fixture included an active PAES_M1 enrollment, open Cycle 1, and a pending first StudyLoad.
+* 6I was scoped only to student login and `/now` visibility smoke verification.
+* 6I did not authorize starting, answering, submitting, or completing the StudyLoad.
+
+Manual staging verification:
+
+* Mauricio logged into staging as `student-smoke-m1@bexauri.test`.
+* Login succeeded.
+* `/now` loaded correctly.
+* Program `PAES_M1` was visible.
+* Pending StudyLoad was visible: `PAES M1 — Entrada balanceada inicial`.
+
+Result:
+
+* Staging student login smoke passed.
+* Staging `/now` smoke passed for the controlled PAES_M1 fixture.
+* The controlled student can reach the expected student-facing surface.
+* The first pending StudyLoad is visible and ready for a later controlled activity-start phase.
+
+Scope preserved:
+
+* No StudyLoad start.
+* No activity answer.
+* No response submission.
+* No StudyLoad completion.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No additional StudyLoads created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No password printed or pasted.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+* No other data created beyond normal login/session artifacts.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6J - Decide staging activity-start smoke path`.
+
+6J guardrails:
+
+* Decide before mutating whether to start the pending StudyLoad.
+* Do not answer activity items until separately authorized.
+* Do not submit responses.
+* Do not complete the StudyLoad.
+* Preserve staging as a controlled sales-ready smoke environment.
+* Keep activity execution split from login visibility verification.
