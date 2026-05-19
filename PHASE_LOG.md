@@ -11798,3 +11798,114 @@ Next phase guardrails:
 * Do not touch production.
 * Do not inspect `.env`.
 * Do not print passwords/secrets.
+
+## MVP-SALES-READY-STAGING-1 - Define staging demo narrative and evidence policy
+
+Status: PRESERVE_AND_FRAME_STAGING_AS_SALES_READY_REFERENCE_EVIDENCE - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `2956a45`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-7E: assess post-second StudyLoad state`.
+* Working tree was clean before this documentation/readiness/product-policy phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-7E` selected preservation of the current staging state as commercial-autonomous continuity evidence.
+* The staging fixture now demonstrates Activity 1 completed, Activity 2 auto-created, Activity 2 completed, and Activity 3 auto-created and visible.
+* The next product question was how to present, govern, preserve, and describe this evidence for sales-ready staging.
+
+Created documentation:
+
+* `nextjs_space/docs/operations/MVP_SALES_READY_STAGING_1_DEMO_NARRATIVE_AND_EVIDENCE_POLICY.md`
+
+Current preserved staging evidence:
+
+* URL: `https://bexauri-staging.vercel.app`.
+* Student fixture: `student-smoke-m1@bexauri.test`.
+* Program: `PAES_M1`.
+* Enrollment: active.
+* Cycle 1: open.
+* Completed StudyLoad 1: `PAES M1 — Entrada balanceada inicial`, 4 of 4 answered, 1 of 4 correct, self-report `Me costó`, contentKey `paes_m1_balanced_entry_initial`, primaryPurpose `diagnose`.
+* Completed StudyLoad 2: `PAES M1 — Ecuaciones lineales básicas`, 4 of 4 answered, 1 of 4 correct, self-report `Me fue bien`, contentKey `paes_m1_linear_equations_basic`, primaryPurpose `practice`.
+* Pending StudyLoad 3: `PAES M1 — Problemas con ecuaciones lineales`, status pending, contentKey `paes_m1_linear_equations_word_problems`, primaryPurpose `bridge`.
+* CycleDecision total: 0.
+* CycleEvaluation total: 0.
+* Cycle 1 remains open.
+* Third StudyLoad has not been started.
+
+Product framing:
+
+* This staging state is early evidence of Bexauri’s first commercial-autonomous learning continuity loop.
+* The narrative is: activity completed, next activity auto-created, activity completed, next activity auto-created and visible.
+* Bexauri should not claim PAES scoring, theta, mastery diagnosis, adaptive AI, final pedagogical validity, or complete tutor automation from this fixture.
+* Bexauri may claim it can sustain a basic autonomous continuity loop across multiple StudyLoads in staging.
+* Bexauri may claim it can keep the student moving while preserving supervisor/admin evidence.
+
+Evidence policy:
+
+* This fixture may be used as an internal demo/reference state.
+* It should not be represented as a production user journey with real student data.
+* The content metadata remains internal/provisional.
+* Evidence is for controlled product validation, demo, and sales-readiness assessment.
+
+Preservation policy:
+
+* Do not start the third StudyLoad unless a later explicit phase chooses to consume the fixture.
+* Do not create CycleDecision merely to make the demo look complete.
+* Do not close Cycle 1 while a pending StudyLoad remains.
+* Preserve CycleDecision = 0 and CycleEvaluation = 0 as useful evidence that continuity does not require admin intervention.
+* Preserve the third StudyLoad pending as proof of next-step availability.
+* If a future demo requires reset/replay, define that as a separate staging data lifecycle phase, not ad hoc mutation.
+
+Decision:
+
+* Selected path: `PRESERVE_AND_FRAME_STAGING_AS_SALES_READY_REFERENCE_EVIDENCE`.
+
+Scope preserved:
+
+* No staging mutation.
+* No third StudyLoad start.
+* No answer submission.
+* No StudyLoad completion.
+* No CycleDecision.
+* No CycleEvaluation.
+* No cycle close.
+* No new student created.
+* No new user created.
+* No new enrollment created.
+* No new cycle manually created.
+* No manual StudyLoad created.
+* No SQL.
+* No Prisma CLI.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-SALES-READY-STAGING-2 - Define minimum demo script and owner-facing talk track`.
+
+Alternative later phase:
+
+* `MVP-STAGING-DATA-POLICY-1 - Define controlled staging data lifecycle`.
+
+Next phase guardrails:
+
+* Documentation/readiness/product framing first unless explicitly re-scoped.
+* Do not execute `MVP-DEPLOY-INDEPENDENCE-7F` immediately unless explicitly chosen later.
+* Preserve the current staging fixture unless a later phase explicitly authorizes mutation.
+* Do not start the third StudyLoad unless explicitly authorized.
+* Do not create CycleDecision.
+* Do not create CycleEvaluation.
+* Do not close Cycle 1.
+* Do not deploy.
+* Do not touch production.
+* Do not inspect `.env`.
+* Do not print passwords/secrets.
