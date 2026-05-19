@@ -10959,3 +10959,133 @@ Next recommended phase:
 * Do not start the next StudyLoad.
 * Do not mutate production.
 * Do not print or pass passwords/secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-6P - Verify staging admin evidence after student completion
+
+Status: STAGING_ADMIN_EVIDENCE_VERIFIED_AFTER_COMPLETION - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `02ad5ae`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6O: verify staging studyload completion smoke`.
+* Working tree was clean before this documentation step.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6O` completed the controlled staging StudyLoad.
+* The completed StudyLoad was `PAES M1 — Entrada balanceada inicial`.
+* The self-report was `Me costó`.
+* Completion triggered continuity preparation and a new pending StudyLoad appeared.
+* 6P was scoped as admin read-only evidence verification.
+
+Admin enrollment observation:
+
+* Enrollment: `Smoke M1` in `PAES Matemática M1 (PAES_M1)`.
+* Enrollment status: `active`.
+* Started: `19 may 2026`.
+* Last Activity: `19 may 2026`.
+* Governance record: none.
+* Skill States: 0.
+* Operational cycle summary: Cycle 1 open.
+* Total loads: 2.
+* By status: pending 1, completed 1.
+* Indicator: Cycle has incomplete loads.
+
+Admin cycle observation:
+
+* Cycle: 1.
+* Cycle status: open.
+* Enrollment status: active.
+* Operational decision summary: total decisions 0.
+* Decision indicator: No cycle decisions recorded.
+* Operational evaluation summary: total evaluations 0.
+* Evaluation indicator: No cycle evaluations recorded.
+* Cycle was not closed.
+
+StudyLoad evidence verified:
+
+* Pending StudyLoad visible: `PAES M1 — Ecuaciones lineales básicas`.
+* Pending StudyLoad status: pending.
+* Pending StudyLoad contentKey: `paes_m1_linear_equations_basic`.
+* Completed StudyLoad visible: `PAES M1 — Entrada balanceada inicial`.
+* Completed StudyLoad status: completed.
+* Completed StudyLoad self-report visible: `Me costó`.
+
+MC submission evidence verified:
+
+* Evidence section visible: `Respuestas de la actividad`.
+* Estado: `Respuestas enviadas`.
+* Respondidas: 4 de 4.
+* Correctas: 1 de 4.
+* Content identity: `paes_m1_balanced_entry_initial (v1)`.
+* q1: student `C`, correct `C`, result correct.
+* q2: student `A`, correct `B`, result incorrect.
+* q3: student `A`, correct `C`, result incorrect.
+* q4: student `A`, correct `B`, result incorrect.
+
+Pedagogical metadata observed:
+
+* Completed StudyLoad contentKey: `paes_m1_balanced_entry_initial`.
+* Completed StudyLoad contentVersion: `v1`.
+* Completed StudyLoad programCode: `PAES_M1`.
+* Completed StudyLoad sliceId: `BALANCED_ENTRY`.
+* Completed StudyLoad axis: `balanced_entry`.
+* Completed StudyLoad primaryPurpose: `diagnose`.
+* Completed StudyLoad evidenceType: `mc_submission`.
+* Completed StudyLoad reviewStatus: `internal_provisional`.
+* Completed StudyLoad expertReviewed: false.
+* Completed StudyLoad routingStatus: `available_not_universal`.
+* Pending StudyLoad contentKey: `paes_m1_linear_equations_basic`.
+* Pending StudyLoad contentVersion: `v1`.
+* Pending StudyLoad sliceId: `AS1`.
+* Pending StudyLoad axis: `algebra_functions`.
+* Pending StudyLoad primaryPurpose: `practice`.
+
+Result:
+
+* Admin evidence verification after student completion passed.
+* The admin cycle surface shows the completed StudyLoad, self-report, MC submission summary, item-level evidence, and pending continuity-created next StudyLoad.
+* The staging fixture now demonstrates student login, /now visibility, StudyLoad start, MC submission, StudyLoad completion, continuity-created next load, and admin evidence visibility.
+* Cycle 1 remains open because a pending next StudyLoad exists.
+
+Scope preserved:
+
+* No CycleDecision created.
+* No CycleEvaluation created.
+* No cycle close performed.
+* No next StudyLoad started.
+* No next StudyLoad answered.
+* No next StudyLoad completed.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No manual StudyLoads created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No password printed or pasted.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6Q - Decide post-completion staging operational path`.
+
+6Q guardrails:
+
+* Decide before mutating whether the staging fixture should continue with the pending StudyLoad, pause for consolidation, or move to admin decision readiness.
+* Do not create CycleDecision in 6Q unless explicitly re-scoped.
+* Do not create CycleEvaluation.
+* Do not close the cycle.
+* Do not start the pending next StudyLoad.
+* Preserve staging as a controlled sales-ready smoke environment.
+* Do not mutate production.
+* Do not print or pass passwords/secrets.
