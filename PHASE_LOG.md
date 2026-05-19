@@ -10023,3 +10023,81 @@ Next recommended phase:
 * Do not mutate production.
 * Verify `/admin/programs` after the operation.
 * Document the operation in `PHASE_LOG.md`.
+
+## MVP-DEPLOY-INDEPENDENCE-6E - Create controlled staging base programs only
+
+Status: STAGING_BASE_PROGRAMS_CREATED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `81de85e`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6D: decide staging data branch`.
+* Working tree was clean before this documentation step.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6D` selected branch `C - Create only base programs L1/M1/M2 in staging`.
+* The goal was to add only the minimum controlled base program catalog needed for the autonomous-basic commercial target.
+* The operation was explicitly limited to base Program records only.
+
+Pre-operation control:
+
+* Codex/local operator first attempted authenticated staging API verification through `GET /api/programs`.
+* The staging API returned `401`.
+* Codex/local operator correctly stopped before any mutation because the local operator context was not authenticated as admin.
+* No credentials, cookies, tokens, passwords, DATABASE_URL, or secrets were printed or passed to Codex.
+* Local Git remained clean after the stopped operator attempt.
+
+Authorized UI operation:
+
+* Mauricio logged into staging as admin using credentials known only to him.
+* Mauricio used the staging admin UI at `/admin/programs`.
+* Mauricio created exactly three base Program records.
+
+Created and verified visible in staging:
+
+* `PAES_L1` — `PAES Competencia Lectora` — vertical `PAES` — status `active`.
+* `PAES_M1` — `PAES Matemática M1` — vertical `PAES` — status `active`.
+* `PAES_M2` — `PAES Matemática M2` — vertical `PAES` — status `active`.
+
+Result:
+
+* Controlled staging base program catalog was created.
+* The three base programs are visible in `/admin/programs`.
+* No additional element was created.
+
+Scope preserved:
+
+* No students created.
+* No enrollments created.
+* No axes created.
+* No skills created.
+* No learning cycles created.
+* No StudyLoads created.
+* No diagnostics created.
+* No responses created.
+* No cycle decisions created.
+* No cycle evaluations created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6F - Verify staging base programs and decide first student-flow smoke fixture`.
+
+6F guardrails:
+
+* First verify `/admin/programs` still shows exactly the intended base program catalog.
+* Decide fixture path before creating any student.
+* Do not create students, enrollments, cycles, StudyLoads, axes, or skills until a separate explicit phase authorizes them.
+* Keep staging controlled and sales-ready oriented, not an improvised local copy.
