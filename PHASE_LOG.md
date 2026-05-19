@@ -11379,3 +11379,89 @@ Next recommended phase:
 * Do not close Cycle 1.
 * Do not mutate production.
 * Do not print or pass passwords/secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-7B - Decide second StudyLoad continuation vs admin decision semantics
+
+Status: SECOND_STUDYLOAD_CONTINUATION_AFTER_DECISION_SEMANTICS_SELECTED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `3ab3aca`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-7A: assess admin decision readiness`.
+* Working tree was clean before this documentation/decision phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-7A` determined that CycleDecision creation is technically available but operationally not authorized.
+* Cycle 1 has one completed StudyLoad and one pending continuity-created StudyLoad.
+* The completed StudyLoad evidence is 4 of 4 answered, 1 of 4 correct, self-report `Me costó`.
+* The pending StudyLoad is `PAES M1 — Ecuaciones lineales básicas`.
+* The next decision was whether to continue the pending StudyLoad or create/define admin CycleDecision semantics first.
+
+Created documentation:
+
+* `nextjs_space/docs/operations/MVP_DEPLOY_INDEPENDENCE_7B_SECOND_STUDYLOAD_VS_DECISION_SEMANTICS.md`
+
+Decision:
+
+* Selected path: define minimal CycleDecision semantics first, then proceed later with second StudyLoad continuation in a separate explicit mutation phase.
+* The next staging mutation, if authorized later, should be continuing the pending second StudyLoad.
+* CycleDecision should not be created first from the current fixture.
+* CycleEvaluation remains out of scope.
+
+Minimal operational semantics:
+
+* StudyLoad continuity is the immediate operational response to student evidence.
+* CycleDecision is a supervised/admin decision at cycle or milestone level.
+* CycleDecision should normally occur after sufficient evidence, after pending relevant StudyLoads are completed, or when a supervisor explicitly decides to hold, redirect, or intervene.
+* CycleDecision is not required before the student continues to the next pending StudyLoad.
+* CycleEvaluation remains out of scope.
+
+Rationale:
+
+* The system already produced the immediate operational response by creating the pending follow-up StudyLoad `PAES M1 — Ecuaciones lineales básicas`.
+* Creating a CycleDecision now would confuse immediate StudyLoad continuity with cycle-level/admin supervisory decision-making.
+* For the MVP commercial-autonomous baseline, student continuity should not require premature admin intervention.
+* CycleDecision should be treated as a cycle-level or supervisor-level pedagogical decision, not as an automatic annotation after every StudyLoad.
+
+Scope preserved:
+
+* No staging mutation in 7B.
+* No CycleDecision created.
+* No CycleEvaluation created.
+* No cycle closed.
+* No pending StudyLoad started.
+* No answer submitted.
+* No StudyLoad completed.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No manual StudyLoads created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-7C - Second StudyLoad continuation readiness`.
+
+7C guardrails:
+
+* Documentation/authorization first.
+* Decide whether to start the pending StudyLoad in a later explicit operation phase.
+* Do not start the pending StudyLoad unless explicitly authorized.
+* Do not create CycleDecision.
+* Do not create CycleEvaluation.
+* Do not close Cycle 1.
+* Do not mutate production.
+* Do not print or pass passwords/secrets.
