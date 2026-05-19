@@ -11465,3 +11465,86 @@ Next recommended phase:
 * Do not close Cycle 1.
 * Do not mutate production.
 * Do not print or pass passwords/secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-7C - Second StudyLoad continuation readiness
+
+Status: READY_FOR_SEPARATE_CONTROLLED_OPERATION_PHASE - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `1d35593`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-7B: decide second StudyLoad path`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-7B` selected minimal CycleDecision semantics first, then later second StudyLoad continuation in a separate explicit mutation phase.
+* Cycle 1 has one completed StudyLoad and one pending continuity-created StudyLoad.
+* The completed StudyLoad evidence is 4 of 4 answered, 1 of 4 correct, self-report `Me costó`.
+* The pending StudyLoad is `PAES M1 — Ecuaciones lineales básicas`.
+* The readiness question was whether to authorize a later controlled operation phase to start and complete that pending StudyLoad.
+
+Created documentation:
+
+* `nextjs_space/docs/operations/MVP_DEPLOY_INDEPENDENCE_7C_SECOND_STUDYLOAD_CONTINUATION_READINESS.md`
+
+Decision:
+
+* Selected readiness path: `READY_FOR_SEPARATE_CONTROLLED_OPERATION_PHASE`.
+* The project is ready to authorize a later narrow staging operation phase for the second StudyLoad continuation.
+* The mutation must not happen in 7C.
+* The later operation should start the pending StudyLoad, submit answers, complete with self-report, verify admin evidence, and stop.
+* No CycleDecision, CycleEvaluation, or cycle close should be included in that operation.
+
+Rationale:
+
+* 7B clarified that CycleDecision is not required before the student continues.
+* The pending StudyLoad is exactly the intended immediate operational continuity after the first evidence.
+* Continuing the second StudyLoad is the correct next staging mutation, but it must not happen inside 7C.
+* For the commercial-autonomous baseline, Bexauri must validate that student continuity can progress beyond the first activity without premature admin intervention.
+* The next operation should preserve staging as controlled smoke, not broad demo data.
+
+Scope preserved:
+
+* No staging mutation in 7C.
+* No pending StudyLoad start.
+* No answer submission.
+* No StudyLoad completion.
+* No CycleDecision.
+* No CycleEvaluation.
+* No cycle close.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No manual StudyLoads created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-7D - Execute second StudyLoad continuation smoke`.
+
+7D guardrails:
+
+* Use only the existing controlled student fixture.
+* Use only the existing pending StudyLoad.
+* Do not create new student, user, enrollment, or cycle manually.
+* Do not create CycleDecision.
+* Do not create CycleEvaluation.
+* Do not close Cycle 1.
+* Do not deploy.
+* Do not touch production.
+* Do not inspect `.env`.
+* Do not print passwords/secrets.
+* Stop after admin evidence is verified.
