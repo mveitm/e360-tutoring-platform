@@ -17,11 +17,11 @@ If any document, memory, phase log entry, or handoff contradicts Git preflight, 
 
 ## Latest verified baseline
 
-* HEAD = origin/main = `db526f0`
-* Last accepted commit = `MVP-SALES-READY-ROADMAP-1: define full sales-ready roadmap`
+* HEAD = origin/main = `b082e10`
+* Last accepted commit = `MVP-SALES-READY-ROADMAP-1A: align active compass`
 * Working tree expected: clean
 
-`MVP-SALES-READY-ROADMAP-1` is closed and accepted at `db526f0`.
+`MVP-SALES-READY-ROADMAP-1A` is closed and accepted at `b082e10`.
 
 ## Current target
 
@@ -70,6 +70,16 @@ Current next recommended roadmap phase:
 
 `MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`
 
+## Block 7 pedagogical anchor
+
+Block 7 has a mandatory pedagogical-layer restart anchor:
+
+`nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`
+
+The M1 pedagogical layer is `PARTIAL_BUT_REAL`.
+
+Future Block 7 work must read the anchor and the SRA docs before proposing L1/M1/M2 content route phases. Block 7 is not the current priority unless Mauricio explicitly redirects.
+
 ## Current blockers
 
 * Self-serve student registration/account bootstrap is not sales-ready.
@@ -92,10 +102,11 @@ Current next recommended roadmap phase:
 2. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
 3. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
 4. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md`
-5. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
-6. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`
-7. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
-8. `PHASE_LOG.md` latest entries
+5. `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`
+6. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
+7. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`
+8. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+9. `PHASE_LOG.md` latest entries
 
 ## Next recommended phase
 

@@ -36,6 +36,14 @@ This roadmap is based on:
 9. Legal/privacy/support/trust.
 10. Internal pilot and sales-ready go/no-go.
 
+## Block 7 pedagogical-layer anchor
+
+Block 7 has a mandatory pedagogical-layer restart anchor:
+
+`MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`
+
+Content-route phases must not begin as blank-slate content writing. Future Block 7 work must preserve the SRA chain: official source -> taxonomy -> StudyLoad -> evidence -> next action -> supervised review.
+
 ## Current next recommended phase
 
 `MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`

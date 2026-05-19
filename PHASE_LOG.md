@@ -12181,3 +12181,61 @@ Scope preserved:
 * No schema change.
 * No package change.
 * No generated artifact.
+
+## MVP-SALES-READY-HANDOFF-2 — Add Block 7 pedagogical layer anchor
+
+Status: BLOCK_7_PEDAGOGICAL_LAYER_ANCHORED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `b082e10`.
+* Last accepted commit = `MVP-SALES-READY-ROADMAP-1A: align active compass`.
+* Working tree was clean before this documentation/custody phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-SALES-READY-ROADMAP-1A` aligned the active compass after Roadmap-1 close.
+* Future sales-ready roadmap execution still needed a custody anchor for Block 7 so future chats do not treat L1/M1/M2 content routes as blank-slate content creation.
+* The M1 pedagogical layer already has canonical SRA documentation and partial implementation evidence that must be preserved when Block 7 is eventually opened.
+* Block 7/content work is not the current priority; the current priority remains `MVP-SALES-AUTH-1A`.
+
+Created documentation:
+
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+
+Updated documentation:
+
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+
+Decision:
+
+* Future Block 7 work must restart from the SRA/pedagogical docs and implementation evidence.
+* Future `MVP-SALES-CONTENT-*` phases must read the Block 7 pedagogical-layer anchor before proposing or authorizing content-route work.
+* M1 is documented as `PARTIAL_BUT_REAL`.
+* L1/M2 content routes must not be sold or treated as ready without separate Block 7 work.
+* Block 7 is not opened by this phase.
+* Current next recommended phase remains `MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`.
+
+Scope preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No staging mutation.
+* No production mutation.
+* No deploy.
+* No `.env` inspection.
+* No secrets printed.
+* No SQL.
+* No Prisma CLI.
+* No StudyLoad started.
+* No StudyLoad completed.
+* No CycleDecision created.
+* No CycleEvaluation created.
+* No cycle closed.
+* No generated artifact.

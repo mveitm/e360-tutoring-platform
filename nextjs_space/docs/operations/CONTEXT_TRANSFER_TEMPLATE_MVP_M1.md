@@ -26,8 +26,11 @@ Required fields:
 * Sales-ready relevance verdict:
 * Off-roadmap? yes/no:
 * If off-roadmap, `ROADMAP_CHANGE_REQUEST` required:
+* If proposed phase is Block 7/content route: confirm Block 7 pedagogical anchor read? yes/no:
 
 A handoff that lacks roadmap-block alignment is incomplete.
+
+Any handoff proposing Block 7 without the anchor is incomplete.
 
 Future chats must read these documents before proposing work:
 
@@ -169,8 +172,10 @@ Sales-ready phase gate:
 - Sales-ready relevance verdict: <SALES_READY_RELEVANCE_VERDICT>
 - Off-roadmap? yes/no: <OFF_ROADMAP_YES_NO>
 - If off-roadmap, ROADMAP_CHANGE_REQUEST required: <ROADMAP_CHANGE_REQUEST_REQUIRED>
+- If proposed phase is Block 7/content route: confirm Block 7 pedagogical anchor read? yes/no: <BLOCK_7_ANCHOR_READ_YES_NO>
 
 A handoff that lacks roadmap-block alignment is incomplete.
+Any handoff proposing Block 7 without the anchor is incomplete.
 
 Supporting roadmap/source documents:
 - nextjs_space/docs/operations/PAES_M1_SOURCE_REGISTER.md

@@ -20,6 +20,12 @@ No future chat may propose a phase outside the roadmap unless it is classified a
 
 Do not infer the next phase from the latest `PHASE_LOG.md` entry alone.
 
+M1 pedagogical history is preserved for sales-ready Block 7 through:
+
+`nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`
+
+Future Block 7/content-route phases must read that anchor before treating L1/M1/M2 content work as ready to start.
+
 ## Current MVP-Beta Target Checkpoint
 
 This file name remains M1-centric for continuity, but the current target is broader than M1.
