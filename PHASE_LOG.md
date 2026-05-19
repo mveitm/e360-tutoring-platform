@@ -10431,3 +10431,91 @@ Next recommended phase:
 * Do not complete the StudyLoad.
 * Preserve staging as a controlled sales-ready smoke environment.
 * Keep activity execution split from login visibility verification.
+
+## MVP-DEPLOY-INDEPENDENCE-6J - Decide staging activity-start smoke path
+
+Status: STAGING_ACTIVITY_START_PATH_DECIDED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `d73b80a`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6I: verify staging student now smoke`.
+* Working tree was clean before this documentation/decision phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6I` verified that the controlled staging student can log in and see `/now`.
+* The pending StudyLoad `PAES M1 — Entrada balanceada inicial` is visible.
+* The next unresolved question is whether to start the pending StudyLoad and how to contain that mutation.
+* 6J was opened as decision/documentation only, not as an activity execution phase.
+
+Technical findings:
+
+* `POST /api/study-loads/[id]/start` is a bounded mutation.
+* It validates ownership, active enrollment, normal continuity, open cycle, and `pending` StudyLoad status.
+* It transitions the StudyLoad from `pending` to `in_progress`.
+* It creates one linked `TutoringSession` with status `in_progress`.
+* It updates enrollment `lastActivityAt`.
+* It does not submit answers.
+* It does not complete the StudyLoad.
+* The activity viewer blocks answer submission while the StudyLoad is still `pending` or `released`.
+* Once the StudyLoad is `in_progress`, the activity viewer allows answer selection and submission.
+
+Decision:
+
+* Authorize the next phase as `MVP-DEPLOY-INDEPENDENCE-6K - Start-only staging StudyLoad smoke`.
+* 6K may press `Empezar` exactly once for the controlled pending StudyLoad.
+* 6K may verify that the StudyLoad becomes `in_progress`.
+* 6K may verify that the activity page opens and shows instructions/exercises.
+* 6K must not select answer options.
+* 6K must not submit responses.
+* 6K must not complete the StudyLoad.
+
+Rejected approaches:
+
+* Starting and answering in one phase: rejected as too broad.
+* Starting and completing in one phase: rejected as too broad.
+* Submitting partial answers in 6K: rejected; answer submission needs a separate explicit phase.
+* Leaving staging at visibility-only forever: rejected because start-only smoke is the next minimal operational verification.
+
+Scope preserved:
+
+* No StudyLoad started in 6J.
+* No activity opened through start in 6J.
+* No answer selected.
+* No response submitted.
+* No StudyLoad completed.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No additional StudyLoads created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6K - Start-only staging StudyLoad smoke`.
+
+6K guardrails:
+
+* Log in as `student-smoke-m1@bexauri.test`.
+* Press `Empezar` exactly once on `PAES M1 — Entrada balanceada inicial`.
+* Verify the load moves to `in_progress`.
+* Verify the activity opens and shows instructions/exercises.
+* Do not select any answer option.
+* Do not submit responses.
+* Do not complete the StudyLoad.
+* Do not create any additional student, enrollment, cycle, or manual StudyLoad.
+* Do not mutate production.
+* Do not print or pass passwords/secrets.
