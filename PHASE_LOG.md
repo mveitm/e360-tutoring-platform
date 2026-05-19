@@ -10773,3 +10773,106 @@ Next recommended phase:
 * Do not create additional students, enrollments, cycles, or StudyLoads.
 * Do not mutate production.
 * Do not print or pass passwords/secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-6N - Decide staging StudyLoad completion smoke path
+
+Status: STAGING_COMPLETION_PATH_DECIDED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `891ea6e`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6M: verify staging answer submission smoke`.
+* Working tree was clean before this documentation/decision phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6M` verified submit-only answer capture for the controlled in-progress StudyLoad.
+* The activity showed `4 de 4 respondidas` and `Correctas: 1 de 4`.
+* The page still showed `Falta 1 paso para cerrar esta actividad`.
+* The next unresolved question is whether to submit self-report and complete the StudyLoad.
+* 6N was opened as decision/documentation only, not as a completion phase.
+
+Technical findings:
+
+* `POST /api/study-loads/[id]/complete` requires ownership, active enrollment, normal continuity, open cycle, StudyLoad `in_progress` status, and exactly one `in_progress` TutoringSession.
+* It accepts only one of three self-report values: `Me fue bien`, `Me costó`, `No la terminé`.
+* It transitions the StudyLoad from `in_progress` to `completed`.
+* It transitions the linked TutoringSession from `in_progress` to `completed` and sets `completedAt`.
+* It creates one `Response` with `responseType="answer"` containing the self-report.
+* It updates enrollment `lastActivityAt`.
+* It does not create CycleEvaluation, pre-decision CycleSnapshot, CycleDecision, ContinuitySignal, SkillState recalculation, cycle-close, scoring, or skill linkage.
+* After completion, it attempts best-effort continuity preparation through `prepareNextStudyLoadAfterCompletion`.
+* That continuity step may create one rule-based next StudyLoad when safe.
+* Continuity preparation failure does not roll back completion.
+
+Decision:
+
+* Authorize the next phase as `MVP-DEPLOY-INDEPENDENCE-6O - Complete staging StudyLoad smoke`.
+* 6O may select self-report `Me costó`.
+* 6O may press `Finalizar actividad` exactly once.
+* 6O may verify that the StudyLoad becomes completed.
+* 6O may verify `/now` shows the completed activity as registered.
+* 6O may observe whether an automatic next StudyLoad is created by continuity preparation.
+* 6O must not start any next StudyLoad.
+* 6O must not close the cycle.
+* 6O must not create CycleDecision or CycleEvaluation.
+
+Rationale:
+
+* The answer result was 1 of 4 correct, so `Me costó` is the most coherent controlled self-report for this smoke.
+* Completion is the next minimal end-to-end student-flow verification after answer submission.
+* Completion must remain separate from cycle close, admin decision, and continuity authorization.
+
+Rejected approaches:
+
+* Completing and starting the next StudyLoad in one phase: rejected as too broad.
+* Completing and closing the cycle in one phase: rejected as too broad.
+* Creating admin decisions in this phase: rejected; admin evidence review needs a separate explicit phase.
+* Using `Me fue bien`: rejected for this controlled smoke because the visible result was 1 of 4 correct.
+* Leaving the activity permanently in_progress: rejected because completion smoke is the next minimal operational verification.
+
+Scope preserved:
+
+* No self-report submitted in 6N.
+* No StudyLoad completed in 6N.
+* No next StudyLoad started in 6N.
+* No cycle closed in 6N.
+* No CycleDecision created.
+* No CycleEvaluation created.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No manual StudyLoads created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6O - Complete staging StudyLoad smoke`.
+
+6O guardrails:
+
+* Log in as `student-smoke-m1@bexauri.test`.
+* Use only the existing in-progress StudyLoad `PAES M1 — Entrada balanceada inicial`.
+* Select self-report `Me costó`.
+* Press `Finalizar actividad` exactly once.
+* Verify the StudyLoad becomes completed.
+* Verify `/now` shows the completed activity as registered.
+* Observe whether an automatic next StudyLoad appears.
+* Do not start any next StudyLoad.
+* Do not answer any next StudyLoad.
+* Do not close the cycle.
+* Do not create CycleDecision or CycleEvaluation.
+* Do not mutate production.
+* Do not print or pass passwords/secrets.
