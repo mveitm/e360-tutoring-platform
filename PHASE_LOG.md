@@ -10683,3 +10683,93 @@ Next recommended phase:
 * Do not create any additional student, enrollment, cycle, or manual StudyLoad.
 * Do not mutate production.
 * Do not print or pass passwords/secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-6M - Submit-only staging answer smoke
+
+Status: STAGING_ANSWER_SUBMISSION_SMOKE_PASSED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `12ac04c`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6L: decide staging answer submission path`.
+* Working tree was clean before this documentation step.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6L` authorized a submit-only answer smoke for the controlled in-progress StudyLoad.
+* The StudyLoad was `PAES M1 — Entrada balanceada inicial`.
+* The phase explicitly authorized selecting answers and pressing `Enviar respuestas` exactly once.
+* The phase explicitly did not authorize self-report submission or StudyLoad completion.
+
+Authorized staging operation:
+
+* Mauricio logged into staging as `student-smoke-m1@bexauri.test`.
+* The StudyLoad `PAES M1 — Entrada balanceada inicial` was in progress.
+* Mauricio selected answers in the visible items.
+* Mauricio pressed `Enviar respuestas` exactly once.
+
+Verification:
+
+* Answers were saved.
+* Feedback/summary became visible.
+* The page showed `4 de 4 respondidas`.
+* The page showed `Correctas: 1 de 4`.
+* Item-level feedback was visible for all 4 questions.
+* The page still showed `Falta 1 paso para cerrar esta actividad`.
+* The self-report options were visible.
+* The `Finalizar actividad` button was still visible and was not pressed.
+
+Result:
+
+* Submit-only staging answer smoke passed.
+* The controlled student can submit MC answers in the in-progress PAES_M1 StudyLoad.
+* The system stores and displays MC submission evidence.
+* Feedback/summary rendering works for the controlled staging fixture.
+* The StudyLoad remains not completed and ready for a later explicit completion/autorreporte decision phase.
+
+Recorded answer summary:
+
+* Answered: 4 of 4.
+* Correct: 1 of 4.
+* Question 1: selected `C`; correct `C`; result correct.
+* Question 2: selected `A`; correct `B`; result incorrect.
+* Question 3: selected `A`; correct `C`; result incorrect.
+* Question 4: selected `A`; correct `B`; result incorrect.
+
+Scope preserved:
+
+* No self-report submitted.
+* No `Finalizar actividad` action pressed.
+* No StudyLoad completion.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No additional StudyLoads created manually.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No password printed or pasted.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+* No other data created beyond the intended `mc_submission` response and normal session artifacts.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6N - Decide staging StudyLoad completion smoke path`.
+
+6N guardrails:
+
+* Decide before mutating whether to submit self-report and complete the StudyLoad.
+* Do not complete the StudyLoad in 6N unless explicitly authorized as a separate operation phase.
+* Keep completion/autorreporte separate from answer submission.
+* Do not create additional students, enrollments, cycles, or StudyLoads.
+* Do not mutate production.
+* Do not print or pass passwords/secrets.
