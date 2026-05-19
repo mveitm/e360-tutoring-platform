@@ -10284,3 +10284,79 @@ Next recommended phase:
 * Do not run a general seed.
 * Do not mutate production.
 * Do not print or pass secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-6H - Create PAES_M1 enrollment and verify automatic Cycle 1 plus first StudyLoad
+
+Status: STAGING_M1_ENROLLMENT_AND_INITIAL_LOAD_CREATED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `abbcc7f`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6G: create staging student account shell`.
+* Working tree was clean before this documentation step.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6G` created the controlled staging student account shell.
+* 6H was explicitly authorized to create one PAES_M1 enrollment for the controlled staging student.
+* The phase intentionally accepted the existing PAES_M1 enrollment automation that creates Cycle 1, a cycle_open snapshot, and the first pending StudyLoad.
+
+Authorized staging operation:
+
+* Mauricio, as authenticated staging admin, created exactly one PAES_M1 enrollment for `student-smoke-m1@bexauri.test`.
+* The enrollment was created through the staging admin UI.
+* No credentials, passwords, cookies, tokens, DATABASE_URL, or secrets were printed or passed to Codex.
+
+Created and verified:
+
+* Enrollment created for `student-smoke-m1@bexauri.test` into `PAES_M1`.
+* Cycle 1 was created automatically and is open.
+* First pending StudyLoad was created automatically: `PAES M1 — Entrada balanceada inicial`.
+
+Result:
+
+* Controlled staging PAES_M1 fixture is ready for student `/now` smoke.
+* The intended PAES_M1 enrollment automation worked.
+* The student now has an active PAES_M1 enrollment and an open Cycle 1 with one pending initial StudyLoad.
+
+Scope preserved:
+
+* No L1 enrollment created.
+* No M2 enrollment created.
+* No additional students created.
+* No additional users created.
+* No activity started.
+* No activity answered.
+* No StudyLoad completed.
+* No additional StudyLoads manually created.
+* No axes created.
+* No skills created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6I - Student login /now smoke verification`.
+
+6I guardrails:
+
+* Log in as the controlled staging student `student-smoke-m1@bexauri.test`.
+* Verify `/now` loads and shows the PAES_M1 active program.
+* Verify the pending StudyLoad `PAES M1 — Entrada balanceada inicial`.
+* Do not start the StudyLoad.
+* Do not answer activity items.
+* Do not submit responses.
+* Do not complete the StudyLoad.
+* Do not create new data beyond normal login/session artifacts.
+* Do not mutate production.
+* Do not print or pass passwords/secrets.
