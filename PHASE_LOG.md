@@ -10519,3 +10519,79 @@ Next recommended phase:
 * Do not create any additional student, enrollment, cycle, or manual StudyLoad.
 * Do not mutate production.
 * Do not print or pass passwords/secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-6K - Start-only staging StudyLoad smoke
+
+Status: STAGING_STUDYLOAD_START_ONLY_SMOKE_PASSED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `927b62e`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6J: decide staging activity start path`.
+* Working tree was clean before this documentation step.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6J` authorized a start-only smoke for the controlled pending StudyLoad.
+* The pending StudyLoad was `PAES M1 — Entrada balanceada inicial`.
+* The phase explicitly authorized pressing `Empezar` exactly once and forbade answer selection, response submission, and StudyLoad completion.
+
+Authorized staging operation:
+
+* Mauricio logged into staging as `student-smoke-m1@bexauri.test`.
+* Program `PAES_M1` was visible before starting.
+* Pending StudyLoad was visible before starting: `PAES M1 — Entrada balanceada inicial`.
+* Mauricio pressed `Empezar` exactly once.
+
+Verification:
+
+* StudyLoad moved to `in_progress`.
+* The activity view opened or became available.
+* Activity instructions/exercises were visible.
+
+Result:
+
+* Start-only staging StudyLoad smoke passed.
+* The controlled student can start the first PAES_M1 StudyLoad.
+* The first activity surface is reachable after start.
+* The fixture is now in an in-progress activity state and ready for a later answer-submission decision phase.
+
+Scope preserved:
+
+* No answer option selected.
+* No response submitted.
+* No StudyLoad completed.
+* No self-report submitted.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No additional StudyLoads created manually.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No password printed or pasted.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+* No other data created beyond the intended start transition, in-progress TutoringSession, and normal session artifacts.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6L - Decide staging answer-submission smoke path`.
+
+6L guardrails:
+
+* Decide before mutating whether to submit answers.
+* Do not submit answers in 6L unless explicitly authorized as a separate operation phase.
+* Keep answer selection/submission separate from completion.
+* Do not complete the StudyLoad until a later explicit phase.
+* Preserve staging as a controlled sales-ready smoke environment.
+* Do not mutate production.
+* Do not print or pass passwords/secrets.
