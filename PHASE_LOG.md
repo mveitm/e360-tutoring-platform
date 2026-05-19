@@ -11289,3 +11289,93 @@ Scope preserved:
 * No schema change.
 * No package change.
 * No generated artifact.
+
+## MVP-DEPLOY-INDEPENDENCE-7A - Admin decision readiness after staging smoke
+
+Status: ADMIN_DECISION_READINESS_ASSESSED_NOT_AUTHORIZED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `d70283f`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6R: consolidate staging smoke handoff`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6R` consolidated the end-to-end staging smoke handoff.
+* The staging fixture now has Cycle 1 open, one completed StudyLoad, and one pending continuity-created StudyLoad.
+* The next question was whether an admin CycleDecision should be created after the first completed StudyLoad.
+* 7A was opened as readiness/documentation only, not as a mutation phase.
+
+Created documentation:
+
+* `nextjs_space/docs/operations/MVP_DEPLOY_INDEPENDENCE_7A_ADMIN_DECISION_READINESS_AFTER_STAGING_SMOKE.md`
+
+Technical readiness findings:
+
+* The CycleDecision backend path is admin-protected.
+* Allowed decision types are `advance`, `reinforce`, `hold`, and `redirect`.
+* `POST /api/cycle-decisions` rejects decision creation only when the cycle is already closed.
+* The current Cycle 1 is open, so the backend would technically allow a decision.
+* The admin cycle UI renders the decision summary and `New Decision` controls while the cycle is open.
+* Therefore CycleDecision creation is technically available.
+
+Product/operational readiness findings:
+
+* Cycle 1 still has one pending StudyLoad.
+* The first completed StudyLoad was `PAES M1 — Entrada balanceada inicial`.
+* The completed evidence was 4 of 4 answered, 1 of 4 correct, self-report `Me costó`.
+* Continuity already created the next pending StudyLoad: `PAES M1 — Ecuaciones lineales básicas`.
+* Creating a CycleDecision now would be operationally premature because the follow-up StudyLoad has not been executed.
+* A `reinforce` decision would be plausible but redundant/premature unless Bexauri first defines CycleDecision semantics as supervisory annotation independent from cycle closure.
+
+Decision:
+
+* Readiness verdict: `TECHNICALLY_READY_BUT_OPERATIONALLY_NOT_AUTHORIZED`.
+* No CycleDecision should be created in 7A.
+* No CycleEvaluation should be created in 7A.
+* Cycle 1 should remain open.
+* The pending StudyLoad should remain pending.
+* Further mutation requires a new explicit phase.
+
+Scope preserved:
+
+* No staging mutation in 7A.
+* No CycleDecision created.
+* No CycleEvaluation created.
+* No cycle closed.
+* No pending StudyLoad started.
+* No answer submitted.
+* No StudyLoad completed.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No manual StudyLoads created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-7B - Decide second StudyLoad continuation vs admin decision semantics`.
+
+7B guardrails:
+
+* Documentation/decision first.
+* Decide whether to continue the pending StudyLoad or define admin decision semantics first.
+* Do not start the pending StudyLoad unless explicitly authorized.
+* Do not create CycleDecision unless explicitly re-scoped.
+* Do not create CycleEvaluation.
+* Do not close Cycle 1.
+* Do not mutate production.
+* Do not print or pass passwords/secrets.
