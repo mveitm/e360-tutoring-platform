@@ -11089,3 +11089,122 @@ Next recommended phase:
 * Preserve staging as a controlled sales-ready smoke environment.
 * Do not mutate production.
 * Do not print or pass passwords/secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-6Q - Decide post-completion staging operational path
+
+Status: POST_COMPLETION_STAGING_PATH_DECIDED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `29f4021`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6P: verify staging admin evidence`.
+* Working tree was clean before this documentation/decision phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6P` verified admin evidence after student completion.
+* The controlled staging fixture now demonstrates base programs, student account shell, PAES_M1 enrollment, `/now` visibility, StudyLoad start, MC answer submission, StudyLoad completion, automatic next StudyLoad creation, and admin evidence visibility.
+* Cycle 1 remains open with one completed StudyLoad and one pending follow-up StudyLoad.
+* The next question is whether to continue mutating the staging fixture or pause and consolidate.
+
+Current validated staging chain:
+
+* Staging URL: `https://bexauri-staging.vercel.app`.
+* Base programs exist: `PAES_L1`, `PAES_M1`, `PAES_M2`.
+* Controlled student exists: `student-smoke-m1@bexauri.test`.
+* PAES_M1 enrollment exists and is active.
+* Cycle 1 exists and remains open.
+* Completed StudyLoad: `PAES M1 — Entrada balanceada inicial`.
+* Completed StudyLoad evidence:
+
+  * 4 of 4 answers submitted.
+  * 1 of 4 correct.
+  * self-report `Me costó`.
+  * admin evidence visible.
+* Continuity-created next StudyLoad exists:
+
+  * `PAES M1 — Ecuaciones lineales básicas`.
+  * status pending.
+* No CycleDecision exists.
+* No CycleEvaluation exists.
+* Cycle has not been closed.
+* Pending next StudyLoad has not been started.
+
+Options considered:
+
+* A — Pause and consolidate handoff / sales-ready staging state.
+* B — Continue immediately with the second pending StudyLoad.
+* C — Prepare admin decision readiness without creating a decision yet.
+* D — Close the `MVP-DEPLOY-INDEPENDENCE-6` chain as sufficient end-to-end staging smoke.
+
+Decision:
+
+* Selected path: `D + A`.
+* The deploy-independence 6 chain is considered sufficient as a first end-to-end staging smoke for the sales-ready baseline.
+* No further staging mutation should happen immediately.
+* The next move should be consolidation, handoff, and explicit next-path planning.
+* The pending second StudyLoad should remain pending for now.
+* No CycleDecision should be created now.
+* No CycleEvaluation should be created now.
+* Cycle 1 should remain open for now.
+* The staging fixture should be preserved as a controlled sales-ready smoke environment.
+
+Rationale:
+
+* The validated chain already covers the critical commercial-autonomous baseline from controlled setup through student activity and admin evidence.
+* Continuing immediately into the second StudyLoad risks turning staging into an ongoing exploratory environment rather than a controlled smoke fixture.
+* Admin decision readiness is important, but it should be planned separately after consolidating the validated state.
+* Closing the cycle now would be premature because there is a pending StudyLoad created by continuity.
+* The best product/technical move is to freeze the achieved evidence and create a clean handoff for the next decision line.
+
+Rejected immediate paths:
+
+* Continue with second StudyLoad now: rejected as unnecessary mutation after a successful end-to-end smoke.
+* Create CycleDecision now: rejected because admin decision readiness needs a separate explicit phase.
+* Create CycleEvaluation now: rejected as out of scope for this deploy-independence chain.
+* Close Cycle 1 now: rejected because the cycle has an incomplete pending StudyLoad.
+* Convert staging into a broad demo dataset: rejected; staging must remain controlled and sales-ready oriented.
+
+Scope preserved:
+
+* No new staging mutation in 6Q.
+* No next StudyLoad started.
+* No answer submitted.
+* No StudyLoad completed.
+* No CycleDecision created.
+* No CycleEvaluation created.
+* No cycle closed.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No manual StudyLoads created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6R - Consolidate staging smoke handoff`.
+
+6R guardrails:
+
+* Documentation/handoff only.
+* Record the clean HEAD/origin/main after 6Q.
+* Summarize the validated staging state.
+* Summarize the staging data fixture.
+* Summarize what remains intentionally unstarted/unclosed.
+* Define possible next branches: admin decision readiness, second StudyLoad continuation, sales-ready demo polish, or staging reset policy.
+* Do not mutate staging data.
+* Do not deploy.
+* Do not touch production.
+* Do not print or pass passwords/secrets.
