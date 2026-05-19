@@ -10203,3 +10203,84 @@ Next recommended phase:
 * Do not mutate production.
 * Do not print or pass passwords/secrets to Codex.
 * If password entry is needed, Mauricio must enter it privately through the admin UI or hidden prompt.
+
+## MVP-DEPLOY-INDEPENDENCE-6G - Create controlled staging student account shell
+
+Status: STAGING_STUDENT_ACCOUNT_SHELL_CREATED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `f7d7ed8`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6F: decide staging smoke fixture`.
+* Working tree was clean before this documentation step.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6F` decided that the first student-flow smoke fixture would be a controlled PAES_M1 staging student path split across separate phases.
+* 6G was scoped only to creating the student account shell required before enrollment.
+* The account shell requires a `User` and a matching `Student` using the same email because `/now` currently resolves student access through `User.email == Student.email`.
+
+Authorized staging operation:
+
+* Mauricio, as authenticated staging admin, created the controlled staging student account shell.
+* The password was entered privately by Mauricio and was not printed, pasted, stored in the repo, or passed to Codex.
+* User creation was performed through admin-only signup.
+* Student creation was performed through the staging admin students surface.
+
+Created records:
+
+* `User.email`: `student-smoke-m1@bexauri.test`.
+* `Student.firstName`: `Smoke`.
+* `Student.lastName`: `M1`.
+* `Student.email`: `student-smoke-m1@bexauri.test`.
+* `Student.status`: `active`.
+
+Verification:
+
+* Admin-only signup returned `status: 201`, `ok: true`, and `email: student-smoke-m1@bexauri.test`.
+* The `Student` record was created and visible with firstName `Smoke`, lastName `M1`, email `student-smoke-m1@bexauri.test`, and status `active`.
+
+Result:
+
+* Controlled staging student account shell exists.
+* The `User` and `Student` share the same email, enabling a later `/now` login smoke after enrollment is created.
+* No enrollment was created in 6G.
+* No cycle was created in 6G.
+* No StudyLoad was created in 6G.
+
+Scope preserved:
+
+* No enrollment created.
+* No learning cycle created.
+* No StudyLoad created.
+* No axes created.
+* No skills created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No password printed or pasted.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6H - Create PAES_M1 enrollment and verify automatic Cycle 1 plus first StudyLoad`.
+
+6H guardrails:
+
+* Create exactly one enrollment for `student-smoke-m1@bexauri.test` into `PAES_M1`.
+* Explicitly accept that the current PAES_M1 enrollment endpoint will auto-create Cycle 1, a cycle_open snapshot, and first pending StudyLoad `PAES M1 — Entrada balanceada inicial`.
+* Do not create any additional students.
+* Do not create additional users.
+* Do not create L1 or M2 enrollments.
+* Do not answer or start the StudyLoad.
+* Do not run a general seed.
+* Do not mutate production.
+* Do not print or pass secrets.
