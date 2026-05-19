@@ -10595,3 +10595,91 @@ Next recommended phase:
 * Preserve staging as a controlled sales-ready smoke environment.
 * Do not mutate production.
 * Do not print or pass passwords/secrets.
+
+## MVP-DEPLOY-INDEPENDENCE-6L - Decide staging answer-submission smoke path
+
+Status: STAGING_ANSWER_SUBMISSION_PATH_DECIDED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `df080ff`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6K: verify staging studyload start smoke`.
+* Working tree was clean before this documentation/decision phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6K` verified that the controlled student can start the pending StudyLoad.
+* The StudyLoad `PAES M1 — Entrada balanceada inicial` is now `in_progress`.
+* The activity view shows instructions/exercises.
+* The next unresolved question is whether to submit answers and how to contain that mutation.
+* 6L was opened as decision/documentation only, not as an answer-submission phase.
+
+Technical findings:
+
+* `POST /api/study-loads/[id]/responses` creates or replaces one `Response` with `responseType="mc_submission"` for the active `TutoringSession` of an `in_progress` StudyLoad.
+* It validates ownership, active enrollment, open cycle, StudyLoad `in_progress` status, registered content, matching `contentKey` and `contentVersion`, non-empty answers, valid itemKeys, and valid selected options.
+* It requires the `in_progress` TutoringSession created by `/start`.
+* It returns answer summary and feedback fields including `answeredCount`, `totalItemCount`, `correctCount`, and `hasAnswerKey`.
+* It does not change `StudyLoad.status`.
+* It does not call `/complete`.
+* It does not create self-report `Response` with `responseType="answer"`.
+* It does not complete the StudyLoad.
+
+Decision:
+
+* Authorize the next phase as `MVP-DEPLOY-INDEPENDENCE-6M - Submit-only staging answer smoke`.
+* 6M may select answers in the controlled in-progress StudyLoad.
+* 6M may press `Enviar respuestas` exactly once.
+* 6M may verify that answers are saved and feedback/summary appears.
+* 6M must not submit self-report.
+* 6M must not press `Finalizar actividad`.
+* 6M must not complete the StudyLoad.
+
+Rejected approaches:
+
+* Answer submission and completion in one phase: rejected as too broad.
+* Completion/autorreporte in 6M: rejected; completion needs a separate explicit phase.
+* Leaving the in-progress activity without submission forever: rejected because submit-only smoke is the next minimal operational verification.
+* Submitting through direct API/Codex: rejected because the controlled student UI path is the intended smoke path and secrets/session artifacts must not be passed to Codex.
+
+Scope preserved:
+
+* No answer selected in 6L.
+* No response submitted in 6L.
+* No self-report submitted in 6L.
+* No StudyLoad completed in 6L.
+* No additional students created.
+* No additional users created.
+* No additional enrollments created.
+* No additional cycles created.
+* No additional StudyLoads created manually.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6M - Submit-only staging answer smoke`.
+
+6M guardrails:
+
+* Log in as `student-smoke-m1@bexauri.test`.
+* Use only the existing in-progress StudyLoad `PAES M1 — Entrada balanceada inicial`.
+* Select a controlled set of answers.
+* Press `Enviar respuestas` exactly once.
+* Verify that answers are saved and feedback/summary appears.
+* Do not press `Finalizar actividad`.
+* Do not submit self-report.
+* Do not complete the StudyLoad.
+* Do not create any additional student, enrollment, cycle, or manual StudyLoad.
+* Do not mutate production.
+* Do not print or pass passwords/secrets.
