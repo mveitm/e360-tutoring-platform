@@ -10101,3 +10101,105 @@ Next recommended phase:
 * Decide fixture path before creating any student.
 * Do not create students, enrollments, cycles, StudyLoads, axes, or skills until a separate explicit phase authorizes them.
 * Keep staging controlled and sales-ready oriented, not an improvised local copy.
+
+## MVP-DEPLOY-INDEPENDENCE-6F - Verify staging base programs and decide first student-flow smoke fixture
+
+Status: STAGING_BASE_PROGRAMS_VERIFIED_AND_SMOKE_FIXTURE_DECIDED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `e0b201b`.
+* Last accepted commit = `MVP-DEPLOY-INDEPENDENCE-6E: create staging base programs`.
+* Working tree was clean before this documentation/decision phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-DEPLOY-INDEPENDENCE-6E` created the controlled staging base program catalog.
+* Before creating any student-flow fixture, the base programs needed visual verification and the smoke path needed an explicit decision.
+* 6F was opened as verification/decision only, not a data-mutation phase.
+
+Visual staging verification:
+
+* Mauricio verified `/admin/programs` in staging.
+* `PAES_L1` is visible.
+* `PAES_M1` is visible.
+* `PAES_M2` is visible.
+* No unexpected extra programs were visible.
+
+Technical findings:
+
+* `POST /api/students` creates only a `Student` record.
+* `POST /api/signup` is admin-only and creates a `User` account.
+* `/now` resolves student access through the provisional linkage `User.email == Student.email`.
+* Creating a PAES_M1 enrollment through `POST /api/instances` is not a neutral enrollment-only operation.
+* For active `PAES_M1` enrollment with normal continuity and no `currentCycleId`, the existing endpoint intentionally creates the enrollment, Cycle 1, a `cycle_open` snapshot, and the first pending StudyLoad `PAES M1 — Entrada balanceada inicial`.
+
+Decision:
+
+* First student-flow smoke fixture will be a controlled PAES_M1 staging student path.
+* The fixture will be split across separate phases instead of executed as one broad mutation.
+* The path will intentionally use the existing PAES_M1 enrollment automation when the enrollment phase is explicitly authorized.
+* No student, User, enrollment, cycle, or StudyLoad is created in 6F.
+
+Rejected approaches:
+
+* `Only student`: insufficient to verify `/now`, because `/now` requires an active enrollment.
+* `Student + enrollment without cycle`: rejected for PAES_M1 because the current endpoint intentionally auto-creates Cycle 1 and the first StudyLoad.
+* `Full student smoke in one phase`: rejected as too broad for staging custody.
+* `L1/M2 first smoke`: deferred because the current first-flow automation is PAES_M1-specific.
+
+Planned sequence:
+
+* `MVP-DEPLOY-INDEPENDENCE-6G - Create controlled staging student account shell`.
+* `MVP-DEPLOY-INDEPENDENCE-6H - Create PAES_M1 enrollment and verify automatic Cycle 1 plus first StudyLoad`.
+* `MVP-DEPLOY-INDEPENDENCE-6I - Student login /now smoke verification`.
+
+6G intended scope:
+
+* Create one controlled staging student `User`.
+* Create one matching `Student` record with the same email.
+* Do not create enrollment.
+* Do not create cycle.
+* Do not create StudyLoad.
+* Do not answer activity.
+* Do not run seed.
+
+Scope preserved:
+
+* No DB mutation performed during 6F.
+* No students created.
+* No users created.
+* No enrollments created.
+* No cycles created.
+* No StudyLoads created.
+* No axes created.
+* No skills created.
+* No seed run.
+* No Prisma CLI.
+* No SQL.
+* No `.env` inspection.
+* No secrets printed.
+* No deploy.
+* No production operation.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6G - Create controlled staging student account shell`.
+
+6G guardrails:
+
+* Create exactly one controlled staging student account shell.
+* Use an email explicitly selected for staging smoke only.
+* Create matching `User` and `Student` records.
+* Do not create enrollment yet.
+* Do not create cycle.
+* Do not create StudyLoad.
+* Do not run a general seed.
+* Do not mutate production.
+* Do not print or pass passwords/secrets to Codex.
+* If password entry is needed, Mauricio must enter it privately through the admin UI or hidden prompt.
