@@ -9937,3 +9937,89 @@ Deferred:
 
 Next recommended phase:
 - `MVP-DEPLOY-INDEPENDENCE-6D - Document staging readiness and decide next operational branch`.
+
+## MVP-DEPLOY-INDEPENDENCE-6D - Decide staging data branch and next operational path
+
+Status: STAGING_DATA_BRANCH_DECIDED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `f092411`.
+* Last accepted commit = `CUST-HANDOFF-ROLE-1: add context transfer patch`.
+* Working tree was clean before this decision/documentation phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* Staging auth/admin smoke passed in `MVP-DEPLOY-INDEPENDENCE-6C`.
+* The next unresolved operational question was whether staging should remain empty, receive base program data, receive a minimal seed, or proceed toward a complete student-flow smoke fixture.
+* A custody correction was performed before 6D because the new-chat handoff failed to preserve the active operating role contract.
+* `CUST-HANDOFF-ROLE-1` now freezes the rule that Mauricio does not manually edit files; ChatGPT directs/audits; Codex/local editor performs controlled edits when needed.
+
+Current staging state:
+
+* Vercel + Neon staging is operational at `https://bexauri-staging.vercel.app`.
+* `/login` loads correctly.
+* Neon staging schema has been applied with controlled Prisma db push.
+* One staging admin user has been created/upserted with an email allowlisted in `ADMIN_EMAILS`.
+* Admin login succeeded.
+* `/admin/students` loads and shows the expected empty state.
+* `/admin/programs` loads.
+* Staging DB remains empty/minimal beyond schema and the admin user.
+* No general seed has been created.
+* No students, programs, cycles, or StudyLoads have been created.
+
+Decision:
+
+* Selected branch: `C - Create only base programs L1/M1/M2 in staging`.
+* This decision is documentation-only in 6D.
+* Program creation is explicitly deferred to a later authorized data-operation phase.
+* The selected branch means controlled base program catalog only, not a general seed and not a student-flow fixture.
+
+Rationale:
+
+* Keeping staging fully empty is now too conservative for the sales-ready path after auth/admin staging was validated.
+* Creating a student fixture or complete student smoke now would mix data policy, data mutation, and smoke testing too early.
+* Creating only base programs is the smallest useful staging data step toward a commercial autonomous baseline.
+* This preserves staging as a controlled environment instead of turning it into an improvised copy of local.
+* This keeps program catalog setup separate from student creation, cycle creation, StudyLoad creation, and end-to-end smoke testing.
+
+Rejected branches:
+
+* `A - Keep staging empty and move to documentation/roadmap`: rejected as too passive after auth/admin staging was validated.
+* `B - Create controlled minimal seed for student flow`: deferred because it should depend on a clean base-program layer.
+* `D - Prepare complete student smoke with student + program + cycle + StudyLoad`: deferred because it is a later operational smoke phase, not the immediate next data branch.
+
+Scope preserved:
+
+* No DB mutation.
+* No seed.
+* No students created.
+* No programs created.
+* No cycles created.
+* No StudyLoads created.
+* No deploy.
+* No login/smoke verification.
+* No `.env` inspection.
+* No secrets printed.
+* No passwords requested or pasted.
+* No production commercial operation.
+* No Abacus base path.
+* No app code change.
+* No schema change.
+* No package change.
+
+Next recommended phase:
+
+* `MVP-DEPLOY-INDEPENDENCE-6E - Create controlled staging base programs only`.
+
+6E guardrails:
+
+* Create only the base programs needed for the canonical commercial target: L1, M1, and M2.
+* Do not create students.
+* Do not create cycles.
+* Do not create StudyLoads.
+* Do not run a general seed.
+* Do not mutate production.
+* Verify `/admin/programs` after the operation.
+* Document the operation in `PHASE_LOG.md`.
