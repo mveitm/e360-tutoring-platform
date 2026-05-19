@@ -17,11 +17,11 @@ If any document, memory, phase log entry, or handoff contradicts Git preflight, 
 
 ## Latest verified baseline
 
-* HEAD = origin/main = `277de8b`
-* Last accepted commit = `MVP-SALES-READY-HANDOFF-1: harden roadmap phase gate`
+* HEAD = origin/main = `db526f0`
+* Last accepted commit = `MVP-SALES-READY-ROADMAP-1: define full sales-ready roadmap`
 * Working tree expected: clean
 
-`MVP-SALES-READY-ROADMAP-1` is the current phase under review. Do not claim it is closed until committed.
+`MVP-SALES-READY-ROADMAP-1` is closed and accepted at `db526f0`.
 
 ## Current target
 
@@ -46,7 +46,7 @@ The mandatory target is:
 
 Sales-ready state: `NOT_READY`
 
-Roadmap state after `MVP-SALES-READY-ROADMAP-1` is accepted:
+Roadmap state:
 
 ```text
 READY_FOR_PHASED_EXECUTION
@@ -66,7 +66,7 @@ Current priority:
 Sales-ready roadmap and self-serve commercial flow.
 ```
 
-After `MVP-SALES-READY-ROADMAP-1`, the next recommended roadmap phase is:
+Current next recommended roadmap phase:
 
 `MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`
 
@@ -97,7 +97,7 @@ After `MVP-SALES-READY-ROADMAP-1`, the next recommended roadmap phase is:
 7. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
 8. `PHASE_LOG.md` latest entries
 
-## Next recommended phase after Roadmap-1 acceptance
+## Next recommended phase
 
 `MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`
 
@@ -105,7 +105,7 @@ Gate:
 
 * Roadmap block: 1 - Self-serve student registration/account bootstrap.
 * Sales-ready relevance: direct/high.
-* Dependency: `MVP-SALES-READY-ROADMAP-1` closed.
+* Dependency: `MVP-SALES-READY-ROADMAP-1` closed at `db526f0`.
 * What it advances: first blocker toward student self-serve entry.
 * What it does not advance: billing/trial/enrollment yet.
 * Priority verdict: `APPROVED_NEXT_PHASE`.

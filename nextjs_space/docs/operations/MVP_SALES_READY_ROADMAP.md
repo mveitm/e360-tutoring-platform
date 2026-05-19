@@ -9,7 +9,7 @@ Detailed source:
 Roadmap state:
 
 ```text
-READY_FOR_PHASED_EXECUTION after Roadmap-1 is accepted.
+READY_FOR_PHASED_EXECUTION
 ```
 
 Git preflight remains the live truth for current HEAD and working tree state.
@@ -44,7 +44,7 @@ Gate:
 
 * Roadmap block: 1 - Self-serve student registration/account bootstrap.
 * Sales-ready relevance: direct/high.
-* Dependency: `MVP-SALES-READY-ROADMAP-1` closed.
+* Dependency: `MVP-SALES-READY-ROADMAP-1` closed at `db526f0`.
 * What it advances: first blocker toward student self-serve entry.
 * What it does not advance: billing/trial/enrollment yet.
 * Priority verdict: `APPROVED_NEXT_PHASE`.

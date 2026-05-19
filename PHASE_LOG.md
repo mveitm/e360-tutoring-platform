@@ -12115,3 +12115,69 @@ Scope preserved:
 * No schema change.
 * No package change.
 * No generated artifact.
+
+## MVP-SALES-READY-ROADMAP-1A - Align active compass after Roadmap-1 close
+
+Status: ACTIVE_COMPASS_ALIGNED_AFTER_ROADMAP_1_CLOSE - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `db526f0`.
+* Last accepted commit = `MVP-SALES-READY-ROADMAP-1: define full sales-ready roadmap`.
+* Working tree was clean before this documentation/custody alignment phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-SALES-READY-ROADMAP-1` was closed and pushed at `db526f0`.
+* Active docs still contained `under review` / `after accepted` wording from the pre-commit review state.
+* The active compass needed to treat Roadmap-1 as accepted and point cleanly to the next roadmap phase.
+
+Updated documentation:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md`.
+
+Decision:
+
+* Active compass now treats `MVP-SALES-READY-ROADMAP-1` as closed and accepted at `db526f0`.
+* Roadmap state is `READY_FOR_PHASED_EXECUTION`.
+* Detailed Roadmap-1 document status is `FULL_SALES_READY_ROADMAP_AND_DEVIATION_AUDIT_ACCEPTED`.
+* Next recommended phase remains `MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`.
+* Authorization status remains not yet authorized until Mauricio says adelante.
+
+Next recommended phase:
+
+* `MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`.
+
+Gate for next phase:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-READY-ROADMAP-1A` closed.
+* What it advances: first blocker toward student self-serve entry.
+* What it does not advance: billing/trial/enrollment yet.
+* Priority verdict: `APPROVED_NEXT_PHASE`.
+* Authorization status: not yet authorized until Mauricio says adelante.
+
+Scope preserved:
+
+* No staging mutation.
+* No production operation.
+* No deploy.
+* No StudyLoad started.
+* No answer submitted.
+* No StudyLoad completed.
+* No CycleDecision created.
+* No CycleEvaluation created.
+* No cycle closed.
+* No SQL.
+* No Prisma CLI.
+* No `.env` inspection.
+* No secrets printed.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.

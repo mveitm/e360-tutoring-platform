@@ -1,6 +1,10 @@
 # MVP-SALES-READY-ROADMAP-1 - Full roadmap, deviation audit, and handoff alignment
 
-Status: FULL_SALES_READY_ROADMAP_AND_DEVIATION_AUDIT_DRAFTED
+Status: FULL_SALES_READY_ROADMAP_AND_DEVIATION_AUDIT_ACCEPTED
+
+## Acceptance state
+
+Accepted and pushed at `db526f0`. This document is now the detailed source for `MVP_SALES_READY_ROADMAP.md`.
 
 ## 1. Live Git baseline
 
