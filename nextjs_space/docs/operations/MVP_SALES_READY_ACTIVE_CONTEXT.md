@@ -17,9 +17,11 @@ If any document, memory, phase log entry, or handoff contradicts Git preflight, 
 
 ## Latest verified baseline
 
-* HEAD = origin/main = `85f6eeb`
-* Last accepted commit = `MVP-SALES-READY-STAGING-1: define demo evidence policy`
+* HEAD = origin/main = `277de8b`
+* Last accepted commit = `MVP-SALES-READY-HANDOFF-1: harden roadmap phase gate`
 * Working tree expected: clean
+
+`MVP-SALES-READY-ROADMAP-1` is the current phase under review. Do not claim it is closed until committed.
 
 ## Current target
 
@@ -44,6 +46,12 @@ The mandatory target is:
 
 Sales-ready state: `NOT_READY`
 
+Roadmap state after `MVP-SALES-READY-ROADMAP-1` is accepted:
+
+```text
+READY_FOR_PHASED_EXECUTION
+```
+
 The preserved staging evidence is useful, but it is not the roadmap driver.
 
 Staging/demo thread status:
@@ -58,31 +66,47 @@ Current priority:
 Sales-ready roadmap and self-serve commercial flow.
 ```
 
+After `MVP-SALES-READY-ROADMAP-1`, the next recommended roadmap phase is:
+
+`MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`
+
 ## Current blockers
 
 * Self-serve student registration/account bootstrap is not sales-ready.
 * Trial/access model is not implemented.
 * Payment/subscription model is not implemented.
+* Plan/access mapping is not implemented.
 * Self-serve enrollment into up to 3 tutorias is not implemented.
 * Simultaneous L1/M1/M2 student dashboard is not implemented.
 * Pause/close/reopen tutoring states are not implemented.
 * L1 route is `NOT_READY`.
 * M1 route is `PARTIAL`.
 * M2 route is `NOT_READY`.
+* Admin/tutor multi-student operations are incomplete.
 * Legal/support/payment policy is incomplete.
+* Internal pilot/go-no-go is not done.
 
 ## Required first-read docs for future chats
 
 1. `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`
 2. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
 3. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
-4. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
-5. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`
-6. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
-7. `PHASE_LOG.md` latest entries
+4. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md`
+5. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
+6. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`
+7. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+8. `PHASE_LOG.md` latest entries
 
-## Next recommended phase
+## Next recommended phase after Roadmap-1 acceptance
 
-`MVP-SALES-READY-ROADMAP-1 - Full roadmap, deviation audit, and handoff alignment for sales-ready MVP`
+`MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`
 
-This next phase should expand the active roadmap, audit deviations against the sales-ready target, and align handoff documents before new implementation or staging mutation is proposed.
+Gate:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-READY-ROADMAP-1` closed.
+* What it advances: first blocker toward student self-serve entry.
+* What it does not advance: billing/trial/enrollment yet.
+* Priority verdict: `APPROVED_NEXT_PHASE`.
+* Authorization status: not yet authorized until Mauricio says adelante.

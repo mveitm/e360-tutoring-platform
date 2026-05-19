@@ -11999,3 +11999,119 @@ Scope preserved:
 * No schema change.
 * No package change.
 * No generated artifact.
+
+## MVP-SALES-READY-ROADMAP-1 - Full roadmap, deviation audit, and handoff alignment for sales-ready MVP
+
+Status: FULL_SALES_READY_ROADMAP_AND_DEVIATION_AUDIT_DRAFTED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `277de8b`.
+* Last accepted commit = `MVP-SALES-READY-HANDOFF-1: harden roadmap phase gate`.
+* Working tree was clean before this documentation/custody/roadmap/audit phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-SALES-READY-HANDOFF-1` installed the sales-ready active context, roadmap, and phase proposal gate.
+* A complete development/implementation roadmap was still needed before authorizing implementation work.
+* The recent staging/demo route needed an explicit deviation audit so future chats do not continue that thread by momentum.
+* Handoff alignment needed confirmation before moving into sales-ready implementation phases.
+
+Created documentation:
+
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md`.
+
+Updated documentation:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+
+Phase gate:
+
+* This phase maps to Roadmap block 0: Governance/handoff/roadmap.
+* Sales-ready relevance: direct/high because it defines the execution roadmap and prevents off-roadmap drift.
+* Dependency: `MVP-SALES-READY-HANDOFF-1` closed.
+* Priority verdict: `APPROVED_CURRENT_PHASE`.
+
+Executive verdict:
+
+* Sales-ready state remains `NOT_READY`.
+* Roadmap state after this document: `READY_FOR_PHASED_EXECUTION`.
+* Staging/demo evidence status remains `PRESERVED_EVIDENCE / NOT_ACTIVE_ROADMAP_DRIVER`.
+* Next implementation direction is self-serve commercial flow, not more staging/demo by momentum.
+
+Roadmap blocks defined:
+
+* Governance/handoff/roadmap.
+* Self-serve student registration/account bootstrap.
+* Trial and access control.
+* Plan/payment/subscription model.
+* Self-serve enrollment up to 3 tutorias.
+* Multi-program student dashboard for L1/M1/M2.
+* Pause/close/reopen tutoring states.
+* Minimum L1/M1/M2 content routes.
+* Admin/tutor multi-student operations.
+* Legal/privacy/support/trust.
+* Internal pilot and sales-ready go/no-go.
+
+Deviation audit:
+
+* Staging smoke was valuable.
+* Recent phase momentum created a local next-step chain.
+* The latest `PHASE_LOG.md` entry became over-influential.
+* Handoff docs had the target but no active phase firewall before `MVP-SALES-READY-HANDOFF-1`.
+* M1-centric doc names and historical sections added cognitive gravity.
+* The missing control was a mandatory roadmap-block match before phase proposal.
+
+Corrective controls confirmed:
+
+* `MVP_SALES_READY_ACTIVE_CONTEXT.md` is the compass.
+* `MVP_SALES_READY_ROADMAP.md` is the execution map.
+* `MVP_SALES_READY_PHASE_GATE_PROTOCOL.md` is the authorization firewall.
+* `PHASE_LOG.md` is the ledger, not the compass.
+* Git preflight is live truth.
+* Off-roadmap work is `ROADMAP_CHANGE_REQUEST`.
+* Local/staging/demo continuation defaults to `LOW_PRIORITY_FOR_SALES_READY`.
+* No future chat may infer the next phase from `PHASE_LOG.md` alone.
+
+Handoff alignment:
+
+* The system is ready for future chats to contextualize themselves if they read active context, roadmap, and phase gate first.
+* Existing M1-centric files still contain historical sections, but the top-level supersession/gate language contains that risk.
+* No additional handoff file edits were required in this phase.
+
+Next recommended phase:
+
+* `MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`.
+
+Gate for next phase:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-READY-ROADMAP-1` closed.
+* What it advances: first blocker toward student self-serve entry.
+* What it does not advance: billing/trial/enrollment yet.
+* Priority verdict: `APPROVED_NEXT_PHASE`.
+* Authorization status: not yet authorized until Mauricio says adelante.
+
+Scope preserved:
+
+* No staging mutation.
+* No production operation.
+* No deploy.
+* No StudyLoad started.
+* No answer submitted.
+* No StudyLoad completed.
+* No CycleDecision created.
+* No CycleEvaluation created.
+* No cycle closed.
+* No SQL.
+* No Prisma CLI.
+* No `.env` inspection.
+* No secrets printed.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.
