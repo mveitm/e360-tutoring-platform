@@ -1,5 +1,25 @@
 # Current Agent Handoff - MVP M1
 
+## Current sales-ready active context supersedes M1-centric handoff for roadmap direction
+
+This file remains useful as historical and operational support, but it is no longer the primary sales-ready compass.
+
+Future chats and agents must read these documents before using M1-specific handoff content:
+
+1. `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`
+2. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
+3. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
+
+Git preflight remains the live truth. If this handoff or any older M1-centric section contradicts current Git preflight or the active sales-ready context, Git preflight and the active sales-ready context win.
+
+Phase gate rule:
+
+Before proposing any next phase, the chat/agent must identify the active roadmap block and answer whether the phase directly advances the sales-ready roadmap: student can register, trial, pay, enroll in up to 3 tutorias, work in L1/M1/M2, pause/close/reopen tutorias, and continue without technical manual intervention.
+
+No future chat may propose a phase outside the roadmap unless it is classified as `ROADMAP_CHANGE_REQUEST` and explicitly approved by Mauricio + ChatGPT.
+
+Do not infer the next phase from the latest `PHASE_LOG.md` entry alone.
+
 ## Current MVP-Beta Target Checkpoint
 
 This file name remains M1-centric for continuity, but the current target is broader than M1.

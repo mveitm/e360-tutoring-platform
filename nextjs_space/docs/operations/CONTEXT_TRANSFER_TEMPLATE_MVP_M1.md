@@ -14,6 +14,29 @@ We are not building only an operational beta. We are building the first autonomo
 
 This target supersedes narrower M1-only, local-only, staging-only, 7-day-demo, or manually assembled beta interpretations. Git preflight remains the live truth for current HEAD and working tree state.
 
+## Required Sales-Ready Phase Gate
+
+Every future handoff must include a sales-ready phase gate section.
+
+Required fields:
+
+* Current active roadmap block:
+* Proposed next phase:
+* Roadmap block match:
+* Sales-ready relevance verdict:
+* Off-roadmap? yes/no:
+* If off-roadmap, `ROADMAP_CHANGE_REQUEST` required:
+
+A handoff that lacks roadmap-block alignment is incomplete.
+
+Future chats must read these documents before proposing work:
+
+1. `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`
+2. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
+3. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
+
+No off-roadmap phase may be recommended or executed unless Mauricio + ChatGPT explicitly approve a `ROADMAP_CHANGE_REQUEST`.
+
 ## 1. Purpose
 
 This is the canonical context-transfer contract for MVP-M1 chats.
@@ -122,19 +145,32 @@ Known documentation drift / baseline warnings:
 - <KNOWN_DRIFT_OR_STALE_BASELINES>
 
 First read:
-1. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
-2. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
-3. nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md
-4. nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md
-5. nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md
-6. nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md
-7. nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md
-8. nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md
-9. nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md
-10. nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md
-11. nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md
-12. nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md
-13. PHASE_LOG.md, latest relevant entries only if safe to inspect without full-file overwrite risk
+1. nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md
+2. nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md
+3. nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+4. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+5. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
+6. nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md
+7. nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md
+8. nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md
+9. nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md
+10. nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md
+11. nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md
+12. nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md
+13. nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md
+14. nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md
+15. nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md
+16. PHASE_LOG.md, latest relevant entries only if safe to inspect without full-file overwrite risk
+
+Sales-ready phase gate:
+- Current active roadmap block: <CURRENT_ACTIVE_ROADMAP_BLOCK>
+- Proposed next phase: <PROPOSED_NEXT_PHASE>
+- Roadmap block match: <ROADMAP_BLOCK_MATCH>
+- Sales-ready relevance verdict: <SALES_READY_RELEVANCE_VERDICT>
+- Off-roadmap? yes/no: <OFF_ROADMAP_YES_NO>
+- If off-roadmap, ROADMAP_CHANGE_REQUEST required: <ROADMAP_CHANGE_REQUEST_REQUIRED>
+
+A handoff that lacks roadmap-block alignment is incomplete.
 
 Supporting roadmap/source documents:
 - nextjs_space/docs/operations/PAES_M1_SOURCE_REGISTER.md

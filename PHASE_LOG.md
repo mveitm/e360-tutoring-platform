@@ -11909,3 +11909,93 @@ Next phase guardrails:
 * Do not touch production.
 * Do not inspect `.env`.
 * Do not print passwords/secrets.
+
+## MVP-SALES-READY-HANDOFF-1 - Harden repo-as-memory, active roadmap, and phase proposal gate
+
+Status: SALES_READY_REPO_MEMORY_AND_PHASE_GATE_HARDENED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `85f6eeb`.
+* Last accepted commit = `MVP-SALES-READY-STAGING-1: define demo evidence policy`.
+* Working tree was clean before this documentation/custody phase.
+* Git preflight is the live truth.
+
+Trigger:
+
+* `MVP-SALES-READY-STAGING-1` preserved the staging fixture as sales-ready reference evidence.
+* The latest staging/demo thread had enough momentum to keep proposing more demo or staging continuation phases.
+* That created a custody risk: future chats could infer the next phase from the latest `PHASE_LOG.md` entry instead of the sales-ready roadmap.
+* A repo-as-memory hardening phase was needed so future agents use versioned docs as the active compass instead of temporary chat memory.
+
+Recent deviation cause:
+
+* Staging smoke evidence was valuable, but it became the most recent operational thread.
+* Without an explicit phase gate, staging/demo continuation could incorrectly become the next recommendation by momentum.
+* The commercial target is broader than preserved staging evidence.
+
+Core doctrine recorded:
+
+* The repo is the living memory.
+* Chat memory is temporary and insufficient.
+* Git preflight is live truth.
+* `PHASE_LOG.md` is the ledger.
+* `MVP_SALES_READY_ACTIVE_CONTEXT.md` is the active compass.
+* `MVP_SALES_READY_ROADMAP.md` is the execution map.
+* `MVP_SALES_READY_PHASE_GATE_PROTOCOL.md` is the phase authorization firewall.
+* Handoff docs must point future chats to active context and roadmap before proposing work.
+
+Mandatory active target:
+
+* Bexauri MVP-Beta v1 is the first autonomous-basic commercial version: published, multi-student, L1/M1/M2-capable, payment/subscription-capable, evidence-aware, tutor/admin operable, human-supervised, and not dependent on technical manual intervention for each signup, payment, program assignment, or basic continuity action.
+* Control phrase: `We are not building only an operational beta. We are building the first autonomous-basic commercial version of Bexauri.`
+
+Created documentation:
+
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+
+Updated documentation:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Decision:
+
+* Future phase recommendation flow is now: Git preflight -> active context -> roadmap -> phase gate -> only then propose next phase.
+* Off-roadmap phases require `ROADMAP_CHANGE_REQUEST`.
+* Future chats cannot propose off-roadmap phases without explicit roadmap change approval from Mauricio + ChatGPT.
+* Staging/demo continuation is no longer allowed to become next phase by momentum.
+* Staging/demo thread status is preserved and deprioritized unless the roadmap explicitly reopens it.
+
+Current priority:
+
+* Sales-ready roadmap and self-serve commercial flow.
+* The current commercial blockers include self-serve student registration, trial/access model, payment/subscription model, self-serve enrollment into up to 3 tutorias, simultaneous L1/M1/M2 student dashboard, pause/close/reopen tutoring states, L1 readiness, M1 expansion, M2 readiness, and legal/support/payment policy.
+
+Next recommended phase:
+
+* `MVP-SALES-READY-ROADMAP-1 - Full roadmap, deviation audit, and handoff alignment for sales-ready MVP`.
+
+Scope preserved:
+
+* No staging mutation.
+* No production operation.
+* No deploy.
+* No StudyLoad started.
+* No answer submitted.
+* No StudyLoad completed.
+* No CycleDecision created.
+* No CycleEvaluation created.
+* No cycle closed.
+* No SQL.
+* No Prisma CLI.
+* No `.env` inspection.
+* No secrets printed.
+* No app code change.
+* No schema change.
+* No package change.
+* No generated artifact.

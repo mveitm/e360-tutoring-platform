@@ -1,5 +1,21 @@
 # Documentation Index - MVP M1
 
+## Highest-priority sales-ready roadmap documents
+
+These documents now govern roadmap direction:
+
+1. `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`
+2. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
+3. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
+
+Future chats must read them before proposing work.
+
+The M1 documents remain pedagogical and operational support. They are not the whole project roadmap.
+
+Do not infer next phase from the latest `PHASE_LOG.md` entry alone.
+
+Git preflight remains authoritative over every embedded baseline and historical next-phase recommendation.
+
 ## Current MVP-Beta Target Checkpoint
 
 This index name remains M1-centric for continuity, but the current canonical target now covers the autonomous-basic commercial MVP-Beta v1 across PAES L1, M1, M2, payments/subscriptions, and multi-student operation.
