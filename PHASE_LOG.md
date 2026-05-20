@@ -12239,3 +12239,86 @@ Scope preserved:
 * No CycleEvaluation created.
 * No cycle closed.
 * No generated artifact.
+
+## MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap
+
+Status: CURRENT_SIGNUP_LOGIN_STUDENT_BOOTSTRAP_AUDITED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `c5538c2`.
+* Last accepted commit = `MVP-SALES-READY-HANDOFF-2: add Block 7 pedagogical anchor`.
+* Working tree was clean before this documentation/audit/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-READY-HANDOFF-2` closed at `c5538c2`.
+* This phase audited current auth, login, signup/register, User, Student, User/Student linkage, admin boundary, `/now` dependency chain, manual bootstrap, sales-ready gaps, risks, and AUTH-1B recommendation.
+
+Files changed:
+
+* Created `nextjs_space/docs/operations/MVP_SALES_AUTH_1A_CURRENT_SIGNUP_LOGIN_STUDENT_BOOTSTRAP_AUDIT.md`.
+* Updated `PHASE_LOG.md`.
+
+Summary of findings:
+
+* NextAuth is configured in `nextjs_space/lib/auth-options.ts` with `CredentialsProvider`, `PrismaAdapter`, bcrypt password verification, JWT sessions, and custom sign-in page `/login`.
+* Login exists, but current root/login redirects are admin-first: authenticated sessions are sent toward `/admin`, then the admin guard redirects non-admin users to `/now`.
+* Public self-serve signup is absent. `nextjs_space/app/api/signup/route.ts` exists but is explicitly admin-only through `requireAdminApi()`, and public app routes `app/signup`, `app/register`, and `app/onboarding` are absent.
+* `User` and `Student` are separate models with no explicit relation. Current linkage is provisional email matching: `session.user.email == Student.email`.
+* Admin boundary is centralized through `nextjs_space/lib/admin-guard.ts` and `ADMIN_EMAILS`; admin pages and inspected admin APIs use `requireAdminSession()` or `requireAdminApi()`.
+* `/now` requires a session email, matching Student, active enrollment, current open cycle, StudyLoads, and title-based static content registry match for useful in-app work.
+* Current likely bootstrap is admin/manual: create Student, create matching User/password, enroll Student, create or auto-create cycle/StudyLoad, and rely on registry-backed title matching.
+
+Explicit non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No SQL.
+* No Prisma CLI.
+* No DB mutation.
+* No `.env` or secret inspection.
+* No billing/trial/enrollment implementation.
+* No Block 7 work.
+* No AUTH-1B authorization.
+* No commit.
+* No push.
+* No generated artifact.
+
+Recommendation for AUTH-1B:
+
+* Proceed to `MVP-SALES-AUTH-1B - Design User/Student bootstrap contract`.
+* Goal: define the minimal autonomous student account bootstrap contract before implementation.
+* Minimal scope: public signup inputs, validation, User/Student creation or reconciliation, email normalization, duplicate/partial-account handling, non-admin routing, safe `/now` empty/onboarding state, admin visibility, audit expectations, and verification criteria.
+* Implementation should not be authorized yet: `NO, pending human review of AUTH-1A`.
+
+Verification commands:
+
+```powershell
+git status --short
+git log --oneline --decorate --graph -8
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md
+Get-Content nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+Get-Content nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
+Get-Content nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+Get-Content PHASE_LOG.md -Tail 260
+rg "NextAuth|CredentialsProvider|authOptions|getServerSession|signup|register|User|Student|admin|ADMIN_EMAILS|/now|currentCycleId|enrollment" nextjs_space -g "!node_modules" -g "!.next" -g "!*.env*" -g "!*.log"
+git diff --stat
+git diff -- nextjs_space/docs/operations/MVP_SALES_AUTH_1A_CURRENT_SIGNUP_LOGIN_STUDENT_BOOTSTRAP_AUDIT.md PHASE_LOG.md
+git status --short
+```
+
+Final verdict:
+
+```text
+READY_FOR_AUTH_1B_IMPLEMENTATION_PLANNING
+```
