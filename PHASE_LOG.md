@@ -13007,3 +13007,102 @@ Final verdict:
 ```text
 READY_FOR_AUTH_1I_PENDING_STATE_SMOKE
 ```
+
+## MVP-SALES-AUTH-1I - Controlled visual smoke for post-signup /now pending state
+
+Status: BLOCKED_BY_MISSING_STUDENT_SESSION - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `97bb5a2`.
+* Last accepted commit = `MVP-SALES-AUTH-1H: harden post-signup now pending state`.
+* Working tree was clean before this QA/documentation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1H` closed at `97bb5a2`.
+* This phase attempted controlled local visual smoke for the `/now` pending-state copy on the existing self-signup/no-program student.
+
+Build result:
+
+* `npm.cmd run build` passed.
+
+Student `/now` visual result:
+
+* Student account target: `auth1d.student.20260520123829@test.bexauri.local`.
+* Visual `/now` smoke was not completed.
+* Mauricio did not have the student password/session.
+* Recreating the account with the same email was correctly blocked as already registered.
+* No password was requested, printed, recovered, or inspected.
+
+Student admin-boundary result:
+
+* Not retested in AUTH-1I because authenticated student session was unavailable.
+* AUTH-1D remains prior evidence that student `/admin` redirected away from admin.
+
+Admin visibility follow-up:
+
+* Not retested in AUTH-1I.
+* AUTH-1F remains prior evidence that admin can see `auth1d.student.20260520123829@test.bexauri.local` as without enrollment/program.
+
+Non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No DB mutation.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/`DATABASE_URL`/`NEXTAUTH_SECRET`/`ADMIN_EMAILS`.
+* No new student account.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No destructive action.
+* No auth/signup/login/admin guard change.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Recommended next phase:
+
+* `MVP-SALES-AUTH-1J - Retry pending-state visual smoke with controlled student credential path`.
+* Minimal scope: provide a safe student session/credential path without printing secrets, then verify `/now` pending copy, absence of activities, and student `/admin` denial.
+
+Verification:
+
+```powershell
+git status --short
+git log --oneline --decorate --graph -8
+git rev-parse HEAD
+git rev-parse origin/main
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1H_POST_SIGNUP_NOW_PENDING_STATE_COPY.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1G_POST_SIGNUP_ONBOARDING_ENROLLMENT_BOUNDARY.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1F_ADMIN_CREDENTIALED_REGRESSION_RETRY.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1D_CONTROLLED_LOCAL_SIGNUP_SMOKE.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+Get-Content PHASE_LOG.md -Tail 380
+npm.cmd run build
+git diff --check
+git diff --stat
+git status --short
+git add -N nextjs_space/docs/operations/MVP_SALES_AUTH_1I_CONTROLLED_NOW_PENDING_STATE_SMOKE.md
+git diff --stat
+git status --short
+```
+
+Final verdict:
+
+```text
+BLOCKED_BY_MISSING_STUDENT_SESSION
+```
