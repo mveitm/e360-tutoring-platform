@@ -13106,3 +13106,112 @@ Final verdict:
 ```text
 BLOCKED_BY_MISSING_STUDENT_SESSION
 ```
+
+## MVP-SALES-AUTH-1J - Retry pending-state visual smoke with controlled student credential path
+
+Status: NOW_PENDING_STATE_SMOKE_FAILED_NEEDS_FIX - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `6256e66`.
+* Last accepted commit = `MVP-SALES-AUTH-1I: document pending state smoke credential blocker`.
+* Working tree was clean before this QA/documentation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1I` closed at `6256e66`.
+* This phase retried pending-state visual smoke with one authorized new local/dev student signup attempt.
+
+Test email:
+
+* `auth1j.student.20260520135152@test.bexauri.local`.
+
+Build result:
+
+* `npm.cmd run build` passed.
+
+Student `/now` visual result:
+
+* Signup attempt failed from the visible user flow.
+* The session did not reach `/now`.
+* No account-created message was visible.
+* UI appeared degraded/basic compared with normal rendering.
+* Pending-state copy was not validated.
+
+Student admin-boundary result:
+
+* Not tested because the signup/login flow did not establish a usable student session.
+* No admin UI exposure was observed.
+
+Admin visibility follow-up:
+
+* Not retested in AUTH-1J.
+* AUTH-1F remains prior evidence that admin can see a prior self-signup student as without enrollment/program.
+* The AUTH-1J attempted account was not confirmed as created because SQL/Prisma CLI/secret inspection are out of scope.
+
+DB mutation acknowledgement:
+
+* One authorized local/dev signup attempt was made.
+* Successful User/Student creation was not confirmed.
+* No direct DB inspection or mutation was performed outside the app flow.
+
+Non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/`DATABASE_URL`/`NEXTAUTH_SECRET`/`ADMIN_EMAILS`.
+* No more than one student signup attempt.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No destructive action.
+* No auth/signup/login/admin guard change.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Recommended next phase:
+
+* `MVP-SALES-AUTH-1K - Fix /now pending-state smoke blocker`.
+* Minimal scope: diagnose why the controlled signup did not reach `/now` and why UI rendered degraded/basic, without inspecting secrets or using SQL/Prisma CLI; then make the narrowest authorized fix or produce a focused blocker report.
+
+Verification:
+
+```powershell
+git status --short
+git log --oneline --decorate --graph -8
+git rev-parse HEAD
+git rev-parse origin/main
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1I_CONTROLLED_NOW_PENDING_STATE_SMOKE.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1H_POST_SIGNUP_NOW_PENDING_STATE_COPY.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1G_POST_SIGNUP_ONBOARDING_ENROLLMENT_BOUNDARY.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1F_ADMIN_CREDENTIALED_REGRESSION_RETRY.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+Get-Content PHASE_LOG.md -Tail 420
+npm.cmd run build
+git diff --check
+git diff --stat
+git status --short
+git add -N nextjs_space/docs/operations/MVP_SALES_AUTH_1J_PENDING_STATE_VISUAL_SMOKE_RETRY.md
+git diff --stat
+git status --short
+```
+
+Final verdict:
+
+```text
+NOW_PENDING_STATE_SMOKE_FAILED_NEEDS_FIX
+```
