@@ -12910,3 +12910,100 @@ Final verdict:
 ```text
 READY_FOR_POST_SIGNUP_PENDING_STATE_IMPLEMENTATION
 ```
+
+## MVP-SALES-AUTH-1H - Harden post-signup /now pending-state copy
+
+Status: POST_SIGNUP_NOW_PENDING_STATE_COPY_HARDENED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `b18f4c2`.
+* Last accepted commit = `MVP-SALES-AUTH-1G: define post-signup onboarding boundary`.
+* Working tree was clean before this implementation/documentation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1G` closed at `b18f4c2`.
+* This phase implemented minimal `/now` pending-state copy for authenticated accounts without an active program/enrollment.
+
+Files changed:
+
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_AUTH_1H_POST_SIGNUP_NOW_PENDING_STATE_COPY.md`.
+* `PHASE_LOG.md`.
+
+Implementation summary:
+
+* Added a local `PendingProgramState` component in `/now`.
+* Replaced the terse no-active-program one-liner with a clearer account-ready/pending-activation state.
+* The copy tells the student the account is ready, no active program exists yet, tutoring activation is being prepared or reviewed, future activities will appear there, and no activities are assigned for now.
+* No queries, business logic, auth, signup, login, admin guard, entity creation, or routing semantics were changed.
+
+Non-goals preserved:
+
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No DB mutation.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/`DATABASE_URL`/`NEXTAUTH_SECRET`/`ADMIN_EMAILS`.
+* No student account creation.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No PAES path selection.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Verification:
+
+```powershell
+git status --short
+git log --oneline --decorate --graph -8
+git rev-parse HEAD
+git rev-parse origin/main
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1G_POST_SIGNUP_ONBOARDING_ENROLLMENT_BOUNDARY.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1F_ADMIN_CREDENTIALED_REGRESSION_RETRY.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1D_CONTROLLED_LOCAL_SIGNUP_SMOKE.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1C_STUDENT_SIGNUP_ACCOUNT_CREATION.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+Get-Content PHASE_LOG.md -Tail 380
+rg "No tienes|programa activo|active program|enrollment|StudentProgramInstance|/now|Cargas pendientes|Actividades" nextjs_space/app/now nextjs_space -g "!node_modules" -g "!.next" -g "!*.env*" -g "!*.log"
+Get-Content nextjs_space/app/now/page.tsx
+git diff --check
+npm.cmd run build
+git diff --stat
+git status --short
+git add -N nextjs_space/docs/operations/MVP_SALES_AUTH_1H_POST_SIGNUP_NOW_PENDING_STATE_COPY.md
+git diff --stat
+git status --short
+```
+
+Results:
+
+* `git diff --check` passed with LF/CRLF warnings only.
+* `npm.cmd run build` passed.
+* Runtime student visual smoke was not performed.
+
+Recommended next phase:
+
+* `MVP-SALES-AUTH-1I - Controlled visual smoke for post-signup /now pending state`.
+* Minimal scope: verify the new pending state renders for the existing self-signup/no-program student, with no DB mutation and no billing/trial/enrollment/PAES/content work.
+
+Final verdict:
+
+```text
+READY_FOR_AUTH_1I_PENDING_STATE_SMOKE
+```

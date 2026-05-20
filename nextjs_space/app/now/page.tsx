@@ -69,6 +69,26 @@ function EmptyState({ message }: { message: string }) {
   )
 }
 
+function PendingProgramState() {
+  return (
+    <Card>
+      <CardContent className="space-y-3 py-10 text-center">
+        <p className="text-sm font-semibold">Tu cuenta esta lista.</p>
+        <p className="text-sm text-muted-foreground">
+          Todavia no tienes un programa activo.
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Estamos preparando o revisando la activacion de tu tutoria. Cuando este lista,
+          aqui apareceran tus proximas actividades.
+        </p>
+        <p className="text-xs text-muted-foreground">
+          Por ahora no tienes actividades asignadas. Puedes volver mas tarde.
+        </p>
+      </CardContent>
+    </Card>
+  )
+}
+
 export default async function NowPage() {
   const session = await getServerSession(authOptions)
   if (!session?.user?.email) {
@@ -89,7 +109,7 @@ export default async function NowPage() {
     return (
       <Shell>
         <Heading />
-        <EmptyState message="No tienes un programa activo todavía." />
+        <PendingProgramState />
         {isAdminSession && (
           <div className="mt-6 text-center">
             <Link href="/admin" className="text-xs text-muted-foreground underline-offset-4 hover:underline">
@@ -116,7 +136,7 @@ export default async function NowPage() {
     return (
       <Shell>
         <Heading />
-        <EmptyState message="No tienes un programa activo todavía." />
+        <PendingProgramState />
         {isAdminSession && (
           <div className="mt-6 text-center">
             <Link href="/admin" className="text-xs text-muted-foreground underline-offset-4 hover:underline">
