@@ -12516,3 +12516,92 @@ Final verdict:
 ```text
 READY_FOR_AUTH_1D_CONTROLLED_SMOKE
 ```
+
+## MVP-SALES-AUTH-1D - Controlled local signup smoke and admin/student routing verification
+
+Status: CONTROLLED_LOCAL_SIGNUP_SMOKE_COMPLETED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `b93d754`.
+* Last accepted commit = `MVP-SALES-AUTH-1C: implement student signup account creation`.
+* Working tree was clean before this QA/audit phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1C` closed at `b93d754`.
+* This phase ran controlled local/dev smoke for student signup, student login/routing, `/now` safe state, student admin boundary, duplicate signup, and limited admin regression.
+
+Local DB mutation acknowledgement:
+
+* One local/dev student signup was intentionally submitted through the app.
+* Test email: `auth1d.student.20260520123829@test.bexauri.local`.
+* The temporary password was not printed or documented.
+
+Smoke results:
+
+* `npm.cmd run build` passed before smoke.
+* Dev server started locally and `/signup` returned HTTP 200.
+* Student signup returned HTTP 201.
+* Student credentials login succeeded through the app auth flow.
+* Student `/now` returned HTTP 200 and showed the safe no-active-program/no-enrollment state.
+* No assigned activity was visible on `/now`.
+* Student `/admin` attempt returned HTTP 307 redirect away from admin.
+* Duplicate signup attempt returned HTTP 409 with a safe account-exists class response.
+* Admin credentialed login regression was not fully completed because no admin credential was provided and `.env`/secret inspection is forbidden.
+
+Non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/`DATABASE_URL`/`NEXTAUTH_SECRET`/`ADMIN_EMAILS`.
+* No enrollment intentionally created.
+* No trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Verification:
+
+```powershell
+git status --short
+git log --oneline --decorate --graph -8
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1C_STUDENT_SIGNUP_ACCOUNT_CREATION.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1B_USER_STUDENT_BOOTSTRAP_CONTRACT.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1A_CURRENT_SIGNUP_LOGIN_STUDENT_BOOTSTRAP_AUDIT.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+Get-Content PHASE_LOG.md -Tail 300
+npm.cmd run build
+npm.cmd run dev
+git status --short
+git diff --stat
+git diff --check
+git diff --stat
+git status --short
+git add -N nextjs_space/docs/operations/MVP_SALES_AUTH_1D_CONTROLLED_LOCAL_SIGNUP_SMOKE.md
+git diff --stat
+git status --short
+```
+
+Recommended next phase:
+
+* `MVP-SALES-AUTH-1E - Admin credentialed regression and signup UX/admin visibility hardening`.
+
+Final verdict:
+
+```text
+SIGNUP_SMOKE_PASSED_WITH_MINOR_FOLLOWUP
+```
