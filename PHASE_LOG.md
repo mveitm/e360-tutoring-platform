@@ -12410,3 +12410,109 @@ Final verdict:
 ```text
 READY_FOR_AUTH_1C_IMPLEMENTATION_PROPOSAL
 ```
+
+## MVP-SALES-AUTH-1C - Implement student signup/account creation
+
+Status: STUDENT_SIGNUP_ACCOUNT_CREATION_IMPLEMENTED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `40cdbf1`.
+* Last accepted commit = `MVP-SALES-AUTH-1B: design User Student bootstrap contract`.
+* Working tree was clean before this implementation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1B` closed at `40cdbf1`.
+* This phase implemented minimal public student signup/account creation with normalized email-convention linkage.
+
+Human decision applied:
+
+* AUTH-1C uses normalized email-convention linkage as transitional MVP approach.
+* No FK User/Student yet.
+* No schema change, DB migration, Prisma CLI, or backfill.
+* FK hardening is deferred.
+
+Files changed:
+
+* `nextjs_space/app/api/signup/route.ts`.
+* `nextjs_space/app/signup/page.tsx`.
+* `nextjs_space/app/signup/_components/signup-form.tsx`.
+* `nextjs_space/app/login/page.tsx`.
+* `nextjs_space/app/login/_components/login-form.tsx`.
+* `nextjs_space/app/page.tsx`.
+* `nextjs_space/lib/auth-options.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_AUTH_1C_STUDENT_SIGNUP_ACCOUNT_CREATION.md`.
+* `PHASE_LOG.md`.
+
+Summary:
+
+* Added public `/signup` student-facing UI.
+* Reworked `POST /api/signup` into public student signup with firstName, lastName, email, password, and confirmPassword validation.
+* Normalized email with `trim().toLowerCase()` before lookup and write.
+* Added admin-email protection through existing server-side `isAdminEmail()` without exposing allowlist values.
+* Created `User` and `Student` in one Prisma transaction with matching normalized email.
+* Preserved duplicate safety: existing User or Student returns a generic account-exists/support message and does not overwrite data.
+* Updated login/root routing so admins reach `/admin` and non-admin students reach `/now`.
+* Normalized credentials email lookup in NextAuth.
+
+Explicit non-goals preserved:
+
+* No schema change.
+* No package change.
+* No deploy.
+* No SQL.
+* No Prisma CLI.
+* No `.env` or secret inspection.
+* No staging or production mutation.
+* No enrollment creation.
+* No trial creation.
+* No billing/payment/subscription.
+* No Program creation.
+* No LearningCycle creation.
+* No StudyLoad creation.
+* No Block 7 work.
+* No FK User/Student implementation.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Verification:
+
+```powershell
+git status --short
+git log --oneline --decorate --graph -8
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1A_CURRENT_SIGNUP_LOGIN_STUDENT_BOOTSTRAP_AUDIT.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1B_USER_STUDENT_BOOTSTRAP_CONTRACT.md
+Get-Content PHASE_LOG.md -Tail 360
+rg "NextAuth|CredentialsProvider|authOptions|getServerSession|signup|register|User|Student|admin|ADMIN_EMAILS|/now|currentCycleId|enrollment|create-user|reset-password|bcrypt|signIn" nextjs_space -g "!node_modules" -g "!.next" -g "!*.env*" -g "!*.log"
+git diff --check
+npm run build
+npm.cmd run build
+git diff --stat
+git status --short
+```
+
+Results:
+
+* `git diff --check` passed with LF/CRLF warnings only.
+* `npm run build` via PowerShell failed because local execution policy blocks `npm.ps1`; this was not a project code failure.
+* `npm.cmd run build` passed: Next.js compiled successfully and type checks passed.
+* Runtime signup smoke was not executed because it would intentionally mutate a DB with a new User/Student.
+
+Recommended next phase:
+
+* `MVP-SALES-AUTH-1D - Controlled local signup smoke and admin/student routing verification`.
+
+Final verdict:
+
+```text
+READY_FOR_AUTH_1D_CONTROLLED_SMOKE
+```

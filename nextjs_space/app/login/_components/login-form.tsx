@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
@@ -15,7 +16,6 @@ export function LoginForm() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const [isSignup, setIsSignup] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -23,20 +23,6 @@ export function LoginForm() {
     setLoading(true)
 
     try {
-      if (isSignup) {
-        const res = await fetch('/api/signup', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password, name: 'Admin' }),
-        })
-        const data = await res.json()
-        if (!res.ok) {
-          setError(data?.error ?? 'Signup failed')
-          setLoading(false)
-          return
-        }
-      }
-
       const result = await signIn('credentials', {
         email,
         password,
@@ -49,7 +35,7 @@ export function LoginForm() {
         return
       }
 
-      router.replace('/admin')
+      router.replace('/')
     } catch {
       setError('Something went wrong')
       setLoading(false)
@@ -63,10 +49,10 @@ export function LoginForm() {
           <GraduationCap className="w-6 h-6 text-primary" />
         </div>
         <CardTitle className="font-display text-2xl tracking-tight">
-          Tutoring Platform
+          Bexauri
         </CardTitle>
         <CardDescription>
-          {isSignup ? 'Create an admin account' : 'Sign in to the admin panel'}
+          Ingresa a tu cuenta
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -98,16 +84,14 @@ export function LoginForm() {
           )}
           <Button type="submit" className="w-full" disabled={loading}>
             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            {isSignup ? 'Create Account' : 'Sign In'}
+            Ingresar
           </Button>
-          <Button
-            type="button"
-            variant="ghost"
-            className="w-full text-sm text-muted-foreground"
-            onClick={() => { setIsSignup(!isSignup); setError('') }}
-          >
-            {isSignup ? 'Already have an account? Sign in' : 'Need an account? Sign up'}
-          </Button>
+          <p className="text-center text-sm text-muted-foreground">
+            No tienes cuenta?{' '}
+            <Link href="/signup" className="text-primary underline-offset-4 hover:underline">
+              Crea una cuenta estudiante
+            </Link>
+          </p>
         </form>
       </CardContent>
     </Card>
