@@ -12711,3 +12711,104 @@ Final verdict:
 ```text
 BLOCKED_BY_MISSING_ADMIN_CREDENTIAL
 ```
+
+## MVP-SALES-AUTH-1F - Admin credentialed regression retry
+
+Status: ADMIN_REGRESSION_PASSED_SIGNUP_VISIBILITY_ACCEPTABLE - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `9187b05`.
+* Last accepted commit = `MVP-SALES-AUTH-1E: document admin regression credential blocker`.
+* Working tree was clean before this QA/documentation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1E` closed at `9187b05`.
+* This phase retried the credentialed admin regression using a manual admin browser session provided by Mauricio, then verified admin visibility of the AUTH-1D self-signup student.
+
+Build result:
+
+* `npm.cmd run build` passed.
+
+Admin login result:
+
+* `/login` loaded HTTP 200 before manual login.
+* Mauricio entered the admin credential manually in the local browser.
+* No password, token, cookie, allowlist, `.env`, or secret value was printed, captured, or inspected.
+* Admin login reached `/admin` with no visible error.
+
+`/admin` result:
+
+* `/admin` loaded for the manual admin session.
+* Admin was not redirected to `/now`.
+* Admin UI was visible.
+
+`/admin/students` result:
+
+* `/admin/students` loaded for the manual admin session.
+* The AUTH-1D self-signup student was searched/reviewed through UI only.
+
+Self-signup student visibility result:
+
+* Student email: `auth1d.student.20260520123829@test.bexauri.local`.
+* Student was visible in admin UI.
+* Student was clearly shown as without enrollment/program, equivalent to `0` programs.
+* No SQL, Prisma CLI, `.env`, or secret inspection was used.
+
+Non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/`DATABASE_URL`/`NEXTAUTH_SECRET`/`ADMIN_EMAILS`.
+* No new student account created in AUTH-1F.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No destructive action.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Recommended next phase:
+
+* `MVP-SALES-AUTH-1G - Define post-signup onboarding/enrollment boundary`.
+* Minimal scope: define what a newly registered, unenrolled student should see/do after signup and what remains deferred to billing/trial/enrollment, without implementing billing, payment, PAES path assignment, or Block 7.
+
+Verification:
+
+```powershell
+git status --short
+git log --oneline --decorate --graph -8
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1E_ADMIN_REGRESSION_SIGNUP_UX_VISIBILITY.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1D_CONTROLLED_LOCAL_SIGNUP_SMOKE.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1C_STUDENT_SIGNUP_ACCOUNT_CREATION.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+Get-Content PHASE_LOG.md -Tail 340
+npm.cmd run build
+git diff --check
+git diff --stat
+git status --short
+git add -N nextjs_space/docs/operations/MVP_SALES_AUTH_1F_ADMIN_CREDENTIALED_REGRESSION_RETRY.md
+git diff --stat
+git status --short
+```
+
+Final verdict:
+
+```text
+ADMIN_REGRESSION_PASSED_SIGNUP_VISIBILITY_ACCEPTABLE
+```
