@@ -12605,3 +12605,109 @@ Final verdict:
 ```text
 SIGNUP_SMOKE_PASSED_WITH_MINOR_FOLLOWUP
 ```
+
+## MVP-SALES-AUTH-1E - Admin credentialed regression and signup UX/admin visibility hardening
+
+Status: ADMIN_CREDENTIAL_REGRESSION_BLOCKED_BY_MISSING_CREDENTIAL - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `35534a7`.
+* Last accepted commit = `MVP-SALES-AUTH-1D: validate controlled local signup smoke`.
+* Working tree was clean before this QA/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1D` closed at `35534a7`.
+* This phase reviewed signup/login UX, attempted local admin/student regression within credential policy, and documented admin visibility implications without changing app code.
+
+Build result:
+
+* `npm.cmd run build` passed.
+
+Signup UX result:
+
+* `/signup` loaded HTTP 200.
+* Required student signup fields are visible: first name, last name, email, password, and confirm password.
+* Copy is student-facing and does not promise enrollment, payment, trial, or immediate assigned activity.
+* Link to login is present.
+* Minor copy polish remains: password labels use ASCII `Contrasena`/`Confirmar contrasena`.
+
+Login UX result:
+
+* `/login` loaded HTTP 200.
+* No create-admin toggle was observed.
+* Link to `/signup` for student account creation is present.
+* Minor UX hardening remains: `admin@example.com` placeholder and English `Email`/`Password`/error copy should be neutralized later.
+
+Student boundary result:
+
+* AUTH-1E did not repeat authenticated student login because the AUTH-1D password/session was not available without secret handling.
+* AUTH-1D remains the operative evidence: student reached `/now` safe no-enrollment state and `/admin` redirected away from admin.
+* AUTH-1E unauthenticated `/admin` returned HTTP 307, confirming the route is guarded without a session.
+
+Admin regression result:
+
+* Admin credentialed login was not checked.
+* No manual admin session or safely provided credential was available.
+* No `.env`, admin allowlist, password, token, cookie, or secret source was inspected or printed.
+
+Admin visibility result:
+
+* Could not verify whether `auth1d.student.20260520123829@test.bexauri.local` appears in admin UI.
+* Could not verify whether admin UI clearly shows the self-signup student as unenrolled.
+* This remains the main Block 1 verification gap.
+
+Non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No `.env` or secret inspection.
+* No password/hash/token/cookie/`DATABASE_URL`/`NEXTAUTH_SECRET`/`ADMIN_EMAILS` printed.
+* No new student account created in AUTH-1E.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Recommended next phase:
+
+* `MVP-SALES-AUTH-1F - Admin credentialed regression retry`.
+* Minimal scope: Mauricio provides a safe manual admin session or secure credential entry without printing secrets; verify admin login, `/admin`, admin student visibility for `auth1d.student.20260520123829@test.bexauri.local`, and clearly unenrolled state.
+
+Verification:
+
+```powershell
+git status --short
+git log --oneline --decorate --graph -8
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1D_CONTROLLED_LOCAL_SIGNUP_SMOKE.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1C_STUDENT_SIGNUP_ACCOUNT_CREATION.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1B_USER_STUDENT_BOOTSTRAP_CONTRACT.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+Get-Content PHASE_LOG.md -Tail 340
+npm.cmd run build
+git diff --check
+git diff --stat
+git status --short
+git add -N nextjs_space/docs/operations/MVP_SALES_AUTH_1E_ADMIN_REGRESSION_SIGNUP_UX_VISIBILITY.md
+git diff --stat
+git status --short
+```
+
+Final verdict:
+
+```text
+BLOCKED_BY_MISSING_ADMIN_CREDENTIAL
+```
