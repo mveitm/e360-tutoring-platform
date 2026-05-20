@@ -12322,3 +12322,91 @@ Final verdict:
 ```text
 READY_FOR_AUTH_1B_IMPLEMENTATION_PLANNING
 ```
+
+## MVP-SALES-AUTH-1B - Design User/Student bootstrap contract
+
+Status: USER_STUDENT_BOOTSTRAP_CONTRACT_DESIGNED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `37729dc`.
+* Last accepted commit = `MVP-SALES-AUTH-1A: audit signup login student bootstrap`.
+* Working tree was clean before this documentation/design/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1A` closed at `37729dc`.
+* This phase designed the minimal future contract for autonomous User/Student bootstrap, including signup inputs, email normalization, User reconciliation, Student reconciliation, admin boundary, `/now` safe states, out-of-scope boundaries, candidate future files, and verification matrix.
+
+Files changed:
+
+* Created `nextjs_space/docs/operations/MVP_SALES_AUTH_1B_USER_STUDENT_BOOTSTRAP_CONTRACT.md`.
+* Updated `PHASE_LOG.md`.
+
+Summary of contract decisions:
+
+* Public signup should create or reconcile a non-admin `User` and `Student` identity with the same normalized email.
+* Minimal fields are first name, last name, email, password, and preferably confirm password; accepted terms remains a future placeholder.
+* Email must be trimmed/lowercased before lookup, creation, storage, and future matching.
+* First implementation may keep the current email-convention link only as a normalized transitional contract; explicit User/Student FK remains a later human decision.
+* Existing Users, Students, inactive Students, admin-allowlisted emails, and mismatched names require safe reconciliation behavior rather than blind overwrite.
+* Signup must never alter `ADMIN_EMAILS`, add admin privilege, weaken `requireAdminApi()` / `requireAdminSession()`, or expose admin allowlist state.
+* Post-signup `/now` must support a safe no-enrollment state without creating enrollment, trial, payment, cycle, StudyLoad, or content route records.
+
+Explicit non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No SQL.
+* No Prisma CLI.
+* No DB mutation.
+* No `.env` or secret inspection.
+* No signup implementation.
+* No new route creation.
+* No login change.
+* No admin guard change.
+* No `/now` change.
+* No billing/trial/enrollment work.
+* No Block 7 work.
+* No commit.
+* No push.
+* No generated artifact.
+
+Recommended AUTH-1C:
+
+* Suggested phase: `MVP-SALES-AUTH-1C - Implement student signup/account creation`.
+* Proceed only after human review accepts the AUTH-1B contract.
+* Minimal scope: public student signup path, normalized email, transactional User + Student create/reconcile, preserved admin boundary, student routing to `/now`, and safe no-enrollment verification.
+* Required human decision before coding: whether AUTH-1C stays with normalized email-convention linkage or requires explicit User/Student FK design first.
+
+Verification commands:
+
+```powershell
+git status --short
+git log --oneline --decorate --graph -8
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1A_CURRENT_SIGNUP_LOGIN_STUDENT_BOOTSTRAP_AUDIT.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md
+Get-Content nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+Get-Content PHASE_LOG.md -Tail 320
+rg "NextAuth|CredentialsProvider|authOptions|getServerSession|signup|register|User|Student|admin|ADMIN_EMAILS|/now|currentCycleId|enrollment|create-user|reset-password" nextjs_space -g "!node_modules" -g "!.next" -g "!*.env*" -g "!*.log"
+git diff --stat
+git diff --check
+git status --short
+git add -N nextjs_space/docs/operations/MVP_SALES_AUTH_1B_USER_STUDENT_BOOTSTRAP_CONTRACT.md
+git diff --stat
+git status --short
+```
+
+Final verdict:
+
+```text
+READY_FOR_AUTH_1C_IMPLEMENTATION_PROPOSAL
+```
