@@ -12812,3 +12812,101 @@ Final verdict:
 ```text
 ADMIN_REGRESSION_PASSED_SIGNUP_VISIBILITY_ACCEPTABLE
 ```
+
+## MVP-SALES-AUTH-1G - Define post-signup onboarding/enrollment boundary
+
+Status: POST_SIGNUP_ONBOARDING_ENROLLMENT_BOUNDARY_DEFINED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `3f92c65`.
+* Last accepted commit = `MVP-SALES-AUTH-1F: verify admin signup visibility regression`.
+* Working tree was clean before this documentation/design/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1F` closed at `3f92c65`.
+* This phase defined the post-signup boundary for a student account that exists and is visible to admin but has no enrollment/program yet.
+
+Inputs reviewed:
+
+* `nextjs_space/docs/operations/MVP_SALES_AUTH_1F_ADMIN_CREDENTIALED_REGRESSION_RETRY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_AUTH_1D_CONTROLLED_LOCAL_SIGNUP_SMOKE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_AUTH_1C_STUDENT_SIGNUP_ACCOUNT_CREATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_AUTH_1B_USER_STUDENT_BOOTSTRAP_CONTRACT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `PHASE_LOG.md -Tail 380`.
+
+Stale baseline note:
+
+* The roadmap document still names AUTH-1A as an older current next phase.
+* Git preflight and the accepted PHASE_LOG chain win. Live baseline for AUTH-1G is `3f92c65`.
+
+Boundary decision summary:
+
+* Block 1 has resolved account bootstrap: public signup, User + Student creation, login, safe `/now`, student admin boundary, and admin visibility.
+* The immediate post-signup state should be honest and pending: account ready, no active program yet, activation/review/setup pending.
+* The first hardening should rely on existing state: `User`, `Student`, and absence of active program/enrollment.
+* No new schema is required for the next minimal implementation.
+* `Student.status` should remain account/profile status and should not be overloaded as lead/onboarding/payment/enrollment state yet.
+* Admin should see name/email and no active programs/enrollments, but should not create enrollment/trial/payment/cycle/load as part of this boundary.
+* Billing, trial, payment, PAES path selection, enrollment creation, cycles, StudyLoads, tutor assignment, and Block 7 remain deferred.
+
+Explicit non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No DB mutation.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/`DATABASE_URL`/`NEXTAUTH_SECRET`/`ADMIN_EMAILS`.
+* No new student account.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Recommended next phase:
+
+* `MVP-SALES-AUTH-1H - Harden post-signup /now pending-state copy`.
+* Minimal scope: refine the authenticated student no-active-program/no-enrollment state so it clearly says account is ready and tutoring activation is pending, without implementing billing/trial/enrollment/PAES/content/admin workflow.
+
+Verification:
+
+```powershell
+git status --short
+git log --oneline --decorate --graph -8
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1F_ADMIN_CREDENTIALED_REGRESSION_RETRY.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1D_CONTROLLED_LOCAL_SIGNUP_SMOKE.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1C_STUDENT_SIGNUP_ACCOUNT_CREATION.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_AUTH_1B_USER_STUDENT_BOOTSTRAP_CONTRACT.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md
+Get-Content nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
+Get-Content PHASE_LOG.md -Tail 380
+git diff --check
+git diff --stat
+git status --short
+git add -N nextjs_space/docs/operations/MVP_SALES_AUTH_1G_POST_SIGNUP_ONBOARDING_ENROLLMENT_BOUNDARY.md
+git diff --stat
+git status --short
+```
+
+Final verdict:
+
+```text
+READY_FOR_POST_SIGNUP_PENDING_STATE_IMPLEMENTATION
+```
