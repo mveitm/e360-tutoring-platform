@@ -13215,3 +13215,82 @@ Final verdict:
 ```text
 NOW_PENDING_STATE_SMOKE_FAILED_NEEDS_FIX
 ```
+
+## MVP-SALES-AUTH-1K - Fix /now pending-state smoke blocker
+
+Status: FIXED_NEEDS_FOLLOWUP_SMOKE - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `fa2b983`.
+* Last accepted commit = `MVP-SALES-AUTH-1J: document pending state smoke blocker`.
+* Working tree was clean before this implementation/documentation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1J` closed at `fa2b983`.
+* This phase diagnosed the signup-to-`/now` pending-state smoke blocker and applied the smallest code fix found in signup/login/routing/render scope.
+
+Diagnosis:
+
+* Pre-change build passed.
+* Current local `next dev` from `nextjs_space` served `/signup` at `http://localhost:3000`.
+* `/signup` returned 200 and all referenced `_next` assets returned 200, so the degraded/basic UI from AUTH-1J was not reproduced and is most consistent with stale/wrong local server or port state.
+* Code review found a fragile post-signup path: email was not normalized before immediate `signIn`, only `result.error` was treated as failure, the app used client-side routing directly into `/now` after cookie mutation, and `/login?signup=success` had no account-created copy.
+
+Files changed:
+
+* `nextjs_space/app/signup/_components/signup-form.tsx`.
+* `nextjs_space/app/api/signup/route.ts`.
+* `nextjs_space/app/login/page.tsx`.
+* `nextjs_space/app/login/_components/login-form.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_AUTH_1K_FIX_NOW_PENDING_STATE_SMOKE_BLOCKER.md`.
+* `PHASE_LOG.md`.
+
+Build result:
+
+* `npm.cmd run build` passed before changes.
+* `npm.cmd run build` passed after changes.
+
+Smoke result:
+
+* No new AUTH-1K student signup attempt was made.
+* No DB mutation occurred in AUTH-1K.
+* Runtime non-mutating checks passed: `/signup` 200, zero `_next` asset failures, `/login?signup=success` 200 with account-created copy, invalid `/api/signup` returned safe 400 validation response.
+* Final visual signup-to-`/now` smoke still needs Mauricio-entered browser password; no password, token, cookie, `.env`, `DATABASE_URL`, `NEXTAUTH_SECRET`, or `ADMIN_EMAILS` value was printed or inspected.
+
+Non-goals preserved:
+
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No destructive action.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Recommended next phase:
+
+* `MVP-SALES-AUTH-1L - Controlled follow-up smoke`.
+* Minimal scope: with the fixed code, Mauricio manually enters one new local/dev student password in browser and verifies signup success, `/now` pending-state copy, no activities, and student `/admin` denial. If it fails once, stop and document escalation.
+
+Final verdict:
+
+```text
+FIXED_NEEDS_FOLLOWUP_SMOKE
+```

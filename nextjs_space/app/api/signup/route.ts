@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
         userId: result.user.id,
         studentId: result.student.id,
         email: result.user.email,
-        next: '/login',
+        next: '/now',
       },
       { status: 201 },
     )

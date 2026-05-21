@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { GraduationCap, Loader2 } from 'lucide-react'
 
-export function LoginForm() {
+export function LoginForm({ signupSuccess = false }: { signupSuccess?: boolean }) {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -81,6 +81,11 @@ export function LoginForm() {
           </div>
           {error && (
             <p className="text-sm text-destructive">{error}</p>
+          )}
+          {signupSuccess && !error && (
+            <p className="text-sm text-muted-foreground">
+              Cuenta creada. Ingresa con tu correo y contrasena para continuar.
+            </p>
           )}
           <Button type="submit" className="w-full" disabled={loading}>
             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}

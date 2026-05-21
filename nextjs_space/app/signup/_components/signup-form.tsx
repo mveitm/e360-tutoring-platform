@@ -24,12 +24,13 @@ export function SignupForm() {
     e.preventDefault()
     setError('')
     setLoading(true)
+    const normalizedEmail = email.trim().toLowerCase()
 
     try {
       const res = await fetch('/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, lastName, email, password, confirmPassword }),
+        body: JSON.stringify({ firstName, lastName, email: normalizedEmail, password, confirmPassword }),
       })
       const data = await res.json().catch(() => null)
 
@@ -40,17 +41,17 @@ export function SignupForm() {
       }
 
       const result = await signIn('credentials', {
-        email,
+        email: normalizedEmail,
         password,
         redirect: false,
       })
 
-      if (result?.error) {
+      if (result?.error || !result?.ok) {
         router.replace('/login?signup=success')
         return
       }
 
-      router.replace('/now')
+      window.location.assign('/now')
     } catch {
       setError('No pudimos crear la cuenta en este momento.')
       setLoading(false)
