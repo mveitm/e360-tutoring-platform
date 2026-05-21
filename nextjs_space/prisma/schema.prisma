@@ -63,8 +63,35 @@ model Student {
   updatedAt  DateTime @updatedAt
 
   programInstances StudentProgramInstance[]
+  access           StudentAccess?
 
   @@map("students")
+}
+
+model StudentAccess {
+  id                    String   @id @default(cuid())
+  studentId             String   @unique
+  accessStatus          String   @default("no_access")
+  trialStatus           String   @default("none")
+  subscriptionStatus    String   @default("none")
+  trialInvitedAt        DateTime?
+  trialActivatedAt      DateTime?
+  trialExpiresAt        DateTime?
+  trialExperienceUsedAt DateTime?
+  tutoringDirection     String?
+  continuityTarget      String?
+  lastDecisionBy        String?
+  lastDecisionAt        DateTime?
+  lastDecisionReason    String?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@index([accessStatus])
+  @@index([trialStatus])
+  @@index([trialExpiresAt])
+  @@map("student_access")
 }
 
 model Program {

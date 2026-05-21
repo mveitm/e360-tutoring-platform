@@ -14114,3 +14114,87 @@ Final verdict:
 ```text
 READY_FOR_MINIMAL_STUDENT_ACCESS_SCHEMA_IMPLEMENTATION
 ```
+
+## MVP-SALES-TRIAL-2G - Implement minimal StudentAccess schema
+
+Status: MINIMAL_STUDENT_ACCESS_SCHEMA_IMPLEMENTED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `a0afe56`.
+* Last accepted commit = `MVP-SALES-TRIAL-2F: assess StudentAccess schema readiness`.
+* Working tree was clean before this schema-only implementation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2F` closed at `a0afe56`.
+* This phase implemented the minimal `StudentAccess` Prisma schema shape only.
+
+Inputs reviewed:
+
+* TRIAL-2F, TRIAL-2E, TRIAL-2D, TRIAL-2C, phase gate, `PHASE_LOG.md -Tail 980`, and `nextjs_space/prisma/schema.prisma`.
+* Historical docs retain their own baselines; Git preflight and accepted commit chain remain authoritative.
+
+Schema implementation summary:
+
+* Added optional `Student.access StudentAccess?` relation.
+* Added new `StudentAccess` model with `studentId @unique`, `accessStatus`, `trialStatus`, `subscriptionStatus`, trial timestamps, `tutoringDirection`, `continuityTarget`, last-decision fields, and lifecycle timestamps.
+* Added relation to `Student` with `onDelete: Cascade`.
+* Added indexes on `accessStatus`, `trialStatus`, and `trialExpiresAt`.
+* Used `@@map("student_access")` to match existing domain table mapping style.
+* No enums, helper, endpoint, UI, signup default row, backfill, runtime behavior, or app code outside `schema.prisma` was added.
+
+Validation/build results:
+
+* `npx prisma validate`: direct PowerShell `npx` was blocked by local execution policy for `npx.ps1`; `npx.cmd prisma validate` passed and reported the schema valid. No secret values were printed.
+* `npm.cmd run build`: passed.
+
+Non-goals preserved:
+
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No DB mutation.
+* No db push.
+* No migrate.
+* No migration file.
+* No seed.
+* No dev server.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No account creation.
+* No StudentAccess rows.
+* No backfill.
+* No default-row behavior.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No auth/signup/login/admin guard.
+* No `/now`.
+* No admin UI.
+* No Block 7.
+* No User/Student FK hardening.
+* No commit.
+* No push.
+
+Risks/follow-ups:
+
+* Prisma Client generation may be needed later before app code reads/writes `StudentAccess`.
+* No DB table exists until an explicitly authorized DB migration or db push phase.
+* No rows exist until default-row/backfill phases are explicitly authorized.
+* No UI/admin/runtime consumes the model yet.
+* Legal status validation helper remains required before mutation endpoints.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2H - StudentAccess schema verification and implementation closeout`.
+* Scope: documentation/readiness only. Confirm schema-only boundaries, decide whether Prisma Client generation and DB migration/push should be separately authorized, and define the next safe cut before default-row, backfill, UI, admin operations, or runtime behavior.
+
+Final verdict:
+
+```text
+MINIMAL_STUDENT_ACCESS_SCHEMA_IMPLEMENTED
+```
