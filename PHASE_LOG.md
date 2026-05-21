@@ -13927,3 +13927,116 @@ Final verdict:
 ```text
 READY_FOR_MINIMAL_TRIAL_ACCESS_SCHEMA_DESIGN
 ```
+
+## MVP-SALES-TRIAL-2E - Minimal trial/access schema design
+
+Status: READY_FOR_TRIAL_ACCESS_SCHEMA_IMPLEMENTATION_READINESS - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `109b24a`.
+* Last accepted commit = `MVP-SALES-TRIAL-2D: audit trial access implementation readiness`.
+* Working tree was clean before this documentation/design/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2D` closed at `109b24a`.
+* This phase designed the minimal future schema concept for trial/access without editing `prisma/schema.prisma`, implementing, migrating, or mutating DB.
+
+Inputs reviewed:
+
+* TRIAL-2D, TRIAL-2C, TRIAL-2B, TRIAL-2A, AUTH-1M, roadmap, phase gate, and `PHASE_LOG.md -Tail 820`.
+* Read-only schema/code inspection: `nextjs_space/prisma/schema.prisma`.
+* Read-only search across `nextjs_space/prisma`, `nextjs_space/app`, and `nextjs_space/lib` for Student/User/StudentProgramInstance/AuditEvent/status/access/trial/subscription/payment/Program/LearningCycle/StudyLoad references.
+
+Candidate schema options:
+
+* Add fields directly on Student: rejected because it overloads identity/profile.
+* Add 1:1 `StudentAccess`: recommended as minimal current-state source of truth.
+* Add append-only `StudentAccessEvent` only: useful later, too heavy as only first model.
+* Add current-state `StudentAccess` plus future/audit event relation: recommended design direction, with `StudentAccess` first.
+* Use StudentProgramInstance as limited trial enrollment: rejected because it crosses into enrollment/content boundaries.
+
+Recommended schema shape:
+
+* New conceptual 1:1 `StudentAccess` model.
+* `studentId @unique` relation to Student.
+* Current-state fields: `accessStatus`, `trialStatus`, `subscriptionStatus`.
+* Trial timestamps: `trialInvitedAt`, `trialActivatedAt`, `trialExpiresAt`, `trialExperienceUsedAt`.
+* Continuity fields: `tutoringDirection`, `continuityTarget`.
+* Minimal decision trace: `lastDecisionBy`, `lastDecisionAt`, `lastDecisionReason`.
+* Operational timestamps: `createdAt`, `updatedAt`.
+* Suggested indexes: `accessStatus`, `trialStatus`, `trialExpiresAt`.
+
+Status model:
+
+* `accessStatus`: `no_access`, `review_pending`, `trial_invited`, `trial_active`, `trial_expired_blocked`, `subscription_pending`, `subscribed_access_active`, `enrollment_setup_pending`, `enrolled_active_program`.
+* `trialStatus`: `none`, `invited`, `active`, `experience_available`, `experience_used`, `expired`, `cancelled`.
+* Two fields are preferred because access lifecycle and trial substate are related but not identical.
+
+Timestamp semantics:
+
+* Invitation does not start timer.
+* `trialActivatedAt` starts the 7-day clock.
+* `trialExpiresAt` should be calculated as activation + 7 days.
+* `trialExperienceUsedAt` marks the single tutoring experience as used and must not create a second one.
+* `lastDecisionAt` records the latest owner/admin/system access decision.
+
+Tutoring direction/continuity target:
+
+* `tutoringDirection` should initially be a string code such as `PAES_M1`, not a Program relation.
+* `continuityTarget` preserves the preferred paid continuation line after subscription.
+* Neither field creates Program, LearningCycle, StudyLoad, PAES path, or content route automatically.
+
+Actor/audit model:
+
+* MVP-Beta minimum: `lastDecisionBy`, `lastDecisionAt`, `lastDecisionReason`.
+* Later hardening: use existing `AuditEvent` with `entityType = StudentAccess` or add a dedicated append-only `StudentAccessEvent` if richer domain history is needed.
+
+Relationship boundaries:
+
+* User remains auth identity; no direct User relation.
+* Student gets 1:1 StudentAccess.
+* No relation yet to StudentProgramInstance, Program, LearningCycle, StudyLoad, billing provider, or subscription provider records.
+* Do not overload `Student.status`.
+
+Non-goals preserved:
+
+* No app code change.
+* No `prisma/schema.prisma` edit.
+* No real schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No DB mutation.
+* No dev server.
+* No seed.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No account/trial/enrollment/billing/payment/subscription creation.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No destructive action.
+* No Block 7.
+* No real FK User/Student.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2F - Trial/access schema implementation readiness`.
+* Scope: documentation/readiness only. Review the proposed `StudentAccess` shape for implementation readiness, define legal status transitions/pairs, backfill/default-row policy, validation rules, audit event requirements, and exact first implementation cut. No `schema.prisma` edit or migration yet unless Mauricio explicitly approves implementation after readiness.
+
+Final verdict:
+
+```text
+READY_FOR_TRIAL_ACCESS_SCHEMA_IMPLEMENTATION_READINESS
+```
