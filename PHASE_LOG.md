@@ -13294,3 +13294,91 @@ Final verdict:
 ```text
 FIXED_NEEDS_FOLLOWUP_SMOKE
 ```
+
+## MVP-SALES-AUTH-1L - Controlled follow-up smoke
+
+Status: CONTROLLED_FOLLOWUP_SMOKE_PASSED_WITH_ADMIN_VISIBILITY_INHERITED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `2aa2582`.
+* Last accepted commit = `MVP-SALES-AUTH-1K: fix pending state smoke blocker`.
+* Working tree was clean before this QA/documentation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1K` closed at `2aa2582`.
+* This phase performed the controlled local follow-up smoke for signup to `/now` after the AUTH-1K fix.
+
+Test email:
+
+* `auth1l.student.202605211457@test.bexauri.local`.
+
+Build result:
+
+* `npm.cmd run build` passed.
+
+Student `/now` visual result:
+
+* Signup success: yes.
+* `/now` visible: yes.
+* Account-ready copy visible: yes.
+* No-active-program copy visible: yes.
+* Pending-activation copy visible: yes.
+* No-activities-assigned copy visible: yes.
+* Pending/in-progress activities visible: no real pending/in-progress activity cards or lists were visible.
+
+Student admin-boundary result:
+
+* Student `/admin` attempted: yes.
+* Student redirected/blocked: yes.
+* Admin UI exposed: no.
+
+Admin visibility follow-up:
+
+* Not retested directly in AUTH-1L.
+* AUTH-1F remains prior evidence that a self-signup student is visible in `/admin/students` as unenrolled.
+
+DB mutation acknowledgement:
+
+* Exactly one authorized local/dev student signup attempt occurred through `/signup`.
+* This created a local/dev student account for `auth1l.student.202605211457@test.bexauri.local`.
+* No SQL, Prisma CLI, seed, edit, reset, enrollment, trial, billing, Program, LearningCycle, or StudyLoad mutation was performed.
+
+Non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No destructive action.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Recommended next phase:
+
+* `MVP-SALES-AUTH-1M - Block 1 closeout with admin evidence inherited from AUTH-1F`.
+* Purpose: close Block 1 readiness using direct AUTH-1L student smoke plus AUTH-1F admin visibility evidence, then decide the next sales-ready roadmap block without starting billing/trial/enrollment/content work prematurely.
+
+Final verdict:
+
+```text
+CONTROLLED_FOLLOWUP_SMOKE_PASSED_WITH_ADMIN_VISIBILITY_INHERITED
+```
