@@ -14198,3 +14198,98 @@ Final verdict:
 ```text
 MINIMAL_STUDENT_ACCESS_SCHEMA_IMPLEMENTED
 ```
+
+## MVP-SALES-TRIAL-2H - StudentAccess schema verification and implementation closeout
+
+Status: STUDENT_ACCESS_SCHEMA_VERIFIED_NEEDS_DB_APPLICATION_READINESS - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `4966bc0`.
+* Last accepted commit = `MVP-SALES-TRIAL-2G: implement minimal StudentAccess schema`.
+* Working tree was clean before this documentation/verification phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2G` closed at `4966bc0`.
+* This phase formally verified and closed the schema-only `StudentAccess` implementation. Documentation/readiness only.
+
+Inputs reviewed:
+
+* TRIAL-2G, TRIAL-2F, TRIAL-2E, TRIAL-2D, phase gate, `PHASE_LOG.md -Tail 1040`, and `nextjs_space/prisma/schema.prisma`.
+* Read-only runtime usage search across `nextjs_space/app`, `nextjs_space/lib`, and `nextjs_space/prisma`, excluding `.env`, `.next`, `node_modules`, and logs.
+* Historical docs retain their own phase baselines; Git preflight and accepted commit chain remain authoritative.
+
+Schema verification summary:
+
+* Confirmed `Student.access StudentAccess?`.
+* Confirmed `StudentAccess` model with `studentId @unique`.
+* Confirmed approved fields: access/trial/subscription statuses, trial timestamps, tutoring/continuity fields, last-decision fields, and lifecycle timestamps.
+* Confirmed indexes on `accessStatus`, `trialStatus`, and `trialExpiresAt`.
+* Confirmed `@@map("student_access")`.
+* Confirmed String statuses/no Prisma enums.
+* Confirmed no relations to User, StudentProgramInstance, Program, LearningCycle, StudyLoad, billing provider, subscription provider, or Block 7 model.
+* Confirmed no runtime/UI/admin usage outside `schema.prisma`.
+
+Validate/build results:
+
+* `npx.cmd prisma validate` passed and reported `prisma\schema.prisma` valid.
+* `npm.cmd run build` passed.
+* Prisma validate and build reported environment loading from `.env`, but no secret values were printed or inspected.
+
+Implementation closeout:
+
+* Schema-only implementation is complete in repo.
+* No DB table exists yet because no DB push, migration, or SQL has been run.
+* No Prisma Client generation was separately run in TRIAL-2H beyond whatever the authorized build/project flow handles.
+* No `StudentAccess` rows exist.
+* No signup default-row behavior exists.
+* No backfill exists.
+* No runtime, student UI, admin UI, or admin operation uses `StudentAccess`.
+
+Boundary preservation:
+
+* No DB mutation.
+* No SQL.
+* No db push.
+* No migrate.
+* No migration file.
+* No seed.
+* No deploy.
+* No staging or production.
+* No `.env` or secret inspection.
+* No app runtime behavior.
+* No signup default-row.
+* No backfill.
+* No admin UI.
+* No student UI.
+* No auth/signup/login/admin guard change.
+* No `/now` change.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Block 7.
+
+Remaining gaps:
+
+* Controlled DB application plan for creating `student_access`.
+* Prisma Client generation policy.
+* Validation helper/legal status pair enforcement before write endpoints.
+* Default-row policy for new signup.
+* Backfill policy for existing students.
+* Future read integration in `/now`.
+* Future admin visibility/read operations.
+* Future mutation endpoints with audit requirements.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2I - StudentAccess DB application readiness`.
+* Scope: decide the controlled local/dev DB application and Prisma Client generation order before any runtime, UI/admin, default-row, backfill, trial, billing, enrollment, Program, LearningCycle, StudyLoad, or Block 7 work.
+
+Final verdict:
+
+```text
+STUDENT_ACCESS_SCHEMA_VERIFIED_NEEDS_DB_APPLICATION_READINESS
+```
