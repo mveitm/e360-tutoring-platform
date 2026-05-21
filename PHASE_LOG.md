@@ -14040,3 +14040,77 @@ Final verdict:
 ```text
 READY_FOR_TRIAL_ACCESS_SCHEMA_IMPLEMENTATION_READINESS
 ```
+
+## MVP-SALES-TRIAL-2F - Trial/access schema implementation readiness
+
+Status: READY_FOR_MINIMAL_STUDENT_ACCESS_SCHEMA_IMPLEMENTATION - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `260cfb6`.
+* Last accepted commit = `MVP-SALES-TRIAL-2E: design minimal trial access schema`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2E` closed at `260cfb6`.
+* This phase reviewed the `StudentAccess` schema concept for implementation readiness only. No schema, code, migration, Prisma CLI, SQL, DB mutation, deploy, runtime, secret, account, trial, enrollment, billing, Program, LearningCycle, StudyLoad, Block 7, FK, seed, commit, or push action was performed.
+
+Inputs reviewed:
+
+* TRIAL-2E, TRIAL-2D, TRIAL-2C, TRIAL-2B, TRIAL-2A, sales-ready roadmap, phase gate, and `PHASE_LOG.md -Tail 900`.
+* Read-only schema/code inspection: `prisma/schema.prisma`, signup route, `/now`, admin students list/detail, and read-only search across `nextjs_space/prisma`, `nextjs_space/app`, and `nextjs_space/lib`.
+* The roadmap document still contains older roadmap checkpoint context; Git preflight and accepted phase chain remain authoritative.
+
+Implementation readiness verdict:
+
+* The 1:1 `StudentAccess` current-state model is ready for a future minimal schema-only implementation.
+* Audit/event expansion can remain hardening after the first model exists.
+* No student UI, admin mutation UI, billing, enrollment, Program, LearningCycle, StudyLoad, or Block 7 behavior should ship in the same first cut.
+
+Legal status/pair summary:
+
+* Legal `accessStatus`: `no_access`, `review_pending`, `trial_invited`, `trial_active`, `trial_expired_blocked`, `subscription_pending`, `subscribed_access_active`, `enrollment_setup_pending`, `enrolled_active_program`.
+* Legal `trialStatus`: `none`, `invited`, `active`, `experience_available`, `experience_used`, `expired`, `cancelled`.
+* Legal first-cut pairs include `no_access + none`, `review_pending + none`, `trial_invited + invited`, `trial_active + active/experience_available/experience_used`, `trial_expired_blocked + expired`, subscription/enrollment handoff pairs with `expired`, `experience_used`, or `none`, and `enrolled_active_program + none`.
+* Prohibited pairs include any default/no-access state with active trial substates, `trial_invited` without `invited`, `trial_active` with `expired` or `none`, and any pair that implies fake Program/LearningCycle/StudyLoad/content.
+
+Default/backfill policy:
+
+* New self-signup default, if later authorized: `accessStatus = no_access`, `trialStatus = none`, `subscriptionStatus = none`, trial timestamps null, `lastDecisionBy = system`, `lastDecisionReason = public_signup_default_no_access`.
+* Existing students with no active enrollment: backfill to `no_access + none`.
+* Existing students with active enrollment: backfill to `enrolled_active_program + none`.
+* Create rows for all students in a future non-destructive, explicitly authorized migration/backfill.
+
+Transition validation summary:
+
+* Invitation does not start the timer.
+* Explicit trial activation starts the 7-day timer and sets `trialExpiresAt`.
+* One tutoring experience can become available and then used once.
+* Expiration blocks tutoring access.
+* Subscription unlocks commercial access but does not create enrollment or work.
+* Enrollment setup and enrolled active program remain separate from StudentAccess and require later enrollment/program authority.
+
+Audit/readiness summary:
+
+* MVP minimum: `lastDecisionBy`, `lastDecisionAt`, `lastDecisionReason`.
+* Existing `AuditEvent` should be used by future access mutation endpoints.
+* Dedicated `StudentAccessEvent` remains deferred until richer access history is required.
+
+Future implementation file forecast:
+
+* Likely future files: `nextjs_space/prisma/schema.prisma`, generated Prisma client step if authorized, a StudentAccess validation/helper file, and later signup, `/now`, and admin read/write logic only if separately scoped.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2G - Implement minimal StudentAccess schema`.
+* Scope: schema-only implementation of the minimal current-state model and relation. No admin UI, student UI trial states, billing, enrollment automation, Program/LearningCycle/StudyLoad, Block 7, or mutation endpoints.
+
+Final verdict:
+
+```text
+READY_FOR_MINIMAL_STUDENT_ACCESS_SCHEMA_IMPLEMENTATION
+```
