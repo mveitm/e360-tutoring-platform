@@ -13581,3 +13581,117 @@ Final verdict:
 ```text
 READY_FOR_CANONICAL_STUDENT_TRIAL_EXPERIENCE_STAGE_DESIGN
 ```
+
+## MVP-SALES-TRIAL-2B - Design canonical student trial experience stages
+
+Status: READY_FOR_TRIAL_ACCESS_STATE_MODEL_FROM_CANONICAL_STAGES - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `c653405`.
+* Last accepted commit = `MVP-SALES-TRIAL-2A: define trial access boundary`.
+* Working tree was clean before this documentation/design/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2A` closed at `c653405`.
+* This phase designed the canonical student-facing trial stages for the 7-day / one-tutoring MVP trial. Documentation/design/readiness only.
+
+Inputs reviewed:
+
+* `MVP_SALES_TRIAL_2A_TRIAL_AND_ACCESS_CONTROL_BOUNDARY.md`.
+* `MVP_SALES_AUTH_1M_BLOCK_1_CLOSEOUT_AND_NEXT_BLOCK_READINESS.md`.
+* `MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`.
+* `MVP_STUDENT_REQ_1_STUDENT_EXPERIENCE_TRIAGE.md`.
+* `MVP_UI_FLOW_2_HIDE_CYCLE_LABEL_AND_REFRESH_NOW_COPY.md`.
+* `MVP_SALES_READY_ROADMAP.md`.
+* `MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `PHASE_LOG.md -Tail 620`.
+
+Stage map summary:
+
+* `signed_up_no_access`.
+* `access_review_or_owner_pending`.
+* `trial_invited_or_ready`.
+* `trial_active_day_1_to_7`.
+* `one_tutoring_experience_available`.
+* `one_tutoring_experience_used`.
+* `trial_expired_blocked`.
+* `subscription_pending_or_purchase_prompt`.
+* `subscribed_access_active`.
+* `enrollment_or_program_setup_pending`.
+* `enrolled_active_program`.
+
+Definition/recommendation of one tutoring experience:
+
+* Recommended interpretation: one combined introductory tutoring experience.
+* It consists of orientation to one tutoring area, a small diagnostic/intake or guided learning touchpoint, evidence/self-report, and owner/admin review or next-step recommendation.
+* It does not automatically create full enrollment, full content route, multiple tutorias, ongoing activities, or Block 7 content.
+
+Trial continuity principle:
+
+* The trial is not a pseudo-tutoring demo.
+* It is a real introductory tutoring experience.
+* If the student subscribes, Bexauri should preserve continuity with the same tutoring direction whenever pedagogically appropriate.
+* Subscription unlocks continued access, but enrollment/program setup may still be required before ongoing activities appear.
+
+Trial timing recommendation:
+
+* Day 1 should start on explicit trial activation, not at signup and not at mere invitation.
+* Invitation and active trial should be distinct.
+* Expiration is strict at 7 days once active.
+* After expiration, the student remains able to sign in and see status/purchase/contact path, but tutoring work is blocked.
+
+Subscription/block recommendation:
+
+* Blocked means no continued tutoring work, no extra trial experience, no additional activities, and no active program work.
+* Subscription unlocks continued commercial access.
+* Subscription does not automatically create Program, LearningCycle, StudyLoad, PAES path, or tutoring activity.
+* After subscription, the student should not feel they are starting from zero; the trial tutoring direction should be the default continuity path unless owner/admin review recommends a different direction.
+
+Enrollment/program handoff recommendation:
+
+* Trial and subscription do not necessarily equal enrollment.
+* Enrollment/program setup may require owner/admin action.
+* The handoff should be: paid/access active -> enrollment/program setup -> enrolled active program -> canonical activity flow.
+
+Non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No DB mutation.
+* No dev server.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No student account creation.
+* No enrollment/trial/billing/payment/subscription creation.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No destructive action.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2C - Define trial/access state model from canonical stages`.
+* Scope: documentation/design/readiness only. Convert the canonical student stages into a technical state model, transition table, actor permissions, manual/admin operations, and future schema candidates. Do not implement yet.
+
+Final verdict:
+
+```text
+READY_FOR_TRIAL_ACCESS_STATE_MODEL_FROM_CANONICAL_STAGES
+```
