@@ -13382,3 +13382,93 @@ Final verdict:
 ```text
 CONTROLLED_FOLLOWUP_SMOKE_PASSED_WITH_ADMIN_VISIBILITY_INHERITED
 ```
+
+## MVP-SALES-AUTH-1M - Block 1 closeout and next-block readiness
+
+Status: BLOCK_1_CLOSED_WITH_MINOR_NON_BLOCKING_FOLLOWUPS - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `1e06a7d`.
+* Last accepted commit = `MVP-SALES-AUTH-1L: validate controlled follow-up smoke`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-AUTH-1L` closed at `1e06a7d`.
+* This phase formally closes Block 1 readiness and recommends the next roadmap-aligned phase. Documentation/readiness only.
+
+Inputs reviewed:
+
+* AUTH-1L, AUTH-1K, AUTH-1H, AUTH-1G, AUTH-1F, AUTH-1C operational docs.
+* AUTH-1A, AUTH-1B, AUTH-1D, AUTH-1E historical operational docs for the full evidence chain.
+* `MVP_SALES_READY_ROADMAP.md`.
+* `MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `PHASE_LOG.md -Tail 520`.
+
+Block 1 evidence summary:
+
+* AUTH-1A identified missing public signup and mapped auth/student bootstrap gaps.
+* AUTH-1B defined the normalized email User/Student bootstrap contract.
+* AUTH-1C implemented public student signup and transactional User + Student creation.
+* AUTH-1D verified signup, student login to `/now`, no activities, duplicate behavior, and student `/admin` redirect.
+* AUTH-1F verified admin login and admin visibility of a self-signup student as unenrolled.
+* AUTH-1G defined the post-signup pending boundary.
+* AUTH-1H implemented `/now` pending-state copy.
+* AUTH-1K fixed fragile post-signup auth/navigation behavior after AUTH-1J exposed the blocker.
+* AUTH-1L verified signup success, student `/now`, pending copy, no real activities, and student `/admin` blocked, with admin visibility inherited from AUTH-1F.
+
+Block 1 readiness verdict:
+
+* `BLOCK_1_CLOSED_WITH_MINOR_FOLLOWUPS`.
+* Public signup exists, User + Student creation works, normalized email linkage is acceptable as transitional MVP behavior, student login and `/now` pending state are validated, student admin boundary holds, and admin visibility is acceptable via AUTH-1F evidence.
+* Minor follow-ups remain non-blocking: UX/copy polish, future FK hardening, direct admin visibility retest for the AUTH-1L student if desired, and operational handoff after signup.
+
+Non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No DB mutation.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No student account creation.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No destructive action.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Risks carried forward:
+
+* Manual bottleneck after signup.
+* No onboarding/intake status field yet.
+* No billing/trial/enrollment boundary implemented.
+* No self-serve program selection.
+* Email-only User/Student linkage remains transitional.
+
+Recommended next roadmap phase:
+
+* `MVP-SALES-TRIAL-2A - Define trial and access control boundary after signup`.
+* Roadmap block: 2 - Trial and access control.
+* Scope: documentation/design/readiness only. Define what access a self-signup student has after account creation and before payment/enrollment, without implementing billing, enrollment, Program, LearningCycle, StudyLoad, PAES path assignment, or Block 7.
+
+Final verdict:
+
+```text
+BLOCK_1_CLOSED_WITH_MINOR_NON_BLOCKING_FOLLOWUPS
+```
