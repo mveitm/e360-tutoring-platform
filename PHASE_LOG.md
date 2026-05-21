@@ -14293,3 +14293,125 @@ Final verdict:
 ```text
 STUDENT_ACCESS_SCHEMA_VERIFIED_NEEDS_DB_APPLICATION_READINESS
 ```
+
+## MVP-SALES-TRIAL-2I - StudentAccess DB application readiness
+
+Status: NEEDS_DB_APPLICATION_GUARDRAILS_BEFORE_MUTATION - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `73686f5`.
+* Last accepted commit = `MVP-SALES-TRIAL-2H: close StudentAccess schema verification`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2H` closed at `73686f5`.
+* This phase decided the safe readiness path for applying `student_access` to a database later. Documentation/readiness only.
+
+Inputs reviewed:
+
+* TRIAL-2H, TRIAL-2G, TRIAL-2F, TRIAL-2E, phase gate, `PHASE_LOG.md -Tail 1100`, and `nextjs_space/prisma/schema.prisma`.
+* Read-only operation signals: `nextjs_space/package.json`, `Get-ChildItem nextjs_space/prisma`, missing `nextjs_space/prisma/seed.ts`, `Get-ChildItem nextjs_space/scripts`, `nextjs_space/scripts/safe-seed.ts`, and read-only `rg` for Prisma DB commands/migration/client references excluding `.env`, `.next`, `node_modules`, and logs.
+* Historical docs retain their own phase baselines; Git preflight and accepted commit chain remain authoritative.
+
+Starting point after TRIAL-2H:
+
+* `StudentAccess` exists in `schema.prisma`.
+* TRIAL-2H already verified Prisma validate and build passed.
+* No DB table exists yet.
+* No Prisma Client generation was separately run in TRIAL-2H beyond the authorized build/project flow.
+* No `StudentAccess` rows, signup default-row behavior, backfill, runtime, student UI, admin UI, or admin operation exist.
+
+DB application options summary:
+
+* `prisma db push` to local/dev only: fastest route to create `student_access`, but unsafe unless target and backup/snapshot guardrails are explicit.
+* `prisma migrate dev` / migration file: better for repeatable history, but no migrations folder or formal migration policy is visible in current `prisma`.
+* Prisma Client generation only: useful for types, but risky before DB table readiness because runtime code could fail.
+* Defer until strategy is defined: safest if DB target is ambiguous, but blocks runtime use.
+* Controlled Neon/local-dev application phase: acceptable only after explicit environment and backup/snapshot confirmation.
+
+Recommended DB strategy:
+
+* Do not mutate DB in TRIAL-2I.
+* Do not recommend immediate DB application because target DB cannot be confirmed safely without secret-aware operational context from Mauricio.
+* Next cut should confirm local/dev target, backup/snapshot policy, exact command, drift stop rules, and Prisma Client generation order.
+* Future first target must be local/dev only, never production, and not staging unless separately authorized.
+
+Guardrails:
+
+* No production.
+* No staging unless separately authorized.
+* No `--force-reset`.
+* No `prisma db push --force-reset`.
+* No `prisma migrate reset`.
+* No SQL.
+* No secrets printed.
+* No `.env` inspection.
+* Confirm target DB without printing URL.
+* Backup/snapshot required for any real/shared DB.
+* Clean Git preflight required.
+* Schema diff review required.
+* Stop on drift ambiguity or target ambiguity.
+
+Future verification plan:
+
+* Report exact command used without secrets.
+* Prove target environment class without printing URL.
+* Prove whether schema was applied by `db push` or migration.
+* Prove whether Prisma Client was generated or intentionally not generated.
+* Confirm `student_access` table existence without SQL or secrets, preferably through authorized Prisma CLI output or Mauricio/provider console confirmation.
+* Build must pass if in scope.
+* Confirm no Program, LearningCycle, StudyLoad, `StudentAccess` rows, default-row behavior, backfill, runtime, UI/admin, billing, enrollment, or Block 7 changes unless explicitly authorized.
+* Report `git diff --check`, `git diff --stat`, and `git status --short`.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2J - StudentAccess DB application guardrails and target confirmation`.
+* Scope: confirm the local/dev target, snapshot/backup requirement, exact command, drift stop rules, and client generation order before any DB mutation.
+
+Final verdict:
+
+```text
+NEEDS_DB_APPLICATION_GUARDRAILS_BEFORE_MUTATION
+```
+
+Non-goals preserved:
+
+* No app code change.
+* No `schema.prisma` edit.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No DB mutation.
+* No Prisma CLI.
+* No db push.
+* No migrate.
+* No migration file.
+* No Prisma generate.
+* No Prisma Studio.
+* No introspection.
+* No seed.
+* No dev server.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No student account.
+* No `StudentAccess` row.
+* No backfill.
+* No default-row behavior.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student row edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No `/now` change.
+* No admin UI.
+* No Block 7.
+* No User/Student FK hardening.
+* No commit.
+* No push.
