@@ -13822,3 +13822,108 @@ Final verdict:
 ```text
 READY_FOR_TRIAL_ACCESS_IMPLEMENTATION_READINESS_AUDIT
 ```
+
+## MVP-SALES-TRIAL-2D - Trial/access implementation readiness audit
+
+Status: READY_FOR_MINIMAL_TRIAL_ACCESS_SCHEMA_DESIGN - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `e083774`.
+* Last accepted commit = `MVP-SALES-TRIAL-2C: define trial access state model`.
+* Working tree was clean before this audit/readiness/documentation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2C` closed at `e083774`.
+* This phase audited current app/schema/admin/student surfaces to decide the safest first implementation path for the TRIAL-2C model. Documentation/readiness only.
+
+Inputs reviewed:
+
+* TRIAL-2C, TRIAL-2B, TRIAL-2A, AUTH-1M, roadmap, phase gate, and `PHASE_LOG.md -Tail 760`.
+* Read-only code/schema audit: `prisma/schema.prisma`, `/now`, signup API/form, admin students, student detail, beta operations, students API, instances API, learning cycles API, study loads API, and admin guard.
+* Read-only `rg` search for Student/User/StudentProgramInstance/Trial/Subscription/Payment/status/access/trial/admin/now/program/cycle/study-load references.
+
+Current app/data surfaces audited:
+
+* User stores auth identity only; no role/trial/access/payment/student FK.
+* Student stores profile identity with `status = active`; no trial/access/payment fields.
+* StudentProgramInstance represents real program enrollment, not pre-enrollment access.
+* `/now` resolves Student by email and renders safe no-program state when no active enrollment exists.
+* Signup creates User + Student only; no trial, enrollment, subscription, Program, LearningCycle, or StudyLoad.
+* Admin can see self-signups and program instance counts, but cannot distinguish no-access/review/trial states.
+* Beta operations and cycle/load APIs operate after active enrollment.
+
+Capability assessment:
+
+* Already supported: `signed_up_no_access` implicitly; `enrolled_active_program` through active StudentProgramInstance/cycles/loads.
+* Partially supported: `access_review_pending` as generic `/now` copy only; `enrollment_setup_pending` manually outside app.
+* Not supported: `trial_invited`, `trial_active`, `trial_experience_available`, `trial_experience_used`, `trial_expired_blocked`, `subscription_pending`, `subscribed_access_active`.
+* Dangerous to fake: using `Student.status`, absence of enrollment, StudyLoads, or subscription language as trial/access state.
+
+UI readiness:
+
+* Current `/now` is safe for no-access/no-active-program.
+* Review-pending copy could be polished, but not meaningfully state-driven without schema.
+* Trial invited/active/expired and subscription states are not UI-ready because no durable state drives them.
+* UI-only trial promises would be unsafe.
+
+Admin readiness:
+
+* Admin can infer unenrolled self-signups from student list/program count.
+* Admin cannot mark, filter, activate, expire, or audit trial/access states today.
+* Existing admin operations are enrollment/cycle/load oriented and should not be reused as access state.
+* Future admin needs a trial/access decision surface or student detail section with state, timestamps, tutoring direction, actor/audit, and reason.
+
+Schema readiness:
+
+* Likely needed for MVP-Beta: access/trial status, invited/activated/expires/used timestamps, tutoring direction, continuity target, admin actor/audit.
+* Later hardening: structured reasons, override trace, contact/review notes, fuller event history.
+* Deferred to later blocks: billing provider records, subscription lifecycle automation, enrollment automation, Program/LearningCycle/StudyLoad creation, PAES path assignment, and unrelated FK hardening.
+* `Student.status` should not be overloaded.
+
+Recommended first implementation path:
+
+* Do not implement yet.
+* Choose minimal trial/access schema design first.
+* Rationale: current app has safe no-access behavior but no durable, auditable source of truth for trial/access; UI/admin implementation before schema would either overpromise or overload current models.
+
+Non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No DB mutation.
+* No dev server.
+* No seed.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No account/trial/enrollment/billing/payment/subscription creation.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No destructive action.
+* No Block 7.
+* No FK.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2E - Minimal trial/access schema design`.
+* Scope: documentation/design/readiness only. Define the smallest future schema model for Block 2 access/trial state, including status values, timestamps, student relation, tutoring direction, continuity target, admin actor/audit requirements, and explicit boundaries from billing, enrollment, Program, LearningCycle, StudyLoad, PAES path assignment, and Block 7. Do not implement or migrate yet.
+
+Final verdict:
+
+```text
+READY_FOR_MINIMAL_TRIAL_ACCESS_SCHEMA_DESIGN
+```
