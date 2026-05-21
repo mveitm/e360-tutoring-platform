@@ -13472,3 +13472,112 @@ Final verdict:
 ```text
 BLOCK_1_CLOSED_WITH_MINOR_NON_BLOCKING_FOLLOWUPS
 ```
+
+## MVP-SALES-TRIAL-2A - Define trial and access control boundary after signup
+
+Status: READY_FOR_CANONICAL_STUDENT_TRIAL_EXPERIENCE_STAGE_DESIGN - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `22c21ca`.
+* Last accepted commit = `MVP-SALES-AUTH-1M: close Block 1 readiness`.
+* Working tree was clean before this documentation/design/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: Block 1 closed at `22c21ca`.
+* This phase defined the trial/access boundary after signup without implementation.
+
+Inputs reviewed:
+
+* `MVP_SALES_AUTH_1M_BLOCK_1_CLOSEOUT_AND_NEXT_BLOCK_READINESS.md`.
+* `MVP_SALES_READY_ROADMAP.md`.
+* `MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `PHASE_LOG.md -Tail 560`.
+* Searched documentation for canonical student experience, dashboard, onboarding, trial, `/now`, subscription, activity, self-report, and feedback references.
+* Reviewed `MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`, `MVP_STUDENT_REQ_1_STUDENT_EXPERIENCE_TRIAGE.md`, and `MVP_UI_FLOW_2_HIDE_CYCLE_LABEL_AND_REFRESH_NOW_COPY.md`.
+
+Current state after Block 1:
+
+* Public student signup works.
+* User + Student are created with normalized email linkage.
+* Student can sign in and reach `/now`.
+* `/now` pending state is safe: account ready, no active program, activation pending, no assigned activities.
+* Student cannot access `/admin`.
+* Admin visibility is acceptable via AUTH-1F evidence.
+* No trial, billing, payment, subscription, enrollment, Program, LearningCycle, StudyLoad, PAES path, or content route is created automatically.
+
+Trial/access boundary recommendation:
+
+* Recommended boundary: trial/access should be an explicit commercial/access state before payment and before enrollment, started by admin/owner decision, not automatically at signup.
+* Before trial, self-signup students remain in `signed_up_no_access` and see the safe pending `/now` state.
+* Trial/access must not automatically create enrollment, Program, LearningCycle, StudyLoad, PAES path assignment, fake activities, or Block 7 content.
+* Trial/onboarding intake may exist as a precursor, but it should not be mislabeled as real tutoring access.
+* Owner trial direction: MVP trial target is 7 days, one tutoring experience, blocked access after 7 days, and subscription required to unlock continued access.
+* This owner direction is product target, not implementation instruction yet.
+* The 7-day one-tutoring trial must align with the canonical student journey: calm onboarding, clear `/now`/dashboard state, no unavailable work shown, activity only when access/program/content are valid, coherent completion/self-report/feedback/next-step flow, and no confusion between sales/trial/subscription state and actual tutoring start.
+
+Student experience design prerequisite:
+
+* No implementation should proceed before the student stages are defined and approved.
+* The next design must define what the student sees after signup, before trial, when trial is pending, during the 7-day trial, after expiration, in the blocked state, during subscription purchase, and after purchase.
+* The product experience must drive the technical state model, not the reverse.
+
+Missing student-stage definitions before implementation:
+
+* Post-signup no-access, trial invitation/pending, 7-day trial active, and blocked-after-trial states.
+* Student-visible meaning of "one tutoring experience".
+* Whether trial includes tutoring-area choice, owner/admin assignment, real study activity, or onboarding/intake only.
+* Day-7 expiration behavior, subscription purchase path, post-purchase state, and handoff to enrollment/program.
+* What the student sees when admin has not acted, or when payment exists but enrollment/program is not ready.
+* What must never appear before valid enrollment/content exists.
+
+Non-goals preserved:
+
+* No app code change.
+* No schema change.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No Prisma CLI.
+* No DB mutation.
+* No dev server.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No student account creation.
+* No enrollment/trial/billing/payment/subscription creation.
+* No Program/LearningCycle/StudyLoad.
+* No Student edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No destructive action.
+* No Block 7.
+* No FK.
+* No seed.
+* No commit.
+* No push.
+* No generated PDF/DOCX artifact.
+
+Risks carried forward:
+
+* Manual owner/admin bottleneck remains after signup.
+* Trial/access is not yet represented in schema.
+* Student.status must not be overloaded as trial/access/payment/enrollment state.
+* Billing/payment and enrollment remain separate later roadmap blocks.
+* Block 7 must remain closed until explicit content-route phases.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2B - Design canonical student trial experience stages`.
+* Scope: documentation/design/readiness only. Align the 7-day one-tutoring trial with the canonical student journey from signup to no-access, trial invitation, active trial, expiration/block, subscription purchase, post-purchase state, and eventual enrollment/program handoff. No implementation.
+
+Final verdict:
+
+```text
+READY_FOR_CANONICAL_STUDENT_TRIAL_EXPERIENCE_STAGE_DESIGN
+```
