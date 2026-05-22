@@ -13298,6 +13298,102 @@ Final verdict:
 STUDENT_ACCESS_ROW_LIFECYCLE_POLICY_READY
 ```
 
+## MVP-SALES-TRIAL-2W - StudentAccess backfill dry-run and row coverage readiness
+
+Status: STUDENT_ACCESS_BACKFILL_DRY_RUN_SCRIPT_READY_NOT_EXECUTED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `06a9fd0`.
+* Last accepted commit = `MVP-SALES-TRIAL-2V: define StudentAccess row lifecycle policy`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2V` closed at `06a9fd0`.
+* This phase prepared a no-write StudentAccess backfill dry-run path to inventory existing Student row coverage before real backfill, signup default-row implementation, admin reads, `/now` reads, billing linkage, mutation endpoints, or runtime enforcement.
+
+Inputs reviewed:
+
+* TRIAL-2V, TRIAL-2U, TRIAL-2T, TRIAL-2Q, phase gate, and `PHASE_LOG.md` tail relevant to TRIAL-2Q through TRIAL-2V.
+* Read-only inspected `schema.prisma`, the StudentAccess validation helper, `package.json`, and existing `nextjs_space/scripts` conventions.
+
+Files changed:
+
+* Created `nextjs_space/docs/operations/MVP_SALES_TRIAL_2W_STUDENT_ACCESS_BACKFILL_DRY_RUN_AND_ROW_COVERAGE_READINESS.md`.
+* Created `nextjs_space/scripts/student-access-backfill-dry-run.ts`.
+* Updated `PHASE_LOG.md`.
+
+Dry-run readiness summary:
+
+* Script is read-only by design and uses Prisma Client `findMany` queries.
+* Script imports the pure `validateStudentAccessSnapshot` helper.
+* Script classifies existing Student records into existing StudentAccess rows, no-active-enrollment candidates, one-active-enrollment candidates, multiple-active-enrollment ambiguity, inconsistent enrollment/program state, and identity concerns.
+* Script reports excluded non-student users by email comparison without creating users or students.
+* Script validates every candidate row and returns JSON summary/report output.
+* Script exits nonzero for ambiguity or validation failures.
+* Script was not executed in 2W; no DB read was run.
+
+Future command, only after explicit local/dev read-only authorization:
+
+```powershell
+cd nextjs_space
+npx.cmd tsx scripts/student-access-backfill-dry-run.ts
+```
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2X - Execute StudentAccess backfill dry-run no-write`.
+* Scope: controlled local/dev no-write execution and result capture. Do not write rows, implement signup default-row, implement actual backfill, add admin reads, add `/now` reads, or add runtime enforcement.
+
+Verification:
+
+* `git diff --check`: passed with only the existing line-ending warning for `PHASE_LOG.md`.
+* `git diff --stat`: `PHASE_LOG.md | 96 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`.
+* `git status --short`: `M PHASE_LOG.md`; untracked 2W readiness document and no-write dry-run script.
+
+Non-goals preserved:
+
+* No app code changes.
+* No helper code changes.
+* No test code changes.
+* No schema edit.
+* No package change.
+* No package-lock change.
+* No npm install.
+* No Prisma db push.
+* No Prisma migrate.
+* No Prisma generate.
+* No DB mutation.
+* No SQL.
+* No seed.
+* No `.env` inspection or printing.
+* No secrets printed.
+* No UI/admin change.
+* No signup default-row implementation.
+* No backfill implementation/write.
+* No `/now` read integration.
+* No admin read integration.
+* No mutation endpoints.
+* No `AuditEvent` writes.
+* No billing/payment/subscription integration.
+* No Program/LearningCycle/StudyLoad changes.
+* No enrollment automation.
+* No Block 7.
+* No deploy.
+* No generated PDF/DOCX artifacts.
+* No commit.
+* No push.
+
+Final verdict:
+
+```text
+STUDENT_ACCESS_BACKFILL_DRY_RUN_SCRIPT_READY_NOT_EXECUTED
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
