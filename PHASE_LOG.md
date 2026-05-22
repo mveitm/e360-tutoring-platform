@@ -12855,6 +12855,114 @@ Final verdict:
 STUDENT_ACCESS_DB_APPLICATION_VERIFIED_CLOSED
 ```
 
+## MVP-SALES-TRIAL-2R - StudentAccess validation helper design
+
+Status: STUDENT_ACCESS_VALIDATION_HELPER_DESIGN_READY - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `2d269cc`.
+* Last accepted commit = `MVP-SALES-TRIAL-2Q: close StudentAccess DB verification`.
+* Working tree was clean before this documentation/design phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2Q` closed at `2d269cc`.
+* This phase designed the future `StudentAccess` validation helper contract before any write/default-row/backfill/admin mutation/runtime enforcement exists.
+
+Inputs reviewed:
+
+* TRIAL-2Q, TRIAL-2P, TRIAL-2G, TRIAL-2F, TRIAL-2C, TRIAL-2B, TRIAL-2A, phase gate, `PHASE_LOG.md` tail relevant to TRIAL-2A through TRIAL-2Q, and read-only `StudentAccess` schema signals.
+* Historical docs retain their own baselines; Git preflight and accepted commit chain remain authoritative.
+
+Design summary:
+
+* Validation helper should be a pure policy boundary for `StudentAccess` state before any persistence path can write rows.
+* Helper responsibility: validate legal statuses, legal pairs, prohibited pairs, field invariants, timestamp invariants, subscription placeholder handling, transition preconditions, structured error categories, and audit-readiness context.
+* Helper non-responsibility: no DB mutation, row creation, signup default rows, backfill, `/now` reads, admin UI, mutation endpoints, `AuditEvent` writes, billing/payment/subscription integration, enrollment, Program, LearningCycle, StudyLoad, or Block 7.
+
+Legal status model:
+
+* Legal `accessStatus`: `no_access`, `review_pending`, `trial_invited`, `trial_active`, `trial_expired_blocked`, `subscription_pending`, `subscribed_access_active`, `enrollment_setup_pending`, `enrolled_active_program`.
+* Legal `trialStatus`: `none`, `invited`, `active`, `experience_available`, `experience_used`, `expired`, `cancelled`.
+* `cancelled` remains conceptual only until a cancellation operation/reason/audit policy is separately designed.
+
+Legal pair summary:
+
+* `no_access + none`.
+* `review_pending + none`.
+* `trial_invited + invited`.
+* `trial_active + active`, `trial_active + experience_available`, `trial_active + experience_used`.
+* `trial_expired_blocked + expired`.
+* subscription/enrollment handoff pairs with `none`, `expired`, or `experience_used` where applicable.
+* `enrolled_active_program + none`.
+
+Invariant summary:
+
+* Invitation requires `trialInvitedAt` and must not start the timer.
+* Activation requires `trialActivatedAt` and `trialExpiresAt`.
+* `trialExpiresAt` must be after `trialActivatedAt`.
+* `trialExperienceUsedAt` is allowed only for `experience_used` states and should fall within the active trial window unless a later audited correction policy allows exceptions.
+* A supplied clock should make `now >= trialExpiresAt` produce an expiration validation issue.
+* `subscriptionStatus` remains `none` as the only guaranteed first-cut value unless a later policy expands it.
+
+Future helper return shape:
+
+* Return structured validation results with `ok`, normalized input, errors, and warnings.
+* Error categories should include unknown status, illegal pair, missing required field, prohibited field, invalid timestamp, expired state, invalid transition, missing decision context, undefined subscription policy, and scope violation.
+
+Audit readiness:
+
+* Future callers should provide actor, reason, prior state, proposed state, decision timestamp, transition class, and continuity explanation when relevant.
+* The helper should not write `AuditEvent`; future mutation endpoints should do that after successful validation in a separately authorized phase.
+
+Future implementation forecast:
+
+* Likely helper files: `nextjs_space/lib/student-access.ts`, `nextjs_space/lib/student-access-status.ts`, or `nextjs_space/lib/student-access-validation.ts`.
+* Likely unit test file: `nextjs_space/lib/student-access-validation.test.ts`.
+* Later caller files such as signup, `/now`, admin reads/writes, and audit callers remain separate future scopes.
+
+Non-goals preserved:
+
+* No app code.
+* No TypeScript helper implementation.
+* No schema edit.
+* No package change.
+* No Prisma CLI.
+* No DB mutation.
+* No SQL.
+* No seed.
+* No runtime.
+* No UI/admin.
+* No default-row signup behavior.
+* No backfill.
+* No `/now` read.
+* No mutation endpoints.
+* No `AuditEvent` writes.
+* No billing/payment/subscription integration.
+* No Program/LearningCycle/StudyLoad.
+* No Block 7.
+* No deploy.
+* No `.env` access.
+* No secrets printed.
+* No generated PDF/DOCX artifacts.
+* No commit.
+* No push.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2S - StudentAccess validation helper implementation readiness`.
+* Scope: readiness only for a pure, unit-tested validation helper. Do not implement the helper in 2R and do not add writes, default rows, backfill, admin mutation, runtime enforcement, `/now` reads, audit writes, billing, enrollment, Program/LearningCycle/StudyLoad, or Block 7.
+
+Final verdict:
+
+```text
+STUDENT_ACCESS_VALIDATION_HELPER_DESIGN_READY
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
