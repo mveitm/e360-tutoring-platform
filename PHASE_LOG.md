@@ -16951,3 +16951,132 @@ Final verdict:
 ```text
 LIVING_MEMORY_INDEX_CREATED
 ```
+
+## MVP-GOV-CONTEXT-7 - Create autopropagating handoff protocol v2
+
+Status: documentation/governance phase completed; pending review, commit, and push by Mauricio.
+
+Baseline:
+
+* Expected baseline: `HEAD = origin/main = 6eb6b92`.
+* Latest accepted commit: `MVP-GOV-CONTEXT-4: create living memory index`.
+* Working tree expected clean before edits.
+* Git preflight actual before edits:
+  * `git status --short`: clean.
+  * `git log --oneline --decorate --graph -8`: `6eb6b92` at `HEAD`, `origin/main`, and `origin/HEAD`, followed by `e7012b9`, `709944a`, `962af05`, `c415e65`, `f34fd43`, `3236e64`, and `187952c`.
+
+Scope:
+
+* Documentation/governance only.
+* Created the Autopropagating Handoff Protocol v2.
+* Updated `PHASE_LOG.md` at the true end only.
+* No current handoff, documentation index, or context-transfer template update.
+* No code, runtime, schema, package, Prisma, DB, SQL, build, deploy, commit, or push.
+
+Context Gate summary:
+
+* Phase: `MVP-GOV-CONTEXT-7 - Create autopropagating handoff protocol v2`.
+* Phase type: documentation/governance.
+* Product horizon: `MVP-Beta-Pre-Sales-Ready` governance support.
+* Roadmap block: `MVP-GOV-CONTEXT - Living memory, roadmap gates and phase context protocol`.
+* Roadmap change-control check: not required because the phase records a handoff governance protocol and does not change product horizons, commercial promise, roadmap, runtime behavior, or public offer.
+* GO decision: GO, because Git preflight matched and edits remained limited to the allowed docs.
+
+Files changed:
+
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `PHASE_LOG.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_IMPLEMENT_SIGNUP_STUDENT_ACCESS_DEFAULT_ROW.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3B_STUDENT_ACCESS_BACKFILL_CLOSEOUT_AND_SIGNUP_DEFAULT_ROW_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3A_CONFIRM_BACKUP_AND_EXECUTE_STUDENT_ACCESS_BACKFILL_APPLY_LOCAL_DEV.md`.
+
+Summary:
+
+* Created a protocol for generating, validating, and re-ingesting handoffs between chats and agents.
+* Defined that a handoff is a controlled context capsule, not a memory dump.
+* Required handoffs to be Git-anchored, horizon-aware, phase-gated, roadmap-aware, commercially safe, student-experience aware, explicit about missing context, and explicit about forbidden actions.
+* Defined the handoff lifecycle before creation, during creation, at receiving-chat start, and after phase closeout.
+* Added a reusable handoff capsule template with required baseline, horizon, roadmap, decisions, blockers, missing context, stop rules, and first-response fields.
+* Defined required receiving-agent first response, required preflight commands, autopropagation rule, missing-context handling, update triggers, quality checklist, boundaries, non-goals, and required future use.
+* Preserved that `MVP-GOV-CONTEXT-15` should use this protocol when updating the current agent handoff with Context Gate.
+* Custody correction removed markdown triple-backtick command fences from `AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md` Required Preflight Commands to keep future handoff prompts copy-safe.
+
+Strategic rationale:
+
+* Makes future chat and agent transitions durable without relying on chat memory alone.
+* Preserves Git truth, canonical governance docs, Living Memory Index, Context Gate discipline, roadmap state, commercial constraints, student-experience direction, current blockers, and missing-context gaps.
+* Prevents stale handoffs, stale M1-only Sales-Ready framing, and unversioned memory from driving future technical phases.
+
+Commercial non-goals:
+
+* No public offer change.
+* No commercial promise change.
+* No Sales-Ready claim.
+* No Pre-Sales validation expansion.
+* No brand change.
+* No trial change.
+* No subscription change.
+* No payment change.
+* No sale change.
+* No student-facing promise change.
+
+Technical non-goals:
+
+* No update to `CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* No update to `DOCUMENTATION_INDEX_MVP_M1.md`.
+* No update to `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* No handoff package zip.
+* No scripts.
+* No classification of every existing document.
+* No old-doc rewrite.
+* No full canonicality audit.
+* No StudentAccess helper TypeScript fix.
+* No `MVP-SALES-TRIAL-3C-FIX`.
+* No signup, auth, access runtime, billing, trial activation, admin, `/now`, UI, staging/prod, schema, package, Prisma, DB, SQL, seed, build, deploy, commit, or push.
+
+Guardrails:
+
+* Git preflight remains the living truth.
+* Handoffs cannot override canonical governance docs or Git preflight.
+* Future phases must complete Context Gate before design, implementation, verification, or commit.
+* No handoff may rely on "as discussed above" or unversioned chat memory without summarizing the needed content.
+* Handoffs must not include secrets, raw `.env` contents, database URLs, passwords, API keys, tokens, or unnecessary private data.
+* Missing product/UI/brand docs must be named and treated as critical context gaps.
+
+Product/UI context notes:
+
+* The three named Word documents were not found as versioned files in the repository search:
+  * `Mvp Ui Flow 1 Secuencia Canonica Bexauri Cierre Dia.docx`.
+  * `MVeit-Bexauri-Definicion de Producto.docx`.
+  * `Bexauri_Guia_Identidad_Visual_v1_1.docx`.
+* They remain critical product/UI/brand context gaps.
+* Future broader context/canonicality/product/UI/brand/public-offer phases must request these files or a fresh synthesis before closing.
+* This phase may proceed because it creates the handoff protocol and records the gap; it does not resolve product/UI canonicality.
+
+Verification performed:
+
+* `git status --short` before edits: clean.
+* `git log --oneline --decorate --graph -8` before edits: `6eb6b92` at `HEAD`, `origin/main`, and `origin/HEAD`.
+* Product/UI Word document search: not found as versioned repo files.
+* Final `git status --short`: `M PHASE_LOG.md`; untracked Autopropagating Handoff Protocol v2 document.
+* Final `git diff --stat`: `PHASE_LOG.md | 129 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`; untracked Autopropagating Handoff Protocol v2 document not included by Git diff stat.
+* Final `git diff --check`: passed with the existing Git line-ending warning that `PHASE_LOG.md` LF will be replaced by CRLF the next time Git touches it.
+* Final `Get-Content PHASE_LOG.md -Tail 220`: confirmed GOV-CONTEXT-7 remains at the true end.
+* Final `Get-Content nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md | Select-Object -First 280`: confirmed the protocol content is present through required future use.
+* Custody correction verification: `Select-String` confirmed `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`, `Create a zip`, required Git commands, and BEGIN/END handoff capsule delimiters remain; triple-backtick search returned no matches.
+
+Final verdict:
+
+```text
+AUTOPROPAGATING_HANDOFF_PROTOCOL_V2_CREATED
+```
