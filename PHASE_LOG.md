@@ -12289,6 +12289,119 @@ Explicit non-goals preserved:
 * No commit.
 * No push.
 
+## MVP-SALES-TRIAL-2K - Final owner target confirmation before DB push
+
+Status: BLOCKED_BY_MISSING_BACKUP_OR_SNAPSHOT - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `e27d6fa`.
+* Last accepted commit = `MVP-SALES-TRIAL-2J: define StudentAccess DB guardrails`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2J` closed at `e27d6fa`.
+* This phase checked whether final owner target confirmation exists before any future controlled DB push for `student_access`. Documentation/readiness only.
+
+Inputs reviewed:
+
+* TRIAL-2J, TRIAL-2I, TRIAL-2H, TRIAL-2G, phase gate, `PHASE_LOG.md -Tail 1240`, `nextjs_space/prisma/schema.prisma`, and `nextjs_space/package.json`.
+* Read-only operation signals: `Get-ChildItem nextjs_space/prisma`, `Get-ChildItem nextjs_space/scripts`, `nextjs_space/scripts/safe-seed.ts`, and read-only `rg` for Prisma DB commands/reset/Neon/staging/production/StudentAccess references excluding `.env`, `.next`, `node_modules`, and logs.
+* `PHASE_LOG.md -Tail 1240` did not include the TRIAL-2J entry even though Git preflight and the TRIAL-2J document establish the accepted baseline. Git preflight wins.
+
+Starting point after TRIAL-2J:
+
+* `StudentAccess` exists schema-only.
+* TRIAL-2J defined DB guardrails and target confirmation requirements.
+* No DB application has happened.
+* No `StudentAccess` rows, signup default-row behavior, backfill, runtime, `/now`, student UI, admin UI, or admin operation exist.
+
+Owner target confirmation status:
+
+* CONFIRMED.
+* Mauricio provided complete non-secret target confirmation after the initial TRIAL-2K draft.
+
+Confirmed/missing target details:
+
+* environment class: local/dev.
+* provider/type non-secret label: Neon dev branch, `e360-dev`.
+* not staging: yes.
+* not production: yes.
+* disposable/shared: shared.
+* backup/snapshot: required before mutation.
+* data loss acceptable: no.
+* authorization scope: future controlled DB push for `student_access` only.
+* Prisma generate after successful DB push: yes, if explicitly included in that future phase.
+
+Future command authorization status:
+
+* `npx.cmd prisma db push`: BLOCKED until backup/snapshot confirmation is provided for the shared local/dev DB.
+* `npx.cmd prisma generate`: may run only after successful future DB push and only if explicitly included in that phase.
+
+Stop rules:
+
+* Stop on drift ambiguity.
+* Stop on reset prompt.
+* Stop on destructive warning.
+* Stop on target ambiguity.
+* Stop on missing backup/snapshot for shared DB.
+* Stop if command may touch staging/prod.
+* Stop if secrets would be printed or `.env` inspection would be needed.
+* Stop if Prisma proposes data loss.
+* Stop if Git is dirty or baseline mismatches.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push`.
+* Scope: collect non-secret backup/snapshot confirmation for the shared local/dev Neon dev branch `e360-dev` before any DB mutation. Do not run `db push` until backup/snapshot is confirmed.
+
+Final verdict:
+
+```text
+BLOCKED_BY_MISSING_BACKUP_OR_SNAPSHOT
+```
+
+Non-goals preserved:
+
+* No app code change.
+* No `schema.prisma` edit.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No DB mutation.
+* No Prisma CLI.
+* No db push.
+* No migrate.
+* No migration file.
+* No Prisma generate.
+* No Prisma validate.
+* No Prisma Studio.
+* No introspection.
+* No seed.
+* No dev server.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No student account.
+* No `StudentAccess` row.
+* No backfill.
+* No default-row behavior.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student row edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No `/now` change.
+* No admin UI.
+* No Block 7.
+* No User/Student FK hardening.
+* No commit.
+* No push.
+
 ## MVP-SALES-TRIAL-2J - StudentAccess DB application guardrails and target confirmation
 
 Status: NEEDS_FINAL_OWNER_TARGET_CONFIRMATION_BEFORE_DB_PUSH - commit pending Mauricio review
