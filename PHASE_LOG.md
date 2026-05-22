@@ -12623,6 +12623,114 @@ Final verdict:
 READY_FOR_HUMAN_EXECUTED_LOCAL_DEV_DB_APPLICATION
 ```
 
+## MVP-SALES-TRIAL-2P - Human-executed controlled local/dev StudentAccess DB application
+
+Status: CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION_COMPLETED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `64937b1`.
+* Last accepted commit = `MVP-SALES-TRIAL-2O: define DB retry support path`.
+* Working tree was clean before this documentation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2O` closed at `64937b1`.
+* This phase documents Mauricio's human-executed local/dev DB application for the already-versioned `StudentAccess` schema, plus Prisma Client generation and build results.
+
+Human execution context:
+
+* Executed by Mauricio in local PowerShell.
+* Absolute path used: `C:\projects\e360-tutoring-platform\tutoring_platform_mvp\nextjs_space`.
+* `Get-Location` confirmed the `nextjs_space` path.
+* `Test-Path prisma/schema.prisma` returned `True`.
+* No connection strings, `DATABASE_URL`, `.env` values, passwords, tokens, cookies, `NEXTAUTH_SECRET`, `ADMIN_EMAILS`, or secrets were copied into documentation.
+
+Commands/results:
+
+* `cd C:\projects\e360-tutoring-platform\tutoring_platform_mvp\nextjs_space`.
+* `Get-Location`: confirmed `nextjs_space`.
+* `Test-Path prisma/schema.prisma`: `True`.
+* `npx.cmd prisma db push --schema=prisma/schema.prisma`: succeeded.
+* `npx.cmd prisma generate --schema=prisma/schema.prisma`: succeeded.
+* `npm.cmd run build`: succeeded.
+* Final `git status --short`: clean.
+
+DB application result:
+
+* Prisma loaded `prisma\schema.prisma`.
+* Prisma reported the database is now in sync with the Prisma schema.
+* `student_access` table is expected to exist after successful schema sync.
+* No drift, reset, data loss, destructive warning, or force-reset was reported.
+* No SQL verification was used.
+* Prisma Client v6.7.0 was generated automatically as part of successful `db push`.
+
+Generate/build results:
+
+* Explicit Prisma Client generation succeeded.
+* Prisma Client v6.7.0 generated successfully.
+* Warning only: generator output path not specified and deprecated for Prisma 7.
+* Prisma update notice from 6.7.0 to 7.8.0 was informational only; no update was performed.
+* `npm.cmd run build` succeeded.
+* Next.js 14.2.28 compiled successfully.
+* Type checking passed.
+* Static pages generated: 18/18.
+* Linting skipped by project build configuration.
+
+Git result:
+
+* Final git status after Mauricio's commands was clean.
+* No app code, schema, package, or tracked generated file changes were reported from the human-executed phase.
+
+Boundary preservation:
+
+* No app code change.
+* No `schema.prisma` edit.
+* No package change.
+* No deploy.
+* No staging or production operation.
+* No SQL.
+* No migrate.
+* No migration file.
+* No force reset.
+* No seed.
+* No `.env` or secret inspection.
+* No manual `StudentAccess` row.
+* No backfill.
+* No default-row behavior.
+* No runtime, `/now`, UI/admin, or auth/signup/login guard change.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Block 7.
+* No commit.
+* No push.
+
+Remaining gaps:
+
+* No `StudentAccess` rows yet.
+* No default-row signup behavior.
+* No backfill.
+* No validation helper/legal status enforcement.
+* No `/now` reads.
+* No admin reads.
+* No mutation endpoints.
+* No AuditEvent writes.
+* No trial runtime.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2Q - StudentAccess DB application verification closeout`.
+* Do not recommend runtime/UI/default-row/backfill yet.
+
+Final verdict:
+
+```text
+CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION_COMPLETED
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
