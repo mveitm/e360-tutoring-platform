@@ -16619,3 +16619,109 @@ Final verdict:
 ```text
 BLOCKED_BY_DB_PUSH
 ```
+
+## MVP-GOV-CONTEXT-1 - Define product horizons and sales-readiness gates
+
+Status: GOVERNANCE_BASELINE_CREATED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `962af05`.
+* Last accepted commit = `MVP-SALES-TRIAL-3C: document signup default row blocker`.
+* Working tree was clean before this documentation/governance-only phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Governance/documentation only.
+* Created the first product horizon and sales-readiness gate document before reopening signup, trial, access runtime, billing, `/now`, admin, UI, staging/prod, or `MVP-SALES-TRIAL-3C-FIX`.
+* No application implementation was authorized or performed.
+
+Files changed:
+
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `PHASE_LOG.md`.
+
+Summary:
+
+* Defined the truth hierarchy: Git preflight actual, canonical versioned docs, `PHASE_LOG.md`, phase operation docs, smoke/build evidence, chat memory, then agent interpretation.
+* Defined three active product horizons: `MVP-Beta-Pre-Sales-Ready`, `MVP-Beta-Sales-Ready`, and `Later MVP-Alpha`.
+* Defined what each horizon is, allows, prohibits, student scope, commercial promise, brand risk, permitted/prohibited technical work, and evidence required before advancement.
+* Added GO / NO-GO gates for closed Pre-Sales-Ready beta, public Sales-Ready offer, and later Alpha intelligence improvements.
+* Added roadmap change-control triggers and phase classification rules.
+* Required future phases to reference the governance document in their Context Gate.
+
+Product/strategic rationale:
+
+* M1-only is not the public Sales-Ready commercial face.
+* M1 may be used as a closed Pre-Sales-Ready laboratory for 2-3 students.
+* Sales-Ready must support PAES M1, PAES M2, and Competencia Lectora L1 sufficiently for the public offer.
+* The governance baseline prevents technical momentum from turning a partial public offer into the implied commercial product.
+* The phase preserves the active correction: do not burn the brand with a partial public offer.
+
+Commercial non-goals:
+
+* No public offer change.
+* No commercial promise change.
+* No public Sales-Ready claim.
+* No payment, subscription, trial, or pricing change.
+* No student-facing promise change.
+* No brand/visual implementation change.
+
+Technical non-goals:
+
+* No StudentAccess helper TypeScript fix.
+* No `MVP-SALES-TRIAL-3C-FIX`.
+* No signup behavior change.
+* No auth change.
+* No access runtime enforcement.
+* No billing or subscription implementation.
+* No trial activation or trial runtime change.
+* No admin mutation.
+* No `/now` behavior change.
+* No UI implementation.
+* No staging or production work.
+* No `schema.prisma` change.
+* No `package.json` or `package-lock.json` change.
+* No Prisma command.
+* No DB command.
+* No SQL.
+* No seed script change.
+* No build.
+* No deploy.
+* No commit.
+* No push.
+
+Guardrails:
+
+* Git preflight actual overrides all memory, docs, and agent interpretation for repo state.
+* Future phases must classify their product horizon before design or implementation.
+* Any change touching public offer, commercial promise, Sales-Ready, Pre-Sales validation, brand, trial, subscription, payment, student-facing promise, program coverage, or tutor/admin workload requires explicit horizon analysis and may require roadmap change control.
+* The active reclassification cannot be reversed inside a technical phase.
+
+Optional/local context notes:
+
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md` exists and was reviewed.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md` exists and was reviewed.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` exists and was reviewed.
+* The three named Word documents were not found as versioned files in the repository search:
+  * `Mvp Ui Flow 1 Secuencia Canonica Bexauri Cierre Dia.docx`
+  * `MVeit-Bexauri-Definicion de Producto.docx`
+  * `Bexauri_Guia_Identidad_Visual_v1_1.docx`
+* This phase used the hardening synthesis supplied in the phase request as active product context and recorded that future broader context/governance phases must request the Word files or a fresh synthesis if those documents remain unavailable locally.
+
+Verification performed:
+
+* `git status --short` before edits: clean.
+* `git log --oneline --decorate --graph -8` before edits: `962af05` at `HEAD`, `origin/main`, and `origin/HEAD`.
+* Required docs reviewed: `PHASE_LOG.md -Tail 1200`, 3C, 3B, and 3A operation docs.
+* Optional docs reviewed: current M1 handoff, documentation index, and context-transfer template.
+* Final `git status --short`: `M PHASE_LOG.md`; untracked governance document.
+* Final `git diff --stat`: `PHASE_LOG.md | 106 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`; untracked governance document not included by Git diff stat.
+* Final `git diff --check`: passed with the existing Git line-ending warning that `PHASE_LOG.md` LF will be replaced by CRLF the next time Git touches it.
+
+Final verdict:
+
+```text
+GOVERNANCE_BASELINE_CREATED
+```
