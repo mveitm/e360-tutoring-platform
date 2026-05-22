@@ -13622,6 +13622,127 @@ Final verdict:
 NEEDS_BACKFILL_APPLY_SCRIPT_BEFORE_WRITE
 ```
 
+## MVP-SALES-TRIAL-2Z - Implement StudentAccess backfill apply script
+
+Status: STUDENT_ACCESS_BACKFILL_APPLY_SCRIPT_IMPLEMENTED_NOT_EXECUTED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `187952c`.
+* Last accepted commit = `MVP-SALES-TRIAL-2Y: assess StudentAccess backfill readiness`.
+* Working tree was clean before this implementation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2Y` closed at `187952c`.
+* This phase implemented a dedicated StudentAccess backfill apply script but did not execute any DB write.
+
+Files changed:
+
+* Created `nextjs_space/scripts/student-access-backfill-apply.ts`.
+* Created `nextjs_space/docs/operations/MVP_SALES_TRIAL_2Z_IMPLEMENT_STUDENT_ACCESS_BACKFILL_APPLY_SCRIPT.md`.
+* Updated `PHASE_LOG.md`.
+
+Script summary:
+
+* Dedicated apply script separate from the dry-run script.
+* Uses Prisma Client.
+* Imports `validateStudentAccessSnapshot` from `../lib/student-access-validation`.
+* Does not import app code.
+* Does not use raw SQL.
+* Does not call Prisma schema, migration, db push, or generate APIs.
+* Is not wired into package scripts.
+* Script was not executed in 2Z.
+
+Confirmation guard:
+
+* Exact write flags required before `PrismaClient` creation or DB access: `--confirm-write-student-access-backfill` and `--confirm-backup-or-owner-acceptance`.
+* The second flag records that backup/snapshot status or explicit owner acceptance has been confirmed by the future controlled write phase.
+* Without flags, the script prints safe preview/no-write information, states no DB read was performed, and clarifies that counts are accepted expected counts from 2X/2Y rather than current DB state.
+* If only one required flag is supplied, the script prints `mode = write_guard_missing`, lists missing flags, creates no `PrismaClient`, performs no DB read, and performs no DB write.
+* With both flags, the script still checks accepted counts and validation before any write.
+* Write-confirmed mode was not executed in 2Z.
+
+Expected accepted counts:
+
+* Total students: `12`.
+* Existing StudentAccess rows before write: `0`.
+* Missing StudentAccess rows: `12`.
+* No-active-enrollment candidates: `3`.
+* One-active-enrollment candidates: `9`.
+* Ambiguous records: `0`.
+* Validation failures: `0`.
+
+Write design:
+
+* Insert only missing StudentAccess rows.
+* Never update existing StudentAccess rows.
+* Validate each candidate with the pure helper immediately before write.
+* Stop before writing if any accepted count, ambiguity, or validation assertion fails.
+* Use a Prisma transaction for the insert batch if write mode is executed in a future phase.
+* Print inserted row IDs and counts by `lastDecisionReason` after a future successful write.
+
+Execution:
+
+* Apply script executed: no.
+* DB write happened: no.
+* DB read happened: no.
+* Prisma CLI, SQL, seed, build, tests: not run.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-3A - Confirm backup and execute StudentAccess backfill apply local/dev`.
+* Scope: confirm local/dev target and backup/snapshot or explicit owner acceptance, then execute the guarded apply script with both required flags in a separately authorized controlled write phase.
+
+Verification:
+
+* `git diff --check`: passed with only the existing line-ending warning for `PHASE_LOG.md`.
+* `git diff --stat`: `PHASE_LOG.md | 119 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`.
+* `git status --short`: `M PHASE_LOG.md`; untracked 2Z implementation document and apply script.
+
+Non-goals preserved:
+
+* No app code changes.
+* No helper code changes.
+* No dry-run script changes.
+* No test code changes.
+* No schema edit.
+* No package change.
+* No package-lock change.
+* No npm install.
+* No Prisma db push.
+* No Prisma migrate.
+* No Prisma generate.
+* No DB mutation.
+* No SQL.
+* No seed.
+* No `.env` inspection or printing.
+* No secrets printed.
+* No UI/admin change.
+* No signup default-row implementation.
+* No actual backfill execution/write.
+* No `/now` read integration.
+* No admin read integration.
+* No mutation endpoints.
+* No `AuditEvent` writes.
+* No billing/payment/subscription integration.
+* No Program/LearningCycle/StudyLoad changes.
+* No enrollment automation.
+* No Block 7.
+* No deploy.
+* No generated PDF/DOCX artifacts.
+* No commit.
+* No push.
+
+Final verdict:
+
+```text
+STUDENT_ACCESS_BACKFILL_APPLY_SCRIPT_IMPLEMENTED_NOT_EXECUTED
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
