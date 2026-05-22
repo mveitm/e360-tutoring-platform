@@ -12507,6 +12507,122 @@ Final verdict:
 BLOCKED_BY_DB_PUSH
 ```
 
+## MVP-SALES-TRIAL-2O - DB application retry support / local connectivity check
+
+Status: READY_FOR_HUMAN_EXECUTED_LOCAL_DEV_DB_APPLICATION - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `3378450`.
+* Last accepted commit = `MVP-SALES-TRIAL-2N: document blocked StudentAccess DB retry`.
+* Working tree was clean before this diagnosis/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2N` closed at `3378450`.
+* This phase diagnosed local execution context and connectivity blockers before any later controlled DB application retry for `student_access`. Documentation/readiness only.
+
+Inputs reviewed:
+
+* TRIAL-2N, TRIAL-2M, TRIAL-2L, TRIAL-2G, phase gate, `PHASE_LOG.md -Tail 1520`, `nextjs_space/prisma/schema.prisma`, `nextjs_space/package.json`, and `nextjs_space/scripts/safe-seed.ts`.
+* Git preflight matched `HEAD = origin/main = 3378450`; historical phase baselines remain historical only.
+
+Previous blocker summary:
+
+* TRIAL-2M first `db push`: `P1001` / DB not reachable.
+* TRIAL-2M escalated retry: Prisma did not find `prisma/schema.prisma`.
+* TRIAL-2N `Get-Location`: confirmed `nextjs_space`.
+* TRIAL-2N `Test-Path prisma/schema.prisma`: `True`.
+* TRIAL-2N escalated `db push`: effective context still did not find `prisma/schema.prisma`.
+* No sync, Prisma generate, or build occurred in 2M/2N.
+
+Read-only diagnostics:
+
+* `Get-Location` from repo root: `C:\projects\e360-tutoring-platform\tutoring_platform_mvp`.
+* `Test-Path nextjs_space/prisma/schema.prisma`: `True`.
+* `Get-Location` from `nextjs_space`: `C:\projects\e360-tutoring-platform\tutoring_platform_mvp\nextjs_space`.
+* `Test-Path prisma/schema.prisma`: `True`.
+* `where.exe npx`: `C:\Program Files\nodejs\npx`, `C:\Program Files\nodejs\npx.cmd`.
+* `where.exe node`: `C:\Program Files\nodejs\node.exe`.
+* `where.exe npm`: `C:\Program Files\nodejs\npm`, `C:\Program Files\nodejs\npm.cmd`.
+* `npx.cmd --version`: `11.6.2`.
+* `node --version`: `v24.11.1`.
+* `npm.cmd --version`: `11.6.2`.
+* `Get-ChildItem nextjs_space/prisma`: `schema.prisma` exists.
+* `Get-ChildItem nextjs_space/scripts`: `safe-seed.ts` and historical probe/seed scripts exist.
+* Read-only `rg` found existing Prisma DB command docs, historical DB incident warnings, TRIAL-2M/2N blockers, and a prior successful staging precedent using explicit schema path: `npx prisma db push --schema prisma/schema.prisma`.
+
+Diagnosis:
+
+* Local filesystem context is valid: `schema.prisma` exists from repo root and from `nextjs_space`.
+* The blocker is operational execution context/connectivity, not a missing repo schema file.
+* Codex escalated execution context does not reliably preserve the requested `workdir`, or the elevated command runs with a different effective directory.
+* Codex network/context is not reliable enough for this DB push because non-escalated execution hit Neon reachability and escalated execution lost schema context.
+* Schema path ambiguity should be removed in the next DB attempt with `--schema=prisma/schema.prisma`.
+
+Recommended retry strategy:
+
+* Human-executed local PowerShell retry by Mauricio.
+* Use an absolute `cd` to `nextjs_space`.
+* Use explicit `--schema=prisma/schema.prisma`.
+* Mauricio should paste complete command output without secrets.
+* Stop on drift, reset, data loss, destructive warning, `--force-reset`, staging/prod ambiguity, secrets printed, connection mismatch, or schema not found.
+
+Candidate next command:
+
+```powershell
+cd C:\projects\e360-tutoring-platform\tutoring_platform_mvp\nextjs_space
+npx.cmd prisma db push --schema=prisma/schema.prisma
+npx.cmd prisma generate --schema=prisma/schema.prisma
+npm.cmd run build
+```
+
+Evidence required:
+
+* Prompt path.
+* Exact commands executed.
+* Command outputs without secrets.
+* Whether `db push` succeeded.
+* Whether Prisma reported schema/database synced.
+* Whether any drift/reset/data-loss/destructive prompt appeared.
+* Whether `generate` succeeded.
+* Whether build passed.
+* Final `git status --short`.
+
+Boundary preservation:
+
+* No DB mutation.
+* No db push.
+* No Prisma generate.
+* No build.
+* No SQL.
+* No migrate.
+* No seed.
+* No `.env` or secret inspection.
+* No runtime.
+* No UI/admin.
+* No default-row.
+* No backfill.
+* No `StudentAccess` rows.
+* No Program/LearningCycle/StudyLoad.
+* No Block 7.
+* No commit.
+* No push.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2P - Human-executed controlled local/dev StudentAccess DB application`.
+* Scope: Mauricio runs the exact local PowerShell command with absolute path and explicit schema, then reports output without secrets.
+
+Final verdict:
+
+```text
+READY_FOR_HUMAN_EXECUTED_LOCAL_DEV_DB_APPLICATION
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
