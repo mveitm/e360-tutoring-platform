@@ -13883,6 +13883,139 @@ Final verdict:
 STUDENT_ACCESS_BACKFILL_APPLIED_LOCAL_DEV
 ```
 
+## MVP-SALES-TRIAL-3B - StudentAccess backfill closeout and signup default-row readiness
+
+Status: STUDENT_ACCESS_BACKFILL_CLOSED_READY_FOR_SIGNUP_DEFAULT_ROW - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `f34fd43`.
+* Last accepted commit = `MVP-SALES-TRIAL-3A: apply StudentAccess backfill local dev`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-3A` closed at `f34fd43`.
+* This phase closes out the successful local/dev StudentAccess backfill and defines readiness for a future signup default-row implementation.
+* Documentation/readiness only.
+
+3A closeout summary:
+
+* Backfill applied in local/dev.
+* Inserted StudentAccess rows: `12`.
+* `backfill_existing_active_enrollment = 9`.
+* `backfill_no_active_enrollment_no_access = 3`.
+* Post-write verification passed.
+* Existing StudentAccess rows: `12`.
+* Missing StudentAccess rows: `0`.
+* Ambiguous records: `0`.
+* Validation failures: `0`.
+
+What 3A now makes true:
+
+* Local/dev existing Student row coverage exists for the current 12 Student records.
+* Missing StudentAccess rows are no longer expected for the current 12 local/dev students.
+* Future StudentAccess-aware reads can now be designed from a covered local/dev baseline, but no such reads were implemented in 3B.
+
+What 3A does not make true:
+
+* No signup default-row behavior.
+* No `/now` read behavior.
+* No admin read behavior.
+* No admin mutation.
+* No `AuditEvent` writes.
+* No billing/subscription linkage.
+* No runtime enforcement/access blocking.
+* No staging/prod row coverage.
+* No Program/LearningCycle/StudyLoad or Block 7 behavior.
+
+Signup default-row readiness:
+
+* Future signup should create a StudentAccess row after User and Student creation.
+* Candidate pair: `accessStatus = no_access`, `trialStatus = none`.
+* `subscriptionStatus = none`.
+* Trial timestamps, `tutoringDirection`, and `continuityTarget` should be null.
+* Decision fields should be `lastDecisionBy = system`, `lastDecisionAt = deterministic creation instant`, and `lastDecisionReason = public_signup_default_no_access`.
+* The future implementation should call `validateStudentAccessSnapshot` before writing.
+* The signup transaction should remain atomic: User, Student, and StudentAccess should all commit together or all roll back.
+* Duplicate email behavior and the admin email block should remain unchanged.
+* Signup must not create Program, LearningCycle, StudyLoad, trial activation, billing, subscription truth, enrollment, student work, or Block 7 behavior.
+
+Future implementation forecast:
+
+* Likely edit: `nextjs_space/app/api/signup/route.ts`.
+* Likely import: `validateStudentAccessSnapshot` from `nextjs_space/lib/student-access-validation`.
+* No schema/package/UI/`/now`/admin/helper/script changes expected for the narrow implementation.
+
+Future verification plan:
+
+* Create a safe local/dev public signup test account.
+* Confirm User, Student, and exactly one StudentAccess row exist for the test account.
+* Confirm the new StudentAccess row is `no_access + none` with expected null fields, `subscriptionStatus = none`, and decision fields.
+* Confirm no Program/LearningCycle/StudyLoad/enrollment was created.
+* Confirm `/now` and admin behavior remain unchanged.
+* Confirm the 12 existing StudentAccess rows remain unchanged.
+
+Stop rules for 3C:
+
+* Stop on dirty Git, baseline mismatch, schema drift, helper validation failure, signup route scope expansion, required `.env` or secret inspection, default-row behavior implying enrollment/program/work, or unexpected package/schema changes.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-3C - Implement signup StudentAccess default row`.
+* Scope: implement only the validated public signup default StudentAccess row inside the existing signup transaction; no `/now`, admin, billing, enrollment, Program/LearningCycle/StudyLoad, runtime enforcement, or UI behavior.
+
+Verification:
+
+* `git diff --check`: passed with only the existing line-ending warning for `PHASE_LOG.md`.
+* `git diff --stat`: `PHASE_LOG.md | 133 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`.
+* `git status --short`: `M PHASE_LOG.md`; untracked 3B closeout/readiness document.
+
+Non-goals preserved:
+
+* No app code changes.
+* No signup route changes.
+* No helper code changes.
+* No dry-run script changes.
+* No apply script changes.
+* No test code changes.
+* No schema edit.
+* No package change.
+* No package-lock change.
+* No npm install.
+* No Prisma db push.
+* No Prisma migrate.
+* No Prisma generate.
+* No DB mutation.
+* No DB read.
+* No SQL.
+* No seed.
+* No `.env` inspection or printing.
+* No secrets printed.
+* No UI/admin change.
+* No signup default-row implementation.
+* No `/now` read integration.
+* No admin read integration.
+* No mutation endpoints.
+* No `AuditEvent` writes.
+* No billing/payment/subscription integration.
+* No Program/LearningCycle/StudyLoad changes.
+* No enrollment automation.
+* No Block 7.
+* No deploy.
+* No generated PDF/DOCX artifacts.
+* No commit.
+* No push.
+
+Final verdict:
+
+```text
+STUDENT_ACCESS_BACKFILL_CLOSED_READY_FOR_SIGNUP_DEFAULT_ROW
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
