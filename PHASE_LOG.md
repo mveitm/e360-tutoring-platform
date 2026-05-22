@@ -16725,3 +16725,111 @@ Final verdict:
 ```text
 GOVERNANCE_BASELINE_CREATED
 ```
+
+## MVP-GOV-CONTEXT-2 - Create phase context gate protocol
+
+Status: PHASE_CONTEXT_GATE_PROTOCOL_CREATED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `709944a`.
+* Last accepted commit = `MVP-GOV-CONTEXT-1: define product horizons and sales-readiness gates`.
+* Working tree was clean before this documentation/governance-only phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Governance/documentation only.
+* Created the mandatory Context Gate protocol that every future phase must complete before design, implementation, verification, or commit.
+* No application implementation was authorized or performed.
+
+Files changed:
+
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `PHASE_LOG.md`.
+
+Summary:
+
+* Defined the Context Gate as a required pre-phase checkpoint.
+* Required every future phase to reference `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* Required every future phase to declare one of: `MVP-Beta-Pre-Sales-Ready`, `MVP-Beta-Sales-Ready`, `Later MVP-Alpha`, or `Roadmap change control required`.
+* Restated the GOV-CONTEXT-1 truth hierarchy and clarified that chat memory never overrides Git or canonical versioned docs.
+* Added the exact mandatory Context Gate template for future phases.
+* Defined field meanings, minimum stop rules, product/UI document availability handling, and required future use.
+* Completed the protocol with the No Phase From Memory Rule, Commercial Non-Goals Rule, Student Experience Rule, Roadmap Change Control Rule, and Phase-Type Examples.
+* Corrected the Required Use verification sentence so verification phases explicitly cover smoke, build, browser, database, staging, production, and external-service verification activity.
+
+Product/strategic rationale:
+
+* The protocol prevents future technical phases from drifting away from Git truth, canonical documentation, product horizon, commercial promise, student experience, brand risk, and roadmap governance.
+* It protects the GOV-CONTEXT-1 strategic correction that M1-only is not the public Sales-Ready commercial face.
+* It requires roadmap change-control checks before phases affect public offer, trial, subscription, payment, student-facing promise, program coverage, tutor/admin workload, brand, or Sales-Ready.
+
+Commercial non-goals:
+
+* No public offer change.
+* No commercial promise change.
+* No public Sales-Ready claim.
+* No payment, subscription, trial, pricing, or conversion-path change.
+* No student-facing promise change.
+* No brand/visual implementation change.
+
+Technical non-goals:
+
+* No StudentAccess helper TypeScript fix.
+* No `MVP-SALES-TRIAL-3C-FIX`.
+* No signup implementation.
+* No auth change.
+* No access runtime enforcement.
+* No billing, payment, subscription, or trial activation.
+* No admin mutation.
+* No `/now` behavior change.
+* No UI implementation.
+* No staging or production work.
+* No `schema.prisma` change.
+* No `package.json` or `package-lock.json` change.
+* No Prisma command.
+* No DB command.
+* No SQL.
+* No seed script change.
+* No build.
+* No deploy.
+* No commit.
+* No push.
+
+Guardrails:
+
+* Git preflight actual remains the living truth.
+* Future phases must complete the Context Gate before design, implementation, verification, or commit.
+* No future phase may be designed or implemented from chat memory alone.
+* Every phase must declare commercial non-goals and student experience impact.
+* Missing product/UI Word documents may be recorded for narrow governance work, but future broader GOV-CONTEXT, canonicality, product direction, UI direction, brand direction, and public-offer phases must request the files or a fresh synthesis before closing.
+* The active product horizon reclassification cannot be reversed inside a technical phase.
+
+Optional/local context notes:
+
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md` exists and was reviewed.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md` exists and was reviewed.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` exists and was reviewed.
+* The three named Word documents were not found as versioned files in the repository search:
+  * `Mvp Ui Flow 1 Secuencia Canonica Bexauri Cierre Dia.docx`
+  * `MVeit-Bexauri-Definicion de Producto.docx`
+  * `Bexauri_Guia_Identidad_Visual_v1_1.docx`
+
+Verification performed:
+
+* `git status --short` before edits: clean.
+* `git log --oneline --decorate --graph -8` before edits: `709944a` at `HEAD`, `origin/main`, and `origin/HEAD`.
+* Required docs reviewed: `PHASE_LOG.md -Tail 1400`, GOV-CONTEXT-1 governance document, 3C, 3B, and 3A operation docs.
+* Optional docs reviewed: current M1 handoff, documentation index, and context-transfer template.
+* Final `git status --short`: `M PHASE_LOG.md`; untracked Context Gate protocol document.
+* Final `git diff --stat`: `PHASE_LOG.md | 108 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`; untracked Context Gate protocol document not included by Git diff stat.
+* Final `git diff --check`: passed with the existing Git line-ending warning that `PHASE_LOG.md` LF will be replaced by CRLF the next time Git touches it.
+* Final `Get-Content PHASE_LOG.md -Tail 180`: confirmed GOV-CONTEXT-2 remains at the true end.
+* Final `Get-Content nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md | Select-Object -First 280`: confirmed the completed protocol sections are present.
+
+Final verdict:
+
+```text
+PHASE_CONTEXT_GATE_PROTOCOL_CREATED
+```
