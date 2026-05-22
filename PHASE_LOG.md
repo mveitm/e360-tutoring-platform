@@ -12291,7 +12291,7 @@ Explicit non-goals preserved:
 
 ## MVP-SALES-TRIAL-2K - Final owner target confirmation before DB push
 
-Status: BLOCKED_BY_MISSING_BACKUP_OR_SNAPSHOT - commit pending Mauricio review
+Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
 
 Baseline:
 
@@ -12363,6 +12363,131 @@ Final verdict:
 
 ```text
 BLOCKED_BY_MISSING_BACKUP_OR_SNAPSHOT
+```
+
+Non-goals preserved:
+
+* No app code change.
+* No `schema.prisma` edit.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No DB mutation.
+* No Prisma CLI.
+* No db push.
+* No migrate.
+* No migration file.
+* No Prisma generate.
+* No Prisma validate.
+* No Prisma Studio.
+* No introspection.
+* No seed.
+* No dev server.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No student account.
+* No `StudentAccess` row.
+* No backfill.
+* No default-row behavior.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student row edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No `/now` change.
+* No admin UI.
+* No Block 7.
+* No User/Student FK hardening.
+* No commit.
+* No push.
+
+## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
+
+Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `3c774dc`.
+* Last accepted commit = `MVP-SALES-TRIAL-2K: confirm StudentAccess DB target`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2K` closed at `3c774dc`.
+* This phase checked whether backup/snapshot confirmation exists for the shared local/dev Neon dev project `e360-bexauri-dev` before any future controlled DB push for `student_access`. Documentation/readiness only.
+
+Inputs reviewed:
+
+* TRIAL-2K, TRIAL-2J, TRIAL-2I, TRIAL-2H, phase gate, `PHASE_LOG.md -Tail 1320`, `nextjs_space/prisma/schema.prisma`, and `nextjs_space/package.json`.
+* Read-only operation signals: `Get-ChildItem nextjs_space/prisma`, `Get-ChildItem nextjs_space/scripts`, `nextjs_space/scripts/safe-seed.ts`, and read-only `rg` for backup/snapshot/Neon/e360-dev/Prisma DB command references excluding `.env`, `.next`, `node_modules`, and logs.
+* `PHASE_LOG.md -Tail 1320` did not include the accepted TRIAL-2K entry even though Git preflight and the TRIAL-2K document establish the accepted baseline. Git preflight wins.
+
+Starting point after TRIAL-2K:
+
+* `StudentAccess` exists schema-only.
+* Target DB was confirmed as local/dev Neon dev project `e360-bexauri-dev`, with source branch label `production` as a non-secret Neon branch label.
+* Target is not staging.
+* Target is not production.
+* DB is shared.
+* Data loss is not acceptable.
+* Backup/snapshot is required before mutation.
+* No DB application has happened.
+* No `StudentAccess` rows, signup default-row behavior, backfill, runtime, `/now`, student UI, admin UI, or admin operation exist.
+
+Backup/snapshot confirmation status:
+
+* CONFIRMED.
+* Mauricio provided complete non-secret backup/snapshot confirmation after the initial TRIAL-2L draft.
+
+Confirmed/missing backup details:
+
+* target: Neon dev project `e360-bexauri-dev`.
+* source branch label, non-secret: `production`.
+* environment class: local/dev.
+* not staging: yes.
+* not production: yes.
+* DB status: shared.
+* snapshot/backup status: confirmed.
+* snapshot/backup non-secret label: `backup-before-student-access-db-push-2026-05-21`.
+* snapshot/backup taken before mutation: yes.
+* snapshot/backup expiration: extended to `2026-06-20 20:41 -04:00`.
+* data loss acceptable: no.
+* authorization scope: future controlled DB push for `student_access` only.
+* Prisma generate after successful DB push: yes, if included in that future phase.
+
+Future command authorization status:
+
+* `npx.cmd prisma db push`: READY_FOR_NEXT_PHASE, subject to all stop rules and exact target confirmation.
+* `npx.cmd prisma generate`: may run only after successful future DB push and only if explicitly included in that phase.
+
+Stop rules:
+
+* Stop on dirty Git or `HEAD`/`origin/main` mismatch.
+* Stop if target is not Neon dev project `e360-bexauri-dev` in local/dev context.
+* Stop if command may touch staging or real production.
+* Stop on drift ambiguity.
+* Stop on reset prompt.
+* Stop on destructive warning.
+* Stop on target ambiguity.
+* Stop on missing backup/snapshot for shared DB.
+* Stop if secrets would be printed or `.env` inspection would be needed.
+* Stop if Prisma proposes data loss.
+* Stop if any command or prompt suggests `--force-reset`.
+* Stop if schema diff exceeds accepted StudentAccess schema state.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2M - Controlled local/dev StudentAccess DB application`.
+* Scope: apply `student_access` to confirmed local/dev Neon dev project `e360-bexauri-dev` only, with `npx.cmd prisma db push`, then run `npx.cmd prisma generate` only after successful DB push if explicitly included in that phase.
+
+Final verdict:
+
+```text
+READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION
 ```
 
 Non-goals preserved:
