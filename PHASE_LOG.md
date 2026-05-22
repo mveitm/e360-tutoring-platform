@@ -13202,6 +13202,102 @@ Final verdict:
 STUDENT_ACCESS_HELPER_CLOSED_READY_FOR_ROW_LIFECYCLE_READINESS
 ```
 
+## MVP-SALES-TRIAL-2V - StudentAccess default-row and backfill policy readiness
+
+Status: STUDENT_ACCESS_ROW_LIFECYCLE_POLICY_READY - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `e1e9e49`.
+* Last accepted commit = `MVP-SALES-TRIAL-2U: close StudentAccess helper boundary`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2U` closed at `e1e9e49`.
+* This phase defined StudentAccess row lifecycle policy before signup default-row implementation, existing-student backfill, read integration, mutation endpoints, admin workflows, billing linkage, or runtime enforcement.
+* Documentation/readiness only.
+
+Inputs reviewed:
+
+* TRIAL-2U, TRIAL-2T, TRIAL-2R, TRIAL-2Q, TRIAL-2F, phase gate, and `PHASE_LOG.md` tail relevant to TRIAL-2Q through TRIAL-2U.
+* Read-only inspected `schema.prisma`, signup route, `/now`, admin student detail, and the pure StudentAccess validation helper.
+
+Policy summary:
+
+* Future public signup default row should be `no_access + none`, with null trial timestamps, `subscriptionStatus = none`, null planning fields, `lastDecisionBy = system`, deterministic `lastDecisionAt`, and `lastDecisionReason = public_signup_default_no_access`.
+* Future default-row writes must validate the candidate with the pure helper and stop on validation errors.
+* Existing students without active enrollment should backfill to `no_access + none`.
+* Existing students with active enrollment should backfill to `enrolled_active_program + none`.
+* Ambiguous, stale, semi-seed, multi-active-enrollment, identity-linkage, or inconsistent states should be reported by a dry-run before any write.
+* Backfill applies only to existing `Student` records; admin/test/QA users without Student rows do not receive StudentAccess rows.
+* Missing StudentAccess rows are expected legacy state before backfill; after row coverage they become a data integrity stop condition for StudentAccess-aware reads/writes.
+* StudentAccess remains access-state only and does not create Program, LearningCycle, StudyLoad, enrollment automation, content, billing truth, or Block 7 behavior.
+
+Future mutation guardrails:
+
+* Local/dev first.
+* Staging/prod not authorized.
+* Backup/snapshot required for shared DB mutation.
+* Stop on Git drift, target ambiguity, schema drift, destructive Prisma prompts, reset prompts, unexpected candidate counts, unresolved ambiguity, validation failure, or scope expansion.
+* No force reset, raw SQL, `.env` access, or secrets printed unless separately authorized by a future phase.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2W - StudentAccess backfill dry-run and row coverage readiness`.
+* Scope: define or perform a no-write row coverage dry-run/readiness step before signup default-row implementation, actual backfill, admin reads, `/now` reads, or runtime enforcement.
+
+Files changed:
+
+* Created `nextjs_space/docs/operations/MVP_SALES_TRIAL_2V_STUDENT_ACCESS_DEFAULT_ROW_AND_BACKFILL_POLICY_READINESS.md`.
+* Updated `PHASE_LOG.md`.
+
+Verification:
+
+* `git diff --check`: passed with only the existing line-ending warning for `PHASE_LOG.md`.
+* `git diff --stat`: `PHASE_LOG.md | 96 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`.
+* `git status --short`: `M PHASE_LOG.md`; untracked 2V readiness document.
+
+Non-goals preserved:
+
+* No app code changes.
+* No helper code changes.
+* No test code changes.
+* No schema edit.
+* No package change.
+* No package-lock change.
+* No npm install.
+* No Prisma CLI.
+* No DB mutation.
+* No SQL.
+* No seed.
+* No `.env` access.
+* No secrets printed.
+* No UI/admin change.
+* No signup default-row implementation.
+* No backfill implementation.
+* No `/now` read integration.
+* No admin read integration.
+* No mutation endpoints.
+* No `AuditEvent` writes.
+* No billing/payment/subscription integration.
+* No Program/LearningCycle/StudyLoad.
+* No enrollment automation.
+* No Block 7.
+* No deploy.
+* No generated PDF/DOCX artifacts.
+* No commit.
+* No push.
+
+Final verdict:
+
+```text
+STUDENT_ACCESS_ROW_LIFECYCLE_POLICY_READY
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
