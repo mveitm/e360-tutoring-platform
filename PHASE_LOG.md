@@ -14016,6 +14016,110 @@ Final verdict:
 STUDENT_ACCESS_BACKFILL_CLOSED_READY_FOR_SIGNUP_DEFAULT_ROW
 ```
 
+## MVP-SALES-TRIAL-3C - Implement signup StudentAccess default row
+
+Status: BLOCKED_BY_HELPER_VALIDATION_CONTRACT - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `c415e65`.
+* Last accepted commit = `MVP-SALES-TRIAL-3B: close backfill and prepare signup default row`.
+* Working tree was clean before this implementation phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-3B` closed at `c415e65`.
+* This phase attempted the narrow public signup StudentAccess default row only.
+* Final outcome: blocked before leaving a signup route change because app build surfaced a helper TypeScript contract issue outside the allowed 3C edit scope.
+
+Files changed:
+
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_IMPLEMENT_SIGNUP_STUDENT_ACCESS_DEFAULT_ROW.md`.
+* `PHASE_LOG.md`.
+
+Implementation summary:
+
+* Intended change: update signup to create a default StudentAccess row inside the existing User + Student transaction.
+* Intended default row: `accessStatus = no_access`, `trialStatus = none`, `subscriptionStatus = none`, null trial timestamps, null tutoring direction, null continuity target, `lastDecisionBy = system`, `lastDecisionAt = decisionInstant`, and `lastDecisionReason = public_signup_default_no_access`.
+* The attempted route change used `validateStudentAccessSnapshot`.
+* `next build` failed inside `nextjs_space/lib/student-access-validation.ts` with a TypeScript indexing error at `LEGAL_STUDENT_ACCESS_PAIRS[input.accessStatus]`.
+* Helper changes are an explicit 3C non-goal, so the signup route change was not left in place.
+* The final diff preserves existing signup behavior.
+
+Validation helper usage:
+
+* Future 3C reattempt must use `validateStudentAccessSnapshot(studentAccessCandidate, { now: decisionInstant })` before write.
+* Current blocker: app build cannot accept the helper as-is because of the helper TypeScript contract issue.
+* If validation fails in the future route implementation, signup should return the existing safe server-error message and write nothing.
+* If StudentAccess creation fails inside the future transaction, User and Student creation should roll back with the transaction.
+
+Behavior preserved:
+
+* Duplicate email behavior unchanged.
+* Admin email block unchanged.
+* Request validation unchanged.
+* Password hashing unchanged.
+* Response shape unchanged.
+* No UI behavior changed.
+
+Verification:
+
+* `git diff --check`: passed with line-ending warnings for `PHASE_LOG.md` and `nextjs_space/app/api/signup/route.ts`.
+* `npx.cmd tsx lib/student-access-validation.test.ts`: passed.
+* `npm.cmd run build`: failed during type checking on the existing helper contract issue in `nextjs_space/lib/student-access-validation.ts` at `LEGAL_STUDENT_ACCESS_PAIRS[input.accessStatus]`.
+* `git diff --stat`: `PHASE_LOG.md | 104 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`.
+* `git status --short`: `M PHASE_LOG.md`; untracked 3C implementation/blocker document.
+
+Non-goals preserved:
+
+* No `/now` changes.
+* No admin changes.
+* No UI changes.
+* No helper changes.
+* No schema edit.
+* No package change.
+* No package-lock change.
+* No npm install.
+* No Prisma db push.
+* No Prisma migrate.
+* No Prisma generate.
+* No SQL.
+* No seed.
+* No `.env` inspection or printing.
+* No secrets printed.
+* No dry-run script changes.
+* No apply script changes.
+* No billing/payment/subscription integration.
+* No trial invitation.
+* No trial activation.
+* No subscription truth.
+* No runtime enforcement/access blocking.
+* No Program creation.
+* No Enrollment creation.
+* No LearningCycle creation.
+* No StudyLoad creation.
+* No Block 7.
+* No `AuditEvent` writes.
+* No staging/prod work.
+* No deploy.
+* No generated PDF/DOCX artifacts.
+* No commit.
+* No push.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-3C-FIX - Repair StudentAccess validation helper app-build contract`.
+* Scope: fix the helper TypeScript contract issue surfaced by app build, then reattempt the narrow signup default-row implementation; keep `/now`, admin, billing, enrollment, Program/LearningCycle/StudyLoad, runtime enforcement, and UI behavior unchanged.
+
+Final verdict:
+
+```text
+BLOCKED_BY_HELPER_VALIDATION_CONTRACT
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
