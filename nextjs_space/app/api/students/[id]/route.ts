@@ -17,6 +17,17 @@ export async function GET(
     const student = await prisma.student.findUnique({
       where: { id: params.id },
       include: {
+        access: {
+          select: {
+            accessStatus: true,
+            trialStatus: true,
+            subscriptionStatus: true,
+            lastDecisionReason: true,
+            lastDecisionBy: true,
+            lastDecisionAt: true,
+            trialExpiresAt: true,
+          },
+        },
         programInstances: {
           orderBy: { createdAt: 'desc' },
           include: {

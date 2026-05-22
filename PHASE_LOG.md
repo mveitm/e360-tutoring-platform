@@ -17869,3 +17869,149 @@ Final verdict:
 ```text
 ADMIN_STUDENT_ACCESS_READ_ONLY_VISIBILITY_READY_FOR_IMPLEMENTATION
 ```
+
+## MVP-SALES-TRIAL-3G - Implement admin student detail read-only StudentAccess visibility
+
+Status: Completed.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `8724d54`.
+* Latest accepted commit: `MVP-SALES-TRIAL-3F: define admin StudentAccess read-only visibility readiness`.
+* Working tree expected: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `8724d54` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Scope:
+
+* Narrow technical implementation of admin-only read-only `StudentAccess` visibility on the existing admin student detail page.
+* No mutations, trial activation, runtime enforcement, subscription/payment, signup changes, `/now`, student UI, schema, Prisma, DB, staging/prod, deploy, commit, or push.
+
+Context Gate summary:
+
+* Phase type: technical implementation, narrow admin read-only visibility.
+* Product horizon: MVP-Beta-Pre-Sales-Ready support.
+* Roadmap block: StudentAccess/signup-access foundation after 3F admin read-only visibility readiness.
+* Context Gate decision: GO.
+* Reason: Git preflight matched, admin detail route and component existed, 3F defined the implementation target, and the scope remained limited to the allowed files.
+* Roadmap change control: not required because this phase adds admin-only read-only visibility with no public offer, commercial promise, student-facing UI/copy, trial, subscription, payment, program coverage, runtime enforcement, or mutation change.
+
+Docs read:
+
+* `PHASE_LOG.md -Tail 3200`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3F_ADMIN_READ_ONLY_STUDENT_ACCESS_VISIBILITY_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3E_CONTROLLED_LOCAL_DEV_SIGNUP_DEFAULT_ROW_SMOKE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3D_IMPLEMENT_SIGNUP_STUDENT_ACCESS_DEFAULT_ROW_AFTER_HELPER_FIX.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_FIX_REPAIR_STUDENT_ACCESS_VALIDATION_HELPER_CONTRACT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3B_STUDENT_ACCESS_BACKFILL_CLOSEOUT_AND_SIGNUP_DEFAULT_ROW_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2V_STUDENT_ACCESS_DEFAULT_ROW_AND_BACKFILL_POLICY_READINESS.md`.
+
+Source files inspected:
+
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/app/api/students/[id]/route.ts`.
+* `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+* `nextjs_space/app/admin/students/[id]/page.tsx`.
+* `nextjs_space/app/admin/layout.tsx`.
+
+Files changed:
+
+* `nextjs_space/app/api/students/[id]/route.ts`.
+* `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3G_IMPLEMENT_ADMIN_STUDENT_DETAIL_READ_ONLY_STUDENT_ACCESS_VISIBILITY.md`.
+* `PHASE_LOG.md`.
+
+Route response change:
+
+* Extended the existing admin student detail `GET /api/students/[id]` query with a narrow optional `access` select.
+* Selected only `accessStatus`, `trialStatus`, `subscriptionStatus`, `lastDecisionReason`, `lastDecisionBy`, `lastDecisionAt`, and `trialExpiresAt`.
+* Preserved existing auth guard behavior, enrollment/program/cycle selection, user-account lookup, and response shape except for adding optional `access`.
+* Did not change existing `PUT` or `DELETE` handlers.
+
+UI panel summary:
+
+* Added a `StudentAccess` read-only panel to `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+* The panel is on the admin student detail page below the identity header and before existing account/enrollment controls.
+* The panel includes admin-only copy: `Internal access state. Read-only. Does not activate trial, subscription, enrollment, or runtime access.`
+* The panel has no buttons, form fields, mutation calls, or repair actions.
+
+Fields shown:
+
+* `StudentAccess row`: present or missing-row warning.
+* `Access state`.
+* `Trial state`.
+* `Subscription state`.
+* `Last decision reason`.
+* `Last decision by`.
+* `Last decision at`.
+* `Trial expires at`, null-safe and shown as `Not set` when absent.
+
+Fields excluded:
+
+* `trialInvitedAt`.
+* `trialActivatedAt`.
+* `trialExperienceUsedAt`.
+* `tutoringDirection`.
+* `continuityTarget`.
+* Raw `StudentAccess` technical IDs.
+* Trial invitation or activation controls.
+* Subscription/payment actions.
+* Runtime enforcement controls.
+* Student-facing copy.
+
+Missing-row handling:
+
+* If `student.access` is missing, the admin panel shows `StudentAccess row: Missing`.
+* It also shows: `StudentAccess row missing. Do not treat as no access automatically. Investigate row lifecycle before enabling StudentAccess-dependent reads or mutations.`
+* The implementation does not infer `no_access`, auto-create a row, or offer a repair button.
+
+Verification performed:
+
+* `git diff --check`: passed with Git line-ending warnings only.
+* `npm.cmd run build` from `nextjs_space`: passed; Next.js compiled successfully and type checking completed successfully.
+* Final `git status --short`: `M PHASE_LOG.md`, `M nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`, `M nextjs_space/app/api/students/[id]/route.ts`, and untracked `nextjs_space/docs/operations/MVP_SALES_TRIAL_3G_IMPLEMENT_ADMIN_STUDENT_DETAIL_READ_ONLY_STUDENT_ACCESS_VISIBILITY.md`.
+* Final `git diff --stat`: `PHASE_LOG.md`, `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`, and `nextjs_space/app/api/students/[id]/route.ts` changed; untracked operation doc is not included in Git diff stat.
+* Final `git diff --check`: passed with Git line-ending warnings only.
+* Targeted `StudentAccess` field search confirmed the new route select and admin read-only panel references.
+* Targeted mutation-term search returned pre-existing admin student update/delete, create-user, reset-password, and enrollment actions plus the new read-only subscription-state display/copy. No new `StudentAccess` mutation path, repair button, create/update/delete path, trial activation, runtime enforcement, signup change, subscription/payment behavior, student UI, `/now`, schema, Prisma, or DB change was added.
+* Final `.docx` status check: no `.docx` files added.
+* Final `Get-Content PHASE_LOG.md -Tail 180`: confirmed 3G remains at the true end.
+* Final `Get-Content nextjs_space/docs/operations/MVP_SALES_TRIAL_3G_IMPLEMENT_ADMIN_STUDENT_DETAIL_READ_ONLY_STUDENT_ACCESS_VISIBILITY.md | Select-Object -First 260`: confirmed operation doc content present.
+
+Commercial non-goals:
+
+* No public offer change.
+* No commercial promise change.
+* No Sales-Ready claim.
+* No Pre-Sales validation expansion.
+* No brand implementation change.
+* No trial activation.
+* No subscription change.
+* No payment change.
+* No sale change.
+* No student-facing promise change.
+
+Student experience impact:
+
+* No student-facing behavior change.
+* No student UI, `/now`, signup copy, onboarding, trial, access runtime, payment, subscription, program, enrollment, cycle, or study-load behavior changed.
+
+Technical non-goals:
+
+* No `StudentAccess` mutations.
+* No POST/PATCH/DELETE for `StudentAccess`.
+* No repair buttons or missing-row auto-creation.
+* No signup/auth/login/runtime enforcement/trial/billing/subscription/payment/program/enrollment/cycle/load changes.
+* No `/now`, student UI, public copy, admin student list, staging/prod, schema, Prisma, DB, SQL, seed, deploy, commit, or push.
+* No secrets, passwords, tokens, database URLs, API keys, raw environment values, raw cookies, or `.docx` files.
+
+Final verdict:
+
+```text
+ADMIN_STUDENT_ACCESS_READ_ONLY_VISIBILITY_IMPLEMENTED
+```

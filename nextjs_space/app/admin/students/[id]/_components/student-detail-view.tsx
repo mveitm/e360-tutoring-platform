@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, Users, Loader2, Calendar, Mail, Link2, GraduationCap, ExternalLink, RefreshCw, Plus, Search, KeyRound, Eye, EyeOff, UserPlus } from 'lucide-react'
+import { AlertTriangle, ArrowLeft, Users, Loader2, Calendar, Mail, Link2, GraduationCap, ExternalLink, RefreshCw, Plus, Search, KeyRound, Eye, EyeOff, UserPlus, ShieldCheck } from 'lucide-react'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
@@ -28,6 +28,15 @@ interface StudentDetail {
   createdAt: string
   hasUserAccount: boolean
   userAccountEmail: string | null
+  access: {
+    accessStatus: string
+    trialStatus: string
+    subscriptionStatus: string
+    lastDecisionReason: string | null
+    lastDecisionBy: string | null
+    lastDecisionAt: string | null
+    trialExpiresAt: string | null
+  } | null
   programInstances: EnrollmentItem[]
 }
 
@@ -218,6 +227,8 @@ export function StudentDetailView() {
     try { return new Date(d).toLocaleDateString('es-CL', { day: '2-digit', month: 'short', year: 'numeric' }) } catch { return '—' }
   }
 
+  const displayValue = (value: string | null | undefined) => value && value.trim() ? value : 'Not set'
+
   if (loading) {
     return (
       <div className="flex justify-center py-20">
@@ -271,6 +282,42 @@ export function StudentDetailView() {
               </p>
             </div>
           </div>
+        </CardContent>
+      </Card>
+
+      {/* StudentAccess read-only state */}
+      <Card>
+        <CardContent className="py-5">
+          <h2 className="font-display text-lg font-semibold tracking-tight flex items-center gap-2 mb-2">
+            <ShieldCheck className="w-5 h-5 text-primary" /> StudentAccess
+          </h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Internal access state. Read-only. Does not activate trial, subscription, enrollment, or runtime access.
+          </p>
+          {student.access ? (
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <ReadOnlyAccessField label="StudentAccess row" value="Present" />
+              <ReadOnlyAccessField label="Access state" value={student.access.accessStatus} />
+              <ReadOnlyAccessField label="Trial state" value={student.access.trialStatus} />
+              <ReadOnlyAccessField label="Subscription state" value={student.access.subscriptionStatus} />
+              <ReadOnlyAccessField label="Last decision reason" value={displayValue(student.access.lastDecisionReason)} />
+              <ReadOnlyAccessField label="Last decision by" value={displayValue(student.access.lastDecisionBy)} />
+              <ReadOnlyAccessField label="Last decision at" value={fmt(student.access.lastDecisionAt)} />
+              <ReadOnlyAccessField label="Trial expires at" value={student.access.trialExpiresAt ? fmt(student.access.trialExpiresAt) : 'Not set'} />
+            </div>
+          ) : (
+            <div className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+              <div className="flex items-start gap-2">
+                <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" />
+                <div>
+                  <p className="font-medium">StudentAccess row: Missing</p>
+                  <p className="mt-1">
+                    StudentAccess row missing. Do not treat as no access automatically. Investigate row lifecycle before enabling StudentAccess-dependent reads or mutations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
 
@@ -532,6 +579,15 @@ export function StudentDetailView() {
           </>
         )}
       </section>
+    </div>
+  )
+}
+
+function ReadOnlyAccessField({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-md border border-border bg-muted/30 px-3 py-2">
+      <p className="text-xs text-muted-foreground">{label}</p>
+      <p className="mt-1 break-words text-sm font-medium">{value}</p>
     </div>
   )
 }
