@@ -18015,3 +18015,163 @@ Final verdict:
 ```text
 ADMIN_STUDENT_ACCESS_READ_ONLY_VISIBILITY_IMPLEMENTED
 ```
+
+## MVP-SALES-TRIAL-3H - Controlled admin detail read-only StudentAccess smoke
+
+Status: PASS.
+
+Type: Verification / smoke.
+
+Date: 2026-05-22.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `8850897`.
+* Latest accepted commit: `MVP-SALES-TRIAL-3G: implement admin StudentAccess read-only visibility`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `8850897` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Scope:
+
+* Controlled local/dev admin smoke for `/admin/students/[id]` and `GET /api/students/[id]`.
+* Verified admin read-only visibility of `StudentAccess` for an existing student with a `StudentAccess` row.
+* Documentation close only; no code, DB, data, migration, deploy, product, runtime, or student-facing changes. Commit/push are limited to this `PHASE_LOG.md` documentation close.
+
+Context Gate:
+
+* Read-only Context Gate completed before documenting the smoke.
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* StudentAccess/signup/admin read-only chain is closed through 3G.
+* 3H was smoke/read-only.
+* 3H did not touch student-facing UX.
+* 3H does not authorize trial activation, runtime enforcement, billing, subscription/payment, `/now`, admin mutations, repair/autocreate, migrations, deploy, or DB changes.
+* Roadmap change control: not required because this phase documents a local/dev admin read-only smoke and changes no product horizon, public offer, commercial promise, student-facing behavior, runtime behavior, trial, subscription, payment, program coverage, or tutor/admin workload.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+
+Human operator smoke evidence:
+
+Preflight:
+
+* `git status --short`: clean.
+* `HEAD`, `origin/main`, and `origin/HEAD`: `8850897`.
+* Result: passed.
+
+Smoke target:
+
+* Environment: local/dev.
+* Route: `/admin/students/[id]`.
+* Auth path: browser already authenticated as admin.
+* Secrets exposed: no.
+
+API verification:
+
+* `GET /api/students/[id]`: HTTP 200.
+* `access` object present: yes.
+* Expected fields present:
+  * `accessStatus`: yes.
+  * `trialStatus`: yes.
+  * `subscriptionStatus`: yes.
+  * `lastDecisionReason`: yes.
+  * `lastDecisionBy`: yes.
+  * `lastDecisionAt`: yes.
+  * `trialExpiresAt`: yes.
+
+Observed non-sensitive values:
+
+* `StudentAccess row`: Present.
+* `accessStatus`: `no_access`.
+* `trialStatus`: `none`.
+* `subscriptionStatus`: `none`.
+* `lastDecisionReason`: `public_signup_default_no_access`.
+* `lastDecisionBy`: `system`.
+* `lastDecisionAt`: `22 may 2026`.
+* `trialExpiresAt`: Not set.
+
+UI verification:
+
+* Admin student detail rendered: yes.
+* `StudentAccess` panel rendered: yes.
+* Fields visible: yes.
+* Missing-row warning shown: no / not applicable because the observed student had a `StudentAccess` row.
+
+Read-only verification:
+
+* Buttons inside the `StudentAccess` panel: none observed.
+* Forms inside the `StudentAccess` panel: none observed.
+* Form fields inside the `StudentAccess` panel: none observed.
+* `StudentAccess` mutation calls observed for `/api/students`: none.
+* Repair/autocreate observed: none.
+
+Missing-row behavior:
+
+* Tested: no.
+* Result: not tested.
+* Reason: observed student had a `StudentAccess` row present.
+* No DB mutation was performed to create, delete, or simulate a missing-row case.
+
+Mutation/code safety:
+
+* Code changed during smoke: no.
+* DB mutated: no.
+* Data created: no.
+* Migrations run: no.
+* Deploy run: no.
+* Commit/push before documentation close: no.
+* Cookies, tokens, secrets, headers, and session payloads exposed: no.
+* Final smoke git status: clean.
+
+Commercial non-goals:
+
+* No public offer change.
+* No commercial promise change.
+* No Sales-Ready claim.
+* No Pre-Sales validation expansion.
+* No brand implementation change.
+* No trial activation.
+* No subscription change.
+* No payment change.
+* No sale change.
+* No student-facing promise change.
+
+Student experience impact:
+
+* No student-facing behavior change.
+* No student UI, `/now`, signup copy, onboarding, trial, access runtime, payment, subscription, program, enrollment, cycle, or study-load behavior changed.
+
+Technical non-goals:
+
+* No code changes.
+* No DB mutation.
+* No data creation.
+* No admin mutation.
+* No repair/autocreate.
+* No runtime access enforcement.
+* No trial activation.
+* No billing, subscription, or payment behavior.
+* No `/now` or student UI behavior.
+* No schema, Prisma, SQL, seed, migration, deploy, runtime, or student-facing behavior changes.
+* No environment values, database URLs, API keys, passwords, cookies, tokens, headers, or session payloads exposed.
+
+Conclusion:
+
+* `MVP-SALES-TRIAL-3H` passed as a controlled read-only admin smoke.
+* This PASS does not mean Sales-Ready.
+* This PASS does not enable runtime access enforcement.
+* This PASS does not activate trials.
+* This PASS does not enable billing, subscription, payment, `/now` changes, student-facing access display, admin mutations, repair/autocreate, or public sales claims.
+
+Result marker:
+
+```text
+MVP_SALES_TRIAL_3H_ADMIN_STUDENT_ACCESS_READ_ONLY_SMOKE_PASS
+```
