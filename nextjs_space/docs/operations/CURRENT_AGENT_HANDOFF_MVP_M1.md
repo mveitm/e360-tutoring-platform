@@ -1,5 +1,120 @@
 # Current Agent Handoff - MVP M1
 
+## Current Governance Handoff — MVP-GOV-CONTEXT-15
+
+This top section supersedes older baseline, roadmap, and handoff-start instructions below when they conflict with Git preflight or GOV-CONTEXT governance docs. Older content remains useful as historical and operational support, but future chats and agents must start here.
+
+### 1. Current Expected Git Baseline
+
+* HEAD = origin/main = `0921197`.
+* Latest accepted commit = `MVP-GOV-CONTEXT-7: create autopropagating handoff protocol v2`.
+* Working tree expected = clean.
+* Git preflight must be run before trusting this handoff.
+* If Git and this handoff disagree, Git wins.
+
+### 2. Required First Commands for Any New Chat/Agent
+
+Run these first:
+
+* `git status --short`
+* `git log --oneline --decorate --graph -8`
+
+### 3. Required Governance Docs to Read First
+
+Read these before proposing, designing, verifying, implementing, committing, or choosing a next phase:
+
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`
+* `PHASE_LOG.md` tail
+
+### 4. Current Product Horizon and Roadmap State
+
+* Current horizon for near work = `MVP-Beta-Pre-Sales-Ready` governance/support unless a Context Gate says otherwise.
+* M1 may be used as a closed lab with 2-3 students.
+* M1-only is not public Sales-Ready.
+* Sales-Ready requires PAES M1, PAES M2, and Competencia Lectora L1 sufficiently operational.
+* Any change requires roadmap change control if it touches public offer, commercial promise, Sales-Ready, Pre-Sales validation, brand, trial, subscription, payment, student-facing promise, program coverage, tutor/admin workload, or L1/M1/M2 scope.
+
+### 5. Mandatory Context Gate Requirement
+
+Every future phase must complete Context Gate before design, implementation, verification, or commit.
+
+* No phase may proceed from chat memory alone.
+* Missing context must be declared.
+* Commercial non-goals and student experience impact must be declared.
+* If Git and handoff disagree, Git wins.
+
+### 6. Current StudentAccess / Signup-Access State
+
+* `StudentAccess` schema exists.
+* DB local/dev `StudentAccess` was applied and verified.
+* 12/12 local/dev students have `StudentAccess`.
+* 9 rows = `backfill_existing_active_enrollment`.
+* 3 rows = `backfill_no_active_enrollment_no_access`.
+* `MVP-SALES-TRIAL-3C` attempted signup default row and is blocked by helper validation contract.
+* 3C did not leave functional signup changes.
+* `MVP-SALES-TRIAL-3C-FIX` is not open yet.
+* Do not return to 3C-FIX until GOV-CONTEXT minimum package is closed and the next Context Gate allows it.
+
+### 7. Active Student Experience Direction
+
+* Student learns inside Bexauri.
+* Bexauri regulates internally.
+* Human supervision protects quality but should not be the normal bottleneck.
+* Direction favors microloads, dynamic/invisible diagnosis, inline feedback, non-blocking continuity, and strategic human oversight.
+* Older long-diagnostic or expert-wait assumptions need reconciliation if they appear in old docs.
+
+### 8. Missing Product/UI/Brand Context
+
+These critical product/UI/brand documents are not currently versioned in the repo unless Git preflight or a fresh search proves otherwise:
+
+* `Mvp Ui Flow 1 Secuencia Canonica Bexauri Cierre Dia.docx`
+* `MVeit-Bexauri-Definicion de Producto.docx`
+* `Bexauri_Guia_Identidad_Visual_v1_1.docx`
+
+Future broader context/canonicality/product/UI/brand/public-offer phases must request those files or a fresh synthesis before closing.
+
+### 9. Superseded / Historical Warnings
+
+* M1-only public Sales-Ready framing is superseded.
+* Any technical phase reversing the strategic reclassification without roadmap change control is forbidden.
+* Older local-only, M1-only, or demo-only baselines may be stale if contradicted by Git or GOV-CONTEXT docs.
+* Older diagnostic-heavy or expert-review-bottleneck assumptions may need reconciliation.
+
+### 10. Next Recommended Phase After This One
+
+After `MVP-GOV-CONTEXT-15` is committed and pushed, the minimum GOV-CONTEXT package is closed.
+
+Next decision should be a direction choice:
+
+* Return to `MVP-SALES-TRIAL-3C-FIX` with a full Context Gate.
+* Run a narrow canonicality/product-context phase to bring or summarize the missing Word docs.
+* Pause at clean governance baseline.
+
+Do not choose the next technical implementation automatically in this phase.
+
+### 11. Explicit Non-Goals for Future Receiving Agent
+
+* Do not start coding without a Context Gate.
+* Do not open 3C-FIX automatically.
+* Do not change signup, auth, access runtime, billing, trial, admin, `/now`, UI, staging, or prod without explicit phase authorization.
+* Do not treat M1-only as public Sales-Ready.
+* Do not ignore missing Word product/UI/brand docs for product/UI/brand/public-offer decisions.
+* Do not print secrets, passwords, tokens, API keys, database URLs, or raw env values.
+
+### 12. Expected First Response From Receiving Agent
+
+A receiving agent should first respond with:
+
+* Confirmation of expected baseline.
+* Strategic reading of situation.
+* Context gaps or contradictions.
+* Whether it has enough context to proceed.
+* Proposed next phase, if any.
+* No code or implementation unless explicitly authorized and Context Gate passes.
+
 ## Current sales-ready active context supersedes M1-centric handoff for roadmap direction
 
 This file remains useful as historical and operational support, but it is no longer the primary sales-ready compass.

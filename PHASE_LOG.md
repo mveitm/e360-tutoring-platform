@@ -17080,3 +17080,133 @@ Final verdict:
 ```text
 AUTOPROPAGATING_HANDOFF_PROTOCOL_V2_CREATED
 ```
+
+## MVP-GOV-CONTEXT-15 - Update current agent handoff with context gate
+
+Status: documentation/governance phase completed; pending review, commit, and push by Mauricio.
+
+Baseline:
+
+* Expected baseline: `HEAD = origin/main = 0921197`.
+* Latest accepted commit: `MVP-GOV-CONTEXT-7: create autopropagating handoff protocol v2`.
+* Working tree expected clean before edits.
+* Git preflight actual before edits:
+  * `git status --short`: clean.
+  * `git log --oneline --decorate --graph -8`: `0921197` at `HEAD`, `origin/main`, and `origin/HEAD`, followed by `6eb6b92`, `e7012b9`, `709944a`, `962af05`, `c415e65`, `f34fd43`, and `3236e64`.
+
+Scope:
+
+* Documentation/governance only.
+* Updated the current agent handoff with the GOV-CONTEXT governance system.
+* Updated `PHASE_LOG.md` at the true end only.
+* No governance protocol documents, documentation index, context-transfer template, code, runtime, schema, package, Prisma, DB, SQL, build, deploy, commit, or push changes.
+
+Context Gate summary:
+
+* Phase: `MVP-GOV-CONTEXT-15 - Update current agent handoff with context gate`.
+* Phase type: documentation/governance.
+* Product horizon: `MVP-Beta-Pre-Sales-Ready` governance support.
+* Roadmap block: `MVP-GOV-CONTEXT - Living memory, roadmap gates and phase context protocol`.
+* Student experience impact: none; no student-facing behavior change.
+* Commercial impact: none; no public offer, Sales-Ready, trial, subscription, payment, or sale change.
+* Roadmap change-control check: not required because this phase updates handoff governance only and does not change product horizons, commercial promise, roadmap, runtime behavior, or public offer.
+* GO decision: GO, because Git preflight matched and edits remained limited to the allowed docs.
+
+Files changed:
+
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `PHASE_LOG.md`.
+
+Docs read:
+
+* `PHASE_LOG.md -Tail 2000`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_IMPLEMENT_SIGNUP_STUDENT_ACCESS_DEFAULT_ROW.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3B_STUDENT_ACCESS_BACKFILL_CLOSEOUT_AND_SIGNUP_DEFAULT_ROW_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3A_CONFIRM_BACKUP_AND_EXECUTE_STUDENT_ACCESS_BACKFILL_APPLY_LOCAL_DEV.md`.
+
+Summary:
+
+* Added a new top section titled `Current Governance Handoff — MVP-GOV-CONTEXT-15`.
+* Updated the handoff starting point with current expected Git baseline, required first commands, required governance docs, current product horizon and roadmap state, mandatory Context Gate requirement, StudentAccess/signup-access state, active student experience direction, missing product/UI/brand context, superseded/historical warnings, next decision options, explicit non-goals, and expected first response for receiving agents.
+* Preserved historical M1 handoff content below the new top section.
+* Made the new top handoff section copy-safe by avoiding markdown triple-backtick fences.
+
+Strategic rationale:
+
+* Closes the minimum GOV-CONTEXT package by making the current agent handoff aware of product horizon gates, Context Gate protocol, Living Memory Index, and Autopropagating Handoff Protocol v2.
+* Ensures future chats start from Git truth and current governance instead of stale M1-only or local-only history.
+* Prevents automatic return to 3C-FIX or any technical implementation without a fresh Context Gate.
+
+Commercial non-goals:
+
+* No public offer change.
+* No commercial promise change.
+* No Sales-Ready claim.
+* No Pre-Sales validation expansion.
+* No brand change.
+* No trial change.
+* No subscription change.
+* No payment change.
+* No sale change.
+* No student-facing promise change.
+
+Technical non-goals:
+
+* No update to `PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* No update to `PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* No update to `LIVING_MEMORY_INDEX.md`.
+* No update to `AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* No update to `DOCUMENTATION_INDEX_MVP_M1.md`.
+* No update to `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* No handoff package zip.
+* No scripts.
+* No classification of every existing document.
+* No unrelated old-doc rewrite.
+* No full canonicality audit.
+* No StudentAccess helper TypeScript fix.
+* No `MVP-SALES-TRIAL-3C-FIX`.
+* No signup, auth, access runtime, billing, trial activation, admin, `/now`, UI, staging/prod, schema, package, Prisma, DB, SQL, seed, build, deploy, commit, or push.
+
+Guardrails:
+
+* Git preflight remains the living truth.
+* Future phases must read the GOV-CONTEXT governance docs and complete Context Gate before design, implementation, verification, or commit.
+* No phase may proceed from chat memory alone.
+* Missing product/UI/brand docs must be treated as critical context gaps.
+* M1-only must not be treated as public Sales-Ready.
+* The active product horizon reclassification cannot be reversed inside a technical phase.
+
+Product/UI context notes:
+
+* The three named Word documents were not found as versioned files in the repository search:
+  * `Mvp Ui Flow 1 Secuencia Canonica Bexauri Cierre Dia.docx`.
+  * `MVeit-Bexauri-Definicion de Producto.docx`.
+  * `Bexauri_Guia_Identidad_Visual_v1_1.docx`.
+* They remain critical product/UI/brand context gaps.
+* Future broader context/canonicality/product/UI/brand/public-offer phases must request these files or a fresh synthesis before closing.
+
+Verification performed:
+
+* `git status --short` before edits: clean.
+* `git log --oneline --decorate --graph -8` before edits: `0921197` at `HEAD`, `origin/main`, and `origin/HEAD`.
+* Product/UI Word document search: not found as versioned repo files.
+* Final `git status --short`: `M PHASE_LOG.md`; `M nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Final `git diff --stat`: `PHASE_LOG.md | 130 +++++++++++++++++++++`; `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md | 115 ++++++++++++++++++`; 2 files changed, 245 insertions.
+* Final `git diff --check`: passed with the existing Git line-ending warnings that `PHASE_LOG.md` and `CURRENT_AGENT_HANDOFF_MVP_M1.md` LF will be replaced by CRLF the next time Git touches them.
+* Final `Select-String` handoff checks: confirmed the new governance section, required Git commands, GOV-CONTEXT docs, `3C-FIX`, `M1-only`, and `Sales-Ready` references are present.
+* Final new-top-section triple-backtick check: passed; no markdown triple-backtick fences in the new top section.
+* Final `Get-Content PHASE_LOG.md -Tail 240`: confirmed GOV-CONTEXT-15 remains at the true end.
+* Final `Get-Content CURRENT_AGENT_HANDOFF_MVP_M1.md | Select-Object -First 220`: confirmed the new top handoff section is present before historical handoff content.
+
+Final verdict:
+
+```text
+CURRENT_AGENT_HANDOFF_GOV_CONTEXT_UPDATED
+```
