@@ -14892,3 +14892,117 @@ Non-goals preserved:
 * No User/Student FK hardening.
 * No commit.
 * No push.
+
+## MVP-SALES-TRIAL-2N - Controlled local/dev StudentAccess DB application retry
+
+Status: BLOCKED_BY_DB_PUSH - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `ce41bbd`.
+* Last accepted commit = `MVP-SALES-TRIAL-2M: document blocked StudentAccess DB application`.
+* Working tree was clean before the controlled DB application retry.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2M` closed at `ce41bbd`.
+* This phase retried controlled local/dev DB application for the already-versioned `StudentAccess` schema, correcting only execution context/connectivity from TRIAL-2M.
+
+Inputs reviewed:
+
+* TRIAL-2M, TRIAL-2L, TRIAL-2K, TRIAL-2G, phase gate, `PHASE_LOG.md -Tail 1450`, `nextjs_space/prisma/schema.prisma`, and `nextjs_space/package.json`.
+* Git preflight matched `HEAD = origin/main = ce41bbd`; historical phase baselines remain historical only.
+
+Target/backup context:
+
+* Target: Neon dev project `e360-bexauri-dev`.
+* Source branch label, non-secret: `production`.
+* Environment class: local/dev.
+* Not staging: yes.
+* Not production: yes.
+* DB status: shared.
+* Backup/snapshot label: `backup-before-student-access-db-push-2026-05-21`.
+* Backup/snapshot expiration: `2026-06-20 20:41 -04:00`.
+* Data loss acceptable: no.
+* Scope: controlled DB push for `student_access` only.
+
+Context correction from 2M:
+
+* 2M first failure: `P1001` / DB not reachable.
+* 2M escalated retry failure: schema not found due execution context.
+* 2N verified `nextjs_space` working directory and `prisma/schema.prisma` before attempting `db push`.
+
+Commands executed:
+
+* `cd nextjs_space`
+* `Get-Location`
+* `Test-Path prisma/schema.prisma`
+* `npx.cmd prisma db push`
+* `npx.cmd prisma generate`: not executed because `db push` did not succeed.
+* `npm.cmd run build`: not executed because `db push` did not succeed.
+
+DB application result:
+
+* `Get-Location` confirmed the `nextjs_space` path.
+* `Test-Path prisma/schema.prisma` returned `True`.
+* `npx.cmd prisma db push` was executed with escalated network permissions from the intended `nextjs_space` workdir because TRIAL-2M had already shown sandbox network reachability failure.
+* The escalated `db push` failed before schema application because Prisma did not find `prisma/schema.prisma` in its effective execution context.
+* No successful DB sync was reported.
+* No reset, drift, destructive change, data-loss prompt, or `--force-reset` prompt was accepted or observed.
+* `student_access` table existence is not confirmed by this phase.
+
+Prisma generate result:
+
+* Not executed.
+* Reason: generation was authorized only after successful `db push`.
+* No generated tracked file changes are expected from `generate` because it did not run.
+
+Build result:
+
+* Not executed.
+* Reason: build was authorized only after successful `db push` and `generate`.
+
+Boundary preservation:
+
+* No app code change.
+* No `schema.prisma` edit.
+* No package change.
+* No deploy.
+* No staging or production operation.
+* No SQL.
+* No migrate.
+* No migration file.
+* No force reset.
+* No seed.
+* No `.env` or secret inspection.
+* No manual `StudentAccess` row.
+* No backfill.
+* No default-row behavior.
+* No runtime, `/now`, UI/admin, or auth/signup/login guard change.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Block 7.
+* No commit.
+* No push.
+
+Remaining gaps:
+
+* `student_access` DB application remains incomplete.
+* Prisma Client generation remains incomplete.
+* Validation helper/legal status enforcement remains pending.
+* Signup default-row and backfill remain pending.
+* `/now` reads, admin reads, admin mutation endpoints, AuditEvent writes, billing, enrollment, trial runtime, Program/LearningCycle/StudyLoad, and Block 7 remain out of scope.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2O - DB application retry support / local connectivity check`.
+* Scope: isolate execution context and network access for the same authorized command without changing schema, packages, app code, or DB target.
+
+Final verdict:
+
+```text
+BLOCKED_BY_DB_PUSH
+```
