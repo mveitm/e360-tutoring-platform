@@ -115,9 +115,11 @@ export function validateStudentAccessSnapshot(
   const warnings: StudentAccessValidationIssue[] = []
   const now = parseDateValue("now", options?.now, errors)
   const dates = parseInputDates(input, errors)
+  const accessStatus = input.accessStatus
+  const trialStatus = input.trialStatus
 
-  const accessStatusKnown = isStudentAccessStatus(input.accessStatus)
-  const trialStatusKnown = isStudentTrialStatus(input.trialStatus)
+  const accessStatusKnown = isStudentAccessStatus(accessStatus)
+  const trialStatusKnown = isStudentTrialStatus(trialStatus)
 
   if (!accessStatusKnown) {
     addIssue(errors, "UNKNOWN_ACCESS_STATUS", "UNKNOWN_STATUS", "accessStatus", "Unknown accessStatus.")
@@ -128,9 +130,9 @@ export function validateStudentAccessSnapshot(
   }
 
   if (accessStatusKnown && trialStatusKnown) {
-    const legalTrialStatuses = LEGAL_STUDENT_ACCESS_PAIRS[input.accessStatus]
+    const legalTrialStatuses = LEGAL_STUDENT_ACCESS_PAIRS[accessStatus]
 
-    if (!legalTrialStatuses.includes(input.trialStatus)) {
+    if (!legalTrialStatuses.includes(trialStatus)) {
       addIssue(errors, "ILLEGAL_STATUS_PAIR", "ILLEGAL_PAIR", "trialStatus", "Illegal accessStatus + trialStatus pair.")
     }
 

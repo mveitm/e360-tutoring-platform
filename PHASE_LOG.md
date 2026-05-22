@@ -17335,3 +17335,113 @@ Final verdict:
 ```text
 PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS_CREATED
 ```
+
+## MVP-SALES-TRIAL-3C-FIX - Repair StudentAccess validation helper app-build contract
+
+Status:
+
+* Completed as a narrow technical repair phase.
+
+Baseline:
+
+* Expected `HEAD = origin/main = ec5af08`.
+* Latest accepted commit: `MVP-GOV-PRODUCT-CONTEXT-1: synthesize product UI brand context`.
+* Working tree expected clean.
+* Preflight `git status --short`: clean.
+* Preflight `git log --oneline --decorate --graph -8`: `ec5af08` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Scope:
+
+* Repair only the TypeScript/app-build contract in the pure `StudentAccess` validation helper.
+* Document the repair and append this phase log entry.
+* Do not implement signup default-row behavior or reopen signup integration.
+
+Context Gate summary:
+
+* Phase type: technical repair / implementation, narrow contract fix.
+* Product horizon: MVP-Beta-Pre-Sales-Ready support.
+* Roadmap block: StudentAccess/signup-access foundation after GOV-CONTEXT and product/UI/brand context intake.
+* GO decision: GO, because Git preflight matched, the helper was found, the prior 3C blocker was understood, and the fix remained limited to the helper/type contract.
+* Roadmap change control: not required because no product horizon, commercial promise, public offer, student-facing behavior, runtime behavior, trial, subscription, payment, admin, `/now`, UI, DB, schema, deploy, or signup behavior changed.
+
+Files changed:
+
+* `nextjs_space/lib/student-access-validation.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_FIX_REPAIR_STUDENT_ACCESS_VALIDATION_HELPER_CONTRACT.md`.
+* `PHASE_LOG.md`.
+
+Docs read:
+
+* `PHASE_LOG.md -Tail 2400`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_IMPLEMENT_SIGNUP_STUDENT_ACCESS_DEFAULT_ROW.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3B_STUDENT_ACCESS_BACKFILL_CLOSEOUT_AND_SIGNUP_DEFAULT_ROW_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3A_CONFIRM_BACKUP_AND_EXECUTE_STUDENT_ACCESS_BACKFILL_APPLY_LOCAL_DEV.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2R_STUDENT_ACCESS_VALIDATION_HELPER_DESIGN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2S_STUDENT_ACCESS_VALIDATION_HELPER_IMPLEMENTATION_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2T_IMPLEMENT_PURE_STUDENT_ACCESS_VALIDATION_HELPER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2U_STUDENT_ACCESS_VALIDATION_HELPER_CLOSEOUT_AND_NEXT_INTEGRATION_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2V_STUDENT_ACCESS_DEFAULT_ROW_AND_BACKFILL_POLICY_READINESS.md`.
+
+Root cause:
+
+* `StudentAccessValidationInput.accessStatus` and `trialStatus` are intentionally broad `string` values because the helper validates untrusted/persistence-shaped input.
+* The helper used guard booleans but then indexed `LEGAL_STUDENT_ACCESS_PAIRS[input.accessStatus]`.
+* During app build, TypeScript still treated `input.accessStatus` as `string` at that index expression and rejected the `Record<StudentAccessStatus, readonly StudentTrialStatus[]>` lookup.
+
+Fix summary:
+
+* Copied `input.accessStatus` and `input.trialStatus` into local constants before guard checks.
+* Reused the existing guards to narrow those local constants.
+* Indexed `LEGAL_STUDENT_ACCESS_PAIRS` with the narrowed `accessStatus` constant and checked `includes` with the narrowed `trialStatus` constant.
+* Preserved the legal status values, legal pair matrix, validation errors, warnings, timestamp rules, subscription policy, transition rules, and helper purity.
+* Added no `as any`, `@ts-ignore`, or `@ts-expect-error`.
+
+Verification performed:
+
+* `npx.cmd tsx lib/student-access-validation.test.ts` from `nextjs_space`: passed all helper assertions.
+* `npm run build` from `nextjs_space`: blocked by local PowerShell execution policy for `npm.ps1`.
+* `npm.cmd run build` from `nextjs_space`: passed; Next.js compiled successfully and type checking completed successfully.
+* `git status --short` after edits: `M PHASE_LOG.md`, `M nextjs_space/lib/student-access-validation.ts`, and untracked operation doc.
+* `git diff --stat` after edits: `PHASE_LOG.md` and `nextjs_space/lib/student-access-validation.ts` changed; untracked operation doc not included by Git diff stat.
+* `git diff --check` after edits: passed with Git line-ending warnings only.
+* `rg -n "as any|@ts-ignore|@ts-expect-error|LEGAL_STUDENT_ACCESS_PAIRS|validateStudentAccessSnapshot" nextjs_space`: confirmed the helper uses the narrowed `LEGAL_STUDENT_ACCESS_PAIRS[accessStatus]` lookup. No `as any`, `@ts-ignore`, or `@ts-expect-error` was added to the repair; existing unrelated `as any` matches remain elsewhere in the repo.
+
+Commercial non-goals:
+
+* No public offer change.
+* No commercial promise change.
+* No Sales-Ready claim.
+* No Pre-Sales validation expansion.
+* No brand implementation change.
+* No trial activation.
+* No subscription change.
+* No payment change.
+* No sale change.
+* No student-facing promise change.
+
+Student experience impact:
+
+* No student-facing behavior change.
+* No signup behavior change.
+* No trial, access, `/now`, admin, UI, billing, subscription, or runtime enforcement change.
+
+Technical non-goals:
+
+* No signup default-row implementation.
+* No signup route or signup UI edit.
+* No auth change.
+* No runtime access enforcement.
+* No billing, trial activation, admin, `/now`, UI, staging/prod, schema, Prisma, DB, SQL, seed, deploy, commit, or push.
+* No `.docx` files copied or committed.
+
+Final verdict:
+
+```text
+STUDENT_ACCESS_VALIDATION_HELPER_CONTRACT_REPAIRED
+```
