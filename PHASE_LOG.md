@@ -13743,6 +13743,146 @@ Final verdict:
 STUDENT_ACCESS_BACKFILL_APPLY_SCRIPT_IMPLEMENTED_NOT_EXECUTED
 ```
 
+## MVP-SALES-TRIAL-3A - Confirm backup and execute StudentAccess backfill apply local/dev
+
+Status: STUDENT_ACCESS_BACKFILL_APPLIED_LOCAL_DEV - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `3236e64`.
+* Last accepted commit = `MVP-SALES-TRIAL-2Z: implement StudentAccess backfill apply script`.
+* Working tree was clean before this controlled DB mutation/audit phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2Z` closed at `3236e64`.
+* This phase confirmed backup/owner acceptance and executed the guarded StudentAccess backfill apply script once in local/dev.
+
+Target and backup/owner confirmation:
+
+* Target authorized: local/dev.
+* Staging authorized: no.
+* Production authorized: no.
+* Backup/snapshot current or owner explicitly accepts local/dev mutation risk: yes.
+* Controlled StudentAccess backfill write authorized: yes.
+* No secrets, connection strings, `.env` values, passwords, tokens, cookies, `NEXTAUTH_SECRET`, or `ADMIN_EMAILS` values were printed or inspected.
+
+Preview:
+
+* Command: `npx.cmd tsx scripts/student-access-backfill-apply.ts`.
+* Result: `mode = preview_no_write`, `dbAccessPerformed = false`.
+* Preview performed no DB read and no DB write.
+
+Apply command:
+
+```powershell
+Set-Location -LiteralPath 'C:\projects\e360-tutoring-platform\tutoring_platform_mvp\nextjs_space'; npx.cmd tsx scripts/student-access-backfill-apply.ts --confirm-write-student-access-backfill --confirm-backup-or-owner-acceptance
+```
+
+Apply result:
+
+* Exit code: `0`.
+* `mode = write_confirmed`.
+* `stopGo = WRITE_COMPLETED`.
+* Pre-write counts matched accepted assertions:
+  * Total students: `12`.
+  * Existing StudentAccess rows: `0`.
+  * Missing StudentAccess rows: `12`.
+  * No-active-enrollment candidates: `3`.
+  * One-active-enrollment candidates: `9`.
+  * Ambiguous records: `0`.
+  * Validation failures: `0`.
+  * Excluded non-student users: `1`.
+* Inserted StudentAccess rows: `12`.
+* Reason counts:
+  * `backfill_existing_active_enrollment = 9`.
+  * `backfill_no_active_enrollment_no_access = 3`.
+
+Inserted row IDs:
+
+```text
+cmph4mxrz00017sqc9rq63ww8
+cmph4mxs100037sqc222yaltg
+cmph4mxs100057sqchf2r9zhy
+cmph4mxs100077sqclqxf041h
+cmph4mxs100097sqc5w27zkw9
+cmph4mxs2000b7sqcxfq7cg7m
+cmph4mxs2000d7sqcsxiwr714
+cmph4mxs2000f7sqcj0aobxyz
+cmph4mxs2000h7sqcadux4x0t
+cmph4mxs3000j7sqci86prsgs
+cmph4mxs3000l7sqc3u94is0q
+cmph4mxs3000n7sqchla5hoct
+```
+
+Post-write verification:
+
+* Command: `npx.cmd tsx scripts/student-access-backfill-dry-run.ts`.
+* Result:
+  * Total students: `12`.
+  * Existing StudentAccess rows: `12`.
+  * Missing StudentAccess rows: `0`.
+  * No-active-enrollment candidates: `0`.
+  * One-active-enrollment candidates: `0`.
+  * Ambiguous records: `0`.
+  * Validation failures: `0`.
+  * Excluded non-student users: `1`.
+  * Stop/go: `GO_FOR_REVIEW_ONLY_NO_WRITE`.
+* Interpretation: all rows now exist, so candidate counts are 0 and every student is classified as `existing_student_access`.
+
+Non-goals preserved:
+
+* No app code changes.
+* No helper code changes.
+* No dry-run script changes.
+* No apply script changes.
+* No test code changes.
+* No schema edit.
+* No package change.
+* No package-lock change.
+* No npm install.
+* No Prisma db push.
+* No Prisma migrate.
+* No Prisma generate.
+* No SQL.
+* No seed.
+* No `.env` inspection or printing.
+* No secrets printed.
+* No UI/admin change.
+* No signup default-row implementation.
+* No `/now` read integration.
+* No admin read integration.
+* No mutation endpoints.
+* No `AuditEvent` writes.
+* No billing/payment/subscription integration.
+* No Program/LearningCycle/StudyLoad changes.
+* No enrollment automation.
+* No Block 7.
+* No deploy.
+* No generated PDF/DOCX artifacts.
+* No commit.
+* No push.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-3B - StudentAccess backfill closeout and signup default-row readiness`.
+* Scope: close out local/dev row coverage and define signup default-row readiness while keeping `/now`, admin reads, runtime enforcement, billing, enrollment, Program/LearningCycle/StudyLoad, and Block 7 deferred.
+
+Verification:
+
+* `git diff --check`: passed with only the existing line-ending warning for `PHASE_LOG.md`.
+* `git diff --stat`: `PHASE_LOG.md | 140 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`.
+* `git status --short`: `M PHASE_LOG.md`; untracked 3A execution closeout document.
+
+Final verdict:
+
+```text
+STUDENT_ACCESS_BACKFILL_APPLIED_LOCAL_DEV
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
