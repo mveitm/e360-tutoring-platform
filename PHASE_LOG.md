@@ -13506,6 +13506,122 @@ Final verdict:
 STUDENT_ACCESS_BACKFILL_DRY_RUN_EXECUTED_NO_WRITE_GO_FOR_REVIEW
 ```
 
+## MVP-SALES-TRIAL-2Y - StudentAccess backfill implementation readiness
+
+Status: NEEDS_BACKFILL_APPLY_SCRIPT_BEFORE_WRITE - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `b6ffe12`.
+* Last accepted commit = `MVP-SALES-TRIAL-2X: execute StudentAccess backfill dry run`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2X` closed at `b6ffe12`.
+* This phase accepted the TRIAL-2X no-write dry-run result and defined readiness for a future actual StudentAccess backfill write phase.
+* Documentation/readiness only; no rows were written.
+
+Accepted 2X dry-run result:
+
+* Total students: `12`.
+* Existing StudentAccess rows: `0`.
+* Missing StudentAccess rows: `12`.
+* No-active-enrollment candidates: `3`.
+* One-active-enrollment candidates: `9`.
+* Ambiguous records: `0`.
+* Validation failures: `0`.
+* Excluded non-student users: `1`.
+* Stop/go: `GO_FOR_REVIEW_ONLY_NO_WRITE`.
+
+Director interpretation:
+
+* No ambiguity cleanup is needed before readiness.
+* No validation repair is needed before readiness.
+* All 12 existing Student records are clear candidates.
+* 3 candidates should become `no_access + none`.
+* 9 candidates should become `enrolled_active_program + none`.
+* Existing StudentAccess count is 0, so no conflict preservation is needed for the accepted result.
+
+Future write boundary:
+
+* Local/dev first.
+* No staging or production.
+* Validate each candidate again immediately before write.
+* Write only missing StudentAccess rows.
+* Do not update existing StudentAccess rows.
+* Stop if total Student count changes from `12`.
+* Stop if existing StudentAccess count changes from `0`.
+* Stop if candidate count differs from `12`.
+* Stop if ambiguity or validation failures appear.
+* Backup/snapshot or explicit owner acceptance is required before a shared local/dev write.
+
+Future implementation decision:
+
+* Safest path is a dedicated apply script: `nextjs_space/scripts/student-access-backfill-apply.ts`.
+* Do not extend the dry-run script with a `--write` flag as the next step.
+* Do not execute actual backfill until a later phase explicitly authorizes controlled write execution.
+
+Files changed:
+
+* Created `nextjs_space/docs/operations/MVP_SALES_TRIAL_2Y_STUDENT_ACCESS_BACKFILL_IMPLEMENTATION_READINESS.md`.
+* Updated `PHASE_LOG.md`.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2Z - Implement StudentAccess backfill apply script`.
+* Scope: implement a dedicated apply script only; do not execute the write or change app behavior.
+
+Verification:
+
+* `git diff --check`: passed with only the existing line-ending warning for `PHASE_LOG.md`.
+* `git diff --stat`: `PHASE_LOG.md | 116 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`.
+* `git status --short`: `M PHASE_LOG.md`; untracked 2Y readiness document.
+
+Non-goals preserved:
+
+* No app code changes.
+* No helper code changes.
+* No dry-run script changes.
+* No new backfill write script.
+* No test code changes.
+* No schema edit.
+* No package change.
+* No package-lock change.
+* No npm install.
+* No Prisma db push.
+* No Prisma migrate.
+* No Prisma generate.
+* No DB mutation.
+* No SQL.
+* No seed.
+* No `.env` inspection or printing.
+* No secrets printed.
+* No UI/admin change.
+* No signup default-row implementation.
+* No backfill implementation/write.
+* No `/now` read integration.
+* No admin read integration.
+* No mutation endpoints.
+* No `AuditEvent` writes.
+* No billing/payment/subscription integration.
+* No Program/LearningCycle/StudyLoad changes.
+* No enrollment automation.
+* No Block 7.
+* No deploy.
+* No generated PDF/DOCX artifacts.
+* No commit.
+* No push.
+
+Final verdict:
+
+```text
+NEEDS_BACKFILL_APPLY_SCRIPT_BEFORE_WRITE
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
