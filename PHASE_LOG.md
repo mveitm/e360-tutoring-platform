@@ -12288,6 +12288,140 @@ Explicit non-goals preserved:
 * No AUTH-1B authorization.
 * No commit.
 * No push.
+
+## MVP-SALES-TRIAL-2J - StudentAccess DB application guardrails and target confirmation
+
+Status: NEEDS_FINAL_OWNER_TARGET_CONFIRMATION_BEFORE_DB_PUSH - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `8eb6562`.
+* Last accepted commit = `MVP-SALES-TRIAL-2I: define StudentAccess DB application readiness`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2I` closed at `8eb6562`.
+* This phase defined guardrails, target confirmation requirements, stop rules, and command policy for a future `student_access` DB application. Documentation/readiness only.
+
+Inputs reviewed:
+
+* TRIAL-2I, TRIAL-2H, TRIAL-2G, phase gate, `PHASE_LOG.md -Tail 1180`, `nextjs_space/prisma/schema.prisma`, and `nextjs_space/package.json`.
+* Read-only operation signals: `Get-ChildItem nextjs_space/prisma`, `Get-ChildItem nextjs_space/scripts`, `nextjs_space/scripts/safe-seed.ts`, and read-only `rg` for Prisma DB commands/reset/Neon/staging/production references excluding `.env`, `.next`, `node_modules`, and logs.
+* Historical docs retain their own phase baselines; Git preflight and accepted commit chain remain authoritative.
+
+Starting point after TRIAL-2I:
+
+* `StudentAccess` exists schema-only.
+* TRIAL-2H already validated schema and build.
+* No `student_access` DB table has been applied in these TRIAL phases.
+* No DB application has happened.
+* No `StudentAccess` rows, default-row behavior, backfill, runtime, `/now`, student UI, admin UI, or admin operation exist.
+
+Target confirmation requirement:
+
+* Mauricio must confirm target environment class without secrets.
+* Target must be local/dev only.
+* Target must be not staging and not production.
+* Mauricio must state whether the DB is disposable or shared.
+* Backup/snapshot is required for any shared or valuable DB.
+* Confirmation must not print URL, credentials, `DATABASE_URL`, `.env`, password, token, cookie, `NEXTAUTH_SECRET`, or `ADMIN_EMAILS`.
+
+Allowed/forbidden targets:
+
+* Allowed: local/dev database only; Neon dev/local branch only if explicitly identified as dev/local; disposable DB only if data loss is explicitly acceptable.
+* Forbidden: production, staging unless separately authorized in a future phase, ambiguous DB, shared DB without backup/snapshot, DB coupled to deploy/promotion, or target inferred by Codex from `.env`.
+
+Future command plan:
+
+* Future DB application command if target confirmation passes:
+
+```powershell
+cd nextjs_space
+npx.cmd prisma db push
+```
+
+* Future client command can be allowed in the same phase after successful DB application if explicitly authorized:
+
+```powershell
+npx.cmd prisma generate
+```
+
+* Always forbidden:
+
+```powershell
+npx.cmd prisma db push --force-reset
+npx.cmd prisma migrate reset
+```
+
+Stop rules:
+
+* Stop on drift ambiguity.
+* Stop on reset prompt.
+* Stop on destructive warning.
+* Stop on target ambiguity.
+* Stop on missing backup for shared DB.
+* Stop if command appears to touch staging/prod.
+* Stop if secrets would be printed or `.env` inspection would be needed.
+* Stop if Prisma proposes data loss or `--force-reset`.
+* Stop if Git preflight is dirty or baseline mismatches.
+
+Client generation policy:
+
+* Recommended: run `npx.cmd prisma generate` in the same future controlled local/dev DB application phase after successful `db push`, if explicitly authorized.
+* Do not rely on `postinstall: prisma generate` as evidence of intentional `StudentAccess` client readiness.
+* Do not run generate if DB application stops.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2K - Final owner target confirmation before DB push`.
+* Scope: collect Mauricio's non-secret target confirmation and backup/disposable statement before any DB mutation; if unambiguous and explicitly authorized, the next phase may proceed to controlled local/dev DB application under stop rules.
+
+Final verdict:
+
+```text
+NEEDS_FINAL_OWNER_TARGET_CONFIRMATION_BEFORE_DB_PUSH
+```
+
+Non-goals preserved:
+
+* No app code change.
+* No `schema.prisma` edit.
+* No package change.
+* No deploy.
+* No staging or production.
+* No SQL.
+* No DB mutation.
+* No Prisma CLI.
+* No db push.
+* No migrate.
+* No migration file.
+* No Prisma generate.
+* No Prisma validate.
+* No Prisma Studio.
+* No introspection.
+* No seed.
+* No dev server.
+* No `.env` or secret inspection.
+* No printed password/hash/token/cookie/secret.
+* No student account.
+* No `StudentAccess` row.
+* No backfill.
+* No default-row behavior.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Student row edit.
+* No password reset.
+* No auth/signup/login/admin guard change.
+* No `/now` change.
+* No admin UI.
+* No Block 7.
+* No User/Student FK hardening.
+* No commit.
+* No push.
 * No generated artifact.
 
 Recommendation for AUTH-1B:
