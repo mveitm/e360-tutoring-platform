@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic'
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { isAdminEmail } from '@/lib/admin-guard'
+import { validateStudentAccessSnapshot, type StudentAccessValidationInput } from '@/lib/student-access-validation'
 import bcrypt from 'bcryptjs'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -46,6 +47,26 @@ export async function POST(req: NextRequest) {
 
     const hashedPassword = await bcrypt.hash(password, 10)
     const fullName = `${firstName} ${lastName}`.trim()
+    const decisionInstant = new Date()
+    const defaultStudentAccess: StudentAccessValidationInput = {
+      accessStatus: 'no_access',
+      trialStatus: 'none',
+      subscriptionStatus: 'none',
+      trialInvitedAt: null,
+      trialActivatedAt: null,
+      trialExpiresAt: null,
+      trialExperienceUsedAt: null,
+      tutoringDirection: null,
+      continuityTarget: null,
+      lastDecisionBy: 'system',
+      lastDecisionAt: decisionInstant,
+      lastDecisionReason: 'public_signup_default_no_access',
+    }
+    const accessValidation = validateStudentAccessSnapshot(defaultStudentAccess, { now: decisionInstant })
+
+    if (!accessValidation.ok) {
+      return NextResponse.json({ error: 'No pudimos crear la cuenta en este momento.' }, { status: 500 })
+    }
 
     const result = await prisma.$transaction(async (tx) => {
       const user = await tx.user.create({
@@ -55,6 +76,23 @@ export async function POST(req: NextRequest) {
       const student = await tx.student.create({
         data: { firstName, lastName, email, status: 'active' },
         select: { id: true, email: true },
+      })
+      await tx.studentAccess.create({
+        data: {
+          studentId: student.id,
+          accessStatus: defaultStudentAccess.accessStatus,
+          trialStatus: defaultStudentAccess.trialStatus,
+          subscriptionStatus: defaultStudentAccess.subscriptionStatus ?? 'none',
+          trialInvitedAt: null,
+          trialActivatedAt: null,
+          trialExpiresAt: null,
+          trialExperienceUsedAt: null,
+          tutoringDirection: null,
+          continuityTarget: null,
+          lastDecisionBy: defaultStudentAccess.lastDecisionBy,
+          lastDecisionAt: decisionInstant,
+          lastDecisionReason: defaultStudentAccess.lastDecisionReason,
+        },
       })
       return { user, student }
     })

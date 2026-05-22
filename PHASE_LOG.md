@@ -17445,3 +17445,137 @@ Final verdict:
 ```text
 STUDENT_ACCESS_VALIDATION_HELPER_CONTRACT_REPAIRED
 ```
+
+## MVP-SALES-TRIAL-3D - Implement signup StudentAccess default row after helper fix
+
+Status:
+
+* Completed as a narrow technical implementation phase.
+
+Baseline:
+
+* Expected `HEAD = origin/main = b81111a`.
+* Latest accepted commit: `MVP-SALES-TRIAL-3C-FIX: repair StudentAccess validation helper contract`.
+* Working tree expected clean.
+* Preflight `git status --short`: clean.
+* Preflight `git log --oneline --decorate --graph -8`: `b81111a` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Scope:
+
+* Implement only signup-side `StudentAccess` default-row creation for newly created signup students.
+* Use the existing row lifecycle policy and repaired validation helper.
+* Do not implement trial activation, access runtime enforcement, billing, subscription, admin flows, `/now`, UI/copy, staging/prod, schema changes, Prisma migrations, DB scripts, or manual data mutation.
+
+Context Gate summary:
+
+* Phase type: technical implementation, narrow signup/access foundation.
+* Product horizon: MVP-Beta-Pre-Sales-Ready support.
+* Roadmap block: StudentAccess/signup-access foundation after GOV-CONTEXT, product/UI/brand synthesis, and 3C-FIX helper repair.
+* GO decision: GO, because Git preflight matched, the signup route was located, exact default row values were confirmed from versioned docs/schema/helper, and the implementation remained limited to invisible signup access-state initialization.
+* Roadmap change control: not required because this phase does not change public offer, commercial promise, Sales-Ready definition, Pre-Sales validation definition, brand promise, trial activation, subscription, payment, program coverage, tutor/admin workload, student-facing UI/copy, or L1/M1/M2 scope.
+
+Files changed:
+
+* `nextjs_space/app/api/signup/route.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3D_IMPLEMENT_SIGNUP_STUDENT_ACCESS_DEFAULT_ROW_AFTER_HELPER_FIX.md`.
+* `PHASE_LOG.md`.
+
+Docs read:
+
+* `PHASE_LOG.md -Tail 2600`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_FIX_REPAIR_STUDENT_ACCESS_VALIDATION_HELPER_CONTRACT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_IMPLEMENT_SIGNUP_STUDENT_ACCESS_DEFAULT_ROW.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3B_STUDENT_ACCESS_BACKFILL_CLOSEOUT_AND_SIGNUP_DEFAULT_ROW_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3A_CONFIRM_BACKUP_AND_EXECUTE_STUDENT_ACCESS_BACKFILL_APPLY_LOCAL_DEV.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2V_STUDENT_ACCESS_DEFAULT_ROW_AND_BACKFILL_POLICY_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2U_STUDENT_ACCESS_VALIDATION_HELPER_CLOSEOUT_AND_NEXT_INTEGRATION_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2T_IMPLEMENT_PURE_STUDENT_ACCESS_VALIDATION_HELPER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2R_STUDENT_ACCESS_VALIDATION_HELPER_DESIGN.md`.
+
+Signup route located:
+
+* `nextjs_space/app/api/signup/route.ts`.
+* The route already had a `prisma.$transaction` for `User` and `Student` creation.
+
+Default row values used:
+
+* `accessStatus = no_access`.
+* `trialStatus = none`.
+* `subscriptionStatus = none`.
+* `trialInvitedAt = null`.
+* `trialActivatedAt = null`.
+* `trialExpiresAt = null`.
+* `trialExperienceUsedAt = null`.
+* `tutoringDirection = null`.
+* `continuityTarget = null`.
+* `lastDecisionBy = system`.
+* `lastDecisionAt = decisionInstant`.
+* `lastDecisionReason = public_signup_default_no_access`.
+* Source of truth: 2V row lifecycle policy, 3B signup readiness, 3C blocker doc, current schema, and repaired validation helper.
+
+Implementation summary:
+
+* Imported `validateStudentAccessSnapshot` and `StudentAccessValidationInput` in the signup route.
+* Built the policy default `StudentAccess` candidate after input validation and password hashing.
+* Validated the candidate with deterministic `decisionInstant` before opening the transaction.
+* Added `tx.studentAccess.create` inside the existing transaction after successful `Student` creation.
+* Preserved existing duplicate email behavior, admin-email block, request validation, password hashing, response shape, and `next: /now`.
+* Added no trial invitation, trial activation, subscription, payment, enrollment, Program, LearningCycle, StudyLoad, runtime enforcement, admin, `/now`, UI, or copy behavior.
+
+Verification performed:
+
+* `npx.cmd tsx lib/student-access-validation.test.ts` from `nextjs_space`: passed all helper assertions.
+* `npm.cmd run build` from `nextjs_space`: passed; Next.js compiled successfully and type checking completed successfully.
+* Final `git status --short`: `M PHASE_LOG.md`, `M nextjs_space/app/api/signup/route.ts`, and untracked operation doc.
+* Final `git diff --stat`: `PHASE_LOG.md` and `nextjs_space/app/api/signup/route.ts` changed; untracked operation doc not included by Git diff stat.
+* Final `git diff --check`: passed with Git line-ending warnings only.
+* Final targeted search for suppressions and forbidden-domain terms in `nextjs_space/app` and `nextjs_space/lib`: returned the new signup route `StudentAccess`/`validateStudentAccessSnapshot` references plus many pre-existing app/lib references to program, enrollment, StudyLoad, LearningCycle, and existing `as any`. No `as any`, `@ts-ignore`, or `@ts-expect-error` was added by this phase, and the signup route diff does not add trial activation, subscription/payment, program, enrollment, LearningCycle, StudyLoad, runtime enforcement, admin, `/now`, UI, or copy logic.
+
+Commercial non-goals:
+
+* No public offer change.
+* No commercial promise change.
+* No Sales-Ready claim.
+* No Pre-Sales validation expansion.
+* No brand implementation change.
+* No trial activation.
+* No subscription change.
+* No payment change.
+* No sale change.
+* No student-facing promise change.
+
+Student experience impact:
+
+* Minimal and indirect.
+* New signup accounts now receive initialized `StudentAccess` state.
+* No visible student UI/copy changed.
+* No trial availability, access runtime enforcement, `/now` behavior, onboarding copy, payment, subscription, program, enrollment, cycle, or study-load behavior changed.
+
+Technical non-goals:
+
+* No visual signup UI/copy change.
+* No login behavior change.
+* No runtime access enforcement.
+* No trial invitation or activation.
+* No subscription or payment.
+* No Program, enrollment, LearningCycle, or StudyLoad creation.
+* No admin behavior.
+* No `/now` behavior.
+* No UI implementation.
+* No staging/prod.
+* No schema change.
+* No Prisma commands.
+* No manual DB command, SQL, seed script, deploy, commit, or push.
+* No secrets, passwords, tokens, database URLs, API keys, raw env values, or `.docx` files.
+
+Final verdict:
+
+```text
+SIGNUP_STUDENT_ACCESS_DEFAULT_ROW_IMPLEMENTED
+```
