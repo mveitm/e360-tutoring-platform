@@ -16833,3 +16833,121 @@ Final verdict:
 ```text
 PHASE_CONTEXT_GATE_PROTOCOL_CREATED
 ```
+
+## MVP-GOV-CONTEXT-4 - Create living memory index
+
+Status: LIVING_MEMORY_INDEX_CREATED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `e7012b9`.
+* Last accepted commit = `MVP-GOV-CONTEXT-2: create phase context gate protocol`.
+* Working tree was clean before this documentation/governance-only phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Documentation/governance only.
+* Created a versioned Living Memory Index to make current governing memory, decisions, baselines, blockers, missing context, and superseded/historical decision categories discoverable.
+* No application implementation was authorized or performed.
+
+Context Gate summary:
+
+* Phase type: documentation/governance.
+* Product horizon: `MVP-Beta-Pre-Sales-Ready` governance support.
+* Roadmap block: `MVP-GOV-CONTEXT` living memory, roadmap gates, and phase context protocol.
+* Student experience impact: none; no student-facing behavior change.
+* Commercial impact: none; no public offer, Sales-Ready, trial, subscription, payment, or sale change.
+* Roadmap change-control check: not required because this phase records active decisions and creates an index only.
+* GO / NO-GO: GO.
+* Reason: documentation/governance-only memory index needed before further technical phases.
+
+Files changed:
+
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `PHASE_LOG.md`.
+
+Docs read:
+
+* `PHASE_LOG.md -Tail 1600`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_IMPLEMENT_SIGNUP_STUDENT_ACCESS_DEFAULT_ROW.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3B_STUDENT_ACCESS_BACKFILL_CLOSEOUT_AND_SIGNUP_DEFAULT_ROW_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3A_CONFIRM_BACKUP_AND_EXECUTE_STUDENT_ACCESS_BACKFILL_APPLY_LOCAL_DEV.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+
+Summary:
+
+* Added a living index of current governing memory and decision locations.
+* Indexed canonical governance docs: product horizons, Context Gate protocol, and the Living Memory Index itself.
+* Summarized active product horizons and phase protocol without replacing canonical sources.
+* Indexed current StudentAccess/signup-access living state: schema exists, local/dev DB application verified, 12/12 students covered, 9 active-enrollment backfill rows, 3 no-access backfill rows, 3C blocked by helper validation contract, and 3C-FIX not yet open.
+* Recorded active commercial/product decisions, active student experience direction, known missing context, and superseded/historical/needs-reconciliation categories.
+* Defined how future agents should use the index.
+* Custody correction confirmed and normalized steps 5 and 6 in `How Future Agents Should Use This Index`: read specific phase docs, then complete the Context Gate.
+
+Strategic rationale:
+
+* Makes living project memory discoverable before returning to code, signup, access, billing, `/now`, admin, UI, staging/prod, or 3C-FIX work.
+* Reinforces Git preflight, product horizons, Context Gate protocol, and no-phase-from-memory discipline.
+* Prevents stale M1-only public Sales-Ready framing and stale baseline sections from guiding future work.
+
+Commercial non-goals:
+
+* No public offer change.
+* No commercial promise change.
+* No Sales-Ready claim.
+* No Pre-Sales validation expansion.
+* No brand change.
+* No trial change.
+* No subscription change.
+* No payment change.
+* No sale change.
+* No student-facing promise change.
+
+Technical non-goals:
+
+* No classification of every existing document.
+* No rewrite of old docs.
+* No handoff v2.
+* No current agent handoff update.
+* No full canonicality audit.
+* No StudentAccess helper TypeScript fix.
+* No `MVP-SALES-TRIAL-3C-FIX`.
+* No signup, auth, access runtime, billing, trial activation, admin, `/now`, UI, staging/prod, schema, package, Prisma, DB, SQL, seed, build, deploy, commit, or push.
+
+Guardrails:
+
+* Git preflight remains the living truth.
+* The Living Memory Index does not replace canonical governance docs, `PHASE_LOG.md`, or phase docs.
+* Future agents must not design phases from the index alone.
+* Broader context/canonicality/product/UI/brand/public-offer phases must request missing Word docs or a fresh synthesis before closing.
+* The active product horizon reclassification cannot be reversed inside a technical phase.
+
+Product/UI context notes:
+
+* The three named Word documents were not found as versioned files in the repository search:
+  * `Mvp Ui Flow 1 Secuencia Canonica Bexauri Cierre Dia.docx`
+  * `MVeit-Bexauri-Definicion de Producto.docx`
+  * `Bexauri_Guia_Identidad_Visual_v1_1.docx`
+* They remain critical product/UI/brand context gaps for future broader context/canonicality/product/UI/brand/public-offer phases.
+
+Verification performed:
+
+* `git status --short` before edits: clean.
+* `git log --oneline --decorate --graph -8` before edits: `e7012b9` at `HEAD`, `origin/main`, and `origin/HEAD`.
+* Product/UI Word document search: not found as versioned repo files.
+* Final `git status --short`: `M PHASE_LOG.md`; untracked Living Memory Index document.
+* Final `git diff --stat`: `PHASE_LOG.md | 118 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`; untracked Living Memory Index document not included by Git diff stat.
+* Final `git diff --check`: passed with the existing Git line-ending warning that `PHASE_LOG.md` LF will be replaced by CRLF the next time Git touches it.
+* Final `Get-Content PHASE_LOG.md -Tail 200`: confirmed GOV-CONTEXT-4 remains at the true end.
+* Final `Get-Content nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md | Select-Object -Skip 150 -First 30`: confirmed steps 5 and 6 are present in the future-agent usage list.
+
+Final verdict:
+
+```text
+LIVING_MEMORY_INDEX_CREATED
+```
