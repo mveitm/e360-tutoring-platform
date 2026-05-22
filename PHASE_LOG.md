@@ -12402,6 +12402,111 @@ Non-goals preserved:
 * No commit.
 * No push.
 
+## MVP-SALES-TRIAL-2M - Controlled local/dev StudentAccess DB application
+
+Status: BLOCKED_BY_DB_PUSH - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `7adf357`.
+* Last accepted commit = `MVP-SALES-TRIAL-2L: confirm StudentAccess DB backup`.
+* Working tree was clean before the controlled DB application attempt.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2L` closed at `7adf357`.
+* This phase attempted controlled local/dev DB application for the already-versioned `StudentAccess` schema, limited to `student_access`.
+
+Inputs reviewed:
+
+* TRIAL-2L, TRIAL-2K, TRIAL-2J, TRIAL-2H, TRIAL-2G, phase gate, `PHASE_LOG.md -Tail 1400`, `nextjs_space/prisma/schema.prisma`, and `nextjs_space/package.json`.
+* Git preflight matched `HEAD = origin/main = 7adf357`; historical phase baselines remain historical only.
+
+Target/backup context:
+
+* Target: Neon dev project `e360-bexauri-dev`.
+* Source branch label, non-secret: `production`.
+* Environment class: local/dev.
+* Not staging: yes.
+* Not production: yes.
+* DB status: shared.
+* Backup/snapshot label: `backup-before-student-access-db-push-2026-05-21`.
+* Backup/snapshot expiration: `2026-06-20 20:41 -04:00`.
+* Data loss acceptable: no.
+* Scope: controlled DB push for `student_access` only.
+
+Commands executed:
+
+* `cd nextjs_space`
+* `npx.cmd prisma db push`
+* The same `npx.cmd prisma db push` was retried once with escalated network permissions after the first failure was consistent with restricted network reachability.
+* `npx.cmd prisma generate`: not executed because `db push` did not succeed.
+* `npm.cmd run build`: not executed because `db push` did not succeed.
+
+DB application result:
+
+* First `db push` attempt loaded the Prisma schema and normal Prisma environment flow, then failed before applying any schema change with `P1001: Can't reach database server`.
+* Escalated retry failed before schema application because Prisma did not find `prisma/schema.prisma` in that execution context.
+* No successful DB sync was reported.
+* No reset, drift, destructive change, data-loss prompt, or `--force-reset` prompt was accepted or observed.
+* `student_access` table existence is not confirmed by this phase.
+
+Prisma generate result:
+
+* Not executed.
+* Reason: generation was authorized only after successful `db push`.
+* No generated tracked file changes are expected from `generate` because it did not run.
+
+Build result:
+
+* Not executed.
+* Reason: build was authorized only after successful `db push` and `generate`.
+
+Boundary preservation:
+
+* No app code change.
+* No `schema.prisma` edit.
+* No package change.
+* No deploy.
+* No staging or production operation.
+* No SQL.
+* No migrate.
+* No migration file.
+* No force reset.
+* No seed.
+* No `.env` or secret inspection.
+* No manual `StudentAccess` row.
+* No backfill.
+* No default-row behavior.
+* No runtime, `/now`, UI/admin, or auth/signup/login guard change.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No Block 7.
+* No commit.
+* No push.
+
+Remaining gaps:
+
+* `student_access` DB application remains incomplete.
+* Prisma Client generation remains incomplete.
+* Validation helper/legal status enforcement remains pending.
+* Signup default-row and backfill remain pending.
+* `/now` reads, admin reads, admin mutation endpoints, AuditEvent writes, billing, enrollment, trial runtime, Program/LearningCycle/StudyLoad, and Block 7 remain out of scope.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2N - Controlled local/dev StudentAccess DB application retry`.
+* Scope: retry the same controlled local/dev DB application against the confirmed target with corrected execution/connectivity context, then run `npx.cmd prisma generate` and build only if `db push` succeeds.
+
+Final verdict:
+
+```text
+BLOCKED_BY_DB_PUSH
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
