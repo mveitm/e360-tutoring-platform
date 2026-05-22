@@ -17579,3 +17579,141 @@ Final verdict:
 ```text
 SIGNUP_STUDENT_ACCESS_DEFAULT_ROW_IMPLEMENTED
 ```
+
+## MVP-SALES-TRIAL-3E - Controlled local/dev signup default-row smoke
+
+Status: Completed.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `c25a551`.
+* Latest accepted commit: `MVP-SALES-TRIAL-3D: implement signup StudentAccess default row`.
+* Working tree expected: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `c25a551` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Scope:
+
+* Controlled local/dev verification smoke only.
+* No implementation, bug fix, schema change, migration, manual SQL, seed script, deploy, commit, or push.
+* Allowed repo changes only: this `PHASE_LOG.md` entry and `nextjs_space/docs/operations/MVP_SALES_TRIAL_3E_CONTROLLED_LOCAL_DEV_SIGNUP_DEFAULT_ROW_SMOKE.md`.
+
+Context Gate summary:
+
+* Phase type: verification/smoke, controlled local/dev data-mutating app-flow smoke.
+* Product horizon: MVP-Beta-Pre-Sales-Ready support.
+* Roadmap block: StudentAccess/signup-access foundation after 3D signup default-row implementation.
+* Context Gate decision: GO.
+* Reason: Git preflight matched, local/dev target was confirmed without printing secrets, signup request shape was determined from `nextjs_space/app/api/signup/route.ts`, and the smoke could run through the real local signup API.
+
+Local/dev confirmation:
+
+* Safe no-secret classification printed `LOCAL_DEV_TARGET_CONFIRMED`.
+* No raw environment values, database URLs, passwords, tokens, API keys, cookies, or secrets were printed intentionally.
+
+Smoke email:
+
+* Initial sandboxed failed attempt: `smoke-3e-20260522-174944@example.test`.
+* Successful approved local/dev smoke: `smoke-3e-20260522-180640@example.test`.
+
+Response result:
+
+* The sandboxed attempt returned `500` because the sandboxed app process could not complete database access.
+* A read-only DB check after approved network access confirmed the sandboxed failed attempt left no `User`, no `Student`, and no `StudentAccess` row.
+* The approved local/dev smoke returned `201`.
+* Successful response shape preserved `userId`, `studentId`, `email`, and `next = /now`.
+
+DB verification result:
+
+* Read-only query by `smoke-3e-20260522-180640@example.test` confirmed `User` exists.
+* Read-only query confirmed `Student` exists.
+* Read-only query confirmed exactly one `StudentAccess` row for the smoke student.
+* Verified fields:
+  * `accessStatus = no_access`.
+  * `trialStatus = none`.
+  * `subscriptionStatus = none`.
+  * `trialInvitedAt = null`.
+  * `trialActivatedAt = null`.
+  * `trialExpiresAt = null`.
+  * `trialExperienceUsedAt = null`.
+  * `tutoringDirection = null`.
+  * `continuityTarget = null`.
+  * `lastDecisionBy = system`.
+  * `lastDecisionReason = public_signup_default_no_access`.
+  * `lastDecisionAt` present.
+* Related records checked read-only:
+  * `enrollmentCount = 0`.
+  * `programCount = 0`.
+  * `cycleCount = 0`.
+  * `loadCount = 0`.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3D_IMPLEMENT_SIGNUP_STUDENT_ACCESS_DEFAULT_ROW_AFTER_HELPER_FIX.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_FIX_REPAIR_STUDENT_ACCESS_VALIDATION_HELPER_CONTRACT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3C_IMPLEMENT_SIGNUP_STUDENT_ACCESS_DEFAULT_ROW.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3B_STUDENT_ACCESS_BACKFILL_CLOSEOUT_AND_SIGNUP_DEFAULT_ROW_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_3A_CONFIRM_BACKUP_AND_EXECUTE_STUDENT_ACCESS_BACKFILL_APPLY_LOCAL_DEV.md`.
+* `nextjs_space/docs/operations/MVP_SALES_TRIAL_2V_STUDENT_ACCESS_DEFAULT_ROW_AND_BACKFILL_POLICY_READINESS.md`.
+* `nextjs_space/package.json`.
+* `nextjs_space/app/api/signup/route.ts`.
+
+Verification performed:
+
+* `npx.cmd tsx lib/student-access-validation.test.ts`: passed all helper assertions.
+* `npm.cmd run build`: passed; Next.js compiled successfully and type checking completed successfully.
+* Local dev server started on `127.0.0.1:3100` and was stopped after the smoke.
+* Real signup API smoke: passed with `201` for `smoke-3e-20260522-180640@example.test`.
+* DB read-only verification for successful smoke account: passed.
+* DB read-only verification for the earlier failed sandbox account: confirmed no data was created.
+
+Commercial non-goals:
+
+* No public offer change.
+* No commercial promise change.
+* No Sales-Ready claim.
+* No Pre-Sales validation expansion.
+* No brand implementation change.
+* No trial activation.
+* No subscription change.
+* No payment change.
+* No sale change.
+* No student-facing promise change.
+
+Student experience impact:
+
+* Local/dev only.
+* One successful smoke-test signup account remains in local/dev as test data.
+* No visible UI/copy changed.
+* No trial availability, access runtime enforcement, `/now` behavior, onboarding copy, payment, subscription, program, enrollment, cycle, or study-load behavior changed.
+
+Technical non-goals:
+
+* No code changes.
+* No signup route edits.
+* No bug fixes.
+* No auth or login behavior changes.
+* No runtime access enforcement.
+* No trial activation or trial invitation creation.
+* No subscriptions or payments.
+* No programs, enrollments, learning cycles, or study loads.
+* No admin behavior.
+* No `/now` behavior.
+* No UI implementation.
+* No staging/prod.
+* No schema change.
+* No Prisma migration, `prisma db push`, manual SQL, seed script, deploy, commit, or push.
+* No `.docx` files.
+* No secrets, passwords, tokens, API keys, raw database URLs, raw environment values, or raw cookies.
+
+Final verdict:
+
+```text
+SIGNUP_DEFAULT_ROW_LOCAL_DEV_SMOKE_PASSED
+```
