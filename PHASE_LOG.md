@@ -12731,6 +12731,130 @@ Final verdict:
 CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION_COMPLETED
 ```
 
+## MVP-SALES-TRIAL-2Q - StudentAccess DB application verification closeout
+
+Status: STUDENT_ACCESS_DB_APPLICATION_VERIFIED_CLOSED - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `2fbbaf0`.
+* Last accepted commit = `MVP-SALES-TRIAL-2P: document completed StudentAccess DB application`.
+* Working tree was clean before this documentation/verification closeout phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2P` closed at `2fbbaf0`.
+* This phase formally closes/verifies the local/dev DB application of `student_access`. Documentation/verification only.
+
+Inputs reviewed:
+
+* TRIAL-2P, TRIAL-2O, TRIAL-2L, TRIAL-2G, TRIAL-2H, phase gate, `PHASE_LOG.md -Tail 1700`, `nextjs_space/prisma/schema.prisma`, and `nextjs_space/package.json`.
+* Git preflight matched `HEAD = origin/main = 2fbbaf0`; historical phase baselines remain historical only.
+
+Post-2P verified state:
+
+* `StudentAccess` exists in `schema.prisma`.
+* Target was local/dev Neon dev project `e360-bexauri-dev`.
+* Backup/snapshot existed before mutation.
+* DB push was human-executed by Mauricio in local PowerShell, not by Codex.
+* Prisma reported the database in sync with the Prisma schema.
+* `student_access` is expected to exist after the successful schema sync.
+* Prisma Client v6.7.0 was generated.
+* Build passed.
+
+Evidence summary:
+
+* Absolute path used: `C:\projects\e360-tutoring-platform\tutoring_platform_mvp\nextjs_space`.
+* `Test-Path prisma/schema.prisma` returned `True`.
+* `npx.cmd prisma db push --schema=prisma/schema.prisma` succeeded.
+* `npx.cmd prisma generate --schema=prisma/schema.prisma` succeeded.
+* `npm.cmd run build` succeeded.
+* Final `git status --short` after Mauricio's human-executed commands was clean.
+* No connection strings, `DATABASE_URL`, `.env` values, passwords, tokens, cookies, `NEXTAUTH_SECRET`, `ADMIN_EMAILS`, or secrets were documented.
+
+What was not done:
+
+* No SQL verification.
+* No migrate.
+* No migration file.
+* No force reset.
+* No seed.
+* No manual `StudentAccess` rows.
+* No signup default-row.
+* No backfill.
+* No runtime reads/writes.
+* No admin UI.
+* No `/now`.
+* No billing.
+* No enrollment.
+* No trial runtime.
+* No Program/LearningCycle/StudyLoad.
+* No Block 7.
+
+Operational interpretation:
+
+* DB application technical step is complete for local/dev.
+* This does not mean product trial/access runtime exists.
+* The `student_access` table exists or is expected to exist, but remains unused by app behavior.
+* Safe usage still requires validation helper, legal status pair policy, explicit write/read policy, default-row/backfill design, and tests.
+
+Remaining gaps:
+
+* Validation helper/legal status pair enforcement.
+* Default row policy for new signup.
+* Backfill policy for existing students.
+* Read integration policy for `/now`.
+* Admin visibility/read surfaces.
+* Mutation endpoints.
+* AuditEvent requirements.
+* Subscription/payment linkage.
+* Trial expiration enforcement.
+* Access blocking behavior.
+* Tests/smoke plan.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2R - StudentAccess validation helper design`.
+* Reason: validation rules should exist before write endpoints, default-row behavior, backfill, admin mutation, or runtime enforcement.
+* Do not recommend UI/admin/runtime/default-row/backfill before validation helper readiness.
+
+Non-goals preserved:
+
+* No app code change.
+* No `schema.prisma` edit.
+* No package change.
+* No deploy.
+* No staging or production operation.
+* No SQL.
+* No DB mutation in 2Q.
+* No Prisma CLI in 2Q.
+* No migrate.
+* No migration file.
+* No force reset.
+* No seed.
+* No `.env` or secret inspection.
+* No student account creation.
+* No `StudentAccess` row.
+* No backfill.
+* No default-row behavior.
+* No enrollment/trial/billing/payment/subscription.
+* No Program/LearningCycle/StudyLoad.
+* No auth/signup/login/admin guard change.
+* No `/now`.
+* No admin UI.
+* No Block 7.
+* No commit.
+* No push.
+
+Final verdict:
+
+```text
+STUDENT_ACCESS_DB_APPLICATION_VERIFIED_CLOSED
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
