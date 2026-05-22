@@ -13114,6 +13114,94 @@ Final verdict:
 PURE_STUDENT_ACCESS_VALIDATION_HELPER_IMPLEMENTED
 ```
 
+## MVP-SALES-TRIAL-2U - StudentAccess validation helper closeout and next integration boundary
+
+Status: STUDENT_ACCESS_HELPER_CLOSED_READY_FOR_ROW_LIFECYCLE_READINESS - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `7406d33`.
+* Last accepted commit = `MVP-SALES-TRIAL-2T: implement StudentAccess validation helper`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2T` closed at `7406d33`.
+* This phase closed out the pure helper implementation and defined the next safe integration boundary before runtime/default-row/backfill/admin/read/write behavior.
+* Documentation/readiness only.
+
+Inputs reviewed:
+
+* TRIAL-2T, TRIAL-2S, TRIAL-2R, TRIAL-2Q, phase gate, and `PHASE_LOG.md` tail relevant to TRIAL-2Q through TRIAL-2T.
+* Read-only inspected helper/test, signup route, `/now`, admin student detail, and `schema.prisma`.
+
+Closeout summary:
+
+* Helper is implemented.
+* Helper is pure, deterministic, DB-free, and has no Prisma imports.
+* Helper has no runtime consumers.
+* Helper was tested in TRIAL-2T with a DB-free `tsx` assertion test.
+* Signup, `/now`, admin detail, and schema remain unchanged by 2U.
+
+What 2T does not make true:
+
+* No `StudentAccess` rows exist by default.
+* No signup default-row behavior exists.
+* No backfill exists.
+* No signup, `/now`, admin, mutation endpoint, `AuditEvent`, billing/subscription, access blocking, enrollment, Program/LearningCycle/StudyLoad, or Block 7 behavior exists.
+
+Next-boundary decision:
+
+* Do not recommend runtime integration yet because row lifecycle is undefined.
+* Do not recommend `/now` or admin UI before default-row/backfill policy is resolved.
+* Do not recommend admin mutation before read/default-row/backfill policy and `AuditEvent` policy are defined.
+* Safest next boundary is combined row lifecycle readiness: signup default-row plus existing-student backfill policy.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2V - StudentAccess default-row and backfill policy readiness`.
+* Scope: documentation/readiness only. Define default-row and backfill policy, active-enrollment mapping, decision fields, future mutation stop rules, and whether implementation should split signup default-row and backfill into separate phases.
+
+Non-goals preserved:
+
+* No app code changes.
+* No helper code changes.
+* No test code changes.
+* No schema edit.
+* No package change.
+* No package-lock change.
+* No npm install.
+* No Prisma CLI.
+* No DB mutation.
+* No SQL.
+* No seed.
+* No `.env` access.
+* No secrets printed.
+* No UI/admin change.
+* No signup default-row behavior.
+* No backfill.
+* No `/now` read integration.
+* No admin read integration.
+* No mutation endpoints.
+* No `AuditEvent` writes.
+* No billing/payment/subscription integration.
+* No Program/LearningCycle/StudyLoad.
+* No enrollment automation.
+* No Block 7.
+* No deploy.
+* No generated PDF/DOCX artifacts.
+* No commit.
+* No push.
+
+Final verdict:
+
+```text
+STUDENT_ACCESS_HELPER_CLOSED_READY_FOR_ROW_LIFECYCLE_READINESS
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
