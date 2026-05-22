@@ -12963,6 +12963,81 @@ Final verdict:
 STUDENT_ACCESS_VALIDATION_HELPER_DESIGN_READY
 ```
 
+## MVP-SALES-TRIAL-2S - StudentAccess validation helper implementation readiness
+
+Status: READY_FOR_PURE_STUDENT_ACCESS_VALIDATION_HELPER_IMPLEMENTATION - commit pending Mauricio review
+
+Baseline:
+
+* HEAD = origin/main = `e1866c7`.
+* Last accepted commit = `MVP-SALES-TRIAL-2R: design StudentAccess validation helper`.
+* Working tree was clean before this documentation/readiness phase.
+* Git preflight is the live truth.
+
+Scope:
+
+* Roadmap block: 2 - Trial and access control.
+* Sales-ready relevance: direct/high.
+* Dependency: `MVP-SALES-TRIAL-2R` closed at `e1866c7`.
+* This phase determined readiness for a future pure TypeScript `StudentAccess` validation helper implementation.
+* Documentation/readiness only; no helper, tests, schema, package, Prisma, DB, runtime, UI/admin, default-row, backfill, `/now`, mutation endpoint, audit write, billing, enrollment, Program/LearningCycle/StudyLoad, Block 7, deploy, commit, or push action was performed.
+
+Inputs reviewed:
+
+* TRIAL-2R, TRIAL-2Q, TRIAL-2G, TRIAL-2F, phase gate, `PHASE_LOG.md` tail relevant to TRIAL-2O through TRIAL-2R.
+* Read-only inspected: `nextjs_space/prisma/schema.prisma`, `nextjs_space/package.json`, existing `nextjs_space/lib` structure, and read-only search for Vitest/Jest/node:test/describe/it/test patterns.
+* Git preflight matched `HEAD = origin/main = e1866c7`; historical baselines remain historical only.
+
+Readiness decision:
+
+* Future helper can be implemented safely only as a pure, deterministic, DB-free TypeScript validation module.
+* Recommended helper path: `nextjs_space/lib/student-access-validation.ts`.
+* Recommended test path: `nextjs_space/lib/student-access-validation.test.ts`.
+* Prisma imports should be prohibited in both helper and tests.
+* The helper should define status constants/string literal unions, the legal pair map, snapshot validation, transition validation, deterministic `now` input, structured validation result shape, and explicit error/warning categories.
+
+Test tooling finding:
+
+* `package.json` has no unit test script.
+* No Vitest or Jest dependency was found.
+* No formal `node:test` convention was found.
+* Existing project tooling includes `tsx`, and current scripts include probe-style TypeScript scripts.
+* Safest future path without installing packages: a self-contained TypeScript assertion test using Node built-ins and existing `tsx`, for example `npx.cmd tsx lib/student-access-validation.test.ts`.
+* If that DB-free test path cannot run in 2T, stop and run a test-harness readiness phase before helper implementation.
+
+Future 2T boundaries:
+
+* May include only the pure helper, a DB-free assertion test file, documentation/PHASE_LOG updates, and optional execution of the isolated test through existing tooling.
+* Must not include app route changes, runtime imports, signup default-row behavior, backfill, admin read/write/mutation behavior, `/now`, mutation endpoints, `AuditEvent` writes, billing/payment/subscription integration, enrollment, Program/LearningCycle/StudyLoad, Block 7, schema edits, package changes, npm install, Prisma CLI, DB mutation, SQL, seed, deploy, commit, or push.
+
+Future test strategy:
+
+* Cover legal statuses, legal pairs, prohibited pairs, required/null fields, timestamp ordering, `now >= trialExpiresAt`, subscriptionStatus first-cut limits, transition preconditions, missing actor/reason, and no DB access.
+
+Acceptance criteria:
+
+* Helper has no Prisma/DB/app/runtime imports.
+* Helper is deterministic and takes `now` as input.
+* Legal pair map matches TRIAL-2R.
+* Snapshot and transition validators return structured errors/warnings.
+* Tests run without `.env`, DB, Prisma CLI, package install, or build.
+* No runtime caller imports the helper yet.
+
+Risks and stop rules:
+
+* Stop if future implementation needs Prisma, DB, package install, package script changes, `.env`, runtime integration, default-row, backfill, admin mutation, `/now`, billing, enrollment, Program/LearningCycle/StudyLoad, Block 7, or a legal-pair change not approved by a design phase.
+
+Recommended next phase:
+
+* `MVP-SALES-TRIAL-2T - Implement pure StudentAccess validation helper`.
+* Scope: implement the isolated helper and DB-free tests only. Do not implement default-row, backfill, admin mutation, `/now` read, billing, enrollment, runtime enforcement, or audit writes.
+
+Final verdict:
+
+```text
+READY_FOR_PURE_STUDENT_ACCESS_VALIDATION_HELPER_IMPLEMENTATION
+```
+
 ## MVP-SALES-TRIAL-2L - Backup/snapshot confirmation before controlled DB push
 
 Status: READY_FOR_CONTROLLED_LOCAL_DEV_STUDENT_ACCESS_DB_APPLICATION - commit pending Mauricio review
