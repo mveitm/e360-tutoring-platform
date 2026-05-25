@@ -21419,3 +21419,108 @@ Result marker:
 ```text
 MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_METADATA_EXTRACTED
 ```
+
+## MVP-COMMERCIAL-PAES-SOURCE-1B - Resolve current-cycle PAES M2/L1 source hierarchy
+
+Status: PASS.
+
+Type: Documentation-only / controlled official-source hierarchy resolution / source custody.
+
+Baseline:
+
+* `8285c52` (`HEAD = origin/main = origin/HEAD`) before edits.
+* Working tree clean at preflight.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_SOURCE_METADATA_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+
+Source access status:
+
+* `WEB_ACCESS_AVAILABLE_USED_FOR_CONTROLLED_HIERARCHY_VERIFICATION`.
+* Official DEMRE / Universidad de Chile pages used only for hierarchy-relevant metadata.
+* No PDFs downloaded.
+* No PDFs committed.
+* No full temario contents extracted.
+* No unofficial source used as canonical PAES alignment.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1B_CURRENT_CYCLE_SOURCE_HIERARCHY_RESOLUTION.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created a controlled current-cycle source hierarchy resolution document.
+* Recorded source access status, hierarchy verification method, current-cycle register, M2 hierarchy finding, L1 hierarchy finding, M2 discrepancy analysis, L1 hierarchy analysis, 2026 historical/provisional policy, example-question supplemental policy, candidate hierarchy decision, trust boundaries, future M2/L1 extraction impacts, risks, Pro/high-level reserved questions, future options, Context Gate summary, explicit non-goals, and result marker.
+
+Hierarchy decision:
+
+* Current-cycle DEMRE 2027 publication index and PAES Regular temarios index govern source discovery above historical pages.
+* M2: `PROVISIONALLY_RESOLVED_CURRENT_CYCLE_CANDIDATE_WITH_DISCREPANCY`.
+* L1: `RESOLVED_CURRENT_CYCLE_PRIMARY_CANDIDATE_AT_PAGE_LEVEL`.
+* 2026 M2/L1 sources remain historical/provisional comparison only.
+* DEMRE example-question sources remain supplemental only.
+
+M2 discrepancy status:
+
+* Still material and explicitly caveated.
+* The 2027 M2 page is under 2027 structure and linked from the 2027 temario index, but its body line says `Admision 2026`.
+* Future M2 source-content extraction must verify PDF/header hierarchy before canonical extraction or alignment.
+* If unresolved at PDF/header level, future M2 extraction must stop or request Pro/high-level direction.
+
+L1 hierarchy status:
+
+* Clean at page level.
+* The 2027 L1 page is under 2027 structure, linked from the 2027 temario index, and says `Competencia Lectora 2026 - Admision 2027`.
+* Future L1 extraction still requires normal PDF/header metadata confirmation before content extraction.
+
+Future recommendation:
+
+* Prefer `MVP-COMMERCIAL-PAES-SOURCE-1C-M2 - Resolve M2 PDF/header discrepancy before source-content extraction` if the next phase is M2-first.
+* Otherwise use `MVP-COMMERCIAL-PAES-SOURCE-1C - Controlled official M2/L1 source-content extraction`, with an initial stop rule for M2 if the discrepancy remains unresolved.
+* No next phase opened automatically.
+
+Non-goals:
+
+* No code changes.
+* No content registry changes.
+* No StudyLoads created.
+* No texts created.
+* No questions created.
+* No PDFs downloaded or committed.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app/browser/API operation.
+* No product behavior change.
+* No full temario extraction.
+* No M2 alignment.
+* No L1 alignment.
+* No M2 readiness declaration.
+* No L1 readiness declaration.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_PAES_SOURCE_1B_CURRENT_CYCLE_SOURCE_HIERARCHY_RESOLVED
+```
