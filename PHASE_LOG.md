@@ -20809,3 +20809,124 @@ Result marker:
 ```text
 MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS_DEFINED
 ```
+
+## MVP-COMMERCIAL-SALES-READY-GATE-1D - Define three-student evidence package before public sale
+
+Status: PASS.
+
+Type: commercial strategy / documentation-only / Sales-Ready evidence package decomposition.
+
+Baseline: `54cbea1`.
+
+Context Gate:
+
+* GOV-CONTEXT closed.
+* Product/UI/brand context closed.
+* OPS-MODE-1/2 active.
+* Product horizon for this phase: roadmap change-control / Sales-Ready gate decomposition; not `MVP-Beta-Sales-Ready` approval.
+* `MVP-COMMERCIAL-SALES-READY-GATE-1` remains a non-binding candidate public gate proposal.
+* `MVP-COMMERCIAL-SALES-READY-GATE-1A` decomposed indefinite operation as candidate criteria only.
+* `MVP-COMMERCIAL-SALES-READY-GATE-1B` decomposed two-state feedback readiness as candidate criteria only.
+* `MVP-COMMERCIAL-SALES-READY-GATE-1C` decomposed dashboard/homepage progress evidence as candidate criteria only.
+* Commercial sandbox, COPY, and activation-checklist phases remain non-operational.
+* Closed payment remains `NO-GO`.
+* Payment/minor policy remains Pro/high-level reserved.
+* M1-only remains not public Sales-Ready.
+* Public Sales-Ready remains blocked.
+* GO only because this is documentation-only and decomposes one candidate Sales-Ready gate criterion.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_COMMERCIAL_SANDBOX_SEPARATION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1C_INVITATION_AND_ACTIVATION_CRITERIA.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_1_SOBER_CLOSED_LAB_COPY_CANDIDATES.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_1_FIRST_CLOSED_SANDBOX_OPERATING_RUNBOOK.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_2_OWNER_OPERATOR_DRY_RUN_CHECKLIST.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_3_OWNER_OPERATOR_DRY_RUN_EVIDENCE_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_2_APPROVED_INTERNAL_CLOSED_LAB_INVITATION_COPY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1D_CLOSED_SANDBOX_ACTIVATION_CHECKLIST.md`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Defined the future three-student evidence package as a candidate public Sales-Ready gate criterion for M1, M2, and L1.
+* Clarified that three-student evidence is internal operational/pedagogical evidence, not market validation, public pricing validation, product-market fit, guaranteed learning outcome, public beta, public sale, or Sales-Ready approval.
+* Defined participant/privacy boundaries, shared evidence dimensions, M1/M2/L1 evidence requirements, continuity, feedback-use, dashboard/progress, no-human-intervention trajectory, self-report, improvement signal, admin/tutor visibility, critical error/blocker/support burden, insufficient evidence, PASS/FAIL/BLOCKED criteria, risks, Pro/high-level reserved questions, and future phase options.
+
+Three-student evidence summary:
+
+* Candidate criterion only.
+* Real evidence was not collected.
+* No student or participant was contacted.
+* No app, browser, API, DB, runtime, `/now`, student UI, admin mutation, payment, trial, billing, subscription, deploy, public offer, public launch, or Sales-Ready action occurred.
+* Evidence with three controlled students would be necessary but not sufficient for public Sales-Ready.
+* Three students may validate operational coherence and internal learning signals, not market demand or price.
+* M2 and L1 evidence must be real and identity-specific.
+* Student perception matters but cannot substitute for actual app evidence.
+* Improvement signals are internal only and must not become public guarantees.
+
+Future recommendation:
+
+* Prefer `MVP-COMMERCIAL-SALES-READY-GATE-1E - Define no-human-intervention trajectory test` if continuing the Sales-Ready gate decomposition.
+* Consider `MVP-COMMERCIAL-SALES-READY-GATE-1F - Define public promise and copy boundary` or a future M2/L1 route-content readiness phase if those are the next bottlenecks.
+* No next phase opened automatically.
+
+Non-goals:
+
+* No code changes.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app operation.
+* No browser smoke.
+* No API calls.
+* No product behavior change.
+* No evidence collection.
+* No student contact.
+* No participant contacted.
+* No trial activation.
+* No runtime enforcement.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin UI.
+* No admin mutation.
+* No StudentAccess mutation.
+* No repair/autocreate.
+* No invitation sent.
+* No sandbox activated.
+* No payment authorization.
+* No public offer.
+* No public launch.
+* No public sale.
+* No public beta authorization.
+* No Sales-Ready approved.
+* No Sales-Ready claim.
+* No legal/minor/payment decision.
+* No market demand, public pricing, public Sales-Ready, M1/M2/L1 validation, or actual student learning value validation.
+* No guaranteed improvement claim.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_DEFINED
+```
