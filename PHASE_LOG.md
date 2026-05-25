@@ -19913,3 +19913,122 @@ Result marker:
 ```text
 MVP_COMMERCIAL_SANDBOX_1_FIRST_CLOSED_SANDBOX_RUNBOOK_DEFINED
 ```
+
+## MVP-COMMERCIAL-SANDBOX-2 - Dry-run checklist for owner/operator test participant
+
+Status: PASS.
+
+Type: Commercial operations / documentation-only / dry-run readiness.
+
+Baseline:
+
+* Expected `HEAD`, `origin/main`, and `origin/HEAD`: `3f54384`.
+* Latest accepted commit: `MVP-COMMERCIAL-SANDBOX-1: define closed sandbox runbook`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `3f54384` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-COMMERCIAL-TRIAL-1A` separated closed commercial sandbox from public Sales-Ready.
+* `MVP-COMMERCIAL-TRIAL-1B` kept closed payment at `NO-GO`.
+* `MVP-COMMERCIAL-TRIAL-1C` defined invitation and activation as future actions.
+* `MVP-COMMERCIAL-COPY-1` created copy candidates that are not approved for real use.
+* `MVP-COMMERCIAL-SANDBOX-1` defined the operating runbook and recommended SANDBOX-2 for operational readiness.
+* The 3M `StudentAccess` block is closed; `reaffirm_no_access` remains non-permission.
+* M1-only remains Pre-Sales-Ready / closed laboratory.
+* This phase changes no code, DB, runtime, trial activation, billing/subscription/payment, `/now`, student UI, admin mutation, repair/autocreate, invitation, activation, payment, public offer, or Sales-Ready behavior.
+* Context Gate decision: GO only because this is documentation-only and internal dry-run readiness.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_BLOCK_CLOSEOUT.md`.
+* `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_COMMERCIAL_SANDBOX_SEPARATION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1C_INVITATION_AND_ACTIVATION_CRITERIA.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_1_SOBER_CLOSED_LAB_COPY_CANDIDATES.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_1_FIRST_CLOSED_SANDBOX_OPERATING_RUNBOOK.md`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_2_OWNER_OPERATOR_DRY_RUN_CHECKLIST.md`.
+* `PHASE_LOG.md`.
+
+Purpose:
+
+* Define a documentation-only internal dry-run checklist for Mauricio as owner/operator.
+* Rehearse closed sandbox operating logic before any real invitation, activation, payment, trial, runtime access, billing, subscription, student-facing UI, or public promise.
+* Preserve the distinction between internal operational readiness and real sandbox operation.
+
+Checklist sections:
+
+* Owner/operator participant definition.
+* What the dry-run is and is not.
+* Pre-dry-run checklist.
+* Dry-run sequence.
+* Evidence to observe.
+* PASS / FAIL / BLOCKED criteria.
+* Stop/no-go gates.
+* Human support boundaries.
+* Commercial, payment, `StudentAccess`, student experience, and data/privacy boundaries.
+* Post-dry-run review questions.
+* Compact Context Gate summary.
+* Future phase options.
+
+Gates:
+
+* No real participant invitation.
+* No third-party contact.
+* No minor participation.
+* No payment request or authorization.
+* No sandbox activation.
+* No trial activation.
+* No runtime access change.
+* No billing/subscription/payment behavior.
+* No `/now`, student UI, admin mutation, DB mutation, deploy, public offer, final copy approval, legal/minor/payment decision, or Sales-Ready claim.
+
+Next recommendation:
+
+* Prefer `MVP-COMMERCIAL-COPY-2 - Review and approve one closed-lab invitation copy for internal use` if communication approval is the next bottleneck.
+* Prefer `MVP-COMMERCIAL-SANDBOX-3 - Owner/operator non-mutating dry-run evidence review` if an internal non-mutating rehearsal should happen next.
+
+Non-goals:
+
+* No code changes.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin mutation.
+* No repair/autocreate.
+* No invitation sent.
+* No sandbox activated.
+* No payment authorization.
+* No public offer.
+* No Sales-Ready claim.
+* No final copy approval.
+* No legal/minor/payment decision.
+* No market demand, public pricing, or public Sales-Ready validation.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_SANDBOX_2_OWNER_OPERATOR_DRY_RUN_CHECKLIST_DEFINED
+```
