@@ -21626,3 +21626,116 @@ Result marker:
 ```text
 MVP_COMMERCIAL_PAES_SOURCE_1C_M2_HIERARCHY_RESOLVED
 ```
+
+## MVP-COMMERCIAL-PAES-SOURCE-1C - Controlled official M2/L1 source-content extraction
+
+Status: PASS.
+
+Type: Documentation-only / controlled official-source content extraction / source custody.
+
+Baseline:
+
+* `3b6742f` (`HEAD = origin/main = origin/HEAD`) before edits.
+* Working tree clean at preflight.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_SOURCE_METADATA_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1B_CURRENT_CYCLE_SOURCE_HIERARCHY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_M2_PDF_HEADER_DISCREPANCY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+
+Source access status:
+
+* `WEB_ACCESS_AVAILABLE_USED_FOR_CONTROLLED_OFFICIAL_SOURCE_SUMMARY`.
+* Official DEMRE / Universidad de Chile pages and linked PDFs used only for source-custody and high-level content summaries.
+* No PDFs downloaded into the repo.
+* No PDFs committed.
+* No full temario copied.
+* No official questions, answer keys, full tables, or long source passages copied.
+* No unofficial source used as canonical PAES alignment.
+
+Official sources summarized:
+
+* DEMRE 2027 M2 temario page.
+* DEMRE 2027 M2 linked PDF.
+* DEMRE 2027 Competencia Lectora temario page.
+* DEMRE 2027 Competencia Lectora linked PDF.
+* DEMRE 2026 PAES Regular question/clavijero index as supplemental note only.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_CONTROLLED_OFFICIAL_M2_L1_SOURCE_CONTENT_EXTRACTION.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created controlled official-source content extraction note.
+* Recorded source access status, extraction method and copyright limits, official source register, M2 source-content summary, L1 source-content summary, supplemental example-question note, historical comparison note, trust boundaries, future M2/L1 alignment prerequisites, future taxonomy/content boundaries, risks, Pro/high-level reserved questions, future options, Context Gate summary, explicit non-goals, and result marker.
+
+M2 extraction summary:
+
+* Summarized source identity and hierarchy from official 2027 M2 page and PDF.
+* Recorded broad structure only: introduction, presentation, evaluated mathematical skills, evaluated knowledge domains, and detailed table not reproduced.
+* Recorded high-level M2 skill families and knowledge domains without creating a Bexauri M2 taxonomy.
+
+L1 extraction summary:
+
+* Summarized source identity and hierarchy from official 2027 Competencia Lectora page and PDF.
+* Recorded broad structure only: introduction, presentation, test characteristics, reading skills/tasks, knowledge associated with texts, literary/non-literary contexts, and detailed tables not reproduced.
+* Recorded high-level reading-skill orientation without creating a Bexauri L1 taxonomy.
+
+Future recommendation:
+
+* Prefer `MVP-COMMERCIAL-PAES-M2-ALIGNMENT-1 - Controlled M2 official-source alignment map` if M2 mapping is next.
+* Prefer `MVP-COMMERCIAL-PAES-L1-ALIGNMENT-1 - Controlled L1 official-source alignment map` if L1 mapping is next.
+* Prefer `MVP-COMMERCIAL-L1-TEXT-RIGHTS-1 - Define L1 source/text rights and editorial policy` before any L1 text/content creation.
+* No next phase opened automatically.
+
+Non-goals:
+
+* No code changes.
+* No content registry changes.
+* No StudyLoads created.
+* No texts created.
+* No questions created.
+* No feedback created.
+* No PDFs downloaded or committed.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app/browser/API operation.
+* No product behavior change.
+* No full temario copied.
+* No full official tables copied.
+* No official questions copied.
+* No answer keys copied.
+* No M2 alignment.
+* No L1 alignment.
+* No final taxonomy created.
+* No M2 readiness declaration.
+* No L1 readiness declaration.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_PAES_SOURCE_1C_CONTROLLED_OFFICIAL_M2_L1_CONTENT_EXTRACTED
+```
