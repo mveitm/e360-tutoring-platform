@@ -19460,3 +19460,115 @@ Result marker:
 ```text
 MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_SANDBOX_SEPARATION_DEFINED
 ```
+
+## MVP-COMMERCIAL-TRIAL-1B - Closed payment risk matrix
+
+Status: PASS.
+
+Type: Commercial / ethical / operational risk documentation-only.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `2832aec`.
+* Latest accepted commit: `MVP-COMMERCIAL-TRIAL-1A: define closed-lab sandbox separation`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `2832aec` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-PARALLEL-INPUTS-1` and `MVP-PARALLEL-INPUTS-2` are closed.
+* `MVP-COMMERCIAL-TRIAL-1A` formalized the separation between closed commercial sandbox and public Sales-Ready.
+* The 3M endpoint block is closed.
+* M1-only remains Pre-Sales-Ready / closed laboratory.
+* This phase changes no code, DB, runtime, trial activation, billing/subscription/payment, `/now`, student UI, or admin mutation behavior.
+* This phase only documents the closed payment risk matrix.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_COMMERCIAL_SANDBOX_SEPARATION.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_BLOCK_CLOSEOUT.md`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX.md`.
+* `PHASE_LOG.md`.
+
+Purpose:
+
+* Identify commercial, ethical, operational, legal/compliance, brand, support, product, pedagogy, and data risks before any closed payment decision.
+* Define mitigations and gates before any real charge.
+* Separate what can advance through documentation from what requires Pro/high-level review.
+* Prevent payment exploration from drifting into public sale or Sales-Ready claims.
+
+Risk categories:
+
+* Commercial and public-offer confusion.
+* Minors, payer identity, consent, and legal/ethical handling.
+* Payment/access/runtime/source-of-truth mismatch.
+* Pedagogical route readiness and support burden.
+* Brand and overpromise risk.
+* Refund, pause, expiry, support, and data/evidence handling.
+* Scaling beyond closed known users before Sales-Ready gate.
+
+Initial decision:
+
+* Closed payment remains NO-GO until Pro/high-level review resolves payment, minors, and policy questions.
+* Documentation and operating design may continue.
+* Sandbox planning may continue.
+* Public Sales-Ready remains blocked.
+* No implementation authorized.
+
+Reserved-for-Pro risks:
+
+* Charging minors.
+* Who operates payment if the user is a minor.
+* Real price.
+* Refund/pause policy.
+* Public commercial promise.
+* Public Sales-Ready threshold.
+* Scaling outside known users.
+* Legal/ethical consent policy.
+* Final subscription scope.
+
+Next recommendation:
+
+* Prefer `MVP-COMMERCIAL-TRIAL-1C - Invitation and activation criteria`, because invitation and activation criteria can be documented without authorizing payment.
+
+Non-goals:
+
+* No code changes.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No payment authorization.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin mutation.
+* No repair/autocreate.
+* No public offer.
+* No Sales-Ready claim.
+* No legal decision.
+* No minor payment authorization.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX_DEFINED
+```
