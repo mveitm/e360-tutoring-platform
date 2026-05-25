@@ -18842,3 +18842,103 @@ Result marker:
 ```text
 MVP_PARALLEL_INPUTS_1_STRATEGY_PROPOSAL_INBOX_CREATED
 ```
+
+## MVP-SALES-TRIAL-3M-B - Controlled admin StudentAccess reaffirm endpoint smoke
+
+Status: BLOCKED.
+
+Type: Smoke / verification / local-dev / admin-only / non-permission command.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `a2c5955`.
+* Latest accepted commit: `MVP-PARALLEL-INPUTS-1: create parallel strategy proposal inbox`.
+* Working tree expected before smoke attempt: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `a2c5955` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-SALES-TRIAL-3L` gave `GO with restrictions`.
+* `MVP-SALES-TRIAL-3M-A` implemented the admin `reaffirm_no_access` endpoint.
+* M1-only remains Pre-Sales-Ready / closed laboratory.
+* This phase does not touch student-facing UX, trial activation, runtime enforcement, billing/subscription/payment, `/now`, admin UI buttons/forms, repair/autocreate, schema migration, or deploy.
+* This phase can only verify or document the smoke status for the admin non-permission endpoint.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_MUTATION_ENDPOINT_IMPLEMENTATION_READINESS_REVIEW.md`.
+
+Technical files inspected read-only:
+
+* `nextjs_space/app/api/admin/students/[id]/access-transitions/route.ts`.
+* `nextjs_space/lib/student-access-admin-reaffirm.ts`.
+* `nextjs_space/lib/student-access-validation.ts`.
+* `nextjs_space/lib/student-access-validation.test.ts`.
+* `nextjs_space/lib/admin-guard.ts`.
+* `nextjs_space/lib/audit.ts`.
+* `nextjs_space/app/api/students/[id]/route.ts`.
+* `nextjs_space/package.json`.
+* `PHASE_LOG.md` entries for 3M-A and PARALLEL-INPUTS-1.
+
+Smoke path assessment:
+
+* Safe authenticated admin path available: no.
+* Blocker: the endpoint uses `requireAdminApi`, which depends on an authenticated NextAuth admin session. No operator-provided authenticated browser/browserless path was available in this phase, and no safe existing local script or route was available that can authenticate admin without exposing or handling cookies, tokens, headers, authorization values, session payloads, secrets, or raw environment values.
+* Legacy probe scripts exist that handle cookies, but using or adapting them would conflict with this phase's no cookies/tokens/headers exposure rule and would be outside the allowed safe path.
+* No backdoor auth, `.env` inspection, token copying, cookie copying, header printing, or session payload inspection was attempted.
+
+Smoke result:
+
+* Result: BLOCKED.
+* Endpoint not invoked.
+* No success response was fabricated.
+* No failure checks were run.
+* No live DB mutation was performed.
+* No StudentAccess row was created, repaired, or autocreated.
+* No trial, runtime, billing, `/now`, student UI, admin UI, schema, migration, or deploy behavior was touched.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+
+Verification:
+
+* `git status --short`: showed only `PHASE_LOG.md` modified before staging.
+* `git diff --stat`: documentation-only change.
+* `git diff --check`: PASS.
+* Build/tests: not run because no code changed.
+
+Non-goals preserved:
+
+* No code changes.
+* No DB changes.
+* No live DB mutation.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin UI mutation.
+* No repair/autocreate.
+* No secrets, cookies, tokens, headers, session payloads, or raw environment values exposed.
+
+Result marker:
+
+```text
+MVP_SALES_TRIAL_3M_B_REAFFIRM_ENDPOINT_SMOKE_BLOCKED
+```
