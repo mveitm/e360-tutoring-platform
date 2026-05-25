@@ -19572,3 +19572,120 @@ Result marker:
 ```text
 MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX_DEFINED
 ```
+
+## MVP-COMMERCIAL-TRIAL-1C - Invitation and activation criteria
+
+Status: PASS.
+
+Type: Commercial / operations / documentation-only.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `b3fff71`.
+* Latest accepted commit: `MVP-COMMERCIAL-TRIAL-1B: define closed payment risk matrix`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `b3fff71` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-PARALLEL-INPUTS-1` and `MVP-PARALLEL-INPUTS-2` are closed.
+* `MVP-COMMERCIAL-TRIAL-1A` separated closed commercial sandbox from public Sales-Ready.
+* `MVP-COMMERCIAL-TRIAL-1B` defined the risk matrix and kept closed payment at NO-GO.
+* The 3M endpoint block is closed.
+* M1-only remains Pre-Sales-Ready / closed laboratory.
+* This phase changes no code, DB, runtime, trial activation, billing/subscription/payment, `/now`, student UI, or admin mutation behavior.
+* This phase only documents invitation and activation criteria.
+* Closed payment remains NO-GO.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_COMMERCIAL_SANDBOX_SEPARATION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_BLOCK_CLOSEOUT.md`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1C_INVITATION_AND_ACTIVATION_CRITERIA.md`.
+* `PHASE_LOG.md`.
+
+Purpose:
+
+* Define who can be considered a candidate, invited participant, activation-ready participant, and future activated sandbox participant.
+* Define invitation criteria and blockers for a closed commercial sandbox.
+* Define activation readiness criteria and blockers without authorizing activation.
+* Identify required evidence before any future activation consideration.
+
+Invitation criteria:
+
+* Participant must be part of the known closed group.
+* Participant must understand closed-lab, non-public, limited-scope framing.
+* Participant must not require complete PAES, M1/M2/L1, score, or unlimited-support promises.
+* Participant must have a compatible objective, basic autonomy, useful feedback potential, and an internal supervision owner.
+* Minor participation with payment remains unresolved and requires Pro/high-level review.
+
+Activation criteria:
+
+* Future activation requires correct invitation, defined scope, available initial route, governed `StudentAccess` state, basic technical access readiness, support/fallback, duration, expiry/closure, sober communication, success/failure criteria, assigned supervision owner, and no public promise.
+* Payment/minor questions must be resolved if applicable.
+* Constant manual intervention must not be required for the app to work.
+* Criteria are readiness only and do not authorize activation.
+
+Blockers:
+
+* Invitation is blocked by public-launch framing, complete PAES or score promises, intensive support needs, unavailable route, missing supervision owner, unclear lab framing, public-sale pressure, or mature-subscription confusion.
+* Activation is blocked by unresolved payment when payment is required, unresolved minor consent/payment, missing learning route, app inability to guide first step, inconsistent access/runtime behavior, no support path, no pause/refund/failure policy when money is involved, overpromising copy, manual out-of-app experience creation, public Sales-Ready implication, or unauthorized trial/runtime/billing/student UI dependencies.
+
+Reserved-for-Pro decisions:
+
+* Payment involving minors.
+* Payer identity and consent.
+* Any activation with payment.
+* Any conversion to subscription candidate.
+* Public Sales-Ready threshold.
+* Scaling beyond known participants.
+* Legal/ethical payment handling.
+
+Next recommendation:
+
+* Prefer `MVP-COMMERCIAL-COPY-1 - Sober invitation and activation copy candidates` or `MVP-COMMERCIAL-SANDBOX-1 - First closed sandbox operating runbook`, depending on whether communication or the operational runbook should be clarified first.
+
+Non-goals:
+
+* No code changes.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No invitation sent.
+* No activation authorized.
+* No payment authorization.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin mutation.
+* No repair/autocreate.
+* No public offer.
+* No Sales-Ready claim.
+* No legal decision.
+* No minor payment authorization.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_TRIAL_1C_INVITATION_ACTIVATION_CRITERIA_DEFINED
+```
