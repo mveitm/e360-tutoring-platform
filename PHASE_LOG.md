@@ -20350,3 +20350,118 @@ Result marker:
 ```text
 MVP_COMMERCIAL_TRIAL_1D_CLOSED_SANDBOX_ACTIVATION_CHECKLIST_DEFINED
 ```
+
+## MVP-COMMERCIAL-SALES-READY-GATE-1 - Version external public M1/M2/L1 Sales-Ready gate proposal
+
+Status: PASS.
+
+Type: commercial strategy / documentation-only / external proposal versioning / non-binding Sales-Ready gate input.
+
+Baseline: `080166c`.
+
+Context Gate:
+
+* GOV-CONTEXT closed.
+* Product/UI/brand context closed.
+* OPS-MODE-1/2 active.
+* Current product horizon for this phase: roadmap change-control / Sales-Ready gate proposal; not `MVP-Beta-Sales-Ready` approval.
+* M1-only remains not public Sales-Ready.
+* Public Sales-Ready remains blocked.
+* Commercial sandbox, COPY, and activation-checklist phases remain non-operational.
+* StudentAccess 3M remains non-permission only.
+* External proposal is versioned as non-binding strategic input only.
+* GO only because this is documentation-only and versions a non-binding external proposal as strategic input.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_BLOCK_CLOSEOUT.md`.
+* `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_COMMERCIAL_SANDBOX_SEPARATION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1C_INVITATION_AND_ACTIVATION_CRITERIA.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_1_SOBER_CLOSED_LAB_COPY_CANDIDATES.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_1_FIRST_CLOSED_SANDBOX_OPERATING_RUNBOOK.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_2_OWNER_OPERATOR_DRY_RUN_CHECKLIST.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_3_OWNER_OPERATOR_DRY_RUN_EVIDENCE_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_2_APPROVED_INTERNAL_CLOSED_LAB_INVITATION_COPY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1D_CLOSED_SANDBOX_ACTIVATION_CHECKLIST.md`.
+
+External proposal incorporated:
+
+* Source: external chat.
+* Status: non-binding strategic input; not implementation authority.
+* Topic: candidate public M1/M2/L1 Sales-Ready gate.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Versioned the external proposal as a candidate public Sales-Ready gate for M1/M2/L1.
+* Preserved safe language: proposal/candidate gate, would require/should require, public Sales-Ready remains blocked.
+* Clarified that "indefinite operation" means no ordinary functional wall while subscription is active, not infinite content magic.
+* Clarified that "zero human intervention" means zero ordinary intervention in the learning trajectory, not absence of supervision, support, or audit.
+* Framed student improvement as internal evidence gate, not public promise.
+* Documented M1, M2, L1 candidate gates; minimum student experience; onboarding; continuity; two-state feedback; dashboard progress evidence; human supervision; admin/tutor visibility; payment/subscription boundary; commercial promise limits; NO-GO conditions; beta-public distinction; rollback signals; minimum evidence; final checklist; Pro/high-level reserved questions; and future subphases.
+
+Gate proposal summary:
+
+* Public Sales-Ready would require a minimally effective, autonomous, subscription-aligned PAES preparation experience across M1, M2, and L1.
+* M1-only remains not Sales-Ready.
+* Payment/minor policy remains unresolved and Pro/high-level reserved.
+* Public Sales-Ready remains blocked after this phase.
+
+Future recommendation:
+
+* Prefer `MVP-COMMERCIAL-SALES-READY-GATE-1A - Define indefinite operation criteria for M1/M2/L1` or `MVP-COMMERCIAL-SALES-READY-GATE-1B - Define two-state feedback readiness boundary` if continuing gate decomposition.
+* Do not open implementation from this document.
+
+Non-goals:
+
+* No code changes.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app operation.
+* No browser smoke.
+* No API calls.
+* No product behavior change.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin UI.
+* No admin mutation.
+* No StudentAccess mutation.
+* No repair/autocreate.
+* No invitation sent.
+* No participant contacted.
+* No sandbox activated.
+* No payment authorization.
+* No public offer.
+* No public launch.
+* No public sale.
+* No public beta created.
+* No Sales-Ready approved.
+* No Sales-Ready claim.
+* No legal/minor/payment decision.
+* No market demand, public pricing, public Sales-Ready, or actual student learning value validation.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL_VERSIONED
+```
