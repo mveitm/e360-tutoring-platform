@@ -18582,3 +18582,70 @@ Result marker:
 ```text
 MVP_OPS_MODE_1_REDUCED_PRO_DECISION_TIER_PROTOCOL_DEFINED
 ```
+
+## MVP-OPS-MODE-2 - Define Codex compact reporting rule for future prompts
+
+Status: PASS.
+
+Type: Operations governance / documentation-only.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `a1e4bf9`.
+* Latest accepted commit: `MVP-OPS-MODE-1: define reduced Pro operating mode`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `a1e4bf9` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 is closed and active.
+* This phase changes no product, code, DB, runtime, trial, billing, `/now`, or student UI behavior.
+* `MVP-SALES-TRIAL-3M-A` remains paused.
+* This phase only documents the Codex compact reporting rule for future phases.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+
+Files changed:
+
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `PHASE_LOG.md`.
+
+Decision:
+
+* Every future Codex prompt must include a compact reporting rule adapted to the phase.
+* Codex should return compact audit summaries by default.
+* Full transcripts are reserved for bugs, drift, conflicts, unresolved errors, or explicit ChatGPT request.
+
+Non-goals:
+
+* No code changes.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin mutation.
+* No repair/autocreate.
+* No endpoint work.
+* No implementation phase opened.
+
+Result marker:
+
+```text
+MVP_OPS_MODE_2_CODEX_COMPACT_REPORTING_RULE_DEFINED
+```
