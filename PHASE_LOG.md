@@ -18942,3 +18942,94 @@ Result marker:
 ```text
 MVP_SALES_TRIAL_3M_B_REAFFIRM_ENDPOINT_SMOKE_BLOCKED
 ```
+
+## MVP-SALES-TRIAL-3M-C - Define safe admin-authenticated smoke path for StudentAccess endpoint
+
+Status: PASS.
+
+Type: Readiness / smoke-path design / documentation-only.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `ed5891d`.
+* Latest accepted commit: `MVP-SALES-TRIAL-3M-B: document blocked reaffirm endpoint smoke`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `ed5891d` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-SALES-TRIAL-3M-A` implemented the admin `reaffirm_no_access` endpoint.
+* `MVP-SALES-TRIAL-3M-B` was blocked because no safe authenticated admin smoke path was available without exposing cookies, tokens, headers, authorization values, session payloads, secrets, or raw environment values.
+* M1-only remains Pre-Sales-Ready / closed laboratory.
+* This phase does not touch student-facing UX, trial activation, runtime enforcement, billing/subscription/payment, `/now`, admin UI buttons/forms, repair/autocreate, schema migration, or deploy.
+* This phase only defines a safe future smoke path.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_MUTATION_ENDPOINT_IMPLEMENTATION_READINESS_REVIEW.md`.
+
+Technical files inspected read-only:
+
+* `nextjs_space/app/api/admin/students/[id]/access-transitions/route.ts`.
+* `nextjs_space/lib/student-access-admin-reaffirm.ts`.
+* `nextjs_space/lib/admin-guard.ts`.
+* `nextjs_space/lib/audit.ts`.
+* `nextjs_space/app/api/students/[id]/route.ts`.
+* `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+* `nextjs_space/package.json`.
+* `PHASE_LOG.md` entries for 3M-A and 3M-B.
+* `rg` searches for `requireAdminApi`, `recordAuditEvent`, `access-transitions`, `reaffirm_no_access`, `keep_no_access`, `getServerSession`, `authOptions`, `csrf`, and `credentials`.
+
+Files changed:
+
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_SMOKE_PATH_READINESS.md`.
+* `PHASE_LOG.md`.
+
+Decision:
+
+* Recommended future smoke path is a human operator browser-authenticated local/dev smoke.
+* Codex/scripted HTTP with copied cookies/tokens is rejected.
+* Temporary bypass/backdoor/test-only auth is rejected.
+* Direct DB mutation/check-only is rejected as endpoint smoke.
+* A dedicated safe local admin smoke harness remains a candidate future path requiring its own phase.
+
+Recommended next smoke phase:
+
+* `MVP-SALES-TRIAL-3M-D - Human-operated admin StudentAccess reaffirm endpoint smoke`, only if explicitly opened.
+
+Non-goals:
+
+* No smoke executed.
+* No endpoint invoked.
+* No code changes.
+* No DB changes.
+* No live DB mutation.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin UI mutation.
+* No repair/autocreate.
+* No secrets, cookies, tokens, headers, session payloads, or raw environment values exposed.
+
+Result marker:
+
+```text
+MVP_SALES_TRIAL_3M_C_SAFE_ADMIN_AUTH_SMOKE_PATH_DEFINED
+```
