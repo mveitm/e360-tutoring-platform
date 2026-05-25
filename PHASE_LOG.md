@@ -19344,3 +19344,119 @@ Result marker:
 ```text
 MVP_SALES_TRIAL_3M_E_REAFFIRM_ENDPOINT_BLOCK_CLOSED
 ```
+
+## MVP-COMMERCIAL-TRIAL-1A - Version closed-lab commercial sandbox separation
+
+Status: PASS.
+
+Type: Commercial strategy / documentation-only / no implementation.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `f70a254`.
+* Latest accepted commit: `MVP-SALES-TRIAL-3M-E: close StudentAccess reaffirm endpoint block`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `f70a254` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-PARALLEL-INPUTS-1` and `MVP-PARALLEL-INPUTS-2` are closed.
+* The commercial trial/subscription proposal is present in the strategy inbox as non-binding input.
+* The 3M endpoint block is closed.
+* M1-only remains Pre-Sales-Ready / closed laboratory.
+* This phase changes no code, DB, runtime, trial activation, billing/subscription/payment, `/now`, student UI, or admin mutation behavior.
+* This phase only formalizes the strategic separation between closed payment and public Sales-Ready.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_BLOCK_CLOSEOUT.md`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_COMMERCIAL_SANDBOX_SEPARATION.md`.
+* `PHASE_LOG.md`.
+
+Source proposal:
+
+* `MVP-COMMERCIAL-TRIAL-1 - Closed-lab paid trial and subscription operating model proposal`.
+* Source location: `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+* Director audit status: accepted as useful non-binding input.
+
+Thesis:
+
+* Bexauri may test real payment before public Sales-Ready only inside a closed, controlled, explicitly non-public commercial sandbox.
+* The purpose is to validate payment/access/continuity/expiry/support coherence.
+* This does not validate public offer, public price, market demand, or Sales-Ready status.
+* Public Sales-Ready remains blocked until minimally effective PAES support exists across M1, M2, and L1.
+
+Separation rules:
+
+* Closed commercial sandbox is not public launch.
+* Closed payment test is not public sale.
+* Payment/access continuity test is not market validation.
+* M1-only closed-lab work is not public M1/M2/L1 Sales-Ready.
+* Limited-scope subscription concept is not a complete PAES platform.
+* `StudentAccess` state is not a commercial promise.
+* `reaffirm_no_access` endpoint is not access activation.
+* Human supervision is not manual tutoring dependency.
+
+Reserved-for-Pro decisions:
+
+* Whether and how to charge minors.
+* Whether student, guardian, or both operate payment.
+* Exact threshold to accept real money.
+* Price.
+* Refund/pause policy.
+* Final public promise.
+* Public Sales-Ready definition.
+* Minimum M1/M2/L1 readiness.
+* When to scale beyond known participants.
+* Legal/ethical payment handling.
+
+Candidate future phases:
+
+* `MVP-COMMERCIAL-TRIAL-1B - Closed payment risk matrix`.
+* `MVP-COMMERCIAL-TRIAL-1C - Invitation and activation criteria`.
+* `MVP-COMMERCIAL-SANDBOX-1 - First paid sandbox operating runbook`.
+* `MVP-COMMERCIAL-COPY-1 - Sober closed-lab copy`.
+* `MVP-COMMERCIAL-SUBSCRIPTION-1 - Limited-scope subscription model`.
+* `MVP-COMMERCIAL-SALES-READY-GATE-1 - Public M1/M2/L1 Sales-Ready gate`.
+* Recommendation: prefer `MVP-COMMERCIAL-TRIAL-1B` before any payment or trial activation decision.
+
+Non-goals:
+
+* No code changes.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No payment authorization.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin mutation.
+* No repair/autocreate.
+* No Sales-Ready claim.
+* No public launch.
+* No legal/payment decision regarding minors.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_SANDBOX_SEPARATION_DEFINED
+```
