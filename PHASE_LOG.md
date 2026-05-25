@@ -20465,3 +20465,112 @@ Result marker:
 ```text
 MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL_VERSIONED
 ```
+
+## MVP-COMMERCIAL-SALES-READY-GATE-1A - Define indefinite operation criteria for M1/M2/L1
+
+Status: PASS.
+
+Type: commercial strategy / documentation-only / Sales-Ready gate decomposition.
+
+Baseline: `bc6502d`.
+
+Context Gate:
+
+* GOV-CONTEXT closed.
+* Product/UI/brand context closed.
+* OPS-MODE-1/2 active.
+* Product horizon for this phase: roadmap change-control / Sales-Ready gate decomposition; not `MVP-Beta-Sales-Ready` approval.
+* `MVP-COMMERCIAL-SALES-READY-GATE-1` remains a non-binding candidate public gate proposal.
+* M1-only remains not public Sales-Ready.
+* Public Sales-Ready remains blocked.
+* Commercial sandbox, COPY, and activation-checklist phases remain non-operational.
+* Closed payment remains `NO-GO`.
+* Payment/minor policy remains Pro/high-level reserved.
+* GO only because this is documentation-only and decomposes one candidate Sales-Ready gate criterion.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_COMMERCIAL_SANDBOX_SEPARATION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1C_INVITATION_AND_ACTIVATION_CRITERIA.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_1_SOBER_CLOSED_LAB_COPY_CANDIDATES.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_1_FIRST_CLOSED_SANDBOX_OPERATING_RUNBOOK.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_2_OWNER_OPERATOR_DRY_RUN_CHECKLIST.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_3_OWNER_OPERATOR_DRY_RUN_EVIDENCE_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_2_APPROVED_INTERNAL_CLOSED_LAB_INVITATION_COPY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1D_CLOSED_SANDBOX_ACTIVATION_CHECKLIST.md`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Defined "indefinite operation" as a candidate future public Sales-Ready criterion for M1, M2, and L1.
+* Clarified that it means no ordinary functional wall inside the promised scope while subscription is active.
+* Clarified that it does not mean infinite content, guaranteed improvement, complete PAES preparation, adaptive AI/theta/mastery, unlimited human support, or current Sales-Ready proof.
+* Documented shared cross-tutoria criteria, M1/M2/L1 criteria, functional wall definition, acceptable stop states, unacceptable pauses, no-human-intervention trajectory boundary, route/content implications, evidence needs, PASS/FAIL/BLOCKED criteria, risks, and Pro/high-level reserved questions.
+
+Indefinite operation summary:
+
+* Candidate criterion only.
+* Future public Sales-Ready would require M1, M2, and L1 to avoid ordinary functional walls while the subscription is active and inside the promised scope.
+* M1 has possible partial precedent but is not Sales-Ready.
+* M2 and L1 require their own route/content identities before they can satisfy this criterion.
+* Future evidence must come from actual app/student validation, not documentation alone.
+
+Future recommendation:
+
+* Prefer `MVP-COMMERCIAL-SALES-READY-GATE-1B - Define two-state feedback readiness boundary` or `MVP-COMMERCIAL-SALES-READY-GATE-1C - Define student dashboard progress evidence requirements` if continuing gate decomposition.
+* Consider a future M2/L1 route-content readiness phase if tutoria identity is the next bottleneck.
+* No next phase opened automatically.
+
+Non-goals:
+
+* No code changes.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app operation.
+* No browser smoke.
+* No API calls.
+* No product behavior change.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin UI.
+* No admin mutation.
+* No StudentAccess mutation.
+* No repair/autocreate.
+* No invitation sent.
+* No participant contacted.
+* No sandbox activated.
+* No payment authorization.
+* No public offer.
+* No public launch.
+* No public sale.
+* No public beta created.
+* No Sales-Ready approved.
+* No Sales-Ready claim.
+* No legal/minor/payment decision.
+* No market demand, public pricing, public Sales-Ready, M1/M2/L1 route, or actual student learning value validation.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_DEFINED
+```
