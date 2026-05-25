@@ -20240,3 +20240,113 @@ Result marker:
 ```text
 MVP_COMMERCIAL_COPY_2_INTERNAL_CLOSED_LAB_INVITATION_COPY_REVIEWED
 ```
+
+## MVP-COMMERCIAL-TRIAL-1D - Closed sandbox activation checklist
+
+Status: PASS.
+
+Type: commercial operations / documentation-only / activation-readiness checklist.
+
+Baseline: `8a02a35`.
+
+Context Gate:
+
+* GOV-CONTEXT closed.
+* Product/UI/brand context closed.
+* OPS-MODE-1/2 active.
+* Commercial Trial 1A separated closed sandbox from public Sales-Ready.
+* Commercial Trial 1B kept closed payment at `NO-GO`.
+* Commercial Trial 1C kept invitation and activation as future actions.
+* COPY-1 created copy candidates but approved none for real use.
+* SANDBOX-1/2/3 kept sandbox operation, dry-run evidence, invitation, activation, payment, and Sales-Ready as future gated work.
+* COPY-2 selected one internal future-use invitation copy artifact but did not send it.
+* StudentAccess 3M remains non-permission only.
+* GO only because this is documentation-only activation-readiness checklist with no real send, participant contact, activation, payment, runtime, technical behavior, or public promise.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_BLOCK_CLOSEOUT.md`.
+* `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_COMMERCIAL_SANDBOX_SEPARATION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1C_INVITATION_AND_ACTIVATION_CRITERIA.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_1_SOBER_CLOSED_LAB_COPY_CANDIDATES.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_1_FIRST_CLOSED_SANDBOX_OPERATING_RUNBOOK.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_2_OWNER_OPERATOR_DRY_RUN_CHECKLIST.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_3_OWNER_OPERATOR_DRY_RUN_EVIDENCE_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_2_APPROVED_INTERNAL_CLOSED_LAB_INVITATION_COPY.md`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1D_CLOSED_SANDBOX_ACTIVATION_CHECKLIST.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Defined activation-readiness checklist for future closed sandbox activation.
+* Clarified that activation means a future explicit decision to begin a closed, limited, supervised sandbox experience for a defined participant class.
+* Documented participant, scope, route/content, student experience, copy/send, support/failure, StudentAccess/access-state, payment/minor, data/privacy, and technical readiness gates.
+* Defined PASS / FAIL / BLOCKED criteria and explicit activation `NO-GO` gates.
+* Kept route/content and live technical readiness unverified in this phase.
+
+Activation checklist verdict:
+
+* Documentation readiness: PASS.
+* Real activation: NOT AUTHORIZED.
+* Invitation/send: future only.
+* Payment: `NO-GO`.
+* Minor/payment policy: `NO-GO` / Pro-level.
+* StudentAccess: non-permission; no mutation authorized.
+* Runtime access: unchanged.
+* Public Sales-Ready: blocked.
+
+Future recommendation:
+
+* Prefer `MVP-COMMERCIAL-COPY-3 - Future send-readiness review` if the next bottleneck is real-send readiness.
+* Prefer `MVP-COMMERCIAL-TRIAL-1E - Route/content readiness review for closed sandbox activation` if the next bottleneck is route/content state before activation.
+
+Non-goals:
+
+* No code changes.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app operation.
+* No browser smoke.
+* No API calls.
+* No product behavior change.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin UI.
+* No admin mutation.
+* No StudentAccess mutation.
+* No repair/autocreate.
+* No invitation sent.
+* No copy sent.
+* No participant contacted.
+* No sandbox activated.
+* No payment copy approved.
+* No payment authorization.
+* No public offer.
+* No Sales-Ready claim.
+* No legal/minor/payment decision.
+* No market demand, public pricing, public Sales-Ready, or actual student learning value validation.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_TRIAL_1D_CLOSED_SANDBOX_ACTIVATION_CHECKLIST_DEFINED
+```
