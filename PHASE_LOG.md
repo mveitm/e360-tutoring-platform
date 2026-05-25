@@ -21184,3 +21184,123 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL_VERSIONED
 ```
+
+## MVP-COMMERCIAL-PAES-SOURCE-1 - Controlled official PAES M2/L1 source intake
+
+Status: PASS.
+
+Type: documentation-only / controlled source intake / official-source custody.
+
+Baseline: `f4a939f`.
+
+Context Gate:
+
+* GOV-CONTEXT closed.
+* Product/UI/brand context closed.
+* OPS-MODE-1/2 active.
+* Product horizon: roadmap change-control / official-source intake / M2-L1 readiness preparation / Sales-Ready support; not `MVP-Beta-Sales-Ready` approval.
+* Sales-Ready Gate 1 remains a non-binding candidate public gate proposal.
+* Gate 1A, 1B, 1C, and 1D remain candidate criteria/decomposition docs only.
+* M2-READINESS-1 and L1-READINESS-1 remain non-binding route/content readiness inputs only.
+* M1-only remains not public Sales-Ready.
+* M2 remains not ready.
+* L1 remains not ready.
+* Public Sales-Ready remains blocked.
+* GO only because this is documentation-only source intake and source custody.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+
+Source access status:
+
+* `WEB_ACCESS_AVAILABLE_USED_FOR_LIMITED_OFFICIAL_INTAKE`.
+* Official-source web search used only for DEMRE / Universidad de Chile source candidates.
+* No PDFs downloaded.
+* No PDFs committed.
+* No long PDF/page contents copied.
+* A specific Admision 2027 temarios page was not resolved through accessible search in this phase; future extraction must verify current 2027 official pages/PDFs.
+
+Official sources inventoried:
+
+* DEMRE main site / Proceso de Admision 2027 candidate, not independently resolved as exact URL in this phase.
+* DEMRE Temarios PAES Regular / Proceso de Admision 2027 candidate, not independently resolved as exact URL in this phase.
+* DEMRE `Temario de la PAES Regular - Competencia Matematica 2 (M2)`, Admision 2026, with linked PDF visible in search result, not downloaded.
+* DEMRE `Temario de la PAES Regular - Obligatoria de Competencia Lectora`, Admision 2026, with linked PDF visible in search result, not downloaded.
+* DEMRE `Publicacion Ejemplos de Preguntas PAES` official example-question page.
+* DEMRE `Publicaciones PAES / Publicaciones Proceso 2027` candidate, not independently resolved as exact URL in this phase.
+* DEMRE Competencia Lectora FONDEF / levels page as supplemental official context candidate, not temario replacement.
+* DEMRE historical 2025 temario index as historical comparison candidate only.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_M2_L1.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created a controlled official-source intake document for PAES M2 and L1.
+* Defined source custody rules, official-source candidate inventory, M2 source candidates, L1 source candidates, question/example candidates, rejected unofficial source types, source access status, what can be trusted now, what cannot be inferred yet, future extraction needs, future M2/L1 alignment paths, risks, Pro/high-level reserved questions, future phase options, Context Gate summary, non-goals, and result marker.
+
+Source intake summary:
+
+* This phase inventories source candidates only.
+* It does not extract temarios.
+* It does not perform M2 or L1 alignment.
+* It does not define final M2/L1 taxonomy.
+* It does not create content, StudyLoads, texts, questions, feedback, dashboard, or implementation.
+* It does not approve text rights.
+* It does not declare M2, L1, or public Sales-Ready.
+
+Future recommendation:
+
+* Prefer `MVP-COMMERCIAL-PAES-SOURCE-1A - Extract official M2/L1 source metadata` next, before M2/L1 alignment phases.
+* No next phase opened automatically.
+
+Non-goals:
+
+* No code changes.
+* No source extraction.
+* No full temario extraction.
+* No final M2 taxonomy.
+* No final L1 taxonomy.
+* No M2 alignment.
+* No L1 alignment.
+* No content registry changes.
+* No StudyLoads created.
+* No texts created.
+* No questions created.
+* No feedback created.
+* No text rights approval.
+* No PDFs downloaded.
+* No PDFs committed.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app/browser/API operation.
+* No product behavior change.
+* No M2 readiness declaration.
+* No L1 readiness declaration.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_DEFINED
+```
