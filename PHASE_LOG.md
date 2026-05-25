@@ -21054,3 +21054,133 @@ Result marker:
 ```text
 MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL_VERSIONED
 ```
+
+## MVP-COMMERCIAL-L1-READINESS-1 - Version external PAES L1 route/content preparation proposal
+
+Status: PASS.
+
+Type: commercial/pedagogical strategy / documentation-only / external proposal versioning / non-binding L1 route-content readiness input.
+
+Baseline: `9f60eab`.
+
+Context Gate:
+
+* GOV-CONTEXT closed.
+* Product/UI/brand context closed.
+* OPS-MODE-1/2 active.
+* Product horizon for this phase: roadmap change-control / L1 readiness preparation / Sales-Ready support; not `MVP-Beta-Sales-Ready` approval.
+* Sales-Ready Gate 1 remains a non-binding candidate public gate proposal.
+* Gate 1A, 1B, 1C, and 1D remain candidate criteria/decomposition docs only.
+* M2-READINESS-1 remains non-binding M2 route/content readiness input only.
+* Commercial sandbox, COPY, and activation-checklist phases remain non-operational.
+* M1-only remains not public Sales-Ready.
+* L1 remains not ready.
+* Public Sales-Ready remains blocked.
+* Closed payment remains `NO-GO`.
+* Payment/minor policy remains Pro/high-level reserved.
+* GO only because this is documentation-only and versions a non-binding external L1 proposal as strategic input.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_COMMERCIAL_SANDBOX_SEPARATION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1C_INVITATION_AND_ACTIVATION_CRITERIA.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_1_SOBER_CLOSED_LAB_COPY_CANDIDATES.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_1_FIRST_CLOSED_SANDBOX_OPERATING_RUNBOOK.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_2_OWNER_OPERATOR_DRY_RUN_CHECKLIST.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SANDBOX_3_OWNER_OPERATOR_DRY_RUN_EVIDENCE_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_2_APPROVED_INTERNAL_CLOSED_LAB_INVITATION_COPY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1D_CLOSED_SANDBOX_ACTIVATION_CHECKLIST.md`.
+
+External proposal incorporated:
+
+* Source: external chat.
+* Status: non-binding strategic input; not implementation authority.
+* Core premise: L1 cannot be a generic reading-comprehension quiz and must be a guided reading experience centered on textual evidence, inference, purpose, structure, contextual vocabulary, distractor analysis, and justification of alternatives.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Versioned the external PAES L1 route/content preparation proposal as non-binding strategic input.
+* Documented the L1 vs M1/M2 distinction, candidate L1 identity, candidate route map, candidate text types, candidate StudyLoad families in Spanish, L1 feedback expectations aligned with Gate 1B, L1 dashboard/progress expectations aligned with Gate 1C, evidence that L1 is not nominal, risks of generic-quiz L1, L1 NO-GO boundaries, unapproved content/text/rights families, future official-source and editorial alignment, Pro/high-level reserved questions, and future phase options.
+
+L1 proposal summary:
+
+* L1 should guide comprehension from textual evidence, explicit information, relationships between ideas, reasonable inferences, communicative purpose, and contextual meaning.
+* L1 remains not ready.
+* No official PAES L1 alignment is claimed.
+* No text rights/licensing approval is claimed.
+* No route, texts, questions, StudyLoad, registry, feedback, dashboard, app/student evidence, or public Sales-Ready behavior was created.
+* Future official-source alignment, text rights/licensing review, pedagogical/editorial review, content/text validation, and app/student evidence are required before implementation or readiness claims.
+
+Future recommendation:
+
+* Prefer `MVP-COMMERCIAL-L1-READINESS-1A - Official-source and text-rights alignment for candidate L1 route families` before any L1 texts, questions, StudyLoads, registry, feedback, or dashboard implementation phase.
+* No next phase opened automatically.
+
+Non-goals:
+
+* No code changes.
+* No content registry changes.
+* No StudyLoads created.
+* No texts created.
+* No questions created.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app operation.
+* No browser smoke.
+* No API calls.
+* No product behavior change.
+* No official PAES L1 claim.
+* No official-source alignment claim.
+* No text rights/licensing approval.
+* No editorial approval.
+* No L1 implementation.
+* No L1 readiness declaration.
+* No L1 feedback implementation.
+* No L1 dashboard/progress implementation.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin UI.
+* No admin mutation.
+* No StudentAccess mutation.
+* No repair/autocreate.
+* No participant contacted.
+* No evidence collected.
+* No public offer.
+* No public launch.
+* No public sale.
+* No public beta authorization.
+* No Sales-Ready approved.
+* No Sales-Ready claim.
+* No legal/minor/payment decision.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL_VERSIONED
+```
