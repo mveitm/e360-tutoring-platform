@@ -19033,3 +19033,112 @@ Result marker:
 ```text
 MVP_SALES_TRIAL_3M_C_SAFE_ADMIN_AUTH_SMOKE_PATH_DEFINED
 ```
+
+## MVP-SALES-TRIAL-3M-D - Human-operated admin StudentAccess reaffirm endpoint smoke
+
+Status: PASS.
+
+Type: Human-operated smoke / local-dev / admin-authenticated / non-permission command.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `85838eb`.
+* Latest accepted commit: `MVP-SALES-TRIAL-3M-C: define safe reaffirm endpoint smoke path`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `85838eb` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-SALES-TRIAL-3M-C` defined the safe human-operated admin smoke path.
+* This phase documents human PASS evidence only.
+* This phase changes no code, DB, runtime, trial, billing, `/now`, student UI, admin UI, repair/autocreate, schema, migration, or deploy behavior.
+
+Human smoke evidence:
+
+Preflight:
+
+* Git status before: clean.
+* HEAD/origin: `85838eb`.
+
+Target:
+
+* Local URL: local/dev.
+* Route: `/admin/students/[id]`.
+* Student id: redacted / smoke-3e.
+* Authenticated admin browser: yes.
+* Secrets/cookies/tokens/headers exposed: no.
+
+Before state:
+
+* StudentAccess row: Present.
+* `accessStatus`: `no_access`.
+* `trialStatus`: `none`.
+* `subscriptionStatus`: `none`.
+* `lastDecisionReason`: `public_signup_default_no_access`.
+* `lastDecisionBy`: `system`.
+* `lastDecisionAt`: 22 May 2026.
+* `trialExpiresAt`: Not set.
+
+Request:
+
+* Method: POST.
+* Endpoint: `/api/admin/students/[id]/access-transitions`.
+* Command: `reaffirm_no_access`.
+* Decision reason used: `3M-D controlled smoke reaffirm no access`.
+
+Response:
+
+* HTTP status: 200.
+* `ok`: true.
+* `command`: `reaffirm_no_access`.
+* Previous `accessStatus` / `trialStatus` / `subscriptionStatus`: `no_access` / `none` / `none`.
+* Next `accessStatus` / `trialStatus` / `subscriptionStatus`: `no_access` / `none` / `none`.
+* `decision.by` present: yes.
+* `decision.reason`: `3M-D controlled smoke reaffirm no access`.
+* `decision.at` present: yes.
+
+After state:
+
+* `accessStatus`: `no_access`.
+* `trialStatus`: `none`.
+* `subscriptionStatus`: `none`.
+* `lastDecisionReason`: `3M-D controlled smoke reaffirm no access`.
+* `lastDecisionBy`: admin email present / redacted.
+* `lastDecisionAt`: 25 May 2026.
+* `trialExpiresAt`: Not set.
+* Trial timestamps changed: no.
+* Billing/subscription/payment changed: no.
+* Enrollment/program/cycle/load created: no.
+* `/now` or student UI changed: no / not touched.
+* Repair/autocreate observed: no.
+
+Final git status from operator:
+
+* Clean.
+
+Conclusion:
+
+* PASS.
+
+Explicit non-goals preserved:
+
+* No code change in this documentation close.
+* No DB/schema/migration.
+* No deploy.
+* No trial activation.
+* No runtime enforcement.
+* No billing/subscription/payment.
+* No `/now`.
+* No student UI.
+* No admin UI mutation.
+* No repair/autocreate.
+* No Sales-Ready claim.
+
+Result marker:
+
+```text
+MVP_SALES_TRIAL_3M_D_REAFFIRM_ENDPOINT_HUMAN_SMOKE_PASS
+```
