@@ -19689,3 +19689,111 @@ Result marker:
 ```text
 MVP_COMMERCIAL_TRIAL_1C_INVITATION_ACTIVATION_CRITERIA_DEFINED
 ```
+
+## MVP-COMMERCIAL-COPY-1 - Sober invitation and activation copy candidates
+
+Status: PASS.
+
+Type: Commercial copy / documentation-only / no implementation.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `53e9461`.
+* Latest accepted commit: `MVP-COMMERCIAL-TRIAL-1C: define invitation activation criteria`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `53e9461` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-COMMERCIAL-TRIAL-1A` separated closed commercial sandbox from public Sales-Ready.
+* `MVP-COMMERCIAL-TRIAL-1B` defined the risk matrix and kept closed payment at NO-GO.
+* `MVP-COMMERCIAL-TRIAL-1C` defined invitation and activation-readiness as future actions.
+* The 3M endpoint block is closed.
+* M1-only remains Pre-Sales-Ready / closed laboratory.
+* This phase changes no code, DB, runtime, trial activation, billing/subscription/payment, `/now`, student UI, or admin mutation behavior.
+* This phase only documents non-binding copy candidates.
+* No copy is authorized for real use without a later explicit phase.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1A_CLOSED_LAB_COMMERCIAL_SANDBOX_SEPARATION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1B_CLOSED_PAYMENT_RISK_MATRIX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_TRIAL_1C_INVITATION_AND_ACTIVATION_CRITERIA.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_BLOCK_CLOSEOUT.md`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_1_SOBER_CLOSED_LAB_COPY_CANDIDATES.md`.
+* `PHASE_LOG.md`.
+
+Purpose:
+
+* Define sober candidate language for closed-lab invitation, activation-readiness, payment placeholders, expiry/pause/closure, and limited-scope subscription concepts.
+* Preserve the distinction between invitation, activation, payment, access, and Sales-Ready.
+* Prevent overpromise, public-launch framing, and unsupported AI/score/completeness claims.
+
+Copy categories:
+
+* Core framing statement and sober variants.
+* Invitation copy candidates: direct/minimal, warm/explanatory, and formal/operational.
+* Activation-readiness copy candidates.
+* Payment-related placeholders only, explicitly not approved.
+* Expiry, pause, technical issue, and closure copy candidates.
+* Limited-scope subscription conceptual copy candidates.
+* Student-facing versus internal/admin-only copy guidance.
+* Minor participant caution.
+
+Review checklist:
+
+* Copy must say closed laboratory.
+* Copy must avoid public sale, complete PAES, score promises, automatic payment/access, automatic invitation/activation, non-existent features, and `StudentAccess`.
+* Copy must clarify limited scope.
+* Copy must include Pro/high-level review if minors or payment are involved.
+* Copy must have coherent support, pause, and expiry framing.
+* Copy must align with 1A, 1B, and 1C.
+
+Next recommendation:
+
+* Prefer `MVP-COMMERCIAL-SANDBOX-1 - First closed sandbox operating runbook`, because copy candidates now clarify how to communicate without overpromising and the next need is an operating runbook.
+
+Non-goals:
+
+* No code changes.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No invitation sent.
+* No activation authorized.
+* No payment authorization.
+* No trial activation.
+* No billing, subscription, or payment.
+* No runtime enforcement.
+* No `/now` changes.
+* No student UI implementation.
+* No admin mutation.
+* No repair/autocreate.
+* No public offer.
+* No Sales-Ready claim.
+* No final copy approval.
+* No legal decision.
+* No minor payment authorization.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_COPY_1_SOBER_CLOSED_LAB_COPY_CANDIDATES_DEFINED
+```
