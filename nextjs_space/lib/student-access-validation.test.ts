@@ -10,6 +10,12 @@ import {
   validateStudentAccessSnapshot,
   validateStudentAccessTransition,
 } from "./student-access-validation"
+import {
+  NO_ACCESS_EXPECTED_STATE,
+  normalizeReaffirmNoAccessCommand,
+  studentAccessStateMatchesExpected,
+  validateReaffirmNoAccessRequest,
+} from "./student-access-admin-reaffirm"
 
 function test(name: string, fn: () => void): void {
   fn()
@@ -178,4 +184,64 @@ test("unsafe transition no_access to enrolled_active_program is rejected", () =>
 test("helper test imports remain limited to node assert and local validation helper", () => {
   assert.equal(typeof validateStudentAccessSnapshot, "function")
   assert.equal(typeof validateStudentAccessTransition, "function")
+})
+
+test("reaffirm_no_access request validation accepts only the non-permission command", () => {
+  const result = validateReaffirmNoAccessRequest({
+    command: "reaffirm_no_access",
+    expectedPreviousState: NO_ACCESS_EXPECTED_STATE,
+    decisionReason: "Owner confirmed closed-lab no-access state.",
+  })
+
+  assert.equal(result.ok, true)
+  if (result.ok) {
+    assert.equal(result.command, "reaffirm_no_access")
+    assert.equal(result.decisionReason, "Owner confirmed closed-lab no-access state.")
+  }
+})
+
+test("keep_no_access alias normalizes to reaffirm_no_access", () => {
+  assert.equal(normalizeReaffirmNoAccessCommand("keep_no_access"), "reaffirm_no_access")
+})
+
+test("reaffirm_no_access validation rejects missing decision reason", () => {
+  const result = validateReaffirmNoAccessRequest({
+    command: "reaffirm_no_access",
+    expectedPreviousState: NO_ACCESS_EXPECTED_STATE,
+    decisionReason: " ",
+  })
+
+  assert.equal(result.ok, false)
+  if (!result.ok) assert.equal(result.error, "missing_decision_reason")
+})
+
+test("reaffirm_no_access validation rejects unknown activation commands", () => {
+  const result = validateReaffirmNoAccessRequest({
+    command: "activate_closed_lab_trial",
+    expectedPreviousState: NO_ACCESS_EXPECTED_STATE,
+    decisionReason: "not allowed in 3M-A",
+  })
+
+  assert.equal(result.ok, false)
+  if (!result.ok) assert.equal(result.error, "unknown_command")
+})
+
+test("reaffirm_no_access validation rejects missing expectedPreviousState", () => {
+  const result = validateReaffirmNoAccessRequest({
+    command: "reaffirm_no_access",
+    decisionReason: "missing expected state",
+  })
+
+  assert.equal(result.ok, false)
+  if (!result.ok) assert.equal(result.error, "missing_expected_previous_state")
+})
+
+test("reaffirm_no_access state matcher catches stale access state", () => {
+  assert.equal(
+    studentAccessStateMatchesExpected(
+      { accessStatus: "trial_active", trialStatus: "active", subscriptionStatus: "none" },
+      NO_ACCESS_EXPECTED_STATE,
+    ),
+    false,
+  )
 })

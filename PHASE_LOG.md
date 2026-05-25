@@ -18649,3 +18649,129 @@ Result marker:
 ```text
 MVP_OPS_MODE_2_CODEX_COMPACT_REPORTING_RULE_DEFINED
 ```
+
+## MVP-SALES-TRIAL-3M-A - Minimal admin StudentAccess reaffirm-no-access endpoint implementation
+
+Status: PASS.
+
+Type: Implementation microphase / endpoint-only / admin-only / non-permission command.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `4529253`.
+* Latest accepted commit: `MVP-OPS-MODE-2: define Codex compact reporting rule`.
+* Working tree expected before implementation: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `4529253` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-SALES-TRIAL-3L` gave GO with restrictions for a future minimal endpoint implementation.
+* M1-only remains Pre-Sales-Ready / closed lab.
+* This phase does not touch student-facing UX, trial activation, runtime enforcement, billing/subscription/payment, `/now`, admin UI buttons/forms, repair/autocreate, schema migration, or deploy.
+* This phase implements only a minimal internal admin endpoint for a non-permission StudentAccess reaffirm command.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_MUTATION_ENDPOINT_IMPLEMENTATION_READINESS_REVIEW.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_MUTATION_ENDPOINT_READINESS.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_TRANSITION_CONTRACT_READINESS.md`.
+* `nextjs_space/docs/operations/STUDENT_ACCESS_TRANSITION_MODEL_READINESS.md`.
+
+Technical read-only inspection:
+
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/lib/student-access-validation.ts`.
+* `nextjs_space/lib/student-access-validation.test.ts`.
+* `nextjs_space/lib/admin-guard.ts`.
+* `nextjs_space/lib/audit.ts`.
+* `nextjs_space/app/api/signup/route.ts`.
+* `nextjs_space/app/api/students/[id]/route.ts`.
+* `nextjs_space/app/api/students/[id]/reset-password/route.ts`.
+* `nextjs_space/app/api/students/[id]/create-user/route.ts`.
+* `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+* `nextjs_space/package.json`.
+* `PHASE_LOG.md` entries for 3D through 3L and OPS-MODE-1/2.
+* `rg` inspection for `requireAdminApi`, `recordAuditEvent`, `StudentAccess`, `validateStudentAccessTransition`, `lastDecisionBy`, `lastDecisionReason`, and `lastDecisionAt`.
+
+Files changed:
+
+* `nextjs_space/app/api/admin/students/[id]/access-transitions/route.ts`.
+* `nextjs_space/lib/student-access-admin-reaffirm.ts`.
+* `nextjs_space/lib/student-access-validation.test.ts`.
+* `PHASE_LOG.md`.
+
+Endpoint route:
+
+* `POST /api/admin/students/[id]/access-transitions`.
+* Server-side admin authorization uses `requireAdminApi`.
+* No client-only authorization.
+* No cookies, tokens, headers, or session payloads are printed.
+
+Command implemented:
+
+* Canonical command: `reaffirm_no_access`.
+* Accepted documentation alias: `keep_no_access`, normalized internally to `reaffirm_no_access`.
+* Command preserves `accessStatus = no_access`, `trialStatus = none`, and `subscriptionStatus = none`.
+* Valid command updates only `lastDecisionBy`, `lastDecisionReason`, and `lastDecisionAt`.
+
+Validation:
+
+* Requires an existing student.
+* Requires an existing StudentAccess row.
+* Rejects missing StudentAccess row as `student_access_missing`; no repair/autocreate.
+* Requires `expectedPreviousState`.
+* Requires `expectedPreviousState.accessStatus = no_access`.
+* Requires `expectedPreviousState.trialStatus = none`.
+* Requires `expectedPreviousState.subscriptionStatus = none`.
+* Rejects stale DB state mismatch as `stale_state_conflict`.
+* Requires non-empty trimmed `decisionReason`.
+* Rejects unknown commands, including trial activation commands.
+
+Audit behavior:
+
+* Records safe fire-and-forget audit event after successful mutation using existing `recordAuditEvent` convention.
+* Audit payload includes non-sensitive command, previous state, next state, and decision fields.
+* Audit does not include cookies, tokens, headers, secrets, or raw session payloads.
+
+Tests/build:
+
+* Narrow helper test run: `npm.cmd exec tsx lib/student-access-validation.test.ts` - PASS.
+* Build run: `npm.cmd run build` - PASS.
+
+Smoke:
+
+* Not run.
+* Reason: no safe authenticated admin smoke path was provided in this phase; no cookies, tokens, or browser session material were used.
+
+Non-goals:
+
+* No trial activation.
+* No runtime enforcement.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin UI buttons/forms.
+* No repair/autocreate.
+* No schema changes.
+* No migrations.
+* No deploy.
+* No broad refactor.
+* No public offer or Sales-Ready claim.
+
+Result marker:
+
+```text
+MVP_SALES_TRIAL_3M_A_REAFFIRM_NO_ACCESS_ENDPOINT_IMPLEMENTED
+```
