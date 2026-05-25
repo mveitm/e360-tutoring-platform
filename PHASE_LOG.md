@@ -21304,3 +21304,118 @@ Result marker:
 ```text
 MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_DEFINED
 ```
+
+## MVP-COMMERCIAL-PAES-SOURCE-1A - Extract official M2/L1 source metadata
+
+Status: PASS.
+
+Type: documentation-only / controlled official-source metadata extraction / source custody.
+
+Baseline: `fd2cc65`.
+
+Context Gate:
+
+* GOV-CONTEXT closed.
+* Product/UI/brand context closed.
+* OPS-MODE-1/2 active.
+* Product horizon: roadmap change-control / official-source metadata extraction / M2-L1 readiness preparation / Sales-Ready support; not `MVP-Beta-Sales-Ready` approval.
+* PAES-SOURCE-1 established source custody and intake only.
+* M2-READINESS-1 and L1-READINESS-1 remain non-binding route/content readiness inputs only.
+* Sales-Ready Gate 1, 1A, 1B, 1C, and 1D remain candidate gate/decomposition docs only.
+* M1-only remains not public Sales-Ready.
+* M2 remains not ready.
+* L1 remains not ready.
+* Public Sales-Ready remains blocked.
+* GO only because this is documentation-only official-source metadata extraction.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+
+Source access status:
+
+* `WEB_ACCESS_AVAILABLE_USED_FOR_CONTROLLED_METADATA_EXTRACTION`.
+* Official DEMRE / Universidad de Chile / Acceso Mineduc pages used only for metadata.
+* No PDFs downloaded.
+* No PDFs committed.
+* No long source/PDF contents copied.
+* No unofficial source used as canonical PAES alignment.
+
+Official source metadata extracted:
+
+* DEMRE `Publicaciones PAES - Admision 2027` index.
+* DEMRE `Temarios PAES Regular - Proceso de Admision 2027` page.
+* DEMRE 2027 `Temario de la PAES Regular - Competencia Matematica 2 (M2)` page, with PDF link visible and cycle-note discrepancy recorded for future resolution.
+* DEMRE 2027 `Temario de la PAES Regular - Obligatoria de Competencia Lectora` page, with PDF link visible.
+* DEMRE / Acceso Mineduc 2027 M2 requirement publication page as supplemental official process context.
+* DEMRE 2026 PAES Regular question/clavijero index as supplemental official example-question metadata.
+* DEMRE 2026 M2 and L1 temario pages as historical/provisional comparison sources.
+* DEMRE historical PAES example-question page as supplemental historical official source.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_SOURCE_METADATA_EXTRACTION.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created a controlled official-source metadata extraction document.
+* Recorded source access status, extraction method and limits, official metadata register, M2 register, L1 register, example-question register, supplemental/historical source classification, rejected source types, candidate hierarchy, trusted/unknown boundaries, future M2/L1 prerequisites, risks, Pro/high-level reserved questions, future options, Context Gate summary, explicit non-goals, and result marker.
+
+Source metadata summary:
+
+* Metadata was extracted from official sources only.
+* The 2027 L1 and M2 temario pages are primary current candidates.
+* The 2027 M2 page has a cycle-note discrepancy that must be resolved before alignment.
+* 2026 temarios are historical/provisional comparison sources only.
+* Example-question sources are supplemental official sources only.
+* This phase does not extract full temarios, align M2/L1, define taxonomy, create content, or approve readiness.
+
+Future recommendation:
+
+* Prefer `MVP-COMMERCIAL-PAES-SOURCE-1B - Resolve current-cycle PAES M2/L1 source hierarchy` if the M2 cycle-note discrepancy needs closure before source-content extraction.
+* Otherwise prefer `MVP-COMMERCIAL-PAES-SOURCE-1C - Controlled official M2/L1 source-content extraction`.
+* No next phase opened automatically.
+
+Non-goals:
+
+* No code changes.
+* No content registry changes.
+* No StudyLoads created.
+* No texts created.
+* No questions created.
+* No PDFs downloaded or committed.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app/browser/API operation.
+* No product behavior change.
+* No full temario extraction.
+* No M2 alignment.
+* No L1 alignment.
+* No M2 readiness declaration.
+* No L1 readiness declaration.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_METADATA_EXTRACTED
+```
