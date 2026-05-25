@@ -19142,3 +19142,86 @@ Result marker:
 ```text
 MVP_SALES_TRIAL_3M_D_REAFFIRM_ENDPOINT_HUMAN_SMOKE_PASS
 ```
+
+## MVP-PARALLEL-INPUTS-2 - Append closed-lab paid trial and subscription proposal to strategy inbox
+
+Status: PASS.
+
+Type: Strategy input documentation-only.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `1944173`.
+* Latest accepted commit: `MVP-SALES-TRIAL-3M-D: document reaffirm endpoint smoke pass`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `1944173` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-PARALLEL-INPUTS-1` created the versioned parallel strategy proposal inbox.
+* Parallel proposals remain non-binding input and are not a source of truth.
+* M1-only remains Pre-Sales-Ready / closed laboratory.
+* This phase changes no product, code, DB, runtime, trial, billing, `/now`, student UI, admin mutation, repair/autocreate, public offer, or Sales-Ready behavior.
+* This phase only appends strategic input and candidate roadmap options to the inbox.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+* `PHASE_LOG.md`.
+
+Proposal title:
+
+* `MVP-COMMERCIAL-TRIAL-1: Closed-lab paid trial and subscription operating model`.
+
+Director audit result:
+
+* Accepted as useful non-binding input.
+* Input only; not a canonical decision source and not implementation authority.
+
+Roadmap inputs extracted:
+
+* Separate closed controlled payment from public Sales-Ready.
+* Treat any early paid test as a closed commercial sandbox, not as public launch.
+* Keep public Sales-Ready blocked until M1/M2/L1 are minimally operational.
+* Reserve payment involving minors, public promise, price, subscription scope, refund/pause policy, and scaling beyond known participants for Pro/high-level review.
+* Candidate future phases include commercial sandbox separation, payment risk matrix, invitation/activation criteria, paid sandbox runbook, sober closed-lab copy, limited-scope subscription model, and public M1/M2/L1 Sales-Ready gate.
+
+Non-goals:
+
+* No code changes.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin mutation.
+* No repair/autocreate.
+* No public offer.
+* No Sales-Ready claim.
+* No payment authorization.
+
+Result marker:
+
+```text
+MVP_PARALLEL_INPUTS_2_CLOSED_LAB_TRIAL_SUBSCRIPTION_PROPOSAL_APPENDED
+```
