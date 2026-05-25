@@ -18175,3 +18175,79 @@ Result marker:
 ```text
 MVP_SALES_TRIAL_3H_ADMIN_STUDENT_ACCESS_READ_ONLY_SMOKE_PASS
 ```
+
+## MVP-SALES-TRIAL-3I - Define controlled StudentAccess transition model readiness
+
+Status: PASS.
+
+Type: Readiness / governance / product-technical design / documentation-only.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `f029bcb`.
+* Latest accepted commit: `MVP-SALES-TRIAL-3H: document admin StudentAccess smoke pass`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `f029bcb` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* StudentAccess/signup/admin read-only chain is closed through 3H.
+* M1-only remains `MVP-Beta-Pre-Sales-Ready` closed laboratory context, not public Sales-Ready.
+* 3I does not touch student-facing UX.
+* 3I does not touch runtime enforcement, trial activation, billing, subscription/payment, `/now`, admin mutations, or repair/autocreate.
+* Roadmap change control: not required because this phase is documentation-only readiness and changes no product horizon, public offer, commercial promise, student-facing behavior, runtime behavior, trial, subscription, payment, program coverage, or tutor/admin workload.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+
+Technical files inspected read-only:
+
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/lib/student-access-validation.ts`.
+* `nextjs_space/app/api/signup/route.ts`.
+* `nextjs_space/app/api/students/[id]/route.ts`.
+* `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+* `PHASE_LOG.md` entries for 3D, 3E, 3F, 3G, and 3H.
+
+Files changed:
+
+* `nextjs_space/docs/operations/STUDENT_ACCESS_TRANSITION_MODEL_READINESS.md`.
+* `PHASE_LOG.md`.
+
+Conclusion:
+
+* The controlled `StudentAccess` transition model is defined as readiness only.
+* Current signup defaults remain `accessStatus = no_access`, `trialStatus = none`, `subscriptionStatus = none`, `lastDecisionBy = system`, and `lastDecisionReason = public_signup_default_no_access`.
+* Admin `StudentAccess` visibility remains read-only.
+* Future transitions require explicit new phases and gates.
+
+Explicit non-goals:
+
+* No code changes.
+* No schema changes.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin mutations.
+* No repair/autocreate.
+* No public offer or Sales-Ready claim.
+
+Result marker:
+
+```text
+MVP_SALES_TRIAL_3I_STUDENT_ACCESS_TRANSITION_MODEL_READINESS_DEFINED
+```
