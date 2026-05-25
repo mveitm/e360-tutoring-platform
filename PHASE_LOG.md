@@ -19225,3 +19225,122 @@ Result marker:
 ```text
 MVP_PARALLEL_INPUTS_2_CLOSED_LAB_TRIAL_SUBSCRIPTION_PROPOSAL_APPENDED
 ```
+
+## MVP-SALES-TRIAL-3M-E - Close admin StudentAccess reaffirm endpoint block
+
+Status: PASS.
+
+Type: Documentation-only / technical block closeout / readiness consolidation.
+
+Baseline:
+
+* Expected HEAD and `origin/main`: `b60bcf5`.
+* Latest accepted commit: `MVP-PARALLEL-INPUTS-2: append closed-lab trial proposal`.
+* Working tree expected before documentation close: clean.
+* Preflight result: `git status --short` was clean and `git log --oneline --decorate --graph -8` showed `b60bcf5` at `HEAD`, `origin/main`, and `origin/HEAD`.
+
+Context Gate:
+
+* GOV-CONTEXT remains closed.
+* Product/UI/brand context remains closed.
+* OPS-MODE-1 and OPS-MODE-2 are closed and active.
+* `MVP-PARALLEL-INPUTS-1` and `MVP-PARALLEL-INPUTS-2` are closed; the commercial proposal remains non-binding input.
+* `MVP-SALES-TRIAL-3M-A` implemented the admin `reaffirm_no_access` endpoint.
+* `MVP-SALES-TRIAL-3M-B` documented blocked smoke because no safe authenticated path existed.
+* `MVP-SALES-TRIAL-3M-C` defined the safe human-operated smoke path.
+* `MVP-SALES-TRIAL-3M-D` documented human-operated smoke PASS.
+* M1-only remains Pre-Sales-Ready / closed laboratory.
+* This phase changes no student-facing UX, trial activation, runtime enforcement, billing/subscription/payment, `/now`, admin UI buttons/forms, repair/autocreate, schema migration, or deploy behavior.
+* This phase only consolidates technical closeout for the 3M block.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_MUTATION_ENDPOINT_IMPLEMENTATION_READINESS_REVIEW.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_SMOKE_PATH_READINESS.md`.
+* `nextjs_space/docs/strategy/PARALLEL_STRATEGY_PROPOSALS_INBOX.md`.
+
+Technical files inspected read-only:
+
+* `nextjs_space/app/api/admin/students/[id]/access-transitions/route.ts`.
+* `nextjs_space/lib/student-access-admin-reaffirm.ts`.
+* `nextjs_space/lib/student-access-validation.ts`.
+* `nextjs_space/lib/student-access-validation.test.ts`.
+* `nextjs_space/lib/admin-guard.ts`.
+* `nextjs_space/lib/audit.ts`.
+* `PHASE_LOG.md` entries for 3M-A, 3M-B, 3M-C, and 3M-D.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_SMOKE_PATH_READINESS.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_MUTATION_ENDPOINT_IMPLEMENTATION_READINESS_REVIEW.md`.
+* `rg` searches for `reaffirm_no_access`, `keep_no_access`, `access-transitions`, `lastDecisionBy`, `lastDecisionReason`, `lastDecisionAt`, `recordAuditEvent`, and `requireAdminApi`.
+
+Files changed:
+
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_BLOCK_CLOSEOUT.md`.
+* `PHASE_LOG.md`.
+
+Block summary:
+
+* 3M-A implemented `POST /api/admin/students/[id]/access-transitions` for `reaffirm_no_access` with `keep_no_access` alias, tests passed, build passed, and no smoke run.
+* 3M-B documented smoke `BLOCKED` because no safe authenticated admin smoke path existed.
+* 3M-C defined human operator browser-authenticated local/dev smoke as the safe path and rejected copied cookies/tokens/headers, auth bypass/backdoor, and DB-only smoke.
+* 3M-D documented human-operated local/dev smoke `PASS` with HTTP 200, `ok = true`, previous and next state `no_access` / `none` / `none`, and updated `lastDecision*` fields.
+
+Final capability:
+
+* Minimal internal admin endpoint can reaffirm non-permission `StudentAccess` for an existing row.
+* Server-side admin guard uses `requireAdminApi`.
+* Existing `StudentAccess` row, `expectedPreviousState`, and `decisionReason` are required.
+* Successful command keeps `accessStatus = no_access`, `trialStatus = none`, and `subscriptionStatus = none`.
+* Successful command updates only `lastDecisionBy`, `lastDecisionReason`, and `lastDecisionAt`.
+* Audit behavior is present through the existing `recordAuditEvent` pattern.
+* Human-smoked in local/dev.
+
+Residual risks:
+
+* Only one non-permission command exists.
+* No admin UI flow exists.
+* Smoke was human-operated and not automated.
+* No repeatable auth smoke harness exists.
+* Full audit history may be limited to existing fields and audit event pattern.
+* No trial activation policy, runtime enforcement, billing/payment integration, or student-facing communication exists yet.
+* Minors/payment policy remains unresolved.
+* Commercial sandbox remains non-binding proposal input only.
+
+Recommended next options:
+
+* Option A: `MVP-COMMERCIAL-TRIAL-1A - Version closed-lab commercial sandbox separation`.
+* Option B: `MVP-SALES-TRIAL-3N - Admin StudentAccess mutation endpoint failure-path smoke`.
+* Option C: `MVP-SALES-TRIAL-4A - Trial invitation readiness`.
+* Option D: pause on clean baseline.
+* Recommendation: prefer Option A next so the accepted commercial input becomes a governed non-implementation strategy document before trial or payment work.
+
+Non-goals:
+
+* No code changes.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No smoke executed.
+* No runtime enforcement.
+* No trial activation.
+* No billing, subscription, or payment.
+* No `/now` changes.
+* No student UI.
+* No admin UI mutation.
+* No repair/autocreate.
+* No payment authorization.
+* No Sales-Ready claim.
+
+Result marker:
+
+```text
+MVP_SALES_TRIAL_3M_E_REAFFIRM_ENDPOINT_BLOCK_CLOSED
+```
