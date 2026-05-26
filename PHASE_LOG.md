@@ -22041,3 +22041,97 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_TEXT_RIGHTS_1_SOURCE_TEXT_RIGHTS_EDITORIAL_POLICY_DEFINED
 ```
+
+## MVP-COMMERCIAL-L1-TEXT-QUALITY-1 - Define L1 text/editorial quality checklist
+
+Status: PASS.
+
+Type: Documentation-only / L1 text-quality checklist / editorial review boundary.
+
+Baseline:
+
+* `a76b88b` (`HEAD = origin/main = origin/HEAD`) before edits.
+* Working tree clean at preflight.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_SOURCE_METADATA_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1B_CURRENT_CYCLE_SOURCE_HIERARCHY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_M2_PDF_HEADER_DISCREPANCY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_CONTROLLED_OFFICIAL_M2_L1_SOURCE_CONTENT_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_L1_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TEXT_RIGHTS_1_SOURCE_TEXT_RIGHTS_EDITORIAL_POLICY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_M2_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+
+Source basis:
+
+* Used only already-versioned documentation.
+* No web search used.
+* No commercial preuniversitarios, blogs, media, AI summaries, or unofficial copyright advice used.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TEXT_QUALITY_1_TEXT_EDITORIAL_QUALITY_CHECKLIST.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created a documentation-only L1 text/editorial quality checklist.
+* Converted the L1 source/text rights policy into future reviewer checks for source/rights metadata, text quality, cognitive load, difficulty, ambiguity, answerability, question quality, distractor quality, feedback feasibility, sensitivity/bias/accessibility, device/readability, metadata/versioning, reviewer states, PASS/FAIL/BLOCKED, risks, reserved questions, future phases, Context Gate, explicit non-goals, and result marker.
+
+Text quality checklist summary:
+
+* Future text review should check reading purpose, L1 skill fit, text length, vocabulary, sentence complexity, cognitive load, age/context fit, cultural/context clarity, external-knowledge dependency, textual evidence, feedback feasibility, accessibility, and metadata readiness.
+* PASS means ready only for a later content-authoring or review phase, not product use.
+* BLOCKED applies when rights, legal, official-source, sensitivity, metadata, or reviewer-authority issues are unresolved.
+
+Question/distractor checklist summary:
+
+* Future questions must be tied to a reading skill, answerable from the text, clearly worded, and support one defensible correct answer for multiple-choice.
+* Distractors must be plausible but wrong for identifiable textual or reasoning reasons, not absurd, not accidentally correct, not based on external knowledge, and useful for feedback.
+* Feedback feasibility must be checked before accepting a question/distractor set.
+
+Non-goals:
+
+* No code changes.
+* No content registry changes.
+* No StudyLoads created.
+* No texts created.
+* No questions created.
+* No feedback created.
+* No PDFs downloaded or committed.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app/browser/API operation.
+* No product behavior change.
+* No legal advice.
+* No official PAES/DEMRE text or question use approved.
+* No copyrighted text use approved.
+* No L1 content created.
+* No L1 readiness declaration.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_TEXT_QUALITY_1_TEXT_EDITORIAL_QUALITY_CHECKLIST_DEFINED
+```
