@@ -23711,3 +23711,84 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_FEEDBACK_REVIEW_1_FIRST_FEEDBACK_REVIEW_PASSED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-READINESS-1 - Define StudyLoad Boundary for First L1 Pilot Set
+
+Date: 2026-05-26
+
+Type: documentation-only / L1 StudyLoad-readiness boundary / pre-registry / pre-implementation / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = fff2230`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-FEEDBACK-REVIEW-1: review first feedback`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_READINESS_1_FIRST_PILOT_SET_BOUNDARY.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created documentation-only StudyLoad-readiness boundary for the reviewed first L1 pilot set.
+* Defined conceptual grouping for one original L1 draft text, three revised/reviewed locating-information items, and reviewed feedback breve/completo.
+* Defined candidate StudyLoad identity, learning objective, included asset references, student experience boundary, evidence boundary, completion boundary, feedback boundary, registry-readiness prerequisites, and implementation prerequisites.
+* Created no actual StudyLoad, no content registry entry, no `study-load-content.ts` change, no implementation, no DB rows, no UI/API/routes, and no product behavior change.
+
+StudyLoad boundary summary:
+
+* Candidate identity: `l1_locating_information_pilot_set_01`.
+* Candidate program: `PAES_L1`.
+* Candidate skill family: `locating_information`.
+* Status: `conceptual_boundary_only`.
+* Registry status: `not_created`.
+* Implementation status: `not_created`.
+* Student/product use approved: `no`.
+* Sales-Ready implication: `none`.
+
+Candidate assets:
+
+* Text: `original_l1_text_locating_information_01_draft`.
+* Items: `l1_locating_information_item_01`, `l1_locating_information_item_02_revised`, and `l1_locating_information_item_03`.
+* Feedback: reviewed feedback breve/completo for all three items from `FEEDBACK-AUTHORING-1`, reviewed in `FEEDBACK-REVIEW-1`.
+
+Registry/implementation boundary:
+
+* No registry key, `contentKey`, `contentVersion`, StudyLoad record, DB row, seed, route, endpoint, UI, dashboard, API behavior, or `study-load-content.ts` edit was created.
+* Future registry-readiness and implementation-readiness require separate phase approval.
+
+Non-goals:
+
+* No app code.
+* No database schema change.
+* No content registry change.
+* No `study-load-content.ts` change.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No texts created.
+* No new texts created.
+* No questions created.
+* No questions revised.
+* No feedback created.
+* No feedback revised.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_READINESS_1_FIRST_PILOT_SET_BOUNDARY_DEFINED
+```
