@@ -24521,3 +24521,110 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_TYPE_BOUNDARY_DEFINED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-TYPE-DESIGN-1A - Review L1 Registry TypeScript Type Boundary
+
+Date: 2026-05-26
+
+Type: documentation-only / review-only / pre-code / pre-registry / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 63723ec`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-TYPE-DESIGN-1: define L1 type boundary`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_TYPE_BOUNDARY.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `63723ec`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_DEFINE_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+
+Code inspected:
+
+* None. The documentation review did not reveal an ambiguity requiring code inspection.
+
+Review findings summary:
+
+* Preserving M1 behavior: pass.
+* Keeping L1 first-class: pass.
+* Explicit passage asset: pass.
+* Item/answer metadata clarity: pass with caveat.
+* Authored feedback separation: pass with caveat.
+* Source/rights/review/approval/versioning metadata: pass.
+* Narrow adapter boundary: pass with caveat.
+* Content-key-first direction: pass with caveat.
+* No-go gates: pass.
+
+Decision:
+
+* `APPROVED_FOR_PASSAGE_RENDERING_DESIGN`.
+* The type boundary is coherent enough for the next design gate, not for implementation.
+
+Risks / caveats:
+
+* Avoid over-modeling before runtime.
+* Prevent adapter leakage of answer metadata.
+* Resolve title lookup legacy risk.
+* Define authored feedback display behavior later.
+* Define evidence persistence behavior later.
+* Define admin evidence behavior later.
+* Define L1 continuity or explicit no-continuity later.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-PASSAGE-RENDERING-DESIGN-1 - Define L1 passage rendering design`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_COMPLETED
+```
