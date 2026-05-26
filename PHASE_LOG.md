@@ -24229,3 +24229,93 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_PLAN_DEFINED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-IMPLEMENTATION-READINESS-1A - Review L1 Implementation Plan and Choose Next Technical Design Gate
+
+Date: 2026-05-26
+
+Type: documentation-only / implementation-readiness review / next technical design gate decision / operating-methodology correction.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 467abc2`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-IMPLEMENTATION-READINESS-1: define L1 implementation plan`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `467abc2`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+
+Decision summary:
+
+* Reviewed `IMPLEMENTATION-READINESS-1` and found the hybrid adapter recommendation coherent for future planning only.
+* Confirmed the implementation options are sufficiently framed, unresolved decisions are correctly identified, and no-go gates are sufficient at planning level.
+* Chose `L1 registry/type design first` as the next technical design gate because passage rendering, authored feedback runtime, response/evidence behavior, and admin evidence all depend on the TypeScript/content boundary.
+
+Methodology update summary:
+
+* Updated the current handoff to state the active ChatGPT-Codex-Mauricio operating methodology.
+* Updated the compact reporting rule to require explicit commit/push authorization or prohibition in future Codex prompts.
+* Clarified that Codex may validate, commit, and push when explicitly authorized; Mauricio normally pastes compact reports to ChatGPT; ChatGPT directs/audits and verifies remotes when needed; GitHub `main` clean after push is closure standard when commit/push is authorized.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-TYPE-DESIGN-1 - Define L1 registry TypeScript type boundary`.
+
+Validation:
+
+* `git diff --check` passed; Git reported only LF-to-CRLF warnings on edited Markdown files.
+* `git status --short` showed only the four expected documentation files changed.
+* `git diff --stat` showed only documentation changes.
+* `git diff --cached --stat` confirmed the same four documentation files staged before commit.
+
+Non-goals:
+
+* No app code changed.
+* No `study-load-content.ts` changed.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_NEXT_GATE_CHOSEN
+```

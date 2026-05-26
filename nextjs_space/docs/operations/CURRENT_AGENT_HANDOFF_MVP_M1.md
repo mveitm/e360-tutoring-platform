@@ -19,6 +19,17 @@ Run these first:
 * `git status --short`
 * `git log --oneline --decorate --graph -8`
 
+### 2A. Current ChatGPT-Codex-Mauricio Operating Methodology
+
+This methodology supersedes older assumptions that Mauricio normally performs local file edits, commits, or pushes.
+
+* ChatGPT directs, audits, prepares narrow prompts, verifies compact reports, and checks remote/GitHub closure when needed.
+* Codex executes local phases, reads required context, edits only authorized files, validates, commits, and pushes when the phase prompt explicitly authorizes commit/push.
+* Mauricio normally does not edit files, stage, commit, or push during Codex-executed phases. Mauricio normally pastes Codex compact reports back to ChatGPT for audit and next-phase direction.
+* GitHub `main` clean after push is the normal closure standard for phases where commit/push is authorized.
+* Every Codex prompt must explicitly state whether commit/push is authorized or forbidden.
+* Every Codex prompt must include compact reporting rules appropriate to the phase, including commit/push status, final git status, final log top or new baseline when relevant, and scope-safety confirmation.
+
 ### 3. Required Governance Docs to Read First
 
 Read these before proposing, designing, verifying, implementing, committing, or choosing a next phase:

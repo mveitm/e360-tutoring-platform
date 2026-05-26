@@ -138,6 +138,15 @@ Every future Codex prompt should include the compact reporting rule at the end. 
 
 The report must be precise enough for ChatGPT to audit the phase without loading the entire Codex execution transcript.
 
+Every future Codex prompt must also state commit/push handling explicitly:
+
+* If commit/push is authorized, the prompt must say so and provide the expected commit message or commit-message rule.
+* If commit/push is forbidden, the prompt must say `DO NOT COMMIT` and `DO NOT PUSH`.
+* Compact reports must include commit status, push status, final git status, and final log top or new baseline when a commit/push occurs.
+* For Codex-executed phases, Mauricio normally does not stage, commit, or push; Mauricio normally pastes the Codex compact report back to ChatGPT.
+* ChatGPT remains responsible for direction/audit and remote verification when needed.
+* GitHub `main` clean after push is the normal closure standard for phases where commit/push is authorized.
+
 ## 8. Current operational decision
 
 `MVP-SALES-TRIAL-3M-A` remains paused. This phase does not open implementation, does not touch an endpoint, and does not touch code.
