@@ -21739,3 +21739,103 @@ Result marker:
 ```text
 MVP_COMMERCIAL_PAES_SOURCE_1C_CONTROLLED_OFFICIAL_M2_L1_CONTENT_EXTRACTED
 ```
+
+## MVP-COMMERCIAL-PAES-M2-ALIGNMENT-1 - Controlled M2 official-source alignment map
+
+Status: PASS.
+
+Type: Documentation-only / controlled M2 official-source alignment / candidate route-source mapping.
+
+Baseline:
+
+* `8928b0a` (`HEAD = origin/main = origin/HEAD`) before edits.
+* Working tree clean at preflight.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_SOURCE_METADATA_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1B_CURRENT_CYCLE_SOURCE_HIERARCHY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_M2_PDF_HEADER_DISCREPANCY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_CONTROLLED_OFFICIAL_M2_L1_SOURCE_CONTENT_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+
+Source basis:
+
+* Used only SOURCE-1C high-level official M2 source summaries.
+* High-level M2 skill families used: problem solving, modeling, representation, argumentation.
+* High-level M2 knowledge domains used: numbers, algebra and functions, geometry, probability and statistics.
+* No full official-source extraction performed.
+* No official tables, questions, answer keys, or long source passages copied.
+* No PDFs downloaded or committed.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_M2_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created a controlled M2 official-source alignment map.
+* Mapped M2-READINESS-1 candidate route families and candidate StudyLoad families to SOURCE-1C high-level M2 skill families and knowledge domains.
+* Recorded aligned areas, gaps, weakly supported areas, overreach risks, taxonomy boundary, future source-content needs, future route taxonomy prerequisites, feedback/dashboard implications, PASS/FAIL/BLOCKED interpretation, risks, Pro/high-level questions, future phase options, Context Gate summary, explicit non-goals, and result marker.
+
+M2 alignment summary:
+
+* Algebra and expressions appear compatible at high level with `algebra and functions`, representation, and problem solving.
+* Functions and graphs appear compatible at high level with `algebra and functions` and representation.
+* Mathematical modeling appears compatible at high level with modeling and problem solving across possible domains.
+* Analytical geometry or advanced geometric reasoning appears compatible at high level with geometry and representation, but exact scope is unresolved.
+* Integrated problems may touch multiple skill families/domains but must not become a vague catch-all.
+* Candidate StudyLoad families remain conceptual only and are not final StudyLoads.
+
+Gaps / caveats:
+
+* `numbers` and `probability and statistics` are not clearly represented as explicit candidate route families.
+* `argumentation` needs future treatment if M2 reasoning justification is expected.
+* Diagnostic/prerequisite scope is not source-defined yet.
+* Integrated problems require constraints before taxonomy or content.
+* Future M2 taxonomy, content, feedback, dashboard evidence, app/student evidence, and readiness require separate phases.
+
+Non-goals:
+
+* No code changes.
+* No content registry changes.
+* No StudyLoads created.
+* No texts created.
+* No questions created.
+* No feedback created.
+* No PDFs downloaded or committed.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app/browser/API operation.
+* No product behavior change.
+* No full source extraction.
+* No final taxonomy created.
+* No M2 content created.
+* No M2 alignment declared complete.
+* No M2 readiness declaration.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_PAES_M2_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP_DEFINED
+```
