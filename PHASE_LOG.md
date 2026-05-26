@@ -24141,3 +24141,91 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_PASSED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-IMPLEMENTATION-READINESS-1 - Define Implementation Plan for First L1 Pilot Set
+
+Date: 2026-05-26
+
+Type: documentation-only / implementation-readiness planning / pre-registry / pre-code / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = b475957`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-DESIGN-1A: review L1 registry shape`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `PHASE_LOG.md`.
+
+Code files inspected read-only:
+
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+* `nextjs_space/lib/study-load-pedagogy.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/lib/study-load-pedagogical-decision.ts`.
+
+Documentation summary:
+
+* Created a documentation-only implementation-readiness plan for the first controlled L1 pilot StudyLoad set.
+* Summarized the candidate L1 pilot set, current static M1 registry/runtime findings, implementation options, recommended implementation path, future candidate files, unresolved technical decisions, and implementation no-go gates.
+* Created no registry entry, no `contentKey`/`contentVersion` implementation artifact, no `study-load-content.ts` change, no StudyLoad, no DB row, no seed, no route, no endpoint, no UI, no test, no implementation, and no product behavior change.
+
+Implementation plan summary:
+
+* Option A: extend the current `study-load-content.ts` shape; lowest future file count but risks forcing L1 into M1-shaped fields.
+* Option B: create a separate L1 reading-content registry; cleanest conceptual separation but larger implementation footprint.
+* Option C: hybrid adapter approach; preferred for a later approved implementation because it keeps first-class L1 reading content while reusing existing multiple-choice submission/evidence mechanics where safe.
+
+Recommendation:
+
+* Prefer a future implementation-readiness review or L1 registry type-design phase before any code.
+* Do not proceed directly to registry creation or implementation.
+* Keep `student_use_approved: no`, `product_use_approved: no`, and `sales_ready_implication: none`.
+
+Validation:
+
+* `git diff --check` passed; PowerShell/Git reported only the existing line-ending normalization warning for `PHASE_LOG.md`.
+* `git status --short` showed only `PHASE_LOG.md` modified and the new implementation-readiness Markdown doc untracked.
+* `git diff --stat` reported the tracked `PHASE_LOG.md` documentation change; the new untracked document is listed by status until a future commit phase stages it.
+
+Non-goals:
+
+* No app code changed.
+* No database schema changed.
+* No content registry changed.
+* No `study-load-content.ts` changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No product behavior changed.
+* No texts created.
+* No questions created.
+* No feedback created.
+* No student UI created.
+* No admin UI created.
+* No tests created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_PLAN_DEFINED
+```
