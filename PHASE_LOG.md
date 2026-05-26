@@ -23284,3 +23284,84 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_QUESTION_REVIEW_1_FIRST_ITEMS_REVISION_RECOMMENDED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-QUESTION-REVISION-1 - Revise First Locating-Information Item Set
+
+Date: 2026-05-26
+
+Type: documentation-only / controlled L1 item revision / pre-feedback / pre-StudyLoad / pre-registry / pre-implementation.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 48a151c`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-QUESTION-REVIEW-1: review first locating items`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_QUESTION_REVISION_1_REVISE_FIRST_LOCATING_INFORMATION_ITEM_SET.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created a documentation-only revision note for the first controlled L1 locating-information item set.
+* Revised only `l1_locating_information_item_02` as documentation.
+* Preserved item 1 and item 3 by reference only.
+* Kept the item set at three items; no new text and no new item count were created.
+
+Revision summary:
+
+* Replaced original item 2 with `l1_locating_information_item_02_revised`.
+* Narrowed the item from a combined arrival-action target to one explicit arrival detail.
+* Revised item asks what each participant must take on arrival.
+* Correct option is `Una tarjeta con su nombre.`
+* Answer-key note remains metadata-like.
+* Distractor rationale summary remains non-student-facing.
+
+Feedback boundary:
+
+* Feedback remains not created.
+* Revised item preserves `feedback_status: not_created`.
+* Future feedback requires a separate feedback-readiness or feedback-authoring phase.
+
+Non-goals:
+
+* No app code.
+* No runtime schema change.
+* No database schema change.
+* No content registry entry.
+* No StudyLoads.
+* No texts.
+* No new texts.
+* No new item count.
+* No item 1 revision.
+* No item 3 revision.
+* No feedback.
+* No implementation.
+* No student UI.
+* No admin UI.
+* No `/now`.
+* No endpoints.
+* No auth changes.
+* No StudentAccess runtime behavior changes.
+* No trial activation.
+* No billing, subscription, or payment.
+* No deploy.
+* No PDFs downloaded or committed.
+* No DB read.
+* No API call.
+* No app/browser operation.
+* No approval for student use.
+* No approval for product use.
+* No official PAES/DEMRE text or question use approval.
+* No copyrighted text use approval.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_QUESTION_REVISION_1_ITEM_2_REVISED
+```
