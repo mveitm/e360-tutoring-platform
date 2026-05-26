@@ -23536,3 +23536,95 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_FEEDBACK_READINESS_1_REVISED_ITEMS_READY_FOR_FEEDBACK_AUTHORING
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-FEEDBACK-AUTHORING-1 - Author First Controlled L1 Feedback
+
+Date: 2026-05-26
+
+Type: documentation-only / controlled first L1 feedback / pre-StudyLoad / pre-registry / pre-implementation.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 78290f7`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-FEEDBACK-READINESS-1: define feedback readiness`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_FEEDBACK_AUTHORING_1_FIRST_CONTROLLED_LOCATING_INFORMATION_FEEDBACK.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created documentation-only controlled feedback for the revised first L1 locating-information item set.
+* Used only already-versioned documentation, the original Bexauri-created draft text, the revised three documentation-only locating-information items, and the feedback-readiness boundary.
+* Created feedback breve and feedback completo for exactly three existing items.
+* Created no new questions, no question revisions, no new alternatives, no new distractors, no new answer keys, no StudyLoads, no registry entries, and no implementation.
+
+Feedback set summary:
+
+* `l1_locating_information_item_01`: feedback explains the explicit start time and distinguishes it from condition time, end time, and day reference.
+* `l1_locating_information_item_02_revised`: feedback explains the explicit arrival item and distinguishes it from later material categories and containers.
+* `l1_locating_information_item_03`: feedback explains the explicit storage location for leftover materials and distinguishes it from container, table, and activity place references.
+
+Feedback breve summary:
+
+* Authored short, student-safe feedback breve for all three items.
+* Each feedback breve points to the relevant explicit detail without long quotation.
+* No feedback breve makes score, mastery, ranking, theta, PAES prediction, guaranteed improvement, complete-preparation, or AI tutor claims.
+
+Feedback completo summary:
+
+* Authored concise feedback completo for all three items.
+* Each feedback completo explains why the correct option is supported and why distractors fail for clear textual reasons.
+* Feedback remains tied to locating explicit information and avoids broad student diagnosis.
+
+Evidence/distractor boundary:
+
+* Evidence references use short pointing/paraphrase, not long quotation.
+* Distractor explanations remain tied to explicit text differences.
+* Feedback is authored only for future review and is not student-facing or product-approved.
+
+Non-goals:
+
+* No app code.
+* No runtime schema change.
+* No database schema change.
+* No content registry entry.
+* No StudyLoads.
+* No texts.
+* No new texts.
+* No questions.
+* No question revisions.
+* No alternatives created.
+* No distractors created.
+* No answer keys created.
+* No implementation.
+* No student UI.
+* No admin UI.
+* No `/now`.
+* No endpoints.
+* No auth changes.
+* No StudentAccess runtime behavior changes.
+* No trial activation.
+* No billing, subscription, or payment.
+* No deploy.
+* No PDFs downloaded or committed.
+* No DB read.
+* No API call.
+* No app/browser operation.
+* No legal advice.
+* No approval for official PAES/DEMRE text or question use.
+* No approval for copyrighted text use.
+* No approval for student use.
+* No approval for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_FEEDBACK_AUTHORING_1_FIRST_CONTROLLED_FEEDBACK_AUTHORED
+```
