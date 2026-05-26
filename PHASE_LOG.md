@@ -25640,3 +25640,126 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_ADMIN_EVIDENCE_DESIGN_1_ADMIN_EVIDENCE_MODEL_DEFINED
 ```
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-ADMIN-EVIDENCE-DESIGN-1A - Review L1 admin/tutor evidence design
+
+Date: 2026-05-26
+
+Type:
+
+* Documentation-only / admin-tutor evidence design review / pre-continuity-design / pre-code / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = c66656a`.
+* Latest accepted commit: `c66656a - MVP-COMMERCIAL-L1-STUDYLOAD-ADMIN-EVIDENCE-DESIGN-1: define admin tutor evidence`.
+* Working tree was clean before edits.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_ADMIN_EVIDENCE_DESIGN_1A_REVIEW_ADMIN_TUTOR_EVIDENCE.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `c66656a`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_ADMIN_EVIDENCE_DESIGN_1_DEFINE_ADMIN_TUTOR_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ADMIN_TUTOR_ROLE_BASELINE_1_REVIEW_EXISTING_ROLE_AND_CONTINUITY_DECISIONS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1A_REVIEW_RESPONSE_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1_DEFINE_RESPONSE_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1A_REVIEW_AUTHORED_FEEDBACK_RUNTIME.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1_DEFINE_AUTHORED_FEEDBACK_RUNTIME.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1A_REVIEW_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1_DEFINE_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_DEFINE_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_FEEDBACK_REVIEW_1_FIRST_CONTROLLED_FEEDBACK_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+
+Code inspected:
+
+* None. Documentation review was sufficient; no app-code inspection was needed.
+
+Review findings summary:
+
+* The admin/tutor evidence design respects the reconciled admin/tutor baseline.
+* The design preserves read-only, advisory, supervisory evidence review.
+* The design does not create a default StudyLoad continuity gate.
+* The design does not imply admin/tutor review is required before the next StudyLoad.
+* The design preserves existing MC summary and answer rows, with a future M1 regression-test caveat.
+* The design provides enough L1 identity for review through content identity, text id/version, item ids, and feedback asset ids/status.
+* The design bounds feedback visibility by not showing full feedback copy by default.
+* The design handles source/review/approval metadata conservatively through collapsed advanced metadata, with exact visibility left for future implementation design.
+* The design excludes action controls, pause/block/access mutation, route mutation, and hidden continuity gates.
+
+Decision:
+
+* `APPROVED_FOR_L1_CONTINUITY_DESIGN`.
+
+Risks / caveats:
+
+* Admin view overload.
+* Advisory review becoming an implied gate.
+* Hidden gates by UX implication.
+* Internal metadata leakage.
+* Premature feedback-copy exposure.
+* M1 regression.
+* Admin adjustment workflow confusion.
+* Access, pause, block, or route-mutation expectations.
+* Unresolved L1 continuity.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-CONTINUITY-DESIGN-1 - Define L1 continuity/no-continuity design`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No app code inspected.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No administrative adjustment workflow designed or implemented.
+* No pause, block, access mutation, route mutation, or route adjustment action designed or implemented.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_ADMIN_EVIDENCE_DESIGN_1A_REVIEW_COMPLETED
+```
