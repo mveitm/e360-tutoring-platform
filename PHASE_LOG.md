@@ -25763,3 +25763,180 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_ADMIN_EVIDENCE_DESIGN_1A_REVIEW_COMPLETED
 ```
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-CONTINUITY-DESIGN-1 - Define L1 continuity/no-continuity design
+
+Date: 2026-05-26
+
+Type:
+
+* Documentation-only / L1 continuity design / pre-code / pre-registry / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = e2eb4b4`.
+* Latest accepted commit: `e2eb4b4 - MVP-COMMERCIAL-L1-STUDYLOAD-ADMIN-EVIDENCE-DESIGN-1A: review admin tutor evidence`.
+* Working tree was clean before edits.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_CONTINUITY_DESIGN_1_DEFINE_L1_CONTINUITY.md`.
+
+Docs read / searched:
+
+* `PHASE_LOG.md` recent L1 chain through `e2eb4b4`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_ADMIN_EVIDENCE_DESIGN_1A_REVIEW_ADMIN_TUTOR_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_ADMIN_EVIDENCE_DESIGN_1_DEFINE_ADMIN_TUTOR_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ADMIN_TUTOR_ROLE_BASELINE_1_REVIEW_EXISTING_ROLE_AND_CONTINUITY_DECISIONS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1A_REVIEW_RESPONSE_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1_DEFINE_RESPONSE_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1A_REVIEW_AUTHORED_FEEDBACK_RUNTIME.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1_DEFINE_AUTHORED_FEEDBACK_RUNTIME.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1A_REVIEW_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1_DEFINE_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_DEFINE_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_FEEDBACK_REVIEW_1_FIRST_CONTROLLED_FEEDBACK_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+* `nextjs_space/docs/operations/MVP_FLOW_4_B_MINIMAL_NON_BLOCKING_NEXT_STUDYLOAD_CONTINUITY_DESIGN.md`.
+* `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md`.
+* `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md`.
+* Focused documentation search for continuity, StudyLoad continuity, automatic next StudyLoad, non-blocking, no-continuity, next StudyLoad, rule-based continuity, learning continuity, admin/manual gates, student waits, L1 continuity, and M1 continuity.
+
+Read-only code inspected:
+
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/app/now/page.tsx`.
+* Focused read-only search for continuity helpers and StudyLoad completion references.
+
+Current continuity assumptions:
+
+* Current automatic continuity is M1-scoped and rule-based.
+* Current continuity uses explicit program/contentKey mapping in `NEXT_STUDYLOAD_BY_PROGRAM_AND_CONTENT_KEY`.
+* Completion triggers best-effort continuity after successful completion.
+* Continuity failure does not roll back completion.
+* No `PAES_L1` continuity mapping exists.
+* No L1 registry entry exists.
+* M1 continuity must remain unchanged.
+
+Continuity options summary:
+
+* Option A: explicit no-continuity for the first L1 pilot until an L1 route/content chain exists.
+* Option B: single-step internal continuity to a second reviewed L1 StudyLoad once one exists.
+* Option C: generic repeat/remediation after completion.
+* Option D: admin/manual review gate before next L1 StudyLoad.
+* Option E: no-next-L1 fallback while other active tutoring routes continue.
+
+Recommended continuity model:
+
+* Use explicit no automatic L1 next StudyLoad until a second reviewed, registry-ready, product-boundary-safe L1 StudyLoad set exists.
+* Do not use an admin/tutor manual gate.
+* Do not create generic repeat/remediation.
+* If no next reviewed L1 activity exists, do not fabricate continuity.
+* Other active tutoring programs should continue according to their own rules.
+* Future L1 continuity may be enabled only through explicit L1 content-chain design.
+
+Non-blocking admin/tutor rule:
+
+* Admin/tutor evidence review does not release or pause the next L1 StudyLoad.
+* Lack of admin review does not block routine continuity by itself.
+* Explicit administrative adjustments remain out of scope and require separate design.
+* Continuity decisions must be system/content-chain based, not hidden admin review gates.
+
+Student experience implications:
+
+* Avoid indefinite waiting-for-tutor language.
+* Avoid implying admin approval is required.
+* Avoid promising unavailable L1 continuation.
+* Show a clear, honest no-next-L1 state if implemented.
+* Preserve other active tutoring continuity if applicable.
+* Do not claim L1 ready, product-approved, or Sales-Ready.
+
+Content-chain requirements:
+
+* At least one next L1 StudyLoad set exists.
+* Text, items, and feedback are reviewed.
+* Registry/type mapping is approved.
+* Evidence/admin implications are designed.
+* Stable `contentKey` / `contentVersion` is defined.
+* Student/product-use gate is separately handled if applicable.
+* Test plan and rollback/no-go policy are defined.
+
+Risks / caveats:
+
+* Student dead-end risk.
+* Fake continuity risk.
+* Admin review gate regression.
+* Product claim risk.
+* Content-chain insufficiency.
+* M1 regression.
+* Future migration complexity.
+
+No-go gates:
+
+* Continuity design review.
+* L1 content-chain design for at least a second activity, if automatic L1 continuity is desired.
+* Test plan.
+* Implementation-readiness review.
+* Registry/contentKey/contentVersion authorization.
+* Product-use gate.
+* Sales-Ready remains separate.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-CONTINUITY-DESIGN-1A - Review L1 continuity/no-continuity design`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No administrative adjustment workflow designed or implemented.
+* No pause, block, access mutation, route mutation, or route adjustment action designed or implemented.
+* No L1 continuity inferred from M1 continuity maps.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_CONTINUITY_DESIGN_1_CONTINUITY_MODEL_DEFINED
+```
