@@ -26959,3 +26959,137 @@ Result marker:
 ```text
 MVP_COMMERCIAL_TUTORING_BLUEPRINT_STANDARD_1_STANDARD_DEFINED
 ```
+
+---
+
+## 2026-05-26 - MVP-COMMERCIAL-L1-TUTORING-BLUEPRINT-1
+
+Phase:
+
+```text
+MVP-COMMERCIAL-L1-TUTORING-BLUEPRINT-1 - Create PAES_L1 tutoring blueprint before internal implementation
+```
+
+Type:
+
+```text
+Documentation-only / PAES_L1 tutoring blueprint / pre-internal-implementation / pre-product-use.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = e0ceb29
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TUTORING_BLUEPRINT_1_CREATE_PAES_L1_BLUEPRINT.md`.
+
+Docs read/searched:
+
+* `PHASE_LOG.md` recent blueprint/L1 chain through `e0ceb29`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/TUTORING_BLUEPRINT_STANDARD_1_PER_TUTORING_PROGRAM_BLUEPRINT.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TUTORING_STANDARDS_BASELINE_1_EXTRACT_M1_OPERATING_STRUCTURE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_3_REVIEW_NARROW_INTERNAL_CODE_READINESS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_ARTIFACT_AUTHORIZATION_1_AUTHORIZE_FIRST_L1_REGISTRY_ARTIFACT.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_TEST_PLAN_1A_REVIEW_FIRST_PILOT_IMPLEMENTATION_TEST_PLAN.md`.
+* Relevant L1 design-chain documents for continuity, admin evidence, response/evidence, feedback runtime, passage rendering, type boundary, registry shape/readiness, and StudyLoad boundary.
+* Focused read-only searches across `PHASE_LOG.md` and `nextjs_space/docs` for PAES_L1, Competencia Lectora, locating information, first L1 pilot artifact ids, feedback breve/completo, reading/passage/text asset, source/review/product-use status, tutoring blueprint, StudyLoad, evidence, continuity, admin evidence, SRA, `/now`, dashboard, content identity, no-continuity, and no-admin-gate terms.
+
+Code inspected:
+
+* None. Documentation was sufficient for the blueprint.
+
+PAES_L1 blueprint summary:
+
+* Created the first PAES_L1 tutoring blueprint under the per-tutoring blueprint standard.
+* Defined PAES_L1 identity as Competencia Lectora with first internal skill family `locating_information`.
+* Defined conservative student-facing promise, allowed claims, prohibited claims, target profile, tutoring scope, micro-StudyLoad model, content model, feedback model, evidence model, continuity model, admin/tutor supervision model, SRA relation, `/now`/dashboard relation, registry/content identity, source/rights/review boundaries, product-use gates, Sales-Ready relationship, risks, maturity status, roadmap, test requirements, and open decisions.
+
+Maturity/status summary:
+
+* `program_code`: `PAES_L1`.
+* `maturity_status`: `internal_candidate`.
+* `implementation_status`: `internal_implementation_ready`.
+* `student_use_approved`: `no`.
+* `product_use_approved`: `no`.
+* `sales_ready_implication`: `none`.
+* `continuity_status`: `explicit_no_continuity`.
+* `evidence_readiness`: `reviewed`.
+* `feedback_readiness`: `reviewed`.
+* `admin_tutor_visibility_readiness`: `reviewed`.
+
+Standards inherited/adapted:
+
+* Inherits Bexauri micro-StudyLoad structure, stable content identity, safe client projection, answer/evidence flow, after-response feedback, completion/self-report relation where applicable, advisory admin evidence, non-blocking admin supervision, and no product overclaims.
+* Adapts for L1 reading through first-class passage/text asset, reading-specific item metadata, authored feedback breve/completo, source/rights/review metadata, text and feedback identity in evidence, and explicit no automatic L1 continuity until a second reviewed set exists.
+* Explicitly does not copy M1 math metadata, M1 continuity maps, title-only lookup fragility, generic instructions-as-passage, generated feedback as substitute for authored L1 feedback, or PAES M1-specific copy.
+
+Product/Sales-Ready boundary:
+
+* PAES_L1 remains not approved for student use.
+* PAES_L1 remains not approved for product use.
+* The blueprint does not authorize implementation.
+* The blueprint does not declare PAES_L1 ready.
+* Sales-Ready remains blocked.
+
+Readiness impact:
+
+```text
+READINESS_3_STILL_VALID_FOR_NARROW_INTERNAL_CODE
+```
+
+Recommended next phase:
+
+```text
+MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-IMPLEMENTATION-1 - Implement first L1 internal registry/viewer/feedback/evidence slice
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only documentation files changed before commit.
+
+Non-goals:
+
+* No app code changed.
+* No tests changed.
+* No test files created.
+* No tests run.
+* No build run.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No registry entries created.
+* No `contentKey` or `contentVersion` implementation artifacts created.
+* No StudyLoads created.
+* No DB, Prisma, migrations, seed, SQL, APIs, browser, runtime, Vercel, deploy, test execution, build, or app execution touched.
+* No `.env`, `DATABASE_URL`, `PROD_DATABASE_URL`, secrets, tokens, passwords, cookies, headers, raw environment values, or backups inspected.
+* No student use approved.
+* No product use approved.
+* No PAES_L1 readiness declared.
+* No Sales-Ready declared.
+* No Abacus use.
+* No implementation authorized.
+* No M1 continuity map applied to L1.
+* No admin/tutor continuity gate created.
+* No administrative adjustment workflow designed or implemented.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_TUTORING_BLUEPRINT_1_PAES_L1_BLUEPRINT_CREATED
+```
