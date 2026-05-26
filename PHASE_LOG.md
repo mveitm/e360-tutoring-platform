@@ -26825,3 +26825,137 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_TUTORING_STANDARDS_BASELINE_1_M1_STANDARDS_EXTRACTED
 ```
+
+## MVP-COMMERCIAL-TUTORING-BLUEPRINT-STANDARD-1 - Define Per-Tutoring Blueprint Standard
+
+Date: 2026-05-26
+
+Type:
+
+* Documentation-only governance standard.
+* Cross-program tutoring blueprint standard for M1, M2, L1, and future tutorias.
+
+Baseline:
+
+* Expected `HEAD = origin/main = origin/HEAD = f8a932c`.
+* Latest accepted commit: `f8a932c - MVP-COMMERCIAL-L1-TUTORING-STANDARDS-BASELINE-1: extract M1 tutoring standards`.
+* Git preflight is the live source of truth.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/TUTORING_BLUEPRINT_STANDARD_1_PER_TUTORING_PROGRAM_BLUEPRINT.md`.
+
+Docs read/searched:
+
+* `PHASE_LOG.md` recent chain through `f8a932c`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TUTORING_STANDARDS_BASELINE_1_EXTRACT_M1_OPERATING_STRUCTURE.md`.
+* `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`.
+* `nextjs_space/docs/operations/MVP_UI_FLOW_2_HIDE_CYCLE_LABEL_AND_REFRESH_NOW_COPY.md`.
+* `nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md`.
+* `nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md`.
+* `nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md`.
+* `nextjs_space/docs/operations/MVP_FLOW_4_B_MINIMAL_NON_BLOCKING_NEXT_STUDYLOAD_CONTINUITY_DESIGN.md`.
+* `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md`.
+* `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md`.
+* Focused read-only searches across `PHASE_LOG.md` and `nextjs_space/docs` for tutoring, blueprint, PAES_M1, PAES_M2, PAES_L1, StudyLoad, SRA, roadmap, student journey, `/now`, dashboard, evidence, feedback, continuity, admin evidence, tutor/operator/supervision, product-use, Sales-Ready, readiness, content identity, active slice, micro StudyLoad, and tutoring standards.
+
+Code inspected:
+
+* None. Documentation was sufficient for this governance standard.
+
+Blueprint standard summary:
+
+* Defined a Tutoring Blueprint as a durable operational-pedagogical document for one Bexauri tutoring program.
+* Required every tutoring program to carry its own memory for promise, scope, content, feedback, evidence, continuity, admin/tutor supervision, SRA relationship, registry identity, source/review/product gates, risks, maturity, roadmap, tests, and open decisions.
+* Clarified that a blueprint informs implementation but does not authorize code, product use, student use, or Sales-Ready.
+
+Required sections:
+
+* Tutoring identity.
+* Student-facing promise.
+* Allowed claims.
+* Prohibited claims / no-promises.
+* Target student profile.
+* Tutoring scope.
+* Unit of work / StudyLoad model.
+* Content model.
+* Feedback model.
+* Evidence model.
+* Continuity model.
+* Admin/tutor supervision model.
+* Relation to SRA.
+* Relation to `/now` and dashboard.
+* Registry/content identity model.
+* Source/rights/review boundaries.
+* Product-use gates.
+* Sales-Ready relationship.
+* Risks and failure modes.
+* Current maturity status.
+* Roadmap to maturity.
+* Test/quality requirements.
+* Open decisions.
+
+Status vocabulary summary:
+
+* Maturity values include `not_ready`, `partial`, `internal_candidate`, `internal_runtime_available`, `beta_candidate`, `product_ready_candidate`, `sales_ready_candidate`, and `sales_ready_approved`.
+* Implementation values include `not_started`, `documentation_only`, `artifact_authorized`, `internal_implementation_ready`, `internal_implemented`, `internal_validated`, `limited_beta_ready_candidate`, `product_ready_candidate`, and `blocked`.
+* Continuity values include `none`, `explicit_no_continuity`, `single_step_rule_based`, `finite_chain_rule_based`, `content_chain_defined`, `runtime_available`, `blocked`, and `not_applicable`.
+* Evidence/feedback/admin-tutor readiness values include `not_ready`, `designed`, `reviewed`, `internal_candidate`, `implemented_internal`, `validated_internal`, `product_candidate`, `approved`, and `blocked`.
+
+M1/L1/M2 implications:
+
+* M1 remains the strongest current operating reference but should eventually receive its own formal blueprint.
+* M1 standards may seed future blueprints, but M1 math-specific assumptions and continuity maps must not be copied blindly.
+* L1 should receive its own blueprint before or alongside internal implementation; this is recommended as the next phase.
+* L1 remains not ready until its own gates are satisfied.
+* M2 needs its own blueprint before meaningful implementation, optimization, or readiness claims; do not infer M2 readiness from M1 or L1.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-TUTORING-BLUEPRINT-1 - Create PAES_L1 tutoring blueprint before internal implementation`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only documentation files changed before commit.
+
+Non-goals:
+
+* No app code changed.
+* No tests changed.
+* No test files created.
+* No tests run.
+* No build run.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No registry entries created.
+* No `contentKey` or `contentVersion` implementation artifacts created.
+* No StudyLoads created.
+* No DB, Prisma, migrations, seed, SQL, APIs, browser, runtime, Vercel, deploy, test execution, build, or app execution touched.
+* No `.env`, `DATABASE_URL`, `PROD_DATABASE_URL`, secrets, tokens, passwords, cookies, headers, raw environment values, or backups inspected.
+* No student use approved.
+* No product use approved.
+* No L1, M1, M2, or other tutoring readiness declared.
+* No Sales-Ready declared.
+* No Abacus use.
+* No implementation authorized.
+* No L1 blueprint created in this phase.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_TUTORING_BLUEPRINT_STANDARD_1_STANDARD_DEFINED
+```
