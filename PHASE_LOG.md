@@ -23963,3 +23963,91 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_GAPS_IDENTIFIED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-DESIGN-1 - Define L1 Registry Shape for First Pilot Set
+
+Date: 2026-05-26
+
+Type: documentation-only / L1 registry shape design / pre-registry / pre-implementation / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = bbe164b`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-READINESS-1A: inspect registry compatibility`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `PHASE_LOG.md`.
+
+Read-only code files inspected:
+
+* None in this phase; used versioned `REGISTRY-READINESS-1A` read-only code inspection findings.
+
+Documentation summary:
+
+* Created a documentation-only conceptual L1 registry shape design for the first controlled L1 pilot set.
+* Defined conceptual top-level metadata, first-class text asset shape, item asset shape, alternative/answer metadata shape, authored feedback breve/completo shape, source/rights metadata, review-state metadata, L1 pedagogical metadata, and versioning/change-control metadata.
+* Preserved the boundary that candidate `contentKey` and `contentVersion` values are conceptual only and are not implementation artifacts.
+* Created no registry entry, no `study-load-content.ts` change, no actual StudyLoad, no DB row, no seed, no route, no endpoint, no UI, no test, no implementation, and no product behavior change.
+
+Conceptual registry shape summary:
+
+* The shape keeps the existing registry's useful identity and multiple-choice concepts while adding L1-specific text, feedback, rights, review, pedagogy, and versioning fields.
+* The shape makes the original L1 text a first-class asset rather than hidden instruction text.
+* The shape keeps authored feedback breve/completo separate from answer-key metadata and generated correctness feedback.
+* The shape requires review reset when text, item, alternative, answer, or feedback assets materially change.
+
+Resolved gaps:
+
+* Design-level first-class text/passage support defined.
+* Design-level authored feedback breve/completo support defined.
+* Design-level `PAES_L1` and locating-information metadata defined.
+* Design-level source/rights/review metadata defined.
+* Design-level versioning and change-control rules defined.
+
+Remaining gaps / no-go:
+
+* No TypeScript implementation design created.
+* No decision made on extending the current static registry versus creating a separate L1 reading-content shape.
+* No UI/API/DB/test/continuity behavior created or approved.
+* Direct registry creation remains blocked until a separate implementation-readiness or registry phase.
+
+Recommended next phase:
+
+* Prefer `MVP-COMMERCIAL-L1-STUDYLOAD-IMPLEMENTATION-READINESS-1 - Define implementation plan for first L1 pilot set` or `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-DESIGN-1A - Review L1 registry shape design` before any registry creation.
+
+Non-goals:
+
+* No app code changed.
+* No database schema changed.
+* No content registry changed.
+* No `study-load-content.ts` changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No product behavior changed.
+* No texts created.
+* No questions created.
+* No feedback created.
+* No student UI created.
+* No admin UI created.
+* No tests created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_CONCEPTUAL_SHAPE_DEFINED
+```
