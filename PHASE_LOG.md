@@ -26183,3 +26183,128 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_2_FULL_CHAIN_AUDITED
 ```
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-TEST-PLAN-1 - Define first L1 pilot implementation test plan
+
+Date: 2026-05-26
+
+Type:
+
+* Documentation-only / implementation test-plan design / pre-code / pre-registry / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 6286c6c`.
+* Latest accepted commit: `6286c6c - MVP-COMMERCIAL-L1-STUDYLOAD-IMPLEMENTATION-READINESS-2: audit L1 implementation readiness`.
+* Working tree was clean before edits.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_TEST_PLAN_1_DEFINE_FIRST_PILOT_IMPLEMENTATION_TEST_PLAN.md`.
+
+Docs read / searched:
+
+* `PHASE_LOG.md` recent L1 chain through `6286c6c`.
+* Current handoff, compact reporting rule, Codex prompting standard, product horizons, Context Gate protocol, Living Memory Index, and autohandoff protocol.
+* `IMPLEMENTATION-READINESS-2`.
+* Relevant first L1 pilot chain through continuity review, admin/tutor evidence review, admin/tutor baseline reconciliation, response/evidence review, feedback runtime review, passage rendering review, type-boundary review, implementation-readiness, registry design/readiness, feedback review, and StudyLoad boundary.
+* M1 continuity design and verification docs.
+* Focused documentation searches for test plan, test, verification, regression, M1 regression, answer leakage, pre-submit, admin gate, no fake continuity, no product claim, contentKey, contentVersion, L1 not ready, Sales-Ready blocked, StudyLoad continuity, `multiple_choice_submission`, admin evidence, feedback breve, and feedback completo.
+
+Read-only code inspected:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/lib/student-access-validation.test.ts`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+* `nextjs_space/app/now/page.tsx`.
+* Test/config file discovery via read-only file search.
+
+Test plan summary:
+
+* Defined the future implementation test contract required before any L1 code implementation, registry artifact authorization, or runtime change.
+* Anchored the plan to the `IMPLEMENTATION-READINESS-2` decision: `NOT_READY_NEEDS_TEST_PLAN`.
+* Identified future implementation/test surfaces: static registry, StudyLoad viewer, answer form, response API/evidence, completion/continuity, admin evidence, `/now`, and limited current test tooling.
+* Defined concrete future test cases for M1 regression, L1 passage rendering, safe props/no pre-submit leakage, authored feedback breve/completo behavior, L1 response/evidence payload, admin/tutor bounded evidence, no admin gate, no fake L1 continuity, no-next-L1 copy, and no product/Sales-Ready claims.
+
+Required test categories:
+
+* M1 registry/viewer regression.
+* M1 response/evidence regression.
+* M1 continuity regression.
+* L1 registry/content identity.
+* L1 passage rendering.
+* L1 answer form safe props.
+* No pre-submit answer leakage.
+* L1 authored feedback runtime.
+* L1 response/evidence payload.
+* L1 admin/tutor evidence display.
+* No admin/tutor gate.
+* No fake L1 continuity.
+* No product-use, L1-ready, or Sales-Ready claims.
+* Missing metadata/fallback behavior.
+* Accessibility/mobile smoke expectations at design level.
+
+No-go / rollback criteria:
+
+* Block or roll back future implementation if M1 rendering, M1 evidence, or M1 continuity regresses.
+* Block if correct answer metadata, answer-key notes, distractor rationale, or authored feedback leaks before submission.
+* Block if authored feedback replaces correctness validation.
+* Block if L1 passage is hidden inside generic instructions.
+* Block if L1 evidence omits required content/text/item/feedback identity.
+* Block if admin evidence adds action/gate controls or full feedback copy by default without later approval.
+* Block if completion fabricates a next L1 StudyLoad without a second reviewed registry-ready set.
+* Block if new copy claims L1 readiness, product approval, PAES score/mastery, officialness, or Sales-Ready.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-TEST-PLAN-1A - Review first L1 pilot implementation test plan`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No tests changed.
+* No test files created.
+* No tests run.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No administrative adjustment workflow designed or implemented.
+* No pause, block, access mutation, route mutation, or route adjustment action designed or implemented.
+* No L1 continuity inferred from M1 continuity maps.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_TEST_PLAN_1_TEST_PLAN_DEFINED
+```
