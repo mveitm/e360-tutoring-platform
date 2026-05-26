@@ -24866,3 +24866,141 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1A_REVIEW_COMPLETED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-FEEDBACK-RUNTIME-DESIGN-1 - Define L1 Authored Feedback Runtime Design
+
+Date: 2026-05-26
+
+Type: documentation-only / authored feedback runtime design / pre-code / pre-registry / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 69c70ca`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-PASSAGE-RENDERING-DESIGN-1A: review passage rendering`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1_DEFINE_AUTHORED_FEEDBACK_RUNTIME.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `69c70ca`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1A_REVIEW_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1_DEFINE_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_DEFINE_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_FEEDBACK_REVIEW_1_FIRST_CONTROLLED_FEEDBACK_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+
+Read-only code inspected:
+
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+* `nextjs_space/lib/study-load-content.ts`.
+
+Feedback runtime design summary:
+
+* Defined authored feedback breve/completo as separate reviewed content assets.
+* Confirmed current runtime feedback is generated from selected answer, correct option, and correctness state.
+* Confirmed current evidence stores MC selected answers, optional correct option keys, correctness, content identity, and summary.
+* Defined authored feedback as post-submission only and separate from correctness validation.
+* Compared brief-visible, complete-visible, generated-first, and completion-only display models.
+
+Recommended feedback model:
+
+* After answer submission, show per-question feedback breve by default.
+* Make feedback completo available on demand.
+* Keep correctness state separate from authored feedback.
+* Keep passage visible above.
+* Do not show authored feedback before submission.
+
+Correctness-state behavior summary:
+
+* Correct answers: show correctness state separately, then breve, with completo available.
+* Incorrect answers: show correctness state separately, then non-punitive breve, with completo available.
+* Unanswered/partial state: no authored item feedback by default for unanswered items.
+* Resubmission: future design required if allowed.
+* Completed/read-only review: preserve submitted-answer state, correctness, breve, and access to completo.
+
+Evidence / admin implications:
+
+* Later evidence design must decide whether to store feedback id/version, feedback displayed/opened state, source text id/version, and feedback exposure.
+* Later admin design must decide whether admin sees feedback ids/versions, opened-full-feedback state, item-to-text linkage, source/review/approval metadata, or feedback copy.
+
+Risks / caveats:
+
+* Cognitive overload.
+* Verbose mobile feedback.
+* Feedback hiding passage.
+* Answer leakage before submission.
+* Confusing correctness with authored explanation.
+* Premature pedagogical claims.
+* Overbuilding telemetry before first pilot.
+* M1 regression risk.
+
+No-go gates:
+
+* Feedback runtime design review.
+* Response/evidence design.
+* Admin evidence design.
+* L1 continuity design or explicit no-continuity rule.
+* Test plan.
+* Product-use gate.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-FEEDBACK-RUNTIME-DESIGN-1A - Review L1 authored feedback runtime design`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1_AUTHORED_FEEDBACK_MODEL_DEFINED
+```
