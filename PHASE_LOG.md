@@ -25383,3 +25383,109 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1A_REVIEW_COMPLETED
 ```
+
+## MVP-COMMERCIAL-L1-ADMIN-TUTOR-ROLE-BASELINE-1 - Review existing admin/tutor role, supervision, continuity and administrative-adjustment decisions
+
+Date: 2026-05-26
+
+Type: Documentation-only reconciliation / admin-tutor role baseline / pre-admin-evidence-design / pre-implementation.
+
+Baseline:
+
+* `HEAD = origin/main = origin/HEAD = a859a23`.
+* Latest accepted commit: `a859a23 - MVP-COMMERCIAL-L1-STUDYLOAD-RESPONSE-EVIDENCE-DESIGN-1A: review L1 evidence model`.
+* Working tree clean before edits.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ADMIN_TUTOR_ROLE_BASELINE_1_REVIEW_EXISTING_ROLE_AND_CONTINUITY_DECISIONS.md`.
+
+Docs searched/read:
+
+* `PHASE_LOG.md` recent L1 chain through `a859a23`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1A_REVIEW_RESPONSE_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1_DEFINE_RESPONSE_EVIDENCE.md`.
+* `nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md`.
+* `nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md`.
+* `nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md`.
+* `nextjs_space/docs/operations/MVP_SRA_IMPL_6R_ADMIN_READ_ONLY_PEDAGOGICAL_DECISION_EVIDENCE_VIEW_READINESS.md`.
+* `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`.
+* `nextjs_space/docs/operations/STUDENT_ACCESS_TRANSITION_MODEL_READINESS.md`.
+* Focused read-only searches across `PHASE_LOG.md`, `nextjs_space/docs/operations`, `nextjs_space/docs/governance`, `nextjs_space/docs/strategy`, and `nextjs_space/docs/product` for admin/tutor role, supervision, administrative adjustment, continuity, evidence review, access, enrollment, and blocking/non-blocking language.
+
+Extracted baseline summary:
+
+* Existing documentation supports admin/tutor/operator evidence review as supervisory, administrative, advisory, QA, and risk-monitoring work.
+* Existing documentation does not support making admin/tutor review the default release gate for every routine next StudyLoad.
+* The current baseline is `review != gate`, `supervision != bottleneck`, and `operator action != prerequisite for normal student continuity`.
+* Explicit administrative adjustments may be supported only when separately scoped, authorized, auditable, and implemented.
+* Active/valid access and enrollment should allow learning continuity to proceed according to system rules; ordinary evidence review should not be required before every next StudyLoad.
+
+Contradictions / ambiguities:
+
+* Older MVP-Beta/manual-operation materials include manual review, manual continuity, or manual CycleDecision language.
+* Current governance and product synthesis reconcile this toward non-blocking supervision by default.
+* L1 continuity, admin evidence, and admin adjustment behavior remain unimplemented and must not be inferred as product-ready.
+* StudentAccess transition documentation supports future explicit access operations but does not authorize current mutation or implicit access gating through evidence review.
+
+Impact on future admin evidence design:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-ADMIN-EVIDENCE-DESIGN-1` must use this baseline.
+* Admin evidence design must not redefine admin/tutor authority.
+* Admin evidence review must not become a default continuity gate.
+* Future admin evidence can expose L1 evidence, response identity, text identity/version, correctness, and feedback references as read-only/advisory context.
+* Any administrative adjustment, access transition, pause, or blocking workflow requires a separate authorized phase.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-ADMIN-EVIDENCE-DESIGN-1 - Define L1 admin/tutor evidence design, using this baseline`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No app code inspected.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_ADMIN_TUTOR_ROLE_BASELINE_1_EXISTING_DECISIONS_RECONCILED
+```
