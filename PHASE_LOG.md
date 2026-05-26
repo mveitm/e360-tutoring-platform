@@ -26405,3 +26405,132 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_TEST_PLAN_1A_REVIEW_COMPLETED
 ```
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-ARTIFACT-AUTHORIZATION-1 - Authorize first L1 registry implementation artifact
+
+Date: 2026-05-26
+
+Type:
+
+* Documentation-only / registry artifact authorization decision / pre-code / pre-registry-implementation / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 1710ea3`.
+* Latest accepted commit: `1710ea3 - MVP-COMMERCIAL-L1-STUDYLOAD-TEST-PLAN-1A: review L1 implementation test plan`.
+* Working tree was clean before edits.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_ARTIFACT_AUTHORIZATION_1_AUTHORIZE_FIRST_L1_REGISTRY_ARTIFACT.md`.
+
+Docs read / searched:
+
+* `PHASE_LOG.md` recent L1 chain through `1710ea3`.
+* Current handoff, compact reporting rule, Codex prompting standard, product horizons, Context Gate protocol, Living Memory Index, and autohandoff protocol.
+* `TEST-PLAN-1A`, `TEST-PLAN-1`, and `IMPLEMENTATION-READINESS-2`.
+* Relevant first L1 artifact chain through continuity, admin/tutor evidence, response/evidence, authored feedback runtime, passage rendering, type boundary, registry design, registry prerequisites, StudyLoad boundary, original text authoring, and feedback review.
+* Focused documentation searches for first L1 pilot identifiers, feedback breve/completo, `contentKey`, `contentVersion`, `internal-v0.1`, registry/implementation status, approval fields, `PAES_L1`, locating information, source/rights, review/approval state, test plan, no-go rules, L1 not ready, and Sales-Ready blocked.
+
+Read-only code inspected:
+
+* None. Versioned documentation and prior documented read-only inspections were sufficient for this documentation-only authorization.
+
+Artifact authorization summary:
+
+* Authorized the first L1 pilot registry artifact boundary for a future internal code phase only.
+* Confirmed the authorization does not create the artifact, edit code, edit `study-load-content.ts`, create a registry entry, create implementation artifacts, create StudyLoads, or approve student/product use.
+* Preserved L1 not ready and Sales-Ready blocked.
+
+Authorization decision:
+
+* `AUTHORIZE_INTERNAL_REGISTRY_ARTIFACT_FOR_FUTURE_CODE_PHASE`.
+
+Artifact values:
+
+* `candidate_studyload_id`: `l1_locating_information_pilot_set_01`.
+* `contentKey`: `l1_locating_information_pilot_set_01`.
+* `contentVersion`: `internal-v0.1`.
+* `contentType`: `reading_l1_locating_information`.
+* `program`: `PAES_L1`.
+* `skillFamily`: `locating_information`.
+* `titleInternal`: `L1 locating information pilot set 01`.
+* `registryScope`: `internal_pilot_candidate_only`.
+* `sourceTextId`: `original_l1_text_locating_information_01_draft`.
+* `sourceTextVersion`: `draft-0.1`.
+* `itemIds`: `l1_locating_information_item_01`, `l1_locating_information_item_02_revised`, `l1_locating_information_item_03`.
+* `feedbackAssetReferences`: per-item feedback breve/completo stable references for all three reviewed items.
+* `feedbackVersionReference`: `reviewed-v0.1` or equivalent stable reviewed feedback-set reference in future implementation.
+* `studentUseApproved`: `no`.
+* `productUseApproved`: `no`.
+* `salesReadyImplication`: `none`.
+* `continuityPolicy`: `no_automatic_next_l1_studyload_without_second_reviewed_registry_ready_set`.
+
+Implementation preconditions:
+
+* Future code phase must still define exact file list, TypeScript field names, test runner or minimum blocking test subset, M1 regression checks, safe-props/no-leak checks, no-admin-gate checks, no-fake-continuity checks, no-product-claim copy checks, missing metadata fallback behavior, rollback/no-go plan, and implementation-readiness confirmation.
+
+Relationship to test plan / continuity / admin evidence / product-use gate:
+
+* `TEST-PLAN-1` and `TEST-PLAN-1A` constrain any future code phase.
+* L1 must have no automatic next StudyLoad unless a second reviewed registry-ready set exists.
+* Admin/tutor evidence remains read-only/advisory and must not become a gate/action surface.
+* Product use remains separate; L1 remains not ready; Sales-Ready remains blocked.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-ARTIFACT-AUTHORIZATION-1A - Review first L1 registry artifact authorization`.
+
+Risks / caveats:
+
+* Premature artifact implementation.
+* Accidental product-use implication.
+* `contentKey` / `contentVersion` instability.
+* M1 regression.
+* Pre-submit answer leakage.
+* Evidence/admin overbuild.
+* Fake continuity.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No tests changed.
+* No test files created.
+* No tests run.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No content registry changed.
+* No actual `contentKey` or `contentVersion` implementation artifact created in code.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No administrative adjustment workflow designed or implemented.
+* No pause, block, access mutation, route mutation, or route adjustment action designed or implemented.
+* No L1 continuity inferred from M1 continuity maps.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_ARTIFACT_AUTHORIZATION_1_ARTIFACT_AUTHORIZED_FOR_FUTURE_CODE
+```
