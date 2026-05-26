@@ -24411,3 +24411,113 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_DEPTH_STANDARD_DEFINED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-TYPE-DESIGN-1 - Define L1 Registry TypeScript Type Boundary
+
+Date: 2026-05-26
+
+Type: documentation-only / technical type-boundary design / pre-code / pre-registry / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 33db142`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-CODEX-PROMPTING-STANDARD-1: preserve Codex prompt depth`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_DEFINE_TYPE_BOUNDARY.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `33db142`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+
+Read-only code inspected:
+
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+
+Type-boundary design summary:
+
+* Defined a documentation-only preferred model for a future hybrid adapter approach.
+* Chose a discriminated L1 reading content type plus a narrow adapter contract to shared multiple-choice mechanics.
+* Defined conceptual pseudo-TypeScript shapes for L1 reading content, text asset, item, option, answer metadata, authored feedback, source/rights metadata, review metadata, approval metadata, versioning metadata, and adapter contract.
+* Kept the examples explicitly conceptual and non-implementation.
+
+Compatibility summary:
+
+* Existing M1 StudyLoads and current M1 registry behavior must remain unchanged.
+* Existing response validation must not be weakened.
+* L1 passage rendering must be first-class and explicit, not hidden in generic instructions.
+* L1 authored feedback must remain separate from correctness validation and answer-key metadata.
+* L1 should not rely on title lookup only if content-key-first lookup is safer.
+
+No-go gates:
+
+* Type design review.
+* Passage rendering design.
+* Authored feedback runtime design.
+* Response/evidence design.
+* Admin evidence design.
+* L1 continuity design or explicit no-continuity rule.
+* Test plan.
+* Product-use gate.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-TYPE-DESIGN-1A - Review L1 registry type boundary`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_TYPE_BOUNDARY_DEFINED
+```
