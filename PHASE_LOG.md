@@ -24628,3 +24628,127 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_COMPLETED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-PASSAGE-RENDERING-DESIGN-1 - Define L1 Passage Rendering Design
+
+Date: 2026-05-26
+
+Type: documentation-only / passage rendering design / pre-code / pre-registry / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 0be5513`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-TYPE-DESIGN-1A: review L1 type boundary`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1_DEFINE_PASSAGE_RENDERING.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `0be5513`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_DEFINE_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+
+Read-only code inspected:
+
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/lib/study-load-content.ts`.
+
+Passage rendering design summary:
+
+* Defined L1 passage rendering as first-class and separate from generic instructions.
+* Confirmed current M1 viewer renders header, instructions, and MC item cards without a first-class passage slot.
+* Defined rendering requirements for readability, accessibility, mobile behavior, answer-metadata safety, and no official/source claims.
+* Compared passage-above-questions, collapsible/sticky panel, split layout, and per-question excerpting.
+
+Recommended rendering model:
+
+* Passage card above questions.
+* Questions below.
+* No split layout or sticky panel in the first implementation.
+* Optional `volver al texto` affordance reserved for later review.
+
+State behavior summary:
+
+* Passage visibility must respect existing access rules before start.
+* Passage remains visible during answering, after submission, and after completion when the activity is viewable.
+* Passage rendering must not expose correct option metadata before submission.
+* Admin/evidence behavior remains a future design concern.
+
+Risks / caveats:
+
+* Long passages on mobile.
+* Cognitive overload from stacked instructions.
+* Hidden passage problem if passage is treated as generic instructions.
+* Accidental answer leakage through excerpts or metadata.
+* Overbuilding layout before first pilot.
+* Accessibility and reading comfort.
+* M1 regression risk.
+
+No-go gates:
+
+* Passage rendering design review.
+* Authored feedback runtime design.
+* Response/evidence design.
+* Admin evidence design.
+* L1 continuity design or explicit no-continuity rule.
+* Test plan.
+* Product-use gate.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-PASSAGE-RENDERING-DESIGN-1A - Review L1 passage rendering design`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1_RENDERING_MODEL_DEFINED
+```
