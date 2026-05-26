@@ -27558,3 +27558,157 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_1_SAFE_STATIC_VALIDATION_PASSED
 ```
+
+---
+
+## 2026-05-26 - MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-VALIDATION-2
+
+Phase:
+
+```text
+MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-VALIDATION-2 - Plan controlled DB-backed/local fixture validation
+```
+
+Type:
+
+```text
+Documentation-only validation planning / no DB execution / no fixture creation / no browser runtime.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 14a97f5
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2_PLAN_CONTROLLED_DB_BACKED_LOCAL_FIXTURE_VALIDATION.md`.
+
+Docs read/searched:
+
+* `PHASE_LOG.md` recent L1 chain through `14a97f5`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/TUTORING_BLUEPRINT_STANDARD_1_PER_TUTORING_PROGRAM_BLUEPRINT.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TUTORING_BLUEPRINT_1_CREATE_PAES_L1_BLUEPRINT.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_1_SAFE_INTERNAL_VALIDATION_PATH.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_IMPLEMENTATION_1A_REVIEW_AND_VALIDATION_PATH.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_3_REVIEW_NARROW_INTERNAL_CODE_READINESS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_ARTIFACT_AUTHORIZATION_1_AUTHORIZE_FIRST_L1_REGISTRY_ARTIFACT.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_TEST_PLAN_1A_REVIEW_FIRST_PILOT_IMPLEMENTATION_TEST_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_TEST_PLAN_1_DEFINE_FIRST_PILOT_IMPLEMENTATION_TEST_PLAN.md`.
+* Focused read-only searches across `PHASE_LOG.md` and docs for local fixture, dev fixture, safe seed, local validation, DB-backed, StudyLoad row, TutoringSession, Response, StudentAccess, enrollment, `/now`, admin evidence, response evidence, complete route, self-report, PAES_L1, no-continuity, cleanup, rollback, local/dev, staging, and production.
+
+Code files inspected:
+
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/scripts/safe-seed.ts`.
+* `nextjs_space/scripts/student-access-backfill-dry-run.ts`.
+* `nextjs_space/lib/prisma.ts`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/start/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+* `nextjs_space/package.json`.
+
+Validation plan summary:
+
+* Defined a controlled local/dev-only DB-backed validation path for PAES_L1.
+* Target includes `/now`, pending StudyLoad visibility, start route, viewer passage, safe pre-submit state, response persistence, authored feedback after submission, completion/self-report, explicit PAES_L1 no-continuity, and admin evidence metadata.
+* The plan does not execute DB-backed validation, create fixtures, run browser/runtime, or approve student/product use.
+
+Fixture model summary:
+
+* Required future fixture entities: test `User`, `Student`, `StudentAccess` with caveat, `Program` `PAES_L1`, active `StudentProgramInstance`, open `LearningCycle`, one pending L1 `StudyLoad`, and an in-progress `TutoringSession` created by the normal start path.
+* No pre-existing L1 `Response` is required for the first pass.
+* Admin user and M1 control fixture are optional but recommended where appropriate.
+
+Recommended fixture strategy:
+
+```text
+Option B - Narrow local-only fixture script with dry-run, apply, and cleanup modes.
+```
+
+Reason:
+
+* It is more precise than broad safe-seed reuse.
+* It can verify local/dev target before mutation.
+* It can create only labeled fixture rows.
+* It can record created IDs for cleanup.
+* It avoids destructive reset, migration, production, staging, and secrets printing.
+
+Validation sequence summary:
+
+* Preflight and local/dev target confirmation.
+* Dry-run fixture plan.
+* Create or locate labeled fixture.
+* Validate `/now` visibility and start path.
+* Validate L1 viewer passage and no pre-submit leakage.
+* Submit answers and validate persisted evidence plus post-submit authored feedback.
+* Complete with self-report.
+* Verify no next PAES_L1 StudyLoad is created.
+* Verify bounded admin metadata and no actions/gates.
+* Cleanup or isolate fixture records.
+
+Cleanup/rollback summary:
+
+* Fixture rows must use unique labels such as `L1_VALIDATION_FIXTURE_<runId>`.
+* Cleanup should target only recorded fixture ids or labeled fixture rows.
+* Preferred cleanup order is Response, TutoringSession, StudyLoad, LearningCycle, StudentProgramInstance, StudentAccess, Student/User, and Program only if created exclusively by fixture.
+* No destructive reset is allowed.
+* Stop before mutation if cleanup cannot be guaranteed.
+
+No-go criteria:
+
+* Target DB cannot be confirmed as local/dev.
+* Target appears to be staging or production.
+* Fixture requires destructive reset, schema migration, or broad seed execution.
+* Secrets or raw environment values would need to be printed.
+* StudyLoad creation, authentication, cleanup, no-admin-gate, or no-continuity verification is unclear.
+* Answer leakage, fake L1 continuity, product-use copy, PAES_L1-ready copy, officialness, score/mastery, guarantee, or Sales-Ready copy appears.
+
+Recommended next phase:
+
+```text
+MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-VALIDATION-2A - Review controlled DB-backed/local fixture validation plan
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only documentation files changed before commit.
+
+Non-goals:
+
+* No app code changed.
+* No tests changed.
+* No test files created.
+* No registry content changed.
+* No DB, Prisma, seed, SQL, browser, runtime, deploy, staging, or production validation run.
+* No fixture rows created.
+* No StudyLoad, user, student, enrollment, cycle, response, or tutoring session created.
+* No secrets or raw environment values inspected.
+* No student/product use approved.
+* No PAES_L1 readiness declared.
+* No Sales-Ready declared.
+* No admin gate/action or administrative adjustment workflow created.
+* No L1 continuity created.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2_DB_BACKED_LOCAL_FIXTURE_PLAN_DEFINED
+```
