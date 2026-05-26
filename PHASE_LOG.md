@@ -26696,3 +26696,132 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_3_READY_FOR_NARROW_INTERNAL_CODE
 ```
+
+## MVP-COMMERCIAL-L1-TUTORING-STANDARDS-BASELINE-1 - Extract Tutoring Standards And M1 Operating Structure For L1 Implementation
+
+Date: 2026-05-26
+
+Type:
+
+* Documentation-only tutoring standards baseline.
+* M1 operating-structure extraction before first L1 internal implementation.
+
+Baseline:
+
+* Expected `HEAD = origin/main = origin/HEAD = 7e79cc1`.
+* Latest accepted commit: `7e79cc1 - MVP-COMMERCIAL-L1-STUDYLOAD-IMPLEMENTATION-READINESS-3: review narrow L1 code readiness`.
+* Git preflight is the live source of truth.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TUTORING_STANDARDS_BASELINE_1_EXTRACT_M1_OPERATING_STRUCTURE.md`.
+
+Docs read/searched:
+
+* `PHASE_LOG.md` recent L1 chain through `7e79cc1`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_3_REVIEW_NARROW_INTERNAL_CODE_READINESS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_ARTIFACT_AUTHORIZATION_1_AUTHORIZE_FIRST_L1_REGISTRY_ARTIFACT.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_TEST_PLAN_1A_REVIEW_FIRST_PILOT_IMPLEMENTATION_TEST_PLAN.md`.
+* `nextjs_space/docs/operations/MVP_UI_FLOW_1_CANONICAL_STUDENT_UI_JOURNEY.md`.
+* `nextjs_space/docs/operations/MVP_UI_FLOW_2_HIDE_CYCLE_LABEL_AND_REFRESH_NOW_COPY.md`.
+* `nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md`.
+* `nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md`.
+* `nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md`.
+* `nextjs_space/docs/operations/MVP_FLOW_4_B_MINIMAL_NON_BLOCKING_NEXT_STUDYLOAD_CONTINUITY_DESIGN.md`.
+* `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md`.
+* `nextjs_space/docs/operations/MVP_FLOW_4_D_VERIFY_RETRY_LOCAL_AUTOMATIC_NEXT_STUDYLOAD_CONTINUITY.md`.
+* Focused read-only searches across `PHASE_LOG.md` and `nextjs_space/docs` for tutoring, M1, StudyLoad, continuity, `/now`, SRA, evidence, feedback, admin/tutor supervision, non-blocking continuity, content identity, product-use, and Sales-Ready terms.
+
+Read-only code inspected:
+
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+* `nextjs_space/package.json`.
+
+Tutoring standards summary:
+
+* A Bexauri tutoría is a supervised, evidence-aware learning program where the student works through short StudyLoads, submits answers and self-report, receives feedback, and continues through system-regulated next steps while human/operator supervision improves quality asynchronously.
+* The student studies; Bexauri regulates internally; human supervision protects quality without becoming the normal bottleneck.
+* A tutoría is not a static content list, admin queue, one-time diagnostic, manual review workflow, or raw LearningCycle exposed to the student.
+
+M1 operating structure summary:
+
+* M1 uses a static content registry with `contentKey`, `contentVersion`, item keys, options, answer keys, and pedagogical metadata.
+* `/now` orients the student to pending, in-progress, and completed activity states while keeping LearningCycle mechanics mostly internal.
+* The activity viewer strips answer keys before passing safe client props.
+* The response route validates content identity, item keys, option keys, and stores `multiple_choice_submission` evidence.
+* The answer form shows correctness feedback only after submission and then collects self-report for completion.
+* The completion route records self-report, completes the load/session, and calls continuity best-effort after the completion transaction.
+* M1 continuity is explicit, rule-based, program-scoped, and contentKey-driven.
+* Admin evidence is read-only/advisory by default and must not become a normal continuity gate.
+
+L1 inheritance/adaptation summary:
+
+* L1 should inherit micro-StudyLoad structure, stable content identity, safe client projection, evidence collection, after-response feedback, self-report/completion relation where applicable, read-only admin evidence, non-blocking supervision, explicit fallback, and no product overclaims.
+* L1 must adapt with a first-class passage/text asset, reading-specific item metadata, authored feedback breve/completo, source/rights/review metadata, text identity/version in evidence, and no automatic L1 continuity until a second reviewed registry-ready set exists.
+* L1 must not blindly copy M1 math metadata, M1 continuity maps, title-only lookup as durable design, generic instructions-as-passage, generated feedback as authored L1 feedback, M1 axis/slice assumptions, or PAES M1-specific copy.
+
+Readiness impact:
+
+* `READINESS_3_STILL_VALID_FOR_NARROW_INTERNAL_CODE`.
+* No new blocking standard gap was found.
+* This phase adds an operating baseline constraint for future implementation but does not revise the Readiness-3 decision.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-IMPLEMENTATION-1 - Implement first L1 internal registry/viewer/feedback/evidence slice`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only documentation files changed before commit.
+
+Non-goals:
+
+* No app code changed.
+* No tests changed.
+* No test files created.
+* No tests run.
+* No build run.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No L1 registry entry created.
+* No actual `contentKey` or `contentVersion` implementation artifact created in code.
+* No StudyLoads created.
+* No DB, Prisma, migrations, seed, SQL, APIs, browser, runtime, Vercel, deploy, test execution, build, or app execution touched.
+* No `.env`, `DATABASE_URL`, `PROD_DATABASE_URL`, secrets, tokens, passwords, cookies, headers, raw environment values, or backups inspected.
+* No student use approved.
+* No product use approved.
+* No L1 readiness declared.
+* No Sales-Ready declared.
+* No Abacus use.
+* No admin/tutor default continuity gate created.
+* No administrative adjustment workflow designed or implemented.
+* No pause/block/access mutation actions designed or implemented.
+* No L1 continuity inferred from M1 continuity maps.
+* No implementation authorized.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_TUTORING_STANDARDS_BASELINE_1_M1_STANDARDS_EXTRACTED
+```
