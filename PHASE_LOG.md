@@ -23021,3 +23021,136 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_QUESTION_AUTHORING_READINESS_1_LOCATING_INFORMATION_BOUNDARY_DEFINED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-QUESTION-AUTHORING-1 - First controlled locating-information questions
+
+Date: 2026-05-26
+
+Baseline:
+
+* Expected `HEAD = origin/main = origin/HEAD = 9ebb49f`.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-QUESTION-AUTHORING-READINESS-1: define question boundary`.
+* Working tree expected clean.
+
+Preflight:
+
+* `git status --short`: clean.
+* `git log --oneline --decorate --graph -8`: confirmed `9ebb49f (HEAD -> main, origin/main, origin/HEAD)` at start.
+
+Context Gate docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+
+Phase docs read:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TEXT_RIGHTS_1_SOURCE_TEXT_RIGHTS_EDITORIAL_POLICY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TEXT_QUALITY_1_TEXT_EDITORIAL_QUALITY_CHECKLIST.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_1_AUTHORING_PROTOCOL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_2_METADATA_SCHEMA.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_3_CONCEPT_INVENTORY_TEMPLATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_4_FIRST_CONCEPT_METADATA_RECORDS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_4A_FIRST_CONCEPT_METADATA_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_AUTHORING_1_DRAFT_ONE_CONTROLLED_ORIGINAL_PILOT_TEXT.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_AUTHORING_1A_FIRST_DRAFT_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_QUESTION_AUTHORING_READINESS_1_LOCATING_INFORMATION_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_SOURCE_METADATA_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1B_CURRENT_CYCLE_SOURCE_HIERARCHY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_M2_PDF_HEADER_DISCREPANCY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_CONTROLLED_OFFICIAL_M2_L1_SOURCE_CONTENT_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_L1_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_M2_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+
+Source basis:
+
+* Used only already-versioned documentation and the one original Bexauri-created draft text from AUTHORING-1.
+* No web search used.
+* No official PAES/DEMRE texts, released PAES items, copyrighted passages, news articles, blogs, social posts, commercial prep material, real-world documents, or AI-generated source claims used.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_QUESTION_AUTHORING_1_FIRST_CONTROLLED_LOCATING_INFORMATION_ITEMS.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created a documentation-only first L1 locating-information question set from `original_l1_text_locating_information_01_draft`.
+* Authored exactly 3 controlled items, each with question text, alternatives A-D, one correct option, answer-key metadata, distractor rationale summary, answerability check, and no student/product approval.
+* Preserved all feedback, StudyLoad, content registry, implementation, L1 readiness, and Sales-Ready boundaries.
+
+Question set summary:
+
+* Item 1 targets explicit time.
+* Item 2 targets explicit participant arrival action.
+* Item 3 targets explicit storage/location detail.
+* Each item is intended to be answerable from one explicit detail in the original Bexauri-created draft text.
+
+Answer key boundary:
+
+* Created answer-key metadata only.
+* No full feedback, teaching explanation, score interpretation, mastery implication, or operational answer-key system created.
+
+Distractor boundary:
+
+* Created draft alternatives and metadata-level distractor rationale summaries only.
+* Distractors require later item-quality, answerability, and feedback-readiness review before any further use.
+
+Feedback boundary:
+
+* No feedback copy created.
+* Each item has `feedback_status: not_created`.
+* Future feedback requires a separate explicit phase.
+
+Non-goals:
+
+* No app code.
+* No runtime schema change.
+* No database schema change.
+* No content registry entry.
+* No StudyLoad.
+* No texts.
+* No new texts.
+* No feedback.
+* No implementation.
+* No student UI.
+* No admin UI.
+* No `/now`.
+* No endpoints.
+* No auth changes.
+* No StudentAccess runtime behavior changes.
+* No trial activation.
+* No billing, subscription, or payment.
+* No deploy.
+* No PDFs downloaded or committed.
+* No DB read.
+* No API call.
+* No app/browser operation.
+* No approval for student use.
+* No approval for product use.
+* No official PAES/DEMRE text or question use approval.
+* No copyrighted text use approval.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_QUESTION_AUTHORING_1_FIRST_CONTROLLED_ITEMS_AUTHORED
+```
