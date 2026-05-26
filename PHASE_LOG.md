@@ -24752,3 +24752,117 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1_RENDERING_MODEL_DEFINED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-PASSAGE-RENDERING-DESIGN-1A - Review L1 Passage Rendering Design
+
+Date: 2026-05-26
+
+Type: documentation-only / review-only / pre-code / pre-registry / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = a2caf65`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-PASSAGE-RENDERING-DESIGN-1: define passage rendering`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1A_REVIEW_PASSAGE_RENDERING.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `a2caf65`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1_DEFINE_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_DEFINE_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+
+Code inspected:
+
+* None. The documentation review did not reveal an ambiguity requiring code inspection.
+
+Review findings summary:
+
+* Preserving M1 rendering behavior: pass.
+* Making L1 passage first-class: pass.
+* Avoiding hidden passage in generic instructions: pass.
+* Mobile readability: pass with caveat.
+* Accessibility: pass with caveat.
+* Answer metadata leakage prevention: pass.
+* Existing access rules before start: pass with caveat.
+* Passage visibility across in-progress/submitted/completed states: pass.
+* Official/source claim avoidance: pass.
+* Avoiding overbuilt first-pilot layout: pass.
+* No-go gates: pass.
+
+Decision:
+
+* `APPROVED_FOR_AUTHORED_FEEDBACK_RUNTIME_DESIGN`.
+* The passage rendering model is coherent enough for the next design gate, not for implementation.
+
+Risks / caveats:
+
+* Mobile length and scrolling.
+* Cognitive overload from passage, instructions, questions, and future feedback.
+* Hidden passage problem if implementation regresses to generic instructions.
+* Preview-before-start ambiguity.
+* Accessibility details remain future UI requirements.
+* Answer leakage through excerpts or metadata.
+* M1 regression risk.
+* Interaction with future authored feedback.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-FEEDBACK-RUNTIME-DESIGN-1 - Define L1 authored feedback runtime design`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1A_REVIEW_COMPLETED
+```
