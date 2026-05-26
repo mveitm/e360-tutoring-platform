@@ -22652,3 +22652,117 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_4A_FIRST_CONCEPT_METADATA_REVIEW_DEFINED
 ```
+
+## MVP-COMMERCIAL-L1-ORIGINAL-TEXT-AUTHORING-1 - Draft one controlled original L1 pilot text
+
+Status: PASS.
+
+Type: Documentation-only / controlled original L1 text draft / pre-question / pre-feedback / pre-implementation.
+
+Baseline:
+
+* `4b0796e` (`HEAD = origin/main = origin/HEAD`) before edits.
+* Working tree clean at preflight.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TEXT_RIGHTS_1_SOURCE_TEXT_RIGHTS_EDITORIAL_POLICY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TEXT_QUALITY_1_TEXT_EDITORIAL_QUALITY_CHECKLIST.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_1_AUTHORING_PROTOCOL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_2_METADATA_SCHEMA.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_3_CONCEPT_INVENTORY_TEMPLATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_4_FIRST_CONCEPT_METADATA_RECORDS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_4A_FIRST_CONCEPT_METADATA_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_SOURCE_METADATA_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1B_CURRENT_CYCLE_SOURCE_HIERARCHY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_M2_PDF_HEADER_DISCREPANCY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_CONTROLLED_OFFICIAL_M2_L1_SOURCE_CONTENT_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_L1_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_M2_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+
+Source basis:
+
+* Used only already-versioned documentation and original writing.
+* No web search used.
+* No official PAES/DEMRE texts, released PAES items, copyrighted passages, news articles, blogs, social posts, commercial prep material, real-world documents, or AI-generated source claims used as source text.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_AUTHORING_1_DRAFT_ONE_CONTROLLED_ORIGINAL_PILOT_TEXT.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created one documentation-only controlled original Spanish L1 pilot text draft.
+* Based the draft only on `original_l1_concept_locating_information_01`, as recommended by PILOT-4A.
+* Included metadata, source/rights boundary, quality self-check, answerability note, feedback-feasibility note, future review requirements, risks, and explicit non-goals.
+
+Draft text summary:
+
+* Exactly one draft text created.
+* `text_id`: `original_l1_text_locating_information_01_draft`.
+* Primary reading skill target: `locating_information`.
+* Approximate length: 143 words.
+* Context: neutral fictional community materials-organization activity.
+* Status: `DRAFT_CREATED_FOR_FUTURE_REVIEW`.
+* Student use: not approved.
+* Product use: not approved.
+* Sales-Ready implication: none.
+
+Question/feedback boundary:
+
+* No questions created.
+* No answer alternatives created.
+* No distractors created.
+* No answer keys created.
+* No feedback created.
+* Future question authoring and future feedback require separate explicit phases.
+
+Non-goals:
+
+* No code changes.
+* No runtime schema change.
+* No database schema change.
+* No content registry changes.
+* No StudyLoads created.
+* No questions created.
+* No distractors created.
+* No answer keys created.
+* No feedback created.
+* No PDFs downloaded or committed.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app/browser/API operation.
+* No product behavior change.
+* No legal advice.
+* No official PAES/DEMRE text or question use approved.
+* No copyrighted text use approved.
+* No text approved for student use.
+* No text approved for product use.
+* No L1 readiness declaration.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_ORIGINAL_TEXT_AUTHORING_1_ONE_CONTROLLED_TEXT_DRAFTED
+```
