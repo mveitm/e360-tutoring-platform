@@ -23875,3 +23875,91 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1_FIRST_PILOT_SET_PREREQUISITES_DEFINED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-READINESS-1A - Inspect L1 Registry Compatibility for First Pilot Set
+
+Date: 2026-05-26
+
+Type: documentation-only / read-only technical inspection / L1 registry compatibility / pre-registry / pre-implementation / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 095e877`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-READINESS-1: define registry prerequisites`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+* `PHASE_LOG.md`.
+
+Read-only code files inspected:
+
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/lib/study-load-pedagogy.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/lib/study-load-pedagogical-decision.ts`.
+
+Documentation summary:
+
+* Created documentation-only read-only compatibility inspection for the first controlled L1 pilot set against existing StudyLoad registry conventions.
+* Confirmed the current registry has useful multiple-choice pieces: static `contentKey`, `contentVersion`, item keys, A-D options, correct-option metadata, title/content-key lookup, and answer-submission validation.
+* Identified material gaps before L1 registry creation: current registry and typed metadata appear M1-oriented, no first-class text/passage asset field was observed, no first-class authored feedback breve/completo fields were observed, no L1 source/rights/review metadata shape was observed, and continuity appears M1-specific.
+* Created no registry entry, no `contentKey`/`contentVersion` implementation artifact, no `study-load-content.ts` change, no StudyLoad, no DB row, no seed, no route, no endpoint, no UI, no test, no implementation, and no product behavior change.
+
+Registry compatibility summary:
+
+* Current registry appears partially compatible for basic multiple-choice structure.
+* Current registry does not appear compatible enough for direct L1 registry entry without future design work.
+* No absolute technical blocker was found, but direct registry creation remains blocked until L1 registry shape/design gaps are resolved.
+
+Gaps / blockers:
+
+* Gap: first-class L1 text/passage asset support not visible.
+* Gap: authored feedback breve/completo support not visible.
+* Gap: `PAES_L1` pedagogical metadata and reading-skill metadata not visible in current typed registry shape.
+* Gap: source/rights/review metadata support not visible as first-class registry fields.
+* Gap: L1 continuity behavior not defined.
+* Blocker to immediate registry creation: separate L1 registry design and implementation approval still required.
+
+Recommended next phase:
+
+* Prefer `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-DESIGN-1 - Define L1 registry shape for first pilot set` before any registry implementation.
+
+Non-goals:
+
+* No app code changed.
+* No database schema changed.
+* No content registry changed.
+* No `study-load-content.ts` changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No product behavior changed.
+* No texts created.
+* No questions created.
+* No feedback created.
+* No student UI created.
+* No admin UI created.
+* No tests created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_GAPS_IDENTIFIED
+```
