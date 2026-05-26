@@ -23792,3 +23792,86 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_READINESS_1_FIRST_PILOT_SET_BOUNDARY_DEFINED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-READINESS-1 - Define Registry Prerequisites for First L1 Pilot Set
+
+Date: 2026-05-26
+
+Type: documentation-only / L1 registry-readiness boundary / pre-registry / pre-implementation / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = c571aef`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-READINESS-1: define first StudyLoad boundary`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1_FIRST_PILOT_SET_PREREQUISITES.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created documentation-only registry-readiness prerequisites for the first controlled L1 pilot set.
+* Defined conceptual candidate registry identity, candidate `contentKey`/`contentVersion` guidance, conceptual asset structure, required asset/item/feedback/source/rights/technical/review checks, and registry/implementation no-go rules.
+* Created no registry entry, no `contentKey`/`contentVersion` implementation artifact, no `study-load-content.ts` change, no actual StudyLoad, no DB rows, no seeds, no routes, no endpoints, no UI, no tests, no implementation, and no product behavior change.
+
+Registry-readiness summary:
+
+* Candidate registry status: `not_created`.
+* Candidate scope: `internal_pilot_candidate_only`.
+* Candidate content type: `reading_l1_locating_information`.
+* Future registry creation requires separate phase approval.
+* Future implementation requires separate phase approval.
+* Future product use requires later implementation, review, and evidence phases.
+
+Candidate registry metadata:
+
+* `candidate_content_key`: `l1_locating_information_pilot_set_01`.
+* `candidate_content_version`: `internal-v0.1`.
+* `candidate_studyload_id`: `l1_locating_information_pilot_set_01`.
+* `source_text_id`: `original_l1_text_locating_information_01_draft`.
+* `item_count`: `3`.
+* `feedback_count`: `3 breve + 3 completo`.
+* `student_use_approved`: `no`.
+* `product_use_approved`: `no`.
+* `sales_ready_implication`: `none`.
+
+Technical boundary:
+
+* Future registry work must inspect existing `study-load-content.ts` patterns, registry conventions, content key/version policy, review metadata policy, item schema compatibility, feedback shape compatibility, validation expectations, and rollback/no-go policy.
+* This phase did not inspect code and did not edit code.
+
+Non-goals:
+
+* No app code.
+* No database schema change.
+* No content registry change.
+* No `study-load-content.ts` change.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No product behavior change.
+* No texts created.
+* No questions created.
+* No feedback created.
+* No student UI created.
+* No admin UI created.
+* No tests created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1_FIRST_PILOT_SET_PREREQUISITES_DEFINED
+```
