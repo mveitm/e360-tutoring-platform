@@ -5,9 +5,10 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
 import {
+  buildStudyLoadFeedback,
   getStudyLoadContent,
-  getStudyLoadContentByKey,
   type StudyLoadContent,
+  type StudyLoadFeedbackItem,
 } from '@/lib/study-load-content'
 
 // FL-UX-2B — Backend API for multiple-choice answer submission.
@@ -45,6 +46,9 @@ interface StoredAnswer {
   selectedOptionKey: string
   correctOptionKey?: string
   isCorrect?: boolean
+  feedbackBriefId?: string
+  feedbackCompleteId?: string
+  feedbackVersion?: string
 }
 
 interface StoredPayload {
@@ -52,6 +56,13 @@ interface StoredPayload {
   schemaVersion: 1
   contentKey: string
   contentVersion: string
+  contentType?: string
+  program?: string
+  skillFamily?: string
+  text?: {
+    textId: string
+    textVersion: string
+  }
   studyLoadId: string
   submittedAt: string
   answers: StoredAnswer[]
@@ -61,15 +72,6 @@ interface StoredPayload {
     correctCount: number
     hasAnswerKey: boolean
   }
-}
-
-interface FeedbackItem {
-  itemKey: string
-  selectedOptionKey?: string
-  selectedOptionText?: string
-  correctOptionKey?: string
-  correctOptionText?: string
-  isCorrect?: boolean
 }
 
 export async function POST(
@@ -292,6 +294,11 @@ export async function POST(
       stored.isCorrect = ans.selectedOptionKey === item.correctOptionKey
       if (stored.isCorrect) correctCount++
     }
+    if (item.authoredFeedback) {
+      stored.feedbackBriefId = item.authoredFeedback.briefId
+      stored.feedbackCompleteId = item.authoredFeedback.completeId
+      stored.feedbackVersion = item.authoredFeedback.version
+    }
     return stored
   })
 
@@ -300,6 +307,15 @@ export async function POST(
     schemaVersion: 1,
     contentKey: body.contentKey,
     contentVersion: body.contentVersion,
+    contentType: content.contentType,
+    program: content.program,
+    skillFamily: content.skillFamily,
+    text: content.readingText
+      ? {
+          textId: content.readingText.textId,
+          textVersion: content.readingText.textVersion,
+        }
+      : undefined,
     studyLoadId: load.id,
     submittedAt: new Date().toISOString(),
     answers: storedAnswers,
@@ -311,27 +327,10 @@ export async function POST(
     },
   }
 
-  const answerMap = new Map(
-    storedAnswers.map((answer) => [answer.itemKey, answer]),
-  )
-  const feedbackItems: FeedbackItem[] = content.items.map((item) => {
-    const answer = answerMap.get(item.key)
-    const selectedOption = answer
-      ? item.options.find((option) => option.label === answer.selectedOptionKey)
-      : undefined
-    const correctOption = item.correctOptionKey
-      ? item.options.find((option) => option.label === item.correctOptionKey)
-      : undefined
-
-    return {
-      itemKey: item.key,
-      selectedOptionKey: answer?.selectedOptionKey,
-      selectedOptionText: selectedOption?.text,
-      correctOptionKey: item.correctOptionKey,
-      correctOptionText: correctOption?.text,
-      isCorrect: answer?.isCorrect,
-    }
-  })
+  const feedbackItems: StudyLoadFeedbackItem[] = buildStudyLoadFeedback(
+    content,
+    storedAnswers,
+  ).items
 
   // ── 12. Upsert mc_submission Response ─────────────────────────
   // Find existing mc_submission for this session, if any.

@@ -22,6 +22,7 @@ export type NextStudyLoadContinuityOutcome =
   | { status: 'skipped_existing'; studyLoadId: string; contentKey: string }
   | { status: 'not_content_backed' }
   | { status: 'end_of_sequence'; contentKey: string }
+  | { status: 'explicit_no_continuity'; contentKey: string; programCode: 'PAES_L1' }
   | { status: 'missing_content'; contentKey: string }
   | { status: 'program_mismatch'; contentKey: string; expectedProgram: string; actualProgram: string }
 
@@ -34,6 +35,14 @@ export async function prepareNextStudyLoadAfterCompletion(args: {
   const currentContent = getStudyLoadContent(args.completedStudyLoadTitle)
   if (!currentContent) {
     return { status: 'not_content_backed' }
+  }
+
+  if (args.programCode === 'PAES_L1') {
+    return {
+      status: 'explicit_no_continuity',
+      contentKey: currentContent.contentKey,
+      programCode: 'PAES_L1',
+    }
   }
 
   const nextContentKey =

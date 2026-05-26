@@ -109,6 +109,9 @@ interface ParsedAnswer {
   selectedOptionKey: string
   correctOptionKey?: string
   isCorrect?: boolean
+  feedbackBriefId?: string
+  feedbackCompleteId?: string
+  feedbackVersion?: string
 }
 
 interface ParsedSummary {
@@ -122,6 +125,13 @@ interface ParsedMcPayload {
   kind: string
   contentKey?: string
   contentVersion?: string
+  contentType?: string
+  program?: string
+  skillFamily?: string
+  text?: {
+    textId?: string
+    textVersion?: string
+  }
   submittedAt?: string
   answers: ParsedAnswer[]
   summary: ParsedSummary
@@ -165,6 +175,9 @@ function McSubmissionEvidence({ latestMc, hasMultipleMc, fmtFull }: McSubmission
 
   const { summary, answers } = parsed
   const showCorrectColumns = summary.hasAnswerKey
+  const isL1Evidence =
+    parsed.program === 'PAES_L1' ||
+    parsed.contentType === 'reading_l1_locating_information'
 
   const getItemOrder = (itemKey: string) => {
     const match = itemKey.match(/^q(\d+)$/i)
@@ -217,6 +230,19 @@ function McSubmissionEvidence({ latestMc, hasMultipleMc, fmtFull }: McSubmission
             Contenido: {parsed.contentKey ?? '—'} ({parsed.contentVersion})
           </p>
         )}
+        {isL1Evidence && (
+          <div className="mt-2 rounded border bg-background/70 p-2 text-[10px] text-muted-foreground">
+            <p className="font-medium text-foreground/80">Metadatos L1 internos</p>
+            <div className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-3">
+              <p>Programa: {parsed.program ?? '-'}</p>
+              <p>Tipo: {parsed.contentType ?? '-'}</p>
+              <p>Habilidad: {parsed.skillFamily ?? '-'}</p>
+              <p>Texto: {parsed.text?.textId ?? '-'} ({parsed.text?.textVersion ?? '-'})</p>
+              <p>Estado: interno, no aprobado para producto</p>
+              <p>Feedback: referencias disponibles; copia completa no mostrada</p>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Item-level table */}
@@ -227,6 +253,9 @@ function McSubmissionEvidence({ latestMc, hasMultipleMc, fmtFull }: McSubmission
               <tr className="border-b text-left text-muted-foreground">
                 <th className="py-1.5 pr-3 font-medium">Ítem</th>
                 <th className="py-1.5 pr-3 font-medium">Respuesta estudiante</th>
+                {isL1Evidence && (
+                  <th className="py-1.5 pr-3 font-medium">Feedback</th>
+                )}
                 {showCorrectColumns && (
                   <>
                     <th className="py-1.5 pr-3 font-medium">Correcta</th>
@@ -240,6 +269,13 @@ function McSubmissionEvidence({ latestMc, hasMultipleMc, fmtFull }: McSubmission
                 <tr key={ans.itemKey} className="border-b border-dashed last:border-0">
                   <td className="py-1.5 pr-3 font-mono">{ans.itemKey}</td>
                   <td className="py-1.5 pr-3 font-medium">{ans.selectedOptionKey}</td>
+                  {isL1Evidence && (
+                    <td className="py-1.5 pr-3 text-[10px] text-muted-foreground">
+                      {ans.feedbackBriefId && ans.feedbackCompleteId
+                        ? `${ans.feedbackBriefId} / ${ans.feedbackCompleteId} (${ans.feedbackVersion ?? '-'})`
+                        : '-'}
+                    </td>
+                  )}
                   {showCorrectColumns && (
                     <>
                       <td className="py-1.5 pr-3">

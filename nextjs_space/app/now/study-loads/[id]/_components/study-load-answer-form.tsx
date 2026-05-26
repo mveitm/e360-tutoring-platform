@@ -37,6 +37,11 @@ interface FeedbackItem {
   correctOptionKey?: string
   correctOptionText?: string
   isCorrect?: boolean
+  authoredFeedbackBrief?: string
+  authoredFeedbackComplete?: string
+  authoredFeedbackBriefId?: string
+  authoredFeedbackCompleteId?: string
+  authoredFeedbackVersion?: string
 }
 
 interface Feedback {
@@ -53,6 +58,12 @@ interface StudyLoadAnswerFormProps {
   contentKey: string
   contentVersion: string
   instructions: string
+  passage?: {
+    title: string
+    body: string
+    textId: string
+    textVersion: string
+  }
   items: Item[]
   initialFeedback?: Feedback
   /** Pre-filled answers from a previous mc_submission, if available */
@@ -67,6 +78,7 @@ export default function StudyLoadAnswerForm({
   contentKey,
   contentVersion,
   instructions,
+  passage,
   items,
   initialAnswers,
   initialFeedback,
@@ -217,6 +229,26 @@ export default function StudyLoadAnswerForm({
     )
   }
 
+  function renderPassage() {
+    if (!passage) return null
+
+    return (
+      <section className="mb-6">
+        <h2 className="text-sm font-medium text-muted-foreground mb-2">
+          Texto de lectura
+        </h2>
+        <Card>
+          <CardContent className="py-4">
+            <p className="text-sm font-semibold mb-3">{passage.title}</p>
+            <div className="text-sm leading-relaxed whitespace-pre-line">
+              {passage.body}
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+    )
+  }
+
   function renderFeedbackSummary() {
     if (!feedback) return null
 
@@ -283,6 +315,24 @@ export default function StudyLoadAnswerForm({
           <p className="mt-1 text-muted-foreground">
             Respuesta correcta: {itemFeedback.correctOptionKey}) {itemFeedback.correctOptionText}
           </p>
+        )}
+        {itemFeedback.authoredFeedbackBrief && (
+          <div className="mt-3 border-t pt-2">
+            <p className="font-medium text-muted-foreground">Retroalimentacion breve</p>
+            <p className="mt-1 text-muted-foreground">
+              {itemFeedback.authoredFeedbackBrief}
+            </p>
+            {itemFeedback.authoredFeedbackComplete && (
+              <details className="mt-2">
+                <summary className="cursor-pointer text-xs font-medium text-primary">
+                  Ver explicacion completa
+                </summary>
+                <p className="mt-2 text-muted-foreground">
+                  {itemFeedback.authoredFeedbackComplete}
+                </p>
+              </details>
+            )}
+          </div>
         )}
       </div>
     )
@@ -404,6 +454,7 @@ export default function StudyLoadAnswerForm({
   if (isPendingOrReleased) {
     return (
       <>
+        {renderPassage()}
         {renderInstructions()}
         <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950/30 p-4">
           <div className="flex items-start gap-2">
@@ -424,6 +475,7 @@ export default function StudyLoadAnswerForm({
   if (isCompleted) {
     return (
       <>
+        {renderPassage()}
         {renderInstructions()}
         <div className="rounded-lg border border-green-200 bg-green-50 dark:border-green-900 dark:bg-green-950/30 p-4 mb-6">
           <div className="flex items-start gap-2">
@@ -490,6 +542,7 @@ export default function StudyLoadAnswerForm({
   return (
     <>
       {hasSubmittedFeedback && renderClosureBlock()}
+      {renderPassage()}
       {renderInstructions()}
 
       {/* Guidance banner */}

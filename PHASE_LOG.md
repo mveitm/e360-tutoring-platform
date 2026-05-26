@@ -27093,3 +27093,165 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_TUTORING_BLUEPRINT_1_PAES_L1_BLUEPRINT_CREATED
 ```
+
+---
+
+## 2026-05-26 - MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-IMPLEMENTATION-1
+
+Phase:
+
+```text
+MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-IMPLEMENTATION-1 - Implement first L1 internal registry/viewer/feedback/evidence slice
+```
+
+Type:
+
+```text
+Internal code implementation / first PAES_L1 StudyLoad slice / no DB / no product-use approval.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 24eb5b8
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-content-l1.test.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/lib/study-load-pedagogy.ts`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `24eb5b8`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/TUTORING_BLUEPRINT_STANDARD_1_PER_TUTORING_PROGRAM_BLUEPRINT.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TUTORING_BLUEPRINT_1_CREATE_PAES_L1_BLUEPRINT.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TUTORING_STANDARDS_BASELINE_1_EXTRACT_M1_OPERATING_STRUCTURE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_3_REVIEW_NARROW_INTERNAL_CODE_READINESS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_ARTIFACT_AUTHORIZATION_1_AUTHORIZE_FIRST_L1_REGISTRY_ARTIFACT.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_TEST_PLAN_1A_REVIEW_FIRST_PILOT_IMPLEMENTATION_TEST_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_TEST_PLAN_1_DEFINE_FIRST_PILOT_IMPLEMENTATION_TEST_PLAN.md`.
+* L1 source/text/item/feedback docs for the original draft text, revised item 2, first item set, authored feedback, and feedback review.
+
+Code files inspected:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/lib/student-access-validation.test.ts`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/lib/study-load-pedagogy.ts`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/tsconfig.json`.
+
+Implementation summary:
+
+* Added the internal-only PAES_L1 registry artifact for `l1_locating_information_pilot_set_01`.
+* Added optional L1 reading fields to the existing static StudyLoad content model without removing or rewriting M1 content.
+* Added pure helpers for safe item projection and post-submit feedback construction.
+* Added a first-class L1 passage/text asset and three reviewed locating-information items.
+* Added authored feedback breve/completo assets per item.
+* Updated the student viewer to pass only safe item props and render an L1 passage card above instructions/questions.
+* Updated the answer form to show correctness separately from authored feedback after submission and to keep feedback completo behind an on-demand disclosure.
+* Extended response evidence with additive L1 identity fields: content type, program, skill family, text id/version, and feedback asset references.
+* Extended admin MC evidence with bounded L1 metadata and feedback references, without full feedback copy or action/gate controls.
+* Added explicit PAES_L1 no-continuity outcome before any next-load creation path.
+
+L1 artifact implemented:
+
+* `contentKey`: `l1_locating_information_pilot_set_01`.
+* `contentVersion`: `internal-v0.1`.
+* `contentType`: `reading_l1_locating_information`.
+* `program`: `PAES_L1`.
+* `skillFamily`: `locating_information`.
+* `sourceTextId`: `original_l1_text_locating_information_01_draft`.
+* `sourceTextVersion`: `draft-0.1`.
+* Item ids:
+  * `l1_locating_information_item_01`;
+  * `l1_locating_information_item_02_revised`;
+  * `l1_locating_information_item_03`.
+* Approval metadata remains internal-only:
+  * `studentUseApproved: false`;
+  * `productUseApproved: false`;
+  * `salesReadyImplication: none`.
+
+M1 preservation summary:
+
+* Existing M1 registry entries remain in place.
+* Existing title and contentKey lookup functions remain compatible.
+* Existing M1 viewer path receives safe item projection with no L1 passage.
+* Existing M1 response/evidence payload remains `kind: multiple_choice_submission`, `schemaVersion: 1`, and keeps selected/correct/correctness summary behavior.
+* Existing PAES_M1 continuity map remains unchanged.
+
+Test/check summary:
+
+* Added `nextjs_space/lib/study-load-content-l1.test.ts`.
+* Scoped test covers:
+  * L1 artifact identity;
+  * safe projection with no answer/feedback leakage;
+  * authored feedback only after submitted feedback construction;
+  * M1 projection remains passage-free and contentKey-compatible;
+  * explicit PAES_L1 no-continuity outcome with no next load;
+  * no product/readiness/officialness/guarantee claim in L1 runtime copy.
+
+Validation results:
+
+* `.\node_modules\.bin\tsx.cmd lib/study-load-content-l1.test.ts` passed.
+* `npm run build` was blocked by PowerShell script execution policy for `npm.ps1`.
+* `npm.cmd run build` passed.
+* Build output reported `.env` loading, but no environment values were inspected or printed.
+* `git diff --check` required before commit.
+* `git status --short` required before commit.
+* `git diff --stat` required before commit.
+
+Known limitations:
+
+* No StudyLoad rows were created.
+* No DB, Prisma migration, seed, SQL, browser, runtime app session, deploy, or external service was used.
+* No product/student approval changed.
+* L1 remains internal-only and not ready.
+* Sales-Ready remains blocked.
+* L1 has explicit no-continuity until a second reviewed registry-ready set exists.
+* No browser/mobile/accessibility smoke was run in this phase.
+
+Non-goals:
+
+* No DB touched.
+* No Prisma migrate/db push/seed/reset.
+* No users, students, enrollments, cycles, or StudyLoad rows created.
+* No secrets, tokens, passwords, cookies, headers, raw environment values, or backups inspected.
+* No Abacus use.
+* No deploy.
+* No dependency added.
+* No broad refactor.
+* No M1 content removed.
+* No M1 continuity map rewritten.
+* No answer validation weakened.
+* No pre-submit answer key, correctness, authored feedback, answer-key notes, or distractor rationale exposed.
+* No automatic L1 continuity created.
+* No admin action controls, gates, pause/block/access mutation, route mutation, or adjustment workflow added.
+* No student/product use approved.
+* No PAES_L1 readiness or Sales-Ready declared.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_IMPLEMENTATION_1_INTERNAL_SLICE_IMPLEMENTED
+```

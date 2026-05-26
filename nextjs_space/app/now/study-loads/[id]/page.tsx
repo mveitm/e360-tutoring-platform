@@ -3,7 +3,11 @@ import Link from 'next/link'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
-import { getStudyLoadContent } from '@/lib/study-load-content'
+import {
+  buildStudyLoadFeedback,
+  getSafeStudyLoadItems,
+  getStudyLoadContent,
+} from '@/lib/study-load-content'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { ArrowLeft, Clock, BookOpen } from 'lucide-react'
@@ -37,6 +41,11 @@ interface McFeedbackItem {
   correctOptionKey?: string
   correctOptionText?: string
   isCorrect?: boolean
+  authoredFeedbackBrief?: string
+  authoredFeedbackComplete?: string
+  authoredFeedbackBriefId?: string
+  authoredFeedbackCompleteId?: string
+  authoredFeedbackVersion?: string
 }
 
 interface McFeedback {
@@ -143,40 +152,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
           if (Object.keys(initialAnswers).length === 0) {
             initialAnswers = undefined
           }
-          const answerMap = new Map(
-            storedAnswers.map((ans) => [ans.itemKey, ans.selectedOptionKey]),
-          )
-          const feedbackItems = content.items.map((item) => {
-            const selectedOptionKey = answerMap.get(item.key)
-            const selectedOption = selectedOptionKey
-              ? item.options.find((opt) => opt.label === selectedOptionKey)
-              : undefined
-            const correctOption = item.correctOptionKey
-              ? item.options.find((opt) => opt.label === item.correctOptionKey)
-              : undefined
-
-            return {
-              itemKey: item.key,
-              selectedOptionKey,
-              selectedOptionText: selectedOption?.text,
-              correctOptionKey: item.correctOptionKey,
-              correctOptionText: correctOption?.text,
-              isCorrect:
-                selectedOptionKey && item.correctOptionKey
-                  ? selectedOptionKey === item.correctOptionKey
-                  : undefined,
-            }
-          })
-
-          initialFeedback = {
-            answeredCount: storedAnswers.length,
-            totalItemCount: content.items.length,
-            correctCount: feedbackItems.filter((item) => item.isCorrect).length,
-            hasAnswerKey: content.items.some(
-              (item) => item.correctOptionKey !== undefined,
-            ),
-            items: feedbackItems,
-          }
+          initialFeedback = buildStudyLoadFeedback(content, storedAnswers)
         }
       }
     } catch {
@@ -187,16 +163,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
   }
 
   // 6) Prepare safe items for client component (strip correctOptionKey)
-  const safeItems = content
-    ? content.items.map((item) => ({
-        key: item.key,
-        stem: item.stem,
-        options: item.options.map((opt) => ({
-          label: opt.label,
-          text: opt.text,
-        })),
-      }))
-    : []
+  const safeItems = content ? getSafeStudyLoadItems(content) : []
 
   // 7) Render
   return (
@@ -255,6 +222,12 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
               contentKey={content.contentKey}
               contentVersion={content.contentVersion}
               instructions={content.instructions}
+              passage={content.readingText ? {
+                title: content.readingText.title,
+                body: content.readingText.body,
+                textId: content.readingText.textId,
+                textVersion: content.readingText.textVersion,
+              } : undefined}
               items={safeItems}
               initialAnswers={initialAnswers}
               initialFeedback={initialFeedback}

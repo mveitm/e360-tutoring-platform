@@ -8,7 +8,7 @@ export type StudyLoadPedagogicalEvidenceDescription = Readonly<{
   contentKey: string
   contentVersion: string
   title: string
-  programCode: 'PAES_M1' | null
+  programCode: 'PAES_M1' | 'PAES_L1' | null
   sliceId: string | null
   axis: string | null
   primaryPurpose: string | null

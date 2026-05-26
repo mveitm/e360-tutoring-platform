@@ -15,21 +15,31 @@ export interface StudyLoadItemOption {
   text: string
 }
 
+export interface StudyLoadAuthoredFeedback {
+  briefId: string
+  completeId: string
+  version: string
+  brief: string
+  complete: string
+}
+
 export interface StudyLoadItem {
   key: string    // stable item identifier, e.g. "q1", "q2"
   stem: string
   options: StudyLoadItemOption[]
   correctOptionKey?: string  // e.g. "B"; undefined if answer key unavailable
+  authoredFeedback?: StudyLoadAuthoredFeedback
+  basedOnTextId?: string
 }
 
 export interface StudyLoadPedagogicalMetadata {
-  programCode: 'PAES_M1'
-  sliceId: 'BALANCED_ENTRY' | 'AS1' | 'PE1'
+  programCode: 'PAES_M1' | 'PAES_L1'
+  sliceId: 'BALANCED_ENTRY' | 'AS1' | 'PE1' | 'L1_LOCATING_INFORMATION_01'
   sliceName: string
-  axis: 'balanced_entry' | 'algebra_functions' | 'data_probability'
+  axis: 'balanced_entry' | 'algebra_functions' | 'data_probability' | 'competencia_lectora'
   roadmapNodes: string[]
   officialSkillRefs: string[]
-  difficultyBand: 'entry' | 'basic' | 'reinforcement' | 'transition'
+  difficultyBand: 'entry' | 'basic' | 'reinforcement' | 'transition' | 'low_moderate'
   primaryPurpose: 'diagnose' | 'practice' | 'reinforce' | 'validate' | 'bridge'
   evidenceType: 'mc_submission'
   estimatedMinutes: number
@@ -38,17 +48,134 @@ export interface StudyLoadPedagogicalMetadata {
   routingStatus: 'available_not_universal'
 }
 
+export interface StudyLoadReadingTextAsset {
+  textId: string
+  textVersion: string
+  title: string
+  body: string
+  sourceClass: 'original_bexauri_created_candidate'
+  rightsBasis: 'original_bexauri_created'
+  officialSourceDependency: 'none'
+  copyrightedSourceDependency: 'none'
+  reviewStatus: 'reviewed_for_internal_pilot'
+}
+
+export interface StudyLoadApprovalMetadata {
+  registryScope: 'internal_pilot_candidate_only'
+  studentUseApproved: false
+  productUseApproved: false
+  salesReadyImplication: 'none'
+  continuityPolicy: 'no_automatic_next_l1_studyload_without_second_reviewed_registry_ready_set'
+}
+
 export interface StudyLoadContent {
   contentKey: string       // stable slug, e.g. "paes_m1_linear_equations_basic"
   contentVersion: string   // e.g. "v1"
+  contentType?: string
   title: string
   program: string
+  skillFamily?: string
   topic: string
   estimatedMinutes: string
   instructions: string
   items: StudyLoadItem[]
   currentLimitationNotice: string
   pedagogicalMetadata?: StudyLoadPedagogicalMetadata
+  readingText?: StudyLoadReadingTextAsset
+  approvalMetadata?: StudyLoadApprovalMetadata
+}
+
+export interface SafeStudyLoadItem {
+  key: string
+  stem: string
+  options: StudyLoadItemOption[]
+}
+
+export interface StudyLoadSubmittedAnswer {
+  itemKey: string
+  selectedOptionKey: string
+}
+
+export interface StudyLoadFeedbackItem {
+  itemKey: string
+  selectedOptionKey?: string
+  selectedOptionText?: string
+  correctOptionKey?: string
+  correctOptionText?: string
+  isCorrect?: boolean
+  authoredFeedbackBrief?: string
+  authoredFeedbackComplete?: string
+  authoredFeedbackBriefId?: string
+  authoredFeedbackCompleteId?: string
+  authoredFeedbackVersion?: string
+}
+
+export interface StudyLoadFeedback {
+  answeredCount: number
+  totalItemCount: number
+  correctCount: number
+  hasAnswerKey: boolean
+  items: StudyLoadFeedbackItem[]
+}
+
+export function isL1ReadingStudyLoadContent(content: StudyLoadContent): boolean {
+  return content.program === 'PAES_L1' && content.contentType === 'reading_l1_locating_information'
+}
+
+export function getSafeStudyLoadItems(content: StudyLoadContent): SafeStudyLoadItem[] {
+  return content.items.map((item) => ({
+    key: item.key,
+    stem: item.stem,
+    options: item.options.map((option) => ({
+      label: option.label,
+      text: option.text,
+    })),
+  }))
+}
+
+export function buildStudyLoadFeedback(
+  content: StudyLoadContent,
+  submittedAnswers: StudyLoadSubmittedAnswer[],
+): StudyLoadFeedback {
+  const answerMap = new Map(
+    submittedAnswers.map((answer) => [answer.itemKey, answer.selectedOptionKey]),
+  )
+
+  const items = content.items.map((item) => {
+    const selectedOptionKey = answerMap.get(item.key)
+    const selectedOption = selectedOptionKey
+      ? item.options.find((option) => option.label === selectedOptionKey)
+      : undefined
+    const correctOption = item.correctOptionKey
+      ? item.options.find((option) => option.label === item.correctOptionKey)
+      : undefined
+    const isCorrect =
+      selectedOptionKey && item.correctOptionKey
+        ? selectedOptionKey === item.correctOptionKey
+        : undefined
+
+    return {
+      itemKey: item.key,
+      selectedOptionKey,
+      selectedOptionText: selectedOption?.text,
+      correctOptionKey: item.correctOptionKey,
+      correctOptionText: correctOption?.text,
+      isCorrect,
+      authoredFeedbackBrief: selectedOptionKey ? item.authoredFeedback?.brief : undefined,
+      authoredFeedbackComplete: selectedOptionKey ? item.authoredFeedback?.complete : undefined,
+      authoredFeedbackBriefId: selectedOptionKey ? item.authoredFeedback?.briefId : undefined,
+      authoredFeedbackCompleteId: selectedOptionKey ? item.authoredFeedback?.completeId : undefined,
+      authoredFeedbackVersion: selectedOptionKey ? item.authoredFeedback?.version : undefined,
+    }
+  })
+
+  return {
+    answeredCount: submittedAnswers.length,
+    totalItemCount: content.items.length,
+    correctCount: items.filter((item) => item.isCorrect).length,
+    hasAnswerKey: content.items.some((item) => item.correctOptionKey !== undefined),
+    items,
+  }
 }
 
 const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
@@ -643,6 +770,129 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       reviewStatus: 'internal_provisional',
       expertReviewed: false,
       routingStatus: 'available_not_universal',
+    },
+  },
+  'PAES L1 - Localizacion de informacion - Piloto interno 01': {
+    contentKey: 'l1_locating_information_pilot_set_01',
+    contentVersion: 'internal-v0.1',
+    contentType: 'reading_l1_locating_information',
+    title: 'PAES L1 - Localizacion de informacion - Piloto interno 01',
+    program: 'PAES_L1',
+    skillFamily: 'locating_information',
+    topic: 'Competencia Lectora - localizacion de informacion',
+    estimatedMinutes: '8-12 minutos',
+    instructions:
+      'Lee el texto y responde usando solo la informacion que aparece en el. ' +
+      'Despues de enviar tus respuestas, revisa la retroalimentacion breve. ' +
+      'La explicacion completa estara disponible si quieres verla.',
+    readingText: {
+      textId: 'original_l1_text_locating_information_01_draft',
+      textVersion: 'draft-0.1',
+      title: 'Taller de organizacion de materiales',
+      body:
+        'El taller de organizacion de materiales se realizara el martes en la sala norte del edificio comunitario ficticio. ' +
+        'La actividad comenzara a las 16:00 y terminara a las 17:30. ' +
+        'Al llegar, cada participante debera dejar su mochila en la mesa azul y retirar una tarjeta con su nombre. ' +
+        'Luego, el grupo separara cuadernos, lapices y carpetas en tres cajas distintas. ' +
+        'La caja verde sera para los cuadernos en buen estado, la caja blanca para los lapices que aun escriben y la caja gris para las carpetas que puedan reutilizarse. ' +
+        'La coordinadora del taller revisara las cajas al final de la jornada. ' +
+        'Si sobran materiales, se guardaran en el armario pequeno que esta junto a la ventana. ' +
+        'La actividad se suspendera solo si la sala no esta disponible antes de las 15:30.',
+      sourceClass: 'original_bexauri_created_candidate',
+      rightsBasis: 'original_bexauri_created',
+      officialSourceDependency: 'none',
+      copyrightedSourceDependency: 'none',
+      reviewStatus: 'reviewed_for_internal_pilot',
+    },
+    items: [
+      {
+        key: 'l1_locating_information_item_01',
+        basedOnTextId: 'original_l1_text_locating_information_01_draft',
+        stem: 'A que hora comenzara la actividad?',
+        options: [
+          { label: 'A', text: 'A las 15:30.' },
+          { label: 'B', text: 'A las 16:00.' },
+          { label: 'C', text: 'A las 17:30.' },
+          { label: 'D', text: 'El martes, sin hora indicada.' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'l1_locating_information_item_01_feedback_breve',
+          completeId: 'l1_locating_information_item_01_feedback_completo',
+          version: 'reviewed-v0.1',
+          brief:
+            'Respuesta correcta: la actividad comienza a las 16:00. Ese dato corresponde a la hora de inicio, no a una condicion ni a la hora de termino.',
+          complete:
+            'La opcion B esta apoyada por el dato explicito de inicio: la actividad comienza a las 16:00. La opcion A no corresponde porque 15:30 es la hora usada para la condicion de suspension. La opcion C no corresponde porque 17:30 es la hora de termino. La opcion D no responde la pregunta, porque menciona el dia pero no la hora de inicio.',
+        },
+      },
+      {
+        key: 'l1_locating_information_item_02_revised',
+        basedOnTextId: 'original_l1_text_locating_information_01_draft',
+        stem: 'Que debe retirar cada participante al llegar?',
+        options: [
+          { label: 'A', text: 'Una tarjeta con su nombre.' },
+          { label: 'B', text: 'Un cuaderno en buen estado.' },
+          { label: 'C', text: 'Una caja verde.' },
+          { label: 'D', text: 'Una carpeta reutilizable.' },
+        ],
+        correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'l1_locating_information_item_02_revised_feedback_breve',
+          completeId: 'l1_locating_information_item_02_revised_feedback_completo',
+          version: 'reviewed-v0.1',
+          brief:
+            'Respuesta correcta: cada participante debe retirar una tarjeta con su nombre al llegar. Las otras opciones nombran materiales o cajas de una accion posterior.',
+          complete:
+            'La opcion A esta apoyada por la instruccion de llegada: cada participante debe retirar una tarjeta con su nombre. La opcion B no corresponde porque el cuaderno en buen estado es un material que se clasifica despues. La opcion C no corresponde porque la caja verde es un contenedor para cuadernos. La opcion D no corresponde porque la carpeta reutilizable es otro material que se separa despues.',
+        },
+      },
+      {
+        key: 'l1_locating_information_item_03',
+        basedOnTextId: 'original_l1_text_locating_information_01_draft',
+        stem: 'Donde se guardaran los materiales si sobran?',
+        options: [
+          { label: 'A', text: 'En la caja verde.' },
+          { label: 'B', text: 'En la mesa azul.' },
+          { label: 'C', text: 'En el armario pequeno que esta junto a la ventana.' },
+          { label: 'D', text: 'En la sala norte del edificio comunitario ficticio.' },
+        ],
+        correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'l1_locating_information_item_03_feedback_breve',
+          completeId: 'l1_locating_information_item_03_feedback_completo',
+          version: 'reviewed-v0.1',
+          brief:
+            'Respuesta correcta: los materiales sobrantes se guardaran en el armario pequeno junto a la ventana. Esa es la ubicacion indicada para los sobrantes.',
+          complete:
+            'La opcion C esta apoyada por el dato explicito sobre los materiales que sobran: se guardan en el armario pequeno junto a la ventana. La opcion A no corresponde porque la caja verde se usa para cuadernos en buen estado. La opcion B no corresponde porque la mesa azul es para dejar mochilas al llegar. La opcion D no corresponde porque la sala norte es el lugar de la actividad, no el lugar de almacenamiento de sobrantes.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Actividad interna de lectura. Tus respuestas se guardan como evidencia de esta actividad. ' +
+      'No recibiras puntaje PAES, diagnostico automatico ni declaracion de dominio.',
+    pedagogicalMetadata: {
+      programCode: 'PAES_L1',
+      sliceId: 'L1_LOCATING_INFORMATION_01',
+      sliceName: 'PAES L1 locating information internal pilot',
+      axis: 'competencia_lectora',
+      roadmapNodes: ['internal:l1_locating_information_pilot_set_01'],
+      officialSkillRefs: ['internal:locating_information'],
+      difficultyBand: 'low_moderate',
+      primaryPurpose: 'practice',
+      evidenceType: 'mc_submission',
+      estimatedMinutes: 10,
+      reviewStatus: 'internal_provisional',
+      expertReviewed: false,
+      routingStatus: 'available_not_universal',
+    },
+    approvalMetadata: {
+      registryScope: 'internal_pilot_candidate_only',
+      studentUseApproved: false,
+      productUseApproved: false,
+      salesReadyImplication: 'none',
+      continuityPolicy: 'no_automatic_next_l1_studyload_without_second_reviewed_registry_ready_set',
     },
   },
 }
