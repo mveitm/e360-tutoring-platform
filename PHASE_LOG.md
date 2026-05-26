@@ -22332,3 +22332,105 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_2_METADATA_SCHEMA_DEFINED
 ```
+
+## MVP-COMMERCIAL-L1-ORIGINAL-TEXT-PILOT-3 - Define original-text concept inventory template
+
+Status: PASS.
+
+Type: Documentation-only / L1 original-text concept inventory template / pre-content governance.
+
+Baseline:
+
+* `0eb0806` (`HEAD = origin/main = origin/HEAD`) before edits.
+* Working tree clean at preflight.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TEXT_RIGHTS_1_SOURCE_TEXT_RIGHTS_EDITORIAL_POLICY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TEXT_QUALITY_1_TEXT_EDITORIAL_QUALITY_CHECKLIST.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_1_AUTHORING_PROTOCOL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_2_METADATA_SCHEMA.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_SOURCE_METADATA_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1B_CURRENT_CYCLE_SOURCE_HIERARCHY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_M2_PDF_HEADER_DISCREPANCY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_CONTROLLED_OFFICIAL_M2_L1_SOURCE_CONTENT_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_L1_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_M2_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+
+Source basis:
+
+* Used only already-versioned documentation.
+* No web search used.
+* No official texts, released PAES items, copyrighted passages, news articles, blogs, commercial prep material, or AI-generated source claims used.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_3_CONCEPT_INVENTORY_TEMPLATE.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created a documentation-only concept inventory template for future original Bexauri-created L1 pilot text concept records.
+* Converted the accepted metadata schema into placeholder-only sections for identity, source/rights, reading skill, text shape, difficulty/load, sensitivity/bias/context, ambiguity/answerability, feedback feasibility, reviewer states, versioning/change-control, and PASS/FAIL/BLOCKED recording.
+* Included an empty future-use template block with `TBD` placeholders only.
+
+Template summary:
+
+* The template is empty and does not create actual concept records.
+* It forbids actual topics, titles, passages, questions, distractors, feedback, StudyLoad names, official-source excerpts, and copyrighted material.
+* It states no runtime schema change, no database schema change, no content registry entry, no production metadata, and no product use approval.
+
+PASS/FAIL/BLOCKED summary:
+
+* PASS means a future concept record is eligible only for a later authorized drafting or review phase, not product use.
+* FAIL means a future concept record is unsuitable as recorded or needs rework.
+* BLOCKED means rights/source/sensitivity/official/copyright/reviewer-authority or Pro/high-level/editorial issues prevent future drafting until resolved.
+
+Non-goals:
+
+* No code changes.
+* No runtime schema change.
+* No database schema change.
+* No content registry changes.
+* No StudyLoads created.
+* No texts created.
+* No text concepts created.
+* No questions created.
+* No distractors created.
+* No feedback created.
+* No PDFs downloaded or committed.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app/browser/API operation.
+* No product behavior change.
+* No legal advice.
+* No official PAES/DEMRE text or question use approved.
+* No copyrighted text use approved.
+* No L1 content created.
+* No L1 readiness declaration.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_ORIGINAL_TEXT_PILOT_3_CONCEPT_INVENTORY_TEMPLATE_DEFINED
+```
