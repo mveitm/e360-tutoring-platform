@@ -30,6 +30,15 @@ This methodology supersedes older assumptions that Mauricio normally performs lo
 * Every Codex prompt must explicitly state whether commit/push is authorized or forbidden.
 * Every Codex prompt must include compact reporting rules appropriate to the phase, including commit/push status, final git status, final log top or new baseline when relevant, and scope-safety confirmation.
 
+### 2B. Codex Prompting Standard
+
+Future chats must preserve Codex prompt depth. Roadmap context alone is not enough for local execution.
+
+* Default to full Codex prompts for new phases, governance changes, implementation-readiness work, code work, registry work, DB/deploy/runtime/API/browser/test risk, and any non-trivial scope.
+* Codex prompts must include phase, baseline, local path, mission, strict scope, forbidden actions, preflight, Context Gate reads, allowed inspections, files to create/update, `PHASE_LOG.md` requirement, validation, commit/push authorization or prohibition, and compact reporting.
+* Short closure-only prompts are allowed only when work is already complete and the only remaining task is validated stage/commit/push/final Git verification.
+* Canonical detailed standard: `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
 ### 3. Required Governance Docs to Read First
 
 Read these before proposing, designing, verifying, implementing, committing, or choosing a next phase:

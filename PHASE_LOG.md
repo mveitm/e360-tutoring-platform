@@ -24319,3 +24319,95 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_NEXT_GATE_CHOSEN
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-CODEX-PROMPTING-STANDARD-1 - Preserve Codex Prompting Depth in Handoff
+
+Date: 2026-05-26
+
+Type: documentation-only / governance-methodology update / Codex prompt-depth standard.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 4eba6c6`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-IMPLEMENTATION-READINESS-1A: choose L1 next gate`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `4eba6c6`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+
+Problem addressed:
+
+* Closed the handoff gap where future chats could understand the roadmap but generate Codex prompts that are too short or underspecified.
+* Clarified that roadmap context and chat memory are not substitutes for a complete executable prompt.
+
+Standard defined:
+
+* Defined the Codex Prompt Contract: phase, baseline, local path, mission, strict scope, forbidden actions, preflight, Context Gate reads, allowed inspections, files to create/update, `PHASE_LOG.md`, validation, commit/push handling, and compact reporting.
+* Defined the prompt depth rule: full prompts for new phases, governance changes, implementation-readiness work, code work, registry work, DB/deploy/runtime/API/browser/test risk, or any non-trivial scope.
+* Defined the closure-only exception for already-completed work where only validated stage/commit/push/final Git verification remains.
+* Added a reusable full Codex prompt template and referenced the `IMPLEMENTATION-READINESS-1A` prompt as the current representative depth.
+
+Handoff propagation summary:
+
+* Added a concise Codex Prompting Standard section to the current handoff.
+* Added prompt-depth requirements and a reference to the detailed standard in the compact reporting rule.
+* Added Codex Prompting Standard propagation requirements to the autohandoff protocol and handoff template.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No app code inspected.
+* No `study-load-content.ts` changed.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-REGISTRY-TYPE-DESIGN-1 - Define L1 registry TypeScript type boundary`.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_DEPTH_STANDARD_DEFINED
+```

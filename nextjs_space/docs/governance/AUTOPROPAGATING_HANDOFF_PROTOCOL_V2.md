@@ -68,6 +68,7 @@ The handoff must include:
 * Next recommended phase.
 * Hard non-goals.
 * Exact preflight commands required for the receiving chat.
+* A Codex Prompting Standard section when future Codex execution is likely or recommended.
 
 ### C. At Receiving Chat Start
 
@@ -111,6 +112,7 @@ Current missing context:
 Superseded/historical decisions:
 Next recommended phase:
 Explicit non-goals for next phase:
+Codex Prompting Standard:
 Required preflight commands:
 Context Gate requirement:
 Stop rules:
@@ -203,6 +205,7 @@ A complete handoff must include:
 * Student experience direction stated.
 * Next phase stated.
 * Explicit non-goals stated.
+* Codex Prompting Standard included when future Codex execution is likely or recommended.
 * Stop rules stated.
 * No secrets included.
 * No raw environment values.
@@ -224,6 +227,26 @@ Handoffs must not include:
 * Instructions that bypass Git preflight.
 * Instructions that bypass Context Gate.
 * Unreviewed implementation authority.
+
+## 12A. Codex Prompting Standard
+
+When a handoff recommends or anticipates Codex execution, it must include a concise `Codex Prompting Standard` section.
+
+That section must state:
+
+* expected prompt depth;
+* mandatory prompt sections;
+* commit/push authorization rule;
+* compact reporting requirement;
+* closure-only exception.
+
+Detailed standard:
+
+```text
+nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md
+```
+
+Do not rely on roadmap context or chat memory as a substitute for a complete Codex execution prompt.
 
 ## 13. Non-Goals
 

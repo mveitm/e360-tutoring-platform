@@ -147,6 +147,14 @@ Every future Codex prompt must also state commit/push handling explicitly:
 * ChatGPT remains responsible for direction/audit and remote verification when needed.
 * GitHub `main` clean after push is the normal closure standard for phases where commit/push is authorized.
 
+Prompt depth is also mandatory. Future Codex prompts must not be shortened merely because ChatGPT or Mauricio remembers context. New phases and non-trivial work require full execution prompts with baseline, scope, forbidden actions, preflight, Context Gate reads, files, validation, commit/push rules, and compact reporting. Closure-only prompts are allowed only for already-completed work where the remaining task is validated commit/push closure.
+
+Detailed standard:
+
+```text
+nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md
+```
+
 ## 8. Current operational decision
 
 `MVP-SALES-TRIAL-3M-A` remains paused. This phase does not open implementation, does not touch an endpoint, and does not touch code.
