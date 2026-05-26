@@ -25489,3 +25489,154 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_ADMIN_TUTOR_ROLE_BASELINE_1_EXISTING_DECISIONS_RECONCILED
 ```
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-ADMIN-EVIDENCE-DESIGN-1 - Define L1 admin/tutor evidence design
+
+Date: 2026-05-26
+
+Type: Documentation-only / admin-tutor evidence design / pre-code / pre-registry / pre-product-use.
+
+Baseline:
+
+* `HEAD = origin/main = origin/HEAD = 5f00dbe`.
+* Latest accepted commit: `5f00dbe - MVP-COMMERCIAL-L1-ADMIN-TUTOR-ROLE-BASELINE-1: reconcile admin tutor role`.
+* Working tree clean before edits.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_ADMIN_EVIDENCE_DESIGN_1_DEFINE_ADMIN_TUTOR_EVIDENCE.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `5f00dbe`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_ADMIN_TUTOR_ROLE_BASELINE_1_REVIEW_EXISTING_ROLE_AND_CONTINUITY_DECISIONS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1A_REVIEW_RESPONSE_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1_DEFINE_RESPONSE_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1A_REVIEW_AUTHORED_FEEDBACK_RUNTIME.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1_DEFINE_AUTHORED_FEEDBACK_RUNTIME.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1A_REVIEW_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1_DEFINE_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_DEFINE_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_FEEDBACK_REVIEW_1_FIRST_CONTROLLED_FEEDBACK_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+
+Read-only code inspected:
+
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/lib/study-load-content.ts`.
+
+Reconciled admin/tutor baseline used:
+
+* Admin/tutor evidence is supervisory, administrative, advisory, QA, and risk-monitoring context.
+* Admin/tutor evidence review is not a default StudyLoad continuity gate.
+* Ordinary admin/tutor review must not be required before every next StudyLoad.
+* Explicit administrative adjustments require separately scoped, authorized, auditable future operations.
+* This phase does not redefine admin/tutor authority.
+
+Admin evidence design summary:
+
+* Future L1 admin/tutor evidence should preserve existing MC summary and item rows.
+* Future L1 admin/tutor evidence should add L1 identity fields for content type/program, text id/version, item ids, and feedback asset ids/status.
+* Source/review/approval boundaries should appear as internal or collapsed advanced metadata.
+* Full feedback copy should not show by default before later approval.
+* No action controls, pause controls, access mutation, route mutation, or continuity gate are designed.
+
+Recommended admin evidence model:
+
+* Preserve existing MC summary and answer rows.
+* Add L1 identity fields for `textId`, `textVersion`, content type/program, and feedback asset ids/status.
+* Use collapsed advanced metadata for source, review, approval, and internal-candidate boundaries.
+* Do not show full feedback copy by default.
+* Do not add actions or gates.
+
+Non-blocking continuity rule:
+
+* Admin evidence display is read-only/advisory by default.
+* Viewing evidence does not pause or release the next StudyLoad.
+* Lack of admin/tutor review does not block routine continuity by itself.
+* Future explicit admin adjustments require separate authorized design.
+
+Administrative adjustment boundary:
+
+* This phase does not design administrative adjustments.
+* Future adjustments must be explicit, auditable, scoped, permissioned, separately reviewed, and separately implemented.
+* Possible future categories such as access correction, enrollment correction, exceptional pause, route adjustment, content/path adjustment, or data correction remain out of scope.
+
+Risks / caveats:
+
+* Overloading admin view.
+* Confusing advisory review with action requirement.
+* Hidden gates by UX implication.
+* Leaking internal review metadata too broadly.
+* Showing feedback copy before product approval.
+* M1 regression.
+* Access/adjustment workflow confusion.
+* L1 continuity ambiguity.
+
+No-go gates:
+
+* Admin evidence design review.
+* L1 continuity/no-continuity decision.
+* Test plan.
+* Implementation-readiness review.
+* Explicit admin adjustment design if needed.
+* Product-use gate.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-ADMIN-EVIDENCE-DESIGN-1A - Review L1 admin/tutor evidence design`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No administrative adjustment workflow designed.
+* No pause, block, access mutation, or route mutation action designed.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_ADMIN_EVIDENCE_DESIGN_1_ADMIN_EVIDENCE_MODEL_DEFINED
+```
