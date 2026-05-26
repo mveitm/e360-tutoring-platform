@@ -23365,3 +23365,84 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_QUESTION_REVISION_1_ITEM_2_REVISED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-QUESTION-REVIEW-1A - Re-review Revised First Locating-Information Item Set
+
+Date: 2026-05-26
+
+Type: documentation-only / controlled L1 item re-review / pre-feedback / pre-StudyLoad / pre-registry / pre-implementation.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = b0a4045`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-QUESTION-REVISION-1: revise first locating item`.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_QUESTION_REVIEW_1A_REVIEW_REVISED_LOCATING_INFORMATION_ITEM_SET.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created a documentation-only re-review of the revised first controlled L1 locating-information item set.
+* Re-reviewed only `l1_locating_information_item_01`, `l1_locating_information_item_02_revised`, and `l1_locating_information_item_03`.
+* Created no new questions, revised no questions, created no alternatives, created no distractors, created no answer keys, and created no feedback.
+
+Item re-review summary:
+
+* Item 1 remains clear, answerable from one explicit start-time detail, and preserved for future feedback-readiness only.
+* Revised item 2 resolves the prior combined-action load issue by targeting one explicit arrival detail.
+* Item 3 remains clear, answerable from one explicit storage-location detail, and preserved for future feedback-readiness only.
+* No item currently requires future revision before a feedback-readiness phase.
+* No item is blocked.
+
+Feedback-readiness recommendation:
+
+* Revised full set is eligible only for a future feedback-readiness phase.
+* Feedback remains not created.
+* Future feedback requires a separate feedback-readiness or feedback-authoring phase.
+
+Non-goals:
+
+* No app code.
+* No runtime schema change.
+* No database schema change.
+* No content registry entry.
+* No StudyLoads.
+* No texts.
+* No new texts.
+* No new questions.
+* No question revisions.
+* No new alternatives.
+* No distractors created.
+* No answer keys created.
+* No feedback.
+* No implementation.
+* No student UI.
+* No admin UI.
+* No `/now`.
+* No endpoints.
+* No auth changes.
+* No StudentAccess runtime behavior changes.
+* No trial activation.
+* No billing, subscription, or payment.
+* No deploy.
+* No PDFs downloaded or committed.
+* No DB read.
+* No API call.
+* No app/browser operation.
+* No approval for student use.
+* No approval for product use.
+* No official PAES/DEMRE text or question use approval.
+* No copyrighted text use approval.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_QUESTION_REVIEW_1A_REVISED_ITEMS_REVIEW_PASSED
+```
