@@ -21839,3 +21839,107 @@ Result marker:
 ```text
 MVP_COMMERCIAL_PAES_M2_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP_DEFINED
 ```
+
+## MVP-COMMERCIAL-PAES-L1-ALIGNMENT-1 - Controlled L1 official-source alignment map
+
+Status: PASS.
+
+Type: Documentation-only / controlled L1 official-source alignment / candidate route-source mapping.
+
+Baseline:
+
+* `3925f41` (`HEAD = origin/main = origin/HEAD`) before edits.
+* Working tree clean at preflight.
+
+Docs read:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1_CONTROLLED_OFFICIAL_SOURCE_INTAKE_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1A_OFFICIAL_M2_L1_SOURCE_METADATA_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1B_CURRENT_CYCLE_SOURCE_HIERARCHY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_M2_PDF_HEADER_DISCREPANCY_RESOLUTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_SOURCE_1C_CONTROLLED_OFFICIAL_M2_L1_SOURCE_CONTENT_EXTRACTION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_M2_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_M2_READINESS_1_PAES_M2_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_READINESS_1_PAES_L1_ROUTE_CONTENT_PREPARATION_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1_PUBLIC_M1_M2_L1_GATE_PROPOSAL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1A_INDEFINITE_OPERATION_CRITERIA_M1_M2_L1.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1C_STUDENT_DASHBOARD_PROGRESS_EVIDENCE_REQUIREMENTS.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1D_THREE_STUDENT_EVIDENCE_PACKAGE_BEFORE_PUBLIC_SALE.md`.
+
+Source basis:
+
+* Used only SOURCE-1C high-level official L1 source summaries.
+* High-level L1 reading-skill families used: locating information, interpreting meaning and relationships, evaluating text/context/form/purpose/position.
+* High-level L1 text/content orientation used: reading tasks tied to texts, literary and non-literary contexts, variable text formats, multiple-choice and text-referenced questions, knowledge as support for reading tasks.
+* No full official-source extraction performed.
+* No official tables, texts, questions, answer keys, or long source passages copied.
+* No PDFs downloaded or committed.
+
+Files changed:
+
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_PAES_L1_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP.md`.
+* `PHASE_LOG.md`.
+
+Documentation summary:
+
+* Created a controlled L1 official-source alignment map.
+* Mapped L1-READINESS-1 candidate route families and candidate StudyLoad families to SOURCE-1C high-level L1 reading-skill families and text/content orientation.
+* Recorded aligned areas, gaps, weakly supported areas, overreach risks, text-rights/editorial dependencies, taxonomy boundary, future source-content needs, future route taxonomy prerequisites, feedback/dashboard implications, PASS/FAIL/BLOCKED interpretation, risks, Pro/high-level questions, future phase options, Context Gate summary, explicit non-goals, and result marker.
+
+L1 alignment summary:
+
+* Locate evidence appears compatible at high level with `locating information` and text-referenced reading tasks.
+* Controlled inference appears compatible at high level with `interpreting meaning and relationships`.
+* Purpose and viewpoint appears compatible at high level with `evaluating text, context, form, purpose, and position`.
+* Contextual vocabulary appears compatible only as text-bound meaning-in-context work, not standalone vocabulary drill.
+* Relationship between ideas and structure appears compatible with interpretation and possibly evaluation of form/structure.
+* Integrated questions may touch multiple reading-skill families but must not become a vague catch-all.
+* Candidate StudyLoad families remain conceptual only and are not final StudyLoads.
+
+Gaps / caveats:
+
+* Literary and non-literary text handling is not yet mapped to candidate route families.
+* Variable text formats are not yet mapped to candidate route families.
+* Text rights, licensing, original-text policy, adaptation policy, and editorial review are unresolved.
+* Distractor review is likely a feedback/review family, not necessarily a source-derived route family.
+* Initial reading diagnostic scope is not source-defined yet.
+* Future L1 taxonomy, content, texts, questions, feedback, dashboard evidence, app/student evidence, and readiness require separate phases.
+
+Non-goals:
+
+* No code changes.
+* No content registry changes.
+* No StudyLoads created.
+* No texts created.
+* No questions created.
+* No feedback created.
+* No PDFs downloaded or committed.
+* No DB read.
+* No DB changes.
+* No migrations.
+* No deploy.
+* No app/browser/API operation.
+* No product behavior change.
+* No full source extraction.
+* No final taxonomy created.
+* No L1 content created.
+* No L1 texts/questions created.
+* No L1 alignment declared complete.
+* No L1 readiness declaration.
+* No Sales-Ready approval.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_PAES_L1_ALIGNMENT_1_CONTROLLED_OFFICIAL_SOURCE_ALIGNMENT_MAP_DEFINED
+```
