@@ -25124,3 +25124,143 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1A_REVIEW_COMPLETED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-RESPONSE-EVIDENCE-DESIGN-1 - Define L1 Response/Evidence Design
+
+Date: 2026-05-26
+
+Type: documentation-only / response-evidence design / pre-code / pre-registry / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 941ede4`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-FEEDBACK-RUNTIME-DESIGN-1A: review authored feedback runtime`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1_DEFINE_RESPONSE_EVIDENCE.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `941ede4`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1A_REVIEW_AUTHORED_FEEDBACK_RUNTIME.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1_DEFINE_AUTHORED_FEEDBACK_RUNTIME.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1A_REVIEW_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1_DEFINE_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_DEFINE_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_FEEDBACK_REVIEW_1_FIRST_CONTROLLED_FEEDBACK_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+
+Read-only code inspected:
+
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/lib/study-load-content.ts`.
+
+Response/evidence design summary:
+
+* Confirmed current M1 evidence uses `multiple_choice_submission`, schema version, content identity, selected answers, optional correct option keys, correctness, summary counts, and generated feedback.
+* Confirmed current admin evidence displays MC summary, content identity, answer rows, correct option, and correctness.
+* Confirmed current runtime does not store authored feedback ids, feedback versions, feedback display state, feedback opened state, text id, or text version.
+* Defined L1 evidence requirements for content identity, item identity, text identity/version, selected answers, correctness, and authored feedback identity/version.
+* Compared minimal MC-only, MC plus text identity, MC plus text and feedback identity, and full telemetry options.
+
+Recommended evidence model:
+
+* Use MC evidence plus `contentKey` / `contentVersion`.
+* Preserve stable L1 item ids.
+* Preserve `textId` and `textVersion`.
+* Preserve authored feedback asset ids/versions as available metadata.
+* Avoid full feedback exposure/opened-state telemetry initially unless later justified.
+* Preserve admin/evidence extensibility.
+
+Feedback exposure/opened-state decision:
+
+* Store feedback asset ids/versions.
+* Treat feedback breve display as implicit after post-submission rendering if needed.
+* Do not store feedback completo opened state by default.
+* Defer any opened-state telemetry to a later privacy/evidence/admin design.
+
+Admin/tutor implications:
+
+* Future admin evidence should be able to show content identity, text identity, item ids, selected/correct/correctness, feedback asset ids/versions or status, and summary.
+* Future admin evidence may show source/review/approval metadata only after separate admin evidence design.
+* Admin evidence should not show full feedback copy, raw answer-key notes, or readiness/product claims without later approval.
+
+Risks / caveats:
+
+* Evidence overbuild.
+* Telemetry privacy and complexity.
+* Under-traceability if metadata is too thin.
+* Answer metadata leakage.
+* Confusing feedback reference with correctness.
+* M1 regression risk.
+* Future migration risk.
+
+No-go gates:
+
+* Response/evidence design review.
+* Admin evidence design.
+* L1 continuity design or explicit no-continuity rule.
+* Test plan.
+* Implementation-readiness review.
+* Product-use gate.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-RESPONSE-EVIDENCE-DESIGN-1A - Review L1 response/evidence design`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1_EVIDENCE_MODEL_DEFINED
+```
