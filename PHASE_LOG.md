@@ -25264,3 +25264,122 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1_EVIDENCE_MODEL_DEFINED
 ```
+
+---
+
+## MVP-COMMERCIAL-L1-STUDYLOAD-RESPONSE-EVIDENCE-DESIGN-1A - Review L1 Response/Evidence Design
+
+Date: 2026-05-26
+
+Type: documentation-only / review-only / pre-code / pre-registry / pre-product-use.
+
+Baseline:
+
+* Expected and matched: `HEAD = origin/main = origin/HEAD = 3aedb5f`.
+* Working tree clean before edits.
+* Latest accepted commit before phase: `MVP-COMMERCIAL-L1-STUDYLOAD-RESPONSE-EVIDENCE-DESIGN-1: define L1 evidence model`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1A_REVIEW_RESPONSE_EVIDENCE.md`.
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `3aedb5f`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/governance/PRODUCT_HORIZONS_AND_SALES_READINESS_GATES.md`.
+* `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1_DEFINE_RESPONSE_EVIDENCE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1A_REVIEW_AUTHORED_FEEDBACK_RUNTIME.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_FEEDBACK_RUNTIME_DESIGN_1_DEFINE_AUTHORED_FEEDBACK_RUNTIME.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1A_REVIEW_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_PASSAGE_RENDERING_DESIGN_1_DEFINE_PASSAGE_RENDERING.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1A_REVIEW_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_TYPE_DESIGN_1_DEFINE_TYPE_BOUNDARY.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_FEEDBACK_REVIEW_1_FIRST_CONTROLLED_FEEDBACK_REVIEW.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1A_REVIEW_PLAN_AND_CHOOSE_NEXT_GATE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_1_DEFINE_FIRST_PILOT_SET_IMPLEMENTATION_PLAN.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1A_REVIEW_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_DESIGN_1_FIRST_PILOT_SET_SHAPE.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_REGISTRY_READINESS_1A_COMPATIBILITY_INSPECTION.md`.
+
+Code inspected:
+
+* None. Documentation review did not reveal an ambiguity requiring fresh code inspection.
+
+Review findings summary:
+
+* Current M1 evidence behavior preservation: pass.
+* Selected-answer and correctness evidence preservation: pass.
+* Correctness separated from authored feedback references: pass.
+* L1 text identity traceability: pass.
+* Feedback asset traceability: pass.
+* Telemetry overbuild avoided: pass.
+* Pre-submit answer metadata leakage avoided: pass.
+* Product-readiness and mastery claims avoided: pass.
+* Future admin/tutor evidence support: pass with caveat.
+* Privacy/complexity proportionality: pass.
+* No-go gates: pass.
+
+Decision:
+
+* `APPROVED_FOR_ADMIN_EVIDENCE_DESIGN`.
+* The L1 response/evidence model is coherent enough for the next design gate, not for implementation.
+
+Risks / caveats:
+
+* Evidence overbuild.
+* Telemetry privacy and complexity.
+* Under-traceability if metadata is too thin or field names remain vague.
+* Answer metadata leakage.
+* Confusing feedback references with correctness.
+* Admin display ambiguity.
+* M1 regression risk.
+* Future migration risk.
+
+Recommended next phase:
+
+* `MVP-COMMERCIAL-L1-STUDYLOAD-ADMIN-EVIDENCE-DESIGN-1 - Define L1 admin/tutor evidence design`.
+
+Validation:
+
+* `git diff --check` required for phase closure.
+* `git status --short` required to confirm only expected documentation files changed.
+* `git diff --stat` required to confirm documentation-only scope.
+
+Non-goals:
+
+* No app code changed.
+* No `study-load-content.ts` changed.
+* No TypeScript types modified in code.
+* No UI components created.
+* No routes created or modified.
+* No database schema changed.
+* No content registry changed.
+* No `contentKey` or `contentVersion` implementation artifact created.
+* No StudyLoads created.
+* No DB read.
+* No DB mutation.
+* No API call.
+* No browser/app operation.
+* No migrations.
+* No deploy.
+* No tests run.
+* No product behavior changed.
+* No student UI created.
+* No admin UI created.
+* No text/question/feedback approved for student use.
+* No text/question/feedback approved for product use.
+* No L1 readiness approval.
+* No Sales-Ready approval.
+* No Abacus use.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_RESPONSE_EVIDENCE_DESIGN_1A_REVIEW_COMPLETED
+```
