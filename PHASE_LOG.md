@@ -29473,3 +29473,87 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DB_LOCAL_1_DB_UNAVAILABLE_CONFIRMED
 ```
+
+---
+
+## MVP-SALES-PILOT-DB-LOCAL-2 - Restore local/dev DB connectivity outside repo without exposing secrets
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Documentation/runbook/custody only / no DB check / no mutation / no runtime.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = bc2bd5e
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1F_FIX_FIXTURE_SETUP_BLOCKER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_1_RESTORE_OR_CONFIRM_LOCAL_DEV_DATABASE_AVAILABILITY.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1B_SAFE_LOCAL_DEV_TARGET_CONFIRMATION_AND_FIXTURE_SETUP_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1C_LOCAL_DEV_FIXTURE_SETUP_PREPARATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1D_RUN_LOCAL_DEV_FIXTURE_PLAN_MODE_WITH_OPERATOR_CONFIRMATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1E_APPLY_LOCAL_DEV_FIXTURE_FOR_ONE_PARTICIPANT.md`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_2_RESTORE_LOCAL_DEV_DB_CONNECTIVITY_RUNBOOK.md`.
+
+Blocker addressed:
+
+```text
+LOCAL_DEV_DB_UNAVAILABLE
+NO_DATA_MUTATED_READ_ONLY_CHECK_ONLY
+```
+
+Runbook summary:
+
+* Defined safe outside-repo recovery path for local/dev DB connectivity.
+* Defined private Mauricio checklist for local/dev-only target recovery without pasting secrets.
+* Defined forbidden information: env values, DB URLs, connection strings, provider target details, credentials, tokens, cookies, headers, passwords, screenshots with secrets, and private data.
+* Defined post-recovery non-secret confirmation block.
+* Defined next verification protocol using only the guarded read-only helper.
+* Defined decision tree for available, unavailable, and check-blocked outcomes.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DB-LOCAL-3 - Verify local/dev DB availability after private recovery
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_2_RESTORE_LOCAL_DEV_DB_CONNECTIVITY_RUNBOOK.md` changed.
+* No tests/build required or allowed.
+
+Non-goals:
+
+* No DB check, fixture apply, fixture cleanup, users, students, StudentAccess rows, enrollments, cycles, StudyLoads, sessions, responses, DB mutation, Prisma Client execution, Prisma CLI, SQL, migrations, db push, db pull, seed, reset, studio, generate, browser/runtime/dev server, `/now`, StudyLoad start, responses, completion, admin runtime, staging/prod, deploy, env/secret inspection, DB URL printing, connection string printing, real student data, payment activation, trial activation, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DB_LOCAL_2_PRIVATE_RECOVERY_RUNBOOK_DEFINED
+```
