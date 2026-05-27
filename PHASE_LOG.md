@@ -27873,3 +27873,102 @@ Result marker:
 ```text
 MVP_SALES_PILOT_EXTERNAL_AUDIT_1_REDIRECT_ACCEPTED
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-PILOT-SCOPE-1
+
+Phase:
+
+```text
+MVP-SALES-PILOT-SCOPE-1 - Lock closed 3-student pilot scope and first vertical milestone
+```
+
+Type:
+
+```text
+Documentation/scope/custody only / no implementation / no runtime / no DB.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 57167ff
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2B_FIXTURE_SCRIPT_READINESS_PROTOCOL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2_PLAN_CONTROLLED_DB_BACKED_LOCAL_FIXTURE_VALIDATION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_1_SAFE_INTERNAL_VALIDATION_PATH.md`.
+
+Read-only inspections performed:
+
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+
+Summary:
+
+* Locked the first closed 3-student pilot scope after the external audit redirect.
+* Chose a narrowed first vertical milestone rather than a full L1/M1/M2 triad.
+* Defined the first pilot as M1-first, 3 controlled students, not public Sales-Ready, and not full triad.
+* Preserved L1 and M2 as roadmap requirements while excluding them from the first pilot.
+* Defined acceptance criteria, deferred scope, risks accepted/reduced, and immediate next phases.
+
+Pilot scope decision:
+
+```text
+NARROWED_FIRST_VERTICAL_PILOT
+```
+
+Program posture:
+
+```text
+PAES_M1 = PILOT_USABLE_WITH_LIMITS
+PAES_L1 = INTERNAL_ONLY_NOT_IN_FIRST_PILOT
+PAES_M2 = WAITLIST_OR_EXCLUDED_NOT_IN_FIRST_PILOT
+```
+
+Next phases:
+
+1. `MVP-SALES-PILOT-ACCESS-1 - Define closed-pilot access/payment/trial boundary for 3 controlled students`.
+2. `MVP-SALES-NOW-PILOT-1A - Audit /now for narrowed M1-first pilot experience`.
+3. `MVP-SALES-PILOT-DRY-RUN-1 - Dry-run vertical circuit with controlled accounts`.
+4. `MVP-SALES-PILOT-GO-1 - Go/no-go for starting the closed 3-student pilot`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md` changed.
+* No tests/build required or allowed.
+
+Non-goals:
+
+* No code, tests, Prisma schema, package files, DB, SQL, Prisma, fixtures, rows, StudyLoads, users, students, access rows, enrollments, cycles, sessions, responses, browser/runtime, staging/prod, env/secrets inspection, payment activation, pilot execution, `/now` implementation, access/payment/enrollment implementation, L1 validation 2D continuation, product/student approval, PAES_L1 readiness, M2 readiness, or Sales-Ready.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SCOPE_1_CLOSED_3_STUDENT_SCOPE_LOCKED
+```
