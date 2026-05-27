@@ -30240,3 +30240,89 @@ Result marker:
 ```text
 MVP_SALES_PILOT_AUTH_LOCAL_2_GUARDED_CREDENTIAL_HELPER_IMPLEMENTED
 ```
+
+---
+
+## MVP-SALES-PILOT-AUTH-LOCAL-3 - Execute guarded synthetic credential setup for PILOT_M1_001
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Human-executed local/dev credential setup / Codex-documented / no login / no runtime.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = bc2b633
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_2_GUARDED_SYNTHETIC_CREDENTIAL_HELPER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_1_SYNTHETIC_STUDENT_AUTH_PATH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1H_DOCUMENT_HUMAN_LOCAL_DEV_FIXTURE_APPLY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_EXECUTE_ONE_PARTICIPANT_LOCAL_DEV_RUNTIME_DRY_RUN.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Safe helper checks:
+
+* Codex ran `help` and `plan` modes only.
+* `help` and `plan` reported no DB connection, no data mutation, and no secret values printed.
+* `plan` confirmed `PILOT_M1_001`, `pilot.m1.001@example.invalid`, and `BEXAURI_SYNTHETIC_STUDENT_PASSWORD` as the private local password source.
+
+Human apply result:
+
+```text
+SYNTHETIC_CREDENTIAL_UPDATED
+participantCode: PILOT_M1_001
+targetEmail: pilot.m1.001@example.invalid
+userFound: yes
+studentFound: yes
+credentialUpdated: yes
+DB MUTATION PERFORMED: LOCAL_DEV_SYNTHETIC_CREDENTIAL_ONLY
+NO SECRET VALUES PRINTED
+```
+
+Data mutation summary:
+
+```text
+LOCAL_DEV_SYNTHETIC_CREDENTIAL_UPDATED_FOR_PILOT_M1_001
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_3_EXECUTE_GUARDED_SYNTHETIC_CREDENTIAL_SETUP.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-1I-RETRY - Execute one-participant local/dev runtime dry-run after synthetic credential setup
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only allowed documentation files changed.
+* No build required because only docs changed.
+
+Non-goals:
+
+* No Codex helper apply, password/hash recording, login, `/now`, browser/runtime, Prisma CLI, SQL, new user/student/access/enrollment/cycle/StudyLoad/session/response data, env/secret inspection, DB URL printing, connection string printing, token/cookie/header printing, staging/prod, real student data, payment/trial activation, L1/M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_AUTH_LOCAL_3_SYNTHETIC_CREDENTIAL_READY
+```
