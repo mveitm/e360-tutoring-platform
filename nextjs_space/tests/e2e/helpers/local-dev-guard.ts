@@ -58,6 +58,58 @@ export function safePathname(rawUrl: string) {
   }
 }
 
+function normalizedPathname(rawUrl: string) {
+  const path = safePathname(rawUrl)
+  return path.length > 1 ? path.replace(/\/+$/, '') : path
+}
+
+export function createSafeAuthRequestRecorder(page: Page) {
+  const events: string[] = []
+
+  page.on('request', (request) => {
+    const path = normalizedPathname(request.url())
+    if (path.startsWith('/api/auth/')) {
+      events.push(`${request.method()} ${path}`)
+    }
+  })
+
+  return {
+    summary() {
+      return events.length > 0 ? events.join(', ') : 'none'
+    },
+  }
+}
+
+export async function getSafeLoginFormState(page: Page) {
+  return page
+    .locator('form')
+    .first()
+    .evaluate((form) => {
+      const email = form.querySelector<HTMLInputElement>('#email')
+      const password = form.querySelector<HTMLInputElement>('#password')
+      const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]')
+
+      return {
+        emailInputPresent: Boolean(email),
+        passwordInputPresent: Boolean(password),
+        submitButtonPresent: Boolean(submitButton),
+        submitButtonType: submitButton?.getAttribute('type') ?? 'missing',
+        emailHasValue: Boolean(email?.value),
+        passwordHasValue: Boolean(password?.value),
+        submitButtonDisabled: Boolean(submitButton?.disabled),
+      }
+    })
+    .catch(() => ({
+      emailInputPresent: false,
+      passwordInputPresent: false,
+      submitButtonPresent: false,
+      submitButtonType: 'unreadable',
+      emailHasValue: false,
+      passwordHasValue: false,
+      submitButtonDisabled: true,
+    }))
+}
+
 export async function getSafeLoginDiagnostic(page: Page) {
   const invalidCredentials = await page.getByText(/Invalid email or password/i).isVisible().catch(() => false)
   const genericError = await page.getByText(/Something went wrong/i).isVisible().catch(() => false)
@@ -95,9 +147,10 @@ export async function getSafeVisibleHeadings(page: Page, limit = 8) {
 
 export async function waitForCredentialsCallbackStatus(page: Page, timeout = 10_000) {
   const response = await page
-    .waitForResponse((candidate) => safePathname(candidate.url()) === '/api/auth/callback/credentials', {
-      timeout,
-    })
+    .waitForResponse(
+      (candidate) => normalizedPathname(candidate.url()) === '/api/auth/callback/credentials',
+      { timeout },
+    )
     .catch(() => null)
 
   return response?.status() ?? 'not-observed'

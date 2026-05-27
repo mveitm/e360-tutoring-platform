@@ -31148,3 +31148,95 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_6_CALLBACK_NOT_OBSERVED
 ```
+
+---
+
+## MVP-SALES-PILOT-UI-AUTOMATION-7 - Diagnose Playwright login submit event without exposing secrets
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Local/dev Playwright E2E harness diagnostic patch / no product auth change / no authenticated Codex-run.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = e31ff89
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_6_RUN_CORRECTED_READONLY_STUDENT_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_5_FIX_SYNTHETIC_LOGIN_AUTOMATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_4_RUN_SAFE_AUTH_STATE_DIAGNOSTIC_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_3_SAFE_AUTH_STATE_DIAGNOSTICS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_1_LOCAL_DEV_PLAYWRIGHT_HARNESS.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Files inspected:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/app/login/_components/login-form.tsx`.
+* `nextjs_space/app/login/page.tsx`.
+* `nextjs_space/app/api/auth/login/route.ts`.
+* `nextjs_space/app/api/auth/[...nextauth]/route.ts`.
+* `nextjs_space/lib/auth-options.ts`.
+* `nextjs_space/middleware.ts`.
+
+Changes implemented:
+
+* Added safe login form readiness diagnostics with booleans only.
+* Added safe auth request recorder for method plus sanitized `/api/auth/*` pathnames only.
+* Normalized credentials callback pathname matching.
+* Updated the readonly student Playwright test to log safe submit-attempt and auth-request markers before existing `/now` assertions.
+
+Authenticated run status:
+
+```text
+IMPROVED_DIAGNOSTICS_READY_FOR_HUMAN_RUN
+```
+
+Codex did not run authenticated login because the private synthetic password was not available and must not be pasted or printed.
+
+Validation:
+
+* `npm.cmd run test:e2e:pilot:readonly -- --list` passed.
+* `npm.cmd --prefix nextjs_space run build` passed.
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_7_DIAGNOSE_LOGIN_SUBMIT_EVENT.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-8 - Run submit-event diagnostic Playwright check with private env
+```
+
+Non-goals:
+
+* No product auth change, app route/schema change, authenticated Codex-run, password/hash/env/DB URL/host/provider/token/cookie/header/storage printing, `.env` inspection, screenshots/videos/traces, human browser profile/session/cookie use, DB mutation, Prisma CLI/SQL, StudyLoad start/open/response/complete, admin evidence, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_7_SUBMIT_EVENT_DIAGNOSTICS_READY
+```

@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test'
 import {
+  createSafeAuthRequestRecorder,
   forbiddenClaimPatterns,
+  getSafeLoginFormState,
   getSafeLoginDiagnostic,
   getSafeVisibleHeadings,
   getStudentE2ECredentials,
@@ -13,15 +15,39 @@ test('PILOT_M1_001 can view completed and pending M1 pilot state without mutatio
   const credentials = getStudentE2ECredentials()
 
   await page.goto(localPath(credentials.baseUrl, '/login'))
-  await page.getByLabel('Email').fill(credentials.studentEmail)
-  await page.getByLabel('Password').fill(credentials.studentPassword)
+  const emailInput = page.getByLabel('Email')
+  const passwordInput = page.getByLabel('Password')
+  const submitButton = page.getByRole('button', { name: 'Ingresar' })
 
+  await expect(emailInput).toBeVisible()
+  await expect(passwordInput).toBeVisible()
+  await expect(submitButton).toBeVisible()
+
+  await emailInput.fill(credentials.studentEmail)
+  await passwordInput.fill(credentials.studentPassword)
+
+  const formStateBeforeSubmit = await getSafeLoginFormState(page)
+  console.log(`SAFE_E2E_LOGIN_FORM_STATE_BEFORE_SUBMIT: ${JSON.stringify(formStateBeforeSubmit)}`)
+  if (
+    !formStateBeforeSubmit.emailInputPresent ||
+    !formStateBeforeSubmit.passwordInputPresent ||
+    !formStateBeforeSubmit.submitButtonPresent ||
+    !formStateBeforeSubmit.emailHasValue ||
+    !formStateBeforeSubmit.passwordHasValue ||
+    formStateBeforeSubmit.submitButtonDisabled
+  ) {
+    throw new Error('LOGIN_FORM_NOT_READY_FOR_SUBMIT')
+  }
+
+  const authRequestRecorder = createSafeAuthRequestRecorder(page)
   const credentialsCallbackStatus = waitForCredentialsCallbackStatus(page)
-  await expect(page.getByRole('button', { name: 'Ingresar' })).toBeEnabled()
-  await page.getByRole('button', { name: 'Ingresar' }).click()
+  await expect(submitButton).toBeEnabled()
+  await submitButton.click()
+  console.log('SAFE_E2E_LOGIN_SUBMIT_ATTEMPTED: yes')
 
   const callbackStatus = await credentialsCallbackStatus
   console.log(`SAFE_E2E_CREDENTIALS_CALLBACK_STATUS: ${callbackStatus}`)
+  console.log(`SAFE_E2E_AUTH_REQUESTS_AFTER_SUBMIT: ${authRequestRecorder.summary()}`)
   await page.waitForLoadState('networkidle').catch(() => undefined)
 
   const pathAfterLogin = safePathname(page.url())
