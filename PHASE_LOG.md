@@ -30718,3 +30718,101 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_2_READONLY_STUDENT_CHECK_FAILED_SAFE
 ```
+
+---
+
+## MVP-SALES-PILOT-UI-AUTOMATION-3 - Add safe Playwright auth-state diagnostics for readonly student check
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Local/dev Playwright harness diagnostic implementation / readonly / no authenticated run by Codex / no DB mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 269a262
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_2_RUN_READONLY_STUDENT_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_1_LOCAL_DEV_PLAYWRIGHT_HARNESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_0_SAFE_LOCAL_DEV_UI_AUTOMATION_PATH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only inspections:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+
+Diagnostic implementation:
+
+* Added safe pathname-only diagnostics after automated login.
+* Added coarse login-state diagnostic categories.
+* Added limited visible-heading diagnostics when `/now` copy is not found.
+* Added explicit safe failure categories for auth not established, unexpected path, and `/now` copy mismatch.
+* Kept screenshots, videos, traces, full page HTML, cookies, headers, tokens, and storage out of diagnostic output.
+
+Test/list status:
+
+```text
+PLAYWRIGHT_LIST_PASSED
+```
+
+Authenticated run status:
+
+```text
+BLOCKED_PRIVATE_ENV
+```
+
+Codex checked only presence booleans and did not print values:
+
+```text
+BEXAURI_E2E_BASE_URL present: false
+BEXAURI_E2E_STUDENT_EMAIL present: false
+BEXAURI_E2E_STUDENT_PASSWORD present: false
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_3_SAFE_AUTH_STATE_DIAGNOSTICS.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-4 - Run safe auth-state diagnostic Playwright check with private env
+```
+
+Validation:
+
+* `npm.cmd run test:e2e:pilot:readonly -- --list` passed.
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* `npm.cmd --prefix nextjs_space run build` passed.
+
+Non-goals:
+
+* No authenticated Playwright run by Codex, password/hash/env/DB URL/host/provider/token/cookie/header printing, `.env` inspection, screenshots/videos/traces/test-results commit, human browser profile/session/cookie use, DB mutation, StudyLoad start/open/response/complete, admin evidence, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_3_SAFE_AUTH_DIAGNOSTICS_IMPLEMENTED
+```
