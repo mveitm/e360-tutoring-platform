@@ -28713,3 +28713,136 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_0_PLAN_DEFINED
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-PILOT-DRY-RUN-1A
+
+Phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-1A - Execute controlled local/dev M1-first dry-run
+```
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Execution attempt / local-dev dry-run gate / blocked before runtime and DB mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = aa6a3c5
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`.
+* `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1A_AUDIT_NOW_FOR_NARROWED_M1_FIRST_PILOT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1B_DESIGN_M1_FIRST_NOW_COPY_AND_STRUCTURE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* Focused read-only searches for dry-run, smoke, local/staging, pilot, PAES_M1, StudyLoad, evidence, admin evidence, login/signup, StudentAccess, fixture, cycle, and continuity references.
+
+Read-only inspections performed:
+
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/start/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+
+Target confirmation:
+
+```text
+TARGET_CONFIRMATION_FAILED_SAFE_STOP
+```
+
+Reason:
+
+The phase required live confirmation that runtime or DB-affecting action would target local/dev only. The allowed methods did not permit inspecting `.env`, raw environment values, database URLs, secrets, tokens, cookies, headers, or backups. Historical non-secret local/dev confirmations were not enough to prove the current live runtime/database target.
+
+Execution summary:
+
+* Runtime/browser was not started.
+* DB/Prisma/SQL commands were not run.
+* Fixture-equivalent data was not created.
+* The dry-run stopped before participant execution.
+* Read-only code inspection confirmed the planned `/now`, start, activity, response, completion, continuity, registry, and admin evidence paths exist structurally.
+
+Participants executed:
+
+```text
+0/3
+```
+
+Participant statuses:
+
+```text
+PILOT_M1_001 = NOT_EXECUTED_TARGET_CONFIRMATION_BLOCKED
+PILOT_M1_002 = NOT_EXECUTED_TARGET_CONFIRMATION_BLOCKED
+PILOT_M1_003 = NOT_EXECUTED_TARGET_CONFIRMATION_BLOCKED
+```
+
+Candidate StudyLoad:
+
+```text
+Title: PAES M1 - Entrada balanceada inicial
+Registry title: PAES M1 \u2014 Entrada balanceada inicial
+contentKey: paes_m1_balanced_entry_initial
+contentVersion: v1
+```
+
+Go/no-go result:
+
+```text
+NO_GO_FIX_BLOCKERS
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1A_EXECUTE_CONTROLLED_LOCAL_DEV_M1_FIRST_DRY_RUN.md`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only the phase result document and `PHASE_LOG.md` changed.
+* No tests/build required because no code changed.
+
+Non-goals:
+
+* No production, staging, deploy, env/secret inspection, raw DB URL inspection, real student data, real access register instance, payment activation, public trial activation, subscription state, payment reconciliation, destructive DB reset, migrations, Prisma db push/reset/migrate, schema changes, package changes, StudyLoad registry edits, StudyLoad continuity edits, auth/payment/trial/billing/StudentAccess runtime edits, `/now` edits, tests edits, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready declaration, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_1A_BLOCKED_BEFORE_EXECUTION
+```
