@@ -31457,3 +31457,120 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_9_PASSWORD_ENTER_SUBMIT_TRIGGER_READY
 ```
+
+---
+
+## MVP-SALES-PILOT-UI-AUTOMATION-10 - Run password-enter submit Playwright check with private env
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Human-run local/dev Playwright password-enter submit diagnostic / Codex-documented / no harness patch / no DB mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 45617de
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_9_FIX_E2E_LOGIN_SUBMIT_TRIGGER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_8_RUN_SUBMIT_EVENT_DIAGNOSTIC_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_7_DIAGNOSE_LOGIN_SUBMIT_EVENT.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only inspections:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+
+Execution mode:
+
+```text
+HUMAN_RUN_WITH_PRIVATE_SYNTHETIC_ENV
+```
+
+Codex environment check:
+
+```text
+BEXAURI_E2E_BASE_URL present: false
+BEXAURI_E2E_STUDENT_EMAIL present: false
+BEXAURI_E2E_STUDENT_PASSWORD present: false
+```
+
+Test/list status:
+
+```text
+PLAYWRIGHT_LIST_PASSED
+```
+
+Authenticated diagnostic result:
+
+```text
+SUBMIT_TRIGGER_STILL_NOT_FIRING
+AUTH_NOT_ESTABLISHED_BEFORE_NOW_ASSERTIONS
+```
+
+Safe diagnostic markers:
+
+```text
+SAFE_E2E_LOGIN_FORM_STATE_BEFORE_SUBMIT: ready booleans true, submitButtonType=submit, submitButtonDisabled=false
+SAFE_E2E_LOGIN_SUBMIT_TRIGGER: password-enter
+SAFE_E2E_LOGIN_SUBMIT_ATTEMPTED: yes
+SAFE_E2E_CREDENTIALS_CALLBACK_STATUS: not-observed
+SAFE_E2E_AUTH_REQUESTS_AFTER_SUBMIT: none
+SAFE_E2E_PATH_AFTER_LOGIN: /login
+SAFE_E2E_PATH_BEFORE_NOW_ASSERTIONS: /login
+SAFE_E2E_LOGIN_DIAGNOSTIC: NO_LOGIN_ERROR_VISIBLE
+```
+
+Interpretation:
+
+* The form was present and ready.
+* Playwright attempted `password-enter` submit.
+* No `/api/auth/*` request was observed.
+* Credentials callback was not observed.
+* The browser remained on `/login`.
+* This remains an E2E submit/event-path issue, not confirmed invalid credentials or broken product auth.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_10_RUN_PASSWORD_ENTER_SUBMIT_CHECK.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-11 - Diagnose React submit handler reachability in Playwright without product auth changes
+```
+
+Validation:
+
+* `npm.cmd run test:e2e:pilot:readonly -- --list` passed.
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Generated Playwright `test-results` output removed and not committed.
+* No build required because only documentation changed.
+
+Non-goals:
+
+* No test/harness patch, product auth change, app route/schema change, authenticated Codex-run, password/hash/env/DB URL/host/provider/token/cookie/header/storage printing, `.env` inspection, screenshots/videos/traces/test-results commit, human browser profile/session/cookie use, DB mutation, Prisma CLI/SQL, StudyLoad start/open/response/complete, admin evidence, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_10_PASSWORD_ENTER_STILL_NO_AUTH_REQUEST
+```
