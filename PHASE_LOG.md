@@ -29978,3 +29978,103 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_1H_HUMAN_FIXTURE_APPLY_DOCUMENTED
 ```
+
+---
+
+## MVP-SALES-PILOT-DRY-RUN-1I - Execute one-participant local/dev runtime dry-run
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Local/dev runtime dry-run attempt / stopped before runtime by guarded DB precheck.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = ef81f1a
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1H_DOCUMENT_HUMAN_LOCAL_DEV_FIXTURE_APPLY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1G_RETRY_ONE_PARTICIPANT_FIXTURE_APPLY_AFTER_DB_AVAILABLE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1A_AUDIT_NOW_FOR_NARROWED_M1_FIRST_PILOT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1B_DESIGN_M1_FIRST_NOW_COPY_AND_STRUCTURE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`.
+* `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Pre-runtime DB check:
+
+```text
+LOCAL_DEV_DB_UNAVAILABLE
+readCheck: failed
+NO DATA MUTATED
+NO SECRET VALUES PRINTED
+```
+
+Participant:
+
+```text
+PILOT_M1_001
+```
+
+Execution summary:
+
+* Runtime was not started because the guarded pre-runtime DB check did not return `LOCAL_DEV_DB_AVAILABLE`.
+* Login/auth was not tested.
+* `/now` visibility was not tested.
+* M1 pilot copy was not tested in runtime.
+* StudyLoad start/activity was not tested.
+* Response submission was not tested.
+* Completion/self-report was not tested.
+* Post-completion `/now` was not tested.
+* Admin/tutor evidence runtime review was not tested.
+
+Result state:
+
+```text
+RUNTIME_DRY_RUN_BLOCKED_BEFORE_START
+```
+
+Go/no-go recommendation:
+
+```text
+NO_GO_FIX_RUNTIME_BLOCKERS
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_EXECUTE_ONE_PARTICIPANT_LOCAL_DEV_RUNTIME_DRY_RUN.md`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only allowed files changed.
+* No tests/build required or run.
+
+Non-goals:
+
+* No app code changes, tests/build, DB mutation, fixture creation, fixture apply, Prisma CLI, SQL, browser/runtime/dev server, `/now`, StudyLoad start, responses, completion, admin runtime evidence review, staging/prod, env/secret inspection, DB URL printing, connection string printing, hostname/provider target printing, real student data, payment/trial activation, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_1I_RUNTIME_PARTIAL_OR_BLOCKED
+```
