@@ -31035,3 +31035,116 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_5_LOGIN_AUTOMATION_WAIT_FIXED
 ```
+
+---
+
+## MVP-SALES-PILOT-UI-AUTOMATION-6 - Run corrected readonly student Playwright check with private env
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Human-run local/dev corrected Playwright readonly check / Codex-documented / no harness patch / no StudyLoad mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 6033289
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_5_FIX_SYNTHETIC_LOGIN_AUTOMATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_4_RUN_SAFE_AUTH_STATE_DIAGNOSTIC_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_3_SAFE_AUTH_STATE_DIAGNOSTICS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_1_LOCAL_DEV_PLAYWRIGHT_HARNESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only inspections:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+
+Execution mode:
+
+```text
+HUMAN_RUN_WITH_PRIVATE_SYNTHETIC_ENV
+```
+
+Codex environment check:
+
+```text
+BEXAURI_E2E_BASE_URL present: false
+BEXAURI_E2E_STUDENT_EMAIL present: false
+BEXAURI_E2E_STUDENT_PASSWORD present: false
+```
+
+Test/list status:
+
+```text
+PLAYWRIGHT_LIST_PASSED
+```
+
+Authenticated run result:
+
+```text
+AUTH_NOT_ESTABLISHED_BEFORE_NOW_ASSERTIONS
+CREDENTIALS_CALLBACK_NOT_OBSERVED
+```
+
+Safe diagnostic output:
+
+```text
+SAFE_E2E_CREDENTIALS_CALLBACK_STATUS: not-observed
+SAFE_E2E_PATH_AFTER_LOGIN: /login
+SAFE_E2E_PATH_BEFORE_NOW_ASSERTIONS: /login
+SAFE_E2E_LOGIN_DIAGNOSTIC: NO_LOGIN_ERROR_VISIBLE
+```
+
+Safe interpretation:
+
+* The credentials callback was not observed.
+* The browser stayed on `/login` before `/now` assertions.
+* No visible generic login error category was detected.
+* This points toward Playwright not triggering or not observing the real credentials submit/callback, not confirmed invalid credentials or broken product auth.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_6_RUN_CORRECTED_READONLY_STUDENT_CHECK.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-7 - Diagnose Playwright login submit event without exposing secrets
+```
+
+Validation:
+
+* `npm.cmd run test:e2e:pilot:readonly -- --list` passed.
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Generated Playwright `test-results` output removed and not committed.
+* No build required because only documentation changed.
+
+Non-goals:
+
+* No test/harness patch, product auth change, app route/schema change, authenticated Codex-run, password/hash/env/DB URL/host/provider/token/cookie/header/storage printing, `.env` inspection, screenshots/videos/traces/test-results commit, human browser profile/session/cookie use, StudyLoad start/open/response/complete, admin evidence, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_6_CALLBACK_NOT_OBSERVED
+```
