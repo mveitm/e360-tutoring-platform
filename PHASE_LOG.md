@@ -29280,3 +29280,99 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_1E_FIXTURE_APPLY_BLOCKED
 ```
+
+---
+
+## MVP-SALES-PILOT-DRY-RUN-1F - Fix fixture setup blocker and retry one-participant local/dev apply
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Guarded local/dev fixture setup retry / documentation result / blocked before fixture creation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 4dc7451
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`.
+* `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1A_AUDIT_NOW_FOR_NARROWED_M1_FIRST_PILOT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1B_DESIGN_M1_FIRST_NOW_COPY_AND_STRUCTURE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1C_IMPLEMENT_M1_PILOT_NOW_COPY.md` if present.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1A_EXECUTE_CONTROLLED_LOCAL_DEV_M1_FIRST_DRY_RUN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1B_SAFE_LOCAL_DEV_TARGET_CONFIRMATION_AND_FIXTURE_SETUP_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1C_LOCAL_DEV_FIXTURE_SETUP_PREPARATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1D_RUN_LOCAL_DEV_FIXTURE_PLAN_MODE_WITH_OPERATOR_CONFIRMATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1E_APPLY_LOCAL_DEV_FIXTURE_FOR_ONE_PARTICIPANT.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Commands run:
+
+* Helper `help` mode.
+* Helper `plan` mode with `LOCAL_DEV_CONFIRMED`.
+* Helper guarded `apply` mode for `PILOT_M1_001` only.
+
+Apply retry result:
+
+```text
+FIXTURE_SETUP_STILL_BLOCKED
+```
+
+Data mutation summary:
+
+```text
+NO_CONFIRMED_FIXTURE_DATA_CREATED
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1F_FIX_FIXTURE_SETUP_BLOCKER.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DB-LOCAL-1 - Restore or confirm local/dev database availability without exposing secrets
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only the two allowed documentation files changed.
+* No build required because no code changed.
+
+Non-goals:
+
+* No production, staging, deploy, browser/runtime/dev server, `/now`, StudyLoad start, responses, completion, admin evidence runtime review, real student data, private register instance, env/secret inspection, database URL printing, connection string printing, Prisma CLI, SQL, migrations, db push, db pull, seed, reset, studio, generate, destructive reset, fixtures for `PILOT_M1_002` or `PILOT_M1_003`, payment activation, trial activation, subscription state, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_1F_FIXTURE_SETUP_STILL_BLOCKED
+```
