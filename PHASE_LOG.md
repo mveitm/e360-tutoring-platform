@@ -28954,3 +28954,115 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_1B_TARGET_CONFIRMATION_PROTOCOL_DEFINED
 ```
+
+---
+
+## MVP-SALES-PILOT-DRY-RUN-1C - Prepare local/dev fixture setup for M1 dry-run
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Documentation/readiness plus inert local helper script / no DB / no fixture creation / no runtime.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 44b0fca
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`.
+* `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1A_AUDIT_NOW_FOR_NARROWED_M1_FIRST_PILOT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1B_DESIGN_M1_FIRST_NOW_COPY_AND_STRUCTURE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1A_EXECUTE_CONTROLLED_LOCAL_DEV_M1_FIRST_DRY_RUN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1B_SAFE_LOCAL_DEV_TARGET_CONFIRMATION_AND_FIXTURE_SETUP_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* Focused read-only search for target confirmation, `LOCAL_DEV_CONFIRMED`, local/dev, fixtures, dry-run, safe-seed, StudyLoad, M1 balanced entry, StudentAccess, enrollment, LearningCycle, participant codes, and setup helper references.
+
+Read-only inspections:
+
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/scripts` file listing.
+* `nextjs_space/scripts/safe-seed.ts`.
+* `nextjs_space/package.json`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/start/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/scripts/m1-pilot-dry-run-fixture.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1C_LOCAL_DEV_FIXTURE_SETUP_PREPARATION.md`.
+
+Script/helper summary:
+
+* Created an inert local/dev-only helper at `nextjs_space/scripts/m1-pilot-dry-run-fixture.ts`.
+* Implemented `--mode help` and `--mode plan`.
+* Defined future-gated `dry-run`, `apply`, and `cleanup` modes.
+* Defined participant codes `PILOT_M1_001`, `PILOT_M1_002`, and `PILOT_M1_003`.
+* Defined fixture label pattern `PILOT_M1_DRY_RUN_LOCAL_DEV_<runId>`.
+* Defined candidate StudyLoad `PAES M1 - Entrada balanceada inicial` / `paes_m1_balanced_entry_initial`.
+* Defined the conceptual future fixture entity chain without creating it.
+
+Safety model:
+
+* No Prisma import.
+* No DB connection.
+* No env inspection.
+* No file writes.
+* No data mutation.
+* No real student data.
+* Future DB modes require `--target-class LOCAL_DEV_CONFIRMED`, `--run-id`, `--confirm-no-real-data`, `--confirm-no-production`, and `--confirm-no-staging`, and still exit as future-gated in this phase.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Safe helper validation required:
+  * `.\node_modules\.bin\tsx.cmd scripts/m1-pilot-dry-run-fixture.ts --mode help`
+  * `.\node_modules\.bin\tsx.cmd scripts/m1-pilot-dry-run-fixture.ts --mode plan --run-id 20260527T000000-local --target-class LOCAL_DEV_CONFIRMED --confirm-no-real-data --confirm-no-production --confirm-no-staging`
+* Confirm only the allowed three files changed.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-1D - Run local/dev fixture setup plan mode with operator confirmation
+```
+
+Non-goals:
+
+* No fixture creation, DB connection, Prisma CLI, SQL, migrations, db push, db pull, seed, reset, studio, generate, users, students, StudentAccess rows, enrollments, LearningCycles, StudyLoad rows, sessions, responses, browser/runtime, staging/prod, env/secret inspection, real student data, payment activation, public trial activation, pilot execution, product/student approval, PAES_L1 readiness, PAES_M2 readiness, or Sales-Ready declaration.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_1C_FIXTURE_SETUP_PREPARED
+```
