@@ -110,6 +110,55 @@ export async function getSafeLoginFormState(page: Page) {
     }))
 }
 
+export async function getSafeLoginFormStructure(page: Page) {
+  return page
+    .locator('form')
+    .first()
+    .evaluate((form) => {
+      const email = form.querySelector<HTMLInputElement>('#email')
+      const password = form.querySelector<HTMLInputElement>('#password')
+      const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]')
+
+      return {
+        formCount: document.querySelectorAll('form').length,
+        emailInsideForm: Boolean(email && form.contains(email)),
+        passwordInsideForm: Boolean(password && form.contains(password)),
+        submitButtonInsideForm: Boolean(submitButton && form.contains(submitButton)),
+        submitButtonType: submitButton?.getAttribute('type') ?? 'missing',
+      }
+    })
+    .catch(() => ({
+      formCount: 0,
+      emailInsideForm: false,
+      passwordInsideForm: false,
+      submitButtonInsideForm: false,
+      submitButtonType: 'unreadable',
+    }))
+}
+
+export async function installSafeSubmitEventProbe(page: Page) {
+  await page.evaluate(() => {
+    const targetWindow = window as typeof window & { __bexauriSafeSubmitCount?: number }
+    targetWindow.__bexauriSafeSubmitCount = 0
+    document.addEventListener(
+      'submit',
+      () => {
+        targetWindow.__bexauriSafeSubmitCount = (targetWindow.__bexauriSafeSubmitCount ?? 0) + 1
+      },
+      true,
+    )
+  })
+}
+
+export async function getSafeSubmitEventCount(page: Page) {
+  return page
+    .evaluate(() => {
+      const targetWindow = window as typeof window & { __bexauriSafeSubmitCount?: number }
+      return targetWindow.__bexauriSafeSubmitCount ?? 0
+    })
+    .catch(() => 0)
+}
+
 export async function getSafeLoginDiagnostic(page: Page) {
   const invalidCredentials = await page.getByText(/Invalid email or password/i).isVisible().catch(() => false)
   const genericError = await page.getByText(/Something went wrong/i).isVisible().catch(() => false)

@@ -2,10 +2,13 @@ import { expect, test } from '@playwright/test'
 import {
   createSafeAuthRequestRecorder,
   forbiddenClaimPatterns,
+  getSafeLoginFormStructure,
   getSafeLoginFormState,
   getSafeLoginDiagnostic,
+  getSafeSubmitEventCount,
   getSafeVisibleHeadings,
   getStudentE2ECredentials,
+  installSafeSubmitEventProbe,
   localPath,
   safePathname,
   waitForCredentialsCallbackStatus,
@@ -24,6 +27,8 @@ test('PILOT_M1_001 can view completed and pending M1 pilot state without mutatio
   await expect(passwordInput).toBeVisible()
   await expect(submitButton).toBeVisible()
 
+  console.log(`SAFE_E2E_LOGIN_FORM_STRUCTURE: ${JSON.stringify(await getSafeLoginFormStructure(page))}`)
+
   await emailInput.fill(credentials.studentEmail)
   await passwordInput.fill(credentials.studentPassword)
 
@@ -40,6 +45,7 @@ test('PILOT_M1_001 can view completed and pending M1 pilot state without mutatio
     throw new Error('LOGIN_FORM_NOT_READY_FOR_SUBMIT')
   }
 
+  await installSafeSubmitEventProbe(page)
   const authRequestRecorder = createSafeAuthRequestRecorder(page)
   const credentialsCallbackStatus = waitForCredentialsCallbackStatus(page)
   await expect(submitButton).toBeEnabled()
@@ -49,6 +55,9 @@ test('PILOT_M1_001 can view completed and pending M1 pilot state without mutatio
   console.log('SAFE_E2E_LOGIN_SUBMIT_ATTEMPTED: yes')
 
   const callbackStatus = await credentialsCallbackStatus
+  const submitEventCount = await getSafeSubmitEventCount(page)
+  console.log(`SAFE_E2E_FORM_SUBMIT_EVENT_COUNT: ${submitEventCount}`)
+  console.log(`SAFE_E2E_FORM_SUBMIT_EVENT_OBSERVED: ${submitEventCount > 0 ? 'yes' : 'no'}`)
   console.log(`SAFE_E2E_CREDENTIALS_CALLBACK_STATUS: ${callbackStatus}`)
   console.log(`SAFE_E2E_AUTH_REQUESTS_AFTER_SUBMIT: ${authRequestRecorder.summary()}`)
   await page.waitForLoadState('networkidle').catch(() => undefined)

@@ -31574,3 +31574,99 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_10_PASSWORD_ENTER_STILL_NO_AUTH_REQUEST
 ```
+
+---
+
+## MVP-SALES-PILOT-UI-AUTOMATION-11 - Diagnose React submit handler reachability in Playwright without product auth changes
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Local/dev Playwright E2E reachability diagnostics / no product auth change / no authenticated Codex-run.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = bd88b39
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_10_RUN_PASSWORD_ENTER_SUBMIT_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_9_FIX_E2E_LOGIN_SUBMIT_TRIGGER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_8_RUN_SUBMIT_EVENT_DIAGNOSTIC_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_7_DIAGNOSE_LOGIN_SUBMIT_EVENT.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Files inspected:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/app/login/_components/login-form.tsx`.
+* `nextjs_space/app/login/page.tsx`.
+* `nextjs_space/app/api/auth/[...nextauth]/route.ts`.
+* `nextjs_space/lib/auth-options.ts`.
+
+Diagnostic summary:
+
+* Added safe form structure diagnostic.
+* Added E2E-only DOM submit event probe.
+* Added markers `SAFE_E2E_LOGIN_FORM_STRUCTURE`, `SAFE_E2E_FORM_SUBMIT_EVENT_COUNT`, and `SAFE_E2E_FORM_SUBMIT_EVENT_OBSERVED`.
+* No form values, request bodies, response bodies, cookies, headers, storage, env values, DB URLs, or secrets are read or printed.
+
+Authenticated run status:
+
+```text
+REACHABILITY_DIAGNOSTICS_IMPLEMENTED
+IMPLEMENTED_NEEDS_HUMAN_RUN
+```
+
+Codex environment check:
+
+```text
+BEXAURI_E2E_BASE_URL present: false
+BEXAURI_E2E_STUDENT_EMAIL present: false
+BEXAURI_E2E_STUDENT_PASSWORD present: false
+```
+
+Validation:
+
+* `npm.cmd run test:e2e:pilot:readonly -- --list` passed.
+* `npm.cmd --prefix nextjs_space run build` passed.
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_11_DIAGNOSE_REACT_SUBMIT_HANDLER_REACHABILITY.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-12 - Run React submit reachability diagnostic with private env
+```
+
+Non-goals:
+
+* No product auth change, app route/schema change, authenticated Codex-run, password/hash/env/DB URL/host/provider/token/cookie/header/storage printing, `.env` inspection, screenshots/videos/traces, human browser profile/session/cookie use, DB mutation, Prisma CLI/SQL, StudyLoad start/open/response/complete, admin evidence, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_11_REACT_SUBMIT_REACHABILITY_DIAGNOSTICS_READY
+```
