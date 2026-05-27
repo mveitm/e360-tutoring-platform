@@ -93,6 +93,16 @@ export async function getSafeVisibleHeadings(page: Page, limit = 8) {
   return values
 }
 
+export async function waitForCredentialsCallbackStatus(page: Page, timeout = 10_000) {
+  const response = await page
+    .waitForResponse((candidate) => safePathname(candidate.url()) === '/api/auth/callback/credentials', {
+      timeout,
+    })
+    .catch(() => null)
+
+  return response?.status() ?? 'not-observed'
+}
+
 export const forbiddenClaimPatterns = [
   /puntaje garantizado/i,
   /mejora garantizada/i,

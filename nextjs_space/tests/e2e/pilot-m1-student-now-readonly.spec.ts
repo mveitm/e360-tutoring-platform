@@ -6,6 +6,7 @@ import {
   getStudentE2ECredentials,
   localPath,
   safePathname,
+  waitForCredentialsCallbackStatus,
 } from './helpers/local-dev-guard'
 
 test('PILOT_M1_001 can view completed and pending M1 pilot state without mutation', async ({ page }) => {
@@ -14,17 +15,27 @@ test('PILOT_M1_001 can view completed and pending M1 pilot state without mutatio
   await page.goto(localPath(credentials.baseUrl, '/login'))
   await page.getByLabel('Email').fill(credentials.studentEmail)
   await page.getByLabel('Password').fill(credentials.studentPassword)
+
+  const credentialsCallbackStatus = waitForCredentialsCallbackStatus(page)
+  await expect(page.getByRole('button', { name: 'Ingresar' })).toBeEnabled()
   await page.getByRole('button', { name: 'Ingresar' }).click()
 
-  await page.waitForURL((url) => url.pathname !== '/login', { timeout: 5_000 }).catch(() => undefined)
+  const callbackStatus = await credentialsCallbackStatus
+  console.log(`SAFE_E2E_CREDENTIALS_CALLBACK_STATUS: ${callbackStatus}`)
   await page.waitForLoadState('networkidle').catch(() => undefined)
 
   const pathAfterLogin = safePathname(page.url())
   console.log(`SAFE_E2E_PATH_AFTER_LOGIN: ${pathAfterLogin}`)
 
-  if (pathAfterLogin === '/login') {
+  const loginDiagnostic = await getSafeLoginDiagnostic(page)
+  if (loginDiagnostic !== 'NO_LOGIN_ERROR_VISIBLE') {
+    console.log(`SAFE_E2E_LOGIN_DIAGNOSTIC: ${loginDiagnostic}`)
+    throw new Error('AUTH_LOGIN_ERROR_VISIBLE_AFTER_SUBMIT')
+  }
+
+  if (typeof callbackStatus === 'number' && callbackStatus >= 400) {
     console.log(`SAFE_E2E_LOGIN_DIAGNOSTIC: ${await getSafeLoginDiagnostic(page)}`)
-    throw new Error('AUTH_NOT_ESTABLISHED_AFTER_LOGIN')
+    throw new Error('AUTH_CALLBACK_FAILED_AFTER_SUBMIT')
   }
 
   await page.goto(localPath(credentials.baseUrl, '/now'), { waitUntil: 'domcontentloaded' })

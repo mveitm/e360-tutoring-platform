@@ -30925,3 +30925,113 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_4_AUTH_NOT_ESTABLISHED_DIAGNOSED
 ```
+
+---
+
+## MVP-SALES-PILOT-UI-AUTOMATION-5 - Fix Playwright synthetic login automation without changing product auth
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Playwright test harness fix / local-dev readonly login automation / no product auth change / no authenticated Codex-run.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 935b98a
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_4_RUN_SAFE_AUTH_STATE_DIAGNOSTIC_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_3_SAFE_AUTH_STATE_DIAGNOSTICS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_1_LOCAL_DEV_PLAYWRIGHT_HARNESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Files inspected:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/app/login/_components/login-form.tsx`.
+* `nextjs_space/app/login/page.tsx`.
+* `nextjs_space/app/api/auth/login/route.ts`.
+* `nextjs_space/app/api/auth/[...nextauth]/route.ts`.
+* `nextjs_space/lib/auth-options.ts`.
+* `nextjs_space/middleware.ts`.
+
+Hypotheses reviewed:
+
+* Field selectors and submit button matched the form.
+* The form uses `signIn('credentials', { redirect: false })` and then `router.replace('/')`.
+* The previous test failed too early by treating `pathAfterLogin === /login` as definitive auth failure before observing the credentials callback and before validating whether `/now` accepted the session.
+
+Changes implemented:
+
+* Added safe `waitForCredentialsCallbackStatus` helper.
+* Added `SAFE_E2E_CREDENTIALS_CALLBACK_STATUS`.
+* Kept output limited to status/pathname/coarse diagnostics.
+* Changed the test to observe the credentials callback, then navigate to `/now` and let the app/middleware prove whether auth state exists.
+* Did not change product auth logic, app routes, schema, DB helpers, or UI.
+
+Test/list status:
+
+```text
+PLAYWRIGHT_LIST_PASSED
+```
+
+Authenticated run status:
+
+```text
+IMPLEMENTED_NEEDS_HUMAN_RUN
+```
+
+Codex environment check:
+
+```text
+BEXAURI_E2E_BASE_URL present: false
+BEXAURI_E2E_STUDENT_EMAIL present: false
+BEXAURI_E2E_STUDENT_PASSWORD present: false
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_5_FIX_SYNTHETIC_LOGIN_AUTOMATION.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-6 - Run corrected readonly student Playwright check with private env
+```
+
+Validation:
+
+* `npm.cmd run test:e2e:pilot:readonly -- --list` passed.
+* `npm.cmd --prefix nextjs_space run build` passed.
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+
+Non-goals:
+
+* No product auth change, app code change outside tests, authenticated Codex-run, password/hash/env/DB URL/host/provider/token/cookie/header/storage printing, `.env` inspection, screenshots/videos/traces/test-results commit, human browser profile/session/cookie use, DB mutation, StudyLoad start/open/response/complete, admin evidence, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_5_LOGIN_AUTOMATION_WAIT_FIXED
+```
