@@ -27712,3 +27712,102 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2_DB_BACKED_LOCAL_FIXTURE_PLAN_DEFINED
 ```
+
+---
+
+## 2026-05-27 - MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-VALIDATION-2B
+
+Phase:
+
+```text
+MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-VALIDATION-2B - Define fixture script/readiness protocol
+```
+
+Type:
+
+```text
+Documentation/readiness only / future local-dev DB fixture protocol / no DB execution.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = f33a491
+```
+
+Docs read:
+
+* `PHASE_LOG.md` recent L1 chain through `f33a491`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2_PLAN_CONTROLLED_DB_BACKED_LOCAL_FIXTURE_VALIDATION.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_1_SAFE_INTERNAL_VALIDATION_PATH.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_IMPLEMENTATION_1A_REVIEW_AND_VALIDATION_PATH.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_TUTORING_BLUEPRINT_1_CREATE_PAES_L1_BLUEPRINT.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_IMPLEMENTATION_READINESS_3_REVIEW_NARROW_INTERNAL_CODE_READINESS.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only inspections performed:
+
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/scripts`.
+* `nextjs_space/scripts/safe-seed.ts`.
+* `nextjs_space/app/api/study-loads/[id]/start/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/lib/study-load-content.ts`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2B_FIXTURE_SCRIPT_READINESS_PROTOCOL.md`.
+
+Summary:
+
+* Converted the `INTERNAL-VALIDATION-2` DB-backed local fixture plan into an execution-safe readiness protocol.
+* Defined the preferred future approach as a narrow local-only PAES_L1 fixture script with `dry-run`, `apply`, `cleanup`, and optional `status` modes.
+* Defined local/dev target confirmation rules that prohibit printing raw `DATABASE_URL`, `PROD_DATABASE_URL`, env values, secrets, tokens, cookies, headers, passwords, or backups.
+* Defined exact fixture naming with `L1_VALIDATION_FIXTURE_<runId>`.
+* Defined expected future fixture entities and relation chain: `User`, `Student`, `StudentAccess`, `Program` `PAES_L1` preferably located if present, `StudentProgramInstance`, `LearningCycle`, pending `StudyLoad`, with `TutoringSession` created by start flow and `Response` rows created by submission/completion flows.
+* Defined StudyLoad title/content matching rules, collision stops, created-id scratch recording, cleanup order, partial-failure handling, cleanup-failure handling, verification gates, no-go criteria, and future validation assertions.
+
+Decision:
+
+```text
+Use a separate future implementation phase for a narrow local-only L1 validation fixture script before DB-backed execution.
+```
+
+Recommended next phase:
+
+```text
+MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-VALIDATION-2D - Implement local-only L1 validation fixture script
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and the 2B strategy document changed.
+
+Non-goals:
+
+* No app code changed.
+* No tests changed.
+* No fixture script created.
+* No DB, Prisma, SQL, seed, migration, db push, reset, studio, generate, browser/runtime, deploy, staging, or production activity.
+* No DB rows created, updated, or deleted.
+* No StudyLoad, User, Student, StudentAccess, Program, StudentProgramInstance, LearningCycle, TutoringSession, Response, or other row created.
+* No secrets, raw env values, database URLs, tokens, cookies, headers, passwords, or backups inspected.
+* No student/product use approved.
+* No PAES_L1 readiness declared.
+* No Sales-Ready declared.
+* No L1 continuity added.
+* No admin/tutor review gate created.
+
+Result marker:
+
+```text
+MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2B_FIXTURE_PROTOCOL_DEFINED
+```
