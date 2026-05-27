@@ -28846,3 +28846,111 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_1A_BLOCKED_BEFORE_EXECUTION
 ```
+
+---
+
+## MVP-SALES-PILOT-DRY-RUN-1B - Establish safe local/dev target confirmation and fixture setup protocol
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Documentation/protocol/readiness only / safe local-dev target confirmation / fixture setup protocol / no execution.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = f2c63d7
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`.
+* `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1A_AUDIT_NOW_FOR_NARROWED_M1_FIRST_PILOT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1B_DESIGN_M1_FIRST_NOW_COPY_AND_STRUCTURE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1A_EXECUTE_CONTROLLED_LOCAL_DEV_M1_FIRST_DRY_RUN.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* Relevant prior target-confirmation, DB application, no-secret, safe-seed, and fixture-readiness docs found by focused search.
+
+Read-only inspections performed:
+
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/scripts` file listing.
+* `nextjs_space/scripts/safe-seed.ts`.
+* `nextjs_space/package.json`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1B_SAFE_LOCAL_DEV_TARGET_CONFIRMATION_AND_FIXTURE_SETUP_PROTOCOL.md`.
+
+Blocker addressed:
+
+```text
+TARGET_CONFIRMATION_FAILED_SAFE_STOP
+DRY_RUN_NO_GO
+NO_GO_FIX_BLOCKERS
+```
+
+Target confirmation protocol summary:
+
+* Future execution must use explicit non-secret operator confirmation and target class `LOCAL_DEV_CONFIRMED`.
+* Raw env values, `DATABASE_URL`, `PROD_DATABASE_URL`, connection string fragments, credentials, tokens, cookies, headers, provider secret values, and secret screenshots remain forbidden.
+* Historical non-secret target labels can inform context but do not replace current-session operator confirmation.
+* If local/dev cannot be confirmed without secrets, future execution must stop.
+
+Fixture setup protocol summary:
+
+* Prefer existing safe synthetic local/dev fixture accounts.
+* Prefer app UI/API flows where possible.
+* If needed, use a narrow local/dev-only setup helper/script in a separate authorized phase.
+* Avoid direct manual DB editing as normal workflow.
+* Use participant codes only: `PILOT_M1_001`, `PILOT_M1_002`, `PILOT_M1_003`.
+* Candidate StudyLoad remains `PAES M1 - Entrada balanceada inicial` / `paes_m1_balanced_entry_initial`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-1C - Prepare local/dev fixture setup for M1 dry-run
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and the new DRY-RUN-1B protocol document changed.
+* No tests/build required because this is documentation/protocol only.
+
+Non-goals:
+
+* No code, tests, scripts, schema, package files, DB, Prisma, SQL, migrations, db push, db pull, seed, reset, studio, generate, runtime, browser, staging/prod, env/secret inspection, raw DB URL printing, fixture creation, users/students/access/enrollment/cycle/StudyLoad/session/response creation, real student data, payment activation, trial activation, pilot execution, product/student approval, PAES_L1 readiness, PAES_M2 readiness, or Sales-Ready declaration.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_1B_TARGET_CONFIRMATION_PROTOCOL_DEFINED
+```
