@@ -17,11 +17,43 @@ If any document, memory, phase log entry, or handoff contradicts Git preflight, 
 
 ## Latest verified baseline
 
-* HEAD = origin/main = `b082e10`
-* Last accepted commit = `MVP-SALES-READY-ROADMAP-1A: align active compass`
+* HEAD = origin/main = origin/HEAD = `aaa6742`
+* Last accepted commit = `MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-VALIDATION-2B: define fixture readiness protocol`
 * Working tree expected: clean
 
-`MVP-SALES-READY-ROADMAP-1A` is closed and accepted at `b082e10`.
+`MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-VALIDATION-2B` is closed and accepted at `aaa6742`.
+
+## External audit redirect - 2026-05-27
+
+External audit verdict: `NO_LISTO` for closed 3-student pilot.
+
+Main correction: do not continue the isolated L1 validation chain automatically.
+
+New first milestone:
+
+```text
+MVP-SALES-PILOT-MILESTONE-1 - Closed 3-student vertical pilot skeleton
+```
+
+Current recommended next phase:
+
+```text
+MVP-SALES-PILOT-SCOPE-1 - Lock closed 3-student pilot scope and first vertical milestone
+```
+
+Current program posture:
+
+```text
+L1 = INTERNAL_ONLY_NOT_READY
+M1 = PARTIAL_BUT_REAL
+M2 = NOT_EVIDENCED_NOT_READY
+```
+
+`/now` multi-program behavior and access/payment/trial remain blockers.
+
+Validation phases must directly unblock the vertical milestone.
+
+Historical note: `MVP-SALES-AUTH-1A` was the previously recommended immediate phase before this audit redirect. It remains useful roadmap context, but it is no longer the immediate next phase.
 
 ## Current target
 
@@ -68,7 +100,7 @@ Sales-ready roadmap and self-serve commercial flow.
 
 Current next recommended roadmap phase:
 
-`MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`
+`MVP-SALES-PILOT-SCOPE-1 - Lock closed 3-student pilot scope and first vertical milestone`
 
 ## Block 7 pedagogical anchor
 
@@ -110,14 +142,14 @@ Future Block 7 work must read the anchor and the SRA docs before proposing L1/M1
 
 ## Next recommended phase
 
-`MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`
+`MVP-SALES-PILOT-SCOPE-1 - Lock closed 3-student pilot scope and first vertical milestone`
 
 Gate:
 
-* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Roadmap block: 10 - Internal pilot and sales-ready go/no-go, with dependencies on blocks 4, 5, 7, 8, and 9.
 * Sales-ready relevance: direct/high.
-* Dependency: `MVP-SALES-READY-ROADMAP-1` closed at `db526f0`.
-* What it advances: first blocker toward student self-serve entry.
-* What it does not advance: billing/trial/enrollment yet.
-* Priority verdict: `APPROVED_NEXT_PHASE`.
+* Dependency: external audit redirect accepted.
+* What it advances: first vertical milestone for 3-student closed pilot.
+* What it does not advance: implementation of `/now`, access/payment, content, or pilot execution.
+* Priority verdict: `APPROVED_NEXT_PHASE_AFTER_AUDIT_REDIRECT`.
 * Authorization status: not yet authorized until Mauricio says adelante.

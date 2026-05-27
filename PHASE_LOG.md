@@ -27811,3 +27811,65 @@ Result marker:
 ```text
 MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2B_FIXTURE_PROTOCOL_DEFINED
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-PILOT-EXTERNAL-AUDIT-1
+
+Phase:
+
+```text
+MVP-SALES-PILOT-EXTERNAL-AUDIT-1 - Integrate external audit redirect and roadmap update
+```
+
+Type:
+
+```text
+Documentation/roadmap/custody only / external audit integration / no implementation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = aaa6742
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2B_FIXTURE_SCRIPT_READINESS_PROTOCOL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_STUDYLOAD_INTERNAL_VALIDATION_2_PLAN_CONTROLLED_DB_BACKED_LOCAL_FIXTURE_VALIDATION.md`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+
+Summary:
+
+* Integrated external audit verdict `NO_LISTO`.
+* Paused automatic L1 validation chain as next default.
+* Defined `MVP-SALES-PILOT-MILESTONE-1`.
+* Updated immediate next phase to `MVP-SALES-PILOT-SCOPE-1`.
+* Added validation budget rule.
+
+Non-goals:
+
+* No code, tests, DB, Prisma, SQL, runtime, staging/prod, payment activation, pilot execution, product approval, L1 readiness, or Sales-Ready.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_EXTERNAL_AUDIT_1_REDIRECT_ACCEPTED
+```

@@ -14,6 +14,30 @@ READY_FOR_PHASED_EXECUTION
 
 Git preflight remains the live truth for current HEAD and working tree state.
 
+## External audit redirect and first milestone
+
+External audit verdict:
+
+```text
+NO_LISTO
+```
+
+New immediate operating target:
+
+```text
+MVP-SALES-PILOT-MILESTONE-1 - Closed 3-student vertical pilot skeleton
+```
+
+The roadmap remains L1/M1/M2-capable and sales-ready oriented, but the next path is to close or explicitly narrow the first controlled vertical milestone.
+
+Short roadmap to the first milestone:
+
+1. `MVP-SALES-PILOT-SCOPE-1`
+2. `MVP-SALES-CONTENT-TRIAD-1`
+3. `MVP-SALES-NOW-1A/1B/1C`
+4. `MVP-SALES-TRIAL-ACCESS-SANDBOX-1`
+5. `MVP-SALES-PILOT-DRY-RUN-1`
+
 ## Roadmap source note
 
 This roadmap is based on:
@@ -46,16 +70,16 @@ Content-route phases must not begin as blank-slate content writing. Future Block
 
 ## Current next recommended phase
 
-`MVP-SALES-AUTH-1A - Audit current signup/login/student bootstrap`
+`MVP-SALES-PILOT-SCOPE-1 - Lock closed 3-student pilot scope and first vertical milestone`
 
 Gate:
 
-* Roadmap block: 1 - Self-serve student registration/account bootstrap.
+* Roadmap block: 10 - Internal pilot and sales-ready go/no-go.
 * Sales-ready relevance: direct/high.
-* Dependency: `MVP-SALES-READY-ROADMAP-1` closed at `db526f0`.
-* What it advances: first blocker toward student self-serve entry.
-* What it does not advance: billing/trial/enrollment yet.
-* Priority verdict: `APPROVED_NEXT_PHASE`.
+* Dependency: external audit redirect accepted.
+* What it advances: first vertical milestone for 3-student closed pilot.
+* What it does not advance: implementation of `/now`, access/payment, content, or pilot execution.
+* Priority verdict: `APPROVED_NEXT_PHASE_AFTER_AUDIT_REDIRECT`.
 * Authorization status: not yet authorized until Mauricio says adelante.
 
 ## Staging fixture status
