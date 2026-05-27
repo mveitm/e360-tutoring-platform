@@ -28066,3 +28066,106 @@ Result marker:
 ```text
 MVP_SALES_PILOT_ACCESS_1_BOUNDARY_DEFINED
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-PILOT-ACCESS-2
+
+Phase:
+
+```text
+MVP-SALES-PILOT-ACCESS-2 - Design minimal closed-pilot access register/admin surface
+```
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Documentation/design/custody only / no implementation / no runtime / no DB.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 530002a
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/operations/STUDENT_ACCESS_TRANSITION_MODEL_READINESS.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_MUTATION_ENDPOINT_READINESS.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_BLOCK_CLOSEOUT.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+
+Read-only inspections performed:
+
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/lib/student-access-validation.ts`.
+* `nextjs_space/lib/student-access-admin-reaffirm.ts`.
+* `nextjs_space/app/api/signup/route.ts`.
+* `nextjs_space/app/api/admin/students/[id]/access-transitions/route.ts`.
+* `nextjs_space/app/api/students/[id]/route.ts`.
+* `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+* `nextjs_space/app/now/page.tsx`.
+* Read-only searches for StudentAccess, access transitions, trial, payment, sandbox, auth, signup, closed lab, register, admin surface, consent, and support references.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md`.
+
+Source-of-truth decision:
+
+```text
+HYBRID_TEMPLATE_NOW_ADMIN_SURFACE_NEXT
+```
+
+Access register/admin surface summary:
+
+* Defined a versioned access register template with no real student data.
+* Required the real register instance to remain private and non-committed.
+* Defined participant-code based handling for the 3 controlled M1-first pilot students.
+* Defined privacy rules prohibiting real names, emails, phone numbers, RUTs, payment evidence, sensitive notes, support notes, credentials, or secrets in repo.
+* Confirmed current StudentAccess/admin state is useful but insufficient as the full closed-pilot source of truth.
+* Defined a future minimal admin surface concept for access status, pilot/program scope, account state, first StudyLoad state, evidence/review state, support status, coarse payment status, and go/no-go state.
+* Preserved no-payment closed controlled lab posture and deferred trial, payment, subscription, runtime enforcement, and L1/M2 activation.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-ACCESS-3 - Create closed-pilot access register template and implementation readiness for admin surface
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md` changed.
+* No tests/build required or allowed.
+
+Non-goals:
+
+* No code, tests, Prisma schema, package files, DB, SQL, Prisma, fixtures, students, StudentAccess rows, StudyLoad rows, trial activation, payment activation, subscription state, payment reconciliation, real access register with private data, private student data committed, browser/runtime, staging/prod, env/secrets inspection, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_ACCESS_2_SOURCE_OF_TRUTH_DESIGNED
+```
