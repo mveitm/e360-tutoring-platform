@@ -28568,3 +28568,148 @@ Result marker:
 ```text
 MVP_SALES_NOW_PILOT_1C_NOW_M1_PILOT_COPY_IMPLEMENTED
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-PILOT-DRY-RUN-0
+
+Phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-0 - Prepare closed M1-first pilot dry-run plan
+```
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Documentation/planning/custody only / no execution / no runtime / no DB.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = ffc16e4
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`.
+* `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1A_AUDIT_NOW_FOR_NARROWED_M1_FIRST_PILOT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1B_DESIGN_M1_FIRST_NOW_COPY_AND_STRUCTURE.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* Focused read-only searches for prior M1 dry-runs, staging smoke, StudyLoad evidence, admin evidence, signup, access, and pilot go/no-go.
+
+Read-only inspections performed:
+
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/start/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+* `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+
+Dry-run type decision:
+
+```text
+PLANNED_TWO_STEP_LOCAL_THEN_STAGING_DRY_RUN
+```
+
+Participant model:
+
+```text
+PILOT_M1_001
+PILOT_M1_002
+PILOT_M1_003
+```
+
+Only participant codes may appear in repo-visible materials. Real contact details, consent details, payment evidence, support notes, credentials, and private student data remain private and non-committed.
+
+Candidate M1 StudyLoad recommendation:
+
+```text
+Primary: PAES M1 — Entrada balanceada inicial
+Content key: paes_m1_balanced_entry_initial
+```
+
+Rationale: existing registry-backed M1 content, short 4-item MC path, entry-oriented, exercises start/activity/response/evidence/completion/self-report/admin-review path, no L1/M2 activation.
+
+Evidence checklist summary:
+
+* `/now` observation without private data.
+* Closed PAES M1 pilot copy visible.
+* Pending StudyLoad visible.
+* StudyLoad start transition observed.
+* MC submission persisted with item/summary evidence.
+* Self-report/completion recorded.
+* Completed work visible to student.
+* Admin/tutor evidence surface shows MC and self-report evidence.
+* No L1/M2, payment/trial/subscription, public launch, score, mastery/theta, adaptive AI, complete coverage, or guaranteed improvement implication.
+
+Go/no-go criteria summary:
+
+```text
+GO_FOR_INTERNAL_CONTROLLED_M1_PILOT
+NO_GO_FIX_BLOCKERS
+NARROW_SCOPE_FURTHER
+```
+
+GO requires the participant-coded or fixture-equivalent path to complete safely, evidence to be captured and reviewable, the private register to remain consistent, support/failure status to be recorded, and no forbidden scope or readiness claims.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-1A - Execute controlled local/dev M1-first dry-run
+```
+
+If the future execution prompt cannot safely authorize data setup, replace it with:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-1A - Prepare execution fixtures for controlled M1-first dry-run
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md` changed.
+* No tests/build required or allowed.
+
+Non-goals:
+
+* No code, tests, Prisma schema, package files, DB, SQL, Prisma, fixtures, users, students, StudentAccess rows, enrollments, LearningCycles, StudyLoad rows, sessions, responses, trial activation, payment activation, subscription state, payment reconciliation, browser/runtime/dev server, staging/prod, env/secrets inspection, real student data committed, real access register instance created or committed, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready declaration, or pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_0_PLAN_DEFINED
+```
