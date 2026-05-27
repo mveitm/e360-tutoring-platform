@@ -69,20 +69,74 @@ function EmptyState({ message }: { message: string }) {
   )
 }
 
+const PILOT_SUPPORT_COPY =
+  'Si esperabas una actividad para este piloto, avisa al equipo de Bexauri para revisar tu acceso o tu carga asignada.'
+
+function PilotStatusCard({
+  variant = 'm1',
+}: {
+  variant?: 'm1' | 'pending' | 'other'
+}) {
+  const isM1 = variant === 'm1'
+  const isPending = variant === 'pending'
+
+  return (
+    <Card className="mb-4">
+      <CardHeader className="pb-2">
+        <p className="text-xs uppercase tracking-wide text-muted-foreground">Piloto cerrado</p>
+        <CardTitle className="text-lg">
+          {isM1 || isPending ? 'Piloto cerrado PAES M1' : 'Piloto cerrado Bexauri'}
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-2 pt-0 text-sm text-muted-foreground">
+        <p>
+          {isPending
+            ? 'Esta vista corresponde a una prueba controlada de Bexauri para trabajar actividades de Matemática M1. Tu cuenta todavía debe quedar asociada al piloto para mostrar actividades.'
+            : isM1
+              ? 'Estás participando en una prueba controlada de Bexauri para trabajar actividades de Matemática M1. No es una venta pública ni un plan pagado.'
+              : 'Esta vista está preparada para el piloto cerrado PAES M1. Si esperabas participar en M1 y ves otro programa, avisa al equipo de Bexauri.'}
+        </p>
+        {(isM1 || isPending) && (
+          <p>
+            En este piloto trabajaremos solo PAES M1. Competencia Lectora L1 y Matemática M2 no están activas en esta prueba.
+          </p>
+        )}
+        <p>Este piloto no es una prueba abierta y no activa pago ni plan comercial.</p>
+      </CardContent>
+    </Card>
+  )
+}
+
+function PilotBoundaryNote() {
+  return (
+    <Card className="mt-6 border-muted bg-muted/30">
+      <CardContent className="space-y-2 py-4 text-xs text-muted-foreground">
+        <p>
+          Alcance de esta prueba: solo actividades PAES M1 en un piloto cerrado. L1 y M2 no están activas aquí.
+        </p>
+        <p>
+          Tu trabajo queda guardado como evidencia para revisión. No representa una medición completa de tu preparación.
+        </p>
+        <p>{PILOT_SUPPORT_COPY}</p>
+      </CardContent>
+    </Card>
+  )
+}
+
 function PendingProgramState() {
   return (
     <Card>
       <CardContent className="space-y-3 py-10 text-center">
-        <p className="text-sm font-semibold">Tu cuenta esta lista.</p>
+        <p className="text-sm font-semibold">Tu cuenta está lista.</p>
         <p className="text-sm text-muted-foreground">
-          Todavia no tienes un programa activo.
+          Todavía no tienes activo el piloto cerrado PAES M1.
         </p>
         <p className="text-sm text-muted-foreground">
-          Estamos preparando o revisando la activacion de tu tutoria. Cuando este lista,
-          aqui apareceran tus proximas actividades.
+          Estamos preparando o revisando la activación de tu tutoría. Cuando esté lista,
+          aquí aparecerán tus próximas actividades M1.
         </p>
         <p className="text-xs text-muted-foreground">
-          Por ahora no tienes actividades asignadas. Puedes volver mas tarde.
+          {PILOT_SUPPORT_COPY}
         </p>
       </CardContent>
     </Card>
@@ -109,6 +163,7 @@ export default async function NowPage() {
     return (
       <Shell>
         <Heading />
+        <PilotStatusCard variant="pending" />
         <PendingProgramState />
         {isAdminSession && (
           <div className="mt-6 text-center">
@@ -136,6 +191,7 @@ export default async function NowPage() {
     return (
       <Shell>
         <Heading />
+        <PilotStatusCard variant="pending" />
         <PendingProgramState />
         {isAdminSession && (
           <div className="mt-6 text-center">
@@ -156,10 +212,13 @@ export default async function NowPage() {
       })
     : null
 
+  const isM1PilotProgram = enrollment.program.code === 'PAES_M1'
+
   if (!cycle || cycle.status !== 'open') {
     return (
       <Shell>
         <Heading />
+        <PilotStatusCard variant={isM1PilotProgram ? 'm1' : 'other'} />
         <Card className="mb-4">
           <CardHeader className="pb-2">
             <p className="text-xs uppercase tracking-wide text-muted-foreground">Programa</p>
@@ -167,7 +226,10 @@ export default async function NowPage() {
             <p className="text-sm text-muted-foreground">{enrollment.program.name}</p>
           </CardHeader>
         </Card>
-        <EmptyState message="Aún no hay un ciclo abierto. Completa tu diagnóstico para empezar." />
+        <EmptyState message={isM1PilotProgram
+          ? `Aún no hay una actividad M1 abierta para este piloto. ${PILOT_SUPPORT_COPY}`
+          : `Esta cuenta tiene un programa activo, pero esta fase solo prepara el piloto PAES M1. ${PILOT_SUPPORT_COPY}`
+        } />
         {isAdminSession && (
           <div className="mt-6 text-center">
             <Link href="/admin" className="text-xs text-muted-foreground underline-offset-4 hover:underline">
@@ -241,6 +303,8 @@ export default async function NowPage() {
     <Shell>
       <Heading />
 
+      <PilotStatusCard variant={isM1PilotProgram ? 'm1' : 'other'} />
+
       <Card className="mb-4">
         <CardHeader className="pb-2">
           <p className="text-xs uppercase tracking-wide text-muted-foreground">Programa</p>
@@ -257,19 +321,21 @@ export default async function NowPage() {
       <Card className="mb-6">
         <CardHeader className="pb-2">
           <p className="text-xs uppercase tracking-wide text-muted-foreground">Próxima actividad</p>
-          <CardTitle className="text-lg">Tu actividad lista para trabajar</CardTitle>
+          <CardTitle className="text-lg">
+            {isM1PilotProgram ? 'Tu próxima actividad M1' : 'Tu actividad lista para trabajar'}
+          </CardTitle>
         </CardHeader>
         <CardContent className="pt-0">
           <ol className="list-decimal space-y-1 pl-4 text-sm text-muted-foreground">
-            <li>Revisa la actividad disponible.</li>
+            <li>{isM1PilotProgram ? 'Revisa la actividad M1 disponible.' : 'Revisa la actividad disponible.'}</li>
             <li>Presiona Empezar cuando vayas a trabajar.</li>
             <li>La actividad se abrirá para responder los ejercicios.</li>
-            <li>Guarda tu avance cuando completes la actividad.</li>
+            <li>Tus respuestas quedarán guardadas como evidencia de trabajo.</li>
           </ol>
         </CardContent>
       </Card>
       {!hasActiveLoads && !hasHistory ? (
-        <EmptyState message="Tu ciclo está al día. Pronto recibirás nueva carga." />
+        <EmptyState message={`No tienes una actividad M1 disponible en este momento. ${PILOT_SUPPORT_COPY}`} />
       ) : (
         <div className="space-y-6">
           {pendingLoads.length > 0 && (
@@ -278,7 +344,7 @@ export default async function NowPage() {
                 Cargas pendientes ({pendingLoads.length})
               </h2>
               <p className="text-xs text-muted-foreground">
-                Presiona «Empezar» cuando estés listo para abrir la actividad.
+                Abre la actividad cuando estés listo. Tus respuestas quedarán guardadas como evidencia de trabajo.
               </p>
               <ul className="space-y-3">
                 {pendingLoads.map((load: any) => {
@@ -321,7 +387,7 @@ export default async function NowPage() {
                 En curso ({inProgressLoads.length})
               </h2>
               <p className="text-xs text-muted-foreground">
-                Continúa tu actividad y registra tu cierre cuando hayas terminado.
+                Continúa tu actividad y ciérrala cuando termines. Si ya enviaste respuestas, falta tu autorreporte.
               </p>
               <ul className="space-y-3">
                 {inProgressLoads.map((load: any) => {
@@ -383,10 +449,10 @@ export default async function NowPage() {
               <CardContent className="py-10 text-center">
                 <h2 className="text-sm font-semibold mb-2">Actividad registrada</h2>
                 <p className="text-sm text-muted-foreground">
-                  Tu avance quedó guardado. Estamos preparando tu siguiente paso y tu tutor podrá revisar la evidencia si corresponde.
+                  Tu última actividad quedó registrada. Estamos revisando el siguiente paso del piloto M1.
                 </p>
                 <p className="mt-4 text-xs text-muted-foreground">
-                  Mientras tanto, puedes revisar tus actividades registradas.
+                  Mientras tanto, puedes revisar tus actividades registradas. {PILOT_SUPPORT_COPY}
                 </p>
               </CardContent>
             </Card>
@@ -397,6 +463,9 @@ export default async function NowPage() {
               <h2 className="text-sm font-medium text-muted-foreground">
                 Actividades registradas ({completedLoads.length})
               </h2>
+              <p className="text-xs text-muted-foreground">
+                Tu trabajo queda guardado como evidencia para revisión. No representa una medición completa de tu preparación.
+              </p>
               <ul className="space-y-3">
                 {completedLoads.map((load: any) => {
                   const completedSession = load.tutoringSessions.find((session: any) => session.status === 'completed')
@@ -437,6 +506,8 @@ export default async function NowPage() {
           )}
         </div>
       )}
+
+      <PilotBoundaryNote />
 
       {isAdminSession && (
         <div className="mt-8 text-center">

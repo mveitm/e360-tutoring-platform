@@ -28480,3 +28480,91 @@ Result marker:
 ```text
 MVP_SALES_NOW_PILOT_1B_NOW_COPY_STRUCTURE_DESIGNED
 ```
+
+---
+
+## MVP-SALES-NOW-PILOT-1C - Implement narrowed M1-first `/now` pilot adjustments
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Narrow implementation / `/now` copy and structure only / no DB / no runtime / no pilot execution.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = a6a0168
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`.
+* `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1A_AUDIT_NOW_FOR_NARROWED_M1_FIRST_PILOT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1B_DESIGN_M1_FIRST_NOW_COPY_AND_STRUCTURE.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only inspections performed:
+
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/page.tsx`.
+
+Implementation summary:
+
+* Added a closed-pilot orientation card to `/now` for pending, M1, and non-M1 active-program contexts without changing enrollment, cycle, or StudyLoad queries.
+* Added coarse closed-pilot copy only: PAES M1, controlled Bexauri pilot, no public sale, no open/public trial posture, no payment or commercial plan activation.
+* Added explicit scope boundary copy that L1 and M2 are not active in this pilot.
+* Updated pending/no-program, no-cycle, no-load, pending, in-progress, caught-up, and completed-history copy so next action and evidence expectations are clearer.
+* Added a support/failure note using Bexauri team escalation rather than hidden DB/manual workflow language.
+* Preserved existing StudyLoad start, response, complete, and completed-history behavior.
+
+Copy/structure summary:
+
+* `/now` now identifies the pilot as `Piloto cerrado PAES M1` when M1 is the active program or the account is still pending activation.
+* `/now` avoids student-facing claims for L1/M2, payment, subscription, public launch, PAES score, mastery/theta, adaptive AI, full coverage, or guaranteed improvement.
+* Existing CTAs such as `Ver actividad`, `Empezar`, and completion flows remain unchanged.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* `npm.cmd run build` required from `nextjs_space`.
+* Confirm only `PHASE_LOG.md` and `nextjs_space/app/now/page.tsx` changed.
+
+Non-goals:
+
+* No tests, Prisma schema, package files, StudyLoad registry, StudyLoad continuity, StudyLoad API routes, auth/signup/access/payment/trial logic, DB, SQL, Prisma, fixtures, students, StudentAccess rows, enrollments, LearningCycles, StudyLoad rows, trial activation, payment activation, subscription state, browser/runtime/dev server, staging/prod, env/secrets inspection, real student data committed, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready declaration, or pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_NOW_PILOT_1C_NOW_M1_PILOT_COPY_IMPLEMENTED
+```
