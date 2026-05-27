@@ -29066,3 +29066,103 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_1C_FIXTURE_SETUP_PREPARED
 ```
+
+---
+
+## MVP-SALES-PILOT-DRY-RUN-1D - Run local/dev fixture setup plan mode with operator confirmation
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Non-mutating helper verification / documentation result / no DB / no fixture creation / no runtime.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = ea6c129
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`.
+* `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1A_AUDIT_NOW_FOR_NARROWED_M1_FIRST_PILOT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1B_DESIGN_M1_FIRST_NOW_COPY_AND_STRUCTURE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1A_EXECUTE_CONTROLLED_LOCAL_DEV_M1_FIRST_DRY_RUN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1B_SAFE_LOCAL_DEV_TARGET_CONFIRMATION_AND_FIXTURE_SETUP_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1C_LOCAL_DEV_FIXTURE_SETUP_PREPARATION.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Helper commands run:
+
+```powershell
+cd nextjs_space
+.\node_modules\.bin\tsx.cmd scripts/m1-pilot-dry-run-fixture.ts --mode help
+.\node_modules\.bin\tsx.cmd scripts/m1-pilot-dry-run-fixture.ts --mode plan --run-id 20260527T000000-local --target-class LOCAL_DEV_CONFIRMED --confirm-no-real-data --confirm-no-production --confirm-no-staging
+cd ..
+```
+
+Plan/help result:
+
+* Help mode passed and printed `NO DB CONNECTION ATTEMPTED`, `NO DATA MUTATED`, and `NO REAL STUDENT DATA`.
+* Plan mode passed with non-secret target class `LOCAL_DEV_CONFIRMED`.
+* Plan mode confirmed participant codes `PILOT_M1_001`, `PILOT_M1_002`, and `PILOT_M1_003`.
+* Plan mode confirmed synthetic `.example.invalid` emails only.
+* Plan mode confirmed candidate StudyLoad `PAES M1 - Entrada balanceada inicial` / `paes_m1_balanced_entry_initial`.
+* Plan mode printed only descriptive structure and did not inspect env, connect to DB, write files, or create data.
+
+Safety verdict:
+
+```text
+PLAN_MODE_SAFE_FOR_NEXT_FIXTURE_SETUP_PHASE
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1D_RUN_LOCAL_DEV_FIXTURE_PLAN_MODE_WITH_OPERATOR_CONFIRMATION.md`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only the two allowed documentation files changed.
+* No tests/build required because this is documentation/plan-mode verification only.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-1E - Execute local/dev fixture setup apply mode for one participant
+```
+
+Non-goals:
+
+* No code changes, tests, DB, fixture data, Prisma, SQL, browser/runtime, staging/prod, env/secrets inspection, real student data, payment activation, trial activation, pilot execution, product/student approval, PAES_L1 readiness, PAES_M2 readiness, or Sales-Ready declaration.
+* No `dry-run`, `apply`, or `cleanup` helper mode was run.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_1D_PLAN_MODE_VERIFIED
+```
