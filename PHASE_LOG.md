@@ -29913,3 +29913,68 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_1G_APPLY_NOT_RUN_DB_UNAVAILABLE
 ```
+
+---
+
+## MVP-SALES-PILOT-DRY-RUN-1H - Document human-executed local/dev fixture apply for PILOT_M1_001
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Documentation of human local/dev execution / no Codex DB command / no runtime.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 391d0d1
+```
+
+Human execution summary:
+
+* Mauricio manually ran the guarded read-only DB check in local PowerShell and observed `LOCAL_DEV_DB_AVAILABLE`, `readCheck: passed`, `NO DATA MUTATED`, and `NO SECRET VALUES PRINTED`.
+* Mauricio manually ran the helper plan mode and observed `NO DB CONNECTION ATTEMPTED`, `NO DATA MUTATED`, and `NO REAL STUDENT DATA`.
+* Mauricio manually ran guarded helper apply for `PILOT_M1_001` only.
+* Human-reported apply created/located: `user=created`, `student=created`, `studentAccess=created`, `program=located`, `enrollment=created`, `learningCycle=created`, `enrollmentCurrentCycle=updated`, and `studyLoad=created`.
+* Human-reported post-apply Git state remained clean at `391d0d1`.
+
+Data mutation summary:
+
+```text
+LOCAL_DEV_FIXTURE_CREATED_FOR_PILOT_M1_001
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1H_DOCUMENT_HUMAN_LOCAL_DEV_FIXTURE_APPLY.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-1I - Execute one-participant local/dev runtime dry-run
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1H_DOCUMENT_HUMAN_LOCAL_DEV_FIXTURE_APPLY.md` changed.
+* No tests/build/DB/runtime required or run by Codex.
+
+Non-goals:
+
+* No Codex helper apply, DB checks, DB mutation, Prisma CLI, SQL, browser/runtime, `/now`, StudyLoad start, responses, completion, staging/prod, env/secret inspection, DB URL printing, connection string printing, hostname/provider target printing, real student data, fixtures for `PILOT_M1_002` or `PILOT_M1_003`, payment/trial activation, product/student approval, Sales-Ready, or pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_1H_HUMAN_FIXTURE_APPLY_DOCUMENTED
+```
