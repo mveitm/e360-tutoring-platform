@@ -29824,3 +29824,92 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DB_LOCAL_5_CODEX_DB_STILL_UNAVAILABLE
 ```
+
+---
+
+## MVP-SALES-PILOT-DRY-RUN-1G - Retry one-participant fixture apply after local PowerShell DB availability confirmed
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Guarded local/dev fixture apply retry / stopped before apply / documentation result.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 43c52bf
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_5_RESTORE_CODEX_SESSION_LOCAL_DEV_DB_AVAILABILITY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_4_DIAGNOSE_DB_AVAILABILITY_DISCREPANCY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_3_VERIFY_LOCAL_DEV_DB_AVAILABILITY_AFTER_PRIVATE_RECOVERY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1F_FIX_FIXTURE_SETUP_BLOCKER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1E_APPLY_LOCAL_DEV_FIXTURE_FOR_ONE_PARTICIPANT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1D_RUN_LOCAL_DEV_FIXTURE_PLAN_MODE_WITH_OPERATOR_CONFIRMATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1C_LOCAL_DEV_FIXTURE_SETUP_PREPARATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only DB check result:
+
+```text
+LOCAL_DEV_DB_UNAVAILABLE
+readCheck: failed
+NO DATA MUTATED
+NO SECRET VALUES PRINTED
+```
+
+Apply result:
+
+```text
+APPLY_NOT_RUN_DB_CHECK_FAILED
+```
+
+Data mutation summary:
+
+```text
+NO_CONFIRMED_FIXTURE_DATA_CREATED
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1G_RETRY_ONE_PARTICIPANT_FIXTURE_APPLY_AFTER_DB_AVAILABLE.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DB-LOCAL-6 - Continue Codex-session DB availability diagnosis
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only allowed files changed.
+* No tests/build required or run.
+
+Non-goals:
+
+* No fixture apply, fixture cleanup, users, students, StudentAccess rows, enrollments, cycles, StudyLoads, sessions, responses, DB mutation, Prisma CLI, SQL, migrations, db push, db pull, seed, reset, studio, generate, browser/runtime/dev server, `/now`, StudyLoad start, responses, completion, admin runtime, staging/prod, deploy, env/secret inspection, DB URL printing, connection string printing, hostname/provider target printing, real student data, payment activation, trial activation, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_1G_APPLY_NOT_RUN_DB_UNAVAILABLE
+```
