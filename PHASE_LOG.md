@@ -28169,3 +28169,103 @@ Result marker:
 ```text
 MVP_SALES_PILOT_ACCESS_2_SOURCE_OF_TRUTH_DESIGNED
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-PILOT-ACCESS-3
+
+Phase:
+
+```text
+MVP-SALES-PILOT-ACCESS-3 - Create closed-pilot access register template and admin surface readiness
+```
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Documentation/template/readiness only / no implementation / no runtime / no DB.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 6c94ff9
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/operations/STUDENT_ACCESS_TRANSITION_MODEL_READINESS.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_TRANSITION_CONTRACT_READINESS.md`.
+* `nextjs_space/docs/operations/ADMIN_STUDENT_ACCESS_REAFFIRM_ENDPOINT_BLOCK_CLOSEOUT.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+
+Read-only inspections performed:
+
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/lib/student-access-validation.ts`.
+* `nextjs_space/lib/student-access-admin-reaffirm.ts`.
+* `nextjs_space/app/api/signup/route.ts`.
+* `nextjs_space/app/api/admin/students/[id]/access-transitions/route.ts`.
+* `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+* Read-only searches for StudentAccess, access transitions, trial, payment, sandbox, auth, signup, closed lab, register, admin surface, student detail, consent, and support references.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`.
+* `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md`.
+
+Source-of-truth/template decision:
+
+```text
+VERSIONED_TEMPLATE_CREATED
+PRIVATE_REGISTER_INSTANCE_REQUIRED_FOR_EXECUTION
+```
+
+Admin surface readiness decision:
+
+```text
+TEMPLATE_SUFFICIENT_FOR_DRY_RUN_ADMIN_SURFACE_BEFORE_REAL_STUDENTS
+```
+
+Recommended next phase:
+
+```text
+MVP-SALES-NOW-PILOT-1A - Audit /now for narrowed M1-first pilot experience
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md`, `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`, and `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md` changed.
+* No tests/build required or allowed.
+
+Non-goals:
+
+* No code, tests, Prisma schema, package files, DB, SQL, Prisma, fixtures, students, StudentAccess rows, StudyLoad rows, trial activation, payment activation, subscription state, payment reconciliation, real access register instance, real student data committed, names, emails, phone numbers, RUTs, payment evidence, consent records, support details, credentials, secrets, private notes, browser/runtime, staging/prod, env/secrets inspection, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_ACCESS_3_TEMPLATE_AND_ADMIN_READINESS_DEFINED
+```
