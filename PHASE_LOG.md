@@ -29557,3 +29557,92 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DB_LOCAL_2_PRIVATE_RECOVERY_RUNBOOK_DEFINED
 ```
+
+---
+
+## MVP-SALES-PILOT-DB-LOCAL-3 - Verify local/dev DB availability after private recovery
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Guarded read-only DB availability verification / documentation result / no mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = f0eae90
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_1_RESTORE_OR_CONFIRM_LOCAL_DEV_DATABASE_AVAILABILITY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_2_RESTORE_LOCAL_DEV_DB_CONNECTIVITY_RUNBOOK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1F_FIX_FIXTURE_SETUP_BLOCKER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1E_APPLY_LOCAL_DEV_FIXTURE_FOR_ONE_PARTICIPANT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1D_RUN_LOCAL_DEV_FIXTURE_PLAN_MODE_WITH_OPERATOR_CONFIRMATION.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Private recovery confirmation:
+
+```text
+LOCAL_DEV_DB_PRIVATE_RECOVERY_DONE
+```
+
+Command run:
+
+```text
+guarded read-only local-dev-db-availability-check.ts --mode check
+```
+
+DB availability result:
+
+```text
+LOCAL_DEV_DB_UNAVAILABLE
+```
+
+Data mutation summary:
+
+```text
+NO_DATA_MUTATED_READ_ONLY_CHECK_ONLY
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_3_VERIFY_LOCAL_DEV_DB_AVAILABILITY_AFTER_PRIVATE_RECOVERY.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DB-LOCAL-4 - Continue private local/dev DB recovery
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_3_VERIFY_LOCAL_DEV_DB_AVAILABILITY_AFTER_PRIVATE_RECOVERY.md` changed.
+* No tests/build required or allowed.
+
+Non-goals:
+
+* No fixture apply, fixture cleanup, users, students, StudentAccess rows, enrollments, cycles, StudyLoads, sessions, responses, DB mutation, Prisma CLI, SQL, migrations, db push, db pull, seed, reset, studio, generate, browser/runtime/dev server, `/now`, StudyLoad start, responses, completion, admin runtime, staging/prod, deploy, env/secret inspection, DB URL printing, connection string printing, host/provider target printing, real student data, payment activation, trial activation, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DB_LOCAL_3_DB_UNAVAILABLE
+```
