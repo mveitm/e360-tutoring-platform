@@ -30424,3 +30424,92 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_1I_RETRY_ONE_PARTICIPANT_RUNTIME_PASSED
 ```
+
+---
+
+## MVP-SALES-PILOT-UI-AUTOMATION-0 - Assess safe local/dev UI automation path for authenticated pilot evidence checks
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Readiness / architecture / documentation only / no harness implementation / no runtime / no DB mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 5f3756a
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_3_EXECUTE_GUARDED_SYNTHETIC_CREDENTIAL_SETUP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_2_GUARDED_SYNTHETIC_CREDENTIAL_HELPER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only inspections:
+
+* `nextjs_space/package.json`.
+* Root config/package file listing.
+* Focused e2e/test tooling search excluding dependency and env contents.
+* Focused app route listing for login, auth, signup, `/now`, admin, students, learning cycles, StudyLoads, and responses.
+* `nextjs_space/app/login/_components/login-form.tsx`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/admin/learning-cycles/[id]/_components/cycle-detail-view.tsx`.
+* `nextjs_space/app/admin/layout.tsx`.
+
+Decision:
+
+```text
+ADOPT_OPTION_B_C
+```
+
+Summary:
+
+* No authenticated e2e harness is currently present.
+* Recommend a future Playwright local/dev minimal harness for authenticated student/admin checks.
+* Use Codex/browser-style checks only for unauthenticated previews or simple visual checks if needed.
+* Do not use Mauricio's human browser profile, cookies, session, or Chrome extension/computer-use style control as the base authenticated flow.
+* Keep Mauricio's human browser fully available and independent.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_0_SAFE_LOCAL_DEV_UI_AUTOMATION_PATH.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-1 - Implement local/dev Playwright harness
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only allowed documentation files changed.
+* No build required because only documentation changed.
+
+Non-goals:
+
+* No harness implementation, package edits, npm install, browser/runtime/dev server, authenticated UI automation, user/fixture creation, DB mutation, Prisma CLI, SQL, env/secret inspection, DB URL printing, connection string printing, hostname/provider target printing, password/hash/token/cookie/header printing, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_0_SAFE_UI_AUTOMATION_PATH_DEFINED
+```
