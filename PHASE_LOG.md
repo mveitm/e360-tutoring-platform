@@ -30615,3 +30615,106 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_1_PLAYWRIGHT_HARNESS_IMPLEMENTED
 ```
+
+---
+
+## MVP-SALES-PILOT-UI-AUTOMATION-2 - Run local/dev Playwright readonly student check with private synthetic env
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Human-run local/dev Playwright readonly check / Codex-documented / no harness patch / no DB mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = c5be79b
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_1_LOCAL_DEV_PLAYWRIGHT_HARNESS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_0_SAFE_LOCAL_DEV_UI_AUTOMATION_PATH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_3_EXECUTE_GUARDED_SYNTHETIC_CREDENTIAL_SETUP.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only inspections:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+
+Execution mode:
+
+```text
+HUMAN_RUN_WITH_PRIVATE_SYNTHETIC_ENV
+```
+
+Codex environment check:
+
+```text
+BEXAURI_E2E_BASE_URL present: false
+BEXAURI_E2E_STUDENT_EMAIL present: false
+BEXAURI_E2E_STUDENT_PASSWORD present: false
+```
+
+Command result:
+
+* Codex ran `npm.cmd run test:e2e:pilot:readonly -- --list`; it listed one test and did not authenticate.
+* Mauricio ran `npm.cmd run test:e2e:pilot:readonly` locally with private env values.
+
+Test result:
+
+```text
+READONLY_STUDENT_CHECK_FAILED_BEFORE_NOW_VALIDATION
+```
+
+Safe failure summary:
+
+* test started;
+* Chromium launched;
+* no secrets printed;
+* no staging/prod touched;
+* no DB/manual mutation performed;
+* expected text `Piloto cerrado PAES M1` was not found after navigating to `/now`;
+* reported assertion category: `expect(page.getByText('Piloto cerrado PAES M1').first()).toBeVisible()` timed out.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_2_RUN_READONLY_STUDENT_CHECK.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-3 - Add safe Playwright auth-state diagnostics for readonly student check
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because only documentation changed.
+* Generated Playwright `test-results` output removed and not committed.
+
+Non-goals:
+
+* No password/hash/env/DB URL/host/provider/token/cookie/header printing, `.env` inspection, screenshots/videos/traces/test-results commit, human browser profile/session/cookie use, DB manual mutation, StudyLoad start/open/response/complete, admin evidence, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_2_READONLY_STUDENT_CHECK_FAILED_SAFE
+```
