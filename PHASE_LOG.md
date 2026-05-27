@@ -29646,3 +29646,89 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DB_LOCAL_3_DB_UNAVAILABLE
 ```
+
+---
+
+## MVP-SALES-PILOT-DB-LOCAL-4 - Diagnose local/dev DB availability discrepancy between manual and Codex sessions
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Non-secret diagnostic/readiness only / guarded read-only checks / no mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 331cec2
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_1_RESTORE_OR_CONFIRM_LOCAL_DEV_DATABASE_AVAILABILITY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_2_RESTORE_LOCAL_DEV_DB_CONNECTIVITY_RUNBOOK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_3_VERIFY_LOCAL_DEV_DB_AVAILABILITY_AFTER_PRIVATE_RECOVERY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1F_FIX_FIXTURE_SETUP_BLOCKER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1E_APPLY_LOCAL_DEV_FIXTURE_FOR_ONE_PARTICIPANT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1D_RUN_LOCAL_DEV_FIXTURE_PLAN_MODE_WITH_OPERATOR_CONFIRMATION.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Commands run:
+
+* Non-secret cwd, Node, npm, git status, helper path, `tsx.cmd`, and `.env*` filename checks.
+* Boolean-only process checks for `DATABASE_URL` and `NEXTAUTH_URL`.
+* Guarded read-only DB availability helper run three times with spacing.
+
+Repeated check results:
+
+```text
+Run 1: LOCAL_DEV_DB_UNAVAILABLE / readCheck failed / no data mutated / no secrets printed
+Run 2: LOCAL_DEV_DB_UNAVAILABLE / readCheck failed / no data mutated / no secrets printed
+Run 3: LOCAL_DEV_DB_UNAVAILABLE / readCheck failed / no data mutated / no secrets printed
+```
+
+Diagnostic verdict:
+
+```text
+DB_UNAVAILABLE_STABLE
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_4_DIAGNOSE_DB_AVAILABILITY_DISCREPANCY.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DB-LOCAL-5 - Restore Codex-session local/dev DB availability
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_4_DIAGNOSE_DB_AVAILABILITY_DISCREPANCY.md` changed.
+* No tests/build required or allowed.
+
+Non-goals:
+
+* No env value printing, `.env` content inspection, DB URL printing, connection string printing, hostname/provider target printing, fixture apply, fixture cleanup, users, students, StudentAccess rows, enrollments, cycles, StudyLoads, sessions, responses, DB mutation, Prisma CLI, SQL, migrations, db push, db pull, seed, reset, studio, generate, browser/runtime/dev server, `/now`, staging/prod, deploy, payment activation, trial activation, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DB_LOCAL_4_DB_UNAVAILABLE_STABLE
+```
