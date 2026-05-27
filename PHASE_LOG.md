@@ -29732,3 +29732,95 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DB_LOCAL_4_DB_UNAVAILABLE_STABLE
 ```
+
+---
+
+## MVP-SALES-PILOT-DB-LOCAL-5 - Restore Codex-session local/dev DB availability without exposing secrets
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Script helper safety update / guarded read-only DB availability verification / no mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = c15291f
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_1_RESTORE_OR_CONFIRM_LOCAL_DEV_DATABASE_AVAILABILITY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_2_RESTORE_LOCAL_DEV_DB_CONNECTIVITY_RUNBOOK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_3_VERIFY_LOCAL_DEV_DB_AVAILABILITY_AFTER_PRIVATE_RECOVERY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_4_DIAGNOSE_DB_AVAILABILITY_DISCREPANCY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1F_FIX_FIXTURE_SETUP_BLOCKER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1E_APPLY_LOCAL_DEV_FIXTURE_FOR_ONE_PARTICIPANT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1D_RUN_LOCAL_DEV_FIXTURE_PLAN_MODE_WITH_OPERATOR_CONFIRMATION.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Implementation summary:
+
+* Added `nextjs_space/scripts/lib/load-local-env-private.ts`.
+* Updated `nextjs_space/scripts/local-dev-db-availability-check.ts` to privately load local env before guarded Prisma Client read-only check.
+* Updated `nextjs_space/scripts/m1-pilot-dry-run-fixture.ts` to privately load local env only inside future guarded `apply` path.
+* Preserved fixture helper `help` and `plan` as non-mutating and non-DB modes.
+* No env values, DB URLs, connection strings, hostnames, provider targets, credentials, tokens, cookies, headers, or secret fragments were printed.
+
+DB availability result:
+
+```text
+LOCAL_DEV_DB_UNAVAILABLE_AFTER_PRIVATE_ENV_LOAD
+```
+
+Data mutation summary:
+
+```text
+NO_DATA_MUTATED_READ_ONLY_CHECK_ONLY
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DB_LOCAL_5_RESTORE_CODEX_SESSION_LOCAL_DEV_DB_AVAILABILITY.md`.
+* `nextjs_space/scripts/local-dev-db-availability-check.ts`.
+* `nextjs_space/scripts/m1-pilot-dry-run-fixture.ts`.
+* `nextjs_space/scripts/lib/load-local-env-private.ts`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DB-LOCAL-6 - Continue Codex-session DB env/loading diagnosis
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Guarded read-only DB availability helper required.
+* Fixture helper `help` and `plan` required.
+* Confirm only allowed files changed.
+* No tests/build required or run.
+
+Non-goals:
+
+* No `.env` value printing, `.env` content shell inspection, DB URL printing, connection string printing, hostname/provider target printing, fixture apply, fixture cleanup, users, students, StudentAccess rows, enrollments, cycles, StudyLoads, sessions, responses, DB mutation, Prisma CLI, SQL, migrations, db push, db pull, seed, reset, studio, generate, browser/runtime/dev server, `/now`, staging/prod, deploy, payment activation, trial activation, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DB_LOCAL_5_CODEX_DB_STILL_UNAVAILABLE
+```

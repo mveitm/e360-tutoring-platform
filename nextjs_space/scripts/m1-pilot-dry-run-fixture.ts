@@ -1,5 +1,7 @@
 type Mode = 'help' | 'plan' | 'dry-run' | 'apply' | 'cleanup'
 
+import { loadLocalEnvPrivate } from './lib/load-local-env-private'
+
 interface Args {
   mode: Mode
   runId?: string
@@ -228,6 +230,7 @@ async function runApply(args: Args): Promise<void> {
     fail('Candidate PAES_M1 StudyLoad content could not be resolved safely before mutation.')
   }
 
+  loadLocalEnvPrivate()
   const { PrismaClient } = await import('@prisma/client')
   const prisma = new PrismaClient()
 

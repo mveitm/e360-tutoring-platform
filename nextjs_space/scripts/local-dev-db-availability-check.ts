@@ -1,5 +1,7 @@
 type Mode = 'check'
 
+import { loadLocalEnvPrivate } from './lib/load-local-env-private'
+
 interface Args {
   mode?: string
   targetClass?: string
@@ -46,6 +48,7 @@ function assertConfirmed(args: Args): asserts args is Args & { mode: Mode } {
 }
 
 async function runReadOnlyCheck(): Promise<void> {
+  loadLocalEnvPrivate()
   const { PrismaClient } = await import('@prisma/client')
   const prisma = new PrismaClient()
 
