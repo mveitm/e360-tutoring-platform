@@ -30161,3 +30161,82 @@ Result marker:
 ```text
 MVP_SALES_PILOT_AUTH_LOCAL_1_SYNTHETIC_AUTH_PATH_DECIDED
 ```
+
+---
+
+## MVP-SALES-PILOT-AUTH-LOCAL-2 - Implement guarded synthetic credential setup helper for PILOT_M1_001
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Local/dev helper implementation / no helper apply / no DB mutation / no runtime.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 6b67480
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_1_SYNTHETIC_STUDENT_AUTH_PATH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1H_DOCUMENT_HUMAN_LOCAL_DEV_FIXTURE_APPLY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_EXECUTE_ONE_PARTICIPANT_LOCAL_DEV_RUNTIME_DRY_RUN.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only inspection:
+
+* Auth/signup/login routes and UI surfaces.
+* `nextjs_space/lib/auth-options.ts`.
+* `nextjs_space/prisma/schema.prisma`.
+* Existing local/dev helper scripts.
+* `nextjs_space/scripts/lib/load-local-env-private.ts`.
+* `nextjs_space/package.json`.
+
+Implementation summary:
+
+* Added `nextjs_space/scripts/setup-pilot-m1-synthetic-credential.ts`.
+* Helper supports non-mutating `help` and `plan` modes.
+* Future `apply` mode is guarded by `LOCAL_DEV_CONFIRMED`, exact participant/email, local/dev mutation confirmation, synthetic `.example.invalid` target, and private password env var.
+* Helper uses bcrypt cost `10`, matching signup/auth.
+* Helper lazy-loads Prisma only inside future guarded `apply`.
+* Helper does not contain or print a password/hash/DB URL/connection string/host/provider/token/cookie/header.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/scripts/setup-pilot-m1-synthetic-credential.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_2_GUARDED_SYNTHETIC_CREDENTIAL_HELPER.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-AUTH-LOCAL-3 - Execute guarded synthetic credential setup for PILOT_M1_001
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Run helper `--mode help` and `--mode plan` only.
+* No helper `apply`, DB mutation, runtime, Prisma CLI, SQL, or build required.
+
+Non-goals:
+
+* No helper apply, password reset, login, `/now`, browser/runtime, DB mutation, Prisma CLI, SQL, schema change, CredentialsProvider change, fixture creation, real data, env/secret inspection, DB URL printing, connection string printing, token/cookie/header/hash/password printing, staging/prod, payment/trial, L1/M2, product/student approval, or Sales-Ready declaration.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_AUTH_LOCAL_2_GUARDED_CREDENTIAL_HELPER_IMPLEMENTED
+```
