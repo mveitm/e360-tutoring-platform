@@ -27972,3 +27972,97 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SCOPE_1_CLOSED_3_STUDENT_SCOPE_LOCKED
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-PILOT-ACCESS-1
+
+Phase:
+
+```text
+MVP-SALES-PILOT-ACCESS-1 - Define closed-pilot access/payment/trial boundary for 3 controlled students
+```
+
+Type:
+
+```text
+Documentation/scope/custody only / no implementation / no runtime / no DB.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 6648bab
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/operations/STUDENT_ACCESS_TRANSITION_MODEL_READINESS.md`.
+* `nextjs_space/docs/operations/REDUCED_PRO_OPERATING_MODE_AND_DECISION_TIER_PROTOCOL.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_1_SOBER_CLOSED_LAB_COPY_CANDIDATES.md`.
+* `nextjs_space/docs/strategy/MVP_COMMERCIAL_COPY_2_APPROVED_INTERNAL_CLOSED_LAB_INVITATION_COPY.md`.
+
+Read-only inspections performed:
+
+* `nextjs_space/prisma/schema.prisma`.
+* `nextjs_space/lib/student-access-validation.ts`.
+* `nextjs_space/lib/student-access-admin-reaffirm.ts`.
+* `nextjs_space/app/api/signup/route.ts`.
+* `nextjs_space/app/api/admin/students/[id]/access-transitions/route.ts`.
+* `nextjs_space/app/admin/students/[id]/_components/student-detail-view.tsx`.
+* Read-only searches for StudentAccess, trial, payment, billing, subscription, sandbox, access, auth, consent, and minor/payment policy references.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+
+Access/payment/trial decision:
+
+```text
+STAGED_NO_PAYMENT_THEN_PAYMENT_SANDBOX
+```
+
+Summary:
+
+* Defined the first closed M1-first pilot as no-payment for the first vertical dry-run and initial closed pilot.
+* Confirmed StudentAccess exists but is currently a lifecycle/readiness scaffold, not an activation/enforcement system.
+* Confirmed signup creates default `no_access / none / none` StudentAccess rows.
+* Confirmed current admin access transition only reaffirms no-access and does not activate trial, payment, subscription, enrollment, or runtime access.
+* Defined the access source of truth as structured pilot access register first, with a future minimal admin surface preferred before execution.
+* Deferred manual payment to a later explicit payment sandbox.
+* Deferred public trial language, trial activation, runtime enforcement, and subscription claims.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-ACCESS-2 - Design minimal closed-pilot access register/admin surface
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md` changed.
+* No tests/build required or allowed.
+
+Non-goals:
+
+* No code, tests, Prisma schema, package files, DB, SQL, Prisma, fixtures, students, StudentAccess rows, StudyLoad rows, trial activation, payment activation, subscription state, payment reconciliation, browser/runtime, staging/prod, env/secrets inspection, product/student approval beyond future closed-pilot boundary, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_ACCESS_1_BOUNDARY_DEFINED
+```
