@@ -30326,3 +30326,101 @@ Result marker:
 ```text
 MVP_SALES_PILOT_AUTH_LOCAL_3_SYNTHETIC_CREDENTIAL_READY
 ```
+
+---
+
+## MVP-SALES-PILOT-DRY-RUN-1I-RETRY - Execute one-participant local/dev runtime dry-run after synthetic credential setup
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Human-executed local/dev runtime dry-run / Codex-documented / no code changes.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = a69622c
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_3_EXECUTE_GUARDED_SYNTHETIC_CREDENTIAL_SETUP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_2_GUARDED_SYNTHETIC_CREDENTIAL_HELPER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_EXECUTE_ONE_PARTICIPANT_LOCAL_DEV_RUNTIME_DRY_RUN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Runtime result:
+
+```text
+RUNTIME_DRY_RUN_ONE_PARTICIPANT_PASSED_WITH_ADMIN_EVIDENCE_DEFERRED
+```
+
+Execution summary:
+
+* Login successful for `PILOT_M1_001`.
+* `/now` loaded.
+* Closed PAES M1 pilot copy was visible.
+* No active L1/M2 implication observed.
+* No payment/subscription/public trial implication observed.
+* No score/mastery/theta/adaptive AI/guaranteed improvement claim observed.
+* `PAES M1 — Entrada balanceada inicial` was visible as pending.
+* Activity start/open succeeded.
+* Activity rendered.
+* Synthetic response submission succeeded.
+* Completion/self-report succeeded with `Me fue bien`.
+* Post-completion `/now` showed completed `PAES M1 — Entrada balanceada inicial`.
+* Expected automatic next M1 StudyLoad appeared as pending: `PAES M1 — Ecuaciones lineales básicas`.
+* Admin evidence was not checked.
+
+Data mutation summary:
+
+```text
+LOCAL_DEV_NORMAL_STUDENT_FLOW_MUTATIONS_ONLY
+```
+
+Go/no-go:
+
+```text
+PARTIAL_GO_FIX_ADMIN_REVIEW
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-ADMIN-EVIDENCE-1 - Verify local admin/tutor evidence for PILOT_M1_001 dry-run
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only allowed documentation files changed.
+* No build required because only docs changed.
+
+Non-goals:
+
+* No code changes, tests/build, Prisma CLI, SQL, DB reset, schema edits, staging/prod, real student data, env/secret inspection, DB URL printing, connection string printing, password/hash/token/cookie/header printing, payment/trial activation, L1/M2 readiness, Sales-Ready, admin evidence verification, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_1I_RETRY_ONE_PARTICIPANT_RUNTIME_PASSED
+```
