@@ -6,6 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test:e2e": "playwright test",
+    "test:e2e:pilot:readonly": "playwright test tests/e2e/pilot-m1-student-now-readonly.spec.ts",
     "postinstall": "prisma generate"
   },
   "prisma": {
@@ -13,6 +15,7 @@
   },
   "devDependencies": {
     "@next/swc-wasm-nodejs": "13.5.1",
+    "@playwright/test": "^1.60.0",
     "@types/bcryptjs": "2.4.6",
     "@types/jsonwebtoken": "9.0.5",
     "@types/node": "20.6.2",

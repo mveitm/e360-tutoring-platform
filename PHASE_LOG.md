@@ -30513,3 +30513,105 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_0_SAFE_UI_AUTOMATION_PATH_DEFINED
 ```
+
+---
+
+## MVP-SALES-PILOT-UI-AUTOMATION-1 - Implement local/dev Playwright harness
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Code/config/test infrastructure / local-dev Playwright harness / no authenticated test execution / no DB mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 3ca063b
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_0_SAFE_LOCAL_DEV_UI_AUTOMATION_PATH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_3_EXECUTE_GUARDED_SYNTHETIC_CREDENTIAL_SETUP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only inspections:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/tsconfig.json`.
+* Root config/package file listing.
+* Focused e2e/test tooling search excluding dependency and env contents.
+* Focused app route listing for login, auth, `/now`, admin, students, learning cycles, StudyLoads, and responses.
+
+Implementation summary:
+
+* Added `@playwright/test` as a dev dependency.
+* Added `test:e2e` and `test:e2e:pilot:readonly` scripts.
+* Added `nextjs_space/playwright.config.ts`.
+* Added `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* Added `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* Added phase documentation.
+
+Guardrails:
+
+* Requires `BEXAURI_E2E_BASE_URL`, `BEXAURI_E2E_STUDENT_EMAIL`, and `BEXAURI_E2E_STUDENT_PASSWORD`.
+* Accepts only `http://localhost:3000` or `http://127.0.0.1:<port>`.
+* Requires synthetic `.example.invalid` student email.
+* Screenshots, videos, traces, retries, and parallelism are disabled by default.
+* Initial test logs in and verifies `/now` only; it does not press mutating StudyLoad controls.
+
+Test status:
+
+```text
+NOT_RUN_REQUIRES_LOCAL_ENV
+```
+
+Reason:
+
+The authenticated test requires a private synthetic password that must not be revealed to Codex, ChatGPT, docs, commits, or logs.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/package.json`.
+* `nextjs_space/package-lock.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_1_LOCAL_DEV_PLAYWRIGHT_HARNESS.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-2 - Run local/dev Playwright readonly student check with private synthetic env
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* `playwright test tests/e2e/pilot-m1-student-now-readonly.spec.ts --list` passed without browser/login execution.
+* `npm run build` initially hit sandboxed network access while fetching Google Fonts, then passed when rerun with authorized external access.
+* Authenticated Playwright test was not run because it requires a private local synthetic password that must not be revealed.
+
+Non-goals:
+
+* No authenticated Playwright run, mutating StudyLoad test, StudyLoad start/open/response/complete, admin evidence test, browser-human session use, cookies/profile reuse, DB mutation, Prisma CLI, SQL, DB reset/manual edit, fixture creation, env/secret inspection, DB URL printing, connection string printing, hostname/provider target printing, password/hash/token/cookie/header printing, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_1_PLAYWRIGHT_HARNESS_IMPLEMENTED
+```
