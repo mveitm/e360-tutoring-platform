@@ -30078,3 +30078,86 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_1I_RUNTIME_PARTIAL_OR_BLOCKED
 ```
+
+---
+
+## MVP-SALES-PILOT-AUTH-LOCAL-1 - Decide and document synthetic student auth path for M1-first runtime dry-run
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Decision/documentation only / no auth implementation / no DB mutation / no runtime.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 5b59123
+```
+
+Context read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1H_DOCUMENT_HUMAN_LOCAL_DEV_FIXTURE_APPLY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_EXECUTE_ONE_PARTICIPANT_LOCAL_DEV_RUNTIME_DRY_RUN.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_0_PREPARE_CLOSED_M1_FIRST_DRY_RUN_PLAN.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Read-only inspection:
+
+* Auth/login/signup route and page surfaces.
+* `nextjs_space/lib/auth-options.ts`.
+* `nextjs_space/lib/prisma.ts`.
+* `nextjs_space/prisma/schema.prisma`.
+* Focused read-only inspection of `nextjs_space/scripts/m1-pilot-dry-run-fixture.ts`.
+
+Decision:
+
+```text
+USE_TWO_TRACK_SYNTHETIC_AUTH_POLICY
+```
+
+Summary:
+
+* For future vertical tests that should validate the real student-product circuit, prefer local/dev UI signup first.
+* For the existing `PILOT_M1_001` fixture, do not use signup because the app rejects duplicate `User`/`Student` emails.
+* For `PILOT_M1_001`, complete the credential on the existing synthetic `User` in a future guarded local/dev-only phase.
+* Avoid a local auth bypass route unless CredentialsProvider-based login cannot be made safe.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_AUTH_LOCAL_1_SYNTHETIC_STUDENT_AUTH_PATH.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-AUTH-LOCAL-2 - Implement guarded synthetic credential setup for PILOT_M1_001
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* Confirm only allowed markdown files changed.
+* No build required because only docs changed.
+
+Non-goals:
+
+* No auth implementation, signup execution, password reset, DB mutation, Prisma CLI, SQL, browser/runtime, `/now`, StudyLoad start, responses, completion, staging/prod, env/secret inspection, DB URL printing, connection string printing, token/cookie/header/hash/password printing, real student data, payment/trial activation, product/student approval, PAES_L1 readiness, PAES_M2 readiness, or Sales-Ready declaration.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_AUTH_LOCAL_1_SYNTHETIC_AUTH_PATH_DECIDED
+```
