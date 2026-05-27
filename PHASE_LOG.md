@@ -31670,3 +31670,97 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_11_REACT_SUBMIT_REACHABILITY_DIAGNOSTICS_READY
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-PILOT-UI-AUTOMATION-12 - Run React submit reachability diagnostic with private env
+
+Type:
+
+```text
+readiness / diagnostic execution / documentation
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = e392596
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_11_DIAGNOSE_REACT_SUBMIT_HANDLER_REACHABILITY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_10_RUN_PASSWORD_ENTER_SUBMIT_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_9_FIX_E2E_LOGIN_SUBMIT_TRIGGER.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_8_RUN_SUBMIT_EVENT_DIAGNOSTIC_CHECK.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Files inspected:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+
+Execution mode:
+
+```text
+human-run with private synthetic env
+```
+
+Codex private env presence check:
+
+```text
+BEXAURI_E2E_BASE_URL present: false
+BEXAURI_E2E_STUDENT_EMAIL present: false
+BEXAURI_E2E_STUDENT_PASSWORD present: false
+```
+
+Result:
+
+```text
+DOM_SUBMIT_NOT_OBSERVED
+AUTH_NOT_ESTABLISHED_BEFORE_NOW_ASSERTIONS
+```
+
+Safe diagnostic summary:
+
+* Login form structure was present and coherent.
+* Email/password fields were filled in the Playwright context.
+* Submit button was present, type `submit`, inside the form, and enabled.
+* Password-enter submit trigger was attempted.
+* DOM submit event count was `0`.
+* No `/api/auth/*` request was observed.
+* Credentials callback was not observed.
+* Browser remained on `/login`.
+* No visible login error was observed.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_12_RUN_REACT_SUBMIT_REACHABILITY_DIAGNOSTIC.md`.
+
+Validation:
+
+* `npm.cmd run test:e2e:pilot:readonly -- --list` passed.
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-13 - Fix Playwright form submit trigger after DOM submit not observed
+```
+
+Non-goals:
+
+* No product auth change, app route/schema change, Codex authenticated run, password/hash/env/DB URL/host/provider/token/cookie/header/storage printing, `.env` inspection, screenshots/videos/traces committed, human browser profile/session/cookie use, DB mutation, Prisma CLI/SQL, StudyLoad start/open/response/complete, admin evidence, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_12_DOM_SUBMIT_NOT_OBSERVED
+```
