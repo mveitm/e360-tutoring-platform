@@ -28269,3 +28269,115 @@ Result marker:
 ```text
 MVP_SALES_PILOT_ACCESS_3_TEMPLATE_AND_ADMIN_READINESS_DEFINED
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-NOW-PILOT-1A
+
+Phase:
+
+```text
+MVP-SALES-NOW-PILOT-1A - Audit /now for narrowed M1-first pilot experience
+```
+
+Date:
+
+```text
+2026-05-27
+```
+
+Type:
+
+```text
+Audit/readiness/documentation only / no implementation / no runtime / no DB.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 72f9cb6
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_EXTERNAL_AUDIT_1_INTEGRATE_3_STUDENT_AUDIT_AND_ROADMAP_REDIRECT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCOPE_1_LOCK_CLOSED_3_STUDENT_PILOT_SCOPE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_1_CLOSED_PILOT_ACCESS_PAYMENT_TRIAL_BOUNDARY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_2_MINIMAL_CLOSED_PILOT_ACCESS_REGISTER_ADMIN_SURFACE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ACCESS_3_CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE_AND_ADMIN_SURFACE_READINESS.md`.
+* `nextjs_space/docs/operations/templates/CLOSED_PILOT_ACCESS_REGISTER_TEMPLATE.md`.
+* `nextjs_space/docs/operations/MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+* `nextjs_space/docs/product/PRODUCT_UI_BRAND_CONTEXT_SYNTHESIS.md`.
+* Read-only searches for `/now`, student journey, M1 pilot, StudyLoad continuity, dashboard, multi-program state, and student UX references.
+
+Read-only inspections performed:
+
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/lib/study-load-content.ts`.
+* `nextjs_space/lib/study-load-continuity.ts`.
+* `nextjs_space/app/api/study-loads/[id]/start/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* Read-only listing of `nextjs_space/app/api/study-loads`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1A_AUDIT_NOW_FOR_NARROWED_M1_FIRST_PILOT.md`.
+
+`/now` observed behavior summary:
+
+* `/now` resolves the authenticated student by email and selects one most-recent active enrollment.
+* `/now` uses the selected enrollment's `currentCycleId` and shows one current open cycle.
+* `/now` shows pending, in-progress, and completed StudyLoads for the current cycle.
+* Pending loads can be started; in-progress loads can be continued/finalized; completed loads remain visible with self-report evidence when present.
+* StudyLoad response and completion routes capture MC evidence and self-report evidence for an owned in-progress load.
+* `/now` shows one program code/name but does not explicitly label the experience as M1-only closed pilot.
+* `/now` does not display access, trial, payment, private register, or full triad status.
+
+M1-first fit assessment:
+
+```text
+NOW_NEEDS_COPY_OR_STRUCTURE_ADJUSTMENT_BEFORE_DRY_RUN
+```
+
+Gaps:
+
+* Need explicit M1-only closed-pilot copy/structure before human-facing dry-run.
+* Need support/failure message for unexpected no active program, no open cycle, or no active StudyLoad during the closed pilot.
+* Need decision on whether `/now` should show coarse access status from the private register or future admin surface.
+* Multi-program L1/M1/M2 dashboard remains deferred until full triad/Sales-Ready work.
+
+Recommended next phase:
+
+```text
+MVP-SALES-NOW-PILOT-1B - Design narrowed M1-first /now pilot copy and structure
+```
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Confirm only `PHASE_LOG.md` and `nextjs_space/docs/operations/MVP_SALES_NOW_PILOT_1A_AUDIT_NOW_FOR_NARROWED_M1_FIRST_PILOT.md` changed.
+* No tests/build required or allowed.
+
+Non-goals:
+
+* No code, tests, Prisma schema, package files, DB, SQL, Prisma, fixtures, users, students, enrollments, LearningCycles, StudyLoads, StudentAccess rows, responses, access rows, trial activation, payment activation, subscription state, browser/runtime, staging/prod, env/secrets inspection, real student data committed, product/student approval, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_NOW_PILOT_1A_NOW_AUDIT_COMPLETED
+```
