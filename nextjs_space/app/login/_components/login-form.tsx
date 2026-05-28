@@ -56,12 +56,14 @@ export function LoginForm({ signupSuccess = false }: { signupSuccess?: boolean }
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4" data-testid="login-form">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input
               id="email"
+              data-testid="login-email-input"
               type="email"
+              autoComplete="email"
               placeholder="admin@example.com"
               value={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
@@ -72,7 +74,9 @@ export function LoginForm({ signupSuccess = false }: { signupSuccess?: boolean }
             <Label htmlFor="password">Password</Label>
             <Input
               id="password"
+              data-testid="login-password-input"
               type="password"
+              autoComplete="current-password"
               placeholder="••••••••"
               value={password}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
@@ -87,7 +91,7 @@ export function LoginForm({ signupSuccess = false }: { signupSuccess?: boolean }
               Cuenta creada. Ingresa con tu correo y contrasena para continuar.
             </p>
           )}
-          <Button type="submit" className="w-full" disabled={loading}>
+          <Button type="submit" className="w-full" disabled={loading} data-testid="login-submit-button">
             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Ingresar
           </Button>

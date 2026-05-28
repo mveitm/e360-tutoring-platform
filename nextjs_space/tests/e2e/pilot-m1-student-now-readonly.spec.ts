@@ -21,11 +21,12 @@ test('PILOT_M1_001 can view completed and pending M1 pilot state without mutatio
 
   await page.goto(localPath(credentials.baseUrl, '/login'), { waitUntil: 'domcontentloaded' })
   await page.waitForLoadState('networkidle').catch(() => undefined)
-  const loginForm = page.locator('form').first()
-  const emailInput = page.getByLabel('Email')
-  const passwordInput = page.getByLabel('Password')
-  const submitButton = loginForm.getByRole('button', { name: 'Ingresar' })
+  const loginForm = page.getByTestId('login-form')
+  const emailInput = page.getByTestId('login-email-input')
+  const passwordInput = page.getByTestId('login-password-input')
+  const submitButton = loginForm.getByTestId('login-submit-button')
 
+  await expect(loginForm).toBeVisible()
   await expect(emailInput).toBeVisible()
   await expect(passwordInput).toBeVisible()
   await expect(submitButton).toBeVisible()
