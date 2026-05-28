@@ -2,9 +2,11 @@ import { expect, test } from '@playwright/test'
 import {
   createSafeAuthRequestRecorder,
   forbiddenClaimPatterns,
+  getSafeActiveElementCategory,
   getSafeLoginFormStructure,
   getSafeLoginFormState,
   getSafeLoginDiagnostic,
+  getSafeSubmitButtonBoxState,
   getSafeSubmitEventCount,
   getSafeVisibleHeadings,
   getStudentE2ECredentials,
@@ -19,9 +21,10 @@ test('PILOT_M1_001 can view completed and pending M1 pilot state without mutatio
 
   await page.goto(localPath(credentials.baseUrl, '/login'), { waitUntil: 'domcontentloaded' })
   await page.waitForLoadState('networkidle').catch(() => undefined)
+  const loginForm = page.locator('form').first()
   const emailInput = page.getByLabel('Email')
   const passwordInput = page.getByLabel('Password')
-  const submitButton = page.getByRole('button', { name: 'Ingresar' })
+  const submitButton = loginForm.getByRole('button', { name: 'Ingresar' })
 
   await expect(emailInput).toBeVisible()
   await expect(passwordInput).toBeVisible()
@@ -49,9 +52,13 @@ test('PILOT_M1_001 can view completed and pending M1 pilot state without mutatio
   const authRequestRecorder = createSafeAuthRequestRecorder(page)
   const credentialsCallbackStatus = waitForCredentialsCallbackStatus(page)
   await expect(submitButton).toBeEnabled()
-  await passwordInput.focus()
-  await passwordInput.press('Enter')
-  console.log('SAFE_E2E_LOGIN_SUBMIT_TRIGGER: password-enter')
+  await submitButton.scrollIntoViewIfNeeded()
+  await submitButton.focus()
+  console.log(`SAFE_E2E_ACTIVE_ELEMENT_BEFORE_SUBMIT: ${await getSafeActiveElementCategory(page)}`)
+  console.log(`SAFE_E2E_SUBMIT_BUTTON_BOX_VISIBLE: ${(await getSafeSubmitButtonBoxState(page)).visibleBox ? 'yes' : 'no'}`)
+  await submitButton.click()
+  console.log('SAFE_E2E_LOGIN_SUBMIT_TRIGGER: form-submit-button-click')
+  console.log('SAFE_E2E_SUBMIT_BUTTON_RECEIVES_CLICK: attempted')
   console.log('SAFE_E2E_LOGIN_SUBMIT_ATTEMPTED: yes')
 
   const callbackStatus = await credentialsCallbackStatus

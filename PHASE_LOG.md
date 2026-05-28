@@ -31764,3 +31764,100 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_12_DOM_SUBMIT_NOT_OBSERVED
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-PILOT-UI-AUTOMATION-13 - Fix Playwright form submit trigger after DOM submit not observed
+
+Type:
+
+```text
+Local/dev Playwright E2E harness submit trigger fix / no product auth change / no authenticated Codex-run.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = f6ca38c
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_12_RUN_REACT_SUBMIT_REACHABILITY_DIAGNOSTIC.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_11_DIAGNOSE_REACT_SUBMIT_HANDLER_REACHABILITY.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_10_RUN_PASSWORD_ENTER_SUBMIT_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_9_FIX_E2E_LOGIN_SUBMIT_TRIGGER.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Files inspected:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/app/login/_components/login-form.tsx`.
+* `nextjs_space/app/login/page.tsx`.
+* `nextjs_space/app/api/auth/[...nextauth]/route.ts`.
+* `nextjs_space/lib/auth-options.ts`.
+
+Inherited result:
+
+```text
+DOM_SUBMIT_NOT_OBSERVED
+AUTH_NOT_ESTABLISHED_BEFORE_NOW_ASSERTIONS
+```
+
+Fix summary:
+
+* Updated only E2E harness files.
+* Scoped submit button locator to the login form.
+* Changed primary submit trigger from `password-enter` to real click on the form submit button.
+* Added safe markers for active element category and submit button visible box.
+* Preserved DOM submit event, sanitized auth request, credentials callback, and path diagnostics.
+
+Authenticated run status:
+
+```text
+IMPLEMENTED_NEEDS_HUMAN_RUN
+```
+
+Codex environment check:
+
+```text
+BEXAURI_E2E_BASE_URL present: false
+BEXAURI_E2E_STUDENT_EMAIL present: false
+BEXAURI_E2E_STUDENT_PASSWORD present: false
+```
+
+Validation:
+
+* `npm.cmd run test:e2e:pilot:readonly -- --list` passed.
+* `npm.cmd --prefix nextjs_space run build` passed.
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_13_FIX_FORM_SUBMIT_TRIGGER.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-AUTOMATION-14 - Run form-submit-button-click Playwright check with private env
+```
+
+Non-goals:
+
+* No product auth change, app route/schema change, authenticated Codex-run, password/hash/env/DB URL/host/provider/token/cookie/header/storage printing, `.env` inspection, screenshots/videos/traces, human browser profile/session/cookie use, DB mutation, Prisma CLI/SQL, StudyLoad start/open/response/complete, admin evidence, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_13_FORM_SUBMIT_BUTTON_CLICK_TRIGGER_READY
+```

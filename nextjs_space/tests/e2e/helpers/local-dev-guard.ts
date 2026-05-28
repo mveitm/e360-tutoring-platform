@@ -136,6 +136,49 @@ export async function getSafeLoginFormStructure(page: Page) {
     }))
 }
 
+export async function getSafeActiveElementCategory(page: Page) {
+  return page
+    .evaluate(() => {
+      const active = document.activeElement
+
+      if (!active) {
+        return 'none'
+      }
+
+      if (active.id === 'email') {
+        return 'email'
+      }
+
+      if (active.id === 'password') {
+        return 'password'
+      }
+
+      if (active instanceof HTMLButtonElement && active.type === 'submit') {
+        return 'submit-button'
+      }
+
+      if (active instanceof HTMLInputElement) {
+        return 'input-other'
+      }
+
+      if (active instanceof HTMLButtonElement) {
+        return 'button-other'
+      }
+
+      return active.tagName ? active.tagName.toLowerCase() : 'other'
+    })
+    .catch(() => 'unreadable')
+}
+
+export async function getSafeSubmitButtonBoxState(page: Page) {
+  const button = page.locator('form').first().locator('button[type="submit"]').first()
+  const box = await button.boundingBox().catch(() => null)
+
+  return {
+    visibleBox: Boolean(box && box.width > 0 && box.height > 0),
+  }
+}
+
 export async function installSafeSubmitEventProbe(page: Page) {
   await page.evaluate(() => {
     const targetWindow = window as typeof window & { __bexauriSafeSubmitCount?: number }
