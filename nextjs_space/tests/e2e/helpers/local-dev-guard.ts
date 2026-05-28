@@ -63,19 +63,62 @@ function normalizedPathname(rawUrl: string) {
   return path.length > 1 ? path.replace(/\/+$/, '') : path
 }
 
+type SafeAuthRequestCategory =
+  | 'csrf'
+  | 'providers'
+  | 'session'
+  | 'callback-credentials'
+  | 'error'
+  | 'log'
+  | 'other-auth'
+
+function categorizeSafeAuthPath(path: string): SafeAuthRequestCategory {
+  if (path === '/api/auth/csrf') {
+    return 'csrf'
+  }
+
+  if (path === '/api/auth/providers') {
+    return 'providers'
+  }
+
+  if (path === '/api/auth/session') {
+    return 'session'
+  }
+
+  if (path === '/api/auth/callback/credentials') {
+    return 'callback-credentials'
+  }
+
+  if (path === '/api/auth/error') {
+    return 'error'
+  }
+
+  if (path === '/api/auth/_log') {
+    return 'log'
+  }
+
+  return 'other-auth'
+}
+
 export function createSafeAuthRequestRecorder(page: Page) {
-  const events: string[] = []
+  const events: SafeAuthRequestCategory[] = []
 
   page.on('request', (request) => {
     const path = normalizedPathname(request.url())
     if (path.startsWith('/api/auth/')) {
-      events.push(`${request.method()} ${path}`)
+      events.push(categorizeSafeAuthPath(path))
     }
   })
 
   return {
+    count() {
+      return events.length
+    },
     summary() {
       return events.length > 0 ? events.join(', ') : 'none'
+    },
+    observed(category: SafeAuthRequestCategory) {
+      return events.includes(category)
     },
   }
 }

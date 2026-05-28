@@ -32247,3 +32247,118 @@ Result marker:
 ```text
 MVP_SALES_PILOT_UI_AUTOMATION_17_LOGIN_TESTABILITY_SELECTOR_CHECK_FAILED_SAFE
 ```
+
+---
+
+## 2026-05-27 - MVP-SALES-PILOT-UI-AUTOMATION-18 - Diagnose auth request sequence after login testability selectors
+
+Type:
+
+```text
+Local/dev Playwright E2E auth request sequence diagnostics / no product auth change / human-run authenticated diagnostic.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 32ede12
+```
+
+Docs read:
+
+* `PHASE_LOG.md` tail.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_17_RUN_LOGIN_TESTABILITY_SELECTOR_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_16_ADD_LOGIN_TESTABILITY_SELECTORS.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_15_DECIDE_LOGIN_TESTABILITY_PATH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_14_RUN_FORM_SUBMIT_BUTTON_CLICK_CHECK.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_1_LOCAL_DEV_PLAYWRIGHT_HARNESS.md`.
+* `nextjs_space/docs/operations/CODEX_COMPACT_REPORTING_RULE.md`.
+* `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
+
+Files inspected:
+
+* `nextjs_space/package.json`.
+* `nextjs_space/playwright.config.ts`.
+* `nextjs_space/app/login/_components/login-form.tsx`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+
+Diagnostic summary:
+
+* Added sanitized auth request categorization to the E2E helper.
+* Added markers for auth request count, category sequence, credentials callback observed, session observed, csrf observed, and providers observed.
+* Kept output limited to safe categories and booleans.
+* Did not print full URLs, query strings, request bodies, response bodies, headers, cookies, storage, tokens, credentials, input values, or HTML.
+
+Build/list status:
+
+```text
+BUILD_PASSED
+PLAYWRIGHT_LIST_PASSED
+```
+
+Authenticated run status:
+
+```text
+HUMAN_RUN_WITH_PRIVATE_SYNTHETIC_ENV
+DOM_SUBMIT_NOT_OBSERVED_WITH_AUTH_PREFLIGHT_ONLY
+AUTH_NOT_ESTABLISHED_BEFORE_NOW_ASSERTIONS
+```
+
+Safe diagnostic summary:
+
+* Login form structure was present and coherent.
+* Email/password fields were filled in the Playwright context.
+* Submit button was present, type `submit`, inside the form, enabled, visible, and focused.
+* `form-submit-button-click` trigger was attempted through stable testability selectors.
+* DOM submit event count was `0`.
+* Auth request count was `0`.
+* Auth request sequence was `none`.
+* Credentials callback, session, csrf, and providers requests were not observed after submit.
+* Browser remained on `/login`.
+* No visible login error was observed.
+
+Decision:
+
+```text
+PAUSE_LOGIN_E2E_AUTOMATION_FOR_NOW
+RETURN_TO_ADMIN_EVIDENCE
+```
+
+Reason:
+
+* no clear harness-only fix emerged after auth sequence diagnosis;
+* the student runtime local/dev path already passed manually;
+* login E2E remains bounded automation debt and should not block pilot/admin evidence work.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/tests/e2e/helpers/local-dev-guard.ts`.
+* `nextjs_space/tests/e2e/pilot-m1-student-now-readonly.spec.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_18_DIAGNOSE_AUTH_REQUEST_SEQUENCE.md`.
+
+Validation:
+
+* `npm.cmd --prefix nextjs_space run build` passed.
+* `npm.cmd --prefix nextjs_space run test:e2e:pilot:readonly -- --list` passed.
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Generated Playwright `test-results` output removed and not committed.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-ADMIN-EVIDENCE-1 - Verify local admin/tutor evidence for PILOT_M1_001 dry-run
+```
+
+Non-goals:
+
+* No product auth change, CredentialsProvider change, test-only auth/session route, app route/schema change, authenticated Codex-run, password/hash/env/DB URL/host/provider/token/cookie/header/storage printing, `.env` inspection, screenshots/videos/traces/test-results commit, human browser profile/session/cookie use, DB mutation, Prisma CLI/SQL, StudyLoad start/open/response/complete, admin evidence execution, staging/prod, real student data, payment/trial activation, PAES_L1 readiness, PAES_M2 readiness, Sales-Ready, or real pilot execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_UI_AUTOMATION_18_AUTH_SEQUENCE_DIAGNOSED_LOGIN_E2E_PAUSED
+```
