@@ -33591,3 +33591,79 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_3A_READY_WITH_HUMAN_CREDENTIAL_STEP_REQUIRED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DRY-RUN-3B - Complete private credential readiness for PILOT_M1_003
+
+Type:
+
+```text
+Human private credential readiness / documentation closeout / no student dry-run.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 0244e80
+Latest accepted commit = 0244e80 - MVP-SALES-PILOT-DRY-RUN-3A: prepare PILOT_M1_003 dry-run fixture
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Inherited state from 3A:
+
+* canonical student: `PILOT_M1_003 PILOT_M1_003`;
+* canonical lowercase email: `pilot_m1_003_pilot_m1_003@bexauri.dev`;
+* User/account exists;
+* PAES_M1 enrollment active;
+* Cycle 1 open;
+* first StudyLoad pending: `PAES M1 â€” Entrada balanceada inicial`;
+* 3A result: `READY_WITH_HUMAN_CREDENTIAL_STEP_REQUIRED`.
+
+Human private action:
+
+* Mauricio used local/dev admin UI `Restablecer contraseña`.
+* Password was entered privately by Mauricio.
+* UI showed a success message.
+* Safe confirmation received: `CREDENTIAL_READY_WITHOUT_SECRET_PRINTED`.
+* No secret was printed, received, stored, documented, or committed.
+
+Result:
+
+```text
+PILOT_M1_003_CREDENTIAL_READY_FOR_STUDENT_DRY_RUN
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_3B_COMPLETE_PRIVATE_CREDENTIAL_READINESS_FOR_PILOT_M1_003.md`.
+
+Verification:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because only documentation changed and credential handling was human-private local/dev UI action.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-3C - Execute controlled local/dev student dry-run for PILOT_M1_003
+```
+
+Explicit non-actions:
+
+* No dry-run, student login, `/now`, activity open, StudyLoad start/complete, responses, evidence, self-report, StudentAccess mutation, CycleDecision, CycleEvaluation, cycle close, continuity authorization, enrollment change, StudyLoad change, staging, production, real data, payment/trial/subscription activation, L1/M2 activation, Sales-Ready declaration, MVP-Beta cerrado completion, SQL, Prisma CLI, direct DB inspection, app code change, schema change, auth change, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing, script commit, log commit, or screenshot commit.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_3B_CREDENTIAL_READY_FOR_STUDENT_DRY_RUN
+```
