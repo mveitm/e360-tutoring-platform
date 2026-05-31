@@ -84,7 +84,7 @@ export function AdminNav() {
           onClick={() => signOut({ callbackUrl: '/login' })}
         >
           <LogOut className="w-4 h-4" />
-          <span className="hidden sm:inline">Sign Out</span>
+          <span>Cerrar sesión</span>
         </Button>
       </div>
     </header>

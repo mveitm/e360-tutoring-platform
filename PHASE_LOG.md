@@ -33667,3 +33667,78 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_3B_CREDENTIAL_READY_FOR_STUDENT_DRY_RUN
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-AUTH-SIGNOUT-1 - Add visible sign-out control for pilot/admin-student session switching
+
+Type:
+
+```text
+Narrow auth UI control / no auth provider change / no dry-run.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 34cb14c
+Latest accepted commit = 34cb14c - MVP-SALES-PILOT-DRY-RUN-3B: complete PILOT_M1_003 credential readiness
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+3C pause context:
+
+* `MVP-SALES-PILOT-DRY-RUN-3C` was paused.
+* Credential diagnosis was stopped.
+* `SIGNOUT_UI_DEBT` was converted into an operational blocker for human-guided multi-student dry-runs.
+
+Implementation:
+
+* Added visible `Cerrar sesion` control to `/now`.
+* Reused existing NextAuth `signOut({ callbackUrl: '/login' })`.
+* Updated admin nav sign-out copy to visible `Cerrar sesion`.
+* Did not change CredentialsProvider, schema, DB, StudentAccess, payment, trial, subscription, L1, or M2.
+
+Result:
+
+```text
+VISIBLE_SIGN_OUT_CONTROL_ADDED
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/_components/sign-out-button.tsx`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/admin/_components/admin-nav.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_AUTH_SIGNOUT_1_ADD_VISIBLE_SIGN_OUT_CONTROL_FOR_PILOT_ADMIN_STUDENT_SESSION_SWITCHING.md`.
+
+Verification:
+
+* `npm.cmd --prefix nextjs_space run build` passed.
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* Browser-click verification was not performed by Codex because no authenticated browser session or private credential was available.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-3C - Execute controlled local/dev student dry-run for PILOT_M1_003
+```
+
+Explicit non-actions:
+
+* No credential diagnosis continuation, credential request, credential receipt, student login, admin login, `/now` student execution, activity open, dry-run, StudyLoad start/complete, responses, evidence, self-report, StudentAccess mutation, DB work, SQL, Prisma CLI, CredentialsProvider change, schema change, payment/trial/subscription change, L1/M2 activation, staging, production, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing, Sales-Ready declaration, or MVP-Beta cerrado completion.
+
+Result marker:
+
+```text
+MVP_SALES_AUTH_SIGNOUT_1_VISIBLE_SIGN_OUT_CONTROL_ADDED
+```

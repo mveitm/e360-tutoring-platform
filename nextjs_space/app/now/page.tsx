@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { StartLoadButton } from './_components/start-load-button'
 import { CompleteLoadButton } from './_components/complete-load-button'
+import { SignOutButton } from './_components/sign-out-button'
 import { getStudyLoadContent } from '@/lib/study-load-content'
 
 export const dynamic = 'force-dynamic'
@@ -52,9 +53,12 @@ function Shell({ children }: { children: React.ReactNode }) {
 
 function Heading() {
   return (
-    <header className="mb-6">
-      <p className="text-xs uppercase tracking-wide text-muted-foreground">Bexauri</p>
-      <h1 className="mt-1 text-2xl font-semibold tracking-tight">¿Qué me toca ahora?</h1>
+    <header className="mb-6 flex items-start justify-between gap-3">
+      <div className="min-w-0">
+        <p className="text-xs uppercase tracking-wide text-muted-foreground">Bexauri</p>
+        <h1 className="mt-1 text-2xl font-semibold tracking-tight">¿Qué me toca ahora?</h1>
+      </div>
+      <SignOutButton />
     </header>
   )
 }
