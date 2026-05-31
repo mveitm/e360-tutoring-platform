@@ -32903,3 +32903,86 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_2B_BLOCKED_FIXTURE_READINESS_NOT_CONFIRMED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DRY-RUN-2C - Controlled local/dev fixture setup and readiness verification for PILOT_M1_002
+
+Type:
+
+```text
+Controlled local/dev fixture setup and readiness verification / no student dry-run / no app code commit.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 449c1a9
+Latest accepted commit = 449c1a9 - MVP-SALES-PILOT-DRY-RUN-2B: verify fixture readiness for PILOT_M1_002
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Local/dev mutations performed:
+
+* Synthetic `PILOT_M1_002` student structure created or confirmed.
+* Safe `StudentAccess` baseline created or confirmed.
+* PAES_M1 program located or confirmed.
+* Active PAES_M1 enrollment created or confirmed.
+* Open cycle created or confirmed.
+* Current cycle link created or confirmed.
+* First pending StudyLoad created or confirmed for `PAES M1 — Entrada balanceada inicial`.
+* Temporary local/dev verification/setup script used and removed before commit.
+
+Result:
+
+```text
+BLOCKED_WITH_REASON
+```
+
+Safe blocker:
+
+```text
+PILOT_M1_002 fixture structure prepared; User/account still needs private admin UI create-user step.
+```
+
+Summary:
+
+* Human credential confirmation was received as `CREDENTIAL_READY_WITHOUT_SECRET_PRINTED`.
+* Codex did not request, receive, print, log, document, or commit any secret.
+* Final local/dev readiness verification did not find the expected `PILOT_M1_002` User/account.
+* Therefore `PILOT_M1_002_READY_FOR_STUDENT_DRY_RUN` cannot be declared.
+* No student login, `/now`, activity, StudyLoad start/completion, evidence, self-report, CycleDecision, or CycleEvaluation was executed.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_2C_CONTROLLED_LOCAL_DEV_FIXTURE_SETUP_AND_READINESS_FOR_PILOT_M1_002.md`.
+
+Verification:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because committed changes are documentation only.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-2D - Complete PILOT_M1_002 admin UI account creation and readiness verification
+```
+
+Explicit non-actions:
+
+* No student dry-run, student login, `/now` student session, activity open, StudyLoad start/complete, response evidence, self-report, cycle close, continuity authorization, CycleDecision, CycleEvaluation, staging, production, real data, SQL, Prisma CLI, `.env` inspection, secret/env/DB URL/password/hash/provider/token/cookie/header/storage/request/response printing, app code change, schema change, auth change, Playwright login E2E, payment/trial/subscription activation, L1/M2 activation, Sales-Ready declaration, or MVP-Beta cerrado completion.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_2C_BLOCKED_ACCOUNT_NOT_VERIFIED_STRUCTURE_PREPARED
+```
