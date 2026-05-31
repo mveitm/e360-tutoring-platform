@@ -32809,3 +32809,97 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_2A_READY_WITH_RECORDED_DEBT_FOR_PILOT_M1_002
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DRY-RUN-2B - Verify or prepare local/dev fixture readiness for PILOT_M1_002
+
+Type:
+
+```text
+Documentation-only fixture readiness assessment / no runtime / no mutation / no dry-run execution.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 26ba10d
+Latest accepted commit = 26ba10d - MVP-SALES-PILOT-DRY-RUN-2A: prepare controlled local dev dry-run for PILOT_M1_002
+Working tree clean before edits.
+```
+
+Docs read:
+
+* `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`.
+* `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_2A_PREPARE_CONTROLLED_LOCAL_DEV_DRY_RUN_FOR_PILOT_M1_002.md`.
+* `PHASE_LOG.md` tail.
+* Related versioned local auth, dry-run, and closed pilot access template docs.
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Readiness result:
+
+```text
+BLOCKED
+```
+
+Summary:
+
+* `PILOT_M1_002` is present in the committed closed pilot access register template only as a placeholder row, not as prepared fixture evidence.
+* Reviewed versioned documentation does not confirm a local/dev `PILOT_M1_002` account, student, credential, access state, PAES_M1 enrollment, open cycle, or pending first StudyLoad.
+* The `PILOT_M1_001` path provides a proven pattern, but no data dependency or fixture readiness can be assumed for `PILOT_M1_002`.
+* The credential/setup route for future participants is known at policy level, but no `PILOT_M1_002`-specific setup execution is documented.
+* Executing now would risk requiring unauthorized setup mutation inside an execution phase.
+
+Known dependencies:
+
+* Local/dev target confirmation.
+* Private participant register update outside the repo.
+* Synthetic account/student/access readiness.
+* Private credential handling.
+* PAES_M1 enrollment, open cycle, and first pending M1 StudyLoad.
+* M1-only `/now` and later admin/tutor evidence review.
+
+Unknown dependencies:
+
+* Whether the `PILOT_M1_002` account/student/credential exists.
+* Whether `StudentAccess`, enrollment, cycle, and first StudyLoad are prepared.
+* Whether setup should use signup-first or a guarded helper pattern.
+* Whether the private register already records readiness for this participant.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_2B_VERIFY_OR_PREPARE_LOCAL_DEV_FIXTURE_READINESS_FOR_PILOT_M1_002.md`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because only documentation changed.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-2C - Authorize controlled local/dev fixture readiness setup for PILOT_M1_002
+```
+
+Non-goals:
+
+* No SQL, Prisma CLI, DB inspection, DB mutation, browser/UI mutation, login execution, activity execution, cycle actions, StudyLoad actions, StudentAccess actions, staging, production, users/enrollments/cycles/StudyLoads/credentials creation, secrets, env values, DB URLs, tokens, cookies, headers, request bodies, response bodies, dry-run execution, evidence creation, payment/trial/subscription activation, Sales-Ready declaration, MVP-Beta cerrado completion, L1 readiness, or M2 readiness.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_2B_BLOCKED_FIXTURE_READINESS_NOT_CONFIRMED
+```
