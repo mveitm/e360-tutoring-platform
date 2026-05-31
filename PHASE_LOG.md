@@ -32473,3 +32473,87 @@ Result marker:
 ```text
 MVP_ROADMAP_LOCK_1A_DOCUMENTATION_GOVERNANCE_UPDATE_VERSIONED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-ADMIN-EVIDENCE-1 - Verify local admin/tutor evidence for PILOT_M1_001 dry-run
+
+Type:
+
+```text
+Local/dev admin UI read-only evidence verification / human admin login / documentation only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 149021c
+Latest accepted commit = 149021c - MVP-ROADMAP-LOCK-1A-CLOSEOUT: align active phase custody
+Working tree clean before edits.
+```
+
+Docs read:
+
+* `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`.
+* `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_AUTOMATION_18_DIAGNOSE_AUTH_REQUEST_SEQUENCE.md`.
+* `PHASE_LOG.md` tail.
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Result:
+
+```text
+PASS_WITH_ADMIN_EVIDENCE_GAP
+```
+
+Summary:
+
+* Git preflight confirmed `149021c`; a stale `c9c1b43` baseline in active context was overridden by live Git truth.
+* Local dev server was available at `http://localhost:3000`.
+* Admin UI required human login; Mauricio logged in locally in a clean browser profile.
+* Read-only admin inspection confirmed admin access, PAES_M1 visibility, enrollment visibility, cycle visibility, two-load shape, one completed load, one pending load, coarse response/evidence presence, correct M1-only scope boundary, no L1/M2 active implication, and no public payment/trial/subscription claim.
+* The automated UI pass did not conclusively confirm exact title visibility for the completed and pending StudyLoads or exact self-report text visibility.
+* A second narrow check could not reuse the authenticated admin session because the available authenticated browser session was human incognito and not accessible to Codex; no cookie/header/token/session transfer was requested.
+
+Gate interpretation:
+
+```text
+PARTIAL_GO_FIX_ADMIN_EVIDENCE_VISIBILITY
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ADMIN_EVIDENCE_1_VERIFY_LOCAL_ADMIN_TUTOR_EVIDENCE.md`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because only documentation changed.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-ADMIN-EVIDENCE-2 - Close admin evidence visibility gaps for PILOT_M1_001
+```
+
+Non-goals:
+
+* No secrets, env values, DB URLs, tokens, cookies, headers, request bodies, response bodies, DB inspection, SQL, Prisma CLI, DB mutation, cycle close, continuity authorization, decisions/evaluations creation, StudyLoad edit/start/complete, StudentAccess change, staging, production, app code, schema, auth change, Playwright login work, payment/trial/subscription activation, L1 readiness, M2 readiness, MVP-Beta cerrado completion, or Sales-Ready declaration.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_ADMIN_EVIDENCE_1_PASS_WITH_ADMIN_EVIDENCE_GAP
+```
