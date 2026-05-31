@@ -17,11 +17,11 @@ If any document, memory, phase log entry, or handoff contradicts Git preflight, 
 
 ## Latest verified baseline
 
-* HEAD = origin/main = origin/HEAD = `aaa6742`
-* Last accepted commit = `MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-VALIDATION-2B: define fixture readiness protocol`
+* HEAD = origin/main = origin/HEAD = `513d6a2`
+* Last accepted commit = `MVP-ROADMAP-LOCK-0: extract Pro roadmap context package`
 * Working tree expected: clean
 
-`MVP-COMMERCIAL-L1-STUDYLOAD-INTERNAL-VALIDATION-2B` is closed and accepted at `aaa6742`.
+`MVP-ROADMAP-LOCK-0` is closed and accepted at `513d6a2`.
 
 ## External audit redirect - 2026-05-27
 
@@ -100,7 +100,21 @@ Sales-ready roadmap and self-serve commercial flow.
 
 Current next recommended roadmap phase:
 
-`MVP-SALES-PILOT-SCOPE-1 - Lock closed 3-student pilot scope and first vertical milestone`
+`MVP-SALES-PILOT-ADMIN-EVIDENCE-1 - Verify local admin/tutor evidence for PILOT_M1_001 dry-run`
+
+## Roadmap semantic lock
+
+Current roadmap semantic lock:
+
+`MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`
+
+Core decision:
+
+> M1-first es una estrategia táctica de primera vertical; no redefine ni reduce el alcance del MVP-Beta cerrado, que comprende M1, M2 y L1.
+
+Required phrase:
+
+> Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
 
 ## Block 7 pedagogical anchor
 
@@ -130,26 +144,28 @@ Future Block 7 work must read the anchor and the SRA docs before proposing L1/M1
 
 ## Required first-read docs for future chats
 
-1. `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`
-2. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
-3. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
-4. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md`
-5. `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`
-6. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
-7. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`
-8. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
-9. `PHASE_LOG.md` latest entries
+1. `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`
+2. `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`
+3. `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`
+4. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
+5. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
+6. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md`
+7. `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`
+8. `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
+9. `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`
+10. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+11. `PHASE_LOG.md` latest entries
 
 ## Next recommended phase
 
-`MVP-SALES-PILOT-SCOPE-1 - Lock closed 3-student pilot scope and first vertical milestone`
+`MVP-SALES-PILOT-ADMIN-EVIDENCE-1 - Verify local admin/tutor evidence for PILOT_M1_001 dry-run`
 
 Gate:
 
-* Roadmap block: 10 - Internal pilot and sales-ready go/no-go, with dependencies on blocks 4, 5, 7, 8, and 9.
-* Sales-ready relevance: direct/high.
-* Dependency: external audit redirect accepted.
-* What it advances: first vertical milestone for 3-student closed pilot.
-* What it does not advance: implementation of `/now`, access/payment, content, or pilot execution.
-* Priority verdict: `APPROVED_NEXT_PHASE_AFTER_AUDIT_REDIRECT`.
-* Authorization status: not yet authorized until Mauricio says adelante.
+* Roadmap block: 10 - Internal pilot and sales-ready go/no-go; supports Block 8 admin/tutor operations and Block 7 evidence review.
+* Sales-ready relevance: direct/high for closed pilot readiness.
+* Dependency: one-participant M1 local/dev runtime dry-run passed with admin evidence deferred.
+* What it advances: verifies whether admin/tutor can inspect evidence from the M1 dry-run before repeating additional participants or moving toward pilot go/no-go.
+* What it does not advance: Playwright login E2E, payment/trial/subscription, L1/M2 readiness, staging/production, public Sales-Ready.
+* Priority verdict: `APPROVED_NEXT_GATE_AFTER_ROADMAP_LOCK`.
+* Authorization status: authorized by Mauricio for documentation/roadmap/governance update; operational execution still requires a separate phase.

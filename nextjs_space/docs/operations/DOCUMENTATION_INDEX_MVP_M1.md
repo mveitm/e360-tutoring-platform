@@ -4,16 +4,20 @@
 
 These documents now govern roadmap direction:
 
-1. `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`
-2. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
-3. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
-4. `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`
+1. `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`
+2. `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`
+3. `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`
+4. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
+5. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
+6. `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`
 
 Future chats must read them before proposing work.
 
 The Block 7 anchor is mandatory before content-route phases.
 
 The M1 documents remain pedagogical and operational support. They are not the whole project roadmap.
+
+`MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 
 Do not infer next phase from the latest `PHASE_LOG.md` entry alone.
 
@@ -196,6 +200,7 @@ These remain important upstream sources:
 | `MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md` | Present | Sales-ready acceptance criteria and roadmap | Highest for sales-ready roadmap foundation | Critical path and program-specific readiness | Final budget or target lock alone | Yes |
 | `MVP_BETA_BUDGET_1_BUDGET_SCENARIO_ESTIMATE_FOR_SALES_READY_IMPLEMENTATION_BETA.md` | Present | Budget scenario estimate | High for budget planning | Scenario ranges, cost drivers, Abacus budget decision | Final accounting budget | Yes for budget/commercial work |
 | `MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md` | Present | Corrected autonomous-basic target lock | Highest for MVP-Beta v1 destination | Preventing regression to manual/demo beta interpretation | Runtime implementation authorization | Yes |
+| `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` | Present | Roadmap semantic lock and continuity constitution | Highest for governance/continuity | Prevent reducing MVP-Beta cerrado to M1-first; preserve M1/M2/L1 scope | Pedagogical M1 detail or runtime proof | Yes |
 | `MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md` | Present | Block 7 pedagogical-layer anchor | Highest for content-route restart | Prevent blank-slate L1/M1/M2 content phases; require SRA docs before content-route work | Making Block 7 the immediate next phase | Yes for content-route phases |
 
 ## 8. Current source alignment summary

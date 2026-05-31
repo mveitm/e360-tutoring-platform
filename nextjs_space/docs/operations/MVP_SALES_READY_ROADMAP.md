@@ -5,6 +5,8 @@ Status: ACTIVE
 Detailed source:
 
 `MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md`
+`MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`
+`MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`
 
 Roadmap state:
 
@@ -38,13 +40,39 @@ Short roadmap to the first milestone:
 4. `MVP-SALES-TRIAL-ACCESS-SANDBOX-1`
 5. `MVP-SALES-PILOT-DRY-RUN-1`
 
+Updated short roadmap after LOCK-1:
+
+1. `MVP-ROADMAP-LOCK-1A` - version roadmap constitution and update documentation/governance.
+2. `MVP-SALES-PILOT-ADMIN-EVIDENCE-1` - verify local admin/tutor evidence for `PILOT_M1_001`.
+3. Decision: repeat M1 dry-run for `PILOT_M1_002` / `PILOT_M1_003` or fix admin evidence gaps first.
+4. `MVP-SALES-PILOT-GO-1` - closed M1-first pilot go/no-go.
+5. Later explicit gates: M2 equivalent vertical, L1 equivalent vertical, MVP-Beta cerrado M1/M2/L1, closed payment/sandbox, Sales-Ready cerrado, Sales-Ready público.
+
+Do not collapse later M2/L1 gates into the M1-first pilot.
+
 ## Roadmap source note
 
 This roadmap is based on:
 
+* `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`
+* `MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`
 * `MVP_BETA_SCOPE_2_SALES_READY_ACCEPTANCE_CRITERIA_AND_MACRO_ROADMAP.md`
 * `MVP_BETA_TARGET_1_AUTONOMOUS_SALES_READY_TARGET_AND_HANDOFF_PROPAGATION.md`
 * `MVP_SALES_READY_ROADMAP_1_FULL_ROADMAP_DEVIATION_AUDIT_AND_HANDOFF_ALIGNMENT.md`
+
+## Roadmap semantic lock
+
+M1-first is sequence, not scope.
+
+Official decision:
+
+> M1-first es una estrategia táctica de primera vertical; no redefine ni reduce el alcance del MVP-Beta cerrado, que comprende M1, M2 y L1.
+
+Required wording:
+
+> Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+
+The roadmap remains M1/M2/L1-capable and Sales-Ready oriented. The M1-first pilot is the first tactical vertical, not the final MVP-Beta closed scope.
 
 ## Active roadmap blocks
 
@@ -70,17 +98,17 @@ Content-route phases must not begin as blank-slate content writing. Future Block
 
 ## Current next recommended phase
 
-`MVP-SALES-PILOT-SCOPE-1 - Lock closed 3-student pilot scope and first vertical milestone`
+`MVP-SALES-PILOT-ADMIN-EVIDENCE-1 - Verify local admin/tutor evidence for PILOT_M1_001 dry-run`
 
 Gate:
 
-* Roadmap block: 10 - Internal pilot and sales-ready go/no-go.
-* Sales-ready relevance: direct/high.
-* Dependency: external audit redirect accepted.
-* What it advances: first vertical milestone for 3-student closed pilot.
-* What it does not advance: implementation of `/now`, access/payment, content, or pilot execution.
-* Priority verdict: `APPROVED_NEXT_PHASE_AFTER_AUDIT_REDIRECT`.
-* Authorization status: not yet authorized until Mauricio says adelante.
+* Roadmap block: 10 - Internal pilot and sales-ready go/no-go; supports Block 8 admin/tutor operations and Block 7 evidence review.
+* Sales-ready relevance: direct/high for closed pilot readiness.
+* Dependency: one-participant M1 local/dev runtime dry-run passed with admin evidence deferred.
+* What it advances: verifies whether admin/tutor can inspect evidence from the M1 dry-run before repeating additional participants or moving toward pilot go/no-go.
+* What it does not advance: Playwright login E2E, payment/trial/subscription, L1/M2 readiness, staging/production, public Sales-Ready.
+* Priority verdict: `APPROVED_NEXT_GATE_AFTER_ROADMAP_LOCK`.
+* Authorization status: authorized by Mauricio for documentation/roadmap/governance update; operational execution still requires a separate phase.
 
 ## Staging fixture status
 

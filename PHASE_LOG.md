@@ -32425,3 +32425,50 @@ Result marker:
 ```text
 MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE_CREATED
 ```
+
+---
+
+## MVP-ROADMAP-LOCK-1A - Version MVP-Beta closed roadmap constitution
+
+Type: Documentation / roadmap / governance / operating-continuity update.
+
+Baseline:
+
+* Branch: `main`.
+* Git status: clean before phase.
+* HEAD = origin/main = origin/HEAD = `513d6a237b3c4ff8dc7f299d4c2d621e781e4bbe`.
+* Latest accepted commit = `513d6a2 - MVP-ROADMAP-LOCK-0: extract Pro roadmap context package`.
+
+Purpose:
+
+* Version semantic constitution for MVP-Beta cerrado.
+* Preserve M1-first as tactical sequence, not final scope.
+* Update active context and roadmap to prevent drift.
+* Set admin/tutor evidence as next gate.
+
+Files:
+
+* Created `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`.
+* Updated `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* Updated `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* Updated `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Updated `PHASE_LOG.md`.
+
+Decision:
+
+* M1-first is sequence, not scope.
+* MVP-Beta cerrado remains M1/M2/L1.
+* Sales-Ready público remains NOT_READY.
+* Payment/trial public remains not active.
+* Playwright login E2E remains bounded automation debt.
+* Admin/tutor evidence is the next product-readiness gate.
+
+Explicit non-actions:
+
+* No app code, DB, auth, Playwright, runtime, browser, staging, production, secrets, payment/trial activation, Sales-Ready declaration, or public sale declaration.
+
+Result marker:
+
+```text
+MVP_ROADMAP_LOCK_1A_DOCUMENTATION_GOVERNANCE_UPDATE_VERSIONED
+```
