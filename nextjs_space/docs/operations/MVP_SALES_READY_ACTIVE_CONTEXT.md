@@ -17,11 +17,11 @@ If any document, memory, phase log entry, or handoff contradicts Git preflight, 
 
 ## Latest verified baseline
 
-* HEAD = origin/main = origin/HEAD = `513d6a2`
-* Last accepted commit = `MVP-ROADMAP-LOCK-0: extract Pro roadmap context package`
+* HEAD = origin/main = origin/HEAD = `c9c1b43`
+* Last accepted commit = `MVP-ROADMAP-LOCK-1A: version MVP-Beta closed roadmap constitution`
 * Working tree expected: clean
 
-`MVP-ROADMAP-LOCK-0` is closed and accepted at `513d6a2`.
+`MVP-ROADMAP-LOCK-1A` is closed and accepted at `c9c1b43`.
 
 ## External audit redirect - 2026-05-27
 

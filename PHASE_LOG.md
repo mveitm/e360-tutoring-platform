@@ -11,9 +11,9 @@
 
 ## Current state
 
-* Latest closed phase: EN (deployed and closed)
-* Status: D → DN closed and deployed; continuity-start governance-reading (ED/EE) closed + deployed; EF rescue v2 (admin consultation panel) closed + deployed; EG (admin-only advisory attention signal) closed + deployed; EH (client-side attention filter) closed + deployed; EI (open-enrollment quick-link) closed as already-satisfied (no code change, no deploy); EJ (filter-aware orientation counter; canonical list counter) closed + deployed; EK (attention acknowledgement workflow) closed + deployed; EL (attention unreviewed enrollment filter) closed + deployed; EM (attention reviewed enrollment filter) closed + deployed; EN (current cycle operational summary) closed + deployed
-* Project state: stable, verified, production live
+* Latest closed phase: MVP-ROADMAP-LOCK-1A (documentation governance update closed and pushed at `c9c1b43`)
+* Status: Product/runtime line remains stable through the deployed operational-visibility block; roadmap/governance line is now locked for MVP-Beta cerrado M1/M2/L1 with M1-first as tactical sequence, not final scope.
+* Project state: stable; runtime/product state unchanged by the latest documentation-only roadmap lock
 * Main recent line of work:
 
   * inline editing rollout
@@ -28,6 +28,7 @@
   * filter-aware canonical orientation counter on admin enrollment list, replacing the pre-EH search-only counter (EJ)
   * minimal admin attention-acknowledgement workflow on enrollment detail + list (EK)
   * minimal attention-unreviewed enrollment filter on admin enrollment list (EL)
+  * MVP-Beta cerrado roadmap semantics locked and versioned (MVP-ROADMAP-LOCK-1A)
 
 ## Phase log
 
