@@ -33814,3 +33814,89 @@ Result marker:
 ```text
 MVP_SALES_AUTH_SIGNOUT_1R_VISIBLE_SIGN_OUT_RUNTIME_REGRESSION_REPAIRED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DRY-RUN-3C - Execute controlled local/dev student dry-run for PILOT_M1_003
+
+Type:
+
+```text
+Human-reported local/dev student dry-run evidence / documentation closeout only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 525bcc6
+Latest accepted commit = 525bcc6 - MVP-SALES-AUTH-SIGNOUT-1R: repair visible sign-out runtime regression
+Working tree clean before edits.
+```
+
+Objective:
+
+```text
+Document and close the controlled local/dev student dry-run for PILOT_M1_003 using human evidence reported by Mauricio.
+```
+
+Evidence documented:
+
+* SIGNOUT-1R functional confirmation: `/now` active, `Cerrar sesion` active, sign-out returned to `/login`.
+* Synthetic student login succeeded for `pilot_m1_003_pilot_m1_003@bexauri.dev`.
+* `/now` loaded correctly with pending `PAES M1 - Entrada balanceada inicial`.
+* `Empezar` opened `/now/study-loads/cmpucqqjn00077si8rhcdsjjz`.
+* Activity rendered title, `practice` type, instructions, 4 MC questions, `0 de 4 respondidas`, and `Enviar respuestas`.
+* Controlled responses submitted: q1 C, q2 B, q3 C, q4 B.
+* Counter reached `4 de 4 respondidas`; response submit worked; self-report appeared on the same page.
+* Self-report used: `Me fue bien.`
+* Post-completion `/now` showed registered activity evidence and pending continuity to `PAES M1 - Ecuaciones lineales basicas`.
+* The new pending load was not started.
+* Admin/tutor evidence showed `PILOT_M1_003 PILOT_M1_003`, PAES_M1 active enrollment, Cycle 1 open, 2 loads, 0 decisions, 0 evaluations.
+* StudentAccess row was reported missing and is not a blocker for this phase; it remains known lifecycle debt.
+* Completed load evidence showed `4 de 4` answered and `4 de 4` correct, submitted `31 may 2026, 07:40 p. m.`
+
+Result:
+
+```text
+PASSED
+```
+
+Interpretation:
+
+```text
+The local/dev student dry-run for PILOT_M1_003 passed end-to-end:
+login -> /now -> start load -> answer MC -> submit responses -> self-report on the same page -> completion -> /now with registered evidence -> automatic continuity to PAES M1 - Ecuaciones lineales basicas -> admin/tutor evidence visible.
+```
+
+Strategic scope:
+
+```text
+This strengthens the first M1-first vertical within the path toward MVP-Beta cerrado M1/M2/L1.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_3C_EXECUTE_CONTROLLED_LOCAL_DEV_STUDENT_DRY_RUN_FOR_PILOT_M1_003.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changes documentation only.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-GO-3 - Evaluate pilot readiness after PILOT_M1_003 evidence
+```
+
+Explicit non-actions:
+
+* No new UI action, student login by Codex, `/now` execution by Codex, DB mutation, StudentAccess lifecycle mutation, new StudyLoad creation, next StudyLoad start, app code change, schema change, seed change, auth model change, CredentialsProvider change, content registry change, cycle creation, decision creation, evaluation creation, payment/trial/subscription change, L1/M2 activation, staging, production, public Sales-Ready declaration, MVP-Beta cerrado completion declaration, L1 readiness declaration, M2 readiness declaration, or secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_3C_PILOT_M1_003_STUDENT_DRY_RUN_PASSED
+```
