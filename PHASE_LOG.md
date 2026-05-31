@@ -33192,3 +33192,126 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_2F_AUTH_ACCOUNT_LINKAGE_REPAIRED_FOR_PILOT_M1_002
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DRY-RUN-2E - Execute controlled local/dev student dry-run for PILOT_M1_002
+
+Type:
+
+```text
+Human-guided local/dev student dry-run / normal student runtime mutations / documentation closeout.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = b13eb89
+Latest accepted commits:
+- 7fb5809 - MVP-SALES-PILOT-DRY-RUN-2D: complete PAES_M1 enrollment readiness for PILOT_M1_002
+- b13eb89 - MVP-SALES-PILOT-DRY-RUN-2F: repair PILOT_M1_002 auth account linkage
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Execution mode:
+
+```text
+HUMAN_GUIDED_STUDENT_RUN
+```
+
+Context:
+
+* `2E` was originally attempted after `2D` but paused because student login failed.
+* `2F` repaired the canonical `PILOT_M1_002` auth/account linkage.
+* After 2F, human-guided login succeeded using the normalized synthetic email.
+
+Student dry-run result:
+
+```text
+PILOT_M1_002_STUDENT_DRY_RUN_PASSED
+```
+
+Initial `/now` evidence:
+
+* Bexauri `/ ¿Qué me toca ahora?` loaded.
+* Closed pilot copy visible.
+* `Piloto cerrado PAES M1` visible.
+* Program visible as `PAES_M1 / PAES Matemática M1`.
+* L1 and M2 explicitly not active.
+* No public sale, paid plan, payment, trial, or subscription activation.
+* Initial pending load visible: `PAES M1 — Entrada balanceada inicial`.
+
+Student flow executed:
+
+* `Empezar` pressed for `PAES M1 — Entrada balanceada inicial`.
+* Activity opened and rendered.
+* Four questions rendered.
+* Controlled synthetic answers selected.
+* Counter reached `4 of 4`.
+* Responses submitted successfully.
+* UI showed saved-response confirmation.
+* UI showed `4 of 4` answered and `4 of 4` correct.
+* Self-report selected: `Me fue bien`.
+* Activity finalized.
+* Returned correctly to `/now`.
+
+Runtime mutations performed:
+
+```text
+LOCAL_DEV_NORMAL_STUDENT_FLOW_MUTATIONS_ONLY
+```
+
+Allowed runtime mutations observed:
+
+* student login/session;
+* StudyLoad start/open transition;
+* controlled synthetic MC response submission;
+* StudyLoad completion;
+* self-report recording;
+* completed-work visibility;
+* automatic M1 continuity to next pending StudyLoad.
+
+Continuity result:
+
+```text
+EXPECTED_M1_CONTINUITY_OBSERVED_AFTER_COMPLETION
+```
+
+Post-completion `/now` evidence:
+
+* Pending loads: `PAES M1 — Ecuaciones lineales básicas`, `practice`.
+* Registered activities: `PAES M1 — Entrada balanceada inicial`, `practice`, `Tu reporte: Me fue bien`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_2E_EXECUTE_CONTROLLED_LOCAL_DEV_STUDENT_DRY_RUN_FOR_PILOT_M1_002.md`.
+
+Verification:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because committed changes are documentation only and runtime mutation was normal local/dev student flow.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-ADMIN-EVIDENCE-3 - Verify admin/tutor evidence for PILOT_M1_002 dry-run
+```
+
+Explicit non-actions:
+
+* No second StudyLoad start/complete, new activity after completion, admin action after dry-run, CycleDecision, CycleEvaluation, StudentAccess mutation, SQL, Prisma CLI, direct DB inspection, DB mutation outside normal student runtime, app code change, schema change, auth change, staging, production, real data, payment/trial/subscription activation, L1/M2 activation, Sales-Ready declaration, MVP-Beta cerrado completion, password/hash/DB URL/env/provider/token/cookie/header/request/response printing, screenshot commit, or log commit.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_2E_PILOT_M1_002_STUDENT_DRY_RUN_PASSED
+```
