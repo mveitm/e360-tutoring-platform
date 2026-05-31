@@ -32986,3 +32986,94 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_2C_BLOCKED_ACCOUNT_NOT_VERIFIED_STRUCTURE_PREPARED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DRY-RUN-2D - Complete PAES_M1 enrollment and readiness verification for PILOT_M1_002
+
+Type:
+
+```text
+Human-guided local/dev admin UI enrollment setup and readiness verification / no student dry-run.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 336ad57
+Latest accepted commit = 336ad57 - MVP-SALES-PILOT-DRY-RUN-2C: prepare PILOT_M1_002 fixture readiness
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Corrected 2C blocker:
+
+* 2C closed as `BLOCKED_WITH_REASON` because account was not verified by Codex.
+* Human observation corrected the operational state: canonical `PILOT_M1_002` had an existing account and needed PAES_M1 enrollment.
+
+UI/admin action performed:
+
+* Canonical `PILOT_M1_002` selected in local/dev admin student detail.
+* PAES_M1/M1 selected in the program selector.
+* `Enroll` pressed once.
+
+Local/dev mutations performed:
+
+* PAES_M1 enrollment created for canonical `PILOT_M1_002`.
+* Enrollment became visible with status `active`.
+* Cycle 1 exists and is open.
+* First StudyLoad exists as pending: `PAES M1 — Entrada balanceada inicial`.
+
+Result:
+
+```text
+PILOT_M1_002_READY_FOR_STUDENT_DRY_RUN
+```
+
+Verification summary:
+
+* canonical student selected: `PILOT_M1_002 PILOT_M1_002`;
+* account existed before 2D action;
+* enrollment count changed from `0` to `1`;
+* PAES_M1 enrollment active;
+* Cycle 1 open;
+* decisions `0`;
+* evaluations `0`;
+* governance-reading records `0`;
+* total loads `1`;
+* pending loads `1`;
+* first StudyLoad registry/content metadata consistent with `paes_m1_balanced_entry_initial`;
+* no student login, `/now`, activity, StudyLoad start/complete, responses, evidence, self-report, staging, production, or secrets.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_2D_COMPLETE_PAES_M1_ENROLLMENT_AND_READINESS_FOR_PILOT_M1_002.md`.
+
+Verification:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because committed changes are documentation only and runtime mutation was local/dev UI/admin only.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-2E - Execute controlled local/dev student dry-run for PILOT_M1_002
+```
+
+Explicit non-actions:
+
+* No student dry-run, student login, `/now` student session, activity open, StudyLoad start/complete, response evidence, self-report, cycle close, continuity authorization, CycleDecision, CycleEvaluation, StudentAccess mutation, password change/reset, account creation, staging, production, real data, payment/trial/subscription activation, L1/M2 activation, SQL, Prisma CLI, direct DB inspection, `.env` inspection, secret/env/DB URL/password/hash/provider/token/cookie/header/storage/request/response printing, app code change, schema change, auth change, Playwright login E2E, Sales-Ready declaration, or MVP-Beta cerrado completion.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_2D_PILOT_M1_002_READY_FOR_STUDENT_DRY_RUN
+```
