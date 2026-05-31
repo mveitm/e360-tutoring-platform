@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { signOut } from 'next-auth/react'
 import { GraduationCap, Users, BookOpen, Link2, Layers, Zap, BarChart3, RefreshCw, GitBranch, FileBox, ClipboardCheck, Activity, LogOut } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -77,14 +76,11 @@ export function AdminNav() {
             ))}
           </nav>
         </div>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="gap-2 text-muted-foreground shrink-0"
-          onClick={() => signOut({ callbackUrl: '/login' })}
-        >
+        <Button asChild variant="ghost" size="sm" className="gap-2 text-muted-foreground shrink-0">
+          <Link href="/api/session/sign-out">
           <LogOut className="w-4 h-4" />
           <span>Cerrar sesión</span>
+          </Link>
         </Button>
       </div>
     </header>

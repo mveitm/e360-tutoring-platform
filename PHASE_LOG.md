@@ -33742,3 +33742,75 @@ Result marker:
 ```text
 MVP_SALES_AUTH_SIGNOUT_1_VISIBLE_SIGN_OUT_CONTROL_ADDED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-AUTH-SIGNOUT-1R - Repair visible sign-out runtime regression
+
+Type:
+
+```text
+Narrow runtime repair / no auth provider change / no dry-run.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 8cf2eab
+Latest accepted commit = 8cf2eab - MVP-SALES-AUTH-SIGNOUT-1: add visible sign-out control
+```
+
+Runtime regression context:
+
+* `8cf2eab` introduced or exposed a runtime regression on `/now`.
+* The regression was associated with the visible sign-out implementation depending on client-side NextAuth navigation/runtime context.
+* This repair keeps the visible sign-out control but moves the logout action to a server-side endpoint.
+
+Implementation:
+
+* Added `GET /api/session/sign-out` to expire NextAuth session-related cookies and redirect to `/login`.
+* Preserved secure deletion semantics for `__Secure-` and `__Host-` NextAuth cookie names.
+* Replaced the `/now` sign-out control with a server-renderable link to `/api/session/sign-out`.
+* Updated admin nav so `/now` and `/admin` use the same server-side sign-out endpoint.
+* Did not change auth model, CredentialsProvider, DB, schema, StudentAccess, payment, trial, subscription, L1, or M2.
+
+Result:
+
+```text
+VISIBLE_SIGN_OUT_RUNTIME_REGRESSION_REPAIRED
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/api/session/sign-out/route.ts`.
+* `nextjs_space/app/now/_components/sign-out-button.tsx`.
+* `nextjs_space/app/admin/_components/admin-nav.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_AUTH_SIGNOUT_1R_REPAIR_VISIBLE_SIGNOUT_RUNTIME_REGRESSION.md`.
+
+Verification completed:
+
+* `npm.cmd --prefix nextjs_space run build` passed.
+* `git diff --check` passed.
+* `git status --short --untracked-files=all` reviewed.
+* `git diff --stat` reviewed.
+* Local dev runtime smoke passed:
+  * `/now` returned HTTP 200.
+  * `/admin` returned HTTP 200.
+  * `/api/session/sign-out` returned a redirect to `/login`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-3C - Execute controlled local/dev student dry-run for PILOT_M1_003
+```
+
+Explicit non-actions:
+
+* No auth model change, CredentialsProvider change, DB work, schema change, StudentAccess mutation, payment/trial/subscription change, L1/M2 activation, student dry-run, student login by Codex, activity open, StudyLoad start/complete, responses, evidence, self-report, SQL, Prisma CLI, staging, production, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing, Sales-Ready declaration, or MVP-Beta cerrado completion.
+
+Result marker:
+
+```text
+MVP_SALES_AUTH_SIGNOUT_1R_VISIBLE_SIGN_OUT_RUNTIME_REGRESSION_REPAIRED
+```
