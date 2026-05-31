@@ -32557,3 +32557,95 @@ Result marker:
 ```text
 MVP_SALES_PILOT_ADMIN_EVIDENCE_1_PASS_WITH_ADMIN_EVIDENCE_GAP
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-ADMIN-EVIDENCE-2 - Close admin evidence visibility gaps for PILOT_M1_001
+
+Type:
+
+```text
+Local/dev admin UI read-only evidence verification / human admin login / documentation only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 5c36d80
+Latest accepted commit = 5c36d80 - MVP-SALES-PILOT-ADMIN-EVIDENCE-1: verify local admin tutor evidence
+Working tree clean before edits.
+```
+
+Docs read:
+
+* `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`.
+* `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ADMIN_EVIDENCE_1_VERIFY_LOCAL_ADMIN_TUTOR_EVIDENCE.md`.
+* `PHASE_LOG.md` tail.
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Inherited gap:
+
+* Completed StudyLoad title not conclusively verified.
+* Pending StudyLoad title not conclusively verified.
+* Self-report text not conclusively verified.
+
+Result:
+
+```text
+PASS_WITH_ADMIN_EVIDENCE_GAP
+```
+
+Summary:
+
+* Git preflight confirmed `5c36d80`; a stale `c9c1b43` baseline in active context was overridden by live Git truth.
+* Local dev server responded at `http://localhost:3000`.
+* Admin UI required human login; Mauricio logged in locally in clean headed browser profiles.
+* Read-only admin UI inspection confirmed target PAES_M1 enrollment persistence, cycle persistence, and exact self-report visibility for `Me fue bien`.
+* A final read-only cycle sweep confirmed one visible cycle and visible title keywords for both `Entrada balanceada inicial` and `Ecuaciones lineales`.
+* Exact full-title visibility still did not confirm for `PAES M1 — Entrada balanceada inicial` or `PAES M1 — Ecuaciones lineales básicas`.
+* No mutation was attempted; no secrets/session material were requested or printed.
+
+Gap status:
+
+```text
+self-report: closed
+completed exact title: still open
+pending exact title: still open
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ADMIN_EVIDENCE_2_CLOSE_ADMIN_EVIDENCE_VISIBILITY_GAPS.md`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because only documentation changed.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-ADMIN-EVIDENCE-3 - Resolve exact StudyLoad title visibility in admin review
+```
+
+Non-goals:
+
+* No SQL, Prisma CLI, DB inspection, DB mutation, StudyLoad mutation/start/complete/edit, cycle close, continuity authorization, decision/evaluation creation, StudentAccess work, auth change, app code, schema, Playwright login work, staging, production, payment, trial, subscription, secrets, env values, DB URLs, tokens, cookies, headers, request bodies, response bodies, L1 readiness, M2 readiness, MVP-Beta cerrado completion, or Sales-Ready declaration.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_ADMIN_EVIDENCE_2_PASS_WITH_ADMIN_EVIDENCE_GAP_SELF_REPORT_CONFIRMED
+```
