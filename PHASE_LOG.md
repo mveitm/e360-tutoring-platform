@@ -33479,3 +33479,115 @@ Result marker:
 ```text
 MVP_SALES_PILOT_GO_2_GO_WITH_RECORDED_DEBT_TO_PILOT_M1_003_PREP
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DRY-RUN-3A - Prepare controlled local/dev dry-run fixture for PILOT_M1_003
+
+Type:
+
+```text
+Controlled local/dev fixture preparation / no student dry-run / no app code change.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 246c08c
+Latest accepted commit = 246c08c - MVP-SALES-PILOT-GO-2: evaluate readiness after PILOT_M1_002 evidence
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Canonical identity:
+
+```text
+participantCode: PILOT_M1_003
+display: PILOT_M1_003 PILOT_M1_003
+email: pilot_m1_003_pilot_m1_003@bexauri.dev
+```
+
+Setup performed:
+
+* Used a temporary guarded local/dev Prisma Client script.
+* Targeted only `PILOT_M1_003`.
+* Used lowercase email from the start.
+* Checked for duplicate/noncanonical `PILOT_M1_003` candidates before mutation.
+* Removed temporary script before commit.
+
+Local/dev mutations performed:
+
+* Student created.
+* User/account created without password.
+* PAES_M1 enrollment created and active.
+* Cycle 1 created/open.
+* Initial pending StudyLoad created: `PAES M1 — Entrada balanceada inicial`.
+
+Safe setup verification:
+
+```text
+RESULT: prepared
+studentCreated: true
+userCreated: true
+userHasPassword: false
+credentialStatus: human_private_step_required
+enrollmentStatus: active
+cycle1Status: open
+studyLoadCount: 1
+initialStudyLoadStatus: pending
+contentKey: paes_m1_balanced_entry_initial
+contentVersion: v1
+programCode: PAES_M1
+decisionCount: 0
+evaluationCount: 0
+NO SECRET VALUES PRINTED
+```
+
+Result:
+
+```text
+READY_WITH_HUMAN_CREDENTIAL_STEP_REQUIRED
+```
+
+Debts:
+
+* `HUMAN_PRIVATE_CREDENTIAL_STEP_REQUIRED`.
+* `ADMIN_UI_TITLE_VISIBILITY_DEBT`.
+* `AUTH_EMAIL_NORMALIZATION_DEBT`, mitigated for this participant by lowercase email from the start.
+* `SIGNOUT_UI_DEBT`.
+* `CODEX_BROWSER_UI_AVAILABILITY_LIMITATION`.
+* `PLAYWRIGHT_LOGIN_E2E_DEBT`.
+* StudentAccess lifecycle remains untouched.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_3A_PREPARE_CONTROLLED_LOCAL_DEV_DRY_RUN_FOR_PILOT_M1_003.md`.
+
+Verification:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because committed changes are documentation only and runtime mutation was local/dev script-only.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-3B - Complete private credential readiness for PILOT_M1_003
+```
+
+Explicit non-actions:
+
+* No student dry-run, student login, `/now`, activity open, StudyLoad start/complete, responses, evidence, self-report, cycle close, continuity authorization, CycleDecision, CycleEvaluation, second StudyLoad open/start, staging, production, real data, payment/trial/subscription activation, L1/M2 activation, Sales-Ready declaration, MVP-Beta cerrado completion, app code change, schema change, auth change, Playwright login E2E, SQL, Prisma CLI, secrets/env values/DB URL/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing, StudentAccess mutation, script commit, log commit, or screenshot commit.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_3A_READY_WITH_HUMAN_CREDENTIAL_STEP_REQUIRED
+```
