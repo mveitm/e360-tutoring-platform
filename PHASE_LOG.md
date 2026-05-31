@@ -32649,3 +32649,86 @@ Result marker:
 ```text
 MVP_SALES_PILOT_ADMIN_EVIDENCE_2_PASS_WITH_ADMIN_EVIDENCE_GAP_SELF_REPORT_CONFIRMED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-GO-1 - Evaluate pilot readiness after Gate 1 closure
+
+Type:
+
+```text
+Documentation-only evaluation / classification / no implementation / no mutation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = dc5be9b
+Latest accepted commit = dc5be9b - MVP-SALES-PILOT-ADMIN-EVIDENCE-2: close admin evidence visibility gaps
+Working tree clean before edits.
+```
+
+Docs read:
+
+* `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`.
+* `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ADMIN_EVIDENCE_1_VERIFY_LOCAL_ADMIN_TUTOR_EVIDENCE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_ADMIN_EVIDENCE_2_CLOSE_ADMIN_EVIDENCE_VISIBILITY_GAPS.md`.
+* `PHASE_LOG.md` tail.
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Gate 1 assessment:
+
+```text
+FUNCTIONALLY_SATISFIED
+```
+
+Go/No-Go result:
+
+```text
+GO_WITH_RECORDED_DEBT
+```
+
+Summary:
+
+* Gate 1 is functionally satisfied: admin/tutor evidence is accessible enough to inspect the target PAES_M1 enrollment, cycle, completed/pending state shape, self-report, coarse evidence presence, and M1-only continuity boundary.
+* The residual exact StudyLoad title visibility issue is classified as recorded debt, not an operational blocker.
+* No real blocker was identified before controlled local/dev repetition for `PILOT_M1_002` / `PILOT_M1_003`.
+* This evaluation does not declare public Sales-Ready, MVP-Beta cerrado completion, L1 readiness, M2 readiness, payment/trial/subscription readiness, or real participant approval.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_GO_1_EVALUATE_PILOT_READINESS_AFTER_GATE_1.md`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because only documentation changed.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-2A - Prepare controlled local/dev dry-run for PILOT_M1_002
+```
+
+Non-goals:
+
+* No SQL, Prisma CLI, DB inspection, DB mutation, browser, UI mutation, StudyLoad actions, cycle actions, staging, production, app code, schema, auth change, payment, trial, subscription, secrets, env values, DB URLs, tokens, cookies, headers, request bodies, response bodies, pilot expansion execution, or `PILOT_M1_002` / `PILOT_M1_003` execution.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_GO_1_GO_WITH_RECORDED_DEBT_GATE_1_FUNCTIONALLY_SATISFIED
+```
