@@ -33077,3 +33077,118 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_2D_PILOT_M1_002_READY_FOR_STUDENT_DRY_RUN
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DRY-RUN-2F - Repair PILOT_M1_002 auth/account linkage before student dry-run
+
+Type:
+
+```text
+Controlled local/dev auth/account linkage repair / no student dry-run / no app code change.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 7fb5809
+Latest accepted commit = 7fb5809 - MVP-SALES-PILOT-DRY-RUN-2D: complete PAES_M1 enrollment readiness for PILOT_M1_002
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+2E pause context:
+
+* `MVP-SALES-PILOT-DRY-RUN-2E` was started but not executed or committed.
+* Human-guided student login for canonical `PILOT_M1_002` failed with generic invalid-credentials feedback.
+* Admin password reset was attempted twice by Mauricio, but login still failed.
+* `StudentAccess row: Missing` was visible in admin UI.
+* No dry-run, `/now`, activity, StudyLoad start/completion, evidence, self-report, CycleDecision, or CycleEvaluation occurred.
+
+Diagnosis:
+
+```text
+AUTH_ACCOUNT_LINKAGE_DIAGNOSIS
+```
+
+Probable cause:
+
+```text
+Email normalization mismatch.
+```
+
+Code findings:
+
+* `POST /api/students/[id]/create-user` creates/checks User using exact `student.email`.
+* `POST /api/students/[id]/reset-password` finds User using exact `student.email`.
+* CredentialsProvider trims and lowercases submitted email before User lookup.
+* StudentAccess is not queried by CredentialsProvider login and is treated as a runtime/access lifecycle risk, not this login blocker.
+
+Repair local/dev performed:
+
+* Used a temporary guarded local/dev Prisma Client script.
+* Script targeted only the canonical synthetic `PILOT_M1_002` record selected in 2D.
+* Script checked for normalized Student/User conflicts before mutation.
+* Script normalized the canonical Student email and matching User email to the login-normalized value.
+* Script was removed before commit.
+
+Mutations local/dev performed:
+
+```text
+canonical PILOT_M1_002 Student email normalized
+canonical PILOT_M1_002 User email normalized
+```
+
+Safe repair verification:
+
+```text
+RESULT: repaired
+exactStudentFoundBefore: true
+normalizedStudentFoundBefore: false
+exactUserFoundBefore: true
+normalizedUserFoundBefore: false
+userHasPassword: true
+studentUpdated: true
+userUpdated: true
+targetEmailState: normalized_lowercase
+NO SECRET VALUES PRINTED
+```
+
+Result:
+
+```text
+AUTH_ACCOUNT_LINKAGE_REPAIRED_FOR_PILOT_M1_002
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_2F_REPAIR_PILOT_M1_002_AUTH_ACCOUNT_LINKAGE.md`.
+
+Verification:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because committed changes are documentation only and runtime mutation was local/dev script-only.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-2E-RESUME - Resume controlled local/dev student dry-run for PILOT_M1_002 after auth linkage repair
+```
+
+Explicit non-actions:
+
+* No student dry-run, student login, `/now`, activity open, StudyLoad start/complete, response submission, evidence, self-report, cycle close, continuity authorization, CycleDecision, CycleEvaluation, StudentAccess mutation, enrollment mutation, cycle mutation, StudyLoad mutation, staging, production, real data, payment/trial/subscription activation, L1/M2 activation, schema change, app code change, global auth change, Playwright login E2E, SQL, Prisma CLI, password/hash/DB URL/env/provider/token/cookie/header/request/response printing, script commit, log commit, screenshot commit, Sales-Ready declaration, or MVP-Beta cerrado completion.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_2F_AUTH_ACCOUNT_LINKAGE_REPAIRED_FOR_PILOT_M1_002
+```
