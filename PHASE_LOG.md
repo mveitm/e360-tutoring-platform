@@ -32732,3 +32732,80 @@ Result marker:
 ```text
 MVP_SALES_PILOT_GO_1_GO_WITH_RECORDED_DEBT_GATE_1_FUNCTIONALLY_SATISFIED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DRY-RUN-2A - Prepare controlled local/dev dry-run for PILOT_M1_002
+
+Type:
+
+```text
+Documentation-only readiness preparation / no runtime / no mutation / no pilot execution.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 2522b2e
+Latest accepted commit = 2522b2e - MVP-SALES-PILOT-GO-1: evaluate pilot readiness after Gate 1
+Working tree clean before edits.
+```
+
+Docs read:
+
+* `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`.
+* `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`.
+* `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_1I_RETRY_LOCAL_DEV_RUNTIME_AFTER_AUTH.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_GO_1_EVALUATE_PILOT_READINESS_AFTER_GATE_1.md`.
+* `PHASE_LOG.md` tail.
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Readiness result:
+
+```text
+READY_WITH_RECORDED_DEBT
+```
+
+Summary:
+
+* Prepared the documented path for a later controlled local/dev dry-run for `PILOT_M1_002`.
+* Did not execute login, runtime, StudyLoad actions, setup, fixture creation, or any mutation.
+* Readiness is sufficient to proceed to a separate prerequisite verification/setup phase.
+* Recorded debt remains: `ADMIN_UI_TITLE_VISIBILITY_DEBT`.
+* Participant-specific readiness remains unverified in this phase: fixture existence, credential readiness, PAES_M1 enrollment/cycle/initial StudyLoad state.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_2A_PREPARE_CONTROLLED_LOCAL_DEV_DRY_RUN_FOR_PILOT_M1_002.md`.
+
+Validation:
+
+* `git diff --check` required.
+* `git status --short` required.
+* `git diff --stat` required.
+* No build required because only documentation changed.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-2B - Verify or prepare local/dev fixture readiness for PILOT_M1_002
+```
+
+Non-goals:
+
+* No SQL, Prisma CLI, DB inspection, DB mutation, browser/UI mutation, login execution, activity execution, StudyLoad actions, cycle actions, StudentAccess actions, staging, production, users/enrollments/cycles/StudyLoads/credentials creation, secrets, env values, DB URLs, tokens, cookies, headers, request bodies, response bodies, dry-run execution, roadmap modification, Sales-Ready declaration, MVP-Beta cerrado completion, L1 readiness, or M2 readiness.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_2A_READY_WITH_RECORDED_DEBT_FOR_PILOT_M1_002
+```
