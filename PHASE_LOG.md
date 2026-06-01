@@ -34179,3 +34179,154 @@ Result marker:
 ```text
 MVP_SALES_PILOT_HARDENING_2_CONTROLLED_NEXT_M1_PARTICIPANT_PROTOCOL_DEFINED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-HARDENING-3 - Prepare controlled next M1 participant fixture
+
+Type:
+
+```text
+Controlled local/dev fixture preparation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 5ea0dac
+Latest accepted commit = 5ea0dac - MVP-SALES-PILOT-HARDENING-2: define controlled next M1 participant protocol
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, GO-3, HARDENING-1, HARDENING-2, 3C, SIGNOUT-1R, and `PHASE_LOG.md` tail before acting.
+* Git preflight remained the live truth.
+* Historical baselines in older documents were treated as historical context only.
+
+Safe target confirmation:
+
+```text
+SAFE_TARGET_CONFIRMATION: LOCAL_DEV_CONFIRMED
+LOCAL_ENV_FILE_PRESENT: yes
+PRIVATE_ENV_KEYS_LOADED_COUNT: 0
+ENVIRONMENT_LABEL_CHECK: PASSED_NON_STAGING_NON_PRODUCTION
+SECRETS_PRINTED: no
+```
+
+Participant identity:
+
+```text
+Code/name: PILOT_M1_004
+Display name: PILOT_M1_004 PILOT_M1_004
+Canonical email: pilot_m1_004_pilot_m1_004@bexauri.dev
+Program: PAES_M1
+Initial StudyLoad: PAES M1 - Entrada balanceada inicial
+Content key: paes_m1_balanced_entry_initial
+```
+
+Pre-existing data check:
+
+* Checked for existing `Student`, `User`, `Account`, `Enrollment`, `LearningCycle`, `StudyLoad`, `StudentAccess`, sessions, responses, decisions, evaluations, and continuity signals for `PILOT_M1_004`.
+* No partial or duplicate fixture blocked creation.
+* Current credentials auth uses `User.email` plus `User.password`; `Account` is not required for this credentials login path.
+
+Fixture summary:
+
+```text
+RESULT: PREPARED_WITH_PRIVATE_CREDENTIAL_STEP_REQUIRED
+Student: created
+User: created
+User password set: no
+Account records: 0
+Enrollment PAES_M1 active: created
+Cycle 1 open: created
+Initial StudyLoad pending: created
+StudentAccess row: missing
+```
+
+Initial StudyLoad metadata:
+
+```text
+Title: PAES M1 - Entrada balanceada inicial
+Type: practice
+Status: pending
+Content key: paes_m1_balanced_entry_initial
+Content version: v1
+Program code: PAES_M1
+Slice id: BALANCED_ENTRY
+Axis: balanced_entry
+Primary purpose: diagnose
+Evidence type: mc_submission
+Review status: internal_provisional
+Expert reviewed: false
+Routing status: available_not_universal
+```
+
+Post-fixture verification:
+
+* Student exists exactly once for the canonical email.
+* User exists exactly once for the canonical email.
+* PAES_M1 active enrollment exists exactly once.
+* Cycle 1 open exists exactly once.
+* Initial StudyLoad pending exists exactly once.
+* Tutoring sessions: 0.
+* Responses: 0.
+* Cycle decisions: 0.
+* Cycle evaluations: 0.
+* Continuity signals: 0.
+* Total cycles for participant: 1.
+* Total StudyLoads for Cycle 1: 1.
+* Second StudyLoad created: no.
+* Cycle 2 created: no.
+* Other participants touched: no.
+* Staging/production touched: no.
+
+StudentAccess observation:
+
+* `StudentAccess` row remains missing.
+* It was intentionally not created because this phase did not authorize StudentAccess lifecycle mutation.
+* This remains lifecycle debt before public Sales-Ready or self-serve access claims.
+
+Credential boundary:
+
+* No password was set.
+* No credential, hash, token, cookie, header, env value, DB URL, provider value, storage value, request body, or response body was printed.
+* Credential readiness remains a separate future phase.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-HARDENING-4 - Complete private credential readiness for PILOT_M1_004
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_HARDENING_3_PREPARE_CONTROLLED_NEXT_M1_PARTICIPANT_FIXTURE.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation and made a controlled local/dev DB fixture mutation only.
+
+Explicit non-declarations:
+
+* No Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, diagnostic automation, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, large cohort readiness, self-serve signup readiness, self-serve enrollment readiness, production readiness, or staging readiness.
+
+Explicit non-actions:
+
+* No student dry-run, student login, `/now` as student, StudyLoad start, question answering, response submission, self-report, activity close, second load start, cycle close, CycleDecision, CycleEvaluation, ContinuitySignal, StudentAccess creation, Account creation, password set, app code, schema, global seed, auth model, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_HARDENING_3_PREPARED_WITH_PRIVATE_CREDENTIAL_STEP_REQUIRED
+```
