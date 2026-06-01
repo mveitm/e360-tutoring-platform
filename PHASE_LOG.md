@@ -35564,3 +35564,104 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0_CLOSED_M1_FIRST_SANDBOX_RUNBOOK_DRAFTED_NOT_AUTHORIZED_FOR_EXECUTION
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-HARDENING-5D - Decide auth normalization and Playwright/login E2E threshold
+
+Type:
+
+```text
+Documentation / decision / threshold-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = d906587
+Latest accepted commit = d906587 - MVP-SALES-PILOT-SANDBOX-0: draft closed M1-first sandbox runbook
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, SANDBOX-0, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, HARDENING-5C, DIRECTION-1, PRO report, GO-4, DRY-RUN-4A, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / threshold decision:
+
+```text
+AUTH_AND_PLAYWRIGHT_WAIVER_ALLOWED_FOR_TINY_HUMAN_GUIDED_SANDBOX_WITH_STRICT_LIMITS
+```
+
+Auth threshold summary:
+
+* Auth normalization remains a real debt because `PILOT_M1_002` exposed email/account linkage mismatch and robust complete auth readiness has not been declared.
+* Auth normalization is not a blocker for one future tiny, human-guided, non-public, non-commercial, `PAES_M1`-only sandbox only if strict waiver conditions are met.
+* Required containment includes canonical controlled email, allowlist, private credential custody, logout before user switching, immediate identity check after login, and stop on any mismatch.
+* Auth normalization remains blocker before external users beyond later explicit authorization, repeated/non-human-guided sandbox, staging with external users, broader closed pilot, self-serve signup/enrollment, payment/trial/subscription, M2/L1, and Sales-Ready/public.
+
+Playwright / E2E threshold summary:
+
+* Playwright/login E2E remains open; no automated login E2E success is declared.
+* Playwright/login E2E is not a blocker for one tiny human-guided sandbox if manual smoke checklist and stop rules are accepted later.
+* Manual smoke checklist must cover clean baseline, safe target, logout, login page, allowlisted participant login, `/now`, `PAES_M1` only, expected StudyLoad, read-only admin evidence, logout after run, no secrets, and stop on deviation.
+* Playwright/login E2E remains blocker before staging readiness, broader closed pilot, repeated/non-human-guided sandbox, and public/commercial flows.
+
+Waiver summary:
+
+* Waiver name: `AUTH_AND_PLAYWRIGHT_TEMPORARY_WAIVER_FOR_TINY_HUMAN_GUIDED_M1_FIRST_SANDBOX`.
+* Scope: one future tiny closed M1-first sandbox authorization phase only.
+* Participants: synthetic/internal controlled only unless later authorization explicitly allows known controlled external participant.
+* Expiry: before staging, broader closed pilot, external users beyond later explicit authorization, payment/trial/subscription, M2/L1, self-serve signup/enrollment, repeated non-human-guided sandbox, or Sales-Ready/public.
+* Owner: Bexauri / Mauricio.
+* The waiver must be recorded in the later sandbox authorization phase.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0A - Define sandbox allowlist template
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5A/5B/5C, SANDBOX-0 runbook, and this 5D waiver threshold.
+* What it advances: defines the private allowlist template/process needed before a later SANDBOX-1 execution readiness authorization.
+* What it does not advance: sandbox execution, participant creation, credential creation, DB mutation, auth implementation, Playwright implementation, staging, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, or payment/trial/subscription.
+* Priority verdict: `APPROVED_NEXT_SMALL_DOCUMENTATION_PHASE_ALLOWLIST_TEMPLATE_BEFORE_SANDBOX_AUTHORIZATION`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_HARDENING_5D_DECIDE_AUTH_NORMALIZATION_AND_PLAYWRIGHT_LOGIN_E2E_THRESHOLD.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git diff --cached --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only.
+
+Explicit non-declarations:
+
+* No sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, or auth normalization fully resolved.
+
+Explicit non-actions:
+
+* No implementation, UI execution, Playwright run, test creation/modification, auth changes, CredentialsProvider changes, app code, schema, seed, DB mutation, participant creation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment, communications, commercial material creation, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_HARDENING_5D_AUTH_AND_PLAYWRIGHT_WAIVER_ALLOWED_FOR_TINY_HUMAN_GUIDED_SANDBOX_WITH_STRICT_LIMITS
+```
