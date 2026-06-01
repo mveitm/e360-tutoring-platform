@@ -35465,3 +35465,102 @@ Result marker:
 ```text
 MVP_SALES_PILOT_HARDENING_5C_PARTICIPANT_DATA_LANGUAGE_GUARDRAILS_DEFINED_WITH_EXTERNAL_PARTICIPANTS_CONDITIONED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0 - Draft closed M1-first sandbox runbook
+
+Type:
+
+```text
+Documentation / readiness / sandbox runbook draft only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 4e9adbc
+Latest accepted commit = 4e9adbc - MVP-SALES-PILOT-HARDENING-5C: define sandbox guardrails
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, HARDENING-5C, DIRECTION-1, PRO report, GO-4, DRY-RUN-4A, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / runbook decision:
+
+```text
+CLOSED_M1_FIRST_SANDBOX_RUNBOOK_DRAFTED_NOT_AUTHORIZED_FOR_EXECUTION
+```
+
+Runbook summary:
+
+* Drafted the first closed M1-first sandbox runbook for a future tiny, human-guided, non-public, non-commercial, `PAES_M1`-only sandbox.
+* Integrated DIRECTION-1A gate criteria, HARDENING-5A StudentAccess containment, HARDENING-5B support/failure path, and HARDENING-5C participant/data/language guardrails.
+* Defined sandbox scope, non-scope, participant policy, conceptual allowlist fields, access authority, data/language guardrails, support responses, before/during/admin/after checklists, entry/exit criteria, and pause/abort criteria.
+* Reaffirmed that the runbook is preparation only and does not authorize sandbox execution or declare readiness.
+
+Entry / exit criteria summary:
+
+* Entry requires DIRECTION-1A, HARDENING-5A/5B/5C, SANDBOX-0, clean baseline, approved allowlist, accepted guardrails, support path, authorized non-production target, no payment/trial/subscription, no M2/L1, and HARDENING-5D completion or explicit later waiver.
+* Exit requires authorized activity completion or incident documentation, safe student evidence, admin/tutor evidence or activated failure path, incident classification, no sensitive data copied, no scope escalation, no unauthorized second-load start, compact closeout report, and next decision: `advance`, `pause`, `close_blocker`, `repeat_targeted`, or `abort`.
+
+Pause criteria summary:
+
+* Pause/abort on staging/production suspicion, sensitive data exposure, printed secret/token/cookie/password/hash/env/DB URL/header/body/provider/storage value, non-allowlisted participant, disallowed participant type, minor without policy, non-`PAES_M1` program, unauthorized load, evidence loss/duplication/corruption, unexpected cycle close, unexpected CycleDecision/Evaluation, auth requiring code, unauthorized DB mutation need, Git divergence, public/commercial scope, accidental commercial language, payment/trial/subscription attempt, M2/L1 activation attempt, PAES score/diagnosis/prediction/guarantee expectation, or marketing/testimonial use.
+
+Relationship with HARDENING-5D:
+
+* SANDBOX-0 recommends completing `MVP-SALES-PILOT-HARDENING-5D - Decide auth normalization and Playwright/login E2E threshold` before any sandbox execution authorization.
+* A later authorization phase may explicitly waive 5D for a tiny human-guided sandbox, but this runbook does not grant that waiver.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-HARDENING-5D - Decide auth normalization and Playwright/login E2E threshold
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5 sequence, HARDENING-5A StudentAccess containment, HARDENING-5B support/failure path, HARDENING-5C guardrails, and this runbook draft.
+* What it advances: decides whether auth normalization and Playwright/login E2E must be closed before sandbox execution authorization or can be explicitly waived for a tiny human-guided sandbox.
+* What it does not advance: sandbox execution, staging execution, participant creation, implementation unless separately authorized, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, or payment/trial/subscription.
+* Priority verdict: `APPROVED_NEXT_SMALL_THRESHOLD_PHASE_AUTH_E2E_DECISION_BEFORE_SANDBOX_AUTHORIZATION`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0_DRAFT_CLOSED_M1_FIRST_SANDBOX_RUNBOOK.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git diff --cached --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only.
+
+Explicit non-declarations:
+
+* No current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, or StudentAccess lifecycle implemented.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, participant creation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment, communications, commercial material creation, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0_CLOSED_M1_FIRST_SANDBOX_RUNBOOK_DRAFTED_NOT_AUTHORIZED_FOR_EXECUTION
+```
