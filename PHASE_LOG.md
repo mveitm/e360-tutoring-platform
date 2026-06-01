@@ -37792,3 +37792,140 @@ Result marker:
 ```text
 LANDING_PAGE_STUDENT_MVP_REFINED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-UI-LANDING-1B - Apply provisional Bexauri brand palette and professional visual polish
+
+Type:
+
+```text
+Level C/D - UI refinement / standard implementation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 7a40045
+Latest accepted commit = 7a40045 - MVP-SALES-PILOT-UI-LANDING-1A: refine student landing access options
+Working tree clean before edits.
+```
+
+Human authorization:
+
+```text
+AUTORIZO_LANDING_1B_PALETA_BEXAURI_PROVISORIA_Y_LOGO_EN_REPO
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1_IMPLEMENT_STUDENT_LANDING_PAGE_MVP.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1A_REFINE_STUDENT_LANDING_PAGE_LAYOUT_AND_ACCESS_OPTIONS.md`.
+* Read `PHASE_LOG.md` tail.
+* Phase Scope Optimization Protocol is ACTIVE.
+* Student Experience-Led Delivery Protocol is ACTIVE.
+* Logo source existed at `C:\Users\mveit\Downloads\Gemini_Generated_Image_b9e3a2b9e3a2b9e3.png`.
+* Logo destination set to `nextjs_space/public/brand/bexauri-logo-provisional.png`.
+
+Result:
+
+```text
+LANDING_PAGE_STUDENT_MVP_BRAND_POLISHED
+```
+
+Brand/palette:
+
+* Primary Bexauri blue: `#192F56`.
+* Secondary blue: `#253A5F`.
+* Petroleum green: `#4B7B7C`.
+* Soft petroleum: `#48656C`.
+* Warm light background: `#F8F4EB` and `#FBFCF6`.
+* Blue-gray support: `#A6B3BE`.
+
+Logo:
+
+* Copied authorized provisional PNG into `nextjs_space/public/brand/bexauri-logo-provisional.png`.
+* Incorporated the provisional logo in the landing header.
+* Did not modify the original Downloads file.
+* Did not generate or substitute another logo.
+
+UI changes:
+
+* Applied the provisional Bexauri palette to page background, text, buttons, card borders, hover states, focus states, and support icons.
+* Kept the approved LANDING-1A structure: two-line hero, `Elige cómo comenzar`, three cards, support block, and footer.
+* Preserved a text-only welcome area without hero-side images, boxes, or graphics.
+* Improved professional visual polish with warmer backgrounds, subtler shadows, and brand-aligned card accents.
+
+Responsive verification:
+
+* Mobile standard `390 x 844`: prepared through moderate logo width, single-column hero, stacked cards, stable buttons.
+* Tablet vertical `768 x 1024`: prepared through responsive card grid and preserved spacing.
+* Desktop `1366 x 768`: prepared through compact hero, three-card options grid, and balanced support section.
+
+Routes/buttons:
+
+* `/` loads the brand-polished landing.
+* `/login` remains the login route.
+* Header, hero, and `Iniciar` card login CTAs navigate to `/login`.
+* `Ver opciones de acceso`, `Comenzar trial`, and `Ver suscripción` point to `#opciones`.
+* No checkout, real payment, real trial, subscription backend, DB, StudentAccess, StudyLoad, dashboard, or M1 enrollment route was introduced.
+
+Files changed:
+
+* `nextjs_space/app/page.tsx`.
+* `nextjs_space/public/brand/bexauri-logo-provisional.png`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1B_APPLY_PROVISIONAL_BEXAURI_BRAND_PALETTE_AND_VISUAL_POLISH.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* `PHASE_LOG.md`.
+
+Verification:
+
+* `npm.cmd --prefix nextjs_space run build` passed.
+* `git diff --check` required before commit.
+* `git status --short` required before commit.
+* `git log --oneline --decorate --graph -5` required before commit.
+
+Scope safety:
+
+* No DB.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No StudyLoad.
+* No student dashboard.
+* No M1 enrollment.
+* No pedagogical feedback.
+* No L1/M2.
+* No checkout.
+* No real payment.
+* No payment provider integration.
+* No real trial logic.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No new logo generation.
+
+Next recommended phase:
+
+```text
+Human visual audit of brand-polished landing page
+```
+
+Result marker:
+
+```text
+LANDING_PAGE_STUDENT_MVP_BRAND_POLISHED
+```
