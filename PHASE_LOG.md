@@ -34478,3 +34478,212 @@ Result marker:
 ```text
 MVP_SALES_PILOT_HARDENING_4_CREDENTIAL_READY_WITHOUT_SECRET_PRINTED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DRY-RUN-4A - Execute controlled local/dev student dry-run for PILOT_M1_004
+
+Type:
+
+```text
+Controlled local/dev student dry-run closeout + documentation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 4438631
+Latest accepted commit = 4438631 - MVP-SALES-PILOT-HARDENING-4: complete PILOT_M1_004 credential readiness
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, GO-3, HARDENING-2, HARDENING-3, HARDENING-4, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in older documents were treated as historical context only.
+
+Participant identity:
+
+```text
+Code/name: PILOT_M1_004
+Display name: PILOT_M1_004 PILOT_M1_004
+Canonical email: pilot_m1_004_pilot_m1_004@bexauri.dev
+Program: PAES_M1
+Initial StudyLoad: PAES M1 - Entrada balanceada inicial
+```
+
+Student flow evidence:
+
+* Mauricio signed out from admin and reached `/login`.
+* Login as `PILOT_M1_004` worked.
+* `/now` loaded correctly.
+* `Ver actividad` and `Empezar` were visible.
+* Expected StudyLoad was visible: `PAES M1 - Entrada balanceada inicial`.
+* Clicking `Empezar` worked.
+* URL changed to `/now/study-loads/...`.
+* Activity title was visible.
+* Four MC questions were visible.
+* Initial counter was `0 de 4 respondidas`.
+* `Enviar respuestas` was visible.
+
+Controlled responses:
+
+```text
+q1: C
+q2: B
+q3: C
+q4: B
+```
+
+Student completion evidence:
+
+* Counter reached `4 de 4 respondidas`.
+* `Enviar respuestas` worked.
+* Self-report appeared on the same page.
+* Self-report used: `Me fue bien`.
+* Activity completed correctly.
+* App returned to `/now`.
+* `/now` showed registered activity: `PAES M1 - Entrada balanceada inicial`.
+* `/now` showed new pending load: `PAES M1 - Ecuaciones lineales basicas`.
+* The new pending load was not started.
+
+Admin/tutor evidence:
+
+* Student: `PILOT_M1_004 PILOT_M1_004`.
+* Program: `PAES Matematica M1 (PAES_M1)`.
+* Enrollment status: active.
+* Cycle 1: open.
+* Opened: 31 may 2026.
+* Closed: `-`.
+* Total decisions: 0.
+* Decisions: none recorded.
+* Total loads: 2.
+* By status: pending 1, completed 1.
+* Indicator: Cycle has incomplete loads.
+
+Pending StudyLoad:
+
+```text
+Title: PAES M1 - Ecuaciones lineales basicas
+Type: practice
+Status: pending
+Timestamp visible: 31 may 2026, 08:37 p. m.
+contentKey: paes_m1_linear_equations_basic
+contentVersion: v1
+programCode: PAES_M1
+sliceId: AS1
+axis: algebra_functions
+primaryPurpose: practice
+evidenceType: mc_submission
+reviewStatus: internal_provisional
+expertReviewed: false
+routingStatus: available_not_universal
+```
+
+Completed StudyLoad:
+
+```text
+Title: PAES M1 - Entrada balanceada inicial
+Type: practice
+Status: completed
+Released: 31 may 2026
+Timestamp visible: 31 may 2026, 08:17 p. m.
+Autorreporte: Me fue bien
+Estado: Respuestas enviadas
+Respondidas: 4 de 4
+Correctas: 4 de 4
+Fecha de envio: 31 may 2026, 08:36 p. m.
+Contenido: paes_m1_balanced_entry_initial (v1)
+q1 C / C Correcta
+q2 B / B Correcta
+q3 C / C Correcta
+q4 B / B Correcta
+contentKey: paes_m1_balanced_entry_initial
+contentVersion: v1
+programCode: PAES_M1
+sliceId: BALANCED_ENTRY
+axis: balanced_entry
+primaryPurpose: diagnose
+evidenceType: mc_submission
+reviewStatus: internal_provisional
+expertReviewed: false
+routingStatus: available_not_universal
+```
+
+Operational evaluation summary:
+
+* Total evaluations: 0.
+* No cycle evaluations recorded.
+
+Continuity evidence:
+
+* Completed load: `PAES M1 - Entrada balanceada inicial`.
+* Automatically available next pending load: `PAES M1 - Ecuaciones lineales basicas`.
+* Next load status: pending.
+* Next load started: no.
+* CycleDecision count: 0.
+* CycleEvaluation count: 0.
+
+StudentAccess observation:
+
+```text
+Not reported / not observed in the 4A human admin evidence.
+```
+
+Prior HARDENING-3/HARDENING-4 documentation recorded StudentAccess as missing for `PILOT_M1_004`; this remains lifecycle debt before public Sales-Ready, trial, subscription, or self-serve access claims.
+
+Result:
+
+```text
+PASSED
+```
+
+Interpretation:
+
+```text
+login -> /now -> iniciar Entrada balanceada inicial -> responder 4/4 MC -> enviar respuestas -> autorreporte "Me fue bien" -> cierre -> /now con actividad registrada -> continuidad automatica hacia PAES M1 - Ecuaciones lineales basicas -> admin/tutor evidence visible.
+```
+
+Strategic scope:
+
+```text
+This strengthens the first M1-first vertical within the path toward MVP-Beta cerrado M1/M2/L1.
+```
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-GO-4 - Evaluate pilot readiness after PILOT_M1_004 evidence
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DRY_RUN_4A_EXECUTE_CONTROLLED_LOCAL_DEV_STUDENT_DRY_RUN_FOR_PILOT_M1_004.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only.
+
+Explicit non-declarations:
+
+* No Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, diagnostic automation, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, large cohort readiness, self-serve signup readiness, self-serve enrollment readiness, production readiness, or staging readiness.
+
+Explicit non-actions:
+
+* Codex executed no new UI action, student login, `/now`, StudyLoad start, question answering, response submission, self-report, activity close, second load start, cycle close, CycleDecision, CycleEvaluation, manual StudyLoad data mutation, StudentAccess lifecycle mutation, app code, schema, global seed, auth model, CredentialsProvider, content registry, payment/trial/subscription, L1/M2, staging, production, or secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DRY_RUN_4A_PILOT_M1_004_STUDENT_DRY_RUN_PASSED
+```
