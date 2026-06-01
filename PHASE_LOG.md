@@ -36948,3 +36948,89 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0L_LOGIN_UI_AUTH_BLOCKER_DIAGNOSED_WITH_REPAIR_RECOMMENDATION
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-GOV-1 - Document Phase Scope Optimization Protocol
+
+Type:
+
+```text
+Governance / documentation / living protocol activation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 7a03853
+Latest accepted commit = 7a03853 - MVP-SALES-PILOT-SANDBOX-0L: diagnose login failure and UI defects
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read `PHASE_LOG.md` tail, SANDBOX-0L, SANDBOX-0K, and SANDBOX-0J before editing.
+* Optional handoff/context/index files existed and were reviewed with limited scope: `CURRENT_AGENT_HANDOFF_MVP_M1.md`, `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`, and `DOCUMENTATION_INDEX_MVP_M1.md`.
+* Git preflight remained the live truth.
+* 0M-DATA remains paused at `BLOCKED_PENDING_HUMAN_CREDENTIAL_REAPPLY_CONFIRMATION`.
+
+Decision PRO:
+
+```text
+ADOPTAR CON AJUSTES
+```
+
+Result:
+
+```text
+PHASE_SCOPE_OPTIMIZATION_PROTOCOL_DOCUMENTED_AND_ACTIVE
+```
+
+Protocol summary:
+
+* Central rule: each phase should use the widest safe scope inside controlled risk, not the narrowest possible scope by default.
+* Operating question changes to: what set of actions can be done safely, verifiably, and reversibly in one phase without crossing structural boundaries?
+* Taxonomy defined:
+  * Level A - Decision / Documentation / Governance.
+  * Level B - Diagnosis only.
+  * Level C - Diagnosis + minor safe repair.
+  * Level D - Standard implementation.
+  * Level E - Protected structural phase.
+* Scope fusion rules define when to combine diagnosis/repair and repair/verification.
+* Separate authorization remains required for real functional boundaries such as StudyLoad execution, StudentAccess lifecycle, staging/production, schema/migration, real data, auth architecture, and payment/trial/subscription.
+
+Application to current 0M-DATA:
+
+* 0M-DATA should resume as Level C conditioned.
+* It may combine private credential re-application, credentialReady boolean verification, manual private login, `/now` visibility, synthetic identity check, `PAES_M1` check, initial StudyLoad visibility, and sanitized evidence.
+* It must still not print password/hash/env/DB URL/tokens/cookies/headers/request-response body/storage, use undocumented direct SQL, alter schema/auth/app code, touch StudentAccess, press `Empezar`, submit responses, self-report, complete a StudyLoad, create a second StudyLoad, or touch staging/production.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No app code, DB, schema, migration, auth, credential, password reset, LOCAL_DEV execution, login, `/now`, StudyLoad, StudentAccess, staging, production, sandbox execution, real participant data, or secrets were touched.
+
+Recommended next phase:
+
+```text
+Resume MVP-SALES-PILOT-SANDBOX-0M-DATA under Phase Scope Optimization Protocol.
+```
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_GOV_1_PHASE_SCOPE_OPTIMIZATION_PROTOCOL_DOCUMENTED_AND_ACTIVE
+```

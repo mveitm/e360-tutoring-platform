@@ -39,6 +39,12 @@ Future chats must preserve Codex prompt depth. Roadmap context alone is not enou
 * Short closure-only prompts are allowed only when work is already complete and the only remaining task is validated stage/commit/push/final Git verification.
 * Canonical detailed standard: `nextjs_space/docs/operations/MVP_COMMERCIAL_L1_CODEX_PROMPTING_STANDARD_1_PRESERVE_PROMPT_DEPTH_IN_HANDOFF.md`.
 
+### 2C. Phase Scope Optimization Protocol
+
+`nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md` is ACTIVE.
+
+Future prompts should use the widest safe phase scope, not the narrowest possible scope by default. Default to diagnosis + minor safe repair + local verification for local reversible issues. Separate phases remain required for structural boundaries: secrets, schema, structural DB mutation, auth architecture, StudentAccess lifecycle, StudyLoad execution, staging/production, real data, payments, L1/M2 readiness, or broad redesign.
+
 ### 3. Required Governance Docs to Read First
 
 Read these before proposing, designing, verifying, implementing, committing, or choosing a next phase:

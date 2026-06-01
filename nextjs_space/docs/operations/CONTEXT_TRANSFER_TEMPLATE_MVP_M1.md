@@ -37,8 +37,17 @@ Future chats must read these documents before proposing work:
 1. `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`
 2. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
 3. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
+4. `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`
 
 No off-roadmap phase may be recommended or executed unless Mauricio + ChatGPT explicitly approve a `ROADMAP_CHANGE_REQUEST`.
+
+Phase Scope Optimization Protocol active:
+
+```text
+Use the widest safe phase scope, not the narrowest possible scope by default.
+Default to diagnosis + minor safe repair + local verification for local reversible issues.
+Separate phases only for structural boundaries: secrets, schema, structural DB mutation, auth architecture, StudentAccess, StudyLoad execution, production/staging, real data, payments, L1/M2, broad redesign.
+```
 
 ## 1. Purpose
 
