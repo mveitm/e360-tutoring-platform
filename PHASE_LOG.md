@@ -35076,3 +35076,102 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DIRECTION_1A_M1_FIRST_CLOSED_SANDBOX_GATE_DEFINED_NOT_YET_MET
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-HARDENING-5 - Close minimum blockers before M1-first sandbox
+
+Type:
+
+```text
+Documentation / hardening planning / blocker triage only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = bce4981
+Latest accepted commit = bce4981 - MVP-SALES-PILOT-DIRECTION-1A: define M1-first sandbox readiness gate
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, DIRECTION-1A, DIRECTION-1, PRO report, GO-4, DRY-RUN-4A, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / blocker sequence decision:
+
+```text
+MINIMUM_BLOCKER_SEQUENCE_DEFINED_RECOMMEND_STUDENT_ACCESS_CONTAINMENT_FIRST
+```
+
+Blocker classification summary:
+
+* StudentAccess minimum or formal containment: must define before sandbox; implementation can wait only if formal containment is accepted; separate governance/documentation phase first.
+* Support/failure path: must define before sandbox; separate governance/documentation phase after access assumptions.
+* Auth normalization: can be contained manually for tiny sandbox with canonical lowercase identities; separate technical phase before broader pilot/staging unless waived.
+* Sandbox runbook: must be separate after access/support decisions; no executable sandbox runbook created in this phase.
+* Participant/data criteria and language governance: must define before sandbox; can be grouped in a small documentation phase.
+* Admin/tutor evidence and smoke/manual checklist: must define before sandbox; manual evidence/checklist can be acceptable for tiny human-guided sandbox.
+* Playwright/login E2E: recommended but not blocker for tiny human-guided sandbox; blocker before staging or broader pilot unless explicitly waived.
+* `ADMIN_UI_TITLE_VISIBILITY_DEBT`: not blocker unless it prevents tutor/admin evidence review.
+* Residual `SIGNOUT_UI_DEBT`: not blocker if SIGNOUT-1R path remains operational.
+* `CODEX_BROWSER_UI_AVAILABILITY_LIMITATION`: contained by requiring human-guided execution/evidence.
+
+Recommended sequence:
+
+1. `MVP-SALES-PILOT-HARDENING-5A - Define StudentAccess containment for M1-first sandbox`.
+2. `MVP-SALES-PILOT-HARDENING-5B - Define support/failure path for M1-first sandbox`.
+3. `MVP-SALES-PILOT-HARDENING-5C - Define participant/data and language guardrails for M1-first sandbox`.
+4. `MVP-SALES-PILOT-SANDBOX-0 - Draft closed M1-first sandbox runbook`.
+5. `MVP-SALES-PILOT-HARDENING-5D - Decide auth normalization and Playwright/login E2E threshold before sandbox/staging`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-HARDENING-5A - Define StudentAccess containment for M1-first sandbox
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for closed pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate and HARDENING-5 blocker triage.
+* What it advances: defines whether the M1-first sandbox can use formal access containment or must wait for minimum StudentAccess lifecycle work.
+* What it does not advance: implementation, sandbox execution, staging execution, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, payment/trial/subscription, auth repair, or Playwright E2E implementation.
+* Priority verdict: `APPROVED_NEXT_SMALL_GOVERNANCE_PHASE_STUDENTACCESS_CONTAINMENT`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_HARDENING_5_CLOSE_MINIMUM_BLOCKERS_BEFORE_M1_FIRST_SANDBOX.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git diff --cached --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only.
+
+Explicit non-declarations:
+
+* No current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, or long continuity validation.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, StudentAccess lifecycle, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, executable sandbox runbook creation, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_HARDENING_5_MINIMUM_BLOCKER_SEQUENCE_DEFINED_RECOMMEND_STUDENT_ACCESS_CONTAINMENT_FIRST
+```
