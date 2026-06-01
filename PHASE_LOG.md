@@ -37535,3 +37535,127 @@ Result marker:
 ```text
 LANDING_PAGE_STUDENT_MVP_DELIVERABLE_DEFINED_AND_ACTIVE
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-UI-LANDING-1 - Implement student landing page MVP
+
+Type:
+
+```text
+Level D - Standard implementation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 12023dc
+Latest accepted commit = 12023dc - MVP-SALES-PILOT-UI-DELIVERABLE-1: define student landing page deliverable
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Phase Scope Optimization Protocol is ACTIVE.
+* Student Experience-Led Delivery Protocol is ACTIVE.
+
+Result:
+
+```text
+LANDING_PAGE_STUDENT_MVP_READY
+```
+
+UI summary:
+
+* Implemented a public student landing page at `/`.
+* Replaced root redirect behavior with a responsive Bexauri landing.
+* Added provisional text wordmark.
+* Added clear primary login path to `/login`.
+* Added visible trial/subscription options as non-destructive local anchors.
+* Added student-facing support block and footer.
+
+Visible copy implemented:
+
+* `Bexauri`
+* `Estudia con claridad, práctica y retroalimentación.`
+* `Una experiencia de estudio guiada para avanzar paso a paso, practicar con propósito y reconocer tu progreso.`
+* `Iniciar sesión`
+* `Ver opciones de acceso`
+* `Elige cómo comenzar`
+* `Ya tengo cuenta`
+* `Trial`
+* `Suscripción`
+* `Una forma más clara de estudiar`
+* `Bexauri — Experiencia de estudio guiada`
+
+Routes/buttons:
+
+* `/` loads the landing.
+* `/login` remains the login route.
+* Header, hero, and account-card login CTAs navigate to `/login`.
+* `Ver opciones de acceso`, `Comenzar trial`, and `Ver suscripción` point to `#opciones`.
+* No checkout, payment, real trial, subscription backend, DB, StudentAccess, StudyLoad, dashboard, or M1 enrollment route was introduced.
+
+Files changed:
+
+* `nextjs_space/app/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1_IMPLEMENT_STUDENT_LANDING_PAGE_MVP.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* `PHASE_LOG.md`.
+
+Verification:
+
+* `npm.cmd --prefix nextjs_space run build` passed.
+* Static scan confirmed login CTAs and options anchors in `nextjs_space/app/page.tsx`.
+* Static scan confirmed forbidden landing text is not present in `nextjs_space/app/page.tsx`.
+* Responsive behavior implemented through mobile-first Tailwind layout classes with tablet/desktop grid breakpoints.
+* `git diff --check` required before commit.
+* `git status --short` required before commit.
+* `git log --oneline --decorate --graph -5` required before commit.
+
+Scope safety:
+
+* No DB.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No StudyLoad.
+* No student dashboard.
+* No M1 enrollment.
+* No pedagogical feedback.
+* No L1/M2.
+* No checkout.
+* No real payment.
+* No payment provider integration.
+* No real trial logic.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+
+Next recommended phase:
+
+```text
+Human visual audit of student landing page, then dashboard estudiante deliverable definition.
+```
+
+Result marker:
+
+```text
+LANDING_PAGE_STUDENT_MVP_READY
+```
