@@ -35362,3 +35362,106 @@ Result marker:
 ```text
 MVP_SALES_PILOT_HARDENING_5B_SUPPORT_FAILURE_PATH_DEFINED_FOR_TINY_HUMAN_GUIDED_SANDBOX
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-HARDENING-5C - Define participant/data and language guardrails
+
+Type:
+
+```text
+Documentation / governance / participant-data-language guardrails only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = e82de0f
+Latest accepted commit = e82de0f - MVP-SALES-PILOT-HARDENING-5B: define support failure path
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, DIRECTION-1, PRO report, GO-4, DRY-RUN-4A, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / guardrails decision:
+
+```text
+PARTICIPANT_DATA_LANGUAGE_GUARDRAILS_DEFINED_WITH_EXTERNAL_PARTICIPANTS_CONDITIONED
+```
+
+Participant guardrails summary:
+
+* Synthetic participants are allowed for local/dev and future internal technical sandbox checks if allowlisted.
+* Internal controlled participants are allowed for a future tiny M1-first sandbox if allowlisted and clearly informed that this is a closed non-commercial test.
+* Known controlled external participants are not recruited or authorized by this phase; they are conditional on SANDBOX-0 defining allowlist, minimal communication/consent note, and data minimization.
+* Public/uncontrolled external participants are prohibited.
+* Minors or school students are blocked pending explicit legal/guardian/data policy.
+
+Data guardrails summary:
+
+* Prefer synthetic data and aliases.
+* Allowed data is limited to participant code/alias, controlled email, participant type, `PAES_M1`, enrollment/cycle/StudyLoad status, MC evidence, self-report, safe route/page names, minimal admin/tutor summary, and sanitized incident summaries.
+* Prohibited data includes passwords, hashes, tokens, cookies, env values, DB URLs, headers, request/response bodies, provider/storage values, official IDs, unnecessary phone/address/school data, medical/financial/family data, third-party data, and screenshots with unnecessary personal data.
+* Real participant evidence must not be used for marketing, testimonials, public proof, PAES diagnosis, score, prediction, adaptation, or commercial claims.
+
+Language guardrails summary:
+
+* Allowed language includes `prueba controlada`, `sandbox cerrado M1-first`, `actividad de Matematica M1`, `entorno no publico`, `sin pago, trial ni suscripcion`, `no representa diagnostico PAES completo`, `validacion limitada del flujo M1`, and `M1-first es una vertical tactica dentro del camino hacia MVP-Beta cerrado M1/M2/L1`.
+* Prohibited language includes `Sales-Ready`, `disponible publicamente`, `MVP listo`, `MVP-Beta cerrado completo`, `listo para M1/M2/L1`, `diagnostico PAES`, `prediccion PAES`, `puntaje PAES`, `adaptativo autonomo`, `tutor IA autonomo`, `suscripcion activa`, `trial activo`, `plan pagado`, `garantiza mejora`, `plataforma completa`, `piloto abierto`, `staging ready` as current state, and `sandbox ready` as current state while the gate remains unmet.
+
+Allowlist / pause summary:
+
+* Future sandbox allowlist must minimally include alias/code, controlled email, participant type, allowed program `PAES_M1`, expected initial StudyLoad, support owner, and status.
+* Pause on non-allowlisted participant, uncontrolled external participant, minor without policy, sensitive data, secret/token exposure, non-`PAES_M1` program, commercial/PAES promise language, payment/trial/subscription expectation, marketing/testimonial use, public-scope confusion, M2/L1 activation attempt, cohort expansion attempt, or need to copy prohibited evidence.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0 - Draft closed M1-first sandbox runbook
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5 sequence, HARDENING-5A StudentAccess containment, HARDENING-5B support/failure path, and this participant/data/language guardrail decision.
+* What it advances: drafts the future closed M1-first sandbox runbook using already defined access containment, support/failure path, and participant/data/language guardrails.
+* What it does not advance: sandbox execution, staging execution, implementation, participant recruitment, StudentAccess lifecycle, auth repair, Playwright E2E, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, or payment/trial/subscription.
+* Priority verdict: `APPROVED_NEXT_SMALL_DOCUMENTATION_PHASE_SANDBOX_RUNBOOK_DRAFT`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_HARDENING_5C_DEFINE_PARTICIPANT_DATA_AND_LANGUAGE_GUARDRAILS.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git diff --cached --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only.
+
+Explicit non-declarations:
+
+* No current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, or StudentAccess lifecycle implemented.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, complete executable sandbox runbook creation, participant recruitment, commercial material creation, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_HARDENING_5C_PARTICIPANT_DATA_LANGUAGE_GUARDRAILS_DEFINED_WITH_EXTERNAL_PARTICIPANTS_CONDITIONED
+```
