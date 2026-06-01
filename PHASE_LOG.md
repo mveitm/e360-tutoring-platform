@@ -34090,3 +34090,92 @@ Result marker:
 ```text
 MVP_SALES_PILOT_HARDENING_1_LIMITED_M1_FIRST_HARDENING_PLAN_DEFINED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-HARDENING-2 - Define controlled next M1 participant protocol
+
+Type:
+
+```text
+Documentation-only / protocol-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 9738267
+Latest accepted commit = 9738267 - MVP-SALES-PILOT-HARDENING-1: define limited M1-first pilot hardening plan
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, GO-3, HARDENING-1, 3C, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in older documents were treated as historical context only.
+
+Protocol purpose:
+
+```text
+Define a reusable operating protocol and checklist for the next controlled M1-first participant before creating a fourth fixture or executing another dry-run.
+```
+
+Protocol summary:
+
+* Defined participant identity policy for synthetic/control-only participant code, canonical lowercase email, canonical display name, and no admin/student session mixing.
+* Defined pre-run readiness checklist: clean Git baseline, local/dev target, local server, admin/student private login availability, visible sign-out, separate fixture-prep phase, first expected StudyLoad, and no second-load start.
+* Defined human-guided execution protocol: ChatGPT/Codex guides exact steps; Mauricio performs private UI actions; only safe operational observations are reported.
+* Defined student flow checklist: login, `/now`, first StudyLoad, `Empezar`, activity render, MC responses, response submission, same-page self-report, completion, `/now` registered activity, next pending load visible, and no second load started.
+* Defined admin/tutor evidence checklist: identifiable synthetic student, PAES_M1 active enrollment, Cycle 1 open, expected load counts, MC evidence, self-report, decisions 0, evaluations 0, and StudentAccess observation.
+* Defined success criteria, pause/failure criteria, failure taxonomy, evidence capture rules, post-run closeout, and non-declaration boundaries.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-HARDENING-3 - Prepare controlled next M1 participant fixture
+```
+
+Recommendation:
+
+```text
+PROCEED_TO_HARDENING_3_PREPARE_CONTROLLED_NEXT_M1_PARTICIPANT_FIXTURE
+```
+
+Rationale:
+
+* The protocol now exists.
+* The next safe step is a separate fixture-preparation phase, not immediate execution.
+* Student run execution must remain separate from fixture preparation.
+* The phase remains inside the controlled M1-first path and does not declare Sales-Ready or MVP-Beta completion.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_HARDENING_2_DEFINE_CONTROLLED_NEXT_M1_PARTICIPANT_PROTOCOL.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changes documentation only.
+
+Explicit non-declarations:
+
+* No Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, diagnostic automation, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, large cohort readiness, self-serve signup readiness, self-serve enrollment readiness, production readiness, or staging readiness.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, Student/User/Account/Enrollment/LearningCycle/StudyLoad creation, StudyLoad start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, StudentAccess lifecycle, payment/trial/subscription, L1/M2, staging, production, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_HARDENING_2_CONTROLLED_NEXT_M1_PARTICIPANT_PROTOCOL_DEFINED
+```
