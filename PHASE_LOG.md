@@ -36745,3 +36745,93 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0J_CONTROLLED_MANUAL_SMOKE_AUTHORIZED_FOR_SEPARATE_EXECUTION_PHASE
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0K - Execute controlled manual smoke for SANDBOX_M1_SYNTH_001
+
+Type:
+
+```text
+Controlled LOCAL_DEV manual smoke execution / minimal visibility path.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = daa203a
+Latest accepted commit = daa203a - MVP-SALES-PILOT-SANDBOX-0J: authorize controlled manual smoke
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read SANDBOX-0J, SANDBOX-0I, SANDBOX-0H, SANDBOX-0G-R, SANDBOX-0F, SANDBOX-0D, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5A, HARDENING-5B, HARDENING-5C, and `PHASE_LOG.md` tail before smoke.
+* Git preflight remained the live truth.
+* 0J authorized only minimal manual smoke: LOCAL_DEV, synthetic participant, login, `/now`, identity/program/StudyLoad visibility, viewer only if no start is required, and sanitized evidence.
+
+Result:
+
+```text
+BLOCKED_LOGIN_FAILED
+```
+
+Manual smoke evidence:
+
+* `login`: `fail`.
+* `identidad_correcta`: `no`.
+* `paes_m1_visible`: `no`.
+* `studyload_visible`: `no`.
+* `studyload_title_status`: `not_visible`.
+* `viewer_accessible_without_start`: `no`.
+* `start_required`: `unknown`.
+* `secret_exposure`: `no`.
+* `unexpected_state`: `login_failed_with_visual_defects_on_login_ui`.
+
+Target / server summary:
+
+* LOCAL_DEV treated as sanitized target inherited from 0G-R/0H/0I/0J.
+* Initial usual-port check found no server.
+* Dev server was started for LOCAL_DEV.
+* `http://localhost:3000`, `/login`, and `/now` responded.
+* No env value, DB URL, token, cookie, header, request/response body, password, hash, provider value, storage value, or secret was printed.
+
+Stop condition:
+
+```text
+login_failed_before_authenticated_identity_verification
+```
+
+Scope safety:
+
+* No authenticated `/now` verification occurred because login failed.
+* No `Empezar`.
+* No StudyLoad start.
+* No response, submit, self-report, completion, continuity, second StudyLoad, StudentAccess lifecycle, payment/trial/subscription, L1/M2, staging/production, DB mutation, schema change, app code change, auth change, CredentialsProvider change, Playwright, or tests.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0K_EXECUTE_CONTROLLED_MANUAL_SMOKE_FOR_SANDBOX_M1_SYNTH_001.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0L - Diagnose SANDBOX_M1_SYNTH_001 login failure and login UI defects without StudyLoad execution
+```
+
+Explicit non-declarations:
+
+* No controlled smoke pass, authenticated `/now` verification, StudyLoad visibility verification, viewer verification, StudyLoad start, sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, L1 readiness, M2 readiness, payment/trial/subscription active, robust complete auth readiness, Playwright/login E2E implemented, auth normalization fully resolved, StudentAccess lifecycle implemented, or broader pilot readiness.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0K_BLOCKED_LOGIN_FAILED
+```
