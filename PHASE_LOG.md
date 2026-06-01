@@ -34330,3 +34330,151 @@ Result marker:
 ```text
 MVP_SALES_PILOT_HARDENING_3_PREPARED_WITH_PRIVATE_CREDENTIAL_STEP_REQUIRED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-HARDENING-4 - Complete private credential readiness for PILOT_M1_004
+
+Type:
+
+```text
+Controlled local/dev private credential readiness + documentation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 11807f5
+Latest accepted commit = 11807f5 - MVP-SALES-PILOT-HARDENING-3: prepare controlled next M1 participant fixture
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, GO-3, HARDENING-2, HARDENING-3, SIGNOUT-1R, and `PHASE_LOG.md` tail before acting.
+* Git preflight remained the live truth.
+* Historical baselines in older documents were treated as historical context only.
+
+Safe target confirmation:
+
+```text
+SAFE_TARGET_CONFIRMATION: LOCAL_DEV_CONFIRMED
+LOCAL_ENV_FILE_PRESENT: yes
+PRIVATE_ENV_KEYS_LOADED_COUNT: 0
+ENVIRONMENT_LABEL_CHECK: PASSED_NON_STAGING_NON_PRODUCTION
+READ_ONLY_CHECK: yes
+SECRETS_PRINTED: no
+```
+
+Participant identity:
+
+```text
+Code/name: PILOT_M1_004
+Display name: PILOT_M1_004 PILOT_M1_004
+Canonical email: pilot_m1_004_pilot_m1_004@bexauri.dev
+Program: PAES_M1
+Initial StudyLoad: PAES M1 - Entrada balanceada inicial
+Content key: paes_m1_balanced_entry_initial
+```
+
+Pre-credential fixture verification:
+
+* Student exists exactly once for the canonical email.
+* Email canonical match: yes.
+* User exists exactly once for the canonical email.
+* Credential present before action: no.
+* Account records: 0.
+* PAES_M1 active enrollment: yes.
+* Cycle 1 open: yes.
+* Total cycles: 1.
+* Initial StudyLoad pending: yes.
+* Total StudyLoads: 1.
+* StudentAccess row: missing.
+* Tutoring sessions: 0.
+* Responses: 0.
+* Cycle decisions: 0.
+* Cycle evaluations: 0.
+* Continuity signals: 0.
+* Fixture consistent: yes.
+
+Pre-action result:
+
+```text
+BLOCKED_PENDING_HUMAN_PRIVATE_CREDENTIAL_ACTION
+```
+
+Private credential action:
+
+* Mauricio completed the credential action privately through UI admin local/dev.
+* Human confirmation received: `CREDENTIAL_READY_WITHOUT_SECRET_PRINTED`.
+* No password, password length, password content, hash, token, cookie, header, env value, DB URL, provider value, storage value, request body, or response body was shared or printed.
+* Codex did not use DB-direct password setup, script password setup, manual hash generation, auth changes, or CredentialsProvider changes.
+
+Post-readiness verification:
+
+* Student exists exactly once for the canonical email.
+* Email canonical match: yes.
+* User exists exactly once for the canonical email.
+* Credential present after action: yes.
+* Account records: 0.
+* PAES_M1 active enrollment: yes.
+* Cycle 1 open: yes.
+* Total cycles: 1.
+* Initial StudyLoad pending: yes.
+* Total StudyLoads: 1.
+* StudentAccess row: missing.
+* Tutoring sessions: 0.
+* Responses: 0.
+* Cycle decisions: 0.
+* Cycle evaluations: 0.
+* Continuity signals: 0.
+* Fixture consistent: yes.
+
+Final result:
+
+```text
+CREDENTIAL_READY_WITHOUT_SECRET_PRINTED
+```
+
+Credential secrecy statement:
+
+```text
+The password was handled only by Mauricio in the local/dev admin UI. It was never printed, pasted, logged, documented, inspected by Codex, or shared in ChatGPT.
+```
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DRY-RUN-4A - Execute controlled local/dev student dry-run for PILOT_M1_004
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_HARDENING_4_COMPLETE_PRIVATE_CREDENTIAL_READINESS_FOR_PILOT_M1_004.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only and used local/dev UI credential handling plus read-only verification.
+
+Explicit non-declarations:
+
+* No Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, diagnostic automation, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, large cohort readiness, self-serve signup readiness, self-serve enrollment readiness, production readiness, or staging readiness.
+
+Explicit non-actions:
+
+* No student dry-run, student login, `/now` as student, StudyLoad start, question answering, response submission, self-report, activity close, second load start, cycle close, CycleDecision, CycleEvaluation, ContinuitySignal, StudentAccess creation, Account creation, app code, schema, global seed, auth model, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_HARDENING_4_CREDENTIAL_READY_WITHOUT_SECRET_PRINTED
+```
