@@ -53,6 +53,14 @@ Mauricio defines the phase of the day as a concrete student-experience deliverab
 
 Top-down student-experience delivery now drives roadmap sequencing. Bottom-up technical work remains allowed only when it unlocks the current experience deliverable or protects structural boundaries. `PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md` still regulates safe phase size and split points.
 
+### 2C-3. First Official UI Deliverable
+
+`nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md` is ACTIVE.
+
+`LANDING_PAGE_STUDENT_MVP_READY` is the first official UI deliverable under Student Experience-Led Delivery. It defines `Landing Page estudiante - Bexauri MVP`: a professional, close, modern student entry page with clear Bexauri recognition, login, and a visible trial/subscription option.
+
+Future prompts must preserve that visible landing text requires Mauricio approval. The next phase may implement the landing, but without real payment, checkout, StudyLoad, student dashboard, M1 enrollment, DB/schema/auth changes, or StudentAccess work.
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
 Friday full manual M1 test is the near-term operational milestone.
@@ -98,6 +106,7 @@ Read these before proposing, designing, verifying, implementing, committing, or 
 * `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`
 * `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`
 * `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`
+* `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`
 * `PHASE_LOG.md` tail
 
 ### 4. Current Product Horizon and Roadmap State

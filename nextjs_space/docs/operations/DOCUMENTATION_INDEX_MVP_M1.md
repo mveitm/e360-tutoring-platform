@@ -14,6 +14,7 @@ These documents now govern roadmap direction:
 8. `nextjs_space/docs/operations/MVP_SALES_PILOT_GOV_2_FRIDAY_FULL_MANUAL_M1_TEST_HANDOFF_ALIGNMENT.md`
 9. `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0M_CODE_LOGIN_UI_PORT_CONFUSION_CLOSEOUT.md`
 10. `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`
+11. `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`
 
 Future chats must read them before proposing work.
 
@@ -28,6 +29,8 @@ The Block 7 anchor is mandatory before content-route phases.
 The M1 documents remain pedagogical and operational support. They are not the whole project roadmap.
 
 `STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md` is ACTIVE. Future prompts must read it together with `PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`. Mauricio defines the phase of the day as a concrete student-experience deliverable; ChatGPT/Ampliado divides it into the fewest safe microphases; Codex executes. Every microphase must directly support the UI/operational/pedagogical deliverable or remove a blocker to it.
+
+`LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md` is ACTIVE as the first official UI deliverable under Student Experience-Led Delivery. `LANDING_PAGE_STUDENT_MVP_READY` defines the student landing page MVP. Future prompts must preserve that visible landing text requires Mauricio approval. The next phase may implement the landing, but without real payment, checkout, StudyLoad, student dashboard, or M1 enrollment.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

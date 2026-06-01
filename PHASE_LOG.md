@@ -37400,3 +37400,138 @@ Result marker:
 ```text
 STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL_DOCUMENTED_AND_ACTIVE
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-UI-DELIVERABLE-1 - Fix first student landing page deliverable
+
+Type:
+
+```text
+Level A - Governance / deliverable definition / documentation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = bc354c1
+Latest accepted commit = bc354c1 - MVP-SALES-PILOT-GOV-3: document student experience-led delivery protocol
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Phase Scope Optimization Protocol is ACTIVE.
+* Student Experience-Led Delivery Protocol is ACTIVE.
+
+Human authorization:
+
+```text
+AUTORIZO_FIJAR_PRIMER_ENTREGABLE_UI_LANDING_ESTUDIANTE_BEXAURI_MVP
+```
+
+Deliverable fixed:
+
+```text
+LANDING_PAGE_STUDENT_MVP_READY
+Landing Page estudiante - Bexauri MVP
+```
+
+Observable objective:
+
+```text
+Un estudiante debe llegar a una pantalla inicial profesional, cercana y moderna, reconocer Bexauri como una experiencia de estudio, y encontrar claramente la ruta para iniciar sesion o acceder a las opciones definidas por Mauricio.
+```
+
+Acceptance criteria summary:
+
+* Landing loads correctly.
+* Looks good on mobile, tablet, and desktop/web.
+* Bexauri brand is clearly recognized.
+* Student understands they can start a study experience.
+* Login button is clear and visible.
+* Trial/subscription option is visible and understandable.
+* Design feels professional, close, and modern.
+* No visible text not approved by Mauricio.
+* No closed-pilot disclaimers or defensive explanatory text.
+* No real payments.
+* No StudyLoad, StudentAccess, DB, schema, or auth architecture touched.
+* Conceptually connects to the next deliverable: student dashboard and PAES M1 enrollment.
+
+Out of scope:
+
+* No checkout.
+* No real payment.
+* No complete functional subscription.
+* No real trial integration.
+* No StudyLoad.
+* No student dashboard.
+* No M1 enrollment yet.
+* No pedagogical feedback.
+* No L1/M2.
+* No production/staging.
+* No full brand redesign.
+* No visible text not approved by Mauricio.
+
+Relationship to Student Experience-Led Delivery:
+
+* This is the first official top-down student-experience UI driver.
+* It improves the visual and operational entry point to Bexauri before the later dashboard and PAES M1 enrollment deliverables.
+* Bottom-up technical work in the implementation phase must only support this landing deliverable or protect structural boundaries.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No app code.
+* No DB.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No StudyLoad.
+* No `Empezar`.
+* No responses.
+* No StudentAccess.
+* No staging.
+* No production.
+* No secrets.
+* No UI implementation.
+* No visible text outside Mauricio-approved deliverable definition.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-UI-LANDING-1 - Implement student landing page MVP
+```
+
+Result marker:
+
+```text
+LANDING_PAGE_STUDENT_MVP_DELIVERABLE_DEFINED_AND_ACTIVE
+```
