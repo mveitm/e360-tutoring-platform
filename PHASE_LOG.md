@@ -34964,3 +34964,115 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DIRECTION_1_HYBRID_DIRECTION_WITH_PHASED_GATES
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-DIRECTION-1A - Define M1-first closed sandbox readiness gate
+
+Type:
+
+```text
+Direction / readiness / documentation-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 95a0eb7
+Latest accepted commit = 95a0eb7 - MVP-SALES-PILOT-DIRECTION-1: decide M1-first threshold after four dry-runs
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, DIRECTION-1, PRO report, GO-4, DRY-RUN-4A, HARDENING-1, HARDENING-2, HARDENING-3, HARDENING-4, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Gate definition:
+
+```text
+M1_FIRST_CLOSED_SANDBOX_GATE_DEFINED_NOT_YET_MET
+```
+
+Defined a formal readiness gate for a future closed M1-first sandbox. The sandbox is defined as a controlled, non-public, non-commercial, PAES_M1-only operating context with explicit participants, controlled access, support runbook, pause criteria, evidence expectations, data limits, and language limits.
+
+Readiness separation:
+
+* Local/dev functional confidence: achieved only for first StudyLoad happy path and second pending M1 load continuity.
+* M1-first closed sandbox readiness: not achieved; criteria are now defined.
+* Broader closed pilot readiness: not achieved.
+* MVP-Beta cerrado M1/M2/L1 readiness: not achieved.
+* Sales-Ready/public readiness: not achieved.
+
+Minimum blockers before sandbox:
+
+* StudentAccess lifecycle minimum or formal containment.
+* Local/dev exit threshold acceptance.
+* Support/failure path.
+* Auth normalization and account linkage containment.
+* Sandbox runbook.
+* Participant/data policy.
+* Language governance.
+* Admin/tutor evidence criteria.
+* Manual smoke checklist.
+* Playwright/login E2E decision: blocking or justified manual substitute for a tiny controlled sandbox.
+* Sign-out residual polish only if it blocks operation.
+* Admin title visibility only if it blocks tutor/admin review.
+
+Debts allowed to wait:
+
+* Payment/trial/subscription.
+* Complete legal/commercial readiness.
+* L1/M2 readiness.
+* Broader closed pilot.
+* Sales-Ready cerrado/public.
+* Large-cohort readiness.
+* Mastery/theta/PAES score.
+* Autonomous AI tutor.
+* Autonomous adaptation.
+* Full automation if the sandbox remains tiny, human-guided, and runbook-driven.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-HARDENING-5 - Close minimum blockers before M1-first sandbox
+```
+
+Rationale:
+
+* The gate identifies minimum blockers before sandbox.
+* The next useful step is to close or formally contain those blockers before drafting/executing a sandbox runbook.
+* `MVP-SALES-PILOT-SANDBOX-0 - Draft closed M1-first sandbox runbook` remains likely after blocker closure or containment.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DIRECTION_1A_DEFINE_M1_FIRST_CLOSED_SANDBOX_READINESS_GATE.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git diff --cached --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only.
+
+Explicit non-declarations:
+
+* No Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, current sandbox readiness, current staging readiness, broader pilot readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, large cohort readiness, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, or long continuity validation.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, StudentAccess lifecycle, payment/trial/subscription, L1/M2, staging, production, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DIRECTION_1A_M1_FIRST_CLOSED_SANDBOX_GATE_DEFINED_NOT_YET_MET
+```
