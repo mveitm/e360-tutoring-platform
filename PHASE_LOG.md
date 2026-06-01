@@ -36238,3 +36238,110 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0F_FIXTURE_PREP_MUTATION_SCOPE_DEFINED_NOT_EXECUTED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0G - Prepare SANDBOX_M1_SYNTH_001 fixture without credential or execution authorization
+
+Type:
+
+```text
+Controlled LOCAL_DEV fixture preparation + documentation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 066a86c
+Latest accepted commit = 066a86c - MVP-SALES-PILOT-SANDBOX-0F: define fixture prep mutation scope
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, SANDBOX-0F, SANDBOX-0E, SANDBOX-0D, SANDBOX-0C, SANDBOX-0B, SANDBOX-0A, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, HARDENING-5C, DIRECTION-1, PRO report, GO-4, and `PHASE_LOG.md` tail before action.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result:
+
+```text
+BLOCKED_PENDING_SAFE_LOCAL_DEV_TARGET_CONFIRMATION
+```
+
+Safe target confirmation:
+
+* Safe target confirmation was attempted with sanitized classification only.
+* Raw DB URL, env values, secrets, tokens, cookies, headers, request/response bodies, passwords, hashes, provider values, and storage values were not printed.
+* Sanitized result: `TARGET_CLASS = NOT_CONFIRMED`, `TARGET_KIND = ambiguous`.
+* Because `LOCAL_DEV` could not be confirmed, the phase stopped before DB read or mutation.
+
+Fixture identity:
+
+* `participant_code`: `SANDBOX_M1_SYNTH_001`.
+* `display_name`: `SANDBOX_M1_SYNTH_001 SANDBOX_M1_SYNTH_001`.
+* `canonical_email`: `sandbox_m1_synth_001@bexauri.dev`.
+* `program`: `PAES_M1`.
+* Expected StudyLoad: `PAES M1 - Entrada balanceada inicial`.
+* Expected content key: `paes_m1_balanced_entry_initial`.
+
+Fixture summary:
+
+* Fixture was not prepared.
+* Pre-existing fixture data check was not executed because safe target confirmation did not pass.
+* No Student, User, Account, Enrollment, LearningCycle, StudyLoad, StudentAccess, TutoringSession, Response, CycleDecision, CycleEvaluation, ContinuitySignal, second StudyLoad, or Cycle 2 was created or modified.
+
+Post-verification summary:
+
+* Post-fixture DB verification was not applicable because no fixture mutation ran.
+* Credential status remains not ready.
+* Execution remains not authorized.
+* Manual smoke remains not run.
+* Sandbox readiness remains not declared.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0G-R - Confirm safe LOCAL_DEV target and retry SANDBOX_M1_SYNTH_001 fixture preparation
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: SANDBOX-0F mutation scope and this blocked 0G attempt.
+* What it advances: confirms the safe `LOCAL_DEV` target and, only if confirmed, re-attempts fixture preparation within the already defined 0F scope.
+* What it does not advance: credential readiness, manual smoke, sandbox execution, staging, broader pilot, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, payment/trial/subscription, or StudentAccess lifecycle.
+* Priority verdict: `APPROVED_NEXT_SMALL_TARGET_CONFIRMATION_RETRY_PHASE_BEFORE_FIXTURE_MUTATION`.
+* Authorization status: requires separate explicit authorization before any retry mutation.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0G_PREPARE_SANDBOX_M1_SYNTH_001_FIXTURE_WITHOUT_CREDENTIAL_OR_EXECUTION_AUTHORIZATION.md`.
+
+Verification:
+
+* `git diff --check` required.
+* `git status --short` required.
+* No build required because no app code/schema/seed/auth/test file changed and no UI was executed.
+
+Explicit non-declarations:
+
+* No fixture prepared, credential readiness approved, credential ready, manual smoke ready, sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, real participants recruited, operational allowlist populated, or execution approved.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, fixture preparation, participant creation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, Response, MC submission, self-report, ContinuitySignal, second StudyLoad, Cycle 2, app code, schema, seed, auth, CredentialsProvider, Playwright, test creation/modification, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment/contact, communications, commercial material, operational allowlist population, credential configuration, credential readiness approval, execution approval, manual smoke, PILOT_M1_005 preparation, real personal data recording, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0G_BLOCKED_PENDING_SAFE_LOCAL_DEV_TARGET_CONFIRMATION
+```
