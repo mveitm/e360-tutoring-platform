@@ -33990,3 +33990,103 @@ Result marker:
 ```text
 MVP_SALES_PILOT_GO_3_GO_TO_NEXT_M1_FIRST_STEP_WITH_RECORDED_DEBTS
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-HARDENING-1 - Define limited M1-first pilot hardening plan after three local/dev participants
+
+Type:
+
+```text
+Documentation-only / planning-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = b670e34
+Latest accepted commit = b670e34 - MVP-SALES-PILOT-GO-3: evaluate readiness after PILOT_M1_003 evidence
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, GO-2, 3C, GO-3, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in older documents were treated as historical context only.
+
+Inherited decision:
+
+```text
+GO_TO_NEXT_M1_FIRST_STEP_WITH_RECORDED_DEBTS
+```
+
+Hardening goal:
+
+```text
+Define the smallest controlled M1-first hardening increment needed before exposing the flow to another controlled participant or pilot-like pass.
+```
+
+Evidence basis:
+
+* `PILOT_M1_001`: local/dev dry-run passed; admin evidence functionally satisfied; `ADMIN_UI_TITLE_VISIBILITY_DEBT` recorded.
+* `PILOT_M1_002`: local/dev dry-run passed; admin/tutor evidence fully confirmed; auth/account linkage repaired; continuity observed to `PAES M1 - Ecuaciones lineales basicas`.
+* `PILOT_M1_003`: local/dev dry-run passed end-to-end; admin/tutor evidence visible; Cycle 1 open; 2 loads; completed 1; pending 1; 0 decisions; 0 evaluations; next pending load not started.
+* SIGNOUT-1R mitigated the practical session-switching blocker for human-guided multi-student dry-runs.
+
+Hardening classification:
+
+* Required before next controlled M1-first step: controlled next-participant protocol, session-switching procedure, no-second-load-start boundary, evidence capture expectations, and no-scope-escalation checks.
+* Recommended before next controlled M1-first step: concise operator checklist, StudentAccess observation field, admin title visibility check, sign-out observation, auth normalization observation, and failure taxonomy.
+* Can wait until before Sales-Ready/public: StudentAccess lifecycle enforcement, self-serve signup/enrollment, trial/payment/subscription, legal/support/commercial policy, L1/M2 readiness, broad M1 coverage, Playwright login E2E, full automated regression, production/staging readiness, and large-cohort operating model.
+* Explicitly out of scope now: code, UI execution, DB mutation, students, StudyLoads, new load start, cycles, decisions, evaluations, app/schema/seed/auth/CredentialsProvider/StudentAccess/payment/trial/subscription/L1/M2/staging/production changes, diagnostic automation, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, and large-cohort readiness.
+* Watch items: StudentAccess lifecycle, auth normalization, admin title visibility, sign-out polish residual, Playwright login E2E, Codex browser UI limitation, no CycleDecision/CycleEvaluation automation evidence, and unvalidated execution of the next pending StudyLoad.
+
+Recommendation:
+
+```text
+PROCEED_TO_HARDENING_2_DEFINE_CONTROLLED_NEXT_M1_PARTICIPANT_PROTOCOL
+```
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-HARDENING-2 - Define controlled next M1 participant protocol
+```
+
+Rationale:
+
+* Smaller and safer than preparing a fourth participant immediately.
+* Directly addresses repeated operator ambiguity from three human-guided local/dev passes.
+* Preserves GO-3 while preventing accidental scope creep into Sales-Ready or full MVP-Beta claims.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_HARDENING_1_DEFINE_LIMITED_M1_FIRST_PILOT_HARDENING_PLAN_AFTER_THREE_LOCAL_DEV_PARTICIPANTS.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changes documentation only.
+
+Explicit non-declarations:
+
+* No Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, diagnostic automation, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, large cohort readiness, self-serve signup readiness, self-serve enrollment readiness, production readiness, or staging readiness.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, student creation, StudyLoad creation, new load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, StudentAccess lifecycle, payment/trial/subscription, L1/M2, staging, production, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_HARDENING_1_LIMITED_M1_FIRST_HARDENING_PLAN_DEFINED
+```
