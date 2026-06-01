@@ -36649,3 +36649,99 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0I_MANUAL_SMOKE_READINESS_REVIEWED_READY_FOR_SEPARATE_AUTHORIZATION
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0J - Authorize controlled manual smoke for SANDBOX_M1_SYNTH_001 without sandbox execution authorization
+
+Type:
+
+```text
+Documentation / governance / controlled-manual-smoke-authorization-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 39e5abc
+Latest accepted commit = 39e5abc - MVP-SALES-PILOT-SANDBOX-0I: review manual smoke readiness
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read SANDBOX-0I, SANDBOX-0H, SANDBOX-0G-R, SANDBOX-0F, SANDBOX-0E, SANDBOX-0D, SANDBOX-0C, SANDBOX-0B, SANDBOX-0A, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5A, HARDENING-5B, HARDENING-5C, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* No contradiction was found between Git and the documents read for this phase.
+
+Result:
+
+```text
+CONTROLLED_MANUAL_SMOKE_AUTHORIZED_FOR_SEPARATE_EXECUTION_PHASE
+```
+
+Authorization decision summary:
+
+* A future separate phase 0K may execute a controlled manual smoke for `SANDBOX_M1_SYNTH_001`.
+* 0J did not execute the smoke.
+* 0J does not authorize full sandbox execution.
+* 0J keeps StudyLoad start reserved for a later phase unless a later 0K prompt explicitly expands scope.
+
+Authorized 0K scope:
+
+* LOCAL_DEV only.
+* Synthetic participant `SANDBOX_M1_SYNTH_001` only.
+* Manual student login using private credential already prepared in 0H, without printing or documenting it.
+* Open `/now`.
+* Confirm identity, `PAES_M1`, and expected StudyLoad `PAES M1 - Entrada balanceada inicial` / `paes_m1_balanced_entry_initial`.
+* Open viewer/activity only if available without StudyLoad start or completion.
+* Capture sanitized textual evidence only.
+* Stop on any deviation.
+
+Explicitly not authorized:
+
+* No StudyLoad start by default.
+* No selecting or submitting responses.
+* No self-report.
+* No completion.
+* No continuity or second StudyLoad.
+* No StudentAccess row/lifecycle.
+* No payment/trial/subscription.
+* No L1/M2.
+* No staging/production.
+* No DB mutation, app code, schema, seed, auth, CredentialsProvider, Playwright, or tests.
+
+Stop conditions summary:
+
+* Stop on dirty/divergent Git, unsafe LOCAL_DEV confirmation, password exposure requirement, login/account mismatch, wrong/non-synthetic user, non-`PAES_M1`, L1/M2, payment/trial/subscription, unexpected StudyLoad, need to press `Empezar` without explicit later authorization, secrets/raw payload exposure, staging/production suspicion, code/schema/auth/DB repair need, or any custody/scope doubt.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0J_AUTHORIZE_CONTROLLED_MANUAL_SMOKE_FOR_SANDBOX_M1_SYNTH_001_WITHOUT_SANDBOX_EXECUTION_AUTHORIZATION.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0K - Execute controlled manual smoke for SANDBOX_M1_SYNTH_001
+```
+
+Explicit non-declarations:
+
+* No full sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, or auth normalization fully resolved.
+
+Explicit non-actions:
+
+* No login, auth session creation, `/now`, viewer open, StudyLoad start, response, MC submission, self-report, activity completion, manual smoke, sandbox execution, DB mutation, StudentAccess row creation/modification, StudentAccess lifecycle change, second StudyLoad, Cycle 2, cycle close, CycleDecision, CycleEvaluation, ContinuitySignal, app code, schema, seed, auth model, CredentialsProvider, Playwright, tests, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment/contact, communications, commercial material, real personal data recording, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0J_CONTROLLED_MANUAL_SMOKE_AUTHORIZED_FOR_SEPARATE_EXECUTION_PHASE
+```
