@@ -37659,3 +37659,136 @@ Result marker:
 ```text
 LANDING_PAGE_STUDENT_MVP_READY
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-UI-LANDING-1A - Refine student landing page layout and access options
+
+Type:
+
+```text
+Level C/D - UI refinement / standard implementation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 194e0ee
+Latest accepted commit = 194e0ee - MVP-SALES-PILOT-UI-LANDING-1: implement student landing page MVP
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1_IMPLEMENT_STUDENT_LANDING_PAGE_MVP.md`.
+* Read `PHASE_LOG.md` tail.
+* Phase Scope Optimization Protocol is ACTIVE.
+* Student Experience-Led Delivery Protocol is ACTIVE.
+* Landing implementation located at `nextjs_space/app/page.tsx`.
+
+Result:
+
+```text
+LANDING_PAGE_STUDENT_MVP_REFINED
+```
+
+UI changes:
+
+* Reduced the student landing hero to two text lines.
+* Removed the previous welcome-side visual card and graphic elements.
+* Kept the entry clean, direct, professional, and aligned with the existing Bexauri palette.
+* Updated access options to three cards: `Iniciar`, `Trial`, and `Suscripción`.
+* Updated access legends to Mauricio's refined copy.
+* Retained the support block because it does not contradict the refinement.
+
+Visible copy implemented:
+
+* `Bexauri`
+* `Estudia con claridad, práctica y retroalimentación.`
+* `Avanza paso a paso con una experiencia guiada para aprender mejor.`
+* `Iniciar sesión`
+* `Ver opciones de acceso`
+* `Elige cómo comenzar`
+* `Iniciar`
+* `Si tienes cuenta, entra a tu espacio de estudio y continúa desde donde quedaste.`
+* `Trial`
+* `7 días de prueba para conocer la experiencia de estudio de Bexauri.`
+* `Suscripción`
+* `Acceso ilimitado para estudiar de forma continua con actividades y seguimiento.`
+* `Una forma más clara de estudiar`
+* `Bexauri — Experiencia de estudio guiada`
+
+Routes/buttons:
+
+* `/` loads the refined landing.
+* `/login` remains the login route.
+* Header, hero, and `Iniciar` card login CTAs navigate to `/login`.
+* `Ver opciones de acceso`, `Comenzar trial`, and `Ver suscripción` point to `#opciones`.
+* No checkout, real payment, real trial, subscription backend, DB, StudentAccess, StudyLoad, dashboard, or M1 enrollment route was introduced.
+
+Files changed:
+
+* `nextjs_space/app/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1A_REFINE_STUDENT_LANDING_PAGE_LAYOUT_AND_ACCESS_OPTIONS.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* `PHASE_LOG.md`.
+
+Verification:
+
+* `npm.cmd --prefix nextjs_space run build` passed.
+* `git diff --check` required before commit.
+* `git status --short` required before commit.
+* `git log --oneline --decorate --graph -5` required before commit.
+
+Responsive verification:
+
+* Mobile small `375 x 667`: prepared through single-column hero/options/support layout.
+* Mobile standard `390 x 844`: prepared through single-column hero/options/support layout.
+* Mobile large `430 x 932`: prepared through single-column hero/options/support layout.
+* Tablet vertical `768 x 1024`: prepared through tablet/desktop option grid.
+* Tablet large `820 x 1180`: prepared through tablet/desktop option grid.
+* Desktop `1366 x 768`: prepared through compact hero and three-card options grid.
+
+Scope safety:
+
+* No DB.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No StudyLoad.
+* No student dashboard.
+* No M1 enrollment.
+* No pedagogical feedback.
+* No L1/M2.
+* No checkout.
+* No real payment.
+* No payment provider integration.
+* No real trial logic.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+
+Next recommended phase:
+
+```text
+Human visual audit of refined landing page
+```
+
+Result marker:
+
+```text
+LANDING_PAGE_STUDENT_MVP_REFINED
+```

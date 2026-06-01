@@ -16,6 +16,7 @@ These documents now govern roadmap direction:
 10. `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`
 11. `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`
 12. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1_IMPLEMENT_STUDENT_LANDING_PAGE_MVP.md`
+13. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1A_REFINE_STUDENT_LANDING_PAGE_LAYOUT_AND_ACCESS_OPTIONS.md`
 
 Future chats must read them before proposing work.
 
@@ -34,6 +35,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md` is ACTIVE as the first official UI deliverable under Student Experience-Led Delivery. `LANDING_PAGE_STUDENT_MVP_READY` defines the student landing page MVP. Future prompts must preserve that visible landing text requires Mauricio approval. The next phase may implement the landing, but without real payment, checkout, StudyLoad, student dashboard, or M1 enrollment.
 
 `MVP_SALES_PILOT_UI_LANDING_1_IMPLEMENT_STUDENT_LANDING_PAGE_MVP.md` records the implementation of the first student landing page MVP at `/`. Login CTAs navigate to `/login`; trial/subscription options are visual/local anchors only, with no checkout, payment, real trial, subscription backend, DB, auth architecture, StudyLoad, dashboard, or M1 enrollment.
+
+`MVP_SALES_PILOT_UI_LANDING_1A_REFINE_STUDENT_LANDING_PAGE_LAYOUT_AND_ACCESS_OPTIONS.md` records Mauricio's refined landing layout request: a two-line textual hero, no welcome images/boxes/graphics, and three clear access cards (`Iniciar`, `Trial`, `Suscripción`) using only local/non-destructive trial and subscription anchors.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 
