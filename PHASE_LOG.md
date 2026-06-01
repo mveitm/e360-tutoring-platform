@@ -35859,3 +35859,101 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0B_INITIAL_SANDBOX_PARTICIPANT_CANDIDATE_SLOTS_DEFINED_NOT_AUTHORIZED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0C - Convert candidate slots into draft allowlist entries without execution authorization
+
+Type:
+
+```text
+Documentation / governance / draft-allowlist-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 02fcccb
+Latest accepted commit = 02fcccb - MVP-SALES-PILOT-SANDBOX-0B: define initial sandbox participant candidates
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, SANDBOX-0B, SANDBOX-0A, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, HARDENING-5C, DIRECTION-1, PRO report, GO-4, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / draft allowlist decision:
+
+```text
+DRAFT_ALLOWLIST_ENTRIES_DEFINED_NOT_AUTHORIZED_FOR_EXECUTION
+```
+
+Draft entries summary:
+
+* Converted `SANDBOX_M1_SYNTH_001` into a documentary draft allowlist entry with placeholder email `sandbox_m1_synth_001@example.invalid`, `PAES_M1` scope, expected StudyLoad `PAES M1 - Entrada balanceada inicial`, fixture not prepared, credential not needed yet, and execution not authorized.
+* Converted `SANDBOX_M1_INTERNAL_001` into an optional deferred internal controlled draft entry with placeholder email `sandbox_m1_internal_001@example.invalid`, no real person named, fixture not prepared, credential not needed yet, and execution not authorized.
+* Converted `SANDBOX_M1_EXTERNAL_CONDITIONED_001` into a deferred external conditioned draft entry with no real email or contact, blocked pending later authorization, fixture not prepared, credential not needed yet, and execution not authorized.
+* Recommendation remains synthetic first, optional internal controlled second, external conditioned deferred.
+
+Authorization boundary summary:
+
+* Draft allowlist entries are documentary planning artifacts only.
+* Draft entries do not authorize execution, fixture prep, credential readiness, runtime access, participant creation, or operational allowlist population.
+* A later phase must approve any transition to `approved_for_fixture_prep`, `approved_for_credential_readiness`, or `approved_for_execution`.
+* All entries remain `execution_approval_status: not_authorized`.
+* Any attempt to execute from a draft entry must pause and open an authorization phase.
+
+Missing requirements summary:
+
+* Before fixture prep: selected entry decision, baseline/target confirmation, fixture scope, controlled identity policy, support owner, data guardrails, no real sensitive data, and later explicit fixture-prep approval.
+* Before credential readiness: authorized fixture prep, private credential handling, no credential in chat/docs, logout/identity-check discipline, support owner, and waiver applicability review.
+* Before execution authorization: accepted runbook, approved allowlist entry, authorized fixture, private credential readiness, manual smoke checklist, waiver record if used, StudentAccess containment record if used, active support/failure path, active data/language guardrails, pause criteria, and explicit `approved_for_execution`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0D - Define sandbox execution authorization checklist
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5A/5B/5C, SANDBOX-0, HARDENING-5D, SANDBOX-0A allowlist template, SANDBOX-0B candidate slots, and these draft allowlist entries.
+* What it advances: defines the exact authorization checklist required before fixture prep, credential readiness, or execution approval.
+* What it does not advance: sandbox execution, participant creation, credential creation, fixture preparation, DB mutation, auth implementation, Playwright implementation, staging, broader pilot, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, or payment/trial/subscription.
+* Priority verdict: `APPROVED_NEXT_SMALL_DOCUMENTATION_PHASE_SANDBOX_EXECUTION_AUTHORIZATION_CHECKLIST`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0C_CONVERT_CANDIDATE_SLOTS_INTO_DRAFT_ALLOWLIST_ENTRIES_WITHOUT_EXECUTION_AUTHORIZATION.md`.
+
+Verification:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changes documentation only.
+
+Explicit non-declarations:
+
+* No sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, real participants recruited, real allowlist populated, fixture prep approved, credential readiness approved, or execution approved.
+
+Explicit non-actions:
+
+* No implementation, UI execution, Playwright run, test creation/modification, DB mutation, participant creation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment, participant contact, communications, commercial material creation, operational allowlist population, execution approval, credential creation, fixture preparation, real personal data recording, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0C_DRAFT_ALLOWLIST_ENTRIES_DEFINED_NOT_AUTHORIZED_FOR_EXECUTION
+```
