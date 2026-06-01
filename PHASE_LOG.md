@@ -36561,3 +36561,91 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0H_CREDENTIAL_READY_WITHOUT_SECRET_PRINTED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0I - Review manual smoke readiness for SANDBOX_M1_SYNTH_001 without execution authorization
+
+Type:
+
+```text
+Documentation / governance / manual-smoke-readiness-review-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 6f80d28
+Latest accepted commit = 6f80d28 - MVP-SALES-PILOT-SANDBOX-0H: complete private credential readiness
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read SANDBOX-0H, SANDBOX-0G-R, SANDBOX-0F, SANDBOX-0E, SANDBOX-0D, SANDBOX-0C, SANDBOX-0B, SANDBOX-0A, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5A, HARDENING-5B, HARDENING-5C, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* No contradiction was found between Git and the documents read for this phase.
+
+Result:
+
+```text
+MANUAL_SMOKE_READINESS_REVIEWED_READY_FOR_SEPARATE_AUTHORIZATION
+```
+
+Readiness decision summary:
+
+* `SANDBOX_M1_SYNTH_001` is ready for a later phase to review and authorize a controlled manual smoke.
+* This phase does not authorize or execute that smoke.
+* Future manual smoke must be separately authorized with explicit operator sequence, target confirmation, evidence rules, and stop conditions.
+
+Checklist summary:
+
+* `PASS=22`.
+* `RISK=0`.
+* `BLOCKED=0`.
+* `NOT_APPLICABLE=0`.
+
+Key readiness evidence:
+
+* Baseline clean and aligned at `6f80d28`.
+* LOCAL_DEV target basis inherited as sanitized human-confirmed context.
+* 0G-R documented fixture prepared.
+* 0H documented private credential readiness as boolean/non-sensitive state.
+* Fixture remains `PAES_M1` only.
+* No auth sessions, responses, StudyLoad start, decisions, evaluations, ContinuitySignal, StudentAccess row, second StudyLoad, Cycle 2, L1/M2, or execution authorization are documented.
+* Runbook, allowlist/candidate docs, support/failure path, participant/data/language guardrails, auth/Playwright waiver policy, and execution authorization checklist exist.
+
+Future stop conditions:
+
+* Stop on dirty/divergent Git, unsafe or ambiguous target, staging/production suspicion, wrong participant, wrong program, credential exposure, wrong account/session, unexpected `/now`, unexpected StudyLoad state, payment/trial/subscription, L1/M2, sensitive data, StudentAccess conflict, or any need for DB/auth/code/schema/seed/Playwright repair.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0I_REVIEW_MANUAL_SMOKE_READINESS_FOR_SANDBOX_M1_SYNTH_001_WITHOUT_EXECUTION_AUTHORIZATION.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0J - Authorize controlled manual smoke for SANDBOX_M1_SYNTH_001 without sandbox execution authorization
+```
+
+Explicit non-declarations:
+
+* No manual smoke executed, sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, operational allowlist populated, or execution approved.
+
+Explicit non-actions:
+
+* No student login, auth session creation, `/now`, StudyLoad start, response, MC submission, self-report, activity completion, manual smoke, sandbox execution, DB mutation, StudentAccess row creation/modification, StudentAccess lifecycle change, Account linkage creation, second StudyLoad, Cycle 2, cycle close, CycleDecision, CycleEvaluation, ContinuitySignal, app code, schema, seed, auth model, CredentialsProvider, Playwright, tests, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment/contact, communications, commercial material, PILOT_M1_005 preparation, real personal data recording, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0I_MANUAL_SMOKE_READINESS_REVIEWED_READY_FOR_SEPARATE_AUTHORIZATION
+```
