@@ -35272,3 +35272,93 @@ Result marker:
 ```text
 MVP_SALES_PILOT_HARDENING_5A_STUDENT_ACCESS_CONTAINMENT_ALLOWED_FOR_TINY_HUMAN_GUIDED_SANDBOX_WITH_STRICT_LIMITS
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-HARDENING-5B - Define support/failure path for M1-first sandbox
+
+Type:
+
+```text
+Documentation / governance / support-failure-path definition only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 22d4a51
+Latest accepted commit = 22d4a51 - MVP-SALES-PILOT-HARDENING-5A: define StudentAccess sandbox containment
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, DIRECTION-1A, HARDENING-5, HARDENING-5A, DIRECTION-1, PRO report, GO-4, DRY-RUN-4A, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / support decision:
+
+```text
+SUPPORT_FAILURE_PATH_DEFINED_FOR_TINY_HUMAN_GUIDED_SANDBOX
+```
+
+Failure path summary:
+
+* Defined manual support model for a tiny, human-guided, non-public, non-commercial, PAES_M1-only sandbox.
+* Defined failure taxonomy for auth/session, access/StudentAccess, `/now`, StudyLoad start, activity rendering, submission, self-report/completion, continuity, admin/tutor evidence, data/safety, operator error, and environment/Git.
+* Defined severity model: low, medium, high, stop.
+* Defined allowed support actions: step guidance, sign-out, one safe reload, authorized clean browser/incognito, stop, sanitized incident, read-only admin review, later phase creation.
+* Defined prohibited actions: DB repair, password sharing, secret printing, improvised account/load, evidence deletion, manual cycle close, decision/evaluation creation, unsupported StudentAccess bypass, app/auth/schema changes, second-load start outside protocol.
+
+Pause criteria summary:
+
+* Pause on staging/production suspicion, sensitive data exposure, printed secret, non-allowlisted participant, non-PAES_M1 program, unauthorized load, evidence corruption/loss/duplication, unexpected cycle close, unexpected CycleDecision/Evaluation, auth failure requiring code, DB manual fix requirement, dirty/divergent Git, or any public/commercial scope escalation.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-HARDENING-5C - Define participant/data and language guardrails
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5 sequence, HARDENING-5A StudentAccess containment, and this support/failure path.
+* What it advances: defines participant/data/language boundaries required before drafting a closed M1-first sandbox runbook.
+* What it does not advance: sandbox execution, staging execution, implementation, StudentAccess lifecycle, auth repair, Playwright E2E, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, or payment/trial/subscription.
+* Priority verdict: `APPROVED_NEXT_SMALL_GOVERNANCE_PHASE_PARTICIPANT_DATA_LANGUAGE_GUARDRAILS`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_HARDENING_5B_DEFINE_SUPPORT_FAILURE_PATH_FOR_M1_FIRST_SANDBOX.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git diff --cached --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only.
+
+Explicit non-declarations:
+
+* No current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, or StudentAccess lifecycle implemented.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, complete executable sandbox runbook creation, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_HARDENING_5B_SUPPORT_FAILURE_PATH_DEFINED_FOR_TINY_HUMAN_GUIDED_SANDBOX
+```
