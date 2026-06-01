@@ -36144,3 +36144,97 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0E_SANDBOX_M1_SYNTH_001_APPROVED_FOR_FIXTURE_PREP_NOT_PREPARED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0F - Define fixture-prep mutation scope for SANDBOX_M1_SYNTH_001
+
+Type:
+
+```text
+Documentation / fixture-prep mutation-scope-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 6138bf1
+Latest accepted commit = 6138bf1 - MVP-SALES-PILOT-SANDBOX-0E: review synthetic entry for fixture prep
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, SANDBOX-0E, SANDBOX-0D, SANDBOX-0C, SANDBOX-0B, SANDBOX-0A, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, HARDENING-5C, DIRECTION-1, PRO report, GO-4, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / fixture-prep scope decision:
+
+```text
+FIXTURE_PREP_MUTATION_SCOPE_DEFINED_NOT_EXECUTED
+```
+
+Mutation scope summary:
+
+* Defined future target policy: prefer `LOCAL_DEV`; technical sandbox only with explicit future authorization; production, ambiguous target, and staging without explicit authorization are forbidden.
+* Defined synthetic identity for future fixture prep: `SANDBOX_M1_SYNTH_001`, display name `SANDBOX_M1_SYNTH_001 SANDBOX_M1_SYNTH_001`, canonical synthetic email `sandbox_m1_synth_001@bexauri.dev`, program `PAES_M1`, data scope `synthetic_only`.
+* Defined future in-scope records: synthetic Student, minimal User or user/account state required by local/dev auth model, Account linkage only if required, active `PAES_M1` enrollment, Cycle 1 open, and exactly one pending initial StudyLoad.
+* Defined initial StudyLoad specification: `PAES M1 - Entrada balanceada inicial`, `contentKey: paes_m1_balanced_entry_initial`, `contentVersion: v1`, `programCode: PAES_M1`, pending, practice, internal provisional, no execution evidence.
+
+Target / preflight summary:
+
+* Future fixture prep must confirm clean Git, aligned future baseline, target `LOCAL_DEV` or explicitly authorized technical sandbox, no staging/production suspicion, no secrets printed, `SANDBOX_M1_SYNTH_001` still approved for fixture prep, execution not authorized, credential readiness not authorized, containment/failure path/guardrails accepted, no duplicate fixture, and mutation scope matching 0F.
+* Future fixture prep must stop if target cannot be confirmed safely, DB target is ambiguous, target contains unexpected real data, Git is dirty/divergent, or confirmation would require raw secrets/env/DB values.
+
+Out-of-scope summary:
+
+* Out of scope for future fixture prep: password, private credential readiness, responses, MC submissions, self-report, completed/in-progress state, CycleDecision, CycleEvaluation, manual continuity signal, second StudyLoad, Cycle 2, StudentAccess row unless later changed, StudentAccess lifecycle, payment/trial/subscription, L1/M2 enrollment, real participant data, staging/production records without later authorization, login, `/now`, StudyLoad start, manual smoke, admin runtime review, sandbox execution, and cleanup/repair of unrelated records.
+* Credential readiness, manual smoke, and execution remain separate future phases.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0G - Prepare SANDBOX_M1_SYNTH_001 fixture without credential or execution authorization
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5A/5B/5C, SANDBOX-0, HARDENING-5D, SANDBOX-0A, SANDBOX-0B, SANDBOX-0C, SANDBOX-0D, SANDBOX-0E, and this mutation scope.
+* What it advances: prepares the exact synthetic local/dev fixture defined here, if future preflight and target confirmation pass.
+* What it does not advance: credential readiness, manual smoke, sandbox execution, staging, broader pilot, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, payment/trial/subscription, or StudentAccess lifecycle.
+* Priority verdict: `APPROVED_NEXT_SMALL_FIXTURE_PREP_PHASE_WITHOUT_CREDENTIAL_OR_EXECUTION`.
+* Authorization status: requires separate explicit authorization before fixture preparation, and separate later authorization before credential readiness or execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0F_DEFINE_FIXTURE_PREP_MUTATION_SCOPE_FOR_SANDBOX_M1_SYNTH_001.md`.
+
+Verification:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changes documentation only.
+
+Explicit non-declarations:
+
+* No fixture prepared, credential readiness approved, credential ready, manual smoke ready, sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, real participants recruited, operational allowlist populated, or execution approved.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, fixture preparation, participant creation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, Playwright, test creation/modification, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment/contact, communications, commercial material, operational allowlist population, credential configuration, credential readiness approval, execution approval, manual smoke, PILOT_M1_005 preparation, real personal data recording, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0F_FIXTURE_PREP_MUTATION_SCOPE_DEFINED_NOT_EXECUTED
+```
