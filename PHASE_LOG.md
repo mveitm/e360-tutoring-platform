@@ -36047,3 +36047,100 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0D_SANDBOX_EXECUTION_AUTHORIZATION_CHECKLIST_DEFINED_NOT_APPLIED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0E - Review SANDBOX_M1_SYNTH_001 for fixture-prep approval without execution authorization
+
+Type:
+
+```text
+Documentation / governance / fixture-prep-approval-review-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 6479c4d
+Latest accepted commit = 6479c4d - MVP-SALES-PILOT-SANDBOX-0D: define sandbox execution authorization checklist
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, SANDBOX-0D, SANDBOX-0C, SANDBOX-0B, SANDBOX-0A, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, HARDENING-5C, DIRECTION-1, PRO report, GO-4, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / fixture-prep review decision:
+
+```text
+SANDBOX_M1_SYNTH_001_APPROVED_FOR_FIXTURE_PREP_NOT_PREPARED
+```
+
+Review summary:
+
+* Applied SANDBOX-0D checklist to `SANDBOX_M1_SYNTH_001` only.
+* Confirmed `participant_type: synthetic`, `program_allowed: PAES_M1`, `data_scope: synthetic_only`, no public/uncontrolled external participant, no minor/guardian issue, no real personal data, expected StudyLoad `PAES M1 - Entrada balanceada inicial`, and expected content key `paes_m1_balanced_entry_initial`.
+* Confirmed support/failure path, participant/data/language guardrails, StudentAccess containment dependency, stop conditions, and auth/Playwright waiver boundary remain available as governing documents.
+* Approved only the documentary state `approved_for_fixture_prep` for a future phase.
+
+Approved / not approved summary:
+
+* Approved: `SANDBOX_M1_SYNTH_001` may be used by a later phase as the selected synthetic entry for fixture-prep path.
+* Approved: future phase may define fixture-prep mutation scope for this entry.
+* Not approved: fixture prepared, DB mutation, operational allowlist population, participant/student/User/Account/Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, credential readiness, manual smoke, login, `/now`, StudyLoad start, admin runtime review, sandbox execution, staging execution, or sandbox readiness.
+* Status remains: `fixture_prepared = false / not_prepared`, `credential_status = not_needed_yet`, `credential_readiness_approval = not_approved`, `manual_smoke_status = not_run`, and `execution_approval_status = not_authorized`.
+
+Missing requirements summary:
+
+* Before actual fixture prep: future 0F authorization/scope, target confirmation, fresh clean Git preflight, controlled synthetic email finalization if needed, support owner assignment, fixture plan, exact DB mutation scope if any, explicit records to create and records not to create, StudentAccess containment note, no credential, no execution, no real personal data.
+* Before credential readiness: fixture prepared in an authorized phase, User/account state known, admin UI reset or credential path available, password handled privately only, no secrets in docs/chat/logs, support owner available, and logout/session process understood.
+* Before execution: explicit `approved_for_execution`, fixture prepared, credential `private_ready`, runbook reviewed, StudentAccess containment active, support/failure path active, guardrails active, auth/Playwright waiver recorded if used, manual smoke accepted, target authorized, no staging/production suspicion, identity/logout discipline, no payment/trial/subscription, no M2/L1, no public/commercial scope, stop conditions reviewed, no second load unless later protocol authorizes it, and compact closeout required.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0F - Define fixture-prep mutation scope for SANDBOX_M1_SYNTH_001
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5A/5B/5C, SANDBOX-0, HARDENING-5D, SANDBOX-0A, SANDBOX-0B, SANDBOX-0C, SANDBOX-0D, and this fixture-prep approval review.
+* What it advances: defines the exact records, target, preflight, mutation boundary, and no-go conditions before any actual fixture preparation.
+* What it does not advance: sandbox execution, credential creation, DB mutation in this phase, participant creation in this phase, auth implementation, Playwright implementation, staging, broader pilot, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, or payment/trial/subscription.
+* Priority verdict: `APPROVED_NEXT_SMALL_DOCUMENTATION_PHASE_FIXTURE_PREP_MUTATION_SCOPE_BEFORE_PREPARATION`.
+* Authorization status: requires separate explicit authorization before fixture preparation, credential readiness, and execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0E_REVIEW_SANDBOX_M1_SYNTH_001_FOR_FIXTURE_PREP_APPROVAL_WITHOUT_EXECUTION_AUTHORIZATION.md`.
+
+Verification:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changes documentation only.
+
+Explicit non-declarations:
+
+* No sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, real participants recruited, operational allowlist populated, fixture prepared, credential readiness approved, or execution approved.
+
+Explicit non-actions:
+
+* No implementation, UI execution, Playwright run, test creation/modification, DB mutation, participant creation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment, participant contact, communications, commercial material creation, operational allowlist population, fixture preparation, credential configuration, credential readiness approval, execution approval, manual smoke execution, PILOT_M1_005 preparation, real personal data recording, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0E_SANDBOX_M1_SYNTH_001_APPROVED_FOR_FIXTURE_PREP_NOT_PREPARED
+```
