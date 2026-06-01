@@ -35957,3 +35957,93 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0C_DRAFT_ALLOWLIST_ENTRIES_DEFINED_NOT_AUTHORIZED_FOR_EXECUTION
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0D - Define sandbox execution authorization checklist
+
+Type:
+
+```text
+Documentation / governance / execution-authorization-checklist-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 85e0dd7
+Latest accepted commit = 85e0dd7 - MVP-SALES-PILOT-SANDBOX-0C: draft sandbox allowlist entries
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, SANDBOX-0C, SANDBOX-0B, SANDBOX-0A, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, HARDENING-5C, DIRECTION-1, PRO report, GO-4, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / authorization checklist decision:
+
+```text
+SANDBOX_EXECUTION_AUTHORIZATION_CHECKLIST_DEFINED_NOT_APPLIED
+```
+
+Authorization stages summary:
+
+* Defined stage model from `draft_entry` through `selected_for_review`, `approved_for_fixture_prep`, `fixture_prepared`, `approved_for_credential_readiness`, `credential_ready`, `manual_smoke_ready`, `approved_for_execution`, `running`, and closeout states.
+* Separated four approvals: candidate/draft entry review, fixture prep approval, credential readiness approval, and execution approval.
+* Defined that `credential_ready` does not imply execution approval.
+* Defined that draft allowlist entry does not imply fixture prep, credential readiness, runtime access, participant creation, or execution.
+* Defined conceptual execution approval form/table with empty placeholders and example-only non-operational row.
+
+Stop rules summary:
+
+* Execution cannot be approved if Git is dirty/divergent, target is unclear, staging/production suspicion exists, participant is not `approved_for_execution`, fixture is not prepared, credential is not `private_ready`, support owner is missing, containment/failure path/guardrails/waiver records are missing, wrong program appears, M2/L1 or payment/trial/subscription is active, public/commercial language appears, participant is minor or public external, sensitive data is required, or execution would require DB/auth/code/manual improvisation.
+* Stop result is `pause_or_abort_and_open_later_phase`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0E - Review SANDBOX_M1_SYNTH_001 for fixture-prep approval without execution authorization
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5A/5B/5C, SANDBOX-0, HARDENING-5D, SANDBOX-0A allowlist template, SANDBOX-0B candidate slots, SANDBOX-0C draft entries, and this authorization checklist.
+* What it advances: reviews the safest synthetic draft entry against the checklist to decide whether a later fixture-prep phase can be authorized.
+* What it does not advance: sandbox execution, credential creation, DB mutation, participant creation, fixture preparation, auth implementation, Playwright implementation, staging, broader pilot, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, or payment/trial/subscription.
+* Priority verdict: `APPROVED_NEXT_SMALL_DOCUMENTATION_PHASE_REVIEW_SYNTH_ENTRY_FOR_FIXTURE_PREP_READINESS`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0D_DEFINE_SANDBOX_EXECUTION_AUTHORIZATION_CHECKLIST.md`.
+
+Verification:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changes documentation only.
+
+Explicit non-declarations:
+
+* No sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, real participants recruited, real allowlist populated, fixture prep approved, credential readiness approved, or execution approved.
+
+Explicit non-actions:
+
+* No implementation, UI execution, Playwright run, test creation/modification, DB mutation, participant creation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment, participant contact, communications, commercial material creation, operational allowlist population, fixture prep approval, credential readiness approval, execution approval, credential creation, fixture preparation, real personal data recording, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0D_SANDBOX_EXECUTION_AUTHORIZATION_CHECKLIST_DEFINED_NOT_APPLIED
+```
