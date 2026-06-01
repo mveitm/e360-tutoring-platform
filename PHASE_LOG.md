@@ -36835,3 +36835,116 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0K_BLOCKED_LOGIN_FAILED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0L - Diagnose SANDBOX_M1_SYNTH_001 login failure and login UI defects without StudyLoad execution
+
+Type:
+
+```text
+Read-only LOCAL_DEV login/auth/UI diagnostic.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 9fcca47
+Latest accepted commit = 9fcca47 - MVP-SALES-PILOT-SANDBOX-0K: execute controlled manual smoke
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read SANDBOX-0K, SANDBOX-0J, SANDBOX-0I, SANDBOX-0H, SANDBOX-0G-R, SANDBOX-0F, SANDBOX-0D, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5A, HARDENING-5B, HARDENING-5C, and `PHASE_LOG.md` tail before diagnosis.
+* Git preflight remained the live truth.
+* PRO direction inherited after 0K: `AJUSTAR, PERO CONTINUAR`.
+* 0K inherited result: `BLOCKED_LOGIN_FAILED`.
+
+Result:
+
+```text
+LOGIN_UI_AUTH_BLOCKER_DIAGNOSED_WITH_REPAIR_RECOMMENDATION
+```
+
+Diagnosis summary:
+
+* Primary classification: `CREDENTIAL_PERSISTENCE_OR_CUSTODY_PROBABLE`.
+* Secondary classification: `UI_LOGIN_VISUAL_DEFECT_PROBABLE_SECONDARY`.
+* The login/auth source uses NextAuth CredentialsProvider with normalized email lookup and bcrypt compare against `User.password`.
+* The fixture is present and clean by read-only sanitized counts.
+* The User exists and has credential-ready boolean state, but 0K login still failed.
+* No StudentAccess, Enrollment, Cycle, or StudyLoad state explains failure before authentication.
+
+UI/login findings:
+
+* `/login` responded with HTTP 200 in LOCAL_DEV.
+* Sanitized rendered markers were present: login form, email input, password input, submit button.
+* Static source contains text encoding artifacts in some UI/auth strings.
+* 0L did not prove CSS/build failure as the primary login blocker.
+
+Auth findings:
+
+* CredentialsProvider is the active login path for the form.
+* Legacy `/api/auth/login` exists but is not used by the login form.
+* No Account row is required by the credentials path.
+* No StudentAccess row is required by the credentials path.
+* With User and password boolean present, failed login most likely means the submitted private password did not match the stored credential or the credential custody/persistence expectation was wrong.
+
+Fixture/User findings:
+
+* User count: 1.
+* User email exact: yes.
+* Credential ready boolean: yes.
+* Account count: 0.
+* Auth Session row count: 0.
+* Student count: 1.
+* Student email exact: yes.
+* Student name matches participant code: yes.
+* StudentAccess count: 0.
+* Active `PAES_M1` enrollment count: 1.
+* Open Cycle 1 count: 1.
+* Pending practice StudyLoad count: 1.
+* Session/response/decision/evaluation/continuity counts: 0.
+* Second StudyLoad count: 0.
+
+Recommended next repair path:
+
+```text
+0M-DATA - Re-apply private credential readiness for SANDBOX_M1_SYNTH_001 without StudyLoad execution
+```
+
+Scope safety:
+
+* No login retry, authenticated `/now`, viewer, `Empezar`, StudyLoad start, response, submit, self-report, completion, continuity, second StudyLoad, StudentAccess lifecycle, payment/trial/subscription, L1/M2, staging/production, DB mutation, schema change, app code change, auth change, CredentialsProvider change, Playwright, or tests.
+
+Credential safety:
+
+* No password, hash, env value, DB URL, token, cookie, header, request body, response body, provider value, storage value, or secret was printed, inspected, documented, or committed.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0L_DIAGNOSE_SANDBOX_M1_SYNTH_001_LOGIN_FAILURE_AND_LOGIN_UI_DEFECTS_WITHOUT_STUDYLOAD_EXECUTION.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0M-DATA - Re-apply private credential readiness for SANDBOX_M1_SYNTH_001 without StudyLoad execution
+```
+
+Explicit non-declarations:
+
+* No sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, L1 readiness, M2 readiness, payment/trial/subscription active, broader pilot readiness, robust complete auth readiness, complete support readiness, legal/commercial readiness, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, or login blocker repaired.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0L_LOGIN_UI_AUTH_BLOCKER_DIAGNOSED_WITH_REPAIR_RECOMMENDATION
+```
