@@ -37154,3 +37154,142 @@ Result marker:
 ```text
 MVP_SALES_PILOT_GOV_2_FRIDAY_FULL_MANUAL_M1_TEST_HANDOFF_ALIGNED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0M-CODE - Document clean-server login UI observation and port-confusion closeout
+
+Type:
+
+```text
+Level B/C operational closeout: human-observed LOCAL_DEV login UI/runtime state, no code repair applied.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 85b9442
+Latest accepted commit = 85b9442 - MVP-SALES-PILOT-GOV-2: align handoff with Friday M1 manual test
+Working tree clean before edits.
+```
+
+Human-observed state:
+
+* node processes before server: none.
+* dev server URL: `http://localhost:3000`.
+* login UI visual defects: no.
+* login page accessible: yes.
+* main styling/layout appears restored: yes.
+* secret exposure: no.
+* admin login: success.
+* login error visible after admin login: no.
+* admin login unexpected state: none.
+* student login: success.
+* login error visible after student login: no.
+* student login unexpected state: redirected_to_now_without_interaction.
+* `/now` page visible: yes.
+* student identity visible or expected: unknown.
+* PAES_M1 visible: yes.
+* closed PAES_M1 pilot content visible: yes.
+* initial StudyLoad visible: yes.
+* pending practice StudyLoad count visible: one.
+* pending practice StudyLoad title: `PAES M1 — Entrada balanceada inicial`.
+* StudyLoad title status: expected.
+* `Ver actividad` visible: yes.
+* `Empezar` visible: yes.
+* StudyLoad: visible but not touched.
+* `Empezar`: not clicked.
+* `Ver actividad`: not clicked.
+* responses: none.
+
+Operational finding:
+
+```text
+old_node_process_or_port_confusion_probable
+```
+
+Interpretation:
+
+* The earlier login UI defect signal is downgraded as a likely LOCAL_DEV stale-process / wrong-port confusion issue.
+* Clean single-server rendering on `http://localhost:3000` currently removes login UI rendering as the primary blocker.
+* Admin login succeeds under the clean-server condition.
+* Student login succeeds under the clean-server condition.
+* Browser redirected to `/now` automatically after student login.
+* `/now` is visible under the authenticated student session.
+* PAES_M1 and the expected initial StudyLoad are visible.
+* Visible content confirms closed PAES_M1 pilot and one pending practice StudyLoad: `PAES M1 — Entrada balanceada inicial`.
+* `Ver actividad` and `Empezar` are visible but not clicked.
+* End-to-end StudyLoad execution readiness is not declared because `Ver actividad`, `Empezar`, viewer interaction, responses, self-report, completion, and continuity have not been executed.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0M_CODE_LOGIN_UI_PORT_CONFUSION_CLOSEOUT.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB/schema/credentials touched.
+* No secrets printed or inspected.
+* No manual `/now` open; `/now` was reached only by automatic post-login redirect.
+* No StudyLoad execution.
+* No `Empezar`.
+* No `Ver actividad`.
+* No responses.
+* No app/auth code changes.
+
+Admin login observation received:
+
+```text
+admin_login: success
+login_error_visible: no
+secret_exposure: no
+unexpected_state: none
+```
+
+Student login observation received:
+
+```text
+student_login: success
+login_error_visible: no
+secret_exposure: no
+unexpected_state: redirected_to_now_without_interaction
+```
+
+`/now` visibility observation received:
+
+```text
+now_page_visible: yes
+student_identity_visible_or_expected: unknown
+paes_m1_visible: yes
+closed_paes_m1_pilot_visible: yes
+initial_studyload_visible: yes
+pending_practice_studyload_count_visible: one
+pending_practice_studyload_title: PAES M1 — Entrada balanceada inicial
+studyload_title_status: expected
+ver_actividad_visible: yes
+ver_actividad_clicked: no
+empezar_visible: yes
+empezar_clicked: no
+responses: none
+secret_exposure: no
+unexpected_state: none
+```
+
+Next action requires separate authorization:
+
+```text
+StudyLoad execution path: press `Empezar`, click `Ver actividad`, open the StudyLoad viewer, submit responses, self-report, complete a load, or continue toward later loads.
+```
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0M_CODE_LOGIN_UI_CLEAN_SERVER_PORT_CONFUSION_CLOSEOUT_DOCUMENTED
+```

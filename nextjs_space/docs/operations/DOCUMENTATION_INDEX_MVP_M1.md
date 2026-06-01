@@ -12,6 +12,7 @@ These documents now govern roadmap direction:
 6. `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`
 7. `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`
 8. `nextjs_space/docs/operations/MVP_SALES_PILOT_GOV_2_FRIDAY_FULL_MANUAL_M1_TEST_HANDOFF_ALIGNMENT.md`
+9. `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0M_CODE_LOGIN_UI_PORT_CONFUSION_CLOSEOUT.md`
 
 Future chats must read them before proposing work.
 
@@ -20,6 +21,8 @@ The Block 7 anchor is mandatory before content-route phases.
 `PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md` is ACTIVE. Future prompts should use the widest safe phase scope, not the narrowest possible scope by default, and should default to diagnosis + minor safe repair + local verification for local reversible issues while keeping structural boundaries separate.
 
 `MVP_SALES_PILOT_GOV_2_FRIDAY_FULL_MANUAL_M1_TEST_HANDOFF_ALIGNMENT.md` is ACTIVE for near-term operational prioritization. It sets the Friday full manual M1 test as the immediate milestone: Mauricio tests a fictitious-student journey from account creation to StudyLoad 10 in PAES_M1. It does not declare Sales-Ready, MVP-Beta cerrado completo, L1 readiness, M2 readiness, payment/trial/subscription readiness, or public pilot readiness.
+
+`MVP_SALES_PILOT_SANDBOX_0M_CODE_LOGIN_UI_PORT_CONFUSION_CLOSEOUT.md` records the clean-server login UI observation: with no prior Node processes and one dev server at `http://localhost:3000`, login renders correctly and the earlier visual defect is downgraded to probable stale-process / port-confusion. Admin login and student login both succeeded with no visible login error and no secret exposure; student login redirected automatically to `/now` without interaction. `/now` visibility passed for closed PAES_M1 pilot content and one pending practice StudyLoad, `PAES M1 — Entrada balanceada inicial`; `Ver actividad` and `Empezar` were visible but not clicked. Student identity visual confirmation remains unknown; StudyLoad execution and responses remain untouched.
 
 The M1 documents remain pedagogical and operational support. They are not the whole project roadmap.
 
