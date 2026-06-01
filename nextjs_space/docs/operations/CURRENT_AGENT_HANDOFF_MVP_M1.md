@@ -45,6 +45,14 @@ Future chats must preserve Codex prompt depth. Roadmap context alone is not enou
 
 Future prompts should use the widest safe phase scope, not the narrowest possible scope by default. Default to diagnosis + minor safe repair + local verification for local reversible issues. Separate phases remain required for structural boundaries: secrets, schema, structural DB mutation, auth architecture, StudentAccess lifecycle, StudyLoad execution, staging/production, real data, payments, L1/M2 readiness, or broad redesign.
 
+### 2C-2. Student Experience-Led Delivery Protocol
+
+`nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md` is ACTIVE.
+
+Mauricio defines the phase of the day as a concrete student-experience deliverable. ChatGPT/Ampliado decomposes that deliverable into the fewest safe microphases. Codex executes. Every microphase must directly support the UI/operational/pedagogical experience target or remove a blocker to it.
+
+Top-down student-experience delivery now drives roadmap sequencing. Bottom-up technical work remains allowed only when it unlocks the current experience deliverable or protects structural boundaries. `PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md` still regulates safe phase size and split points.
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
 Friday full manual M1 test is the near-term operational milestone.
@@ -88,6 +96,8 @@ Read these before proposing, designing, verifying, implementing, committing, or 
 * `nextjs_space/docs/governance/PHASE_CONTEXT_GATE_PROTOCOL.md`
 * `nextjs_space/docs/governance/LIVING_MEMORY_INDEX.md`
 * `nextjs_space/docs/governance/AUTOPROPAGATING_HANDOFF_PROTOCOL_V2.md`
+* `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`
+* `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`
 * `PHASE_LOG.md` tail
 
 ### 4. Current Product Horizon and Roadmap State

@@ -39,6 +39,7 @@ Future chats must read these documents before proposing work:
 2. `nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md`
 3. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
 4. `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`
+5. `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`
 
 No off-roadmap phase may be recommended or executed unless Mauricio + ChatGPT explicitly approve a `ROADMAP_CHANGE_REQUEST`.
 
@@ -48,6 +49,12 @@ Phase Scope Optimization Protocol active:
 Use the widest safe phase scope, not the narrowest possible scope by default.
 Default to diagnosis + minor safe repair + local verification for local reversible issues.
 Separate phases only for structural boundaries: secrets, schema, structural DB mutation, auth architecture, StudentAccess, StudyLoad execution, production/staging, real data, payments, L1/M2, broad redesign.
+```
+
+Student Experience-Led Delivery Protocol active:
+
+```text
+Mauricio defines the student-experience deliverable. ChatGPT/Ampliado decomposes it into the fewest safe microphases. Codex executes. Every microphase must directly support the UI/operational/pedagogical experience target or remove a blocker to it. Bottom-up technical work is allowed only when it unlocks that target or protects structural boundaries.
 ```
 
 ## 1. Purpose
@@ -161,19 +168,21 @@ First read:
 1. nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md
 2. nextjs_space/docs/operations/MVP_SALES_READY_ROADMAP.md
 3. nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md
-4. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
-5. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
-6. nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md
-7. nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md
-8. nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md
-9. nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md
-10. nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md
-11. nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md
-12. nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md
-13. nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md
-14. nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md
-15. nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md
-16. PHASE_LOG.md, latest relevant entries only if safe to inspect without full-file overwrite risk
+4. nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md
+5. nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md
+6. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+7. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
+8. nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md
+9. nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md
+10. nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md
+11. nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md
+12. nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md
+13. nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md
+14. nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md
+15. nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md
+16. nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md
+17. nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md
+18. PHASE_LOG.md, latest relevant entries only if safe to inspect without full-file overwrite risk
 
 Sales-ready phase gate:
 - Current active roadmap block: <CURRENT_ACTIVE_ROADMAP_BLOCK>

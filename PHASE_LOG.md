@@ -37293,3 +37293,110 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0M_CODE_LOGIN_UI_CLEAN_SERVER_PORT_CONFUSION_CLOSEOUT_DOCUMENTED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-GOV-3 - Document Student Experience-Led Delivery Protocol
+
+Type:
+
+```text
+Level A - Governance / documentation / methodology alignment.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = b9ebce4
+Latest accepted commit = b9ebce4 - MVP-SALES-PILOT-SANDBOX-0M-CODE: document clean login and now visibility
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_GOV_2_FRIDAY_FULL_MANUAL_M1_TEST_HANDOFF_ALIGNMENT.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0M_CODE_LOGIN_UI_PORT_CONFUSION_CLOSEOUT.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* `PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md` is ACTIVE.
+* Friday full manual M1 test milestone is ACTIVE.
+
+Decision PRO:
+
+```text
+ADOPTAR CON AJUSTES
+```
+
+Result:
+
+```text
+STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL_DOCUMENTED_AND_ACTIVE
+```
+
+Protocol summary:
+
+* Student Experience-Led Delivery now drives roadmap sequencing.
+* Mauricio defines the daily or block-level deliverable in terms of student experience.
+* ChatGPT/Ampliado decomposes that deliverable into the fewest safe microphases.
+* Codex executes scoped phases with Git preflight, documentation, commit, and push when authorized.
+* Bottom-up technical work remains allowed only when it unlocks the current experience deliverable or protects structural boundaries.
+* `PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md` regulates safe phase size, fusion, and split points.
+* HYBRID_DIRECTION_WITH_PHASED_GATES protects strategic boundaries and prevents premature claims.
+
+Friday milestone alignment:
+
+* Near-term milestone remains Mauricio's Friday full manual M1 test with a fictitious student from account creation to StudyLoad 10 in PAES_M1.
+* GOV-3 makes that test the organizing example for student-experience-led delivery.
+* Recommended next phase is `FRIDAY-TEST-1 - Prepare full M1 student experience runbook to StudyLoad 10`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No app code.
+* No DB.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No StudyLoad.
+* No `Empezar`.
+* No responses.
+* No StudentAccess.
+* No staging.
+* No production.
+* No secrets.
+* No Friday test execution.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 readiness declaration.
+
+Next recommended phase:
+
+```text
+FRIDAY-TEST-1 - Prepare full M1 student experience runbook to StudyLoad 10
+```
+
+Result marker:
+
+```text
+STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL_DOCUMENTED_AND_ACTIVE
+```
