@@ -35766,3 +35766,96 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0A_SANDBOX_ALLOWLIST_TEMPLATE_DEFINED_NOT_POPULATED
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0B - Define initial sandbox participant candidates without execution authorization
+
+Type:
+
+```text
+Documentation / governance / candidate-definition-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 5defae5
+Latest accepted commit = 5defae5 - MVP-SALES-PILOT-SANDBOX-0A: define sandbox allowlist template
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, SANDBOX-0A, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, HARDENING-5C, DIRECTION-1, PRO report, GO-4, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / candidate decision:
+
+```text
+INITIAL_SANDBOX_PARTICIPANT_CANDIDATE_SLOTS_DEFINED_NOT_AUTHORIZED
+```
+
+Candidate slots summary:
+
+* Defined candidate slots as conceptual operational placeholders only.
+* Proposed `SANDBOX_M1_SYNTH_001` as the safest first synthetic slot for runbook/evidence-flow review with no real personal data.
+* Proposed `SANDBOX_M1_INTERNAL_001` as an optional second internal controlled category slot, without name, contact, or real personal data.
+* Defined `SANDBOX_M1_EXTERNAL_CONDITIONED_001` as a deferred future option only, not recommended for first execution unless a later phase explicitly authorizes external conditions.
+* Public/uncontrolled external participants are blocked.
+* Minors/school students are blocked pending explicit legal/guardian/data policy.
+
+Authorization boundary summary:
+
+* Candidate slot is not an allowlist entry, fixture prep, credential readiness, participant approval, or execution authorization.
+* All slots have `allowlist_status: not_listed`, `fixture_status: not_prepared`, `credential_status: not_needed_yet`, and `execution_approval_status: not_authorized`.
+* No candidate slot can execute without later conversion into a draft allowlist entry, later fixture authorization, later private credential readiness, support owner confirmation, waiver applicability review, and explicit `approved_for_execution`.
+* Recommended first sandbox candidate pool: synthetic first; optionally internal controlled second; external conditioned deferred.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0C - Convert candidate slots into draft allowlist entries without execution authorization
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5A/5B/5C, SANDBOX-0, HARDENING-5D, SANDBOX-0A allowlist template, and this candidate-slot definition.
+* What it advances: converts selected conceptual slots, likely synthetic first and optionally internal second, into draft allowlist entries for review without execution authorization.
+* What it does not advance: sandbox execution, credential creation, DB mutation, participant creation, auth implementation, Playwright implementation, staging, broader pilot, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, or payment/trial/subscription.
+* Priority verdict: `APPROVED_NEXT_SMALL_DOCUMENTATION_PHASE_DRAFT_ALLOWLIST_ENTRIES_WITHOUT_EXECUTION_AUTHORIZATION`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0B_DEFINE_INITIAL_SANDBOX_PARTICIPANT_CANDIDATES_WITHOUT_EXECUTION_AUTHORIZATION.md`.
+
+Verification:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changes documentation only.
+
+Explicit non-declarations:
+
+* No sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, real participants recruited, real allowlist populated, credentials ready, or fixtures prepared.
+
+Explicit non-actions:
+
+* No implementation, UI execution, Playwright run, test creation/modification, DB mutation, participant creation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment, participant contact, communications, commercial material creation, operational allowlist population, execution approval, credential creation, real personal data recording, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0B_INITIAL_SANDBOX_PARTICIPANT_CANDIDATE_SLOTS_DEFINED_NOT_AUTHORIZED
+```
