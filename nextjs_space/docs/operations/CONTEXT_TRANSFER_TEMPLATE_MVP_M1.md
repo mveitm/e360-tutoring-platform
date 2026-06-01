@@ -22,6 +22,7 @@ Required fields:
 
 * Current active roadmap block:
 * Proposed next phase:
+* Near-term milestone:
 * Roadmap block match:
 * Sales-ready relevance verdict:
 * Off-roadmap? yes/no:
@@ -177,6 +178,7 @@ First read:
 Sales-ready phase gate:
 - Current active roadmap block: <CURRENT_ACTIVE_ROADMAP_BLOCK>
 - Proposed next phase: <PROPOSED_NEXT_PHASE>
+- Near-term milestone: Friday full manual M1 test - fictitious student from account creation to StudyLoad 10 in PAES_M1.
 - Roadmap block match: <ROADMAP_BLOCK_MATCH>
 - Sales-ready relevance verdict: <SALES_READY_RELEVANCE_VERDICT>
 - Off-roadmap? yes/no: <OFF_ROADMAP_YES_NO>

@@ -37034,3 +37034,123 @@ Result marker:
 ```text
 MVP_SALES_PILOT_GOV_1_PHASE_SCOPE_OPTIMIZATION_PROTOCOL_DOCUMENTED_AND_ACTIVE
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-GOV-2 - Align handoff system with Friday full manual M1 test
+
+Type:
+
+```text
+Governance / documentation / handoff alignment.
+```
+
+Level:
+
+```text
+Level A - Governance / documentation / handoff alignment
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 436a704
+Latest accepted commit = 436a704 - MVP-SALES-PILOT-GOV-1: document phase scope optimization protocol
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Purpose:
+
+```text
+Orient the immediate micro-roadmap toward the Friday full manual M1 test without declaring Sales-Ready, MVP-Beta cerrado completo, L1 readiness, or M2 readiness.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `PHASE_LOG.md` tail.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0L_DIAGNOSE_SANDBOX_M1_SYNTH_001_LOGIN_FAILURE_AND_LOGIN_UI_DEFECTS_WITHOUT_STUDYLOAD_EXECUTION.md` because it references possible later `0M-CODE`.
+* `0M-CODE` has not run and left no uncommitted changes; it appears only as a possible later path if 0M-DATA does not resolve the login/auth/UI blocker.
+* This GOV-2 phase was documentation-only.
+
+Friday milestone:
+
+```text
+Mauricio will personally execute a complete manual test with a fictitious student, from account creation through completing or reaching StudyLoad 10 in PAES_M1.
+```
+
+Test scope:
+
+* Full student experience.
+* Create account.
+* Login.
+* Access `/now`.
+* Continue M1 until load 10.
+* Review app functionality.
+* Review load pertinence.
+* Review pedagogical-layer quality.
+
+Micro-roadmap alignment:
+
+1. Resolve core login/UI blocker.
+2. Ensure signup/login works.
+3. Ensure `/now` works.
+4. Ensure M1 continuity can sustain progress to load 10.
+5. Prepare Friday manual test runbook.
+6. Prepare functional and pedagogical observation guidance.
+7. Document evidence and blockers.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_GOV_2_FRIDAY_FULL_MANUAL_M1_TEST_HANDOFF_ALIGNMENT.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Explicit non-declarations:
+
+* No Sales-Ready.
+* No MVP-Beta cerrado completo.
+* No L1 readiness.
+* No M2 readiness.
+* No payment/trial/subscription readiness.
+* No public pilot readiness.
+
+Scope safety:
+
+* No app code.
+* No DB.
+* No schema.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No StudyLoad.
+* No StudentAccess.
+* No staging.
+* No production.
+* No secrets.
+* No execution of the Friday test.
+
+Recommended next phase:
+
+```text
+Continue the login/UI repair path required for the Friday manual test, or prepare the Friday manual test runbook after the core blocker path is clear.
+```
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_GOV_2_FRIDAY_FULL_MANUAL_M1_TEST_HANDOFF_ALIGNED
+```

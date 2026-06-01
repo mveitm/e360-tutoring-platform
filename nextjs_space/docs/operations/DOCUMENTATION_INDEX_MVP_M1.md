@@ -11,12 +11,15 @@ These documents now govern roadmap direction:
 5. `nextjs_space/docs/operations/MVP_SALES_READY_PHASE_GATE_PROTOCOL.md`
 6. `nextjs_space/docs/operations/MVP_SALES_READY_BLOCK_7_PEDAGOGICAL_LAYER_ANCHOR.md`
 7. `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`
+8. `nextjs_space/docs/operations/MVP_SALES_PILOT_GOV_2_FRIDAY_FULL_MANUAL_M1_TEST_HANDOFF_ALIGNMENT.md`
 
 Future chats must read them before proposing work.
 
 The Block 7 anchor is mandatory before content-route phases.
 
 `PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md` is ACTIVE. Future prompts should use the widest safe phase scope, not the narrowest possible scope by default, and should default to diagnosis + minor safe repair + local verification for local reversible issues while keeping structural boundaries separate.
+
+`MVP_SALES_PILOT_GOV_2_FRIDAY_FULL_MANUAL_M1_TEST_HANDOFF_ALIGNMENT.md` is ACTIVE for near-term operational prioritization. It sets the Friday full manual M1 test as the immediate milestone: Mauricio tests a fictitious-student journey from account creation to StudyLoad 10 in PAES_M1. It does not declare Sales-Ready, MVP-Beta cerrado completo, L1 readiness, M2 readiness, payment/trial/subscription readiness, or public pilot readiness.
 
 The M1 documents remain pedagogical and operational support. They are not the whole project roadmap.
 

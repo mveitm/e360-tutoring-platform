@@ -45,6 +45,41 @@ Future chats must preserve Codex prompt depth. Roadmap context alone is not enou
 
 Future prompts should use the widest safe phase scope, not the narrowest possible scope by default. Default to diagnosis + minor safe repair + local verification for local reversible issues. Separate phases remain required for structural boundaries: secrets, schema, structural DB mutation, auth architecture, StudentAccess lifecycle, StudyLoad execution, staging/production, real data, payments, L1/M2 readiness, or broad redesign.
 
+### 2D. Friday Full Manual M1 Test Milestone
+
+Friday full manual M1 test is the near-term operational milestone.
+
+Mauricio will personally execute a complete manual test with a fictitious student, from account creation through completing or reaching StudyLoad 10 in `PAES_M1`.
+
+Scope:
+
+* create account;
+* login;
+* access `/now`;
+* progress through M1 loads until StudyLoad 10;
+* review app functionality;
+* review load pertinence;
+* review pedagogical-layer quality.
+
+Immediate blockers and prioritization:
+
+1. Resolve the core login/UI blocker.
+2. Ensure signup/login works.
+3. Ensure `/now` works.
+4. Ensure M1 continuity can sustain progress to load 10.
+5. Prepare the Friday manual test runbook.
+6. Prepare functional and pedagogical observation guidance.
+7. Document evidence and blockers.
+
+No commercial readiness claims:
+
+* no Sales-Ready;
+* no MVP-Beta cerrado completo;
+* no L1 readiness;
+* no M2 readiness;
+* no payment/trial/subscription readiness;
+* no public pilot readiness.
+
 ### 3. Required Governance Docs to Read First
 
 Read these before proposing, designing, verifying, implementing, committing, or choosing a next phase:
