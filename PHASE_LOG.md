@@ -36345,3 +36345,121 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0G_BLOCKED_PENDING_SAFE_LOCAL_DEV_TARGET_CONFIRMATION
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0G-R - Confirm safe LOCAL_DEV target and retry SANDBOX_M1_SYNTH_001 fixture preparation
+
+Type:
+
+```text
+Controlled LOCAL_DEV target confirmation + fixture preparation retry.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 2a5d9d6
+Latest accepted commit = 2a5d9d6 - MVP-SALES-PILOT-SANDBOX-0G: prepare synthetic sandbox fixture
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, SANDBOX-0G, SANDBOX-0F, SANDBOX-0E, SANDBOX-0D, SANDBOX-0C, SANDBOX-0B, SANDBOX-0A, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, HARDENING-5C, DIRECTION-1, PRO report, and `PHASE_LOG.md` tail before DB read or mutation.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result:
+
+```text
+FIXTURE_PREPARED_WITHOUT_CREDENTIAL_OR_EXECUTION_AUTHORIZATION
+```
+
+Human LOCAL_DEV confirmation:
+
+* Exact required phrase received: `CONFIRMO_LOCAL_DEV_SEGURO_PARA_SANDBOX_0G_R_SIN_SECRETS`.
+* No DB URL, env value, hostname, token, cookie, header, request body, response body, password, hash, provider value, or storage value was requested or printed.
+* Safe target confirmation result: `HUMAN_LOCAL_DEV_CONFIRMATION_ACCEPTED`.
+
+Fixture identity:
+
+* `participant_code`: `SANDBOX_M1_SYNTH_001`.
+* `display_name`: `SANDBOX_M1_SYNTH_001 SANDBOX_M1_SYNTH_001`.
+* `canonical_email`: `sandbox_m1_synth_001@bexauri.dev`.
+* `program`: `PAES_M1`.
+* Expected StudyLoad: `PAES M1 - Entrada balanceada inicial`.
+* Expected content key: `paes_m1_balanced_entry_initial`.
+
+Pre-existing data check:
+
+* Sanitized precheck result: `PRECHECK_RESULT=OK_SANITIZED_COUNTS_ONLY`.
+* Existing counts were zero for Student, User, Account linkage, PAES_M1 enrollment, Cycle, StudyLoad, Session, Response, CycleDecision, CycleEvaluation, ContinuitySignal, StudentAccess row, second StudyLoad, and prior execution evidence.
+* Decision: `SAFE_TO_PREPARE_SYNTHETIC_FIXTURE_IN_LOCAL_DEV`.
+
+Fixture summary:
+
+* Created one synthetic Student.
+* Created one User without password.
+* Did not create Account linkage.
+* Created one active PAES_M1 enrollment.
+* Created one open Cycle 1.
+* Updated enrollment current cycle to Cycle 1.
+* Created one initial pending StudyLoad resolved from the local registry by `paes_m1_balanced_entry_initial`.
+
+Post-verification summary:
+
+* `POSTVERIFY_RESULT=PASS_FIXTURE_PREPARED_NO_CREDENTIAL_NO_EXECUTION`.
+* Exactly one Student exists for `SANDBOX_M1_SYNTH_001`.
+* Canonical email matches.
+* One User exists without password.
+* Account linkage count is 0.
+* Credential remains not ready and no password was printed.
+* Exactly one active PAES_M1 enrollment exists.
+* Exactly one Cycle 1 open exists.
+* Exactly one initial pending StudyLoad exists.
+* No second StudyLoad.
+* No Cycle 2.
+* No Session, Response, CycleDecision, CycleEvaluation, ContinuitySignal, or StudentAccess row.
+* No L1/M2 enrollment.
+* No payment/trial/subscription created.
+* Execution authorization remains not authorized.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0G_R_CONFIRM_SAFE_LOCAL_DEV_TARGET_AND_RETRY_SANDBOX_M1_SYNTH_001_FIXTURE_PREPARATION.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0H - Complete private credential readiness for SANDBOX_M1_SYNTH_001
+```
+
+Recommended next phase conditions:
+
+* fixture prepared;
+* no duplicates;
+* no prior execution evidence;
+* credential is not ready;
+* execution remains not authorized.
+
+Explicit non-declarations:
+
+* No credential readiness approved, credential ready, manual smoke ready, sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, real participants recruited, operational allowlist populated, or execution approved.
+
+Explicit non-actions:
+
+* No UI execution, login, `/now`, credential creation, password reset, Account linkage creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, StudyLoad start, responses, MC submission, self-report, activity completion, second StudyLoad, Cycle 2, cycle close, CycleDecision, CycleEvaluation, ContinuitySignal, app code, schema, seed, auth, CredentialsProvider, Playwright, tests, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment/contact, communications, commercial material, manual smoke, PILOT_M1_005 preparation, real personal data recording, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0G_R_FIXTURE_PREPARED_WITHOUT_CREDENTIAL_OR_EXECUTION_AUTHORIZATION
+```
