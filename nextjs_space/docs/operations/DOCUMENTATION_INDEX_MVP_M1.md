@@ -18,6 +18,7 @@ These documents now govern roadmap direction:
 12. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1_IMPLEMENT_STUDENT_LANDING_PAGE_MVP.md`
 13. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1A_REFINE_STUDENT_LANDING_PAGE_LAYOUT_AND_ACCESS_OPTIONS.md`
 14. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1B_APPLY_PROVISIONAL_BEXAURI_BRAND_PALETTE_AND_VISUAL_POLISH.md`
+15. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1C_APPLY_BEXAURI_VISUAL_BASELINE.md`
 
 Future chats must read them before proposing work.
 
@@ -40,6 +41,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_LANDING_1A_REFINE_STUDENT_LANDING_PAGE_LAYOUT_AND_ACCESS_OPTIONS.md` records Mauricio's refined landing layout request: a two-line textual hero, no welcome images/boxes/graphics, and three clear access cards (`Iniciar`, `Trial`, `Suscripción`) using only local/non-destructive trial and subscription anchors.
 
 `MVP_SALES_PILOT_UI_LANDING_1B_APPLY_PROVISIONAL_BEXAURI_BRAND_PALETTE_AND_VISUAL_POLISH.md` records the provisional Bexauri brand polish: authorized logo committed under `nextjs_space/public/brand/bexauri-logo-provisional.png`, Bexauri blue/petroleum/warm-light palette applied, and no checkout/payment/real trial/subscription backend introduced.
+
+`MVP_SALES_PILOT_UI_LANDING_1C_APPLY_BEXAURI_VISUAL_BASELINE.md` records Bexauri visual baseline v0.1 for the student landing: integrated logo surface, stronger Bexauri palette, first-view hero plus access options, upgraded option cards, and responsive visual-system refinement without checkout/payment/real trial/subscription backend.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 
