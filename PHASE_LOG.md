@@ -35175,3 +35175,100 @@ Result marker:
 ```text
 MVP_SALES_PILOT_HARDENING_5_MINIMUM_BLOCKER_SEQUENCE_DEFINED_RECOMMEND_STUDENT_ACCESS_CONTAINMENT_FIRST
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-HARDENING-5A - Define StudentAccess containment for M1-first sandbox
+
+Type:
+
+```text
+Documentation / governance / access-containment decision only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 0f48c5f
+Latest accepted commit = 0f48c5f - MVP-SALES-PILOT-HARDENING-5: sequence minimum blockers before M1-first sandbox
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, DIRECTION-1A, HARDENING-5, DIRECTION-1, PRO report, GO-4, DRY-RUN-4A, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / StudentAccess decision:
+
+```text
+STUDENT_ACCESS_CONTAINMENT_ALLOWED_FOR_TINY_HUMAN_GUIDED_SANDBOX_WITH_STRICT_LIMITS
+```
+
+Containment policy summary:
+
+* A future tiny closed M1-first sandbox may proceed without implemented StudentAccess lifecycle only if formal containment is satisfied.
+* Sandbox must be non-public, non-commercial, M1-only, human-guided, and allowlist-controlled.
+* Participants must be explicitly permitted before execution.
+* Participant account/fixture creation remains a separate authorized phase.
+* Credentials must be configured privately and never printed.
+* No payment, trial, subscription, self-serve signup, or self-serve enrollment.
+* StudentAccess missing is not automatically `no_access` and not automatically `full_access`.
+* Temporary authority is the sandbox runbook, allowlist, controlled fixture, private credential custody, and documented phase boundary.
+* If participant is not on allowlist or access state is inconsistent, pause.
+
+Lifecycle threshold summary:
+
+* Minimum lifecycle becomes required before broader closed pilot.
+* Minimum lifecycle is blocking for staging with external users.
+* Complete lifecycle is blocking for Sales-Ready/public.
+* Containment is not allowed for paid/commercial expectation, autonomous signup/enrollment, trial/subscription, cohorts, multiple programs, M2/L1, non-human-guided support, UI block/unblock needs, expiration/audit needs, or risk of unauthorized loads.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-HARDENING-5B - Define support/failure path for M1-first sandbox
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5 sequence, and this StudentAccess containment decision.
+* What it advances: defines the minimum pause, support, and failure handling required before any closed M1-first sandbox runbook.
+* What it does not advance: sandbox execution, staging execution, StudentAccess implementation, auth implementation, Playwright E2E, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, or payment/trial/subscription.
+* Priority verdict: `APPROVED_NEXT_SMALL_GOVERNANCE_PHASE_SUPPORT_FAILURE_PATH`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_HARDENING_5A_DEFINE_STUDENT_ACCESS_CONTAINMENT_FOR_M1_FIRST_SANDBOX.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git diff --cached --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only.
+
+Explicit non-declarations:
+
+* No current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, or StudentAccess lifecycle implemented.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, complete executable sandbox runbook creation, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_HARDENING_5A_STUDENT_ACCESS_CONTAINMENT_ALLOWED_FOR_TINY_HUMAN_GUIDED_SANDBOX_WITH_STRICT_LIMITS
+```
