@@ -34687,3 +34687,122 @@ Result marker:
 ```text
 MVP_SALES_PILOT_DRY_RUN_4A_PILOT_M1_004_STUDENT_DRY_RUN_PASSED
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-GO-4 - Evaluate pilot readiness after PILOT_M1_004 evidence
+
+Type:
+
+```text
+Documentation-only / evaluation-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = fe2f80d
+Latest accepted commit = fe2f80d - MVP-SALES-PILOT-DRY-RUN-4A: execute PILOT_M1_004 student dry-run
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, GO-3, HARDENING-1, HARDENING-2, HARDENING-3, HARDENING-4, DRY-RUN-4A, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in older documents were treated as historical context only.
+
+Evidence reviewed:
+
+* `PILOT_M1_001`: student dry-run local/dev passed; admin evidence functionally satisfied; `ADMIN_UI_TITLE_VISIBILITY_DEBT` recorded.
+* `PILOT_M1_002`: readiness completed; auth/account linkage repaired; student dry-run passed; admin/tutor evidence fully confirmed; continuity observed to `PAES M1 - Ecuaciones lineales basicas`.
+* `PILOT_M1_003`: fixture and credential readiness completed; student dry-run passed; admin/tutor evidence visible with Cycle 1 open, 2 loads, completed 1, pending 1, decisions 0, evaluations 0, MC 4/4 correct, self-report visible, and next load not started.
+* GO-3: `GO_TO_NEXT_M1_FIRST_STEP_WITH_RECORDED_DEBTS`.
+* HARDENING-1/2: limited hardening plan and controlled next-participant protocol defined.
+* HARDENING-3: `PILOT_M1_004` fixture prepared local/dev with Student, User without password, PAES_M1 enrollment active, Cycle 1 open, one pending initial StudyLoad, no Account, no StudentAccess, no responses, no decisions/evaluations, and no second StudyLoad.
+* HARDENING-4: private credential readiness completed without secret exposure; fixture remained intact.
+* DRY-RUN-4A: `PILOT_M1_004` student dry-run passed with admin/tutor evidence visible.
+
+Cross-pilot assessment:
+
+* Four local/dev M1-first participants passed the student/product/admin loop.
+* `/now`, initial StudyLoad visibility, activity start, MC submission, same-page self-report, completion, `/now` registered activity, next M1 pending load, and admin/tutor evidence repeated across the pilot chain.
+* No second load was started in the closeout phases.
+* Decisions remained 0 and evaluations remained 0; no decision/evaluation automation claim is made.
+* StudentAccess remains lifecycle debt and is not resolved by these local/dev dry-runs.
+
+Readiness assessment:
+
+```text
+LOCAL_DEV_M1_FIRST_LOOP_REPETABLE_WITH_RECORDED_DEBTS
+```
+
+Debt classification:
+
+* Blocking before any further tightly controlled local/dev M1-first step: none identified.
+* Blocking before sandbox/staging or broader closed pilot: define threshold for stopping local/dev synthetic participants, decide next environment criteria, define safe target/rollback/stop rules, define support/failure path, decide StudentAccess/access register representation, tighten credential/session/evidence checklist, and define evidence capture beyond informal human reports.
+* Blocking before Sales-Ready/public: StudentAccess lifecycle, self-serve signup/account bootstrap, self-serve enrollment, trial lifecycle, payment/subscription, plan/access mapping, legal/privacy/support/refund/cancel policy, L1 route readiness, M2 route readiness, broad M1 coverage/expert review, production readiness, and large-cohort operating model.
+* Non-blocking operational/pilot debts: `ADMIN_UI_TITLE_VISIBILITY_DEBT`, residual `SIGNOUT_UI_DEBT` polish, operator friction, human evidence capture, and no active CycleDecision/CycleEvaluation workflow.
+* Automation/test debts: `PLAYWRIGHT_LOGIN_E2E_DEBT`, `CODEX_BROWSER_UI_AVAILABILITY_LIMITATION`, no automated authenticated full dry-run regression, and no automated admin evidence assertion.
+* Governance/product scope debts: preserve M1-first as sequence, define when to stop local/dev repetition, define sandbox/staging criteria before claiming next-environment readiness, and preserve no-declaration boundaries.
+
+Readiness decision:
+
+```text
+PAUSE_M1_FIRST_PILOT_FOR_DIRECTION_REVIEW
+```
+
+Decision rationale:
+
+* Four controlled local/dev M1-first dry-runs have passed end-to-end.
+* The core student/product/admin loop is repeatedly evidenced locally.
+* Continuing to add synthetic participants without a new question risks producing redundant evidence.
+* No blocker requires stopping all controlled M1-first work.
+* The next highest-value step is to decide the threshold and route: limited hardening, debt closure, sandbox/staging criteria, or a specifically scoped fifth participant.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DIRECTION-1 - Decide M1-first threshold after four local/dev dry-runs
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for closed pilot direction, not sufficient for public Sales-Ready.
+* Dependency: four successful local/dev M1-first dry-runs plus recorded hardening/debt context.
+* What it advances: decides whether to stop local/dev participant repetition, select limited hardening/debt closure, define sandbox/staging criteria, or authorize another participant with a specific learning goal.
+* What it does not advance: public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, payment/trial/subscription, production/staging execution, or autonomous AI claims.
+* Priority verdict: `APPROVED_DIRECTION_REVIEW_AFTER_FOUR_LOCAL_DEV_M1_FIRST_RUNS`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_GO_4_EVALUATE_PILOT_READINESS_AFTER_PILOT_M1_004_EVIDENCE.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only.
+
+Explicit non-declarations:
+
+* No Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, diagnostic automation, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, large cohort readiness, self-serve signup readiness, self-serve enrollment readiness, production readiness, or staging readiness.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, new load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, StudentAccess lifecycle, payment/trial/subscription, L1/M2, staging, production, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/password/hash/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_GO_4_PAUSE_M1_FIRST_PILOT_FOR_DIRECTION_REVIEW
+```
