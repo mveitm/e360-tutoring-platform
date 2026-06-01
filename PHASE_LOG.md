@@ -34806,3 +34806,161 @@ Result marker:
 ```text
 MVP_SALES_PILOT_GO_4_PAUSE_M1_FIRST_PILOT_FOR_DIRECTION_REVIEW
 ```
+
+---
+
+## 2026-05-31 - MVP-SALES-PILOT-DIRECTION-1 - Decide M1-first threshold after four local/dev dry-runs
+
+Type:
+
+```text
+Direction / documentation-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = f94afd9
+Latest accepted commit = f94afd9 - MVP-SALES-PILOT-GO-4: evaluate readiness after PILOT_M1_004 evidence
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, GO-4, GO-3, HARDENING-1, HARDENING-2, HARDENING-3, HARDENING-4, DRY-RUN-4A, SIGNOUT-1R, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and external reports were treated as context only.
+
+PRO input:
+
+* The required PRO report did not exist in the repo at preflight.
+* Created the documentary copy at `nextjs_space/docs/operations/pro_reports/INFORME_PRO_MVP_SALES_PILOT_DIRECTION_1_M1_FIRST_THRESHOLD.md`.
+* PRO recommended `HYBRID_DIRECTION_WITH_PHASED_GATES`.
+* PRO recommended stopping generic synthetic M1-first participant repetition.
+* PRO stated the four dry-runs prove local/dev happy path repeatability for first StudyLoad and continuity to the second pending load.
+* PRO stated the four dry-runs do not prove real students, sandbox/staging, StudentAccess lifecycle, support/failure path, payment/trial/subscription, M2, L1, legal/commercial readiness, cohorts, Playwright E2E, or Sales-Ready.
+* PRO recommended next phase: `MVP-SALES-PILOT-DIRECTION-1A - Define M1-first closed sandbox readiness gate`.
+
+Evidence basis:
+
+* `PILOT_M1_001`: local/dev student dry-run passed; admin evidence functionally satisfied; `ADMIN_UI_TITLE_VISIBILITY_DEBT`.
+* `PILOT_M1_002`: local/dev student dry-run passed; admin/tutor evidence fully confirmed; continuity observed; auth/account linkage repaired.
+* `PILOT_M1_003`: local/dev student dry-run passed; admin/tutor evidence visible; Cycle 1 open; 2 loads; completed 1; pending 1; decisions 0; evaluations 0; self-report `Me fue bien`; MC 4/4; next load not started.
+* `PILOT_M1_004`: local/dev student dry-run passed; admin/tutor evidence visible; Cycle 1 open; 2 loads; completed 1; pending 1; decisions 0; evaluations 0; self-report `Me fue bien`; MC 4/4; next load not started.
+* SIGNOUT-1R mitigated practical session switching.
+* HARDENING-1/2 defined plan and protocol.
+* HARDENING-3/4 prepared and credential-readied `PILOT_M1_004` without secret exposure.
+
+What the evidence proves:
+
+```text
+M1_FIRST_LOCAL_DEV_FUNCTIONAL_CONFIDENCE_FOR_FIRST_STUDYLOAD_HAPPY_PATH
+```
+
+What it does not prove:
+
+* Real-student readiness.
+* Current sandbox readiness.
+* Current staging readiness.
+* Broader closed-pilot readiness.
+* StudentAccess lifecycle readiness.
+* Support/failure path readiness.
+* Robust auth normalization or full auth hardening.
+* Playwright login E2E readiness.
+* Payment/trial/subscription readiness.
+* Legal/commercial readiness.
+* L1 readiness.
+* M2 readiness.
+* Large-cohort readiness.
+* Long continuity across multiple StudyLoads.
+* CycleDecision or CycleEvaluation workflow readiness.
+* Autonomous diagnosis, adaptation, mastery/theta/PAES score, or AI tutor readiness.
+
+Direction decision:
+
+```text
+HYBRID_DIRECTION_WITH_PHASED_GATES
+```
+
+Threshold interpretation:
+
+```text
+LOCAL_DEV_FUNCTIONAL_CONFIDENCE_REACHED
+CLOSED_SANDBOX_READINESS_NOT_YET_REACHED
+MVP_BETA_CERRADO_M1_M2_L1_READINESS_NOT_REACHED
+```
+
+Decision implications:
+
+* Do not prepare `PILOT_M1_005` just to increase participant count.
+* Allow additional local/dev verification only for a new narrow question.
+* Do not jump directly to sandbox/staging as if readiness already existed.
+* Define a formal M1-first closed sandbox readiness gate next.
+* Keep M1-first as the first tactical vertical inside the broader MVP-Beta cerrado M1/M2/L1 path.
+
+Debt classification:
+
+* Blocking before another generic local/dev participant: lack of a new learning question; generic `n=5` repetition is low-value.
+* Blocking before targeted local/dev verification: exact question, expected evidence, stop rule, credential/session boundaries, and explicit authorization.
+* Blocking before M1-first closed sandbox readiness: StudentAccess lifecycle/control representation, local/dev exit threshold, support/failure path, auth normalization, sandbox/staging runbook, evidence capture policy, operator checklist, and Playwright/login E2E strategy or explicit manual substitute.
+* Blocking before broader closed pilot: sandbox readiness gate, support/failure path, access register/StudentAccess relationship, L1/M2 boundaries, and legal/commercial/support boundaries.
+* Blocking before Sales-Ready/public: StudentAccess lifecycle, self-serve signup/account, self-serve enrollment, payment/trial/subscription, plan/access mapping, L1/M2 readiness, legal/commercial readiness, support/refund/cancel/privacy policy, production readiness, robust auth/automation, and large-cohort model.
+* Non-blocking for now: `ADMIN_UI_TITLE_VISIBILITY_DEBT`, residual `SIGNOUT_UI_DEBT` polish, `CODEX_BROWSER_UI_AVAILABILITY_LIMITATION`, and narrow local/dev target checks.
+* Governance/scope debts: preserve M1-first as sequence, separate local/dev confidence from sandbox readiness and MVP-Beta readiness, prevent premature readiness claims, define when M2/L1 gates resume, and avoid treating future sandbox/staging as current readiness.
+
+Rejected paths:
+
+* Prepare `PILOT_M1_005` only to add another participant.
+* Directly execute sandbox/staging without a readiness gate.
+* Close all debt before any direction definition.
+* Declare Sales-Ready public.
+* Declare MVP-Beta cerrado complete.
+* Reopen L1/M2 by interrupting the M1-first threshold decision before the sandbox gate is defined.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-DIRECTION-1A - Define M1-first closed sandbox readiness gate
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations, Block 7 M1 evidence route, and future access/payment blocks.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: four successful local/dev M1-first dry-runs, GO-4 direction pause, and PRO threshold recommendation.
+* What it advances: defines entry criteria, blockers, evidence, and non-goals for moving from local/dev M1-first confidence to closed sandbox readiness planning.
+* What it does not advance: sandbox execution, staging execution, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, payment/trial/subscription, or autonomous AI claims.
+* Priority verdict: `APPROVED_NEXT_GATE_DEFINE_M1_FIRST_CLOSED_SANDBOX_READINESS`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DIRECTION_1_DECIDE_M1_FIRST_THRESHOLD_AFTER_FOUR_LOCAL_DEV_DRY_RUNS.md`.
+* `nextjs_space/docs/operations/pro_reports/INFORME_PRO_MVP_SALES_PILOT_DIRECTION_1_M1_FIRST_THRESHOLD.md`.
+
+Verification completed:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changed documentation only.
+
+Explicit non-declarations:
+
+* No Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, current sandbox readiness, current staging readiness, broader pilot readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, large cohort readiness, diagnostic automation, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, or long continuity validation.
+
+Explicit non-actions:
+
+* No implementation, UI execution, DB mutation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, StudentAccess lifecycle, payment/trial/subscription, L1/M2, staging, production, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_DIRECTION_1_HYBRID_DIRECTION_WITH_PHASED_GATES
+```
