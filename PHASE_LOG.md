@@ -36463,3 +36463,101 @@ Result marker:
 ```text
 MVP_SALES_PILOT_SANDBOX_0G_R_FIXTURE_PREPARED_WITHOUT_CREDENTIAL_OR_EXECUTION_AUTHORIZATION
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0H - Complete private credential readiness for SANDBOX_M1_SYNTH_001
+
+Type:
+
+```text
+Controlled LOCAL_DEV private credential readiness + documentation.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 164ae96
+Latest accepted commit = 164ae96 - MVP-SALES-PILOT-SANDBOX-0G-R: retry synthetic sandbox fixture prep
+Working tree clean before phase action.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read SANDBOX-0G-R, SANDBOX-0F, SANDBOX-0E, SANDBOX-0D, SANDBOX-0C, SANDBOX-0B, SANDBOX-0A, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5A, HARDENING-5B, HARDENING-5C, and `PHASE_LOG.md` tail before credential action.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result:
+
+```text
+CREDENTIAL_READY_WITHOUT_SECRET_PRINTED
+```
+
+Human confirmation:
+
+* Exact confirmation received: `CREDENTIAL_READY_WITHOUT_SECRET_PRINTED`.
+* Mauricio performed the credential action privately in LOCAL_DEV.
+* No password, hash, token, cookie, header, request body, response body, env value, DB URL, provider value, or storage value was requested, printed, logged, documented, or committed.
+
+Safe target / route summary:
+
+* Safe target basis: `LOCAL_DEV_CONFIRMED_WITHOUT_SECRET_PRINTING=human_confirmed_context`.
+* Existing safe route identified: admin student detail password reset card plus admin-only reset endpoint.
+* Endpoint and UI path are designed for human owner private password handling and do not return password/hash.
+* No student login, `/now`, manual smoke, or sandbox execution was performed.
+
+Fixture identity:
+
+* `participant_code`: `SANDBOX_M1_SYNTH_001`.
+* `canonical_email`: `sandbox_m1_synth_001@bexauri.dev`.
+* `program`: `PAES_M1`.
+* Expected content key: `paes_m1_balanced_entry_initial`.
+
+Post-verification summary:
+
+* `POSTVERIFY_RESULT=PASS_CREDENTIAL_READY_NO_EXECUTION`.
+* Exactly one synthetic Student exists.
+* Canonical email matches.
+* Exactly one User exists.
+* Credential ready state is `yes` as a boolean only; no credential material printed.
+* Account linkage count is 0.
+* Auth session count is 0.
+* Exactly one active `PAES_M1` enrollment exists.
+* Exactly one Cycle 1 open exists.
+* Exactly one pending practice StudyLoad exists.
+* No second StudyLoad.
+* No Cycle 2.
+* No tutoring session, response, CycleDecision, CycleEvaluation, ContinuitySignal, or StudentAccess row.
+* Execution authorization remains `no`.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0H_COMPLETE_PRIVATE_CREDENTIAL_READINESS_FOR_SANDBOX_M1_SYNTH_001.md`.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0I - Review manual smoke readiness for SANDBOX_M1_SYNTH_001 without execution authorization
+```
+
+Explicit non-declarations:
+
+* No manual smoke ready, sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, operational allowlist populated, or execution approved.
+
+Explicit non-actions:
+
+* No student login, `/now`, StudyLoad start, response, MC submission, self-report, activity completion, manual smoke, sandbox execution, StudentAccess row creation/modification, StudentAccess lifecycle change, Account linkage creation, session creation, second StudyLoad, Cycle 2, cycle close, CycleDecision, CycleEvaluation, ContinuitySignal, app code, schema, seed, auth model, CredentialsProvider, Playwright, tests, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment/contact, communications, commercial material, PILOT_M1_005 preparation, real personal data recording, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0H_CREDENTIAL_READY_WITHOUT_SECRET_PRINTED
+```
