@@ -35665,3 +35665,104 @@ Result marker:
 ```text
 MVP_SALES_PILOT_HARDENING_5D_AUTH_AND_PLAYWRIGHT_WAIVER_ALLOWED_FOR_TINY_HUMAN_GUIDED_SANDBOX_WITH_STRICT_LIMITS
 ```
+
+---
+
+## 2026-06-01 - MVP-SALES-PILOT-SANDBOX-0A - Define sandbox allowlist template
+
+Type:
+
+```text
+Documentation / governance / allowlist-template-only.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 7601858
+Latest accepted commit = 7601858 - MVP-SALES-PILOT-HARDENING-5D: decide auth and E2E threshold
+Working tree clean before edits.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Context gate:
+
+* Read roadmap lock, context package, active context, roadmap, phase gate protocol, SANDBOX-0, HARDENING-5D, DIRECTION-1A, HARDENING-5, HARDENING-5A, HARDENING-5B, HARDENING-5C, DIRECTION-1, PRO report, GO-4, and `PHASE_LOG.md` tail before writing.
+* Git preflight remained the live truth.
+* Historical baselines in documents, prompts, memory, and reports were treated as context only.
+
+Result / allowlist decision:
+
+```text
+SANDBOX_ALLOWLIST_TEMPLATE_DEFINED_NOT_POPULATED
+```
+
+Allowlist template summary:
+
+* Defined a private operational allowlist template for a future tiny, human-guided, non-public, non-commercial, `PAES_M1`-only sandbox.
+* Defined the allowlist as temporary operational authority only when combined with runbook, controlled fixture, private credential custody, support/failure path, participant/data/language guardrails, and the auth/Playwright waiver.
+* Explicitly defined what the allowlist is not: not StudentAccess implementation, not DB table, not runtime permission, not commercial authorization, not public list, not permanent lifecycle replacement, and not sandbox execution authorization.
+* Required fields include participant code/type, controlled email, `PAES_M1` program, expected StudyLoad/content key, support owner, credential/run/approval status, allowed/forbidden actions, stop conditions, evidence requirements, data/communication scope, waiver linkage, approval owner/date, and sanitized notes.
+* Included a Markdown template table and a fictitious conceptual YAML example only; no real participants were added.
+
+Status model summary:
+
+* `credential_status`: `not_created`, `credential_needed`, `private_ready`, `rotated`, `revoked`, `do_not_use`.
+* `run_status`: `proposed`, `approved`, `prepared`, `credential_ready`, `running`, `completed`, `paused`, `aborted`, `withdrawn`, `archived`.
+* `approval_status`: `draft`, `pending_review`, `approved_for_fixture_prep`, `approved_for_credential_readiness`, `approved_for_execution`, `paused`, `revoked`.
+* `approved_for_fixture_prep`, `approved_for_credential_readiness`, and `approved_for_execution` are distinct; execution cannot be inferred from fixture prep or credential readiness.
+* Without later `approved_for_execution`, a participant does not run.
+
+Waiver / linkage summary:
+
+* Linked the allowlist to `AUTH_AND_PLAYWRIGHT_TEMPORARY_WAIVER_FOR_TINY_HUMAN_GUIDED_M1_FIRST_SANDBOX`.
+* Waiver can apply only when the allowlist confirms allowed participant type, canonical controlled email, `PAES_M1` only, human-guided operation, explicit approval, manual smoke checklist acceptance, logout discipline, identity check, and stop rules.
+* Waiver expires before staging, broader pilot, external users beyond explicit authorization, payment/trial/subscription, M2/L1, self-serve, repeated non-human-guided sandbox, or Sales-Ready/public.
+* StudentAccess lifecycle remains required before broader closed pilot, staging with external users, Sales-Ready/public, payment/trial/subscription, M2/L1, self-serve signup/enrollment, cohorts, audit, expiration, or risk of unauthorized loads.
+* Any allowlist inconsistency activates HARDENING-5B support/failure path.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-SANDBOX-0B - Define initial sandbox participant candidates without execution authorization
+```
+
+Recommended next phase classification:
+
+* Roadmap block: `10 - Internal pilot and sales-ready go/no-go`, with dependencies on Block 8 admin/tutor operations and Block 7 M1 evidence route.
+* Sales-ready relevance: direct for controlled closed-pilot progression, not sufficient for public Sales-Ready.
+* Dependency: DIRECTION-1A gate, HARDENING-5A/5B/5C, SANDBOX-0 runbook, HARDENING-5D waiver threshold, and this allowlist template.
+* What it advances: identifies whether there are initial synthetic/internal controlled sandbox participant candidates that can be reviewed against this template without approving execution.
+* What it does not advance: sandbox execution, credential creation, participant creation, DB mutation, auth implementation, Playwright implementation, staging, broader pilot, public Sales-Ready, MVP-Beta cerrado M1/M2/L1 completion, L1/M2 readiness, or payment/trial/subscription.
+* Priority verdict: `APPROVED_NEXT_SMALL_DOCUMENTATION_PHASE_INITIAL_SANDBOX_CANDIDATES_WITHOUT_EXECUTION_AUTHORIZATION`.
+* Authorization status: requires separate explicit authorization before execution.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SANDBOX_0A_DEFINE_SANDBOX_ALLOWLIST_TEMPLATE.md`.
+
+Verification:
+
+* `git diff --check` passed.
+* `git status --short` reviewed.
+* No build required because this phase changes documentation only.
+
+Explicit non-declarations:
+
+* No sandbox execution authorized, current sandbox readiness, current staging readiness, Sales-Ready public, Sales-Ready cerrado, MVP-Beta cerrado complete, broader pilot readiness, large-cohort readiness, L1 readiness, M2 readiness, payment/trial/subscription active, public commercial plan, automatic diagnosis, autonomous adaptation, mastery/theta/PAES score, autonomous AI tutor, robust complete auth readiness, complete support readiness, legal/commercial readiness, long continuity validation, StudentAccess lifecycle implemented, Playwright/login E2E implemented, auth normalization fully resolved, allowlist populated, or participant approved.
+
+Explicit non-actions:
+
+* No implementation, UI execution, Playwright run, test creation/modification, DB mutation, participant creation, student creation, User/Account creation, Enrollment/LearningCycle/StudyLoad creation, StudentAccess row creation/modification, StudentAccess lifecycle changes, load start, cycle close, CycleDecision, CycleEvaluation, app code, schema, seed, auth, CredentialsProvider, payment/trial/subscription, L1/M2, staging, production, real sandbox creation, participant recruitment, communications, commercial material creation, real allowlist population, sandbox execution authorization, secrets/env values/DB URLs/tokens/cookies/headers/request bodies/response bodies/passwords/hashes/provider/storage printing.
+
+Result marker:
+
+```text
+MVP_SALES_PILOT_SANDBOX_0A_SANDBOX_ALLOWLIST_TEMPLATE_DEFINED_NOT_POPULATED
+```
