@@ -21,6 +21,7 @@ These documents now govern roadmap direction:
 15. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1C_APPLY_BEXAURI_VISUAL_BASELINE.md`
 16. `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`
 17. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1D_APPLY_BEXAURI_VISUAL_STANDARD_V0_1.md`
+18. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1E_REFINE_LANDING_STRUCTURE_AND_VISUAL_HIERARCHY.md`
 
 Future chats must read them before proposing work.
 
@@ -49,6 +50,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `BEXAURI_VISUAL_STANDARD_V0_1.md` is the visual standard v0.1 for Bexauri brand, landing, dashboard and visible pedagogical UI. It is the living source for future visual phases and should guide landing, dashboard estudiante, and future M1 study screens before further polish.
 
 `MVP_SALES_PILOT_UI_LANDING_1D_APPLY_BEXAURI_VISUAL_STANDARD_V0_1.md` records the application of the Bexauri Visual Standard v0.1 to the landing page: guided-study hero, integrated provisional logo capsule, differentiated Iniciar/Trial/Suscripcion cards, visible guide/progress preview, and responsive UI refinement without checkout/payment/real trial/subscription backend.
+
+`MVP_SALES_PILOT_UI_LANDING_1E_REFINE_LANDING_STRUCTURE_AND_VISUAL_HIERARCHY.md` records the human-audit refinement after LANDING-1D: professionalized logo/header treatment, highlighted `Matemáticas M1`, exact human-approved hero copy, Tutorías section, access options, route section, support block, and final section order without checkout/payment/real trial/subscription backend.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

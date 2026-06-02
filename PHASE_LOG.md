@@ -38316,3 +38316,160 @@ Result marker:
 ```text
 LANDING_PAGE_STUDENT_MVP_VISUAL_STANDARD_APPLIED
 ```
+
+---
+
+## 2026-06-02 - MVP-SALES-PILOT-UI-LANDING-1E - Refine landing structure and visual hierarchy after human audit
+
+Type:
+
+```text
+Level C/D - UI visual refinement / standard implementation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = c222374
+Latest accepted commit = c222374 - MVP-SALES-PILOT-UI-LANDING-1D: apply Bexauri visual standard to landing
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1D_APPLY_BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `PHASE_LOG.md` tail.
+* Human audit after LANDING-1D was received and applied.
+* Phase is UI-only.
+
+Human audit inherited:
+
+* Mauricio accepted LANDING-1D as first draft of visual standard and LP strategy.
+* Requested professionalized logo/branding.
+* Requested visual contrast for `Matemáticas M1`.
+* Requested exact hero body copy.
+* Requested initial buttons: `Iniciar experiencia` and `Ver cómo guía`.
+* Requested order: Header, Hero, Buttons, Tutorías, Options, Ruta de estudio, Una forma más clara de estudiar, Footer.
+
+Result:
+
+```text
+LANDING_PAGE_STUDENT_MVP_STRUCTURE_AND_HIERARCHY_REFINED
+```
+
+UI changes:
+
+* Reordered the landing sections to match the requested human-audit order.
+* Highlighted `Matemáticas M1` in the hero with a Bexauri violet treatment.
+* Applied the exact human-approved hero body copy.
+* Kept the initial buttons visible and direct.
+* Added the `Tutorías:` section before access options.
+* Moved the route/progress pedagogy into a dedicated `Ruta de estudio` section after access options.
+* Preserved and adapted `Una forma más clara de estudiar` as the final support block before footer.
+
+Copy applied:
+
+```text
+Bexauri organiza tu estudio, identifica tu ritmo, y te ayuda construir tu aprendizaje con cada ejercicio
+```
+
+Buttons:
+
+* `Iniciar experiencia` -> `/login`
+* `Ver cómo guía` -> `#ruta-estudio`
+
+Tutorías:
+
+* `PAES Matemáticas M1`
+* `PAES Matemáticas M2`
+* `PAES Competencia Lectora`
+
+Logo treatment:
+
+* Used existing `nextjs_space/public/brand/bexauri-logo-provisional.png`.
+* Improved the white capsule/header integration with rounded surface, border, and soft product shadow.
+* Preserved the provisional wordmark.
+* Did not generate, replace, recolor, or edit the logo asset.
+
+Section order:
+
+1. Header / logo Bexauri.
+2. Hero principal.
+3. Botones iniciales.
+4. Sección Tutorías.
+5. Sección Opciones de acceso / Elige cómo comenzar.
+6. Sección Ruta de estudio.
+7. Sección Una forma más clara de estudiar.
+8. Footer.
+
+Responsive verification:
+
+* Mobile standard `390 x 844`: prepared through stacked sections, visible initial buttons, and no intentionally fixed wide elements.
+* Tablet vertical `768 x 1024`: prepared through readable section hierarchy and responsive grids.
+* Desktop `1366 x 768`: prepared through professional header/hero composition and ordered sections below.
+* Root keeps `overflow-x-hidden`.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1E_REFINE_LANDING_STRUCTURE_AND_VISUAL_HIERARCHY.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudyLoad.
+* No StudentAccess.
+* No student dashboard.
+* No M1 enrollment.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No new logo generation.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human visual audit of landing 1E
+```
+
+Result marker:
+
+```text
+LANDING_PAGE_STUDENT_MVP_STRUCTURE_AND_HIERARCHY_REFINED
+```
