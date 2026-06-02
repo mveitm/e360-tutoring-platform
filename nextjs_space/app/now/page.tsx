@@ -1,10 +1,12 @@
-import { redirect } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
+import { ArrowRight, BookOpen, CheckCircle2, Clock, Route, Sparkles } from 'lucide-react'
 import { authOptions } from '@/lib/auth-options'
 import { isAdminEmail } from '@/lib/admin-guard'
 import { prisma } from '@/lib/prisma'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { StartLoadButton } from './_components/start-load-button'
 import { CompleteLoadButton } from './_components/complete-load-button'
@@ -13,115 +15,234 @@ import { getStudyLoadContent } from '@/lib/study-load-content'
 
 export const dynamic = 'force-dynamic'
 
-// Phase DO — First visible student surface: active cycle and pending StudyLoads.
-// Phase DP — First visible execution verb: "Empezar" a pending load, which
-// transitions it to in_progress and opens a TutoringSession via
-// POST /api/study-loads/[id]/start. This page remains a Server Component and
-// re-reads pending + in_progress loads on every request.
-// Phase DQ — First visible closing verb: "Terminar" an in_progress load from
-// its card, which transitions the load to completed, closes its linked
-// TutoringSession, and captures one minimal self-report Response via
-// POST /api/study-loads/[id]/complete.
-// Phase DR — /now resilience for the "all caught up" state + visible in-cycle
-// history. Read-only phase: extends the StudyLoad query to also include
-// completed loads of the current open cycle (with their most recent completed
-// TutoringSession and its most recent 'answer' Response). Adds a new
-// "Actividades registradas" section rendering each completed load with
-// its self-report (from Response.content). When the cycle is open but has no
-// pending/in_progress loads and at least one completed load, renders a new
-// non-speculative message: "Estás al día. Tu avance será revisado para
-// preparar tu próxima fase." No schema, no endpoint, no mutation.
-//
-// Phase FH — Student Weekly Flow Verification.
-// Added brief instructional text below "Cargas pendientes" and "En curso" section
-// headers so the student understands what to do and how to leave evidence. No
-// schema, endpoint, lifecycle, audit, or semantic changes.
-//
 // Provisional linkage: session User.email == Student.email.
-// This is intentionally lightweight for MVP and will be replaced when the proper
-// User↔Student relation is introduced.
+// This remains intentionally lightweight for MVP and is not changed in this phase.
+
+type LoadWithSessions = {
+  id: string
+  title: string
+  loadType: string
+  status: string
+  tutoringSessions: Array<{
+    id: string
+    status: string
+    completedAt: Date | null
+    responses: Array<{
+      id: string
+      responseType: string
+      content: string
+    }>
+  }>
+}
+
+const tutoringCards = [
+  {
+    code: 'M1',
+    title: 'PAES Matemáticas M1',
+    status: 'Activa',
+    description: 'Organiza tu estudio, practica con foco y avanza con retroalimentación.',
+    active: true,
+    surface: 'border-[#79A6A4] bg-[linear-gradient(180deg,#FBFCF6_0%,#E5F0EF_100%)]',
+    badge: 'bg-[#192F56] text-white',
+  },
+  {
+    code: 'M2',
+    title: 'PAES Matemáticas M2',
+    status: 'Próxima ruta',
+    description: 'Preparación matemática avanzada para una próxima etapa.',
+    active: false,
+    surface: 'border-[#A99AD2] bg-[#F2EFF8]',
+    badge: 'bg-[#34215F] text-white',
+  },
+  {
+    code: 'CL',
+    title: 'PAES Competencia Lectora',
+    status: 'Más adelante',
+    description: 'Lectura, comprensión y análisis para fortalecer tu preparación.',
+    active: false,
+    surface: 'border-[#E9DFCF] bg-[#FFF3D8]',
+    badge: 'bg-[#4B7B7C] text-white',
+  },
+]
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="min-h-screen bg-background">
-      <div className="mx-auto w-full max-w-md px-4 pt-10 pb-16 sm:pt-14">
+    <main className="min-h-screen overflow-x-hidden bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
+      <div className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
         {children}
       </div>
     </main>
   )
 }
 
-function Heading() {
+function DashboardHeader({ studentName }: { studentName?: string }) {
   return (
-    <header className="mb-6 flex items-start justify-between gap-3">
-      <div className="min-w-0">
-        <p className="text-xs uppercase tracking-wide text-muted-foreground">Bexauri</p>
-        <h1 className="mt-1 text-2xl font-semibold tracking-tight">¿Qué me toca ahora?</h1>
+    <header className="mb-5 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 px-3 py-2 shadow-[0_10px_24px_rgba(16,33,63,0.08)] sm:px-4">
+      <div className="flex items-center justify-between gap-3">
+        <Link href="/now" className="flex min-w-0 items-center gap-3" aria-label="Bexauri">
+          <span className="rounded-2xl border border-[#DCE5EA] bg-white px-2 py-1.5 shadow-sm shadow-[#10213F]/10">
+            <Image
+              src="/brand/bexauri-logo-provisional.png"
+              alt="Bexauri"
+              width={220}
+              height={88}
+              priority
+              className="h-8 w-[112px] rounded-lg object-cover object-center sm:h-10 sm:w-[140px]"
+            />
+          </span>
+          <span className="hidden text-sm font-semibold text-[#5D6B7A] sm:inline">
+            {studentName ? studentName : 'Tu espacio de estudio'}
+          </span>
+        </Link>
+        <SignOutButton />
       </div>
-      <SignOutButton />
     </header>
+  )
+}
+
+function HeroSummary({
+  studentName,
+  hasActiveLoads,
+  hasHistory,
+}: {
+  studentName?: string
+  hasActiveLoads: boolean
+  hasHistory: boolean
+}) {
+  return (
+    <section className="grid gap-4 lg:grid-cols-[1.12fr_0.88fr] lg:items-stretch">
+      <div className="rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-5 shadow-[0_18px_48px_rgba(16,33,63,0.10)] sm:p-7">
+        <p className="text-sm font-bold uppercase tracking-[0.12em] text-[#4B7B7C]">Tu espacio de estudio</p>
+        <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-[#10213F] sm:text-4xl">
+          {studentName ? `Hola, ${studentName}.` : 'Bienvenido a Bexauri.'}
+        </h1>
+        <p className="mt-3 max-w-2xl text-base leading-7 text-[#5D6B7A] sm:text-lg">
+          Elige una tutoría y continúa con el siguiente paso de tu ruta.
+        </p>
+        <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+          <a
+            href="#matematicas-m1"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#192F56] px-5 text-sm font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.18)] transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+          >
+            Entrar a Matemáticas M1
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </a>
+          <a
+            href="#actividad-actual"
+            className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#DCE5EA] bg-white px-5 text-sm font-bold text-[#192F56] transition hover:border-[#79A6A4] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+          >
+            Ver actividad actual
+          </a>
+        </div>
+      </div>
+
+      <div className="rounded-3xl border border-[#DCE5EA] bg-[#10213F] p-5 text-white shadow-[0_18px_48px_rgba(16,33,63,0.16)] sm:p-6">
+        <div className="flex items-center gap-3">
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#F2B84B] text-[#10213F]">
+            <Route className="h-5 w-5" aria-hidden="true" />
+          </span>
+          <div>
+            <p className="text-sm font-bold text-[#DCE5EA]">Qué hago ahora</p>
+            <p className="text-xl font-bold">Matemáticas M1</p>
+          </div>
+        </div>
+        <p className="mt-4 text-sm leading-6 text-[#DCE5EA]">
+          {hasActiveLoads
+            ? 'Tu siguiente acción está disponible en la actividad actual.'
+            : hasHistory
+              ? 'Tu trabajo anterior quedó registrado. Revisa tu avance mientras se prepara el siguiente paso.'
+              : 'Cuando tengas una actividad asignada, aparecerá aquí con una acción clara.'}
+        </p>
+      </div>
+    </section>
+  )
+}
+
+function TutoringSection() {
+  return (
+    <section id="matematicas-m1" className="mt-5 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:p-6">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <div>
+          <p className="text-sm font-bold uppercase tracking-[0.12em] text-[#34215F]">Tus tutorías</p>
+          <h2 className="mt-1 font-display text-2xl font-bold text-[#10213F]">Tutorías disponibles</h2>
+        </div>
+        <span className="hidden h-1.5 w-16 rounded-full bg-[#F2B84B] sm:block" aria-hidden="true" />
+      </div>
+
+      <div className="grid gap-3 md:grid-cols-3">
+        {tutoringCards.map((card) => (
+          <article
+            key={card.code}
+            className={`rounded-3xl border p-4 shadow-[0_10px_24px_rgba(16,33,63,0.07)] ${card.surface}`}
+          >
+            <div className="flex items-start justify-between gap-3">
+              <span className={`inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-sm font-bold ${card.badge}`}>
+                {card.code}
+              </span>
+              <Badge variant="secondary" className="rounded-full bg-white/80 text-[10px] font-bold uppercase tracking-wide text-[#253A5F]">
+                {card.status}
+              </Badge>
+            </div>
+            <h3 className="mt-4 font-display text-lg font-bold leading-6 text-[#10213F]">{card.title}</h3>
+            <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">{card.description}</p>
+            {card.active ? (
+              <a
+                href="#actividad-actual"
+                className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#192F56] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+              >
+                Entrar a Matemáticas M1
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            ) : (
+              <p className="mt-4 text-xs font-semibold text-[#5D6B7A]">Visible para orientar la arquitectura de tutorías.</p>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function NextStepSection({ currentLoadTitle }: { currentLoadTitle?: string }) {
+  return (
+    <section className="mt-5 grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
+      <Card className="rounded-3xl border-[#E2E8EC] bg-[#FBFCF6] shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
+        <CardContent className="p-5 sm:p-6">
+          <div className="mb-4 h-1.5 w-14 rounded-full bg-[#4B7B7C]" aria-hidden="true" />
+          <h2 className="font-display text-2xl font-bold text-[#10213F]">Qué pasará después</h2>
+          <p className="mt-3 text-sm leading-7 text-[#5D6B7A]">
+            Al entrar a Matemáticas M1 verás tu actividad actual, trabajarás pocos ejercicios conectados y recibirás orientación para continuar.
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card id="actividad-actual" className="rounded-3xl border-[#DCE5EA] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
+        <CardContent className="p-5 sm:p-6">
+          <div className="flex items-start gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#E5F0EF] text-[#48656C]">
+              <BookOpen className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.12em] text-[#4B7B7C]">Actividad actual</p>
+              <h2 className="mt-1 font-display text-xl font-bold text-[#10213F]">
+                {currentLoadTitle ? currentLoadTitle : 'Matemáticas M1'}
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
+                Revisa aquí la actividad disponible y usa las acciones existentes para avanzar cuando estés listo.
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </section>
   )
 }
 
 function EmptyState({ message }: { message: string }) {
   return (
-    <Card>
+    <Card className="rounded-3xl border-[#E2E8EC] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
       <CardContent className="py-10">
-        <p className="text-center text-sm text-muted-foreground">{message}</p>
-      </CardContent>
-    </Card>
-  )
-}
-
-const PILOT_SUPPORT_COPY =
-  'Si esperabas una actividad para este piloto, avisa al equipo de Bexauri para revisar tu acceso o tu carga asignada.'
-
-function PilotStatusCard({
-  variant = 'm1',
-}: {
-  variant?: 'm1' | 'pending' | 'other'
-}) {
-  const isM1 = variant === 'm1'
-  const isPending = variant === 'pending'
-
-  return (
-    <Card className="mb-4">
-      <CardHeader className="pb-2">
-        <p className="text-xs uppercase tracking-wide text-muted-foreground">Piloto cerrado</p>
-        <CardTitle className="text-lg">
-          {isM1 || isPending ? 'Piloto cerrado PAES M1' : 'Piloto cerrado Bexauri'}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-2 pt-0 text-sm text-muted-foreground">
-        <p>
-          {isPending
-            ? 'Esta vista corresponde a una prueba controlada de Bexauri para trabajar actividades de Matemática M1. Tu cuenta todavía debe quedar asociada al piloto para mostrar actividades.'
-            : isM1
-              ? 'Estás participando en una prueba controlada de Bexauri para trabajar actividades de Matemática M1. No es una venta pública ni un plan pagado.'
-              : 'Esta vista está preparada para el piloto cerrado PAES M1. Si esperabas participar en M1 y ves otro programa, avisa al equipo de Bexauri.'}
-        </p>
-        {(isM1 || isPending) && (
-          <p>
-            En este piloto trabajaremos solo PAES M1. Competencia Lectora L1 y Matemática M2 no están activas en esta prueba.
-          </p>
-        )}
-        <p>Este piloto no es una prueba abierta y no activa pago ni plan comercial.</p>
-      </CardContent>
-    </Card>
-  )
-}
-
-function PilotBoundaryNote() {
-  return (
-    <Card className="mt-6 border-muted bg-muted/30">
-      <CardContent className="space-y-2 py-4 text-xs text-muted-foreground">
-        <p>
-          Alcance de esta prueba: solo actividades PAES M1 en un piloto cerrado. L1 y M2 no están activas aquí.
-        </p>
-        <p>
-          Tu trabajo queda guardado como evidencia para revisión. No representa una medición completa de tu preparación.
-        </p>
-        <p>{PILOT_SUPPORT_COPY}</p>
+        <p className="text-center text-sm text-[#5D6B7A]">{message}</p>
       </CardContent>
     </Card>
   )
@@ -129,19 +250,55 @@ function PilotBoundaryNote() {
 
 function PendingProgramState() {
   return (
-    <Card>
-      <CardContent className="space-y-3 py-10 text-center">
-        <p className="text-sm font-semibold">Tu cuenta está lista.</p>
-        <p className="text-sm text-muted-foreground">
-          Todavía no tienes activo el piloto cerrado PAES M1.
+    <Card className="rounded-3xl border-[#E2E8EC] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
+      <CardContent className="space-y-3 py-8 text-center">
+        <p className="text-sm font-semibold text-[#10213F]">Tu cuenta está lista.</p>
+        <p className="text-sm leading-6 text-[#5D6B7A]">
+          Cuando tu tutoría M1 quede asociada, aquí aparecerá tu actividad actual y el siguiente paso.
         </p>
-        <p className="text-sm text-muted-foreground">
-          Estamos preparando o revisando la activación de tu tutoría. Cuando esté lista,
-          aquí aparecerán tus próximas actividades M1.
-        </p>
-        <p className="text-xs text-muted-foreground">
-          {PILOT_SUPPORT_COPY}
-        </p>
+      </CardContent>
+    </Card>
+  )
+}
+
+function ProgramSummaryCard({
+  programCode,
+  programName,
+  openedAtLabel,
+}: {
+  programCode: string
+  programName: string
+  openedAtLabel: string
+}) {
+  return (
+    <Card className="rounded-3xl border-[#E2E8EC] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
+      <CardContent className="p-5 sm:p-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.12em] text-[#34215F]">Ruta activa</p>
+            <h2 className="mt-1 font-display text-xl font-bold text-[#10213F]">{programCode}</h2>
+            <p className="mt-1 text-sm leading-6 text-[#5D6B7A]">{programName}</p>
+          </div>
+          <div className="rounded-2xl border border-[#DCE5EA] bg-[#EEF4F7] px-4 py-3 text-sm text-[#253A5F]">
+            <span className="font-semibold">Disponible desde:</span> {openedAtLabel}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+function LoadCard({ load, children }: { load: LoadWithSessions; children?: React.ReactNode }) {
+  return (
+    <Card className="rounded-3xl border-[#E2E8EC] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
+      <CardContent className="p-4 sm:p-5">
+        <div className="flex items-start justify-between gap-3">
+          <p className="flex-1 text-sm font-bold leading-snug text-[#10213F]">{load.title}</p>
+          <Badge variant="secondary" className="shrink-0 rounded-full bg-[#EEF4F7] text-[10px] font-bold uppercase tracking-wide text-[#253A5F]">
+            {load.loadType}
+          </Badge>
+        </div>
+        {children}
       </CardContent>
     </Card>
   )
@@ -154,24 +311,28 @@ export default async function NowPage() {
   }
 
   const email = session.user.email as string
-  // CUST-AUTH-1A: Replace tautological User-existence check with real admin guard.
   const isAdminSession = isAdminEmail(email)
 
-  // 1) Resolve Student by email (provisional linkage).
   const student = await prisma.student.findUnique({
     where: { email },
     select: { id: true, firstName: true, lastName: true },
   })
 
+  const studentName = student?.firstName ?? undefined
+
   if (!student) {
     return (
       <Shell>
-        <Heading />
-        <PilotStatusCard variant="pending" />
-        <PendingProgramState />
+        <DashboardHeader />
+        <HeroSummary hasActiveLoads={false} hasHistory={false} />
+        <TutoringSection />
+        <NextStepSection />
+        <div className="mt-5">
+          <PendingProgramState />
+        </div>
         {isAdminSession && (
           <div className="mt-6 text-center">
-            <Link href="/admin" className="text-xs text-muted-foreground underline-offset-4 hover:underline">
+            <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
               Ir al panel de administración
             </Link>
           </div>
@@ -180,7 +341,6 @@ export default async function NowPage() {
     )
   }
 
-  // 2) Resolve active enrollment (most recent startedAt if >1).
   const enrollment = await prisma.studentProgramInstance.findFirst({
     where: { studentId: student.id, status: 'active' },
     orderBy: { startedAt: 'desc' },
@@ -194,12 +354,16 @@ export default async function NowPage() {
   if (!enrollment) {
     return (
       <Shell>
-        <Heading />
-        <PilotStatusCard variant="pending" />
-        <PendingProgramState />
+        <DashboardHeader studentName={studentName} />
+        <HeroSummary studentName={studentName} hasActiveLoads={false} hasHistory={false} />
+        <TutoringSection />
+        <NextStepSection />
+        <div className="mt-5">
+          <PendingProgramState />
+        </div>
         {isAdminSession && (
           <div className="mt-6 text-center">
-            <Link href="/admin" className="text-xs text-muted-foreground underline-offset-4 hover:underline">
+            <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
               Ir al panel de administración
             </Link>
           </div>
@@ -208,7 +372,6 @@ export default async function NowPage() {
     )
   }
 
-  // 3) Resolve open cycle via enrollment.currentCycleId.
   const cycle = enrollment.currentCycleId
     ? await prisma.learningCycle.findUnique({
         where: { id: enrollment.currentCycleId },
@@ -216,27 +379,24 @@ export default async function NowPage() {
       })
     : null
 
-  const isM1PilotProgram = enrollment.program.code === 'PAES_M1'
-
   if (!cycle || cycle.status !== 'open') {
     return (
       <Shell>
-        <Heading />
-        <PilotStatusCard variant={isM1PilotProgram ? 'm1' : 'other'} />
-        <Card className="mb-4">
-          <CardHeader className="pb-2">
-            <p className="text-xs uppercase tracking-wide text-muted-foreground">Programa</p>
-            <CardTitle className="text-lg">{enrollment.program.code}</CardTitle>
-            <p className="text-sm text-muted-foreground">{enrollment.program.name}</p>
-          </CardHeader>
-        </Card>
-        <EmptyState message={isM1PilotProgram
-          ? `Aún no hay una actividad M1 abierta para este piloto. ${PILOT_SUPPORT_COPY}`
-          : `Esta cuenta tiene un programa activo, pero esta fase solo prepara el piloto PAES M1. ${PILOT_SUPPORT_COPY}`
-        } />
+        <DashboardHeader studentName={studentName} />
+        <HeroSummary studentName={studentName} hasActiveLoads={false} hasHistory={false} />
+        <TutoringSection />
+        <NextStepSection />
+        <div className="mt-5 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+          <ProgramSummaryCard
+            programCode={enrollment.program.code}
+            programName={enrollment.program.name}
+            openedAtLabel="Por confirmar"
+          />
+          <EmptyState message="Aún no hay una actividad abierta. Cuando esté disponible, aparecerá en este espacio." />
+        </div>
         {isAdminSession && (
           <div className="mt-6 text-center">
-            <Link href="/admin" className="text-xs text-muted-foreground underline-offset-4 hover:underline">
+            <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
               Ir al panel de administración
             </Link>
           </div>
@@ -245,13 +405,6 @@ export default async function NowPage() {
     )
   }
 
-  // 4) Load the cycle's StudyLoads split by status for three visible sections
-  // on /now: "Cargas pendientes" (pending), "En curso" (in_progress), and
-  // "Actividades registradas" (completed, DR). For each completed load
-  // we fetch its most recent completed TutoringSession and, within that
-  // session, its most recent Response of type 'answer' (which is the minimal
-  // self-report captured by DQ in Response.content). This block is read-only
-  // and performs no mutation.
   const allLoads = await prisma.studyLoad.findMany({
     where: {
       learningCycleId: cycle.id,
@@ -280,14 +433,13 @@ export default async function NowPage() {
     },
   })
 
-  const pendingLoads = allLoads.filter((l: any) => l.status === 'pending')
-  const inProgressLoads = allLoads.filter((l: any) => l.status === 'in_progress')
-  const completedLoads = allLoads
-    .filter((l: any) => l.status === 'completed')
+  const pendingLoads = allLoads.filter((l) => l.status === 'pending') as LoadWithSessions[]
+  const inProgressLoads = allLoads.filter((l) => l.status === 'in_progress') as LoadWithSessions[]
+  const completedLoads = (allLoads.filter((l) => l.status === 'completed') as LoadWithSessions[])
     .slice()
-    .sort((a: any, b: any) => {
-      const aCompletedSession = a.tutoringSessions.find((session: any) => session.status === 'completed')
-      const bCompletedSession = b.tutoringSessions.find((session: any) => session.status === 'completed')
+    .sort((a, b) => {
+      const aCompletedSession = a.tutoringSessions.find((session) => session.status === 'completed')
+      const bCompletedSession = b.tutoringSessions.find((session) => session.status === 'completed')
       const ta = aCompletedSession?.completedAt?.getTime() ?? 0
       const tb = bCompletedSession?.completedAt?.getTime() ?? 0
       return tb - ta
@@ -296,6 +448,7 @@ export default async function NowPage() {
   const hasActiveLoads = pendingLoads.length > 0 || inProgressLoads.length > 0
   const hasHistory = completedLoads.length > 0
   const showCaughtUpMessage = !hasActiveLoads && hasHistory
+  const currentLoad = inProgressLoads[0] ?? pendingLoads[0] ?? completedLoads[0]
 
   const openedAtLabel = new Intl.DateTimeFormat('es-CL', {
     day: '2-digit',
@@ -305,69 +458,62 @@ export default async function NowPage() {
 
   return (
     <Shell>
-      <Heading />
+      <DashboardHeader studentName={studentName} />
+      <HeroSummary studentName={studentName} hasActiveLoads={hasActiveLoads} hasHistory={hasHistory} />
+      <TutoringSection />
+      <NextStepSection currentLoadTitle={currentLoad?.title} />
 
-      <PilotStatusCard variant={isM1PilotProgram ? 'm1' : 'other'} />
+      <div className="mt-5 grid gap-4 lg:grid-cols-[0.86fr_1.14fr]">
+        <ProgramSummaryCard
+          programCode={enrollment.program.code}
+          programName={enrollment.program.name}
+          openedAtLabel={openedAtLabel}
+        />
 
-      <Card className="mb-4">
-        <CardHeader className="pb-2">
-          <p className="text-xs uppercase tracking-wide text-muted-foreground">Programa</p>
-          <CardTitle className="text-lg">{enrollment.program.code}</CardTitle>
-          <p className="text-sm text-muted-foreground">{enrollment.program.name}</p>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-sm">
-            <span className="font-medium">Actividad actual</span>
-            <span className="text-muted-foreground">Disponible desde: {openedAtLabel}</span>
-          </div>
-        </CardContent>
-      </Card>
-      <Card className="mb-6">
-        <CardHeader className="pb-2">
-          <p className="text-xs uppercase tracking-wide text-muted-foreground">Próxima actividad</p>
-          <CardTitle className="text-lg">
-            {isM1PilotProgram ? 'Tu próxima actividad M1' : 'Tu actividad lista para trabajar'}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <ol className="list-decimal space-y-1 pl-4 text-sm text-muted-foreground">
-            <li>{isM1PilotProgram ? 'Revisa la actividad M1 disponible.' : 'Revisa la actividad disponible.'}</li>
-            <li>Presiona Empezar cuando vayas a trabajar.</li>
-            <li>La actividad se abrirá para responder los ejercicios.</li>
-            <li>Tus respuestas quedarán guardadas como evidencia de trabajo.</li>
-          </ol>
-        </CardContent>
-      </Card>
-      {!hasActiveLoads && !hasHistory ? (
-        <EmptyState message={`No tienes una actividad M1 disponible en este momento. ${PILOT_SUPPORT_COPY}`} />
-      ) : (
-        <div className="space-y-6">
-          {pendingLoads.length > 0 && (
-            <section aria-label="Cargas pendientes" className="space-y-3">
-              <h2 className="text-sm font-medium text-muted-foreground">
-                Cargas pendientes ({pendingLoads.length})
-              </h2>
-              <p className="text-xs text-muted-foreground">
-                Abre la actividad cuando estés listo. Tus respuestas quedarán guardadas como evidencia de trabajo.
-              </p>
-              <ul className="space-y-3">
-                {pendingLoads.map((load: any) => {
-                  const hasContent = !!getStudyLoadContent(load.title)
-                  return (
-                    <li key={load.id}>
-                      <Card>
-                        <CardContent className="py-4">
-                          <div className="flex items-start justify-between gap-3">
-                            <p className="flex-1 text-sm font-medium leading-snug">{load.title}</p>
-                            <Badge variant="secondary" className="shrink-0 text-[10px] uppercase tracking-wide">
-                              {load.loadType}
-                            </Badge>
-                          </div>
-                          <div className="mt-3 flex items-center justify-between gap-2">
+        <Card className="rounded-3xl border-[#DCE5EA] bg-[#FBFCF6] shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
+          <CardContent className="p-5 sm:p-6">
+            <div className="flex items-start gap-3">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#F2EFF8] text-[#34215F]">
+                <Sparkles className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div>
+                <h2 className="font-display text-xl font-bold text-[#10213F]">Siguiente paso</h2>
+                <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
+                  {hasActiveLoads
+                    ? 'Revisa la actividad actual y avanza cuando estés listo.'
+                    : 'Revisa tu actividad registrada mientras se prepara una nueva orientación.'}
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="mt-6 space-y-6">
+        {!hasActiveLoads && !hasHistory ? (
+          <EmptyState message="No tienes una actividad M1 disponible en este momento. Cuando se asigne una actividad, aparecerá aquí." />
+        ) : (
+          <>
+            {pendingLoads.length > 0 && (
+              <section aria-label="Cargas pendientes" className="space-y-3">
+                <div className="flex items-center gap-2 text-[#253A5F]">
+                  <Clock className="h-4 w-4" aria-hidden="true" />
+                  <h2 className="text-sm font-bold">Cargas pendientes ({pendingLoads.length})</h2>
+                </div>
+                <p className="text-sm leading-6 text-[#5D6B7A]">
+                  Abre la actividad cuando estés listo. Tus respuestas quedarán guardadas como evidencia de trabajo.
+                </p>
+                <ul className="grid gap-3 md:grid-cols-2">
+                  {pendingLoads.map((load) => {
+                    const hasContent = !!getStudyLoadContent(load.title)
+                    return (
+                      <li key={load.id}>
+                        <LoadCard load={load}>
+                          <div className="mt-4 flex items-center justify-between gap-2">
                             {hasContent ? (
                               <Link
                                 href={`/now/study-loads/${load.id}`}
-                                className="text-xs text-primary hover:underline underline-offset-4"
+                                className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline"
                               >
                                 Ver actividad
                               </Link>
@@ -376,146 +522,127 @@ export default async function NowPage() {
                             )}
                             <StartLoadButton loadId={load.id} />
                           </div>
-                        </CardContent>
-                      </Card>
-                    </li>
-                  )
-                })}
-              </ul>
-            </section>
-          )}
+                        </LoadCard>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </section>
+            )}
 
-          {inProgressLoads.length > 0 && (
-            <section aria-label="En curso" className="space-y-3">
-              <h2 className="text-sm font-medium text-muted-foreground">
-                En curso ({inProgressLoads.length})
-              </h2>
-              <p className="text-xs text-muted-foreground">
-                Continúa tu actividad y ciérrala cuando termines. Si ya enviaste respuestas, falta tu autorreporte.
-              </p>
-              <ul className="space-y-3">
-                {inProgressLoads.map((load: any) => {
-                  const hasContent = !!getStudyLoadContent(load.title)
-                  const hasSubmittedMcEvidence = load.tutoringSessions.some((session: any) =>
-                    session.status === 'in_progress' &&
-                    session.responses.some((response: any) => response.responseType === 'mc_submission'),
-                  )
-                  return (
-                    <li key={load.id}>
-                      <Card>
-                        <CardContent className="py-4">
-                          <div className="flex items-start justify-between gap-3">
-                            <p className="flex-1 text-sm font-medium leading-snug">{load.title}</p>
-                            <Badge variant="secondary" className="shrink-0 text-[10px] uppercase tracking-wide">
-                              {hasSubmittedMcEvidence ? 'Pendiente de cierre' : load.loadType}
-                            </Badge>
-                          </div>
+            {inProgressLoads.length > 0 && (
+              <section aria-label="En curso" className="space-y-3">
+                <div className="flex items-center gap-2 text-[#253A5F]">
+                  <Route className="h-4 w-4" aria-hidden="true" />
+                  <h2 className="text-sm font-bold">En curso ({inProgressLoads.length})</h2>
+                </div>
+                <p className="text-sm leading-6 text-[#5D6B7A]">
+                  Continúa tu actividad y ciérrala cuando termines. Si ya enviaste respuestas, falta tu autorreporte.
+                </p>
+                <ul className="grid gap-3 md:grid-cols-2">
+                  {inProgressLoads.map((load) => {
+                    const hasContent = !!getStudyLoadContent(load.title)
+                    const hasSubmittedMcEvidence = load.tutoringSessions.some((session) =>
+                      session.status === 'in_progress' &&
+                      session.responses.some((response) => response.responseType === 'mc_submission'),
+                    )
+                    return (
+                      <li key={load.id}>
+                        <LoadCard load={load}>
                           {hasSubmittedMcEvidence && (
-                            <p className="mt-2 text-xs text-muted-foreground">
+                            <p className="mt-3 text-sm leading-6 text-[#5D6B7A]">
                               Tus respuestas ya están guardadas. Falta tu autorreporte para cerrar.
                             </p>
                           )}
-                          {hasContent && (
-                            <div className="mt-2">
-                              <Link
-                                href={`/now/study-loads/${load.id}`}
-                                className="text-xs font-medium text-primary hover:underline underline-offset-4"
-                              >
-                                {hasSubmittedMcEvidence ? 'Finalizar actividad' : 'Ver actividad'}
-                              </Link>
-                            </div>
-                          )}
-                          <div className="mt-2 flex items-center justify-between gap-2">
+                          <div className="mt-4 flex items-center justify-between gap-2">
                             <div className="flex items-center gap-2">
                               <span
-                                className={`inline-block h-1.5 w-1.5 rounded-full ${
-                                  hasSubmittedMcEvidence ? 'bg-amber-500' : 'bg-primary'
+                                className={`inline-block h-2 w-2 rounded-full ${
+                                  hasSubmittedMcEvidence ? 'bg-[#F2B84B]' : 'bg-[#4B7B7C]'
                                 }`}
                                 aria-hidden="true"
                               />
-                              <span className="text-xs text-muted-foreground">
+                              <span className="text-xs font-semibold text-[#5D6B7A]">
                                 {hasSubmittedMcEvidence ? 'Pendiente de cierre' : 'En curso'}
                               </span>
                             </div>
-                            {!hasContent && <CompleteLoadButton loadId={load.id} />}
+                            <div className="flex items-center gap-2">
+                              {hasContent && (
+                                <Link
+                                  href={`/now/study-loads/${load.id}`}
+                                  className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline"
+                                >
+                                  {hasSubmittedMcEvidence ? 'Finalizar actividad' : 'Ver actividad'}
+                                </Link>
+                              )}
+                              {!hasContent && <CompleteLoadButton loadId={load.id} />}
+                            </div>
                           </div>
-                        </CardContent>
-                      </Card>
-                    </li>
-                  )
-                })}
-              </ul>
-            </section>
-          )}
+                        </LoadCard>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </section>
+            )}
 
-          {showCaughtUpMessage && (
-            <Card>
-              <CardContent className="py-10 text-center">
-                <h2 className="text-sm font-semibold mb-2">Actividad registrada</h2>
-                <p className="text-sm text-muted-foreground">
-                  Tu última actividad quedó registrada. Estamos revisando el siguiente paso del piloto M1.
-                </p>
-                <p className="mt-4 text-xs text-muted-foreground">
-                  Mientras tanto, puedes revisar tus actividades registradas. {PILOT_SUPPORT_COPY}
-                </p>
-              </CardContent>
-            </Card>
-          )}
+            {showCaughtUpMessage && (
+              <Card className="rounded-3xl border-[#E2E8EC] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
+                <CardContent className="py-8 text-center">
+                  <h2 className="text-sm font-bold text-[#10213F]">Actividad registrada</h2>
+                  <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
+                    Tu última actividad quedó registrada. Revisa tu evidencia mientras se prepara el siguiente paso.
+                  </p>
+                </CardContent>
+              </Card>
+            )}
 
-          {completedLoads.length > 0 && (
-            <section aria-label="Actividades registradas" className="space-y-3">
-              <h2 className="text-sm font-medium text-muted-foreground">
-                Actividades registradas ({completedLoads.length})
-              </h2>
-              <p className="text-xs text-muted-foreground">
-                Tu trabajo queda guardado como evidencia para revisión. No representa una medición completa de tu preparación.
-              </p>
-              <ul className="space-y-3">
-                {completedLoads.map((load: any) => {
-                  const completedSession = load.tutoringSessions.find((session: any) => session.status === 'completed')
-                  const report = completedSession?.responses.find((response: any) => response.responseType === 'answer')?.content ?? null
-                  const hasContent = !!getStudyLoadContent(load.title)
-                  return (
-                    <li key={load.id}>
-                      <Card>
-                        <CardContent className="py-4">
-                          <div className="flex items-start justify-between gap-3">
-                            <p className="flex-1 text-sm font-medium leading-snug">{load.title}</p>
-                            <Badge variant="secondary" className="shrink-0 text-[10px] uppercase tracking-wide">
-                              {load.loadType}
-                            </Badge>
-                          </div>
+            {completedLoads.length > 0 && (
+              <section aria-label="Actividades registradas" className="space-y-3">
+                <div className="flex items-center gap-2 text-[#253A5F]">
+                  <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+                  <h2 className="text-sm font-bold">Actividades registradas ({completedLoads.length})</h2>
+                </div>
+                <p className="text-sm leading-6 text-[#5D6B7A]">
+                  Tu trabajo queda guardado como evidencia para revisar tu avance y orientar el siguiente foco.
+                </p>
+                <ul className="grid gap-3 md:grid-cols-2">
+                  {completedLoads.map((load) => {
+                    const completedSession = load.tutoringSessions.find((session) => session.status === 'completed')
+                    const report = completedSession?.responses.find((response) => response.responseType === 'answer')?.content ?? null
+                    const hasContent = !!getStudyLoadContent(load.title)
+                    return (
+                      <li key={load.id}>
+                        <LoadCard load={load}>
                           {report && (
-                            <p className="mt-2 text-xs text-muted-foreground">
-                              <span className="font-medium">Tu reporte:</span> {report}
+                            <p className="mt-3 text-sm leading-6 text-[#5D6B7A]">
+                              <span className="font-bold text-[#253A5F]">Tu reporte:</span> {report}
                             </p>
                           )}
                           {hasContent && (
-                            <div className="mt-2">
+                            <div className="mt-3">
                               <Link
                                 href={`/now/study-loads/${load.id}`}
-                                className="text-xs text-primary hover:underline underline-offset-4"
+                                className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline"
                               >
                                 Ver actividad
                               </Link>
                             </div>
                           )}
-                        </CardContent>
-                      </Card>
-                    </li>
-                  )
-                })}
-              </ul>
-            </section>
-          )}
-        </div>
-      )}
-
-      <PilotBoundaryNote />
+                        </LoadCard>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </section>
+            )}
+          </>
+        )}
+      </div>
 
       {isAdminSession && (
         <div className="mt-8 text-center">
-          <Link href="/admin" className="text-xs text-muted-foreground underline-offset-4 hover:underline">
+          <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
             Ir al panel de administración
           </Link>
         </div>

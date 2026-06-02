@@ -38866,3 +38866,160 @@ Result marker:
 ```text
 LANDING_V0_1_ACCEPTED_AND_STUDENT_DASHBOARD_DELIVERABLE_DEFINED
 ```
+
+---
+
+## 2026-06-02 - MVP-SALES-PILOT-UI-DASHBOARD-1 - Implement student dashboard tutoring access and M1 entry v1
+
+Type:
+
+```text
+Level C/D - UI implementation with limited operational integration.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Authorization:
+
+```text
+AUTORIZO_IMPLEMENTAR_DASHBOARD_ESTUDIANTE_TUTORIAS_M1_V1
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 66e9411
+Latest accepted commit = 66e9411 - MVP-SALES-PILOT-UI-TRANSITION-1: close landing v0.1 and define dashboard deliverable
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_TRANSITION_1_CLOSE_LANDING_V0_1_AND_DEFINE_STUDENT_DASHBOARD_TUTORING_DELIVERABLE.md`.
+* Read `PHASE_LOG.md` tail.
+* Inspected `nextjs_space/app/now/page.tsx`.
+* Inspected `/now` associated components and student route references.
+
+Dashboard route:
+
+```text
+/now
+```
+
+Detected route context:
+
+* `/login` redirects non-admin signed-in users to `/now`.
+* `/signup` redirects signed-in non-admin users to `/now`.
+* `/now` already owns session guard, active student/enrollment/cycle, current StudyLoad cards, and existing activity actions.
+* No new student dashboard route was created.
+
+Operational elements:
+
+* Session guard and redirect to `/login`.
+* Bexauri/student header and existing sign-out.
+* Student by session email.
+* Active enrollment and current cycle read model.
+* Pending, in-progress, and completed StudyLoad read model.
+* Existing `Ver actividad` links.
+* Existing `Empezar` button where previously exposed for pending loads.
+* Existing completion path where previously exposed for in-progress loads without authored content.
+
+Visible non-operational elements:
+
+* `PAES Matemáticas M2` card as `Próxima ruta`.
+* `PAES Competencia Lectora` card as `Más adelante`.
+* Future tutoring architecture copy only.
+* No M2/Lectora functional activation.
+
+UI changes:
+
+* Reworked `/now` into a Bexauri student dashboard.
+* Added Bexauri visual header with provisional logo and session action.
+* Added `Tu espacio de estudio` hero and clear M1 entry CTA.
+* Added `Tus tutorías` section with M1 active and M2/Lectora visible as non-operational architecture.
+* Added `Qué pasará después`.
+* Kept current activity, pending loads, in-progress loads, and completed activity evidence visible.
+* Applied Bexauri v0.1 palette, warm surfaces, deep blue/violet/petroleum accents, and purposeful cards.
+* Removed defensive/prohibited landing-style pilot copy from `/now`.
+
+M1 entry behavior:
+
+* Primary CTA `Entrar a Matemáticas M1` anchors to the current activity area on `/now`.
+* It does not auto-start StudyLoad.
+* It does not create enrollment.
+* Existing `Ver actividad` links and `Empezar` button remain available only where the previous flow exposes them.
+
+Responsive verification:
+
+* Mobile standard `390 x 844`: prepared through stacked header, hero, tutoring cards, next-step block, and activity cards.
+* Tablet vertical `768 x 1024`: prepared through responsive grids and readable cards.
+* Desktop `1366 x 768`: prepared through wider dashboard layout and non-admin visual framing.
+* Root keeps `overflow-x-hidden`.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1_IMPLEMENT_STUDENT_DASHBOARD_TUTORING_ACCESS_AND_M1_ENTRY.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No real new enrollment.
+* No M2 functional activation.
+* No Competencia Lectora functional activation.
+* No automatic StudyLoad execution.
+* No automatic `Empezar`.
+* No responses.
+* No submit.
+* No automatic self-report.
+* No automatic completion.
+* No new automatic continuity.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human visual audit of student dashboard v1
+```
+
+Result marker:
+
+```text
+STUDENT_DASHBOARD_TUTORING_M1_V1_IMPLEMENTED
+```
