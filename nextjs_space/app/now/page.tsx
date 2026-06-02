@@ -42,7 +42,7 @@ const tutoringCards = [
     status: 'Activa',
     exerciseCount: '0 ej.',
     achievement: '--%',
-    description: 'Organiza tu estudio, practica con foco y avanza con retroalimentación.',
+    description: 'Fortalece tus destrezas en los 4 ejes de Matemáticas M1',
     active: true,
     surface: 'border-[#79A6A4] bg-[linear-gradient(180deg,#FBFCF6_0%,#E5F0EF_100%)]',
     badge: 'bg-[#192F56] text-white',
@@ -179,9 +179,9 @@ function HeroSummary({
       <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
         <a
           href="#matematicas-m1"
-          className="group inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-[#79A6A4]/55 bg-[linear-gradient(135deg,#10213F_0%,#241642_58%,#4B7B7C_100%)] px-4 text-sm font-bold text-white shadow-[0_12px_26px_rgba(36,22,66,0.20)] transition hover:shadow-[0_14px_30px_rgba(36,22,66,0.26)] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-11 sm:px-5"
+          className="group inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-[#F2B84B]/45 bg-[linear-gradient(135deg,#F2B84B_0%,#D85B8C_50%,#A63D4F_100%)] px-4 text-sm font-bold text-white shadow-[0_0_24px_rgba(216,91,140,0.24),0_12px_28px_rgba(166,61,79,0.18)] transition hover:shadow-[0_0_28px_rgba(216,91,140,0.30),0_14px_30px_rgba(166,61,79,0.22)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20 sm:min-h-11 sm:px-5"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#F2B84B] shadow-[0_0_14px_rgba(242,184,75,0.85)]" aria-hidden="true" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#FFF3D8] shadow-[0_0_16px_rgba(255,243,216,0.95)]" aria-hidden="true" />
           Comenzar Estudio
           <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
         </a>
@@ -234,7 +234,7 @@ function TutoringSection() {
             {card.active ? (
               <a
                 href="#matematicas-m1"
-                className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#192F56] px-3 py-1.5 text-xs font-bold text-white transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:px-4 sm:py-2 sm:text-sm"
+                className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#F2B84B]/40 bg-[linear-gradient(135deg,#EFA45F_0%,#D85B8C_55%,#A63D4F_100%)] px-3 py-1.5 text-xs font-bold text-white shadow-[0_0_18px_rgba(216,91,140,0.22),0_8px_18px_rgba(166,61,79,0.16)] transition hover:shadow-[0_0_22px_rgba(216,91,140,0.28),0_10px_20px_rgba(166,61,79,0.20)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20 sm:px-4 sm:py-2 sm:text-sm"
               >
                 Comenzar Estudio
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
