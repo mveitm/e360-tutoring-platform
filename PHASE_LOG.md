@@ -38622,3 +38622,133 @@ Result marker:
 ```text
 LANDING_PAGE_STUDENT_MVP_MOBILE_FIRST_VIEW_REFINED
 ```
+
+---
+
+## 2026-06-02 - MVP-SALES-PILOT-UI-LANDING-1G - Refine approved mobile landing draft copy and hierarchy
+
+Type:
+
+```text
+Level C/D - UI visual refinement / standard implementation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 7fbcff0
+Latest accepted commit = 7fbcff0 - MVP-SALES-PILOT-UI-LANDING-1F: compact mobile first-view hierarchy
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1F_COMPACT_MOBILE_FIRST_VIEW_HIERARCHY.md`.
+* Read `PHASE_LOG.md` tail.
+* Human audit after LANDING-1F was received and applied.
+* Phase is UI-only.
+
+Human audit inherited:
+
+* Mauricio approved LANDING-1F as the mobile draft and order.
+* Requested stronger Bexauri logo presence.
+* Requested `Matemáticas M1` in cyan, by text color only.
+* Requested `¿Cómo te guía Bexauri?` instead of `Secuencia pedagógica`, placed higher as a first-view bridge.
+* Requested keeping `Ruta de Estudio`.
+* Requested updated route-card copy.
+* Requested `Una forma más precisa de estudiar`.
+
+Result:
+
+```text
+LANDING_PAGE_STUDENT_MVP_APPROVED_DRAFT_REFINED
+```
+
+UI changes:
+
+* Increased existing provisional logo presence inside the header capsule without changing the asset.
+* Changed `Matemáticas M1` hero highlight to cyan text only.
+* Added a compact `¿Cómo te guía Bexauri?` bridge link after the first-view subscriptions.
+* Replaced the route eyebrow with `¿Cómo te guía Bexauri?`.
+* Kept the route section title as `Ruta de Estudio`.
+* Updated the route cards:
+  * `Comenzar` - `Ubicamos tu punto de partida en cada tutoría`
+  * `Practicar` - `Trabajas con pocos ejercicios conectados`
+  * `Revisar` - `Identificas tus aciertos y recibes ayuda en lo que te costó`
+  * `Continuar` - `Avanzas al siguiente foco de estudio.`
+* Changed `Una forma más clara de estudiar` to `Una forma más precisa de estudiar`.
+
+Responsive verification:
+
+* Mobile standard `390 x 844`: prepared with compact first view, stronger logo, cyan text-only M1 highlight, and visible guide bridge.
+* Tablet vertical `768 x 1024`: prepared with same hierarchy and readable route cards.
+* Desktop `1366 x 768`: prepared with the same approved structure and improved visual hierarchy.
+* Root keeps `overflow-x-hidden`.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1G_REFINE_APPROVED_MOBILE_DRAFT_COPY_AND_HIERARCHY.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No full landing redesign.
+* No unrequested copy changes.
+* No new logo generation.
+* No logo replacement.
+* No DB.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudyLoad.
+* No StudentAccess.
+* No student dashboard.
+* No M1 enrollment.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human visual audit of landing 1G
+```
+
+Result marker:
+
+```text
+LANDING_PAGE_STUDENT_MVP_APPROVED_DRAFT_REFINED
+```
