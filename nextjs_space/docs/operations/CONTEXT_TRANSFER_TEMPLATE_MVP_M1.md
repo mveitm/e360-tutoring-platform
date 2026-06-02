@@ -73,6 +73,14 @@ nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md
 The standard governs Bexauri brand direction, landing, dashboard estudiante, and future visible M1 study UI. Visual work should preserve a modern guided-study app feel: serious, close to the student, clear, progressive, visually competitive, and pedagogically grounded.
 ```
 
+Current student-experience deliverable:
+
+```text
+STUDENT_DASHBOARD_TUTORING_M1_DELIVERABLE
+
+Landing Page estudiante - Bexauri MVP is accepted as operative v0.1 with non-blocking PRO audit debt. The active top-down UI deliverable is now Dashboard estudiante - access to tutoring lines and M1 entry/enrollment. Future microphases should directly support that dashboard deliverable or remove a blocker to it.
+```
+
 ## 1. Purpose
 
 This is the canonical context-transfer contract for MVP-M1 chats.

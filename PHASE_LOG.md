@@ -38752,3 +38752,117 @@ Result marker:
 ```text
 LANDING_PAGE_STUDENT_MVP_APPROVED_DRAFT_REFINED
 ```
+
+---
+
+## 2026-06-02 - MVP-SALES-PILOT-UI-TRANSITION-1 - Close Landing v0.1 and define student dashboard tutoring deliverable
+
+Type:
+
+```text
+Level A - Governance / deliverable closeout / next deliverable definition.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 99d78b4
+Latest accepted commit = 99d78b4 - MVP-SALES-PILOT-UI-LANDING-1G: refine approved mobile landing draft
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1G_REFINE_APPROVED_MOBILE_DRAFT_COPY_AND_HIERARCHY.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Human closure of LP v0.1 was received.
+* Phase was documentation-only.
+
+Landing closure:
+
+* Landing Page estudiante - Bexauri MVP is accepted as operative v0.1.
+* LANDING-1G is the current visual closure.
+* Closing commit: `99d78b4`.
+* Current landing result: `LANDING_PAGE_STUDENT_MVP_APPROVED_DRAFT_REFINED`.
+* Non-blocking debt: later PRO audit of landing and Bexauri Visual Standard v0.1.
+* No further landing polish should be the default next action.
+
+New active UI deliverable:
+
+```text
+STUDENT_DASHBOARD_TUTORING_M1_DELIVERABLE
+```
+
+Summary:
+
+* Dashboard estudiante - access to tutoring lines and M1 entry/enrollment.
+* A signed-in student should recognize Bexauri as their study space.
+* The dashboard should show `Tus tutorias`.
+* PAES Matematicas M1 should be the first active tutoring path.
+* PAES Matematicas M2 and PAES Competencia Lectora may appear as visual architecture without functional readiness claims.
+* The student should have a clear action to enter or begin M1.
+* The screen should connect visually to Bexauri Visual Standard v0.1 and not feel like an admin panel.
+
+Results:
+
+```text
+LANDING_PAGE_STUDENT_MVP_V0_1_ACCEPTED_WITH_PRO_AUDIT_DEBT
+STUDENT_DASHBOARD_TUTORING_M1_DELIVERABLE_DEFINED_AND_ACTIVE
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_TRANSITION_1_CLOSE_LANDING_V0_1_AND_DEFINE_STUDENT_DASHBOARD_TUTORING_DELIVERABLE.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No app code.
+* No DB.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No StudyLoad.
+* No `Empezar`.
+* No responses.
+* No StudentAccess.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No dashboard implementation.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-UI-DASHBOARD-1 - Implement student dashboard tutoring access and M1 entry
+```
+
+Result marker:
+
+```text
+LANDING_V0_1_ACCEPTED_AND_STUDENT_DASHBOARD_DELIVERABLE_DEFINED
+```

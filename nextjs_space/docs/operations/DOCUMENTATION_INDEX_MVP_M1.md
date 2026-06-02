@@ -24,6 +24,7 @@ These documents now govern roadmap direction:
 18. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1E_REFINE_LANDING_STRUCTURE_AND_VISUAL_HIERARCHY.md`
 19. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1F_COMPACT_MOBILE_FIRST_VIEW_HIERARCHY.md`
 20. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1G_REFINE_APPROVED_MOBILE_DRAFT_COPY_AND_HIERARCHY.md`
+21. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_TRANSITION_1_CLOSE_LANDING_V0_1_AND_DEFINE_STUDENT_DASHBOARD_TUTORING_DELIVERABLE.md`
 
 Future chats must read them before proposing work.
 
@@ -58,6 +59,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_LANDING_1F_COMPACT_MOBILE_FIRST_VIEW_HIERARCHY.md` records the compact mobile first-view refinement: smaller header/hero, `Matemáticas M1` highlighted only by text color, hero buttons removed, horizontal Tutorías row, compact Trial/Suscripción cards, and route/support sections moved after the first mobile view without checkout/payment/real trial/subscription backend.
 
 `MVP_SALES_PILOT_UI_LANDING_1G_REFINE_APPROVED_MOBILE_DRAFT_COPY_AND_HIERARCHY.md` records the approved mobile landing draft refinement: stronger provisional logo presence, cyan `Matemáticas M1`, first-view `¿Cómo te guía Bexauri?` bridge, updated `Ruta de Estudio` card copy, and `Una forma más precisa de estudiar` without checkout/payment/real trial/subscription backend.
+
+`MVP_SALES_PILOT_UI_TRANSITION_1_CLOSE_LANDING_V0_1_AND_DEFINE_STUDENT_DASHBOARD_TUTORING_DELIVERABLE.md` records Landing Page estudiante - Bexauri MVP as accepted operative v0.1 with non-blocking PRO audit debt, and defines the active next top-down UI deliverable: `STUDENT_DASHBOARD_TUTORING_M1_DELIVERABLE` for dashboard tutoring access and PAES Matemáticas M1 entry/enrollment.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

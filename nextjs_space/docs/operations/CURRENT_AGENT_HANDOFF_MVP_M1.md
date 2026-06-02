@@ -70,6 +70,31 @@ Bexauri Visual Standard v0.1 active:
 * Bexauri should feel like a modern guided-study app: serious, close to the student, clear, progressive, visually competitive, and pedagogically grounded.
 * Landing updates should follow this standard before further visual polish.
 
+### 2C-5. Landing v0.1 Closed / Current Student-Experience Deliverable
+
+Landing Page estudiante - Bexauri MVP is accepted as operative v0.1.
+
+* Closing commit: `99d78b4 - MVP-SALES-PILOT-UI-LANDING-1G: refine approved mobile landing draft`.
+* Closing result: `LANDING_PAGE_STUDENT_MVP_APPROVED_DRAFT_REFINED`.
+* Closure status: `LANDING_PAGE_STUDENT_MVP_V0_1_ACCEPTED_WITH_PRO_AUDIT_DEBT`.
+* Non-blocking debt: later PRO audit of landing and Bexauri Visual Standard v0.1.
+* Do not keep polishing the landing by default; future landing visual work should wait for a specific audit or explicit phase.
+
+Current active student-experience deliverable:
+
+```text
+STUDENT_DASHBOARD_TUTORING_M1_DELIVERABLE
+```
+
+Dashboard estudiante - tutorias y M1:
+
+* The student should enter their dashboard and recognize Bexauri as their study space.
+* The dashboard should show `Tus tutorias`.
+* `PAES Matematicas M1` is the first active tutoring path.
+* `PAES Matematicas M2` and `PAES Competencia Lectora` may appear as visual tutoring architecture without functional readiness claims.
+* The main action should let the student enter or begin M1.
+* Future microphases should directly support this deliverable or remove a blocker to it.
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
 Friday full manual M1 test is the near-term operational milestone.
