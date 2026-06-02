@@ -38065,3 +38065,128 @@ Result marker:
 ```text
 LANDING_PAGE_STUDENT_MVP_VISUAL_BASELINE_APPLIED
 ```
+
+---
+
+## 2026-06-02 - MVP-SALES-PILOT-BRAND-1 - Document Bexauri Visual Standard v0.1
+
+Type:
+
+```text
+Level A - Brand governance / visual standard documentation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 3ca476e
+Latest accepted commit = 3ca476e - MVP-SALES-PILOT-UI-LANDING-1C: apply Bexauri visual baseline
+Working tree clean before source placement; after source placement, only root `BEXAURI_VISUAL_STANDARD_V0_1.md` was untracked.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1C_APPLY_BEXAURI_VISUAL_BASELINE.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Source PRO file confirmed at repo root: `BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* This phase was documentation-only.
+
+Source PRO:
+
+```text
+BEXAURI_VISUAL_STANDARD_V0_1.md
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md
+```
+
+Standard status:
+
+```text
+BEXAURI_VISUAL_STANDARD_V0_1_DOCUMENTED_AND_ACTIVE
+```
+
+Standard objective:
+
+* Establish Bexauri visual standard v0.1 as living repository documentation.
+* Guide the landing, dashboard estudiante, and future visible M1 study screens.
+* Preserve Bexauri as a modern guided-study app: serious, close to the student, clear, progressive, visually competitive, and pedagogically grounded.
+* Keep visual decisions connected to visible pedagogical UI: guidance, progress, continuity, study evidence, and student-facing clarity.
+
+Visual standard summary:
+
+* Direction: modern guided-study app, not a generic AI landing, institutional portal, aggressive commercial offer, or isolated test simulator.
+* Palette: deep Bexauri blue and dark violet for seriousness, petroleum/green learning accents, warm light surfaces, controlled warm accents, and structured neutral borders.
+* Logo: provisional wordmark retained as temporary identity to be treated carefully rather than as a complete brand system.
+* Components: clear CTAs, guided-study cards, progress/evidence surfaces, restrained elevation, and student-centered hierarchy.
+* Landing standard: immediate Bexauri recognition, clear study proposition, visible login/access paths, professional first impression, and no false commercial activation.
+* Dashboard/student UI standard: current action, progress, evidence, continuity, and pedagogical guidance should be visible and calm.
+* Pedagogical layer: UI should make guidance, diagnosis, practice purpose, feedback, and next-step continuity visible without overclaiming AI, mastery, or PAES score outcomes.
+
+Non-claims:
+
+* Does not declare Sales-Ready.
+* Does not declare MVP-Beta cerrado completo.
+* Does not declare L1 readiness.
+* Does not declare M2 readiness.
+* Does not enable checkout.
+* Does not enable real payment.
+* Does not enable real trial.
+* Does not enable complete active subscription functionality.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No app code.
+* No DB.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No StudyLoad.
+* No StudentAccess.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No LANDING-1D implementation.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-UI-LANDING-1D - Apply Bexauri Visual Standard v0.1 to landing page
+```
+
+Result marker:
+
+```text
+BEXAURI_VISUAL_STANDARD_V0_1_DOCUMENTED_AND_ACTIVE
+```

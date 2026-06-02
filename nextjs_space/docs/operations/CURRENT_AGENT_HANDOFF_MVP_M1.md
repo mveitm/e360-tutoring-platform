@@ -61,6 +61,15 @@ Top-down student-experience delivery now drives roadmap sequencing. Bottom-up te
 
 Future prompts must preserve that visible landing text requires Mauricio approval. The next phase may implement the landing, but without real payment, checkout, StudyLoad, student dashboard, M1 enrollment, DB/schema/auth changes, or StudentAccess work.
 
+### 2C-4. Bexauri Visual Standard v0.1
+
+Bexauri Visual Standard v0.1 active:
+
+* Source document: `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Applies to landing, dashboard estudiante and future M1 study screens.
+* Bexauri should feel like a modern guided-study app: serious, close to the student, clear, progressive, visually competitive, and pedagogically grounded.
+* Landing updates should follow this standard before further visual polish.
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
 Friday full manual M1 test is the near-term operational milestone.
