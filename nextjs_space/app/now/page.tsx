@@ -149,50 +149,53 @@ function HeroSummary({
   hasActiveLoads: boolean
   hasHistory: boolean
 }) {
+  const nextActionText = hasActiveLoads
+    ? 'Tu siguiente accion esta disponible en la actividad actual.'
+    : hasHistory
+      ? 'Tu trabajo anterior quedo registrado. Revisa tu avance mientras se prepara el siguiente paso.'
+      : 'Cuando tengas una actividad asignada, aparecera aqui con una accion clara.'
+
   return (
-    <section id="inicio" className="grid gap-3 lg:grid-cols-[1.08fr_0.92fr] lg:items-stretch">
-      <div className="rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-4 shadow-[0_14px_34px_rgba(16,33,63,0.09)] sm:p-6">
-        <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#4B7B7C] sm:text-sm">Tu espacio de estudio</p>
-        <h1 className="mt-2 font-display text-2xl font-bold leading-tight text-[#10213F] sm:text-4xl">
-          {studentName ? `Hola, ${studentName}.` : 'Bienvenido a Bexauri.'}
-        </h1>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5D6B7A] sm:text-lg sm:leading-7">
-          Elige una tutoría y continúa con el siguiente paso de tu ruta.
-        </p>
-        <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <a
-            href="#matematicas-m1"
-            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#192F56] px-4 text-sm font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.18)] transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-11 sm:px-5"
-          >
-            Entrar a Matemáticas M1
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </a>
-          <a
-            href="#actividad-actual"
-            className="inline-flex min-h-10 items-center justify-center rounded-full border border-[#DCE5EA] bg-white px-4 text-sm font-bold text-[#192F56] transition hover:border-[#79A6A4] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-11 sm:px-5"
-          >
-            Ver actividad actual
-          </a>
+    <section id="inicio" className="rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-3.5 shadow-[0_14px_34px_rgba(16,33,63,0.09)] sm:p-5">
+      <div className="grid gap-3 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div>
+          <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#4B7B7C] sm:text-sm">Tu espacio de estudio</p>
+          <h1 className="mt-1 font-display text-xl font-bold leading-tight text-[#10213F] sm:text-3xl">
+            {studentName ? `Hola, ${studentName}.` : 'Bienvenido a Bexauri.'}
+          </h1>
+          <p className="mt-1 max-w-2xl text-sm leading-5 text-[#5D6B7A] sm:text-base sm:leading-6">
+            Elige una tutoria y continua con el siguiente paso de tu ruta.
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-[#DCE5EA] bg-[#10213F] p-3 text-white sm:p-4">
+          <div className="flex items-start gap-3">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl bg-[#F2B84B] text-[#10213F]">
+              <Route className="h-4 w-4" aria-hidden="true" />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#DCE5EA]">Que hago ahora</p>
+              <p className="text-base font-bold leading-5 sm:text-lg">Matematicas M1</p>
+              <p className="mt-1 text-xs leading-5 text-[#DCE5EA] sm:text-sm">{nextActionText}</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="rounded-3xl border border-[#DCE5EA] bg-[#10213F] p-4 text-white shadow-[0_14px_34px_rgba(16,33,63,0.14)] sm:p-5">
-        <div className="flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-[#F2B84B] text-[#10213F]">
-            <Route className="h-4 w-4" aria-hidden="true" />
-          </span>
-          <div>
-            <p className="text-xs font-bold text-[#DCE5EA] sm:text-sm">Qué hago ahora</p>
-            <p className="text-lg font-bold sm:text-xl">Matemáticas M1</p>
-          </div>
-        </div>
-        <p className="mt-3 text-sm leading-5 text-[#DCE5EA]">
-          {hasActiveLoads
-            ? 'Tu siguiente acción está disponible en la actividad actual.'
-            : hasHistory
-              ? 'Tu trabajo anterior quedó registrado. Revisa tu avance mientras se prepara el siguiente paso.'
-              : 'Cuando tengas una actividad asignada, aparecerá aquí con una acción clara.'}
-        </p>
+      <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <a
+          href="#matematicas-m1"
+          className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#192F56] px-4 text-sm font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.18)] transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-11 sm:px-5"
+        >
+          Entrar a Matematicas M1
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </a>
+        <a
+          href="#actividad-actual"
+          className="inline-flex min-h-10 items-center justify-center rounded-full border border-[#DCE5EA] bg-white px-4 text-sm font-bold text-[#192F56] transition hover:border-[#79A6A4] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-11 sm:px-5"
+        >
+          Ver actividad actual
+        </a>
       </div>
     </section>
   )
@@ -200,42 +203,42 @@ function HeroSummary({
 
 function TutoringSection() {
   return (
-    <section id="tutorias" className="mt-3 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-3 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:mt-5 sm:p-6">
-      <div className="mb-3 flex items-center justify-between gap-3 sm:mb-4">
+    <section id="tutorias" className="mt-2 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-2.5 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:mt-5 sm:p-6">
+      <div className="mb-2 flex items-center justify-between gap-3 sm:mb-4">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#34215F] sm:text-sm">Tus tutorías</p>
-          <h2 className="mt-1 font-display text-xl font-bold text-[#10213F] sm:text-2xl">Tutorías disponibles</h2>
+          <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F] sm:text-sm">Tus tutorias</p>
+          <h2 className="mt-0.5 font-display text-lg font-bold text-[#10213F] sm:text-2xl">Tutorias disponibles</h2>
         </div>
         <span className="hidden h-1.5 w-16 rounded-full bg-[#F2B84B] sm:block" aria-hidden="true" />
       </div>
 
-      <div className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-2 [scrollbar-width:thin] md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0">
+      <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1.5 [scrollbar-width:thin] md:mx-0 md:grid md:grid-cols-3 md:gap-3 md:overflow-visible md:px-0 md:pb-0">
         {tutoringCards.map((card) => (
           <article
             key={card.code}
             id={card.active ? 'matematicas-m1' : undefined}
-            className={`min-w-[238px] flex-[0_0_78%] rounded-3xl border p-4 shadow-[0_10px_24px_rgba(16,33,63,0.07)] sm:flex-[0_0_44%] md:min-w-0 md:flex-auto ${card.surface}`}
+            className={`min-w-[218px] flex-[0_0_74%] rounded-2xl border p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)] sm:flex-[0_0_42%] sm:rounded-3xl sm:p-4 md:min-w-0 md:flex-auto ${card.surface}`}
           >
-            <div className="flex items-start justify-between gap-3">
-              <span className={`inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-sm font-bold ${card.badge}`}>
+            <div className="flex items-start justify-between gap-2">
+              <span className={`inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2.5 text-xs font-bold sm:h-10 sm:min-w-10 sm:px-3 sm:text-sm ${card.badge}`}>
                 {card.code}
               </span>
-              <Badge variant="secondary" className="rounded-full bg-white/80 text-[10px] font-bold uppercase tracking-wide text-[#253A5F]">
+              <Badge variant="secondary" className="rounded-full bg-white/80 text-[9px] font-bold uppercase tracking-wide text-[#253A5F] sm:text-[10px]">
                 {card.status}
               </Badge>
             </div>
-            <h3 className="mt-4 font-display text-lg font-bold leading-6 text-[#10213F]">{card.title}</h3>
-            <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">{card.description}</p>
+            <h3 className="mt-3 font-display text-base font-bold leading-5 text-[#10213F] sm:text-lg sm:leading-6">{card.title}</h3>
+            <p className="mt-1.5 text-xs leading-5 text-[#5D6B7A] sm:text-sm sm:leading-6">{card.description}</p>
             {card.active ? (
               <a
                 href="#actividad-actual"
-                className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#192F56] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+                className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#192F56] px-3 py-1.5 text-xs font-bold text-white transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:px-4 sm:py-2 sm:text-sm"
               >
-                Entrar a Matemáticas M1
+                Entrar a Matematicas M1
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
             ) : (
-              <p className="mt-4 text-xs font-semibold text-[#5D6B7A]">Visible para orientar la arquitectura de tutorías.</p>
+              <p className="mt-3 text-[11px] font-semibold leading-4 text-[#5D6B7A] sm:text-xs sm:leading-5">Visible para orientar la arquitectura de tutorias.</p>
             )}
           </article>
         ))}

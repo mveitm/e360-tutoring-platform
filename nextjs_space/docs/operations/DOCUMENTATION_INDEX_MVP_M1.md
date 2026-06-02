@@ -27,6 +27,7 @@ These documents now govern roadmap direction:
 21. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_TRANSITION_1_CLOSE_LANDING_V0_1_AND_DEFINE_STUDENT_DASHBOARD_TUTORING_DELIVERABLE.md`
 22. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1_IMPLEMENT_STUDENT_DASHBOARD_TUTORING_ACCESS_AND_M1_ENTRY.md`
 23. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1A_REFINE_MOBILE_FIRST_STUDENT_DASHBOARD_CONTAINMENT_AND_NAVIGATION.md`
+24. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1B_COMPACT_STUDY_DASHBOARD_TOP_CONTAINERS_TO_EXPOSE_TUTORING_CAROUSEL.md`
 
 Future chats must read them before proposing work.
 
@@ -67,6 +68,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_DASHBOARD_1_IMPLEMENT_STUDENT_DASHBOARD_TUTORING_ACCESS_AND_M1_ENTRY.md` records the first `/now` student dashboard tutoring implementation: Bexauri visual header, `Tus tutorías`, PAES Matemáticas M1 as active path, M2/Lectora as visible non-operational architecture, current activity area, and preserved StudyLoad actions without automatic execution or backend changes.
 
 `MVP_SALES_PILOT_UI_DASHBOARD_1A_REFINE_MOBILE_FIRST_STUDENT_DASHBOARD_CONTAINMENT_AND_NAVIGATION.md` records the mobile-first dashboard containment refinement: `/now` uses a contained header/central-content/footer structure, central content scrolls internally, `Qué hago ahora` is compact, `Tutorías disponibles` scrolls horizontally on mobile, and the footer navigation uses local anchors without DB/base de datos, backend, checkout, or StudyLoad execution changes.
+
+`MVP_SALES_PILOT_UI_DASHBOARD_1B_COMPACT_STUDY_DASHBOARD_TOP_CONTAINERS_TO_EXPOSE_TUTORING_CAROUSEL.md` records the second mobile-first dashboard refinement: `/now` fuses `Tu espacio de estudio` and `Que hago ahora` into one compact top container, reduces mobile tutoring carousel sizing, and keeps M1 active plus M2/Lectora visible as non-operational architecture without DB/base de datos, backend, checkout, or StudyLoad execution changes.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

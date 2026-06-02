@@ -39180,3 +39180,158 @@ Result marker:
 ```text
 STUDENT_DASHBOARD_MOBILE_FIRST_CONTAINMENT_REFINED
 ```
+
+---
+
+## 2026-06-02 - MVP-SALES-PILOT-UI-DASHBOARD-1B - Compact study dashboard top containers to expose tutoring carousel
+
+Type:
+
+```text
+Level C/D - UI refinement / standard implementation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 1b75327
+Latest accepted commit = 1b75327 - MVP-SALES-PILOT-UI-DASHBOARD-1A: refine mobile dashboard containment
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1A_REFINE_MOBILE_FIRST_STUDENT_DASHBOARD_CONTAINMENT_AND_NAVIGATION.md`.
+* Read `PHASE_LOG.md` tail.
+* Inspected `nextjs_space/app/now/page.tsx`.
+* Inspected `/now` associated component directory.
+* Human mobile audit after DASHBOARD-1A was received and applied.
+* Phase was UI-only.
+
+Human audit inherited:
+
+* Mauricio accepted the contained mobile-first version/vision from DASHBOARD-1A.
+* Requested fusing `Tu espacio de estudio` and `Que hago ahora`.
+* Requested freeing vertical space at the top of the dashboard.
+* Requested making `Tutorias disponibles` fully visible, or as close as possible, in the first mobile view.
+* Requested keeping the contained mobile-first structure between header and footer/navigation.
+
+Dashboard route:
+
+```text
+/now
+```
+
+Result:
+
+```text
+STUDENT_DASHBOARD_TOP_CONTAINERS_COMPACTED_TUTORING_VISIBLE
+```
+
+UI changes:
+
+* Fused `Tu espacio de estudio` and `Que hago ahora` into one compact top card.
+* Preserved the CTA row inside the fused top container.
+* Reduced top-card padding, heading scale, state-card size, icon size, and copy line-height on mobile.
+* Reduced `Tutorias disponibles` top spacing, padding, heading size, carousel gap, card width, card padding, badge size, body text size, and CTA size on mobile.
+* Kept the mobile horizontal tutoring carousel.
+* Kept footer/navigation present and subtle.
+* Preserved existing StudyLoad actions and semantics.
+
+Mobile structure:
+
+1. Header: Bexauri / existing session action.
+2. Fused top container: `Tu espacio de estudio` + `Que hago ahora` + M1 CTA.
+3. `Tutorias disponibles` horizontal carousel.
+4. Footer/navigation: local guide always present.
+
+Operational elements:
+
+* Existing session guard.
+* Existing sign-out.
+* Existing student/enrollment/cycle read model.
+* Existing M1/current activity anchors.
+* Existing `Ver actividad`, `Empezar`, and completion actions where already exposed.
+
+Visible non-operational elements:
+
+* `PAES Matematicas M2`.
+* `PAES Competencia Lectora`.
+* Footer/navigation as local orientation only.
+
+Responsive verification:
+
+* Mobile standard `390 x 844`: prepared with fused top card and more visible tutoring carousel.
+* Tablet vertical `768 x 1024`: prepared through same hierarchy and responsive sizing.
+* Desktop `1366 x 768`: prepared with fused top-card grid and desktop tutoring grid.
+* Intended vertical overflow remains internal to dashboard content.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1B_COMPACT_STUDY_DASHBOARD_TOP_CONTAINERS_TO_EXPOSE_TUTORING_CAROUSEL.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No new enrollment.
+* No M2 functional activation.
+* No Competencia Lectora functional activation.
+* No automatic StudyLoad execution.
+* No automatic `Empezar`.
+* No responses.
+* No submit.
+* No self-report changes.
+* No completion changes.
+* No new automatic continuity.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human mobile audit of dashboard 1B
+```
+
+Result marker:
+
+```text
+STUDENT_DASHBOARD_TOP_CONTAINERS_COMPACTED_TUTORING_VISIBLE
+```
