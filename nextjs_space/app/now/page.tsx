@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
-import { ArrowRight, BookOpen, CheckCircle2, Clock, Route, Sparkles } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Clock, Route, Sparkles } from 'lucide-react'
 import { authOptions } from '@/lib/auth-options'
 import { isAdminEmail } from '@/lib/admin-guard'
 import { prisma } from '@/lib/prisma'
@@ -40,6 +40,8 @@ const tutoringCards = [
     code: 'M1',
     title: 'PAES Matemáticas M1',
     status: 'Activa',
+    exerciseCount: '0 ej.',
+    achievement: '--%',
     description: 'Organiza tu estudio, practica con foco y avanza con retroalimentación.',
     active: true,
     surface: 'border-[#79A6A4] bg-[linear-gradient(180deg,#FBFCF6_0%,#E5F0EF_100%)]',
@@ -48,7 +50,9 @@ const tutoringCards = [
   {
     code: 'M2',
     title: 'PAES Matemáticas M2',
-    status: 'Próxima ruta',
+    status: 'No disponible',
+    exerciseCount: '0 ej.',
+    achievement: '--%',
     description: 'Preparación matemática avanzada para una próxima etapa.',
     active: false,
     surface: 'border-[#A99AD2] bg-[#F2EFF8]',
@@ -57,7 +61,9 @@ const tutoringCards = [
   {
     code: 'CL',
     title: 'PAES Competencia Lectora',
-    status: 'Más adelante',
+    status: 'No disponible',
+    exerciseCount: '0 ej.',
+    achievement: '--%',
     description: 'Lectura, comprensión y análisis para fortalecer tu preparación.',
     active: false,
     surface: 'border-[#E9DFCF] bg-[#FFF3D8]',
@@ -105,10 +111,10 @@ function DashboardFooterNav() {
           Tutorías
         </a>
         <a
-          href="#actividad-actual"
+          href="#matematicas-m1"
           className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
         >
-          Actividad
+          Estudio
         </a>
       </nav>
     </footer>
@@ -131,7 +137,7 @@ function DashboardHeader({ studentName }: { studentName?: string }) {
             />
           </span>
           <span className="hidden text-sm font-semibold text-[#5D6B7A] sm:inline">
-            {studentName ? studentName : 'Tu espacio de estudio'}
+            {studentName ? studentName : 'Bexauri'}
           </span>
         </Link>
         <SignOutButton />
@@ -142,41 +148,29 @@ function DashboardHeader({ studentName }: { studentName?: string }) {
 
 function HeroSummary({
   studentName,
-  hasActiveLoads,
-  hasHistory,
 }: {
   studentName?: string
-  hasActiveLoads: boolean
-  hasHistory: boolean
 }) {
-  const nextActionText = hasActiveLoads
-    ? 'Tu siguiente accion esta disponible en la actividad actual.'
-    : hasHistory
-      ? 'Tu trabajo anterior quedo registrado. Revisa tu avance mientras se prepara el siguiente paso.'
-      : 'Cuando tengas una actividad asignada, aparecera aqui con una accion clara.'
+  const nextActionText = 'Cuando tengas una actividad asignada, aparecerá aquí con una acción clara.'
 
   return (
     <section id="inicio" className="rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-3.5 shadow-[0_14px_34px_rgba(16,33,63,0.09)] sm:p-5">
       <div className="grid gap-3 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#4B7B7C] sm:text-sm">Tu espacio de estudio</p>
-          <h1 className="mt-1 font-display text-xl font-bold leading-tight text-[#10213F] sm:text-3xl">
+          <h1 className="font-display text-xl font-bold leading-tight text-[#10213F] sm:text-3xl">
             {studentName ? `Hola, ${studentName}.` : 'Bienvenido a Bexauri.'}
           </h1>
-          <p className="mt-1 max-w-2xl text-sm leading-5 text-[#5D6B7A] sm:text-base sm:leading-6">
-            Elige una tutoria y continua con el siguiente paso de tu ruta.
-          </p>
         </div>
 
-        <div className="rounded-2xl border border-[#DCE5EA] bg-[#10213F] p-3 text-white sm:p-4">
+        <div className="rounded-2xl border border-[#A99AD2]/60 bg-[linear-gradient(135deg,#F2EFF8_0%,#EEF4F7_100%)] p-3 text-[#10213F] shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] sm:p-4">
           <div className="flex items-start gap-3">
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl bg-[#F2B84B] text-[#10213F]">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl bg-[#10213F] text-[#F2B84B] shadow-[0_8px_18px_rgba(16,33,63,0.16)]">
               <Route className="h-4 w-4" aria-hidden="true" />
             </span>
             <div className="min-w-0">
-              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#DCE5EA]">Que hago ahora</p>
-              <p className="text-base font-bold leading-5 sm:text-lg">Matematicas M1</p>
-              <p className="mt-1 text-xs leading-5 text-[#DCE5EA] sm:text-sm">{nextActionText}</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#34215F]">Qué hago ahora</p>
+              <p className="text-base font-bold leading-5 sm:text-lg">Debes matricularte/seleccionar una tutoría activa</p>
+              <p className="mt-1 text-xs leading-5 text-[#5D6B7A] sm:text-sm">{nextActionText}</p>
             </div>
           </div>
         </div>
@@ -185,16 +179,11 @@ function HeroSummary({
       <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
         <a
           href="#matematicas-m1"
-          className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#192F56] px-4 text-sm font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.18)] transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-11 sm:px-5"
+          className="group inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-[#79A6A4]/55 bg-[linear-gradient(135deg,#10213F_0%,#241642_58%,#4B7B7C_100%)] px-4 text-sm font-bold text-white shadow-[0_12px_26px_rgba(36,22,66,0.20)] transition hover:shadow-[0_14px_30px_rgba(36,22,66,0.26)] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-11 sm:px-5"
         >
-          Entrar a Matematicas M1
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </a>
-        <a
-          href="#actividad-actual"
-          className="inline-flex min-h-10 items-center justify-center rounded-full border border-[#DCE5EA] bg-white px-4 text-sm font-bold text-[#192F56] transition hover:border-[#79A6A4] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-11 sm:px-5"
-        >
-          Ver actividad actual
+          <span className="h-1.5 w-1.5 rounded-full bg-[#F2B84B] shadow-[0_0_14px_rgba(242,184,75,0.85)]" aria-hidden="true" />
+          Comenzar Estudio
+          <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
         </a>
       </div>
     </section>
@@ -206,7 +195,6 @@ function TutoringSection() {
     <section id="tutorias" className="mt-2 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-2.5 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:mt-5 sm:p-6">
       <div className="mb-2 flex items-center justify-between gap-3 sm:mb-4">
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F] sm:text-sm">Tus tutorias</p>
           <h2 className="mt-0.5 font-display text-lg font-bold text-[#10213F] sm:text-2xl">Tutorias disponibles</h2>
         </div>
         <span className="hidden h-1.5 w-16 rounded-full bg-[#F2B84B] sm:block" aria-hidden="true" />
@@ -229,12 +217,26 @@ function TutoringSection() {
             </div>
             <h3 className="mt-3 font-display text-base font-bold leading-5 text-[#10213F] sm:text-lg sm:leading-6">{card.title}</h3>
             <p className="mt-1.5 text-xs leading-5 text-[#5D6B7A] sm:text-sm sm:leading-6">{card.description}</p>
+            <div className="mt-3 grid grid-cols-3 gap-1.5 rounded-2xl border border-white/70 bg-white/55 p-1.5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Estado</p>
+                <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{card.status}</p>
+              </div>
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Ej.</p>
+                <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{card.exerciseCount}</p>
+              </div>
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Logro</p>
+                <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{card.achievement}</p>
+              </div>
+            </div>
             {card.active ? (
               <a
-                href="#actividad-actual"
+                href="#matematicas-m1"
                 className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#192F56] px-3 py-1.5 text-xs font-bold text-white transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:px-4 sm:py-2 sm:text-sm"
               >
-                Entrar a Matematicas M1
+                Comenzar Estudio
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
             ) : (
@@ -247,59 +249,11 @@ function TutoringSection() {
   )
 }
 
-function NextStepSection({ currentLoadTitle }: { currentLoadTitle?: string }) {
-  return (
-    <section className="mt-5 grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
-      <Card className="rounded-3xl border-[#E2E8EC] bg-[#FBFCF6] shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
-        <CardContent className="p-5 sm:p-6">
-          <div className="mb-4 h-1.5 w-14 rounded-full bg-[#4B7B7C]" aria-hidden="true" />
-          <h2 className="font-display text-2xl font-bold text-[#10213F]">Qué pasará después</h2>
-          <p className="mt-3 text-sm leading-7 text-[#5D6B7A]">
-            Al entrar a Matemáticas M1 verás tu actividad actual, trabajarás pocos ejercicios conectados y recibirás orientación para continuar.
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card id="actividad-actual" className="rounded-3xl border-[#DCE5EA] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
-        <CardContent className="p-5 sm:p-6">
-          <div className="flex items-start gap-3">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#E5F0EF] text-[#48656C]">
-              <BookOpen className="h-5 w-5" aria-hidden="true" />
-            </span>
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.12em] text-[#4B7B7C]">Actividad actual</p>
-              <h2 className="mt-1 font-display text-xl font-bold text-[#10213F]">
-                {currentLoadTitle ? currentLoadTitle : 'Matemáticas M1'}
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
-                Revisa aquí la actividad disponible y usa las acciones existentes para avanzar cuando estés listo.
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </section>
-  )
-}
-
 function EmptyState({ message }: { message: string }) {
   return (
     <Card className="rounded-3xl border-[#E2E8EC] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
       <CardContent className="py-10">
         <p className="text-center text-sm text-[#5D6B7A]">{message}</p>
-      </CardContent>
-    </Card>
-  )
-}
-
-function PendingProgramState() {
-  return (
-    <Card className="rounded-3xl border-[#E2E8EC] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
-      <CardContent className="space-y-3 py-8 text-center">
-        <p className="text-sm font-semibold text-[#10213F]">Tu cuenta está lista.</p>
-        <p className="text-sm leading-6 text-[#5D6B7A]">
-          Cuando tu tutoría M1 quede asociada, aquí aparecerá tu actividad actual y el siguiente paso.
-        </p>
       </CardContent>
     </Card>
   )
@@ -369,12 +323,8 @@ export default async function NowPage() {
       <Shell>
         <DashboardHeader />
         <DashboardContent>
-          <HeroSummary hasActiveLoads={false} hasHistory={false} />
+          <HeroSummary />
           <TutoringSection />
-          <NextStepSection />
-          <div className="mt-5">
-            <PendingProgramState />
-          </div>
           {isAdminSession && (
             <div className="mt-6 text-center">
               <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
@@ -403,12 +353,8 @@ export default async function NowPage() {
       <Shell>
         <DashboardHeader studentName={studentName} />
         <DashboardContent>
-          <HeroSummary studentName={studentName} hasActiveLoads={false} hasHistory={false} />
+          <HeroSummary studentName={studentName} />
           <TutoringSection />
-          <NextStepSection />
-          <div className="mt-5">
-            <PendingProgramState />
-          </div>
           {isAdminSession && (
             <div className="mt-6 text-center">
               <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
@@ -434,9 +380,8 @@ export default async function NowPage() {
       <Shell>
         <DashboardHeader studentName={studentName} />
         <DashboardContent>
-          <HeroSummary studentName={studentName} hasActiveLoads={false} hasHistory={false} />
+          <HeroSummary studentName={studentName} />
           <TutoringSection />
-          <NextStepSection />
           <div className="mt-5 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
             <ProgramSummaryCard
               programCode={enrollment.program.code}
@@ -501,7 +446,6 @@ export default async function NowPage() {
   const hasActiveLoads = pendingLoads.length > 0 || inProgressLoads.length > 0
   const hasHistory = completedLoads.length > 0
   const showCaughtUpMessage = !hasActiveLoads && hasHistory
-  const currentLoad = inProgressLoads[0] ?? pendingLoads[0] ?? completedLoads[0]
 
   const openedAtLabel = new Intl.DateTimeFormat('es-CL', {
     day: '2-digit',
@@ -513,9 +457,8 @@ export default async function NowPage() {
     <Shell>
       <DashboardHeader studentName={studentName} />
       <DashboardContent>
-        <HeroSummary studentName={studentName} hasActiveLoads={hasActiveLoads} hasHistory={hasHistory} />
+        <HeroSummary studentName={studentName} />
         <TutoringSection />
-        <NextStepSection currentLoadTitle={currentLoad?.title} />
 
       <div className="mt-5 grid gap-4 lg:grid-cols-[0.86fr_1.14fr]">
         <ProgramSummaryCard
@@ -534,7 +477,7 @@ export default async function NowPage() {
                 <h2 className="font-display text-xl font-bold text-[#10213F]">Siguiente paso</h2>
                 <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
                   {hasActiveLoads
-                    ? 'Revisa la actividad actual y avanza cuando estés listo.'
+                    ? 'Revisa la actividad disponible y avanza cuando estés listo.'
                     : 'Revisa tu actividad registrada mientras se prepara una nueva orientación.'}
                 </p>
               </div>

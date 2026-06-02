@@ -39335,3 +39335,179 @@ Result marker:
 ```text
 STUDENT_DASHBOARD_TOP_CONTAINERS_COMPACTED_TUTORING_VISIBLE
 ```
+
+---
+
+## 2026-06-02 - MVP-SALES-PILOT-UI-DASHBOARD-1C - Refine mobile dashboard copy, tutoring indicators and redundant containers
+
+Type:
+
+```text
+Level C/D - UI refinement / standard implementation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 48b59da
+Latest accepted commit = 48b59da - MVP-SALES-PILOT-UI-DASHBOARD-1B: compact mobile dashboard top containers
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1B_COMPACT_STUDY_DASHBOARD_TOP_CONTAINERS_TO_EXPOSE_TUTORING_CAROUSEL.md`.
+* Read `PHASE_LOG.md` tail.
+* Inspected `nextjs_space/app/now/page.tsx`.
+* Inspected `/now` associated component directory.
+* Human mobile audit after DASHBOARD-1B was received and applied.
+* Phase was UI-only.
+
+Indicator decision:
+
+* Existing `/now` read model supports tutoring visibility and StudyLoad list status.
+* It does not expose reliable exercise-level counts or achievement percentages for tutoring cards.
+* Safe visual placeholders were used: `0 ej.` and `--%`.
+* M1 remains visually active.
+* M2 and Competencia Lectora remain visible non-operational paths.
+
+Dashboard route:
+
+```text
+/now
+```
+
+Result:
+
+```text
+STUDENT_DASHBOARD_MOBILE_COPY_AND_TUTORING_INDICATORS_REFINED
+```
+
+UI changes:
+
+* Removed redundant first-view copy.
+* Changed the top CTA to `Comenzar Estudio`.
+* Removed the top `Ver actividad actual` button.
+* Softened contrast for the `Que hago ahora` sub-container.
+* Changed the `Que hago ahora` main copy to `Debes matricularte/seleccionar una tutoría activa`.
+* Added minimal tutoring indicators for `Estado`, `Ej.`, and `Logro`.
+* Removed redundant containers: `Que pasa despues`, `Actividad actual`, and `Tu cuenta esta lista`.
+* Kept the horizontal mobile tutoring carousel.
+* Preserved existing StudyLoad list actions and semantics.
+
+Texts removed:
+
+* `Tu espacio de estudio`.
+* `Elige una tutoria y continua con el siguiente paso de tu ruta.`
+* `Ver actividad actual`.
+* `Tus tutorias`.
+
+Copy changed:
+
+* `Matematicas M1` in the top action sub-container became `Debes matricularte/seleccionar una tutoría activa`.
+* Main CTA became `Comenzar Estudio`.
+* Footer third local anchor changed from `Actividad` to `Estudio`.
+
+CTA treatment:
+
+* Dark blue/violet/petroleum gradient.
+* Warm micro-light dot.
+* Rounded, restrained, semi high-tech/semi gaming feel.
+* No checkout, payment, purchase, or subscription styling.
+
+Tutoring indicators:
+
+* M1: `Activa`, `0 ej.`, `--%`.
+* M2: `No disponible`, `0 ej.`, `--%`.
+* Competencia Lectora: `No disponible`, `0 ej.`, `--%`.
+
+Operational elements:
+
+* Existing session guard.
+* Existing sign-out.
+* Existing student/enrollment/cycle read model.
+* Existing StudyLoad lists.
+* Existing `Ver actividad`, `Empezar`, and completion actions where already exposed in the lower StudyLoad list area.
+
+Visible non-operational elements:
+
+* `PAES Matematicas M2`.
+* `PAES Competencia Lectora`.
+* Footer/navigation as local orientation only.
+
+Responsive verification:
+
+* Mobile standard `390 x 844`: prepared with compact greeting, soft action sub-container, CTA, and indicator cards.
+* Tablet vertical `768 x 1024`: prepared through same hierarchy and responsive sizing.
+* Desktop `1366 x 768`: prepared with the same top card and desktop tutoring grid.
+* Intended vertical overflow remains internal to dashboard content.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1C_REFINE_MOBILE_DASHBOARD_COPY_TUTORING_INDICATORS_AND_REDUNDANT_CONTAINERS.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No new enrollment.
+* No M2 functional activation.
+* No Competencia Lectora functional activation.
+* No automatic StudyLoad execution.
+* No automatic `Empezar`.
+* No responses.
+* No submit.
+* No self-report changes.
+* No completion changes.
+* No new automatic continuity.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human mobile audit of dashboard 1C
+```
+
+Result marker:
+
+```text
+STUDENT_DASHBOARD_MOBILE_COPY_AND_TUTORING_INDICATORS_REFINED
+```
