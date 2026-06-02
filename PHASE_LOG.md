@@ -38190,3 +38190,129 @@ Result marker:
 ```text
 BEXAURI_VISUAL_STANDARD_V0_1_DOCUMENTED_AND_ACTIVE
 ```
+
+---
+
+## 2026-06-02 - MVP-SALES-PILOT-UI-LANDING-1D - Apply Bexauri Visual Standard v0.1 to landing page
+
+Type:
+
+```text
+Level C/D - UI visual implementation / standard implementation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 6287e97
+Latest accepted commit = 6287e97 - MVP-SALES-PILOT-BRAND-1: document Bexauri visual standard v0.1
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1C_APPLY_BEXAURI_VISUAL_BASELINE.md`.
+* Read `PHASE_LOG.md` tail.
+* Phase Scope Optimization Protocol is ACTIVE.
+* Student Experience-Led Delivery Protocol is ACTIVE.
+* Bexauri Visual Standard v0.1 is ACTIVE.
+* Phase is UI-only.
+
+Result:
+
+```text
+LANDING_PAGE_STUDENT_MVP_VISUAL_STANDARD_APPLIED
+```
+
+UI changes:
+
+* Reworked the landing first view into a compact guided-study product composition.
+* Updated hero copy to frame Bexauri as guided M1 study without exaggerated claims.
+* Added a simple route/progress preview with clarity, guided practice, and feedback steps.
+* Kept `/login` as the primary operative path.
+* Reworked access options near the first desktop fold.
+* Improved support cards around route, evidence, and feedback.
+* Preserved a sober dark footer.
+
+Visual standard applied:
+
+* Palette uses deep blue, night blue, dark violet, petroleum green, warm light backgrounds, warm amber microaccent, and soft borders/shadows.
+* Logo remains `nextjs_space/public/brand/bexauri-logo-provisional.png` and is integrated inside a deliberate white capsule/surface.
+* Cards are differentiated by hierarchy and intent:
+  * `Iniciar` is the primary operative option.
+  * `Trial` is guided exploration, not trial activation.
+  * `Suscripcion` is continuity intent, not checkout or active subscription.
+* Hero emphasizes clarity, practice, progress, evidence, feedback, and next-step guidance.
+* Visual route/progress preview signals that Bexauri guides study rather than listing isolated exercises.
+
+Responsive verification:
+
+* Mobile standard `390 x 844`: prepared through stacked hero, visible primary CTA, route preview, and stacked cards.
+* Tablet vertical `768 x 1024`: prepared through readable hierarchy and non-compressed responsive sections.
+* Desktop `1366 x 768`: prepared through two-column hero, route/progress preview, and access options close to first fold.
+* No intentionally fixed wide element was added and root uses `overflow-x-hidden`.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1D_APPLY_BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudyLoad.
+* No StudentAccess.
+* No student dashboard.
+* No M1 enrollment.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No new logo generation.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 readiness declaration.
+
+Next recommended phase:
+
+```text
+Human visual audit of landing 1D
+```
+
+Result marker:
+
+```text
+LANDING_PAGE_STUDENT_MVP_VISUAL_STANDARD_APPLIED
+```
