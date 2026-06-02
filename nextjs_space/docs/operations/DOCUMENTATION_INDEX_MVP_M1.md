@@ -30,6 +30,7 @@ These documents now govern roadmap direction:
 24. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1B_COMPACT_STUDY_DASHBOARD_TOP_CONTAINERS_TO_EXPOSE_TUTORING_CAROUSEL.md`
 25. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1C_REFINE_MOBILE_DASHBOARD_COPY_TUTORING_INDICATORS_AND_REDUNDANT_CONTAINERS.md`
 26. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1D_REFINE_STUDY_CTA_WARMTH_AND_M1_TUTORING_CARD_COPY.md`
+27. `nextjs_space/docs/operations/MVP_SALES_PILOT_DAY_CLOSE_1_LANDING_AND_DASHBOARD_UI_PROGRESS_CLOSEOUT.md`
 
 Future chats must read them before proposing work.
 
@@ -76,6 +77,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_DASHBOARD_1C_REFINE_MOBILE_DASHBOARD_COPY_TUTORING_INDICATORS_AND_REDUNDANT_CONTAINERS.md` records the mobile dashboard copy and indicators refinement: `/now` removes redundant first-view copy, changes the main CTA to `Comenzar Estudio`, adds minimal tutoring indicators for state/exercises/achievement, and removes redundant `Que pasa despues`, `Actividad actual`, and `Tu cuenta esta lista` containers without DB/base de datos, backend, checkout, or StudyLoad execution changes.
 
 `MVP_SALES_PILOT_UI_DASHBOARD_1D_REFINE_STUDY_CTA_WARMTH_AND_M1_TUTORING_CARD_COPY.md` records the minor dashboard CTA and M1 card copy refinement: `/now` gives `Comenzar Estudio` a warmer orange/fuchsia/red gradient with soft fuchsia halo and updates the PAES Matematicas M1 tutoring card copy to focus on the 4 M1 axes without DB/base de datos, backend, checkout, or StudyLoad execution changes.
+
+`MVP_SALES_PILOT_DAY_CLOSE_1_LANDING_AND_DASHBOARD_UI_PROGRESS_CLOSEOUT.md` records the daily closeout after landing and dashboard UI progress: Landing v0.1 remains accepted with PRO audit debt, Dashboard 1D is the current mobile-first dashboard state pending human audit, and the next product boundary is defining the operational behavior of `Comenzar Estudio` and M1 entry without repeating login `/now` gate tests by default.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

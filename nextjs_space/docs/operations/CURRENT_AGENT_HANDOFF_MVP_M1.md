@@ -95,6 +95,45 @@ Dashboard estudiante - tutorias y M1:
 * The main action should let the student enter or begin M1.
 * Future microphases should directly support this deliverable or remove a blocker to it.
 
+### 2C-6. Daily Closeout After Landing and Dashboard UI Progress
+
+Current UI/product state:
+
+* Landing Page estudiante - Bexauri MVP remains accepted as operative v0.1.
+* LANDING-1G is the current landing closeout state.
+* Later PRO audit of landing and Bexauri Visual Standard v0.1 remains a non-blocking debt.
+* Dashboard 1D is the current student dashboard state.
+* Dashboard v1 mobile-first is accepted as a contained direction and awaits final human mobile audit after 1D.
+* The next product decision is the operational behavior of `Comenzar Estudio`.
+
+Current next student-experience boundary:
+
+```text
+Dashboard estudiante / Comenzar Estudio behavior / M1 entry boundary
+```
+
+Direction:
+
+* Do not keep polishing the landing by default.
+* Do not repeat login `/now` gate tests unless auth/routing changes or something fails.
+* Future phases should continue top-down through student experience:
+
+```text
+dashboard -> Comenzar Estudio -> M1 boundary -> activity -> feedback -> continuity
+```
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-DASHBOARD-1E - Define and implement Comenzar Estudio behavior
+```
+
+Alternative if product decision should happen first:
+
+```text
+MVP-SALES-PILOT-UI-DASHBOARD-1E-READINESS - Decide Comenzar Estudio behavior and M1 entry boundary
+```
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
 Friday full manual M1 test is the near-term operational milestone.

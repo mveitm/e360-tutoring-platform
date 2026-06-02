@@ -76,9 +76,21 @@ The standard governs Bexauri brand direction, landing, dashboard estudiante, and
 Current student-experience deliverable:
 
 ```text
-STUDENT_DASHBOARD_TUTORING_M1_DELIVERABLE
+Dashboard estudiante / Comenzar Estudio behavior / M1 entry boundary
 
-Landing Page estudiante - Bexauri MVP is accepted as operative v0.1 with non-blocking PRO audit debt. The active top-down UI deliverable is now Dashboard estudiante - access to tutoring lines and M1 entry/enrollment. Future microphases should directly support that dashboard deliverable or remove a blocker to it.
+Landing Page estudiante - Bexauri MVP is accepted as operative v0.1 with non-blocking PRO audit debt. LANDING-1G is the current landing closeout state and the landing should not be polished again by default.
+
+Dashboard 1D is the current student dashboard state. It is mobile-first, visually contained between header and footer/navigation, includes tutoring indicators, and has the warm `Comenzar Estudio` CTA plus the M1 card copy `Fortalece tus destrezas en los 4 ejes de Matemáticas M1`.
+
+Current expected baseline before DAY-CLOSE-1 was 243905a. After DAY-CLOSE-1, future agents must use the resulting DAY-CLOSE-1 commit from Git preflight as live truth.
+
+Next recommended phase:
+MVP-SALES-PILOT-UI-DASHBOARD-1E - Define and implement Comenzar Estudio behavior
+
+Alternative product-decision-first phase:
+MVP-SALES-PILOT-UI-DASHBOARD-1E-READINESS - Decide Comenzar Estudio behavior and M1 entry boundary
+
+Do not repeat login `/now` gate tests unless auth/routing changes or something fails. Future microphases should continue top-down through student experience: dashboard -> Comenzar Estudio -> M1 boundary -> activity -> feedback -> continuity.
 ```
 
 ## 1. Purpose

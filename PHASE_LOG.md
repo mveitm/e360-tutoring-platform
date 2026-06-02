@@ -39395,6 +39395,149 @@ STUDENT_DASHBOARD_MOBILE_COPY_AND_TUTORING_INDICATORS_REFINED
 
 ---
 
+## 2026-06-02 - MVP-SALES-PILOT-DAY-CLOSE-1 - Document daily closeout after landing and dashboard UI progress
+
+Type:
+
+```text
+Level A - Daily closeout / documentation / continuity.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 243905a
+Latest accepted commit = 243905a - MVP-SALES-PILOT-UI-DASHBOARD-1D: refine study CTA and M1 card copy
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1G_REFINE_APPROVED_MOBILE_DRAFT_COPY_AND_HIERARCHY.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_TRANSITION_1_CLOSE_LANDING_V0_1_AND_DEFINE_STUDENT_DASHBOARD_TUTORING_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1_IMPLEMENT_STUDENT_DASHBOARD_TUTORING_ACCESS_AND_M1_ENTRY.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1A_REFINE_MOBILE_FIRST_STUDENT_DASHBOARD_CONTAINMENT_AND_NAVIGATION.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1B_COMPACT_STUDY_DASHBOARD_TOP_CONTAINERS_TO_EXPOSE_TUTORING_CAROUSEL.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1C_REFINE_MOBILE_DASHBOARD_COPY_TUTORING_INDICATORS_AND_REDUNDANT_CONTAINERS.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1D_REFINE_STUDY_CTA_WARMTH_AND_M1_TUTORING_CARD_COPY.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Phase was documentation-only.
+
+Result:
+
+```text
+DAILY_CLOSEOUT_LANDING_AND_DASHBOARD_UI_PROGRESS_DOCUMENTED
+```
+
+Closeout summary:
+
+* Student Experience-Led Delivery is the current operating direction.
+* Landing Page estudiante - Bexauri MVP is accepted as operative v0.1.
+* LANDING-1G remains the current landing closeout state.
+* Bexauri Visual Standard v0.1 is documented and active.
+* `STUDENT_DASHBOARD_TUTORING_M1_DELIVERABLE` was defined and executed through DASHBOARD-1 to DASHBOARD-1D.
+* Dashboard 1D is the current mobile-first student dashboard state.
+
+Relevant commits / milestones:
+
+* `99d78b4 - MVP-SALES-PILOT-UI-LANDING-1G: refine approved mobile landing draft`.
+* `66e9411 - MVP-SALES-PILOT-UI-TRANSITION-1: close landing v0.1 and define dashboard deliverable`.
+* `1712a14 - MVP-SALES-PILOT-UI-DASHBOARD-1: implement student tutoring dashboard M1 entry`.
+* `1b75327 - MVP-SALES-PILOT-UI-DASHBOARD-1A: refine mobile dashboard containment`.
+* `48b59da - MVP-SALES-PILOT-UI-DASHBOARD-1B: compact mobile dashboard top containers`.
+* `77c452f - MVP-SALES-PILOT-UI-DASHBOARD-1C: refine mobile dashboard tutoring indicators`.
+* `243905a - MVP-SALES-PILOT-UI-DASHBOARD-1D: refine study CTA and M1 card copy`.
+
+Open debts:
+
+* Later PRO audit of landing and Bexauri Visual Standard v0.1.
+* Final human mobile audit of Dashboard 1D.
+* Define operational behavior of `Comenzar Estudio`.
+* Decide whether `Comenzar Estudio` opens current activity, M1 tutoring view, tutoring selection/enrollment, or an intermediate M1 screen.
+* Replace placeholder indicators `Ej. 0` and `Logro --%` when reliable data exists.
+* Connect dashboard to real M1 experience.
+* Prepare path toward full manual M1 test through StudyLoad 10.
+* Avoid repeating login `/now` gate tests unless auth/routing changes or something fails.
+* Keep Landing v0.1 without more default polish.
+
+Direction decision:
+
+* Landing v0.1 accepted.
+* Dashboard v1 mobile-first is in final refinement.
+* Roadmap should not revolve around repeated door/gate tests.
+* Focus moves to operational and pedagogical student experience:
+
+```text
+dashboard -> Comenzar Estudio -> M1 boundary -> activity -> feedback -> continuity
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-UI-DASHBOARD-1E - Define and implement Comenzar Estudio behavior
+```
+
+Alternative:
+
+```text
+MVP-SALES-PILOT-UI-DASHBOARD-1E-READINESS - Decide Comenzar Estudio behavior and M1 entry boundary
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_DAY_CLOSE_1_LANDING_AND_DASHBOARD_UI_PROGRESS_CLOSEOUT.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No app code.
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No StudyLoad.
+* No `Empezar`.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No StudentAccess.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No implementation of `Comenzar Estudio`.
+
+Result marker:
+
+```text
+DAILY_CLOSEOUT_LANDING_AND_DASHBOARD_UI_PROGRESS_DOCUMENTED
+```
+
+---
+
 ## 2026-06-02 - MVP-SALES-PILOT-UI-DASHBOARD-1D - Refine study CTA warmth and M1 tutoring card copy
 
 Type:
