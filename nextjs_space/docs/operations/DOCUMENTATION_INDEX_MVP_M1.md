@@ -26,6 +26,7 @@ These documents now govern roadmap direction:
 20. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1G_REFINE_APPROVED_MOBILE_DRAFT_COPY_AND_HIERARCHY.md`
 21. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_TRANSITION_1_CLOSE_LANDING_V0_1_AND_DEFINE_STUDENT_DASHBOARD_TUTORING_DELIVERABLE.md`
 22. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1_IMPLEMENT_STUDENT_DASHBOARD_TUTORING_ACCESS_AND_M1_ENTRY.md`
+23. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1A_REFINE_MOBILE_FIRST_STUDENT_DASHBOARD_CONTAINMENT_AND_NAVIGATION.md`
 
 Future chats must read them before proposing work.
 
@@ -64,6 +65,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_TRANSITION_1_CLOSE_LANDING_V0_1_AND_DEFINE_STUDENT_DASHBOARD_TUTORING_DELIVERABLE.md` records Landing Page estudiante - Bexauri MVP as accepted operative v0.1 with non-blocking PRO audit debt, and defines the active next top-down UI deliverable: `STUDENT_DASHBOARD_TUTORING_M1_DELIVERABLE` for dashboard tutoring access and PAES Matemáticas M1 entry/enrollment.
 
 `MVP_SALES_PILOT_UI_DASHBOARD_1_IMPLEMENT_STUDENT_DASHBOARD_TUTORING_ACCESS_AND_M1_ENTRY.md` records the first `/now` student dashboard tutoring implementation: Bexauri visual header, `Tus tutorías`, PAES Matemáticas M1 as active path, M2/Lectora as visible non-operational architecture, current activity area, and preserved StudyLoad actions without automatic execution or backend changes.
+
+`MVP_SALES_PILOT_UI_DASHBOARD_1A_REFINE_MOBILE_FIRST_STUDENT_DASHBOARD_CONTAINMENT_AND_NAVIGATION.md` records the mobile-first dashboard containment refinement: `/now` uses a contained header/central-content/footer structure, central content scrolls internally, `Qué hago ahora` is compact, `Tutorías disponibles` scrolls horizontally on mobile, and the footer navigation uses local anchors without DB/base de datos, backend, checkout, or StudyLoad execution changes.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

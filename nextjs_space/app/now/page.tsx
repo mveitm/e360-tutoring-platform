@@ -67,27 +67,67 @@ const tutoringCards = [
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
-      <div className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
+    <main className="h-[100svh] overflow-hidden bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
+      <div className="mx-auto flex h-full w-full max-w-7xl flex-col px-3 py-3 sm:px-5 lg:px-8 lg:py-5">
         {children}
       </div>
     </main>
   )
 }
 
+function DashboardContent({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain scroll-smooth pr-1 [scrollbar-width:thin]">
+      <div className="pb-3">
+        {children}
+      </div>
+    </div>
+  )
+}
+
+function DashboardFooterNav() {
+  return (
+    <footer className="shrink-0 pt-2">
+      <nav
+        aria-label="Guía de navegación del dashboard"
+        className="grid grid-cols-3 gap-1 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 p-1.5 text-xs font-bold text-[#253A5F] shadow-[0_-8px_22px_rgba(16,33,63,0.08)] backdrop-blur"
+      >
+        <a
+          href="#inicio"
+          className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+        >
+          Inicio
+        </a>
+        <a
+          href="#tutorias"
+          className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+        >
+          Tutorías
+        </a>
+        <a
+          href="#actividad-actual"
+          className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+        >
+          Actividad
+        </a>
+      </nav>
+    </footer>
+  )
+}
+
 function DashboardHeader({ studentName }: { studentName?: string }) {
   return (
-    <header className="mb-5 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 px-3 py-2 shadow-[0_10px_24px_rgba(16,33,63,0.08)] sm:px-4">
+    <header className="mb-2 shrink-0 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 px-3 py-1.5 shadow-[0_8px_20px_rgba(16,33,63,0.08)] sm:mb-4 sm:px-4 sm:py-2">
       <div className="flex items-center justify-between gap-3">
         <Link href="/now" className="flex min-w-0 items-center gap-3" aria-label="Bexauri">
-          <span className="rounded-2xl border border-[#DCE5EA] bg-white px-2 py-1.5 shadow-sm shadow-[#10213F]/10">
+          <span className="rounded-2xl border border-[#DCE5EA] bg-white px-2 py-1 shadow-sm shadow-[#10213F]/10">
             <Image
               src="/brand/bexauri-logo-provisional.png"
               alt="Bexauri"
               width={220}
               height={88}
               priority
-              className="h-8 w-[112px] rounded-lg object-cover object-center sm:h-10 sm:w-[140px]"
+              className="h-7 w-[106px] rounded-lg object-cover object-center sm:h-9 sm:w-[132px]"
             />
           </span>
           <span className="hidden text-sm font-semibold text-[#5D6B7A] sm:inline">
@@ -110,43 +150,43 @@ function HeroSummary({
   hasHistory: boolean
 }) {
   return (
-    <section className="grid gap-4 lg:grid-cols-[1.12fr_0.88fr] lg:items-stretch">
-      <div className="rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-5 shadow-[0_18px_48px_rgba(16,33,63,0.10)] sm:p-7">
-        <p className="text-sm font-bold uppercase tracking-[0.12em] text-[#4B7B7C]">Tu espacio de estudio</p>
-        <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-[#10213F] sm:text-4xl">
+    <section id="inicio" className="grid gap-3 lg:grid-cols-[1.08fr_0.92fr] lg:items-stretch">
+      <div className="rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-4 shadow-[0_14px_34px_rgba(16,33,63,0.09)] sm:p-6">
+        <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#4B7B7C] sm:text-sm">Tu espacio de estudio</p>
+        <h1 className="mt-2 font-display text-2xl font-bold leading-tight text-[#10213F] sm:text-4xl">
           {studentName ? `Hola, ${studentName}.` : 'Bienvenido a Bexauri.'}
         </h1>
-        <p className="mt-3 max-w-2xl text-base leading-7 text-[#5D6B7A] sm:text-lg">
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5D6B7A] sm:text-lg sm:leading-7">
           Elige una tutoría y continúa con el siguiente paso de tu ruta.
         </p>
-        <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
           <a
             href="#matematicas-m1"
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#192F56] px-5 text-sm font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.18)] transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#192F56] px-4 text-sm font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.18)] transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-11 sm:px-5"
           >
             Entrar a Matemáticas M1
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
           <a
             href="#actividad-actual"
-            className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#DCE5EA] bg-white px-5 text-sm font-bold text-[#192F56] transition hover:border-[#79A6A4] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+            className="inline-flex min-h-10 items-center justify-center rounded-full border border-[#DCE5EA] bg-white px-4 text-sm font-bold text-[#192F56] transition hover:border-[#79A6A4] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-11 sm:px-5"
           >
             Ver actividad actual
           </a>
         </div>
       </div>
 
-      <div className="rounded-3xl border border-[#DCE5EA] bg-[#10213F] p-5 text-white shadow-[0_18px_48px_rgba(16,33,63,0.16)] sm:p-6">
+      <div className="rounded-3xl border border-[#DCE5EA] bg-[#10213F] p-4 text-white shadow-[0_14px_34px_rgba(16,33,63,0.14)] sm:p-5">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#F2B84B] text-[#10213F]">
-            <Route className="h-5 w-5" aria-hidden="true" />
+          <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-[#F2B84B] text-[#10213F]">
+            <Route className="h-4 w-4" aria-hidden="true" />
           </span>
           <div>
-            <p className="text-sm font-bold text-[#DCE5EA]">Qué hago ahora</p>
-            <p className="text-xl font-bold">Matemáticas M1</p>
+            <p className="text-xs font-bold text-[#DCE5EA] sm:text-sm">Qué hago ahora</p>
+            <p className="text-lg font-bold sm:text-xl">Matemáticas M1</p>
           </div>
         </div>
-        <p className="mt-4 text-sm leading-6 text-[#DCE5EA]">
+        <p className="mt-3 text-sm leading-5 text-[#DCE5EA]">
           {hasActiveLoads
             ? 'Tu siguiente acción está disponible en la actividad actual.'
             : hasHistory
@@ -160,20 +200,21 @@ function HeroSummary({
 
 function TutoringSection() {
   return (
-    <section id="matematicas-m1" className="mt-5 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:p-6">
-      <div className="mb-4 flex items-center justify-between gap-3">
+    <section id="tutorias" className="mt-3 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-3 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:mt-5 sm:p-6">
+      <div className="mb-3 flex items-center justify-between gap-3 sm:mb-4">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.12em] text-[#34215F]">Tus tutorías</p>
-          <h2 className="mt-1 font-display text-2xl font-bold text-[#10213F]">Tutorías disponibles</h2>
+          <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#34215F] sm:text-sm">Tus tutorías</p>
+          <h2 className="mt-1 font-display text-xl font-bold text-[#10213F] sm:text-2xl">Tutorías disponibles</h2>
         </div>
         <span className="hidden h-1.5 w-16 rounded-full bg-[#F2B84B] sm:block" aria-hidden="true" />
       </div>
 
-      <div className="grid gap-3 md:grid-cols-3">
+      <div className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-2 [scrollbar-width:thin] md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0">
         {tutoringCards.map((card) => (
           <article
             key={card.code}
-            className={`rounded-3xl border p-4 shadow-[0_10px_24px_rgba(16,33,63,0.07)] ${card.surface}`}
+            id={card.active ? 'matematicas-m1' : undefined}
+            className={`min-w-[238px] flex-[0_0_78%] rounded-3xl border p-4 shadow-[0_10px_24px_rgba(16,33,63,0.07)] sm:flex-[0_0_44%] md:min-w-0 md:flex-auto ${card.surface}`}
           >
             <div className="flex items-start justify-between gap-3">
               <span className={`inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-sm font-bold ${card.badge}`}>
@@ -324,19 +365,22 @@ export default async function NowPage() {
     return (
       <Shell>
         <DashboardHeader />
-        <HeroSummary hasActiveLoads={false} hasHistory={false} />
-        <TutoringSection />
-        <NextStepSection />
-        <div className="mt-5">
-          <PendingProgramState />
-        </div>
-        {isAdminSession && (
-          <div className="mt-6 text-center">
-            <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
-              Ir al panel de administración
-            </Link>
+        <DashboardContent>
+          <HeroSummary hasActiveLoads={false} hasHistory={false} />
+          <TutoringSection />
+          <NextStepSection />
+          <div className="mt-5">
+            <PendingProgramState />
           </div>
-        )}
+          {isAdminSession && (
+            <div className="mt-6 text-center">
+              <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
+                Ir al panel de administración
+              </Link>
+            </div>
+          )}
+        </DashboardContent>
+        <DashboardFooterNav />
       </Shell>
     )
   }
@@ -355,19 +399,22 @@ export default async function NowPage() {
     return (
       <Shell>
         <DashboardHeader studentName={studentName} />
-        <HeroSummary studentName={studentName} hasActiveLoads={false} hasHistory={false} />
-        <TutoringSection />
-        <NextStepSection />
-        <div className="mt-5">
-          <PendingProgramState />
-        </div>
-        {isAdminSession && (
-          <div className="mt-6 text-center">
-            <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
-              Ir al panel de administración
-            </Link>
+        <DashboardContent>
+          <HeroSummary studentName={studentName} hasActiveLoads={false} hasHistory={false} />
+          <TutoringSection />
+          <NextStepSection />
+          <div className="mt-5">
+            <PendingProgramState />
           </div>
-        )}
+          {isAdminSession && (
+            <div className="mt-6 text-center">
+              <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
+                Ir al panel de administración
+              </Link>
+            </div>
+          )}
+        </DashboardContent>
+        <DashboardFooterNav />
       </Shell>
     )
   }
@@ -383,24 +430,27 @@ export default async function NowPage() {
     return (
       <Shell>
         <DashboardHeader studentName={studentName} />
-        <HeroSummary studentName={studentName} hasActiveLoads={false} hasHistory={false} />
-        <TutoringSection />
-        <NextStepSection />
-        <div className="mt-5 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-          <ProgramSummaryCard
-            programCode={enrollment.program.code}
-            programName={enrollment.program.name}
-            openedAtLabel="Por confirmar"
-          />
-          <EmptyState message="Aún no hay una actividad abierta. Cuando esté disponible, aparecerá en este espacio." />
-        </div>
-        {isAdminSession && (
-          <div className="mt-6 text-center">
-            <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
-              Ir al panel de administración
-            </Link>
+        <DashboardContent>
+          <HeroSummary studentName={studentName} hasActiveLoads={false} hasHistory={false} />
+          <TutoringSection />
+          <NextStepSection />
+          <div className="mt-5 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+            <ProgramSummaryCard
+              programCode={enrollment.program.code}
+              programName={enrollment.program.name}
+              openedAtLabel="Por confirmar"
+            />
+            <EmptyState message="Aún no hay una actividad abierta. Cuando esté disponible, aparecerá en este espacio." />
           </div>
-        )}
+          {isAdminSession && (
+            <div className="mt-6 text-center">
+              <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
+                Ir al panel de administración
+              </Link>
+            </div>
+          )}
+        </DashboardContent>
+        <DashboardFooterNav />
       </Shell>
     )
   }
@@ -459,9 +509,10 @@ export default async function NowPage() {
   return (
     <Shell>
       <DashboardHeader studentName={studentName} />
-      <HeroSummary studentName={studentName} hasActiveLoads={hasActiveLoads} hasHistory={hasHistory} />
-      <TutoringSection />
-      <NextStepSection currentLoadTitle={currentLoad?.title} />
+      <DashboardContent>
+        <HeroSummary studentName={studentName} hasActiveLoads={hasActiveLoads} hasHistory={hasHistory} />
+        <TutoringSection />
+        <NextStepSection currentLoadTitle={currentLoad?.title} />
 
       <div className="mt-5 grid gap-4 lg:grid-cols-[0.86fr_1.14fr]">
         <ProgramSummaryCard
@@ -647,6 +698,8 @@ export default async function NowPage() {
           </Link>
         </div>
       )}
+      </DashboardContent>
+      <DashboardFooterNav />
     </Shell>
   )
 }
