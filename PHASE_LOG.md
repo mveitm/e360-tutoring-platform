@@ -38473,3 +38473,152 @@ Result marker:
 ```text
 LANDING_PAGE_STUDENT_MVP_STRUCTURE_AND_HIERARCHY_REFINED
 ```
+
+---
+
+## 2026-06-02 - MVP-SALES-PILOT-UI-LANDING-1F - Compact mobile first-view hierarchy for student landing
+
+Type:
+
+```text
+Level C/D - UI visual refinement / standard implementation.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = b9b3cb9
+Latest accepted commit = b9b3cb9 - MVP-SALES-PILOT-UI-LANDING-1E: refine landing structure and hierarchy
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/LANDING_PAGE_STUDENT_MVP_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1E_REFINE_LANDING_STRUCTURE_AND_VISUAL_HIERARCHY.md`.
+* Read `PHASE_LOG.md` tail.
+* Human audit after LANDING-1E was received and applied.
+* Phase is UI-only.
+
+Human audit inherited:
+
+* Mauricio observed that elements were too large.
+* The first mobile view did not let the student quickly understand what to do.
+* Requested compact header, compact hero, no first-view eyebrow, no hero buttons, horizontal Tutorías, compact Suscripciones, and route/support content after the first view.
+
+Result:
+
+```text
+LANDING_PAGE_STUDENT_MVP_MOBILE_FIRST_VIEW_REFINED
+```
+
+UI changes:
+
+* Compact mobile header with Bexauri logo and `Iniciar`.
+* Removed first-view `Experiencia de estudio guiado`.
+* Removed hero buttons `Iniciar experiencia` and `Ver cómo guía`.
+* Reduced mobile hero size and spacing.
+* Highlighted `Matemáticas M1` only by text color, without chip/background/card treatment.
+* Moved `Tutorías:` immediately after hero in a horizontal mobile row.
+* Simplified first-view access into `Suscripciones` with compact `Trial` and `Suscripción`.
+* Kept `Ruta de estudio`, `Una forma más clara de estudiar`, and footer after the compact first-view sequence.
+
+First mobile view:
+
+1. Header: Bexauri / `Iniciar`.
+2. Hero compact: `Estudia Matemáticas M1 con una ruta que te guía paso a paso.`
+3. Exact body text.
+4. `Tutorías:` horizontal row: `PAES Matemáticas M1`, `PAES Matemáticas M2`, `PAES Competencia Lectora`.
+5. `Suscripciones`: `Trial`, `Suscripción`.
+
+Copy applied:
+
+```text
+Estudia Matemáticas M1 con una ruta que te guía paso a paso.
+```
+
+```text
+Bexauri organiza tu estudio, identifica tu ritmo, y te ayuda construir tu aprendizaje con cada ejercicio
+```
+
+Tutorías:
+
+* `PAES Matemáticas M1`
+* `PAES Matemáticas M2`
+* `PAES Competencia Lectora`
+
+Suscripciones:
+
+* `Trial` - `7 días de prueba`
+* `Suscripción` - `acceso ilimitado`
+
+Responsive verification:
+
+* Mobile standard `390 x 844`: prepared with compact first-view hierarchy and no hero buttons.
+* Tablet vertical `768 x 1024`: prepared with same order and less cramped spacing.
+* Desktop `1366 x 768`: prepared with same hierarchy, larger typography, and route/support below.
+* Root keeps `overflow-x-hidden`.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_LANDING_1F_COMPACT_MOBILE_FIRST_VIEW_HIERARCHY.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudyLoad.
+* No StudentAccess.
+* No student dashboard.
+* No M1 enrollment.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No new Bexauri logo generation.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human visual audit of landing 1F
+```
+
+Result marker:
+
+```text
+LANDING_PAGE_STUDENT_MVP_MOBILE_FIRST_VIEW_REFINED
+```
