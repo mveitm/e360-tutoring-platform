@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
-import { AlertCircle, CheckCircle2, ChevronDown, Loader2, Send } from 'lucide-react'
+import { AlertCircle, ArrowDown, CheckCircle2, Loader2, Send } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
@@ -444,13 +444,24 @@ export default function StudyLoadAnswerForm({
             </p>
             {itemFeedback.authoredFeedbackComplete && (
               <details className="mt-2">
-                <summary className="cursor-pointer text-xs font-medium text-primary">
-                  Ver explicación completa
+                <summary className="inline-flex cursor-pointer list-none items-center gap-2 rounded-full border border-[#79A6A4] bg-[#E5F0EF] px-2.5 py-1 text-xs font-bold text-[#10213F] transition hover:bg-[#DCE5EA]">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#4B7B7C] text-sm leading-none text-white">
+                    +
+                  </span>
+                  paso a paso
                 </summary>
                 <p className="mt-2 text-muted-foreground">
                   {itemFeedback.authoredFeedbackComplete}
                 </p>
               </details>
+            )}
+            {!itemFeedback.authoredFeedbackComplete && (
+              <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#DCE5EA] bg-[#FBFCF6] px-2.5 py-1 text-xs font-bold text-[#5D6B7A]">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#A6B3BE] text-sm leading-none text-white">
+                  +
+                </span>
+                paso a paso
+              </div>
             )}
           </div>
         )}
@@ -464,7 +475,7 @@ export default function StudyLoadAnswerForm({
     return (
       <div
         ref={closureBlockRef}
-        className="mb-4 rounded-2xl border border-[#79A6A4] bg-[linear-gradient(135deg,#E5F0EF_0%,#FBFCF6_58%,#F2EFF8_100%)] p-3 text-sm text-[#10213F] shadow-[0_12px_26px_rgba(16,33,63,0.10)]"
+        className="mb-3 rounded-2xl border border-[#79A6A4] bg-[linear-gradient(135deg,#E5F0EF_0%,#FBFCF6_58%,#F2EFF8_100%)] p-2.5 text-sm text-[#10213F] shadow-[0_10px_22px_rgba(16,33,63,0.09)]"
       >
         <div className="flex items-start gap-2">
           <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#4B7B7C]" />
@@ -472,10 +483,7 @@ export default function StudyLoadAnswerForm({
             <p className="text-base font-extrabold leading-snug text-[#10213F]">
               Paso 1: Cuéntanos cómo te fue
             </p>
-            <p className="mt-1 font-medium leading-relaxed text-[#253A5F]">
-              Tus respuestas quedaron guardadas. Antes de cerrar esta cápsula, elige cómo te fue.
-            </p>
-            <div className="mt-2 space-y-2 border-t border-current/10 pt-2">
+            <div className="mt-1.5 space-y-1.5 border-t border-current/10 pt-1.5">
               {displayedAnsweredCount != null && displayedTotalItemCount != null && (
                 <p className="text-sm">
                   Respondiste {displayedAnsweredCount} de {displayedTotalItemCount} ejercicios.
@@ -486,13 +494,10 @@ export default function StudyLoadAnswerForm({
                   Correctas: {displayedCorrectCount} de {displayedTotalItemCount}.
                 </p>
               )}
-              <p className="text-xs leading-relaxed opacity-80">
-                Este resultado te ayuda a preparar el siguiente paso de estudio.
-              </p>
               {canFinalizeAfterSubmission ? (
-                <div className="mt-3 space-y-2 border-t border-current/10 pt-3 text-foreground">
-                  <p className="text-sm font-medium">
-                    Selecciona una opción para dejar tu autorreporte.
+                <div className="mt-2 space-y-2 border-t border-current/10 pt-2 text-foreground">
+                  <p className="text-sm font-bold text-[#10213F]">
+                    ¿Cómo te fue?
                   </p>
                   <RadioGroup
                     value={selfReport}
@@ -664,17 +669,13 @@ export default function StudyLoadAnswerForm({
         <p className="mt-1 text-xs font-medium leading-5 text-[#253A5F]">
           Toma notas en tu cuaderno de lo que hiciste bien y de lo necesitas reforzar
         </p>
-        <div className="mt-3 rounded-xl border border-[#DCE5EA] bg-white/75 px-3 py-2 text-xs font-semibold text-[#192F56] shadow-[inset_0_-10px_18px_rgba(52,33,95,0.04)]">
+        <div className="mt-2 rounded-xl border border-[#DCE5EA] bg-white/75 px-3 py-2 text-xs font-semibold text-[#192F56] shadow-[inset_0_-10px_18px_rgba(52,33,95,0.04)]">
           <div className="flex items-center justify-between gap-3">
             <span>Desliza para revisar tu feedback por pregunta.</span>
-            <ChevronDown className="h-4 w-4 shrink-0 text-[#4B7B7C]" aria-hidden="true" />
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#79A6A4] bg-[#E5F0EF]">
+              <ArrowDown className="h-4 w-4 text-[#4B7B7C]" aria-hidden="true" />
+            </span>
           </div>
-          <a
-            href="#feedback-pregunta-1"
-            className="mt-2 inline-flex items-center rounded-full border border-[#79A6A4] bg-[#E5F0EF] px-3 py-1.5 text-[11px] font-bold text-[#10213F] transition hover:bg-[#DCE5EA]"
-          >
-            Ver feedback por pregunta
-          </a>
         </div>
       </section>
     )

@@ -32,6 +32,106 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-4D - Refine post-submit feedback visibility and step-by-step affordance
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = f941a59
+```
+
+Inherited human audit:
+
+* CAPSULE-4C mobile audit approved.
+* Paso 1 and Paso 2 were visible and clear.
+* `Desliza para revisar...` was visible.
+* Autorreporte remained manual.
+* No automatic completion or continuity occurred.
+* Requested more direct feedback visibility and a `+ paso a paso` affordance.
+
+Changes:
+
+* Reduced Paso 1 vertical height by removing extra explanatory copy and tightening spacing.
+* Removed `Tus respuestas quedaron guardadas. Antes de cerrar esta cápsula, elige cómo te fue.` from Paso 1.
+* Removed `Este resultado te ayuda a preparar el siguiente paso de estudio.` from Paso 1.
+* Replaced `Selecciona una opción para dejar tu autorreporte.` with `¿Cómo te fue?`.
+* Replaced the chevron-like cue with a contained directional down arrow.
+* Removed the `Ver feedback por pregunta` anchor/button.
+* Added `+ paso a paso` inside each initial per-question feedback block.
+* Reused existing authored complete feedback as local disclosure when present.
+* Left `+ paso a paso` visual/non-destructive when no complete feedback exists.
+
+Feedback discoverability:
+
+* Paso 1 is shorter, moving Paso 2 and the question feedback closer in the mobile post-submit view.
+* The down arrow reads as scroll guidance rather than a dropdown.
+* Each feedback block now visibly signals that step-by-step help belongs to that question.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4D_REFINE_POST_SUBMIT_FEEDBACK_VISIBILITY_AND_STEP_BY_STEP_AFFORDANCE.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No automatic autoreporte.
+* No automatic completion.
+* No new automatic continuity.
+* No automatic submit.
+* No automatic answers.
+* No new capsule creation.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No M2/Lectora functional activation.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No official PAES score claim.
+* No definitive mastery claim.
+
+Next recommended phase:
+
+```text
+Human mobile audit of Capsule 4D feedback visibility
+```
+
+Result marker:
+
+```text
+CAPSULE_POST_SUBMIT_FEEDBACK_VISIBILITY_AND_STEP_BY_STEP_AFFORDANCE_REFINED
+```
+
+---
+
 ### MVP-SALES-PILOT-UI-CAPSULE-4C - Improve post-submit feedback discoverability and review copy
 
 Date: 2026-06-03
