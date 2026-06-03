@@ -222,7 +222,7 @@ export default function StudyLoadAnswerForm({
       if (res.ok && data.ok) {
         setSubmitResult({
           ok: true,
-          message: 'Respuestas guardadas',
+          message: 'Respuestas enviadas',
           answeredCount: data.answeredCount,
           totalItemCount: data.totalItemCount,
           correctCount: data.correctCount,
@@ -336,9 +336,11 @@ export default function StudyLoadAnswerForm({
         <Card>
           <CardContent className="py-4">
             <h2 className="mb-3 text-sm font-medium">
-              Resultado de esta cápsula
+              Resultado inicial de esta cápsula
             </h2>
             <div className="space-y-2 text-sm text-muted-foreground">
+              <p className="font-medium text-foreground">Respuestas enviadas.</p>
+              <p>Tus respuestas quedaron guardadas.</p>
               <p>
                 Respondiste {feedback.answeredCount} de {feedback.totalItemCount} preguntas.
               </p>
@@ -347,10 +349,8 @@ export default function StudyLoadAnswerForm({
                   Correctas: {feedback.correctCount} de {feedback.totalItemCount}.
                 </p>
               )}
-              <p>Tus respuestas quedaron registradas como evidencia de esta cápsula.</p>
-              <p>Este resultado no es un puntaje PAES.</p>
-              <p>Este resultado no define por sí solo tu nivel completo.</p>
-              <p>Puedes continuar con la siguiente cápsula disponible.</p>
+              <p>Revisa el resultado inicial de esta cápsula y la ayuda disponible en cada pregunta.</p>
+              <p>Este resultado te ayuda a preparar el siguiente paso de estudio.</p>
             </div>
           </CardContent>
         </Card>
@@ -428,10 +428,10 @@ export default function StudyLoadAnswerForm({
           <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
           <div className="w-full">
             <p className="font-semibold leading-relaxed">
-              Tus respuestas ya están guardadas.
+              Respuestas enviadas
             </p>
             <p className="mt-1 leading-relaxed">
-              Falta 1 paso para cerrar esta cápsula.
+              Tus respuestas quedaron guardadas. Revisa el resultado inicial de esta cápsula.
             </p>
             <div className="mt-2 space-y-2 border-t border-current/10 pt-2">
               {displayedAnsweredCount != null && displayedTotalItemCount != null && (
@@ -444,13 +444,13 @@ export default function StudyLoadAnswerForm({
                   Correctas: {displayedCorrectCount} de {displayedTotalItemCount}.
                 </p>
               )}
-              <p className="text-xs italic leading-relaxed opacity-80">
-                Este resultado no es un puntaje PAES. Tus respuestas quedaron registradas como evidencia de esta cápsula.
+              <p className="text-xs leading-relaxed opacity-80">
+                Este resultado te ayuda a preparar el siguiente paso de estudio.
               </p>
               {canFinalizeAfterSubmission ? (
                 <div className="mt-3 space-y-2 border-t border-current/10 pt-3 text-foreground">
                   <p className="text-sm font-medium">
-                    Cuéntanos cómo te fue y finaliza.
+                    Cuando termines de revisar, puedes cerrar esta cápsula.
                   </p>
                   <RadioGroup
                     value={selfReport}

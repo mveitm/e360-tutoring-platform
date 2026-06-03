@@ -32,6 +32,116 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-4 - Controlled submit of first Cápsula and initial feedback state
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = d1206a4
+```
+
+Human authorization:
+
+```text
+AUTORIZO_CAPSULE_4_SUBMIT_CONTROLADO_PRIMERA_CAPSULA
+```
+
+Inherited accepted state:
+
+* Capsule answer UI through CAPSULE-3A accepted.
+* Manual `Comenzar`.
+* Sticky question navigation and internal scroll.
+* Draft persistence before submit.
+* `Enviar respuestas` gated until all questions are answered.
+* No automatic submit.
+
+Context gate:
+
+* `POST /api/study-loads/[id]/responses` is the existing controlled submit path.
+* It creates or updates one `Response` row with `responseType="mc_submission"` for the active in-progress tutoring session.
+* It returns answered count, correct count when available, and initial feedback.
+* It does not change `StudyLoad.status`.
+* It does not call `/complete`.
+* It does not create self-report or continuity.
+* The separate `/complete` endpoint remains an existing manual closure action and was not modified.
+
+Changes:
+
+* Refined the successful submit state to show `Respuestas enviadas`.
+* Renamed the post-submit summary to `Resultado inicial de esta cápsula`.
+* Clarified that answers were saved and that the student can review the initial result and per-question help.
+* Removed unrequested defensive copy about PAES score or complete level from the touched feedback summary.
+* Kept local draft cleanup after successful manual submit.
+* Updated visible submit-route error copy from `Carga` to `Cápsula`.
+
+Evidence saved:
+
+* Existing submit stores the multiple-choice evidence payload as `mc_submission`.
+* Stored evidence includes content key/version, capsule id, submitted timestamp, selected alternatives, answer-key comparison when available, authored feedback ids when available, and summary counts.
+
+Status changes:
+
+* Manual response submit leaves the capsule `in_progress`.
+* No new completion behavior was added.
+* No new continuity behavior was added.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/api/study-loads/[id]/responses/route.ts`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4_CONTROLLED_SUBMIT_FIRST_CAPSULE_AND_INITIAL_FEEDBACK_STATE.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No automatic answers.
+* No automatic submit.
+* No automatic self-report.
+* No new automatic completion.
+* No new continuity automation.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No M2/Lectora functional activation.
+* No checkout, payment, trial, subscription, staging, production, or secrets.
+
+Result marker:
+
+```text
+FIRST_CAPSULE_CONTROLLED_SUBMIT_AND_INITIAL_FEEDBACK_READY
+```
+
+Next recommended phase:
+
+```text
+Human mobile audit of first Cápsula submit and initial feedback
+```
+
+---
+
 ### MVP-SALES-PILOT-UI-CAPSULE-3A - Preserve capsule answer draft and refine submit-ready visual state
 
 Date: 2026-06-03

@@ -137,7 +137,7 @@ export async function POST(
 
   if (!load) {
     return NextResponse.json(
-      { error: 'Carga no encontrada' },
+      { error: 'Cápsula no encontrada' },
       { status: 404 },
     )
   }
@@ -145,7 +145,7 @@ export async function POST(
   // ── 4. Ownership check ────────────────────────────────────────
   if (load.learningCycle.enrollment.student.email !== userEmail) {
     return NextResponse.json(
-      { error: 'Esta carga no te pertenece' },
+      { error: 'Esta cápsula no te pertenece' },
       { status: 403 },
     )
   }
@@ -169,13 +169,13 @@ export async function POST(
   // ── 7. StudyLoad status guard ─────────────────────────────────
   if (load.status === 'completed') {
     return NextResponse.json(
-      { error: 'Esta carga ya fue completada. No se pueden modificar respuestas.' },
+      { error: 'Esta cápsula ya fue completada. No se pueden modificar respuestas.' },
       { status: 409 },
     )
   }
   if (load.status !== 'in_progress') {
     return NextResponse.json(
-      { error: 'Esta carga no está en curso' },
+      { error: 'Esta cápsula no está en curso' },
       { status: 409 },
     )
   }
@@ -185,7 +185,7 @@ export async function POST(
   const contentByTitle = getStudyLoadContent(load.title)
   if (!contentByTitle) {
     return NextResponse.json(
-      { error: 'Esta carga no tiene contenido registrado' },
+      { error: 'Esta cápsula no tiene contenido registrado' },
       { status: 400 },
     )
   }
@@ -272,7 +272,7 @@ export async function POST(
 
   if (!activeSession) {
     return NextResponse.json(
-      { error: 'No hay sesión en curso para esta carga. ¿Se llamó a /start?' },
+      { error: 'No hay sesión en curso para esta cápsula.' },
       { status: 409 },
     )
   }
