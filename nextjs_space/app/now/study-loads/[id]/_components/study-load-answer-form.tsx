@@ -1,31 +1,20 @@
 'use client'
 
-// FL-UX-2C — Student multiple-choice answer capture UI.
-//
-// Client component that renders interactive MC options and submits
-// answers to POST /api/study-loads/[id]/responses.
-//
-// Receives only safe props — no correctOptionKey, no scoring data.
-// Server-side ownership check remains in the parent page.tsx.
-
-import { useState, useCallback, useEffect, useRef, useTransition } from 'react'
-import { Card, CardContent } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Label } from '@/components/ui/label'
-import { Send, CheckCircle2, AlertCircle, Loader2, ArrowLeft } from 'lucide-react'
-import Link from 'next/link'
+import { useCallback, useEffect, useRef, useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
-
-// ── Props (safe subset — no answer keys) ────────────────────────
+import { AlertCircle, CheckCircle2, Loader2, Send } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 interface ItemOption {
-  label: string  // "A", "B", "C", "D"
+  label: string
   text: string
 }
 
 interface Item {
-  key: string    // "q1", "q2", ...
+  key: string
   stem: string
   options: ItemOption[]
 }
@@ -54,7 +43,7 @@ interface Feedback {
 
 interface StudyLoadAnswerFormProps {
   studyLoadId: string
-  studyLoadStatus: string   // "pending" | "released" | "in_progress" | "completed"
+  studyLoadStatus: string
   contentKey: string
   contentVersion: string
   instructions: string
@@ -66,11 +55,8 @@ interface StudyLoadAnswerFormProps {
   }
   items: Item[]
   initialFeedback?: Feedback
-  /** Pre-filled answers from a previous mc_submission, if available */
-  initialAnswers?: Record<string, string>  // itemKey → selectedOptionKey
+  initialAnswers?: Record<string, string>
 }
-
-// ── Component ───────────────────────────────────────────────────
 
 export default function StudyLoadAnswerForm({
   studyLoadId,
@@ -87,18 +73,15 @@ export default function StudyLoadAnswerForm({
   const [isPendingRefresh, startTransition] = useTransition()
   const closureBlockRef = useRef<HTMLDivElement | null>(null)
 
-  // Selection state: itemKey → selectedOptionKey
   const [selections, setSelections] = useState<Record<string, string>>(
     () => initialAnswers ?? {},
   )
-
-  const [selfReport, setSelfReport] = useState<string>('')
+  const [selfReport, setSelfReport] = useState('')
   const [completing, setCompleting] = useState(false)
   const [completeSuccess, setCompleteSuccess] = useState(false)
   const [feedback, setFeedback] = useState<Feedback | null>(
     () => initialFeedback ?? null,
   )
-
   const [submitting, setSubmitting] = useState(false)
   const [submitResult, setSubmitResult] = useState<{
     ok: boolean
@@ -111,8 +94,11 @@ export default function StudyLoadAnswerForm({
 
   const answeredCount = Object.keys(selections).length
   const totalItemCount = items.length
+  const allQuestionsAnswered = totalItemCount > 0 && answeredCount === totalItemCount
   const isInProgress = studyLoadStatus === 'in_progress'
   const isCompleted = studyLoadStatus === 'completed'
+  const isPendingOrReleased =
+    studyLoadStatus === 'pending' || studyLoadStatus === 'released'
   const hasSubmittedFeedback = Boolean(feedback)
   const canFinalizeAfterSubmission =
     isInProgress && hasSubmittedFeedback && !completeSuccess
@@ -124,8 +110,13 @@ export default function StudyLoadAnswerForm({
     submitResult?.correctCount ?? feedback?.correctCount
   const displayedHasAnswerKey =
     submitResult?.hasAnswerKey ?? feedback?.hasAnswerKey
-  const isPendingOrReleased =
-    studyLoadStatus === 'pending' || studyLoadStatus === 'released'
+  const visibleInstructions = instructions
+    .split(/\r?\n/)
+    .filter((line) => !/^\s*6[\.)]\s/.test(line))
+    .join('\n')
+  const feedbackByItemKey = new Map(
+    feedback?.items.map((item) => [item.itemKey, item]) ?? [],
+  )
 
   useEffect(() => {
     if (!canFinalizeAfterSubmission) return
@@ -140,21 +131,18 @@ export default function StudyLoadAnswerForm({
     return () => window.clearTimeout(timeoutId)
   }, [canFinalizeAfterSubmission])
 
-  // ── Select handler ──────────────────────────────────────────
   const handleSelect = useCallback(
     (itemKey: string, optionLabel: string) => {
       if (!isInProgress || completeSuccess || hasSubmittedFeedback) return
       setSelections((prev) => ({ ...prev, [itemKey]: optionLabel }))
-      // Clear previous result on new interaction
       setSubmitResult(null)
       setFeedback(null)
     },
     [isInProgress, completeSuccess, hasSubmittedFeedback],
   )
 
-  // ── Submit handler ──────────────────────────────────────────
   const handleSubmit = useCallback(async () => {
-    if (!isInProgress || answeredCount === 0 || hasSubmittedFeedback) return
+    if (!isInProgress || !allQuestionsAnswered || hasSubmittedFeedback) return
     setSubmitting(true)
     setSubmitResult(null)
 
@@ -173,7 +161,6 @@ export default function StudyLoadAnswerForm({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
-
       const data = await res.json()
 
       if (res.ok && data.ok) {
@@ -206,25 +193,55 @@ export default function StudyLoadAnswerForm({
     } finally {
       setSubmitting(false)
     }
-  }, [isInProgress, answeredCount, contentKey, contentVersion, selections, studyLoadId, hasSubmittedFeedback])
+  }, [
+    isInProgress,
+    allQuestionsAnswered,
+    contentKey,
+    contentVersion,
+    selections,
+    studyLoadId,
+    hasSubmittedFeedback,
+  ])
 
-  const feedbackByItemKey = new Map(
-    feedback?.items.map((item) => [item.itemKey, item]) ?? [],
-  )
-  const visibleInstructions = instructions
-    .split(/\r?\n/)
-    .filter((line) => !/^\s*6[\.)]\s/.test(line))
-    .join('\n')
+  const handleComplete = useCallback(async () => {
+    if (!isInProgress || !selfReport) return
+    setCompleting(true)
+    try {
+      const res = await fetch(`/api/study-loads/${studyLoadId}/complete`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ selfReport }),
+      })
+
+      if (res.ok) {
+        setCompleteSuccess(true)
+        startTransition(() => {
+          router.push('/now')
+          router.refresh()
+        })
+      } else {
+        const data = await res.json()
+        setSubmitResult({
+          ok: false,
+          message: data.error || 'No se pudo finalizar la cápsula.',
+        })
+      }
+    } catch {
+      setSubmitResult({ ok: false, message: 'Error de conexión al finalizar.' })
+    } finally {
+      setCompleting(false)
+    }
+  }, [isInProgress, selfReport, studyLoadId, router])
 
   function renderInstructions() {
     return (
       <section className="mb-6">
-        <h2 className="text-sm font-medium text-muted-foreground mb-2">
+        <h2 className="mb-2 text-sm font-medium text-muted-foreground">
           Instrucciones
         </h2>
         <Card>
           <CardContent className="py-4">
-            <div className="text-sm leading-relaxed whitespace-pre-line">
+            <div className="whitespace-pre-line text-sm leading-relaxed">
               {visibleInstructions}
             </div>
           </CardContent>
@@ -238,13 +255,13 @@ export default function StudyLoadAnswerForm({
 
     return (
       <section className="mb-6">
-        <h2 className="text-sm font-medium text-muted-foreground mb-2">
+        <h2 className="mb-2 text-sm font-medium text-muted-foreground">
           Texto de lectura
         </h2>
         <Card>
           <CardContent className="py-4">
-            <p className="text-sm font-semibold mb-3">{passage.title}</p>
-            <div className="text-sm leading-relaxed whitespace-pre-line">
+            <p className="mb-3 text-sm font-semibold">{passage.title}</p>
+            <div className="whitespace-pre-line text-sm leading-relaxed">
               {passage.body}
             </div>
           </CardContent>
@@ -260,7 +277,7 @@ export default function StudyLoadAnswerForm({
       <section className="mb-6">
         <Card>
           <CardContent className="py-4">
-            <h2 className="text-sm font-medium mb-3">
+            <h2 className="mb-3 text-sm font-medium">
               Resultado de esta cápsula
             </h2>
             <div className="space-y-2 text-sm text-muted-foreground">
@@ -301,7 +318,6 @@ export default function StudyLoadAnswerForm({
         : itemFeedback.isCorrect === false
           ? 'Incorrecta'
           : 'Corrección no disponible'
-
     const statusClass =
       itemFeedback.isCorrect === true
         ? 'text-green-700 dark:text-green-400'
@@ -322,14 +338,14 @@ export default function StudyLoadAnswerForm({
         )}
         {itemFeedback.authoredFeedbackBrief && (
           <div className="mt-3 border-t pt-2">
-            <p className="font-medium text-muted-foreground">Retroalimentacion breve</p>
+            <p className="font-medium text-muted-foreground">Retroalimentación breve</p>
             <p className="mt-1 text-muted-foreground">
               {itemFeedback.authoredFeedbackBrief}
             </p>
             {itemFeedback.authoredFeedbackComplete && (
               <details className="mt-2">
                 <summary className="cursor-pointer text-xs font-medium text-primary">
-                  Ver explicacion completa
+                  Ver explicación completa
                 </summary>
                 <p className="mt-2 text-muted-foreground">
                   {itemFeedback.authoredFeedbackComplete}
@@ -342,7 +358,6 @@ export default function StudyLoadAnswerForm({
     )
   }
 
-  // ── Complete handler ────────────────────────────────────────
   function renderClosureBlock() {
     if (!canFinalizeAfterSubmission && !completeSuccess) return null
 
@@ -352,7 +367,7 @@ export default function StudyLoadAnswerForm({
         className="mb-4 rounded-lg border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300"
       >
         <div className="flex items-start gap-2">
-          <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0" />
+          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
           <div className="w-full">
             <p className="font-semibold leading-relaxed">
               Tus respuestas ya están guardadas.
@@ -371,13 +386,12 @@ export default function StudyLoadAnswerForm({
                   Correctas: {displayedCorrectCount} de {displayedTotalItemCount}.
                 </p>
               )}
-              <p className="text-xs italic opacity-80 leading-relaxed">
+              <p className="text-xs italic leading-relaxed opacity-80">
                 Este resultado no es un puntaje PAES. Tus respuestas quedaron registradas como evidencia de esta cápsula.
               </p>
-
               {canFinalizeAfterSubmission ? (
-                <div className="mt-3 pt-3 border-t border-current/10 space-y-2 text-foreground">
-                  <p className="font-medium text-sm">
+                <div className="mt-3 space-y-2 border-t border-current/10 pt-3 text-foreground">
+                  <p className="text-sm font-medium">
                     Cuéntanos cómo te fue y finaliza.
                   </p>
                   <RadioGroup
@@ -398,21 +412,21 @@ export default function StudyLoadAnswerForm({
                     onClick={handleComplete}
                     disabled={completing || !selfReport || isPendingRefresh}
                     size="sm"
-                    className="w-full mt-2"
+                    className="mt-2 w-full"
                   >
                     {completing || isPendingRefresh ? (
-                      <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     ) : (
-                      <CheckCircle2 className="h-4 w-4 mr-2" />
+                      <CheckCircle2 className="mr-2 h-4 w-4" />
                     )}
                     Finalizar cápsula
                   </Button>
                 </div>
               ) : (
-                <div className="mt-4 pt-4 border-t border-current/10">
+                <div className="mt-4 border-t border-current/10 pt-4">
                   <div className="flex items-center justify-center gap-2 text-sm font-medium text-green-700 dark:text-green-400">
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    Actualizando tu avance…
+                    Actualizando tu avance...
                   </div>
                 </div>
               )}
@@ -423,159 +437,70 @@ export default function StudyLoadAnswerForm({
     )
   }
 
-  const handleComplete = useCallback(async () => {
-    if (!isInProgress || !selfReport) return
-    setCompleting(true)
-    try {
-      const res = await fetch(`/api/study-loads/${studyLoadId}/complete`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ selfReport }),
-      })
-
-      if (res.ok) {
-        setCompleteSuccess(true)
-        startTransition(() => {
-          router.push('/now')
-          router.refresh()
-        })
-      } else {
-        const data = await res.json()
-        setSubmitResult({
-          ok: false,
-          message: data.error || 'No se pudo finalizar la cápsula.',
-        })
-      }
-    } catch {
-      setSubmitResult({ ok: false, message: 'Error de conexión al finalizar.' })
-    } finally {
-      setCompleting(false)
-    }
-  }, [isInProgress, selfReport, studyLoadId, router])
-
-  // ── Status banners ──────────────────────────────────────────
-
-  if (isPendingOrReleased) {
+  function renderReadOnlyQuestions() {
     return (
-      <>
-        {renderPassage()}
-        {renderInstructions()}
-      </>
-    )
-  }
-
-  if (isCompleted) {
-    return (
-      <>
-        {renderPassage()}
-        {renderInstructions()}
-        <div className="rounded-lg border border-green-200 bg-green-50 dark:border-green-900 dark:bg-green-950/30 p-4 mb-6">
-          <div className="flex items-start gap-2">
-            <CheckCircle2 className="h-4 w-4 mt-0.5 text-green-600 dark:text-green-400 shrink-0" />
-            <p className="text-sm text-green-800 dark:text-green-300 leading-relaxed">
-              Esta cápsula ya fue finalizada. Tus respuestas quedan como evidencia para revisión.
-            </p>
-          </div>
-        </div>
-        {renderFeedbackSummary()}
-        {/* Read-only questions */}
-        <section className="mb-8">
-          <h2 className="text-sm font-medium text-muted-foreground mb-3">
-            Ejercicios ({totalItemCount})
-          </h2>
-          <ol className="space-y-4">
-            {items.map((item, index) => (
-              <li key={item.key}>
-                <Card>
-                  <CardContent className="py-4">
-                    <p className="text-xs font-medium text-muted-foreground mb-2">
-                      Pregunta {index + 1} de {totalItemCount}
-                    </p>
-                    <p className="text-sm font-medium mb-3 whitespace-pre-line">
-                      {item.stem}
-                    </p>
-                    <ul className="space-y-1.5">
-                      {item.options.map((opt) => {
-                        const wasSelected = selections[item.key] === opt.label
-                        return (
-                          <li
-                            key={opt.label}
-                            className={`flex items-baseline gap-2 text-sm rounded px-2 py-1 ${
-                              wasSelected
-                                ? 'bg-muted font-medium'
-                                : ''
-                            }`}
-                          >
-                            <span className="shrink-0 w-5 text-muted-foreground font-medium">
-                              {opt.label})
-                            </span>
-                            <span>{opt.text}</span>
-                            {wasSelected && (
-                              <span className="text-xs text-muted-foreground ml-auto">
-                                (tu respuesta)
-                              </span>
-                            )}
-                          </li>
-                        )
-                      })}
-                    </ul>
-                    {renderQuestionFeedback(item)}
-                  </CardContent>
-                </Card>
-              </li>
-            ))}
-          </ol>
-        </section>
-      </>
-    )
-  }
-
-  // ── In-progress: interactive form ───────────────────────────
-  return (
-    <>
-      {hasSubmittedFeedback && renderClosureBlock()}
-      {renderPassage()}
-      {renderInstructions()}
-
-      {/* Guidance banner */}
-      {!hasSubmittedFeedback && (
-      <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950/30 p-4 mb-6">
-        <p className="text-sm text-blue-800 dark:text-blue-300 leading-relaxed">
-          Responde las preguntas, presiona <strong>Enviar respuestas</strong> y luego completa el cierre de la cápsula.
-        </p>
-      </div>
-      )}
-
-      {/* Progress indicator */}
-      <div className="mb-4 flex items-center justify-between">
-        <p className="text-sm text-muted-foreground">
-          {answeredCount} de {totalItemCount} respondidas
-        </p>
-        {/* Visual progress bar */}
-        <div className="w-24 h-1.5 bg-muted rounded-full overflow-hidden">
-          <div
-            className="h-full bg-primary rounded-full transition-all duration-300"
-            style={{ width: `${totalItemCount > 0 ? (answeredCount / totalItemCount) * 100 : 0}%` }}
-          />
-        </div>
-      </div>
-
-      {/* Questions */}
-      <section className="mb-6">
-        <h2 className="text-sm font-medium text-muted-foreground mb-3">
+      <section className="mb-8">
+        <h2 className="mb-3 text-sm font-medium text-muted-foreground">
           Ejercicios ({totalItemCount})
         </h2>
+        <ol className="space-y-4">
+          {items.map((item, index) => (
+            <li key={item.key}>
+              <Card>
+                <CardContent className="py-4">
+                  <p className="mb-2 text-xs font-medium text-muted-foreground">
+                    Pregunta {index + 1} de {totalItemCount}
+                  </p>
+                  <p className="mb-3 whitespace-pre-line text-sm font-medium">
+                    {item.stem}
+                  </p>
+                  <ul className="space-y-1.5">
+                    {item.options.map((opt) => {
+                      const wasSelected = selections[item.key] === opt.label
+                      return (
+                        <li
+                          key={opt.label}
+                          className={`flex items-baseline gap-2 rounded px-2 py-1 text-sm ${
+                            wasSelected ? 'bg-muted font-medium' : ''
+                          }`}
+                        >
+                          <span className="w-5 shrink-0 font-medium text-muted-foreground">
+                            {opt.label})
+                          </span>
+                          <span>{opt.text}</span>
+                          {wasSelected && (
+                            <span className="ml-auto text-xs text-muted-foreground">
+                              (tu respuesta)
+                            </span>
+                          )}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                  {renderQuestionFeedback(item)}
+                </CardContent>
+              </Card>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )
+  }
+
+  function renderAnsweringQuestions() {
+    return (
+      <section className="space-y-3 pb-2">
         <ol className="space-y-4">
           {items.map((item, index) => {
             const selected = selections[item.key]
             return (
-              <li key={item.key}>
-                <Card className={selected ? 'ring-1 ring-primary/30' : ''}>
+              <li key={item.key} id={`pregunta-${index + 1}`} className="scroll-mt-28">
+                <Card className={`rounded-2xl border-[#E2E8EC] bg-white shadow-[0_8px_22px_rgba(16,33,63,0.07)] ${selected ? 'ring-1 ring-[#4B7B7C]/40' : ''}`}>
                   <CardContent className="py-4">
-                    <p className="text-xs font-medium text-muted-foreground mb-2">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">
                       Pregunta {index + 1} de {totalItemCount}
                     </p>
-                    <p className="text-sm font-medium mb-3 whitespace-pre-line">
+                    <p className="mb-3 whitespace-pre-line text-sm font-semibold leading-6 text-[#10213F]">
                       {item.stem}
                     </p>
                     <ul className="space-y-1.5">
@@ -587,18 +512,18 @@ export default function StudyLoadAnswerForm({
                               type="button"
                               disabled={hasSubmittedFeedback}
                               onClick={() => handleSelect(item.key, opt.label)}
-                              className={`w-full flex items-baseline gap-2 text-sm rounded-md px-3 py-2 text-left transition-colors ${
+                              className={`flex w-full items-baseline gap-2 rounded-xl border px-3 py-2 text-left text-sm transition-colors ${
                                 isSelected
-                                  ? 'bg-primary/10 ring-1 ring-primary/40 font-medium'
+                                  ? 'border-[#79A6A4] bg-[#E5F0EF] font-semibold text-[#10213F]'
                                   : hasSubmittedFeedback
                                     ? 'cursor-default'
-                                    : 'hover:bg-muted/60'
+                                    : 'border-[#DCE5EA] bg-[#FBFCF6] text-[#253A5F] hover:bg-[#EEF4F7]'
                               }`}
                             >
                               <span
-                                className={`shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-xs font-medium border transition-colors ${
+                                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-medium transition-colors ${
                                   isSelected
-                                    ? 'bg-primary text-primary-foreground border-primary'
+                                    ? 'border-[#4B7B7C] bg-[#4B7B7C] text-white'
                                     : 'border-muted-foreground/30 text-muted-foreground'
                                 }`}
                               >
@@ -618,128 +543,99 @@ export default function StudyLoadAnswerForm({
           })}
         </ol>
       </section>
+    )
+  }
 
-      {/* Submit area */}
-      <section className="mb-6 rounded-lg border bg-card p-4">
-        {/* Result message */}
-        {submitResult && !submitResult.ok && (
-          <div
-            className={`mb-3 rounded-lg border p-3 text-sm ${
-              submitResult.ok
-                ? 'border-green-200 bg-green-50 text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300'
-                : 'border-red-200 bg-red-50 text-red-800 dark:border-red-900 dark:bg-red-950/30 dark:text-red-300'
-            }`}
-          >
-            <div className="flex items-start gap-2">
-              {submitResult.ok ? (
-                <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0" />
-              ) : (
-                <AlertCircle className="h-4 w-4 mt-0.5 shrink-0" />
-              )}
-              <div>
-                <p className={`leading-relaxed ${submitResult.ok ? 'font-semibold' : ''}`}>
-                  {submitResult.message}
-                </p>
-                {submitResult.ok && submitResult.answeredCount != null && (
-                  <div className="mt-2 space-y-2 border-t border-current/10 pt-2">
-                    <p className="text-sm">
-                      Respondiste {submitResult.answeredCount} de {submitResult.totalItemCount} ejercicios.
-                    </p>
-                    {submitResult.hasAnswerKey && submitResult.correctCount != null && (
-                      <p className="text-sm">
-                        Correctas: {submitResult.correctCount} de {submitResult.totalItemCount}.
-                      </p>
-                    )}
-                    <p className="text-xs italic opacity-80 leading-relaxed">
-                      Este resultado no es un puntaje PAES. Tus respuestas quedaron registradas como evidencia de esta cápsula.
-                    </p>
+  if (isPendingOrReleased) {
+    return (
+      <>
+        {renderPassage()}
+        {renderInstructions()}
+      </>
+    )
+  }
 
-                    {!completeSuccess ? (
-                      <div className="mt-4 pt-4 border-t border-current/10 space-y-3 text-foreground">
-                        <p className="font-medium text-sm">
-                          Para cerrar esta cápsula, cuéntanos brevemente cómo te fue.
-                        </p>
-                        <RadioGroup
-                          value={selfReport}
-                          onValueChange={setSelfReport}
-                          className="gap-2"
-                        >
-                          {['Me fue bien', 'Me costó', 'No la terminé'].map((opt) => (
-                            <div key={opt} className="flex items-center gap-3 rounded-md border border-current/10 p-2">
-                              <RadioGroupItem value={opt} id={`sr-${opt}`} />
-                              <Label htmlFor={`sr-${opt}`} className="flex-1 cursor-pointer text-sm font-normal">
-                                {opt}
-                              </Label>
-                            </div>
-                          ))}
-                        </RadioGroup>
-                        <Button
-                          onClick={handleComplete}
-                          disabled={completing || !selfReport || isPendingRefresh}
-                          size="sm"
-                          className="w-full mt-2"
-                        >
-                          {completing || isPendingRefresh ? (
-                            <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                          ) : (
-                            <CheckCircle2 className="h-4 w-4 mr-2" />
-                          )}
-                          Finalizar cápsula
-                        </Button>
-                      </div>
-                    ) : (
-                      <div className="mt-4 pt-4 border-t border-current/10 space-y-3">
-                        <p className="text-sm font-semibold text-green-700 dark:text-green-400">
-                          Cápsula finalizada. Tu avance quedó registrado.
-                        </p>
-                        <Button asChild variant="outline" size="sm" className="w-full">
-                          <Link href="/study/paes-m1" className="gap-1.5">
-                            <ArrowLeft className="h-4 w-4" />
-                            Volver a tutoría
-                          </Link>
-                        </Button>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
+  if (isCompleted) {
+    return (
+      <>
+        {renderPassage()}
+        {renderInstructions()}
+        <div className="mb-6 rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-900 dark:bg-green-950/30">
+          <div className="flex items-start gap-2">
+            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-600 dark:text-green-400" />
+            <p className="text-sm leading-relaxed text-green-800 dark:text-green-300">
+              Esta cápsula ya fue finalizada. Tus respuestas quedan como evidencia para revisión.
+            </p>
           </div>
-        )}
-
-        {/* Progress + submit button */}
-        <div className="flex items-center justify-between gap-3">
-          <p className="text-xs text-muted-foreground">
-            {answeredCount} de {totalItemCount} respondidas
-          </p>
-          {!completeSuccess && !hasSubmittedFeedback && (
-            <Button
-            onClick={handleSubmit}
-            disabled={submitting || answeredCount === 0 || completing || isPendingRefresh || hasSubmittedFeedback}
-            size="sm"
-            className="gap-1.5"
-          >
-            {submitting ? (
-              <Loader2 className="h-3.5 w-3.5 animate-spin" />
-            ) : (
-              <Send className="h-3.5 w-3.5" />
-            )}
-            Enviar respuestas
-          </Button>
-          )}
         </div>
-      </section>
+        {renderFeedbackSummary()}
+        {renderReadOnlyQuestions()}
+      </>
+    )
+  }
 
-      {/* Bottom return link */}
-      <div className="text-center mt-6 pb-4">
-        <Link
-          href="/study/paes-m1"
-          className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Volver a tutoría
-        </Link>
-      </div>
-    </>
+  return (
+    <div className="flex min-h-full flex-col gap-3">
+      {hasSubmittedFeedback && renderClosureBlock()}
+      {!hasSubmittedFeedback && (
+        <section className="sticky top-0 z-20 rounded-2xl border border-[#DCE5EA] bg-[#FBFCF6]/95 p-2.5 shadow-[0_10px_24px_rgba(16,33,63,0.10)] backdrop-blur">
+          <div className="flex items-center justify-between gap-2">
+            <div className="min-w-0">
+              <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">Responder cápsula</p>
+              <p className="text-xs font-semibold text-[#5D6B7A]">
+                {answeredCount}/{totalItemCount} respondidas
+              </p>
+            </div>
+            <Button
+              onClick={handleSubmit}
+              disabled={submitting || !allQuestionsAnswered || completing || isPendingRefresh || hasSubmittedFeedback}
+              size="sm"
+              className="min-h-10 shrink-0 gap-1.5 rounded-full bg-[#192F56] px-4 text-xs font-bold text-white hover:bg-[#253A5F] disabled:cursor-not-allowed disabled:opacity-45"
+            >
+              {submitting ? (
+                <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
+              ) : (
+                <Send className="h-3.5 w-3.5" aria-hidden="true" />
+              )}
+              Enviar respuestas
+            </Button>
+          </div>
+          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#DCE5EA]">
+            <div
+              className="h-full rounded-full bg-[#4B7B7C] transition-all duration-300"
+              style={{ width: `${totalItemCount > 0 ? (answeredCount / totalItemCount) * 100 : 0}%` }}
+            />
+          </div>
+          <div className="mt-2 flex gap-1.5 overflow-x-auto pb-0.5 [scrollbar-width:none]">
+            {items.map((item, index) => {
+              const isAnswered = Boolean(selections[item.key])
+              return (
+                <a
+                  key={item.key}
+                  href={`#pregunta-${index + 1}`}
+                  className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs font-bold transition ${
+                    isAnswered
+                      ? 'border-[#79A6A4] bg-[#E5F0EF] text-[#192F56]'
+                      : 'border-[#DCE5EA] bg-white text-[#5D6B7A]'
+                  }`}
+                  aria-label={`Pregunta ${index + 1}`}
+                >
+                  {index + 1}
+                </a>
+              )
+            })}
+          </div>
+        </section>
+      )}
+      {renderAnsweringQuestions()}
+      {submitResult && !submitResult.ok && (
+        <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/30 dark:text-red-300">
+          <div className="flex items-start gap-2">
+            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+            <p className="leading-relaxed">{submitResult.message}</p>
+          </div>
+        </div>
+      )}
+    </div>
   )
 }

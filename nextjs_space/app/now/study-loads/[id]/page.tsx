@@ -219,6 +219,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
 
   const safeItems = content ? getSafeStudyLoadItems(content) : []
   const capsuleStatusLabel = capsuleStatusLabels[studyLoad.status] ?? studyLoad.status
+  const isAnswering = studyLoad.status === 'in_progress'
 
   return (
     <main className="h-[100dvh] min-h-[100svh] overflow-hidden bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
@@ -243,6 +244,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
         </header>
 
         <div id="capsula-contenido" className="min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 [scrollbar-width:thin]">
+          {!isAnswering && (
           <Card className="mb-4 rounded-3xl border-[#E2E8EC] bg-[#FBFCF6] shadow-[0_14px_34px_rgba(16,33,63,0.09)]">
             <CardHeader className="pb-3">
               <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-start">
@@ -285,6 +287,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
               )}
             </CardHeader>
           </Card>
+          )}
 
           {content ? (
             <StudyLoadAnswerForm

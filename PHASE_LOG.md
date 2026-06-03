@@ -32,6 +32,88 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-3 - Refine post-start Cápsula answering layout and submit gating
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 9c34881
+```
+
+Inherited human decision:
+
+* Capsule Page 2A partially accepted.
+* Keep Bexauri header, capsule navigation footer, and `Volver a tutoría` / `Ir DB`.
+* Refine the post-start contained answering area.
+
+Changes:
+
+* `/now/study-loads/[id]` hides the introductory capsule container when the capsule is `in_progress`.
+* The post-start answer form now uses a sticky top container with progress, question chips, and `Enviar respuestas`.
+* Question chips link to the corresponding question in the existing list architecture.
+* `Enviar respuestas` is disabled until every question has a selected answer.
+* Questions, MC options, and existing feedback render in the internal scroll area.
+
+Operational elements:
+
+* Existing manual `Comenzar` start action.
+* Existing response submit endpoint.
+* Existing feedback rendering after submit.
+* Existing manual self-report/completion step.
+* Existing header/footer navigation.
+
+Scope safety:
+
+* No new DB mutation outside existing manual actions.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No enrollment creation.
+* No M2/Lectora functional activation.
+* No automatic capsule execution.
+* No automatic `Comenzar`.
+* No automatic answers.
+* No automatic submit.
+* No automatic self-report.
+* No automatic completion.
+* No continuity automation.
+* No checkout, payment, trial, subscription, staging, production, or secrets.
+
+Verification:
+
+```text
+npm.cmd --prefix nextjs_space run build
+git diff --check
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Result marker:
+
+```text
+CAPSULE_POST_START_ANSWERING_LAYOUT_AND_SUBMIT_GATING_REFINED
+```
+
+Next recommended phase:
+
+```text
+Human mobile audit of post-start Cápsula answering layout
+```
+
 ### MVP-SALES-PILOT-UI-CAPSULE-2A - Refine Study Page order and Capsule Page navigation/CTA
 
 Date: 2026-06-03
