@@ -134,6 +134,47 @@ Alternative if product decision should happen first:
 MVP-SALES-PILOT-UI-DASHBOARD-1E-READINESS - Decide Comenzar Estudio behavior and M1 entry boundary
 ```
 
+### 2C-7. Study Page M1 Pre-Enrollment Closed / Current Student-Experience Deliverable
+
+Git preflight remains the live truth for HEAD, origin/main, and working tree. This section supersedes older Dashboard-only next-boundary notes when they conflict with the accepted Study Page transition.
+
+Study Page M1 pre-enrollment is accepted:
+
+```text
+STUDY_PAGE_M1_PRE_ENROLLMENT_ACCEPTED
+```
+
+Human decision:
+
+* Mauricio accepted `ST M1 / First Landing previo a enrollment`.
+* The current `/study/paes-m1` screen is accepted as the first internal tutoring landing before enrollment.
+* It includes contained mobile-first shell, tutoring state, `Tutoría Info`, pedagogical placeholders for progress/Cápsulas, and Study Page footer.
+* It does not enroll, mutate DB/base de datos, or execute Cápsulas/StudyLoads.
+
+Current student-experience deliverable:
+
+```text
+STUDY_PAGE_M1_AFTER_ENROLLMENT_DELIVERABLE
+```
+
+Next experience target:
+
+* An authenticated student with active PAES Matemáticas M1 enrollment should enter Study Page and see `Tutoría Activa`.
+* The student should understand current state, next Cápsula or no-Cápsula state, progress/focus, `Tutoría Info`, and how to return to Dashboard.
+* Visible student UI should use `Cápsula` / `Cápsulas`, not `Carga` or `StudyLoad`.
+
+Next product decision:
+
+* Decide how Study Page after enrollment shows active tutoring and current Cápsula.
+* Decide final CTA wording and behavior: `Ver cápsula` vs `Comenzar cápsula`.
+* Keep any CTA explicit and safe; no automatic execution.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-UI-STUDY-2 - Implement M1 Study Page after-enrollment state
+```
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
 Friday full manual M1 test is the near-term operational milestone.

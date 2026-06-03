@@ -29828,6 +29828,119 @@ MVP_SALES_PILOT_DB_LOCAL_5_CODEX_DB_STILL_UNAVAILABLE
 
 ---
 
+## 2026-06-03 - MVP-SALES-PILOT-UI-STUDY-TRANSITION-1 - Close ST M1 pre-enrollment and define after-enrollment Study Page deliverable
+
+Type:
+
+```text
+Level A - Deliverable closeout / next Study Page state definition.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 164a6cf
+Latest accepted commit = 164a6cf - MVP-SALES-PILOT-UI-STUDY-1A: refine study page contained mobile shell
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_1A_REFINE_STUDY_PAGE_CONTAINED_LAYOUT_TUTORING_INFO_AND_MOBILE_SHELL.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDENT_SPINE_1_IMPLEMENT_MINIMAL_LP_DASHBOARD_STUDY_PAGE_NAVIGATION_SPINE.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Phase was documentation-only.
+
+Human decision:
+
+* Mauricio accepted `ST M1 / First Landing previo a enrollment`.
+* The current Study Page M1 pre-enrollment screen is accepted as first internal tutoring landing before enrollment.
+
+Next deliverable defined:
+
+```text
+STUDY_PAGE_M1_AFTER_ENROLLMENT_DELIVERABLE
+```
+
+Result:
+
+```text
+STUDY_PAGE_M1_PRE_ENROLLMENT_ACCEPTED
+STUDY_PAGE_M1_AFTER_ENROLLMENT_DELIVERABLE_DEFINED
+```
+
+After-enrollment expectation:
+
+* An authenticated student with active PAES Matemáticas M1 enrollment should enter Study Page and see `Tutoría Activa`.
+* The page should identify PAES Matemáticas M1.
+* The page should show contained tutoring progress, next Cápsula or a safe no-Cápsula state, `Tutoría Info`, and `Volver a Dashboard`.
+* Visible student UI should keep `Cápsula` / `Cápsulas` terminology.
+* No automatic Cápsula/StudyLoad execution is authorized by this transition.
+
+Open debts:
+
+* Define whether `Matricularse` becomes operational or enrollment happens from Dashboard/a separate flow.
+* Define whether after-enrollment should show the current Cápsula automatically.
+* Define final CTA: `Ver cápsula` vs `Comenzar cápsula`.
+* Replace progress placeholders with real data when a reliable source exists.
+* Connect ST After Enrollment with real Cápsula execution.
+* Prepare manual test toward StudyLoad/Cápsula 10.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_TRANSITION_1_CLOSE_ST_PRE_ENROLLMENT_AND_DEFINE_AFTER_ENROLLMENT_DELIVERABLE.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No app code.
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No Study Page implementation.
+* No Cápsula/StudyLoad execution.
+* No `Empezar`.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No StudentAccess.
+* No checkout.
+* No real payment.
+* No real trial.
+* No full subscription flow.
+* No staging/production.
+* No secrets.
+* ST After Enrollment was defined but not implemented.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-UI-STUDY-2 - Implement M1 Study Page after-enrollment state
+```
+
+---
+
 ## 2026-06-03 - MVP-SALES-PILOT-UI-STUDY-1A - Refine Study Page contained layout, tutoring info and mobile shell
 
 Type:

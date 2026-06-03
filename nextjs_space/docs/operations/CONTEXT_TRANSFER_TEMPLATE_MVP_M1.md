@@ -76,6 +76,25 @@ The standard governs Bexauri brand direction, landing, dashboard estudiante, and
 Current student-experience deliverable:
 
 ```text
+STUDY_PAGE_M1_AFTER_ENROLLMENT_DELIVERABLE
+
+ST M1 / First Landing previo a enrollment is accepted. The current `/study/paes-m1` Study Page is the accepted pre-enrollment internal tutoring landing with contained mobile shell, tutoring state, Tutoría Info, pedagogical placeholders for progress/Cápsulas, and footer navigation.
+
+The next deliverable is ST / After Enrollment: an authenticated student with active PAES Matemáticas M1 enrollment should enter Study Page, see `Tutoría Activa`, understand current state, see a next Cápsula or a safe no-Cápsula state, access Tutoría Info, and return to Dashboard.
+
+Current expected baseline before STUDY-TRANSITION-1 was 164a6cf. After STUDY-TRANSITION-1, future agents must use the resulting commit titled `MVP-SALES-PILOT-UI-STUDY-TRANSITION-1: define after-enrollment study page deliverable` from Git preflight as live truth.
+
+Next recommended phase:
+MVP-SALES-PILOT-UI-STUDY-2 - Implement M1 Study Page after-enrollment state
+
+Open decisions: whether `Matricularse` becomes operational or enrollment happens elsewhere; whether after-enrollment shows current Cápsula automatically; final CTA `Ver cápsula` vs `Comenzar cápsula`; replacing progress placeholders with reliable data; connecting ST After Enrollment with real Cápsula execution and manual test toward StudyLoad/Cápsula 10.
+
+Scope guardrail: do not implement ST After Enrollment, app code, DB/base de datos, auth, schema, StudentAccess, checkout, payment, trial, subscription, or Cápsula/StudyLoad execution unless a later phase explicitly authorizes it.
+```
+
+Historical prior student-experience deliverable:
+
+```text
 Dashboard estudiante / Comenzar Estudio behavior / M1 entry boundary
 
 Landing Page estudiante - Bexauri MVP is accepted as operative v0.1 with non-blocking PRO audit debt. LANDING-1G is the current landing closeout state and the landing should not be polished again by default.
