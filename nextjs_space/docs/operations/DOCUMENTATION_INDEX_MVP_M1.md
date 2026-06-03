@@ -49,6 +49,7 @@ These documents now govern roadmap direction:
 43. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5_MANUAL_AUTOREPORTE_AND_FINALIZE_CAPSULE_FLOW.md`
 44. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5A_REFINE_COMPLETED_CAPSULE_REVIEW_STATE_AND_ACCESS.md`
 45. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5B_REFINE_COMPLETED_CAPSULE_FINAL_STATE_COPY_AND_NAVIGATION_POLISH.md`
+46. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5C_VERIFY_AND_REFINE_COMPLETED_CAPSULES_REVIEW_ACCESS_FROM_STUDY_PAGE.md`
 
 Future chats must read them before proposing work.
 
@@ -133,6 +134,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_CAPSULE_5A_REFINE_COMPLETED_CAPSULE_REVIEW_STATE_AND_ACCESS.md` records the completed-capsule review refinement: completed capsules now show `Cápsula finalizada`, saved autoreporte context, and safe navigation in the first Capsule header container; initial instructions and `Comenzar` are suppressed for completed capsules; `/study/paes-m1` exposes completed capsules with `Revisar cápsula` even when existing continuity has produced a next capsule, without adding DB mutation, re-submit, automatic completion, completed-capsule restart, new continuity, schema, auth, StudentAccess, checkout, payment, trial, subscription, staging, production, or secrets.
 
 `MVP_SALES_PILOT_UI_CAPSULE_5B_REFINE_COMPLETED_CAPSULE_FINAL_STATE_COPY_AND_NAVIGATION_POLISH.md` records completed final-state copy polish: `Cápsula finalizada` now has stronger visual hierarchy, `Autorreporte: [valor]` is integrated as plain text, `Volver a tutoría` encoding was corrected, `Ir DB` was reduced to a secondary treatment, and redundant `Cápsula` labels are suppressed in completed state without behavior, data, completion, continuity, schema, auth, or backend changes.
+
+`MVP_SALES_PILOT_UI_CAPSULE_5C_VERIFY_AND_REFINE_COMPLETED_CAPSULES_REVIEW_ACCESS_FROM_STUDY_PAGE.md` records Study Page completed-capsule review access: `/study/paes-m1` keeps `Siguiente cápsula` as the primary action when a pending/in-progress capsule exists and adds a compact `Cápsulas completadas` section with `Revisar cápsula` for completed capsules, using the existing viewer review mode without DB mutation, completed-capsule restart, re-submit, automatic completion, new capsule creation, new continuity, schema, auth, or backend changes.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

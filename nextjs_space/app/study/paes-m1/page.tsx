@@ -204,16 +204,20 @@ function pickCurrentCapsule(studyLoads: CapsuleSummary[]) {
     })[0] ?? null
 }
 
-function pickLatestCompletedCapsule(studyLoads: CapsuleSummary[]) {
+function pickCompletedCapsulesForReview(
+  studyLoads: CapsuleSummary[],
+  currentCapsule: CapsuleSummary | null,
+) {
   return studyLoads
-    .filter((load) => load.status === 'completed')
+    .filter((load) => load.status === 'completed' && load.id !== currentCapsule?.id)
     .sort((a, b) => {
       const aCompletedAt = a.tutoringSessions.find((session) => session.status === 'completed')?.completedAt
       const bCompletedAt = b.tutoringSessions.find((session) => session.status === 'completed')?.completedAt
       const ta = aCompletedAt?.getTime() ?? a.updatedAt.getTime()
       const tb = bCompletedAt?.getTime() ?? b.updatedAt.getTime()
       return tb - ta
-    })[0] ?? null
+    })
+    .slice(0, 3)
 }
 
 function StatusAction({ hasActiveEnrollment }: { hasActiveEnrollment: boolean }) {
@@ -354,39 +358,54 @@ function CurrentCapsuleCard({ currentCapsule }: { currentCapsule: CapsuleSummary
   )
 }
 
-function CompletedCapsuleReviewCard({ capsule }: { capsule: CapsuleSummary }) {
-  const content = getStudyLoadContent(capsule.title)
-  const topic = content?.topic ?? 'Revisión'
-
+function CompletedCapsulesReviewSection({ capsules }: { capsules: CapsuleSummary[] }) {
   return (
-    <article className="rounded-3xl border border-[#A99AD2]/70 bg-[linear-gradient(135deg,#F2EFF8_0%,#FBFCF6_70%,#EEF4F7_100%)] p-4 shadow-[0_12px_30px_rgba(16,33,63,0.08)] sm:p-5">
-      <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
-        <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">Cápsula completada</p>
-          <h2 className="mt-1 font-display text-lg font-bold leading-tight text-[#10213F] sm:text-xl">
-            {capsule.title}
-          </h2>
-          <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-[#253A5F]">
-            <span className="rounded-full border border-[#79A6A4] bg-[#E5F0EF] px-3 py-1 text-[#10213F]">
-              Estado: Completada
-            </span>
-            <span className="rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
-              {topic}
-            </span>
-          </div>
-          <p className="mt-3 text-sm leading-6 text-[#5D6B7A]">
-            Puedes volver a revisar tus respuestas y feedback sin reiniciar la cápsula.
-          </p>
-        </div>
-        <Link
-          href={`/now/study-loads/${capsule.id}`}
-          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#79A6A4] bg-white px-5 text-sm font-bold text-[#192F56] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
-        >
-          Revisar cápsula
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </Link>
+    <section className="rounded-3xl border border-[#A99AD2]/70 bg-[linear-gradient(135deg,#F2EFF8_0%,#FBFCF6_70%,#EEF4F7_100%)] p-4 shadow-[0_12px_30px_rgba(16,33,63,0.08)] sm:p-5">
+      <div>
+        <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">Cápsulas completadas</p>
+        <h2 className="mt-1 font-display text-xl font-bold leading-tight text-[#10213F]">
+          Revisa lo que ya trabajaste
+        </h2>
+        <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
+          Puedes volver a revisar tus respuestas y la ayuda paso a paso de esta cápsula.
+        </p>
       </div>
-    </article>
+      <div className="mt-4 grid gap-2">
+        {capsules.map((capsule) => {
+          const content = getStudyLoadContent(capsule.title)
+          const topic = content?.topic ?? 'Revisión'
+
+          return (
+            <article
+              key={capsule.id}
+              className="rounded-2xl border border-[#DCE5EA] bg-white/80 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.70)]"
+            >
+              <div className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#4B7B7C]">Cápsula completada</p>
+                  <h3 className="mt-1 text-sm font-bold leading-5 text-[#10213F]">{capsule.title}</h3>
+                  <div className="mt-2 flex flex-wrap gap-2 text-[11px] font-bold text-[#253A5F]">
+                    <span className="rounded-full border border-[#79A6A4] bg-[#E5F0EF] px-2.5 py-1 text-[#10213F]">
+                      Estado: Completada
+                    </span>
+                    <span className="rounded-full border border-[#DCE5EA] bg-white px-2.5 py-1">
+                      {topic}
+                    </span>
+                  </div>
+                </div>
+                <Link
+                  href={`/now/study-loads/${capsule.id}`}
+                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-[#79A6A4] bg-white px-4 text-sm font-bold text-[#192F56] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+                >
+                  Revisar cápsula
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+            </article>
+          )
+        })}
+      </div>
+    </section>
   )
 }
 
@@ -498,9 +517,8 @@ export default async function PaesM1StudyPage({ searchParams }: PageProps) {
   const hasActiveEnrollment = Boolean(activeEnrollment)
   const studyLoads = (currentCycle?.studyLoads ?? []) as CapsuleSummary[]
   const currentCapsule = pickCurrentCapsule(studyLoads)
-  const latestCompletedCapsule = pickLatestCompletedCapsule(studyLoads)
-  const showCompletedReview =
-    Boolean(latestCompletedCapsule) && latestCompletedCapsule?.id !== currentCapsule?.id
+  const completedCapsulesForReview = pickCompletedCapsulesForReview(studyLoads, currentCapsule)
+  const showCompletedReview = completedCapsulesForReview.length > 0
   const capsuleCount = studyLoads.length
   const completedCapsules = studyLoads.filter((load) => load.status === 'completed').length
   const cycleLabel = currentCycle
@@ -587,9 +605,9 @@ export default async function PaesM1StudyPage({ searchParams }: PageProps) {
                   <div className="md:col-span-2 lg:col-span-4">
                     <CurrentCapsuleCard currentCapsule={currentCapsule} />
                   </div>
-                  {showCompletedReview && latestCompletedCapsule && (
+                  {showCompletedReview && (
                     <div className="md:col-span-2 lg:col-span-4">
-                      <CompletedCapsuleReviewCard capsule={latestCompletedCapsule} />
+                      <CompletedCapsulesReviewSection capsules={completedCapsulesForReview} />
                     </div>
                   )}
                   <article className="rounded-3xl border border-[#A99AD2]/60 bg-[linear-gradient(135deg,#F2EFF8_0%,#EEF4F7_100%)] p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)] md:col-span-2 lg:col-span-4">

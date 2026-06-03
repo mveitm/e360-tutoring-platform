@@ -32,6 +32,98 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-5C - Verify and refine completed Cápsulas review access from Study Page
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 9d54355
+```
+
+Inherited human audit:
+
+* CAPSULE-5B mobile audit approved.
+* Completed Cápsula state is clear and reviewable.
+* Completed Cápsula does not restart.
+* Study Page still had a live debt around completed-capsule review access.
+* `+ paso a paso` remains a minor non-blocking Capsule Page debt and was not touched.
+
+Context gate:
+
+* Study Page M1 reads pending, in-progress, and completed capsules through the existing read model.
+* Before this phase, Study Page showed the current next capsule and could fall back to completed, but completed review access needed a clearer section when a next capsule also exists.
+* The existing capsule viewer already opens completed capsules in review mode.
+* Phase was UI/read-only; no new mutation boundary was introduced.
+
+Changes:
+
+* Added a compact `Cápsulas completadas` Study Page section.
+* Shows up to three latest completed capsules outside the current next-action capsule.
+* Keeps `Siguiente cápsula` primary when pending or in-progress capsule exists.
+* Adds CTA `Revisar cápsula` for completed capsule review.
+* Preserves completed viewer behavior through the existing `/now/study-loads/[id]` route.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/study/paes-m1/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5C_VERIFY_AND_REFINE_COMPLETED_CAPSULES_REVIEW_ACCESS_FROM_STUDY_PAGE.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB mutation nueva.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No re-submit automático.
+* No completion automático.
+* No reinicio de cápsula completada.
+* No nueva cápsula automática.
+* No continuidad automática nueva.
+* No M2/Lectora funcional.
+* No checkout.
+* No pago real.
+* No trial real.
+* No suscripción funcional completa.
+* No staging.
+* No production.
+* No secrets.
+
+Next recommended phase:
+
+```text
+Human mobile audit of Study Page completed-capsule review access
+```
+
+Result marker:
+
+```text
+COMPLETED_CAPSULE_REVIEW_ACCESS_FROM_STUDY_PAGE_REFINED
+```
+
 ### MVP-SALES-PILOT-UI-CAPSULE-5B - Refine completed CÃ¡psula final-state copy and navigation polish
 
 Date: 2026-06-03
