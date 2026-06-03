@@ -32,6 +32,88 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-2A - Refine Study Page order and Capsule Page navigation/CTA
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 04000f5
+```
+
+Inherited human decision:
+
+* CAPSULE-2 accepted as first base.
+* Result accepted: `FIRST_M1_CAPSULE_VISIBLE_WITH_CTA_FROM_STUDY_PAGE`.
+
+Changes:
+
+* `/study/paes-m1` now renders `Siguiente cápsula` before `Estado inicial`.
+* `/now/study-loads/[id]` now has a Bexauri capsule shell with header and footer navigation.
+* `Volver a tutoría` and `Ir DB` are available in both header and footer.
+* `Cápsula PAES_M1` shows visible capsule status and CTA `Comenzar`.
+* Instruction point 6 is suppressed from visible instructions.
+* The `Para responder...` container was removed from the pending/released capsule view.
+
+Operational elements:
+
+* Existing auth/session guard.
+* Existing capsule ownership guard.
+* Existing manual start endpoint only through explicit student click.
+* Existing Study Page and Dashboard navigation.
+
+Scope safety:
+
+* No DB mutation.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No new enrollment.
+* No M2/Lectora functional activation.
+* No automatic capsule execution.
+* No automatic `Empezar`.
+* No answer selection.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No continuity automation.
+* No checkout, payment, trial, subscription, staging, production, or secrets.
+
+Verification:
+
+```text
+npm.cmd --prefix nextjs_space run build
+git diff --check
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Result marker:
+
+```text
+CAPSULE_PAGE_NAVIGATION_AND_STUDY_PAGE_ORDER_REFINED
+```
+
+Next recommended phase:
+
+```text
+Human mobile audit of Capsule Page 2A
+```
+
 ### MVP-SALES-PILOT-UI-CAPSULE-2 — Diagnose and implement first M1 cápsula availability and CTA on Study Page
 
 Date: 2026-06-03

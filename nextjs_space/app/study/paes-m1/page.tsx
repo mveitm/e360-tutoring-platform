@@ -528,6 +528,9 @@ export default async function PaesM1StudyPage({ searchParams }: PageProps) {
             <section id="progreso" className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
               {hasActiveEnrollment && (
                 <>
+                  <div className="md:col-span-2 lg:col-span-4">
+                    <CurrentCapsuleCard currentCapsule={currentCapsule} />
+                  </div>
                   <article className="rounded-3xl border border-[#A99AD2]/60 bg-[linear-gradient(135deg,#F2EFF8_0%,#EEF4F7_100%)] p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)] md:col-span-2 lg:col-span-4">
                     <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
                       <div>
@@ -556,9 +559,6 @@ export default async function PaesM1StudyPage({ searchParams }: PageProps) {
                       </div>
                     </div>
                   </article>
-                  <div className="md:col-span-2 lg:col-span-4">
-                    <CurrentCapsuleCard currentCapsule={currentCapsule} />
-                  </div>
                 </>
               )}
 

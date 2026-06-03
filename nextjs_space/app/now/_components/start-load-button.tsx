@@ -9,7 +9,19 @@ import { Button } from '@/components/ui/button'
 // Phase DP — client control for the single-action "Empezar" verb on /now.
 // Posts to the orchestration endpoint and opens the activity directly.
 
-export function StartLoadButton({ loadId }: { loadId: string }) {
+type StartLoadButtonProps = {
+  loadId: string
+  label?: string
+  busyLabel?: string
+  className?: string
+}
+
+export function StartLoadButton({
+  loadId,
+  label = 'Empezar',
+  busyLabel = 'Iniciando…',
+  className = 'h-8 gap-1.5 px-3 text-xs',
+}: StartLoadButtonProps) {
   const router = useRouter()
   const [isPosting, setIsPosting] = useState(false)
   const [isPending, startTransition] = useTransition()
@@ -50,14 +62,14 @@ export function StartLoadButton({ loadId }: { loadId: string }) {
       size="sm"
       onClick={handleClick}
       disabled={busy}
-      className="h-8 gap-1.5 px-3 text-xs"
+      className={className}
     >
       {busy ? (
         <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
       ) : (
         <Play className="h-3.5 w-3.5" aria-hidden="true" />
       )}
-      <span>{busy ? 'Iniciando…' : 'Empezar'}</span>
+      <span>{busy ? busyLabel : label}</span>
     </Button>
   )
 }

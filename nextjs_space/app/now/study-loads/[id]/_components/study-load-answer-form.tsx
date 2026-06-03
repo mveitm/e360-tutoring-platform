@@ -211,6 +211,10 @@ export default function StudyLoadAnswerForm({
   const feedbackByItemKey = new Map(
     feedback?.items.map((item) => [item.itemKey, item]) ?? [],
   )
+  const visibleInstructions = instructions
+    .split(/\r?\n/)
+    .filter((line) => !/^\s*6[\.)]\s/.test(line))
+    .join('\n')
 
   function renderInstructions() {
     return (
@@ -221,7 +225,7 @@ export default function StudyLoadAnswerForm({
         <Card>
           <CardContent className="py-4">
             <div className="text-sm leading-relaxed whitespace-pre-line">
-              {instructions}
+              {visibleInstructions}
             </div>
           </CardContent>
         </Card>
@@ -456,18 +460,6 @@ export default function StudyLoadAnswerForm({
       <>
         {renderPassage()}
         {renderInstructions()}
-        <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950/30 p-4">
-          <div className="flex items-start gap-2">
-            <AlertCircle className="h-4 w-4 mt-0.5 text-blue-600 dark:text-blue-400 shrink-0" />
-            <div>
-              <p className="text-sm text-blue-800 dark:text-blue-300 leading-relaxed">
-                Para responder, primero debes comenzar esta cápsula desde{' '}
-                <Link href="/now" className="font-medium underline underline-offset-2">Dashboard</Link>{' '}
-                para poder enviar respuestas.
-              </p>
-            </div>
-          </div>
-        </div>
       </>
     )
   }
