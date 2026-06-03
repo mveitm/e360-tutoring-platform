@@ -257,7 +257,7 @@ export default function StudyLoadAnswerForm({
         <Card>
           <CardContent className="py-4">
             <h2 className="text-sm font-medium mb-3">
-              Resultado de esta actividad
+              Resultado de esta cápsula
             </h2>
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>
@@ -268,10 +268,10 @@ export default function StudyLoadAnswerForm({
                   Correctas: {feedback.correctCount} de {feedback.totalItemCount}.
                 </p>
               )}
-              <p>Tus respuestas quedaron registradas como evidencia de esta actividad.</p>
+              <p>Tus respuestas quedaron registradas como evidencia de esta cápsula.</p>
               <p>Este resultado no es un puntaje PAES.</p>
               <p>Este resultado no define por sí solo tu nivel completo.</p>
-              <p>Puedes continuar con la siguiente actividad disponible.</p>
+              <p>Puedes continuar con la siguiente cápsula disponible.</p>
             </div>
           </CardContent>
         </Card>
@@ -354,7 +354,7 @@ export default function StudyLoadAnswerForm({
               Tus respuestas ya están guardadas.
             </p>
             <p className="mt-1 leading-relaxed">
-              Falta 1 paso para cerrar esta actividad.
+              Falta 1 paso para cerrar esta cápsula.
             </p>
             <div className="mt-2 space-y-2 border-t border-current/10 pt-2">
               {displayedAnsweredCount != null && displayedTotalItemCount != null && (
@@ -368,7 +368,7 @@ export default function StudyLoadAnswerForm({
                 </p>
               )}
               <p className="text-xs italic opacity-80 leading-relaxed">
-                Este resultado no es un puntaje PAES. Tus respuestas quedaron registradas como evidencia de esta actividad.
+                Este resultado no es un puntaje PAES. Tus respuestas quedaron registradas como evidencia de esta cápsula.
               </p>
 
               {canFinalizeAfterSubmission ? (
@@ -401,7 +401,7 @@ export default function StudyLoadAnswerForm({
                     ) : (
                       <CheckCircle2 className="h-4 w-4 mr-2" />
                     )}
-                    Finalizar actividad
+                    Finalizar cápsula
                   </Button>
                 </div>
               ) : (
@@ -439,7 +439,7 @@ export default function StudyLoadAnswerForm({
         const data = await res.json()
         setSubmitResult({
           ok: false,
-          message: data.error || 'No se pudo finalizar la actividad.',
+          message: data.error || 'No se pudo finalizar la cápsula.',
         })
       }
     } catch {
@@ -461,8 +461,8 @@ export default function StudyLoadAnswerForm({
             <AlertCircle className="h-4 w-4 mt-0.5 text-blue-600 dark:text-blue-400 shrink-0" />
             <div>
               <p className="text-sm text-blue-800 dark:text-blue-300 leading-relaxed">
-                Primero debes iniciar esta cápsula desde{' '}
-                <Link href="/now" className="font-medium underline underline-offset-2">/now</Link>{' '}
+                Para responder, primero debes comenzar esta cápsula desde{' '}
+                <Link href="/now" className="font-medium underline underline-offset-2">Dashboard</Link>{' '}
                 para poder enviar respuestas.
               </p>
             </div>
@@ -549,7 +549,7 @@ export default function StudyLoadAnswerForm({
       {!hasSubmittedFeedback && (
       <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950/30 p-4 mb-6">
         <p className="text-sm text-blue-800 dark:text-blue-300 leading-relaxed">
-          Responde las preguntas, presiona <strong>Enviar respuestas</strong> y luego completa el cierre de la actividad.
+          Responde las preguntas, presiona <strong>Enviar respuestas</strong> y luego completa el cierre de la cápsula.
         </p>
       </div>
       )}
@@ -659,13 +659,13 @@ export default function StudyLoadAnswerForm({
                       </p>
                     )}
                     <p className="text-xs italic opacity-80 leading-relaxed">
-                      Este resultado no es un puntaje PAES. Tus respuestas quedaron registradas como evidencia de esta actividad.
+                      Este resultado no es un puntaje PAES. Tus respuestas quedaron registradas como evidencia de esta cápsula.
                     </p>
 
                     {!completeSuccess ? (
                       <div className="mt-4 pt-4 border-t border-current/10 space-y-3 text-foreground">
                         <p className="font-medium text-sm">
-                          Para cerrar esta actividad, cuéntanos brevemente cómo te fue.
+                          Para cerrar esta cápsula, cuéntanos brevemente cómo te fue.
                         </p>
                         <RadioGroup
                           value={selfReport}
@@ -692,18 +692,18 @@ export default function StudyLoadAnswerForm({
                           ) : (
                             <CheckCircle2 className="h-4 w-4 mr-2" />
                           )}
-                          Finalizar actividad
+                          Finalizar cápsula
                         </Button>
                       </div>
                     ) : (
                       <div className="mt-4 pt-4 border-t border-current/10 space-y-3">
                         <p className="text-sm font-semibold text-green-700 dark:text-green-400">
-                          Actividad finalizada. Tu avance quedó registrado.
+                          Cápsula finalizada. Tu avance quedó registrado.
                         </p>
                         <Button asChild variant="outline" size="sm" className="w-full">
-                          <Link href="/now" className="gap-1.5">
+                          <Link href="/study/paes-m1" className="gap-1.5">
                             <ArrowLeft className="h-4 w-4" />
-                            Volver a /now
+                            Volver a tutoría
                           </Link>
                         </Button>
                       </div>
@@ -741,11 +741,11 @@ export default function StudyLoadAnswerForm({
       {/* Bottom return link */}
       <div className="text-center mt-6 pb-4">
         <Link
-          href="/now"
+          href="/study/paes-m1"
           className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4"
         >
           <ArrowLeft className="h-4 w-4" />
-          Volver a /now
+          Volver a tutoría
         </Link>
       </div>
     </>

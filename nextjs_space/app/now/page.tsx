@@ -151,7 +151,7 @@ function HeroSummary({
 }: {
   studentName?: string
 }) {
-  const nextActionText = 'Cuando tengas una actividad asignada, aparecerá aquí con una acción clara.'
+  const nextActionText = 'Cuando tengas una cápsula asignada, aparecerá aquí con una acción clara.'
 
   return (
     <section id="inicio" className="rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-3.5 shadow-[0_14px_34px_rgba(16,33,63,0.09)] sm:p-5">
@@ -388,7 +388,7 @@ export default async function NowPage() {
               programName={enrollment.program.name}
               openedAtLabel="Por confirmar"
             />
-            <EmptyState message="Aún no hay una actividad abierta. Cuando esté disponible, aparecerá en este espacio." />
+            <EmptyState message="Aún no hay una cápsula abierta. Cuando esté disponible, aparecerá en este espacio." />
           </div>
           {isAdminSession && (
             <div className="mt-6 text-center">
@@ -477,8 +477,8 @@ export default async function NowPage() {
                 <h2 className="font-display text-xl font-bold text-[#10213F]">Siguiente paso</h2>
                 <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
                   {hasActiveLoads
-                    ? 'Revisa la actividad disponible y avanza cuando estés listo.'
-                    : 'Revisa tu actividad registrada mientras se prepara una nueva orientación.'}
+                    ? 'Revisa la cápsula disponible y avanza cuando estés listo.'
+                    : 'Revisa tu cápsula registrada mientras se prepara una nueva orientación.'}
                 </p>
               </div>
             </div>
@@ -488,7 +488,7 @@ export default async function NowPage() {
 
       <div className="mt-6 space-y-6">
         {!hasActiveLoads && !hasHistory ? (
-          <EmptyState message="No tienes una actividad M1 disponible en este momento. Cuando se asigne una actividad, aparecerá aquí." />
+          <EmptyState message="No tienes una cápsula M1 disponible en este momento. Cuando se asigne una cápsula, aparecerá aquí." />
         ) : (
           <>
             {pendingLoads.length > 0 && (
@@ -498,7 +498,7 @@ export default async function NowPage() {
                   <h2 className="text-sm font-bold">Cápsulas pendientes ({pendingLoads.length})</h2>
                 </div>
                 <p className="text-sm leading-6 text-[#5D6B7A]">
-                  Abre la actividad cuando estés listo. Tus respuestas quedarán guardadas como evidencia de trabajo.
+                  Abre la cápsula cuando estés listo. Tus respuestas quedarán guardadas como evidencia de trabajo.
                 </p>
                 <ul className="grid gap-3 md:grid-cols-2">
                   {pendingLoads.map((load) => {
@@ -512,7 +512,7 @@ export default async function NowPage() {
                                 href={`/now/study-loads/${load.id}`}
                                 className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline"
                               >
-                                Ver actividad
+                                Ver cápsula
                               </Link>
                             ) : (
                               <span />
@@ -534,7 +534,7 @@ export default async function NowPage() {
                   <h2 className="text-sm font-bold">En curso ({inProgressLoads.length})</h2>
                 </div>
                 <p className="text-sm leading-6 text-[#5D6B7A]">
-                  Continúa tu actividad y ciérrala cuando termines. Si ya enviaste respuestas, falta tu autorreporte.
+                  Continúa tu cápsula y ciérrala cuando termines. Si ya enviaste respuestas, falta tu autorreporte.
                 </p>
                 <ul className="grid gap-3 md:grid-cols-2">
                   {inProgressLoads.map((load) => {
@@ -569,7 +569,7 @@ export default async function NowPage() {
                                   href={`/now/study-loads/${load.id}`}
                                   className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline"
                                 >
-                                  {hasSubmittedMcEvidence ? 'Finalizar actividad' : 'Ver actividad'}
+                                  {hasSubmittedMcEvidence ? 'Finalizar cápsula' : 'Ver cápsula'}
                                 </Link>
                               )}
                               {!hasContent && <CompleteLoadButton loadId={load.id} />}
@@ -586,19 +586,19 @@ export default async function NowPage() {
             {showCaughtUpMessage && (
               <Card className="rounded-3xl border-[#E2E8EC] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
                 <CardContent className="py-8 text-center">
-                  <h2 className="text-sm font-bold text-[#10213F]">Actividad registrada</h2>
+                  <h2 className="text-sm font-bold text-[#10213F]">Cápsula registrada</h2>
                   <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
-                    Tu última actividad quedó registrada. Revisa tu evidencia mientras se prepara el siguiente paso.
+                    Tu última cápsula quedó registrada. Revisa tu evidencia mientras se prepara el siguiente paso.
                   </p>
                 </CardContent>
               </Card>
             )}
 
             {completedLoads.length > 0 && (
-              <section aria-label="Actividades registradas" className="space-y-3">
+              <section aria-label="Cápsulas registradas" className="space-y-3">
                 <div className="flex items-center gap-2 text-[#253A5F]">
                   <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-                  <h2 className="text-sm font-bold">Actividades registradas ({completedLoads.length})</h2>
+                  <h2 className="text-sm font-bold">Cápsulas registradas ({completedLoads.length})</h2>
                 </div>
                 <p className="text-sm leading-6 text-[#5D6B7A]">
                   Tu trabajo queda guardado como evidencia para revisar tu avance y orientar el siguiente foco.
@@ -622,7 +622,7 @@ export default async function NowPage() {
                                 href={`/now/study-loads/${load.id}`}
                                 className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline"
                               >
-                                Ver actividad
+                                Ver cápsula
                               </Link>
                             </div>
                           )}

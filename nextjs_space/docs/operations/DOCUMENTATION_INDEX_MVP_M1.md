@@ -36,6 +36,7 @@ These documents now govern roadmap direction:
 30. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_TRANSITION_1_CLOSE_ST_PRE_ENROLLMENT_AND_DEFINE_AFTER_ENROLLMENT_DELIVERABLE.md`
 31. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_2_IMPLEMENT_M1_STUDY_PAGE_AFTER_ENROLLMENT_STATE.md`
 32. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_ENROLL_1_IMPLEMENT_MINIMAL_M1_ENROLLMENT_FROM_STUDY_PAGE.md`
+33. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_1_AUDIT_AND_REFINE_FIRST_CAPSULE_VIEWER_ENTRY_FROM_STUDY_PAGE.md`
 
 Future chats must read them before proposing work.
 
@@ -94,6 +95,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_STUDY_2_IMPLEMENT_M1_STUDY_PAGE_AFTER_ENROLLMENT_STATE.md` records the Study Page M1 after-enrollment implementation: `/study/paes-m1` now detects active PAES_M1 enrollment read-only, shows `Tutoría Activa`, displays current capsule priority from existing cycle loads, exposes `Ver cápsula` as a navigation-only CTA to `/now/study-loads/[id]`, and keeps no-capsule/pre-enrollment states safe without DB/base de datos mutation, backend, auth, enrollment creation, StudentAccess, checkout, payment, trial, subscription, or Cápsula/StudyLoad execution automation.
 
 `MVP_SALES_PILOT_UI_STUDY_ENROLL_1_IMPLEMENT_MINIMAL_M1_ENROLLMENT_FROM_STUDY_PAGE.md` records the controlled enrollment implementation from `/study/paes-m1`: `Matricularse` now submits an authenticated server action that creates or reactivates the minimal PAES_M1 `StudentProgramInstance`, then returns to `Tutoría Activa`; it keeps capsule lookup read-only, preserves `Ver cápsula`, and does not create cycles/capsules, StudentAccess, checkout, payment, trial, subscription, or Cápsula/StudyLoad execution automation.
+
+`MVP_SALES_PILOT_UI_CAPSULE_1_AUDIT_AND_REFINE_FIRST_CAPSULE_VIEWER_ENTRY_FROM_STUDY_PAGE.md` records the first Cápsula viewer entry refinement: `/study/paes-m1` keeps `Ver cápsula` as navigation to `/now/study-loads/[id]`, the viewer now presents a Bexauri-aligned Cápsula shell with `Volver a tutoría`, and touched Dashboard/viewer copy uses `Cápsula` / `Cápsulas` without DB mutation, backend changes, automatic StudyLoad execution, responses, submit, self-report, completion, or continuity automation.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

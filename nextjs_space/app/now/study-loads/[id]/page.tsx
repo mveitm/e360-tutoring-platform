@@ -167,43 +167,46 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
 
   // 7) Render
   return (
-    <main className="min-h-screen bg-background">
-      <div className="mx-auto w-full max-w-lg px-4 pt-8 pb-16 sm:pt-12">
+    <main className="min-h-screen bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
+      <div className="mx-auto w-full max-w-2xl px-3 py-4 sm:px-5 sm:py-8">
         {/* Back link */}
         <Link
-          href="/now"
-          className="mb-6 inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+          href="/study/paes-m1"
+          className="mb-3 inline-flex min-h-9 items-center gap-1.5 rounded-full border border-[#DCE5EA] bg-white px-3 text-xs font-bold text-[#192F56] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
-          Volver a /now
+          Volver a tutoría
         </Link>
 
         {/* Header card */}
-        <Card className="mb-6">
+        <Card className="mb-4 rounded-3xl border-[#E2E8EC] bg-[#FBFCF6] shadow-[0_14px_34px_rgba(16,33,63,0.09)]">
           <CardHeader className="pb-3">
             <div className="flex items-start justify-between gap-3">
               <div className="flex-1">
-                <p className="text-xs uppercase tracking-wide text-muted-foreground mb-1">
-                  {enrollment.program.code}
+                <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">
+                  Cápsula · {enrollment.program.code}
                 </p>
-                <CardTitle className="text-lg leading-snug">
+                <CardTitle className="font-display text-xl leading-snug text-[#10213F] sm:text-2xl">
                   {studyLoad.title}
                 </CardTitle>
+                <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
+                  Trabaja esta cápsula con calma. Tus respuestas quedarán guardadas cuando decidas enviarlas.
+                </p>
               </div>
               <Badge
                 variant="secondary"
-                className="shrink-0 text-[10px] uppercase tracking-wide"
+                className="shrink-0 rounded-full bg-[#EEF4F7] text-[10px] font-bold uppercase tracking-wide text-[#253A5F]"
               >
-                {studyLoad.loadType}
+                Cápsula
               </Badge>
             </div>
             {content && (
-              <div className="mt-3 flex flex-wrap gap-3 text-xs text-muted-foreground">
+              <div className="mt-3 flex flex-wrap gap-3 text-xs font-semibold text-[#5D6B7A]">
                 <span className="inline-flex items-center gap-1">
                   <BookOpen className="h-3.5 w-3.5" />
                   {content.topic}
                 </span>
-                <span aria-hidden="true" className="text-muted-foreground/60">?</span>
+                <span aria-hidden="true" className="text-[#A6B3BE]">·</span>
                 <span className="inline-flex items-center gap-1">
                   <Clock className="h-3.5 w-3.5" />
                   {content.estimatedMinutes}
@@ -238,18 +241,18 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
           <Card>
             <CardContent className="py-10">
               <p className="text-center text-sm text-muted-foreground">
-                El contenido de esta actividad aún no está disponible dentro de la plataforma.
+                El contenido de esta cápsula aún no está disponible dentro de la plataforma.
               </p>
               <p className="mt-2 text-center text-xs text-muted-foreground">
                 Consulta con tu tutor/a para recibir las instrucciones.
               </p>
               <div className="mt-4 text-center">
                 <Link
-                  href="/now"
+                  href="/study/paes-m1"
                   className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4"
                 >
                   <ArrowLeft className="h-4 w-4" />
-                  Volver a /now
+                  Volver a tutoría
                 </Link>
               </div>
             </CardContent>

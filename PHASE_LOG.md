@@ -32,6 +32,93 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-1 — Audit and refine first Cápsula viewer entry from Study Page
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 6115dc8
+```
+
+Accepted inherited state:
+
+* `MVP-SALES-PILOT-UI-STUDY-ENROLL-1` accepted.
+* `Matricularse` from `/study/paes-m1` creates/reactivates PAES_M1 enrollment and returns to `Tutoría Activa`.
+
+Result marker:
+
+```text
+CAPSULE_VIEWER_ENTRY_FROM_STUDY_PAGE_REFINED
+```
+
+Routes:
+
+* Study Page: `/study/paes-m1`.
+* Dashboard: `/now`.
+* Cápsula viewer: `/now/study-loads/[id]`.
+
+Summary:
+
+* Confirmed Study Page `Ver cápsula` remains navigation only to `/now/study-loads/[id]`.
+* Refined the viewer shell with Bexauri-aligned contained styling.
+* Added visible `Cápsula · PAES_M1` label and `Cápsula` badge.
+* Added `Volver a tutoría` as the primary return path from the viewer.
+* Replaced touched student-visible `actividad` / `Ver actividad` copy with `cápsula` / `Ver cápsula`.
+* Kept existing manual `Empezar`, `Enviar respuestas`, and finalization controls without triggering them automatically.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_1_AUDIT_AND_REFINE_FIRST_CAPSULE_VIEWER_ENTRY_FROM_STUDY_PAGE.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB mutation.
+* No schema.
+* No migrations.
+* No auth architecture changes.
+* No credentials.
+* No StudentAccess lifecycle.
+* No new enrollment.
+* No M2 functional activation.
+* No Competencia Lectora functional activation.
+* No automatic Cápsula/StudyLoad execution.
+* No automatic `Empezar`.
+* No response selection.
+* No responses.
+* No submit.
+* No self-report changes.
+* No completion changes.
+* No automatic continuity.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human mobile audit of Ver cápsula entry
+```
+
 ### MVP-SALES-PILOT-UI-STUDY-ENROLL-1 — Implement minimal M1 enrollment from Study Page
 
 Date: 2026-06-03
