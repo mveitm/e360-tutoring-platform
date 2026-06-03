@@ -32,6 +32,99 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-4A - Refine post-submit Cápsula review state and autoreporte persistence
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 59f351d
+```
+
+Inherited human audit:
+
+* CAPSULE-4 accepted on mobile through manual submit and initial feedback.
+* Requested replacing `Respuestas enviadas` with `Paso 1: Cuéntanos cómo te fue`.
+* Requested `Paso 2: Toma nota de tu resultado` before the question/feedback list.
+* Requested preserving the post-submit state when leaving to Tutoría or DB and returning before autoreporte/completion.
+
+Context gate:
+
+* `page.tsx` already reads existing `mc_submission` evidence and rebuilds `initialAnswers` plus `initialFeedback`.
+* The client form initializes feedback state from `initialFeedback`.
+* This existing evidence read path is enough to restore post-submit review state after navigation out/return.
+* Existing manual autoreporte/self-report UI is present and reused.
+* No new DB mutation or storage mechanism was needed.
+
+Changes:
+
+* Changed post-submit success/cierre title to `Paso 1: Cuéntanos cómo te fue`.
+* Kept the existing closed autoreporte options under Paso 1.
+* Added `Paso 2: Toma nota de tu resultado` before the question and feedback list when `mc_submission` feedback exists.
+* Kept per-question feedback/help visible and read-only after submit.
+* Kept draft cleanup and manual completion semantics unchanged.
+
+Persistence:
+
+* Returning from `Volver a tutoría` or `Ir DB` reuses persisted `mc_submission` evidence.
+* The capsule returns to post-submit review state instead of the pre-submit answering state.
+* This does not depend only on `sessionStorage`.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4A_REFINE_POST_SUBMIT_REVIEW_STATE_AND_AUTOREPORTE_PERSISTENCE.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No automatic submit.
+* No automatic answers.
+* No automatic autoreporte.
+* No automatic completion.
+* No new continuity automation.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No M2/Lectora functional activation.
+* No checkout, payment, trial, subscription, staging, production, or secrets.
+
+Result marker:
+
+```text
+CAPSULE_POST_SUBMIT_REVIEW_AND_AUTOREPORTE_PENDING_STATE_REFINED
+```
+
+Next recommended phase:
+
+```text
+Human mobile audit of post-submit review and autoreporte pending state
+```
+
+---
+
 ### MVP-SALES-PILOT-UI-CAPSULE-4 - Controlled submit of first Cápsula and initial feedback state
 
 Date: 2026-06-03

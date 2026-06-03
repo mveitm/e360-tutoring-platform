@@ -42,6 +42,7 @@ These documents now govern roadmap direction:
 36. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_3_REFINE_POST_START_CAPSULE_ANSWERING_LAYOUT_AND_SUBMIT_GATING.md`
 37. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_3A_PRESERVE_CAPSULE_ANSWER_DRAFT_AND_REFINE_SUBMIT_READY_STATE.md`
 38. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4_CONTROLLED_SUBMIT_FIRST_CAPSULE_AND_INITIAL_FEEDBACK_STATE.md`
+39. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4A_REFINE_POST_SUBMIT_REVIEW_STATE_AND_AUTOREPORTE_PERSISTENCE.md`
 
 Future chats must read them before proposing work.
 
@@ -112,6 +113,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_CAPSULE_3A_PRESERVE_CAPSULE_ANSWER_DRAFT_AND_REFINE_SUBMIT_READY_STATE.md` records the answer-draft and submit-ready refinement: selected alternatives are stored locally in `sessionStorage` with key `bexauri:capsule-draft:<studyLoadId>`, restored when returning to the same capsule before submit, cleared after successful manual submit/feedback, and `Enviar respuestas` now has a clearer disabled/ready visual transition without introducing server draft mutation, automatic answers, automatic submit, or completion automation.
 
 `MVP_SALES_PILOT_UI_CAPSULE_4_CONTROLLED_SUBMIT_FIRST_CAPSULE_AND_INITIAL_FEEDBACK_STATE.md` records the controlled first-capsule submit boundary: `Enviar respuestas` continues to use the existing manual `POST /api/study-loads/[id]/responses` path, saving one `mc_submission` evidence response and returning initial feedback without changing capsule status, calling `/complete`, creating self-report, creating continuity, adding official scoring, or introducing automatic submit/responses/completion behavior.
+
+`MVP_SALES_PILOT_UI_CAPSULE_4A_REFINE_POST_SUBMIT_REVIEW_STATE_AND_AUTOREPORTE_PERSISTENCE.md` records the post-submit review refinement: the capsule now presents `Paso 1: Cuéntanos cómo te fue` for the existing manual autoreporte, shows `Paso 2: Toma nota de tu resultado` before the feedback/question list, and relies on persisted `mc_submission` evidence to restore the post-submit review state after returning from Tutoría or DB without automatic autoreporte, completion, continuity, schema, auth, or backend expansion.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

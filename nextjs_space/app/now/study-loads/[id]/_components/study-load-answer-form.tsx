@@ -222,7 +222,7 @@ export default function StudyLoadAnswerForm({
       if (res.ok && data.ok) {
         setSubmitResult({
           ok: true,
-          message: 'Respuestas enviadas',
+          message: 'Paso 1: Cuéntanos cómo te fue',
           answeredCount: data.answeredCount,
           totalItemCount: data.totalItemCount,
           correctCount: data.correctCount,
@@ -336,11 +336,10 @@ export default function StudyLoadAnswerForm({
         <Card>
           <CardContent className="py-4">
             <h2 className="mb-3 text-sm font-medium">
-              Resultado inicial de esta cápsula
+              Paso 2: Toma nota de tu resultado
             </h2>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p className="font-medium text-foreground">Respuestas enviadas.</p>
-              <p>Tus respuestas quedaron guardadas.</p>
+              <p className="font-medium text-foreground">Tus respuestas quedaron guardadas.</p>
               <p>
                 Respondiste {feedback.answeredCount} de {feedback.totalItemCount} preguntas.
               </p>
@@ -428,10 +427,10 @@ export default function StudyLoadAnswerForm({
           <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
           <div className="w-full">
             <p className="font-semibold leading-relaxed">
-              Respuestas enviadas
+              Paso 1: Cuéntanos cómo te fue
             </p>
             <p className="mt-1 leading-relaxed">
-              Tus respuestas quedaron guardadas. Revisa el resultado inicial de esta cápsula.
+              Tus respuestas quedaron guardadas. Antes de cerrar esta cápsula, elige cómo te fue.
             </p>
             <div className="mt-2 space-y-2 border-t border-current/10 pt-2">
               {displayedAnsweredCount != null && displayedTotalItemCount != null && (
@@ -450,7 +449,7 @@ export default function StudyLoadAnswerForm({
               {canFinalizeAfterSubmission ? (
                 <div className="mt-3 space-y-2 border-t border-current/10 pt-3 text-foreground">
                   <p className="text-sm font-medium">
-                    Cuando termines de revisar, puedes cerrar esta cápsula.
+                    Selecciona una opción para dejar tu autorreporte.
                   </p>
                   <RadioGroup
                     value={selfReport}
@@ -604,6 +603,21 @@ export default function StudyLoadAnswerForm({
     )
   }
 
+  function renderReviewStepHeading() {
+    if (!hasSubmittedFeedback) return null
+
+    return (
+      <section className="rounded-2xl border border-[#DCE5EA] bg-[#FBFCF6]/95 p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)]">
+        <p className="text-sm font-bold text-[#10213F]">
+          Paso 2: Toma nota de tu resultado
+        </p>
+        <p className="mt-1 text-xs leading-5 text-[#5D6B7A]">
+          Revisa tus respuestas y la ayuda paso a paso antes de cerrar la cápsula.
+        </p>
+      </section>
+    )
+  }
+
   if (isPendingOrReleased) {
     return (
       <>
@@ -689,6 +703,7 @@ export default function StudyLoadAnswerForm({
           </div>
         </section>
       )}
+      {renderReviewStepHeading()}
       {renderAnsweringQuestions()}
       {submitResult && !submitResult.ok && (
         <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/30 dark:text-red-300">
