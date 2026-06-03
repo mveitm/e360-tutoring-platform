@@ -736,34 +736,6 @@ export default function StudyLoadAnswerForm({
     return (
       <>
         {renderPassage()}
-        {renderInstructions()}
-        <div className="mb-6 rounded-2xl border border-[#79A6A4] bg-[#E5F0EF] p-4 shadow-[0_10px_24px_rgba(16,33,63,0.08)]">
-          <div className="flex items-start gap-2">
-            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#4B7B7C]" />
-            <div className="min-w-0">
-              <p className="text-base font-extrabold leading-snug text-[#10213F]">
-                Cápsula finalizada
-              </p>
-              <p className="mt-1 text-sm leading-relaxed text-[#253A5F]">
-                Tu autorreporte quedó guardado. Puedes volver a la tutoría para revisar tu avance.
-              </p>
-            </div>
-          </div>
-          <div className="mt-3 grid grid-cols-2 gap-2">
-            <a
-              href="/study/paes-m1"
-              className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#79A6A4] bg-white px-3 text-xs font-bold text-[#10213F] shadow-sm transition hover:bg-[#EEF4F7]"
-            >
-              Volver a tutoría
-            </a>
-            <a
-              href="/now"
-              className="inline-flex min-h-9 items-center justify-center rounded-full bg-[#192F56] px-3 text-xs font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.16)] transition hover:bg-[#253A5F]"
-            >
-              Ir DB
-            </a>
-          </div>
-        </div>
         {renderFeedbackSummary()}
         {renderReadOnlyQuestions()}
       </>

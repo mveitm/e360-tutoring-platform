@@ -47,6 +47,7 @@ These documents now govern roadmap direction:
 41. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4C_IMPROVE_POST_SUBMIT_FEEDBACK_DISCOVERABILITY_AND_REVIEW_COPY.md`
 42. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4D_REFINE_POST_SUBMIT_FEEDBACK_VISIBILITY_AND_STEP_BY_STEP_AFFORDANCE.md`
 43. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5_MANUAL_AUTOREPORTE_AND_FINALIZE_CAPSULE_FLOW.md`
+44. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5A_REFINE_COMPLETED_CAPSULE_REVIEW_STATE_AND_ACCESS.md`
 
 Future chats must read them before proposing work.
 
@@ -127,6 +128,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_CAPSULE_4D_REFINE_POST_SUBMIT_FEEDBACK_VISIBILITY_AND_STEP_BY_STEP_AFFORDANCE.md` records the follow-up feedback visibility refinement: Paso 1 is more compact, the old Paso 1 explanatory lines and `Selecciona una opción...` copy were removed, `¿Cómo te fue?` is used for autoreporte, the `Ver feedback por pregunta` anchor was suppressed, the scroll cue now uses a directional arrow, and each initial feedback block exposes `+ paso a paso` without automatic autoreporte, completion, continuity, submit, answers, schema, auth, or backend expansion.
 
 `MVP_SALES_PILOT_UI_CAPSULE_5_MANUAL_AUTOREPORTE_AND_FINALIZE_CAPSULE_FLOW.md` records the protected manual completion boundary: the existing `POST /api/study-loads/[id]/complete` endpoint is used only after the student manually selects an autoreporte option and presses `Finalizar cápsula`; the Capsule Page now stays on-page with `Cápsula finalizada`, clears answer/autoreporte local drafts, exposes `Volver a tutoría` and `Ir DB`, and documents the pre-existing idempotent next-load continuity behavior without adding automatic autoreporte, automatic completion, new continuity automation, schema, auth, StudentAccess, checkout, payment, trial, subscription, staging, production, or secrets.
+
+`MVP_SALES_PILOT_UI_CAPSULE_5A_REFINE_COMPLETED_CAPSULE_REVIEW_STATE_AND_ACCESS.md` records the completed-capsule review refinement: completed capsules now show `Cápsula finalizada`, saved autoreporte context, and safe navigation in the first Capsule header container; initial instructions and `Comenzar` are suppressed for completed capsules; `/study/paes-m1` exposes completed capsules with `Revisar cápsula` even when existing continuity has produced a next capsule, without adding DB mutation, re-submit, automatic completion, completed-capsule restart, new continuity, schema, auth, StudentAccess, checkout, payment, trial, subscription, staging, production, or secrets.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

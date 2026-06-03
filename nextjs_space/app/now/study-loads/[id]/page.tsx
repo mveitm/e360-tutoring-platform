@@ -96,6 +96,10 @@ function CapsuleStartCta({
   loadId: string
   status: string
 }) {
+  if (status === 'completed') {
+    return null
+  }
+
   if (status === 'pending' || status === 'released') {
     return (
       <StartLoadButton
@@ -115,6 +119,25 @@ function CapsuleStartCta({
       Comenzar
       <ArrowRight className="h-4 w-4" aria-hidden="true" />
     </a>
+  )
+}
+
+function CapsuleCompletedActions() {
+  return (
+    <div className="mt-3 grid grid-cols-2 gap-2">
+      <Link
+        href="/study/paes-m1"
+        className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#79A6A4] bg-white px-3 text-xs font-bold text-[#10213F] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+      >
+        Volver a tutorÃ­a
+      </Link>
+      <Link
+        href="/now"
+        className="inline-flex min-h-9 items-center justify-center rounded-full bg-[#192F56] px-3 text-xs font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.16)] transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+      >
+        Ir DB
+      </Link>
+    </div>
   )
 }
 
@@ -172,18 +195,31 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
 
   let initialAnswers: Record<string, string> | undefined
   let initialFeedback: McFeedback | undefined
+  let completedSelfReport: string | undefined
   if (content) {
     try {
-      const existingResponse = await prisma.response.findFirst({
-        where: {
-          responseType: 'mc_submission',
-          tutoringSession: {
-            studyLoadId: studyLoad.id,
+      const [existingResponse, existingSelfReport] = await Promise.all([
+        prisma.response.findFirst({
+          where: {
+            responseType: 'mc_submission',
+            tutoringSession: {
+              studyLoadId: studyLoad.id,
+            },
           },
-        },
-        select: { content: true },
-        orderBy: { updatedAt: 'desc' },
-      })
+          select: { content: true },
+          orderBy: { updatedAt: 'desc' },
+        }),
+        prisma.response.findFirst({
+          where: {
+            responseType: 'answer',
+            tutoringSession: {
+              studyLoadId: studyLoad.id,
+            },
+          },
+          select: { content: true },
+          orderBy: { updatedAt: 'desc' },
+        }),
+      ])
 
       if (existingResponse?.content) {
         const parsed = JSON.parse(existingResponse.content)
@@ -211,15 +247,20 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
           initialFeedback = buildStudyLoadFeedback(content, storedAnswers)
         }
       }
+      if (typeof existingSelfReport?.content === 'string') {
+        completedSelfReport = existingSelfReport.content
+      }
     } catch {
       initialAnswers = undefined
       initialFeedback = undefined
+      completedSelfReport = undefined
     }
   }
 
   const safeItems = content ? getSafeStudyLoadItems(content) : []
   const capsuleStatusLabel = capsuleStatusLabels[studyLoad.status] ?? studyLoad.status
   const isAnswering = studyLoad.status === 'in_progress'
+  const isCompleted = studyLoad.status === 'completed'
 
   return (
     <main className="h-[100dvh] min-h-[100svh] overflow-hidden bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
@@ -256,11 +297,27 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
                     {studyLoad.title}
                   </CardTitle>
                   <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
-                    Trabaja esta cápsula con calma. Tus respuestas quedarán guardadas cuando decidas enviarlas.
+                    {isCompleted
+                      ? 'Tu autorreporte quedó guardado. Puedes revisar tu resultado o volver a la tutoría.'
+                      : 'Trabaja esta cápsula con calma. Tus respuestas quedarán guardadas cuando decidas enviarlas.'}
                   </p>
-                  <p className="mt-3 inline-flex rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1 text-xs font-bold text-[#253A5F]">
-                    Estado de cápsula: {capsuleStatusLabel}
-                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-[#253A5F]">
+                    <span
+                      className={`inline-flex rounded-full border px-3 py-1 ${
+                        isCompleted
+                          ? 'border-[#79A6A4] bg-[#E5F0EF] text-[#10213F]'
+                          : 'border-[#DCE5EA] bg-white/80'
+                      }`}
+                    >
+                      {isCompleted ? 'Cápsula finalizada' : `Estado de cápsula: ${capsuleStatusLabel}`}
+                    </span>
+                    {isCompleted && completedSelfReport && (
+                      <span className="inline-flex rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
+                        Autorreporte: {completedSelfReport}
+                      </span>
+                    )}
+                  </div>
+                  {isCompleted && <CapsuleCompletedActions />}
                 </div>
                 <div className="flex flex-col items-start gap-2 sm:items-end">
                   <Badge

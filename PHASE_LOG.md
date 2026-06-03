@@ -32,6 +32,126 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-5A - Refine completed CÃ¡psula state and completed-capsule review access
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 753e83a
+```
+
+Inherited human audit:
+
+* CAPSULE-5 mobile audit approved.
+* Manual autoreporte visible.
+* `Finalizar cÃ¡psula` disabled until autoreporte selection.
+* Manual finalize works.
+* `Ir DB` works.
+* CÃ¡psula becomes `completed`.
+* No automatic self-report before the click.
+* No automatic completion before the click.
+* Existing/idempotent continuity observed as acceptable.
+* Mobile clear and contained.
+
+Context gate:
+
+* Completed CÃ¡psula detection uses existing `studyLoad.status === "completed"`.
+* Before this phase, `CÃ¡psula finalizada` and `Tu autorreporte quedÃ³ guardado...` were rendered as a separate form card after the introductory header.
+* Before this phase, completed capsules still rendered the initial instructions in the form.
+* The page-level `Comenzar` CTA component could render for non-pending states unless explicitly suppressed.
+* `/study/paes-m1` selected completed capsules only as fallback and labeled them under `Siguiente cÃ¡psula`; if existing continuity had produced a next pending capsule, the completed capsule did not remain visible as review access.
+* Phase was UI/read-only except for reading existing response evidence.
+
+Changes:
+
+* `/now/study-loads/[id]` now reads the latest persisted autoreporte response in read-only mode for completed capsule display.
+* The first Capsule header container now shows `CÃ¡psula finalizada` and `Tu autorreporte quedÃ³ guardado. Puedes revisar tu resultado o volver a la tutorÃ­a.` when status is completed.
+* The first Capsule header container also shows saved autoreporte when available.
+* `Volver a tutorÃ­a` and `Ir DB` are available from the completed header container.
+* `Comenzar` is suppressed when the capsule status is completed.
+* Initial instructions are suppressed in completed review mode.
+* The duplicated completed-state card inside the answer form was removed for persisted completed state.
+* Completed review mode keeps result summary, selected answers, feedback by question, and `+ paso a paso` affordance visible.
+* `/study/paes-m1` now labels completed current capsules as `CÃ¡psula completada` and uses CTA `Revisar cÃ¡psula`.
+* `/study/paes-m1` now shows a secondary completed-capsule review card when an existing next pending/in-progress capsule is also available.
+
+Review access:
+
+* Completed capsules are accessible from `/study/paes-m1` via `Revisar cÃ¡psula`.
+* The review link opens the existing Capsule viewer route `/now/study-loads/[id]`.
+* Completed capsules open in read-only review state and are not restarted.
+
+Draft cleanup:
+
+* Existing CAPSULE-5 cleanup remains in place for answer draft and autoreporte draft after successful manual finalize.
+* CAPSULE-5A introduced no new draft storage.
+* Completed review relies on persisted evidence/status, not sessionStorage.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/study/paes-m1/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5A_REFINE_COMPLETED_CAPSULE_REVIEW_STATE_AND_ACCESS.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB mutation nueva.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No re-submit automÃ¡tico.
+* No completion automÃ¡tico.
+* No reinicio de cÃ¡psula completada.
+* No nueva cÃ¡psula automÃ¡tica agregada.
+* No nueva continuidad automÃ¡tica.
+* No M2/Lectora funcional.
+* No checkout.
+* No pago real.
+* No trial real.
+* No suscripciÃ³n funcional completa.
+* No staging.
+* No production.
+* No secrets.
+
+Next recommended phase:
+
+```text
+Human mobile audit of completed CÃ¡psula review state
+```
+
+Result marker:
+
+```text
+COMPLETED_CAPSULE_REVIEW_STATE_AND_ACCESS_REFINED
+```
+
+---
+
 ### MVP-SALES-PILOT-UI-CAPSULE-5 - Implement manual autoreporte and finalize Cápsula flow
 
 Date: 2026-06-03
