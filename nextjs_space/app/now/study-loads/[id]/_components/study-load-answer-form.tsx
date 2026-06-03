@@ -114,9 +114,65 @@ export default function StudyLoadAnswerForm({
     .split(/\r?\n/)
     .filter((line) => !/^\s*6[\.)]\s/.test(line))
     .join('\n')
+  const draftStorageKey = `bexauri:capsule-draft:${studyLoadId}`
   const feedbackByItemKey = new Map(
     feedback?.items.map((item) => [item.itemKey, item]) ?? [],
   )
+
+  useEffect(() => {
+    if (!isInProgress || hasSubmittedFeedback) return
+
+    try {
+      const storedDraft = window.sessionStorage.getItem(draftStorageKey)
+      if (!storedDraft) return
+
+      const parsed = JSON.parse(storedDraft)
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return
+
+      const itemKeys = new Set(items.map((item) => item.key))
+      const optionLabelsByItem = new Map(
+        items.map((item) => [item.key, new Set(item.options.map((option) => option.label))]),
+      )
+      const safeDraft: Record<string, string> = {}
+
+      for (const [itemKey, optionLabel] of Object.entries(parsed)) {
+        if (
+          typeof itemKey === 'string' &&
+          typeof optionLabel === 'string' &&
+          itemKeys.has(itemKey) &&
+          optionLabelsByItem.get(itemKey)?.has(optionLabel)
+        ) {
+          safeDraft[itemKey] = optionLabel
+        }
+      }
+
+      if (Object.keys(safeDraft).length > 0) {
+        setSelections((prev) => ({ ...prev, ...safeDraft }))
+      }
+    } catch {
+      window.sessionStorage.removeItem(draftStorageKey)
+    }
+  }, [draftStorageKey, hasSubmittedFeedback, isInProgress, items])
+
+  useEffect(() => {
+    if (!isInProgress) return
+
+    try {
+      if (hasSubmittedFeedback) {
+        window.sessionStorage.removeItem(draftStorageKey)
+        return
+      }
+
+      if (Object.keys(selections).length === 0) {
+        window.sessionStorage.removeItem(draftStorageKey)
+        return
+      }
+
+      window.sessionStorage.setItem(draftStorageKey, JSON.stringify(selections))
+    } catch {
+      // Local draft persistence is best-effort and must not block answering.
+    }
+  }, [draftStorageKey, hasSubmittedFeedback, isInProgress, selections])
 
   useEffect(() => {
     if (!canFinalizeAfterSubmission) return
@@ -173,6 +229,7 @@ export default function StudyLoadAnswerForm({
           hasAnswerKey: data.hasAnswerKey,
         })
         setFeedback(data.feedback ?? null)
+        window.sessionStorage.removeItem(draftStorageKey)
         window.setTimeout(() => {
           closureBlockRef.current?.scrollIntoView({
             behavior: 'smooth',
@@ -200,6 +257,7 @@ export default function StudyLoadAnswerForm({
     contentVersion,
     selections,
     studyLoadId,
+    draftStorageKey,
     hasSubmittedFeedback,
   ])
 
@@ -582,15 +640,19 @@ export default function StudyLoadAnswerForm({
           <div className="flex items-center justify-between gap-2">
             <div className="min-w-0">
               <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">Responder cápsula</p>
-              <p className="text-xs font-semibold text-[#5D6B7A]">
-                {answeredCount}/{totalItemCount} respondidas
+              <p className={`text-xs font-semibold ${allQuestionsAnswered ? 'text-[#4B7B7C]' : 'text-[#5D6B7A]'}`}>
+                {answeredCount}/{totalItemCount} respondidas · {allQuestionsAnswered ? 'Listo para enviar' : `Faltan ${totalItemCount - answeredCount}`}
               </p>
             </div>
             <Button
               onClick={handleSubmit}
               disabled={submitting || !allQuestionsAnswered || completing || isPendingRefresh || hasSubmittedFeedback}
               size="sm"
-              className="min-h-10 shrink-0 gap-1.5 rounded-full bg-[#192F56] px-4 text-xs font-bold text-white hover:bg-[#253A5F] disabled:cursor-not-allowed disabled:opacity-45"
+              className={`min-h-10 shrink-0 gap-1.5 rounded-full px-4 text-xs font-bold text-white transition-all duration-200 disabled:cursor-not-allowed ${
+                allQuestionsAnswered
+                  ? 'border border-[#F2B84B]/45 bg-[linear-gradient(135deg,#F2B84B_0%,#D85B8C_52%,#A63D4F_100%)] shadow-[0_0_22px_rgba(216,91,140,0.24),0_10px_22px_rgba(166,61,79,0.18)] hover:shadow-[0_0_28px_rgba(216,91,140,0.30),0_12px_26px_rgba(166,61,79,0.22)]'
+                  : 'border border-[#DCE5EA] bg-[#A6B3BE] shadow-none disabled:opacity-70'
+              }`}
             >
               {submitting ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />

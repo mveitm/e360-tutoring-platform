@@ -40,6 +40,7 @@ These documents now govern roadmap direction:
 34. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_2_DIAGNOSE_AND_IMPLEMENT_FIRST_M1_CAPSULE_AVAILABILITY_AND_CTA_ON_STUDY_PAGE.md`
 35. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_2A_REFINE_STUDY_PAGE_ORDER_AND_CAPSULE_VIEWER_NAVIGATION_CTA.md`
 36. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_3_REFINE_POST_START_CAPSULE_ANSWERING_LAYOUT_AND_SUBMIT_GATING.md`
+37. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_3A_PRESERVE_CAPSULE_ANSWER_DRAFT_AND_REFINE_SUBMIT_READY_STATE.md`
 
 Future chats must read them before proposing work.
 
@@ -106,6 +107,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_CAPSULE_2A_REFINE_STUDY_PAGE_ORDER_AND_CAPSULE_VIEWER_NAVIGATION_CTA.md` records the accepted CAPSULE-2 base refinements: `/study/paes-m1` now places `Siguiente cápsula` before `Estado inicial`, and `/now/study-loads/[id]` now uses a contained Bexauri capsule shell with `Volver a tutoría` and `Ir DB` in header/footer, visible capsule status, CTA `Comenzar`, instruction point 6 suppressed, and the `Para responder...` container removed without DB mutation, schema/auth/backend changes, automatic capsule execution, responses, submit, self-report, completion, or continuity automation.
 
 `MVP_SALES_PILOT_UI_CAPSULE_3_REFINE_POST_START_CAPSULE_ANSWERING_LAYOUT_AND_SUBMIT_GATING.md` records the post-start capsule answering refinement: after the student manually presses `Comenzar` and the capsule is `in_progress`, `/now/study-loads/[id]` hides the introductory capsule card, keeps header/footer navigation, and renders a sticky top answering bar with question chips, answered/total progress, and `Enviar respuestas` disabled until all questions are answered, while preserving existing manual response submission, feedback, self-report, and completion semantics.
+
+`MVP_SALES_PILOT_UI_CAPSULE_3A_PRESERVE_CAPSULE_ANSWER_DRAFT_AND_REFINE_SUBMIT_READY_STATE.md` records the answer-draft and submit-ready refinement: selected alternatives are stored locally in `sessionStorage` with key `bexauri:capsule-draft:<studyLoadId>`, restored when returning to the same capsule before submit, cleared after successful manual submit/feedback, and `Enviar respuestas` now has a clearer disabled/ready visual transition without introducing server draft mutation, automatic answers, automatic submit, or completion automation.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

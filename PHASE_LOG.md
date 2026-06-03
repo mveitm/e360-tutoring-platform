@@ -32,6 +32,78 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-3A - Preserve capsule answer draft and refine submit-ready visual state
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 1aba19e
+```
+
+Inherited human audit:
+
+* Capsule Page 3 accepted as mobile base.
+* Requested clearer `Enviar respuestas` enabled visual state.
+* Requested draft preservation when leaving via `Volver a tutoría` or `Ir DB` and returning before submit.
+
+Changes:
+
+* Added local browser draft persistence for selected alternatives with `sessionStorage`.
+* Draft key is scoped by capsule id: `bexauri:capsule-draft:<studyLoadId>`.
+* Draft restore validates current item keys and option labels before applying.
+* Draft clears after successful manual response submit / feedback.
+* `Enviar respuestas` now shows missing-answer microcopy while disabled.
+* When all questions are answered, `Enviar respuestas` changes to a warm Bexauri gradient/halo and shows `Listo para enviar`.
+
+Scope safety:
+
+* No automatic submit.
+* No automatic answers.
+* No automatic completion.
+* No automatic self-report.
+* No new continuity automation.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No M2/Lectora functional activation.
+* No checkout, payment, trial, subscription, staging, production, or secrets.
+* No new DB draft mutation.
+
+Verification:
+
+```text
+npm.cmd --prefix nextjs_space run build
+git diff --check
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Result marker:
+
+```text
+CAPSULE_ANSWER_DRAFT_PERSISTENCE_AND_SUBMIT_READY_STATE_REFINED
+```
+
+Next recommended phase:
+
+```text
+Human mobile audit of answer draft persistence and submit-ready state
+```
+
 ### MVP-SALES-PILOT-UI-CAPSULE-3 - Refine post-start Cápsula answering layout and submit gating
 
 Date: 2026-06-03
