@@ -32,6 +32,95 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-4B - Refine post-submit step emphasis and autoreporte draft persistence
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = c562aa0
+```
+
+Inherited human audit:
+
+* CAPSULE-4A accepted on mobile.
+* Autorreporte options, feedback, selected answers, and counts were visible.
+* Returning from Tutoría/DB preserved post-submit review state.
+* No capsule reset, automatic autoreporte, automatic completion, or automatic continuity occurred.
+* Requested stronger visual contrast for Paso 1 and Paso 2.
+* Requested local persistence for the selected autoreporte option before manual completion.
+
+Changes:
+
+* Increased visual contrast and weight for `Paso 1: Cuéntanos cómo te fue`.
+* Increased visual contrast and weight for `Paso 2: Toma nota de tu resultado`.
+* Added selected-state styling for the active autoreporte option.
+* Added local `sessionStorage` persistence for the pending autoreporte option.
+* Draft key is scoped by capsule id: `bexauri:capsule-autoreporte-draft:<studyLoadId>`.
+* Stored value is limited to the existing closed options: `Me fue bien`, `Me costó`, `No la terminé`.
+* Draft clears after successful manual completion/autorreporte submission.
+
+Persistence:
+
+* If the student selects an autoreporte option, leaves through `Volver a tutoría` or `Ir DB`, and returns to the same capsule before finalizing, the selected option is restored.
+* No server-side draft or DB mutation was introduced.
+* No autoreporte is submitted until the student manually presses `Finalizar cápsula`.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4B_REFINE_POST_SUBMIT_STEPS_AND_AUTOREPORTE_DRAFT_PERSISTENCE.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No automatic autoreporte.
+* No automatic completion.
+* No new continuity automation.
+* No automatic submit.
+* No automatic answers.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No M2/Lectora functional activation.
+* No checkout, payment, trial, subscription, staging, production, or secrets.
+
+Result marker:
+
+```text
+CAPSULE_POST_SUBMIT_STEPS_AND_AUTOREPORTE_DRAFT_REFINED
+```
+
+Next recommended phase:
+
+```text
+Human mobile audit of autoreporte draft persistence and step emphasis
+```
+
+---
+
 ### MVP-SALES-PILOT-UI-CAPSULE-4A - Refine post-submit Cápsula review state and autoreporte persistence
 
 Date: 2026-06-03

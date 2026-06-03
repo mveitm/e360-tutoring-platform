@@ -58,6 +58,8 @@ interface StudyLoadAnswerFormProps {
   initialAnswers?: Record<string, string>
 }
 
+const AUTOREPORTE_OPTIONS = ['Me fue bien', 'Me costó', 'No la terminé'] as const
+
 export default function StudyLoadAnswerForm({
   studyLoadId,
   studyLoadStatus,
@@ -115,6 +117,7 @@ export default function StudyLoadAnswerForm({
     .filter((line) => !/^\s*6[\.)]\s/.test(line))
     .join('\n')
   const draftStorageKey = `bexauri:capsule-draft:${studyLoadId}`
+  const autoreporteDraftStorageKey = `bexauri:capsule-autoreporte-draft:${studyLoadId}`
   const feedbackByItemKey = new Map(
     feedback?.items.map((item) => [item.itemKey, item]) ?? [],
   )
@@ -186,6 +189,39 @@ export default function StudyLoadAnswerForm({
 
     return () => window.clearTimeout(timeoutId)
   }, [canFinalizeAfterSubmission])
+
+  useEffect(() => {
+    if (!canFinalizeAfterSubmission) return
+
+    try {
+      const storedAutoreporte = window.sessionStorage.getItem(autoreporteDraftStorageKey)
+      if (
+        storedAutoreporte &&
+        AUTOREPORTE_OPTIONS.includes(storedAutoreporte as (typeof AUTOREPORTE_OPTIONS)[number])
+      ) {
+        setSelfReport(storedAutoreporte)
+      }
+    } catch {
+      window.sessionStorage.removeItem(autoreporteDraftStorageKey)
+    }
+  }, [autoreporteDraftStorageKey, canFinalizeAfterSubmission])
+
+  useEffect(() => {
+    try {
+      if (completeSuccess) {
+        window.sessionStorage.removeItem(autoreporteDraftStorageKey)
+        return
+      }
+
+      if (!canFinalizeAfterSubmission || !selfReport) return
+
+      if (AUTOREPORTE_OPTIONS.includes(selfReport as (typeof AUTOREPORTE_OPTIONS)[number])) {
+        window.sessionStorage.setItem(autoreporteDraftStorageKey, selfReport)
+      }
+    } catch {
+      // Local autoreporte draft persistence is best-effort and never submits data.
+    }
+  }, [autoreporteDraftStorageKey, canFinalizeAfterSubmission, completeSuccess, selfReport])
 
   const handleSelect = useCallback(
     (itemKey: string, optionLabel: string) => {
@@ -273,6 +309,7 @@ export default function StudyLoadAnswerForm({
 
       if (res.ok) {
         setCompleteSuccess(true)
+        window.sessionStorage.removeItem(autoreporteDraftStorageKey)
         startTransition(() => {
           router.push('/now')
           router.refresh()
@@ -289,7 +326,7 @@ export default function StudyLoadAnswerForm({
     } finally {
       setCompleting(false)
     }
-  }, [isInProgress, selfReport, studyLoadId, router])
+  }, [autoreporteDraftStorageKey, isInProgress, selfReport, studyLoadId, router])
 
   function renderInstructions() {
     return (
@@ -335,7 +372,7 @@ export default function StudyLoadAnswerForm({
       <section className="mb-6">
         <Card>
           <CardContent className="py-4">
-            <h2 className="mb-3 text-sm font-medium">
+            <h2 className="mb-3 rounded-2xl border border-[#A99AD2] bg-[#F2EFF8] px-3 py-2 text-base font-extrabold leading-tight text-[#241642] shadow-[0_8px_18px_rgba(52,33,95,0.10)]">
               Paso 2: Toma nota de tu resultado
             </h2>
             <div className="space-y-2 text-sm text-muted-foreground">
@@ -421,15 +458,15 @@ export default function StudyLoadAnswerForm({
     return (
       <div
         ref={closureBlockRef}
-        className="mb-4 rounded-lg border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300"
+        className="mb-4 rounded-2xl border border-[#79A6A4] bg-[linear-gradient(135deg,#E5F0EF_0%,#FBFCF6_58%,#F2EFF8_100%)] p-3 text-sm text-[#10213F] shadow-[0_12px_26px_rgba(16,33,63,0.10)]"
       >
         <div className="flex items-start gap-2">
-          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
+          <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#4B7B7C]" />
           <div className="w-full">
-            <p className="font-semibold leading-relaxed">
+            <p className="text-base font-extrabold leading-snug text-[#10213F]">
               Paso 1: Cuéntanos cómo te fue
             </p>
-            <p className="mt-1 leading-relaxed">
+            <p className="mt-1 font-medium leading-relaxed text-[#253A5F]">
               Tus respuestas quedaron guardadas. Antes de cerrar esta cápsula, elige cómo te fue.
             </p>
             <div className="mt-2 space-y-2 border-t border-current/10 pt-2">
@@ -456,8 +493,15 @@ export default function StudyLoadAnswerForm({
                     onValueChange={setSelfReport}
                     className="gap-2"
                   >
-                    {['Me fue bien', 'Me costó', 'No la terminé'].map((opt) => (
-                      <div key={opt} className="flex items-center gap-3 rounded-md border border-current/10 p-2">
+                    {AUTOREPORTE_OPTIONS.map((opt) => (
+                      <div
+                        key={opt}
+                        className={`flex items-center gap-3 rounded-xl border p-2 transition-colors ${
+                          selfReport === opt
+                            ? 'border-[#79A6A4] bg-[#E5F0EF] text-[#10213F]'
+                            : 'border-[#DCE5EA] bg-white/70 text-[#253A5F]'
+                        }`}
+                      >
                         <RadioGroupItem value={opt} id={`sr-${opt}`} />
                         <Label htmlFor={`sr-${opt}`} className="flex-1 cursor-pointer text-sm font-normal">
                           {opt}
@@ -607,11 +651,11 @@ export default function StudyLoadAnswerForm({
     if (!hasSubmittedFeedback) return null
 
     return (
-      <section className="rounded-2xl border border-[#DCE5EA] bg-[#FBFCF6]/95 p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)]">
-        <p className="text-sm font-bold text-[#10213F]">
+      <section className="rounded-2xl border border-[#A99AD2] bg-[linear-gradient(135deg,#F2EFF8_0%,#FBFCF6_72%)] p-3 shadow-[0_10px_24px_rgba(52,33,95,0.10)]">
+        <p className="text-base font-extrabold leading-tight text-[#241642]">
           Paso 2: Toma nota de tu resultado
         </p>
-        <p className="mt-1 text-xs leading-5 text-[#5D6B7A]">
+        <p className="mt-1 text-xs font-medium leading-5 text-[#253A5F]">
           Revisa tus respuestas y la ayuda paso a paso antes de cerrar la cápsula.
         </p>
       </section>

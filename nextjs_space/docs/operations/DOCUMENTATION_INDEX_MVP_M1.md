@@ -43,6 +43,7 @@ These documents now govern roadmap direction:
 37. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_3A_PRESERVE_CAPSULE_ANSWER_DRAFT_AND_REFINE_SUBMIT_READY_STATE.md`
 38. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4_CONTROLLED_SUBMIT_FIRST_CAPSULE_AND_INITIAL_FEEDBACK_STATE.md`
 39. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4A_REFINE_POST_SUBMIT_REVIEW_STATE_AND_AUTOREPORTE_PERSISTENCE.md`
+40. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4B_REFINE_POST_SUBMIT_STEPS_AND_AUTOREPORTE_DRAFT_PERSISTENCE.md`
 
 Future chats must read them before proposing work.
 
@@ -115,6 +116,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_CAPSULE_4_CONTROLLED_SUBMIT_FIRST_CAPSULE_AND_INITIAL_FEEDBACK_STATE.md` records the controlled first-capsule submit boundary: `Enviar respuestas` continues to use the existing manual `POST /api/study-loads/[id]/responses` path, saving one `mc_submission` evidence response and returning initial feedback without changing capsule status, calling `/complete`, creating self-report, creating continuity, adding official scoring, or introducing automatic submit/responses/completion behavior.
 
 `MVP_SALES_PILOT_UI_CAPSULE_4A_REFINE_POST_SUBMIT_REVIEW_STATE_AND_AUTOREPORTE_PERSISTENCE.md` records the post-submit review refinement: the capsule now presents `Paso 1: Cuéntanos cómo te fue` for the existing manual autoreporte, shows `Paso 2: Toma nota de tu resultado` before the feedback/question list, and relies on persisted `mc_submission` evidence to restore the post-submit review state after returning from Tutoría or DB without automatic autoreporte, completion, continuity, schema, auth, or backend expansion.
+
+`MVP_SALES_PILOT_UI_CAPSULE_4B_REFINE_POST_SUBMIT_STEPS_AND_AUTOREPORTE_DRAFT_PERSISTENCE.md` records the post-submit step emphasis and autoreporte draft refinement: Paso 1/Paso 2 now have stronger Bexauri contrast and weight, the selected autoreporte option uses local `sessionStorage` scoped by `bexauri:capsule-autoreporte-draft:<studyLoadId>`, and returning from Tutoría/DB restores the selected option without sending autoreporte, completing the capsule, creating continuity, or adding server draft mutation.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 
