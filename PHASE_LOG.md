@@ -32,6 +32,102 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-5B - Refine completed CÃ¡psula final-state copy and navigation polish
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = e7c5f19
+```
+
+Inherited human audit:
+
+* CAPSULE-5A mobile audit approved.
+* Initial instructions are suppressed in completed state.
+* Completed CÃ¡psula does not restart.
+* Answers and feedback remain reviewable.
+* Study Page allows returning to review a completed CÃ¡psula.
+
+Context gate:
+
+* Completed state renders in `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `Volver a tutorÃ­a` and `Ir DB` render in `CapsuleNavigation` and `CapsuleCompletedActions`.
+* The redundant `CÃ¡psula` badge rendered in the completed header action area.
+* `Autorreporte: [valor]` rendered as a bordered chip/container.
+* Phase was UI/copy polish only.
+
+Changes:
+
+* Increased visual hierarchy of `CÃ¡psula finalizada` using stronger weight, larger text, subtle Bexauri completion surface, and restrained shadow.
+* Changed `Autorreporte: [valor]` to integrated text without its own bordered container.
+* Corrected completed-state `Volver a tutorÃ­a` text.
+* Reduced `Ir DB` contrast in completed actions and header/footer navigation.
+* Suppressed the redundant `CÃ¡psula` badge in completed state.
+* Changed completed header context from generic `CÃ¡psula ...` to `RevisiÃ³n ...`.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/study-loads/[id]/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5B_REFINE_COMPLETED_CAPSULE_FINAL_STATE_COPY_AND_NAVIGATION_POLISH.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB mutation nueva.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No re-submit automÃ¡tico.
+* No completion automÃ¡tico.
+* No reinicio de cÃ¡psula completada.
+* No nueva cÃ¡psula automÃ¡tica.
+* No continuidad automÃ¡tica nueva.
+* No M2/Lectora funcional.
+* No checkout.
+* No pago real.
+* No trial real.
+* No suscripciÃ³n funcional completa.
+* No staging.
+* No production.
+* No secrets.
+
+Next recommended phase:
+
+```text
+Human mobile audit of completed CÃ¡psula final-state polish
+```
+
+Result marker:
+
+```text
+COMPLETED_CAPSULE_FINAL_STATE_COPY_AND_NAVIGATION_POLISHED
+```
+
+---
+
 ### MVP-SALES-PILOT-UI-CAPSULE-5A - Refine completed CÃ¡psula state and completed-capsule review access
 
 Date: 2026-06-03

@@ -80,7 +80,7 @@ function CapsuleNavigation({ className }: { className?: string }) {
       </Link>
       <Link
         href="/now"
-        className="inline-flex min-h-9 items-center justify-center gap-1.5 rounded-full border border-[#DCE5EA] bg-white px-3 text-xs font-bold text-[#192F56] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+        className="inline-flex min-h-9 items-center justify-center gap-1.5 rounded-full border border-[#DCE5EA] bg-[#FBFCF6] px-3 text-xs font-semibold text-[#5D6B7A] shadow-sm transition hover:bg-[#EEF4F7] hover:text-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
       >
         <LayoutDashboard className="h-3.5 w-3.5" aria-hidden="true" />
         Ir DB
@@ -129,11 +129,11 @@ function CapsuleCompletedActions() {
         href="/study/paes-m1"
         className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#79A6A4] bg-white px-3 text-xs font-bold text-[#10213F] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
       >
-        Volver a tutorÃ­a
+        Volver a tutoría
       </Link>
       <Link
         href="/now"
-        className="inline-flex min-h-9 items-center justify-center rounded-full bg-[#192F56] px-3 text-xs font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.16)] transition hover:bg-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+        className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#DCE5EA] bg-[#FBFCF6] px-3 text-xs font-bold text-[#253A5F] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
       >
         Ir DB
       </Link>
@@ -278,7 +278,9 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
                   className="h-6 w-[96px] rounded-lg object-cover object-center sm:h-8 sm:w-[120px]"
                 />
               </span>
-              <span className="hidden text-sm font-semibold text-[#5D6B7A] sm:inline">Cápsula PAES_M1</span>
+              <span className="hidden text-sm font-semibold text-[#5D6B7A] sm:inline">
+                {isCompleted ? 'Revisión PAES_M1' : 'Cápsula PAES_M1'}
+              </span>
             </Link>
             <CapsuleNavigation />
           </div>
@@ -291,7 +293,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
               <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-start">
                 <div className="flex-1">
                   <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">
-                    Cápsula {enrollment.program.code}
+                    {isCompleted ? `Revisión ${enrollment.program.code}` : `Cápsula ${enrollment.program.code}`}
                   </p>
                   <CardTitle className="font-display text-xl leading-snug text-[#10213F] sm:text-2xl">
                     {studyLoad.title}
@@ -301,31 +303,35 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
                       ? 'Tu autorreporte quedó guardado. Puedes revisar tu resultado o volver a la tutoría.'
                       : 'Trabaja esta cápsula con calma. Tus respuestas quedarán guardadas cuando decidas enviarlas.'}
                   </p>
-                  <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-[#253A5F]">
-                    <span
-                      className={`inline-flex rounded-full border px-3 py-1 ${
-                        isCompleted
-                          ? 'border-[#79A6A4] bg-[#E5F0EF] text-[#10213F]'
-                          : 'border-[#DCE5EA] bg-white/80'
-                      }`}
-                    >
-                      {isCompleted ? 'Cápsula finalizada' : `Estado de cápsula: ${capsuleStatusLabel}`}
-                    </span>
-                    {isCompleted && completedSelfReport && (
+                  {isCompleted ? (
+                    <div className="mt-3 space-y-1.5">
+                      <p className="inline-flex rounded-2xl border border-[#79A6A4] bg-[linear-gradient(135deg,#E5F0EF_0%,#FBFCF6_100%)] px-3.5 py-2 text-base font-extrabold leading-tight text-[#10213F] shadow-[0_8px_18px_rgba(75,123,124,0.12)]">
+                        Cápsula finalizada
+                      </p>
+                      {completedSelfReport && (
+                        <p className="text-sm font-semibold leading-6 text-[#253A5F]">
+                          Autorreporte: {completedSelfReport}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-[#253A5F]">
                       <span className="inline-flex rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
-                        Autorreporte: {completedSelfReport}
+                        Estado de cápsula: {capsuleStatusLabel}
                       </span>
-                    )}
-                  </div>
+                    </div>
+                  )}
                   {isCompleted && <CapsuleCompletedActions />}
                 </div>
                 <div className="flex flex-col items-start gap-2 sm:items-end">
-                  <Badge
-                    variant="secondary"
-                    className="shrink-0 rounded-full bg-[#EEF4F7] text-[10px] font-bold uppercase tracking-wide text-[#253A5F]"
-                  >
-                    Cápsula
-                  </Badge>
+                  {!isCompleted && (
+                    <Badge
+                      variant="secondary"
+                      className="shrink-0 rounded-full bg-[#EEF4F7] text-[10px] font-bold uppercase tracking-wide text-[#253A5F]"
+                    >
+                      Cápsula
+                    </Badge>
+                  )}
                   <CapsuleStartCta loadId={studyLoad.id} status={studyLoad.status} />
                 </div>
               </div>

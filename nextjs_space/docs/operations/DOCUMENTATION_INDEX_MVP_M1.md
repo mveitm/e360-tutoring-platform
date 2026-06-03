@@ -48,6 +48,7 @@ These documents now govern roadmap direction:
 42. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4D_REFINE_POST_SUBMIT_FEEDBACK_VISIBILITY_AND_STEP_BY_STEP_AFFORDANCE.md`
 43. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5_MANUAL_AUTOREPORTE_AND_FINALIZE_CAPSULE_FLOW.md`
 44. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5A_REFINE_COMPLETED_CAPSULE_REVIEW_STATE_AND_ACCESS.md`
+45. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5B_REFINE_COMPLETED_CAPSULE_FINAL_STATE_COPY_AND_NAVIGATION_POLISH.md`
 
 Future chats must read them before proposing work.
 
@@ -130,6 +131,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_CAPSULE_5_MANUAL_AUTOREPORTE_AND_FINALIZE_CAPSULE_FLOW.md` records the protected manual completion boundary: the existing `POST /api/study-loads/[id]/complete` endpoint is used only after the student manually selects an autoreporte option and presses `Finalizar cápsula`; the Capsule Page now stays on-page with `Cápsula finalizada`, clears answer/autoreporte local drafts, exposes `Volver a tutoría` and `Ir DB`, and documents the pre-existing idempotent next-load continuity behavior without adding automatic autoreporte, automatic completion, new continuity automation, schema, auth, StudentAccess, checkout, payment, trial, subscription, staging, production, or secrets.
 
 `MVP_SALES_PILOT_UI_CAPSULE_5A_REFINE_COMPLETED_CAPSULE_REVIEW_STATE_AND_ACCESS.md` records the completed-capsule review refinement: completed capsules now show `Cápsula finalizada`, saved autoreporte context, and safe navigation in the first Capsule header container; initial instructions and `Comenzar` are suppressed for completed capsules; `/study/paes-m1` exposes completed capsules with `Revisar cápsula` even when existing continuity has produced a next capsule, without adding DB mutation, re-submit, automatic completion, completed-capsule restart, new continuity, schema, auth, StudentAccess, checkout, payment, trial, subscription, staging, production, or secrets.
+
+`MVP_SALES_PILOT_UI_CAPSULE_5B_REFINE_COMPLETED_CAPSULE_FINAL_STATE_COPY_AND_NAVIGATION_POLISH.md` records completed final-state copy polish: `Cápsula finalizada` now has stronger visual hierarchy, `Autorreporte: [valor]` is integrated as plain text, `Volver a tutoría` encoding was corrected, `Ir DB` was reduced to a secondary treatment, and redundant `Cápsula` labels are suppressed in completed state without behavior, data, completion, continuity, schema, auth, or backend changes.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 
