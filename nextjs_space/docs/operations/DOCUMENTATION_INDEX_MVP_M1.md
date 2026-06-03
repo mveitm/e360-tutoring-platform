@@ -35,6 +35,7 @@ These documents now govern roadmap direction:
 29. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_1A_REFINE_STUDY_PAGE_CONTAINED_LAYOUT_TUTORING_INFO_AND_MOBILE_SHELL.md`
 30. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_TRANSITION_1_CLOSE_ST_PRE_ENROLLMENT_AND_DEFINE_AFTER_ENROLLMENT_DELIVERABLE.md`
 31. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_2_IMPLEMENT_M1_STUDY_PAGE_AFTER_ENROLLMENT_STATE.md`
+32. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_ENROLL_1_IMPLEMENT_MINIMAL_M1_ENROLLMENT_FROM_STUDY_PAGE.md`
 
 Future chats must read them before proposing work.
 
@@ -91,6 +92,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_STUDY_TRANSITION_1_CLOSE_ST_PRE_ENROLLMENT_AND_DEFINE_AFTER_ENROLLMENT_DELIVERABLE.md` records the documentation-only transition that accepts `ST M1 / First Landing previo a enrollment` as the current Study Page pre-enrollment state and defines `STUDY_PAGE_M1_AFTER_ENROLLMENT_DELIVERABLE` as the next top-down Study Page target. It does not change app code, DB/base de datos, backend, auth, enrollment, StudentAccess, checkout, payment, trial, subscription, or Cápsula/StudyLoad execution.
 
 `MVP_SALES_PILOT_UI_STUDY_2_IMPLEMENT_M1_STUDY_PAGE_AFTER_ENROLLMENT_STATE.md` records the Study Page M1 after-enrollment implementation: `/study/paes-m1` now detects active PAES_M1 enrollment read-only, shows `Tutoría Activa`, displays current capsule priority from existing cycle loads, exposes `Ver cápsula` as a navigation-only CTA to `/now/study-loads/[id]`, and keeps no-capsule/pre-enrollment states safe without DB/base de datos mutation, backend, auth, enrollment creation, StudentAccess, checkout, payment, trial, subscription, or Cápsula/StudyLoad execution automation.
+
+`MVP_SALES_PILOT_UI_STUDY_ENROLL_1_IMPLEMENT_MINIMAL_M1_ENROLLMENT_FROM_STUDY_PAGE.md` records the controlled enrollment implementation from `/study/paes-m1`: `Matricularse` now submits an authenticated server action that creates or reactivates the minimal PAES_M1 `StudentProgramInstance`, then returns to `Tutoría Activa`; it keeps capsule lookup read-only, preserves `Ver cápsula`, and does not create cycles/capsules, StudentAccess, checkout, payment, trial, subscription, or Cápsula/StudyLoad execution automation.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

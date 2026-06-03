@@ -32,6 +32,84 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-STUDY-ENROLL-1 — Implement minimal M1 enrollment from Study Page
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 0c0be01
+```
+
+Human authorization:
+
+```text
+AUTORIZO_IMPLEMENTAR_MATRICULARSE_M1_DESDE_STUDY_PAGE
+```
+
+Result marker:
+
+```text
+M1_STUDY_PAGE_ENROLLMENT_ACTION_IMPLEMENTED
+```
+
+Summary:
+
+* `/study/paes-m1` now turns `Matricularse` into an authenticated server action.
+* The action creates or reactivates a minimal PAES_M1 `StudentProgramInstance` for the authenticated student.
+* The action is fixed to `Program.code = PAES_M1` and does not accept arbitrary program IDs from the client.
+* The action revalidates `/study/paes-m1` and `/now`, then returns to Study Page so the student sees `Tutoría Activa`.
+* Existing capsule lookup remains read-only.
+* `Ver cápsula` remains navigation-only when an existing capsule is available.
+* If no capsule exists, the safe no-capsule state remains visible.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/study/paes-m1/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_ENROLL_1_IMPLEMENT_MINIMAL_M1_ENROLLMENT_FROM_STUDY_PAGE.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No schema.
+* No migrations.
+* No auth architecture changes.
+* No credentials.
+* No StudentAccess lifecycle.
+* No M2 functional activation.
+* No Competencia Lectora functional activation.
+* No capsule/StudyLoad execution automation.
+* No automatic `Empezar`.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No automatic continuity.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human mobile audit of Matricularse → Tutoría Activa
+```
+
 ### Confirmed historical blocks
 
 | Block | Summary                                                  | Deployed | Notes                                    |

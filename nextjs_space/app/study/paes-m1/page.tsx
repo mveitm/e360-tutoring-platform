@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
 import { ArrowLeft, ArrowRight, BookOpenCheck, CheckCircle2, CircleDashed, Info, Route, Sparkles } from 'lucide-react'
@@ -21,6 +22,10 @@ export const dynamic = 'force-dynamic'
 
 const m1Available = true
 
+type PageProps = {
+  searchParams?: { matricula?: string }
+}
+
 type CapsuleStatus = 'pending' | 'in_progress' | 'completed'
 
 type CapsuleSummary = {
@@ -40,6 +45,82 @@ const capsuleStatusLabels: Record<CapsuleStatus, string> = {
   pending: 'Pendiente',
   in_progress: 'En progreso',
   completed: 'Completada',
+}
+
+async function enrollInPaesM1() {
+  'use server'
+
+  const session = await getServerSession(authOptions)
+  if (!session?.user?.email) {
+    redirect('/login')
+  }
+
+  const [student, program] = await Promise.all([
+    prisma.student.findUnique({
+      where: { email: session.user.email },
+      select: { id: true },
+    }),
+    prisma.program.findUnique({
+      where: { code: 'PAES_M1' },
+      select: { id: true, status: true },
+    }),
+  ])
+
+  if (!student || !program || program.status !== 'active') {
+    redirect('/study/paes-m1?matricula=unavailable')
+  }
+
+  await prisma.$transaction(async (tx) => {
+    const activeEnrollment = await tx.studentProgramInstance.findFirst({
+      where: {
+        studentId: student.id,
+        programId: program.id,
+        status: 'active',
+      },
+      orderBy: { startedAt: 'desc' },
+      select: { id: true },
+    })
+
+    if (activeEnrollment) return
+
+    const inactiveEnrollment = await tx.studentProgramInstance.findFirst({
+      where: {
+        studentId: student.id,
+        programId: program.id,
+        status: { not: 'active' },
+      },
+      orderBy: { updatedAt: 'desc' },
+      select: { id: true },
+    })
+
+    if (inactiveEnrollment) {
+      await tx.studentProgramInstance.update({
+        where: { id: inactiveEnrollment.id },
+        data: {
+          status: 'active',
+          endedAt: null,
+          lastActivityAt: new Date(),
+        },
+        select: { id: true },
+      })
+      return
+    }
+
+    await tx.studentProgramInstance.create({
+      data: {
+        studentId: student.id,
+        programId: program.id,
+        status: 'active',
+        currentContinuityState: 'normal',
+        lastActivityAt: new Date(),
+      },
+      select: { id: true },
+    })
+  })
+
+  revalidatePath('/study/paes-m1')
+  revalidatePath('/now')
+  redirect('/study/paes-m1')
 }
 
 function pickCurrentCapsule(studyLoads: CapsuleSummary[]) {
@@ -83,12 +164,14 @@ function StatusAction({ hasActiveEnrollment }: { hasActiveEnrollment: boolean })
   }
 
   return (
-    <button
-      type="button"
-      className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#F2B84B]/45 bg-[linear-gradient(135deg,#F2B84B_0%,#D85B8C_52%,#A63D4F_100%)] px-5 text-sm font-bold text-white shadow-[0_0_24px_rgba(216,91,140,0.22),0_12px_28px_rgba(166,61,79,0.18)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20"
-    >
-      Matricularse
-    </button>
+    <form action={enrollInPaesM1} className="contents">
+      <button
+        type="submit"
+        className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#F2B84B]/45 bg-[linear-gradient(135deg,#F2B84B_0%,#D85B8C_52%,#A63D4F_100%)] px-5 text-sm font-bold text-white shadow-[0_0_24px_rgba(216,91,140,0.22),0_12px_28px_rgba(166,61,79,0.18)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20"
+      >
+        Matricularse
+      </button>
+    </form>
   )
 }
 
@@ -212,7 +295,7 @@ function TutoringInfoContent() {
   )
 }
 
-export default async function PaesM1StudyPage() {
+export default async function PaesM1StudyPage({ searchParams }: PageProps) {
   const session = await getServerSession(authOptions)
   if (!session?.user?.email) {
     redirect('/login')
@@ -287,6 +370,7 @@ export default async function PaesM1StudyPage() {
       ? getStudyLoadContent(currentCapsule.title)?.topic ?? 'Foco inicial'
       : 'Foco inicial'
     : currentFocus
+  const enrollmentError = searchParams?.matricula === 'unavailable'
 
   return (
     <Dialog>
@@ -338,6 +422,11 @@ export default async function PaesM1StudyPage() {
                       Tutoría Info
                     </DialogTrigger>
                   </div>
+                  {enrollmentError && (
+                    <p className="mt-3 rounded-2xl border border-[#E9DFCF] bg-[#FFF3D8] px-3 py-2 text-sm font-semibold leading-6 text-[#75531A]">
+                      No pudimos activar la tutoría en este momento. Intenta nuevamente o vuelve al Dashboard.
+                    </p>
+                  )}
                 </div>
               </div>
             </section>
