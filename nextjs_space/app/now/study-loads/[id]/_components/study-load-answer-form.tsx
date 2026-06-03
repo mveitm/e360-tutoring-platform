@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
-import { AlertCircle, CheckCircle2, Loader2, Send } from 'lucide-react'
+import { AlertCircle, CheckCircle2, ChevronDown, Loader2, Send } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
@@ -373,7 +373,7 @@ export default function StudyLoadAnswerForm({
         <Card>
           <CardContent className="py-4">
             <h2 className="mb-3 rounded-2xl border border-[#A99AD2] bg-[#F2EFF8] px-3 py-2 text-base font-extrabold leading-tight text-[#241642] shadow-[0_8px_18px_rgba(52,33,95,0.10)]">
-              Paso 2: Toma nota de tu resultado
+              Paso 2: Revisa tu resultado
             </h2>
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">Tus respuestas quedaron guardadas.</p>
@@ -385,7 +385,7 @@ export default function StudyLoadAnswerForm({
                   Correctas: {feedback.correctCount} de {feedback.totalItemCount}.
                 </p>
               )}
-              <p>Revisa el resultado inicial de esta cápsula y la ayuda disponible en cada pregunta.</p>
+              <p>Toma notas en tu cuaderno de lo que hiciste bien y de lo necesitas reforzar</p>
               <p>Este resultado te ayuda a preparar el siguiente paso de estudio.</p>
             </div>
           </CardContent>
@@ -394,13 +394,16 @@ export default function StudyLoadAnswerForm({
     )
   }
 
-  function renderQuestionFeedback(item: Item) {
+  function renderQuestionFeedback(item: Item, index?: number) {
     const itemFeedback = feedbackByItemKey.get(item.key)
     if (!feedback || !itemFeedback) return null
 
     if (!itemFeedback.selectedOptionKey) {
       return (
-        <div className="mt-3 rounded-md border border-muted bg-muted/30 px-3 py-2 text-xs text-muted-foreground">
+        <div
+          id={index === 0 ? 'feedback-pregunta-1' : undefined}
+          className="mt-3 rounded-md border border-muted bg-muted/30 px-3 py-2 text-xs text-muted-foreground"
+        >
           Sin respuesta registrada.
         </div>
       )
@@ -420,7 +423,10 @@ export default function StudyLoadAnswerForm({
           : 'text-muted-foreground'
 
     return (
-      <div className="mt-3 rounded-md border bg-muted/20 px-3 py-2 text-xs">
+      <div
+        id={index === 0 ? 'feedback-pregunta-1' : undefined}
+        className="mt-3 rounded-md border bg-muted/20 px-3 py-2 text-xs"
+      >
         <p className={`font-medium ${statusClass}`}>{statusText}</p>
         <p className="mt-1 text-muted-foreground">
           Tu respuesta: {itemFeedback.selectedOptionKey}) {itemFeedback.selectedOptionText}
@@ -578,7 +584,7 @@ export default function StudyLoadAnswerForm({
                       )
                     })}
                   </ul>
-                  {renderQuestionFeedback(item)}
+                  {renderQuestionFeedback(item, index)}
                 </CardContent>
               </Card>
             </li>
@@ -636,7 +642,7 @@ export default function StudyLoadAnswerForm({
                         )
                       })}
                     </ul>
-                    {renderQuestionFeedback(item)}
+                    {renderQuestionFeedback(item, index)}
                   </CardContent>
                 </Card>
               </li>
@@ -653,11 +659,23 @@ export default function StudyLoadAnswerForm({
     return (
       <section className="rounded-2xl border border-[#A99AD2] bg-[linear-gradient(135deg,#F2EFF8_0%,#FBFCF6_72%)] p-3 shadow-[0_10px_24px_rgba(52,33,95,0.10)]">
         <p className="text-base font-extrabold leading-tight text-[#241642]">
-          Paso 2: Toma nota de tu resultado
+          Paso 2: Revisa tu resultado
         </p>
         <p className="mt-1 text-xs font-medium leading-5 text-[#253A5F]">
-          Revisa tus respuestas y la ayuda paso a paso antes de cerrar la cápsula.
+          Toma notas en tu cuaderno de lo que hiciste bien y de lo necesitas reforzar
         </p>
+        <div className="mt-3 rounded-xl border border-[#DCE5EA] bg-white/75 px-3 py-2 text-xs font-semibold text-[#192F56] shadow-[inset_0_-10px_18px_rgba(52,33,95,0.04)]">
+          <div className="flex items-center justify-between gap-3">
+            <span>Desliza para revisar tu feedback por pregunta.</span>
+            <ChevronDown className="h-4 w-4 shrink-0 text-[#4B7B7C]" aria-hidden="true" />
+          </div>
+          <a
+            href="#feedback-pregunta-1"
+            className="mt-2 inline-flex items-center rounded-full border border-[#79A6A4] bg-[#E5F0EF] px-3 py-1.5 text-[11px] font-bold text-[#10213F] transition hover:bg-[#DCE5EA]"
+          >
+            Ver feedback por pregunta
+          </a>
+        </div>
       </section>
     )
   }

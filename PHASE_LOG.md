@@ -32,6 +32,100 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-4C - Improve post-submit feedback discoverability and review copy
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 757ab53
+```
+
+Inherited human audit:
+
+* CAPSULE-4B mobile audit checklist approved.
+* Paso 1 / Paso 2 emphasis and autoreporte draft persistence accepted.
+* Feedback by question remained present but was not easy enough to discover after the Paso 2 container.
+* Mauricio requested exact copy changes for Paso 2 and the review guidance.
+
+Changes:
+
+* Replaced `Paso 2: Toma nota de tu resultado` with `Paso 2: Revisa tu resultado`.
+* Replaced the previous review guidance with `Toma notas en tu cuaderno de lo que hiciste bien y de lo necesitas reforzar`.
+* Added a compact mobile-first cue: `Desliza para revisar tu feedback por pregunta.`
+* Added a local `Ver feedback por pregunta` anchor that jumps to the first per-question feedback block.
+* Marked the first feedback block with a local anchor id for post-submit review navigation.
+* Preserved manual autoreporte, existing feedback, and autoreporte draft persistence.
+
+Feedback discoverability:
+
+* The student now sees a visible cue under Paso 2 that more feedback exists below.
+* The local anchor moves directly to the first feedback block without submitting, completing, or mutating any new state.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_4C_IMPROVE_POST_SUBMIT_FEEDBACK_DISCOVERABILITY_AND_REVIEW_COPY.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No automatic autoreporte.
+* No automatic completion.
+* No new automatic continuity.
+* No automatic submit.
+* No automatic answers.
+* No new capsule creation.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No M2/Lectora functional activation.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No official PAES score claim.
+* No definitive mastery claim.
+
+Next recommended phase:
+
+```text
+Human mobile audit of Capsule 4C post-submit feedback discoverability
+```
+
+Result marker:
+
+```text
+CAPSULE_POST_SUBMIT_FEEDBACK_DISCOVERABILITY_REFINED
+```
+
+---
+
 ### MVP-SALES-PILOT-UI-CAPSULE-4B - Refine post-submit step emphasis and autoreporte draft persistence
 
 Date: 2026-06-03
