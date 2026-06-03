@@ -32,6 +32,107 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-2 — Diagnose and implement first M1 cápsula availability and CTA on Study Page
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 6cca23a
+```
+
+Human authorization:
+
+```text
+AUTORIZO_CAPSULE_2_PRIMERA_CAPSULA_M1_VISIBLE_CON_CTA
+```
+
+Inherited human audit:
+
+* CAPSULE-1 failed because Study Page did not show first capsule information and CTA in the audited state.
+* Required Study Page elements: first/siguiente cápsula title, status, purpose, and CTA `Ver cápsula`.
+
+Diagnosis:
+
+* Study Page already rendered a capsule if `StudentProgramInstance.currentCycleId` pointed to a cycle with StudyLoads.
+* STUDY-ENROLL-1 intentionally created minimal PAES_M1 enrollment only, leaving `currentCycleId = null`.
+* Therefore the audited state was an active enrollment without a first capsule/cycle, not only a visual copy problem.
+
+Result marker:
+
+```text
+FIRST_M1_CAPSULE_VISIBLE_WITH_CTA_FROM_STUDY_PAGE
+```
+
+Implementation summary:
+
+* Added `nextjs_space/lib/paes-m1-first-capsule.ts`.
+* Added idempotent helper `ensurePaesM1FirstCapsuleForEnrollment(...)`.
+* The helper only works for active PAES_M1 enrollment.
+* If a capsule already exists, the helper returns it and does not create another.
+* If no capsule exists and the state is safe, the helper creates/locates cycle 1/open cycle and one pending `PAES M1 — Entrada balanceada inicial` StudyLoad.
+* The helper updates `currentCycleId` only to the cycle containing the first capsule.
+* The helper does not run from server-component render.
+* `Matricularse` now ensures the first M1 capsule before returning to Study Page.
+* Active enrollment with no capsule now shows a first capsule block and a `Ver cápsula` server action that explicitly creates/locates the first capsule and redirects to `/now/study-loads/[id]`.
+
+Study Page UI:
+
+* Shows `Siguiente cápsula`.
+* Shows title `PAES M1 — Entrada balanceada inicial` when no current capsule exists yet.
+* Shows visible state `Pendiente`.
+* Shows purpose `Resuelve pocos ejercicios para ubicar tu punto de partida.`
+* Shows CTA `Ver cápsula`.
+* Existing capsules now also show a brief purpose line.
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/study/paes-m1/page.tsx`.
+* `nextjs_space/lib/paes-m1-first-capsule.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_2_DIAGNOSE_AND_IMPLEMENT_FIRST_M1_CAPSULE_AVAILABILITY_AND_CTA_ON_STUDY_PAGE.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No schema.
+* No migrations.
+* No auth architecture changes.
+* No credentials.
+* No StudentAccess lifecycle.
+* No M2 functional activation.
+* No Competencia Lectora functional activation.
+* No automatic Cápsula/StudyLoad execution.
+* No automatic `Empezar`.
+* No responses.
+* No submit.
+* No self-report changes.
+* No completion changes.
+* No broad automatic continuity.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human mobile audit of first cápsula visibility and CTA
+```
+
 ### MVP-SALES-PILOT-UI-CAPSULE-1 — Audit and refine first Cápsula viewer entry from Study Page
 
 Date: 2026-06-03

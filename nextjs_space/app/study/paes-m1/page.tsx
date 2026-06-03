@@ -6,6 +6,11 @@ import { getServerSession } from 'next-auth'
 import { ArrowLeft, ArrowRight, BookOpenCheck, CheckCircle2, CircleDashed, Info, Route, Sparkles } from 'lucide-react'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
+import {
+  PAES_M1_FIRST_CAPSULE_PURPOSE,
+  PAES_M1_FIRST_CAPSULE_TITLE,
+  ensurePaesM1FirstCapsuleForEnrollment,
+} from '@/lib/paes-m1-first-capsule'
 import { getStudyLoadContent } from '@/lib/study-load-content'
 import {
   Dialog,
@@ -23,7 +28,7 @@ export const dynamic = 'force-dynamic'
 const m1Available = true
 
 type PageProps = {
-  searchParams?: { matricula?: string }
+  searchParams?: { matricula?: string; capsula?: string }
 }
 
 type CapsuleStatus = 'pending' | 'in_progress' | 'completed'
@@ -70,57 +75,111 @@ async function enrollInPaesM1() {
     redirect('/study/paes-m1?matricula=unavailable')
   }
 
-  await prisma.$transaction(async (tx) => {
-    const activeEnrollment = await tx.studentProgramInstance.findFirst({
-      where: {
-        studentId: student.id,
-        programId: program.id,
-        status: 'active',
-      },
-      orderBy: { startedAt: 'desc' },
-      select: { id: true },
-    })
-
-    if (activeEnrollment) return
-
-    const inactiveEnrollment = await tx.studentProgramInstance.findFirst({
-      where: {
-        studentId: student.id,
-        programId: program.id,
-        status: { not: 'active' },
-      },
-      orderBy: { updatedAt: 'desc' },
-      select: { id: true },
-    })
-
-    if (inactiveEnrollment) {
-      await tx.studentProgramInstance.update({
-        where: { id: inactiveEnrollment.id },
-        data: {
+  try {
+    await prisma.$transaction(async (tx) => {
+      const activeEnrollment = await tx.studentProgramInstance.findFirst({
+        where: {
+          studentId: student.id,
+          programId: program.id,
           status: 'active',
-          endedAt: null,
+        },
+        orderBy: { startedAt: 'desc' },
+        select: { id: true },
+      })
+
+      if (activeEnrollment) {
+        await ensurePaesM1FirstCapsuleForEnrollment(tx, activeEnrollment.id)
+        return
+      }
+
+      const inactiveEnrollment = await tx.studentProgramInstance.findFirst({
+        where: {
+          studentId: student.id,
+          programId: program.id,
+          status: { not: 'active' },
+        },
+        orderBy: { updatedAt: 'desc' },
+        select: { id: true },
+      })
+
+      if (inactiveEnrollment) {
+        const enrollment = await tx.studentProgramInstance.update({
+          where: { id: inactiveEnrollment.id },
+          data: {
+            status: 'active',
+            endedAt: null,
+            lastActivityAt: new Date(),
+          },
+          select: { id: true },
+        })
+        await ensurePaesM1FirstCapsuleForEnrollment(tx, enrollment.id)
+        return
+      }
+
+      const enrollment = await tx.studentProgramInstance.create({
+        data: {
+          studentId: student.id,
+          programId: program.id,
+          status: 'active',
+          currentContinuityState: 'normal',
           lastActivityAt: new Date(),
         },
         select: { id: true },
       })
-      return
-    }
-
-    await tx.studentProgramInstance.create({
-      data: {
-        studentId: student.id,
-        programId: program.id,
-        status: 'active',
-        currentContinuityState: 'normal',
-        lastActivityAt: new Date(),
-      },
-      select: { id: true },
+      await ensurePaesM1FirstCapsuleForEnrollment(tx, enrollment.id)
     })
-  })
+  } catch {
+    redirect('/study/paes-m1?capsula=unavailable')
+  }
 
   revalidatePath('/study/paes-m1')
   revalidatePath('/now')
   redirect('/study/paes-m1')
+}
+
+async function viewOrCreateFirstPaesM1Capsule() {
+  'use server'
+
+  const session = await getServerSession(authOptions)
+  if (!session?.user?.email) {
+    redirect('/login')
+  }
+
+  const student = await prisma.student.findUnique({
+    where: { email: session.user.email },
+    select: { id: true },
+  })
+
+  if (!student) {
+    redirect('/study/paes-m1?capsula=unavailable')
+  }
+
+  const activeEnrollment = await prisma.studentProgramInstance.findFirst({
+    where: {
+      studentId: student.id,
+      status: 'active',
+      program: { code: 'PAES_M1' },
+    },
+    orderBy: { startedAt: 'desc' },
+    select: { id: true },
+  })
+
+  if (!activeEnrollment) {
+    redirect('/study/paes-m1?capsula=unavailable')
+  }
+
+  let capsule: Awaited<ReturnType<typeof ensurePaesM1FirstCapsuleForEnrollment>>
+  try {
+    capsule = await prisma.$transaction((tx) =>
+      ensurePaesM1FirstCapsuleForEnrollment(tx, activeEnrollment.id),
+    )
+  } catch {
+    redirect('/study/paes-m1?capsula=unavailable')
+  }
+
+  revalidatePath('/study/paes-m1')
+  revalidatePath('/now')
+  redirect(`/now/study-loads/${capsule.id}`)
 }
 
 function pickCurrentCapsule(studyLoads: CapsuleSummary[]) {
@@ -196,18 +255,42 @@ function StatCard({
 function CurrentCapsuleCard({ currentCapsule }: { currentCapsule: CapsuleSummary | null }) {
   if (!currentCapsule) {
     return (
-      <article className="rounded-3xl border border-[#E2E8EC] bg-white p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:p-5">
-        <div className="flex items-start gap-3">
+      <article className="rounded-3xl border border-[#79A6A4] bg-[linear-gradient(135deg,#FBFCF6_0%,#E5F0EF_100%)] p-4 shadow-[0_14px_34px_rgba(16,33,63,0.10)] sm:p-5">
+        <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div className="flex items-start gap-3">
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#F2EFF8] text-[#34215F]">
             <BookOpenCheck className="h-5 w-5" aria-hidden="true" />
           </span>
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">Siguiente cápsula</p>
-            <h2 className="mt-1 font-display text-xl font-bold text-[#10213F]">Aún no tienes una cápsula disponible.</h2>
-            <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
-              Cuando haya una cápsula lista, aparecerá aquí con una acción clara.
+            <h2 className="mt-1 font-display text-xl font-bold leading-tight text-[#10213F] sm:text-2xl">
+              {PAES_M1_FIRST_CAPSULE_TITLE}
+            </h2>
+            <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-[#253A5F]">
+              <span className="rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
+                Estado: Pendiente
+              </span>
+              <span className="rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
+                Cápsula
+              </span>
+              <span className="rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
+                Entrada inicial
+              </span>
+            </div>
+            <p className="mt-3 text-sm leading-6 text-[#5D6B7A]">
+              {PAES_M1_FIRST_CAPSULE_PURPOSE}
             </p>
           </div>
+          </div>
+          <form action={viewOrCreateFirstPaesM1Capsule} className="contents">
+            <button
+              type="submit"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#F2B84B]/45 bg-[linear-gradient(135deg,#F2B84B_0%,#D85B8C_52%,#A63D4F_100%)] px-5 text-sm font-bold text-white shadow-[0_0_24px_rgba(216,91,140,0.22),0_12px_28px_rgba(166,61,79,0.18)] transition hover:shadow-[0_0_28px_rgba(216,91,140,0.30),0_14px_30px_rgba(166,61,79,0.22)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20"
+            >
+              Ver cápsula
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </button>
+          </form>
         </div>
       </article>
     )
@@ -216,6 +299,10 @@ function CurrentCapsuleCard({ currentCapsule }: { currentCapsule: CapsuleSummary
   const content = getStudyLoadContent(currentCapsule.title)
   const statusLabel = capsuleStatusLabels[currentCapsule.status]
   const topic = content?.topic ?? 'Foco inicial'
+  const purpose =
+    currentCapsule.title === PAES_M1_FIRST_CAPSULE_TITLE
+      ? PAES_M1_FIRST_CAPSULE_PURPOSE
+      : 'Trabaja pocos ejercicios conectados para avanzar con foco.'
 
   return (
     <article className="rounded-3xl border border-[#79A6A4] bg-[linear-gradient(135deg,#FBFCF6_0%,#E5F0EF_100%)] p-4 shadow-[0_14px_34px_rgba(16,33,63,0.10)] sm:p-5">
@@ -236,6 +323,7 @@ function CurrentCapsuleCard({ currentCapsule }: { currentCapsule: CapsuleSummary
               {topic}
             </span>
           </div>
+          <p className="mt-3 text-sm leading-6 text-[#5D6B7A]">{purpose}</p>
         </div>
         <Link
           href={`/now/study-loads/${currentCapsule.id}`}
@@ -371,6 +459,7 @@ export default async function PaesM1StudyPage({ searchParams }: PageProps) {
       : 'Foco inicial'
     : currentFocus
   const enrollmentError = searchParams?.matricula === 'unavailable'
+  const capsuleError = searchParams?.capsula === 'unavailable'
 
   return (
     <Dialog>
@@ -425,6 +514,11 @@ export default async function PaesM1StudyPage({ searchParams }: PageProps) {
                   {enrollmentError && (
                     <p className="mt-3 rounded-2xl border border-[#E9DFCF] bg-[#FFF3D8] px-3 py-2 text-sm font-semibold leading-6 text-[#75531A]">
                       No pudimos activar la tutoría en este momento. Intenta nuevamente o vuelve al Dashboard.
+                    </p>
+                  )}
+                  {capsuleError && (
+                    <p className="mt-3 rounded-2xl border border-[#E9DFCF] bg-[#FFF3D8] px-3 py-2 text-sm font-semibold leading-6 text-[#75531A]">
+                      No pudimos preparar la cápsula en este momento. Intenta nuevamente o vuelve al Dashboard.
                     </p>
                   )}
                 </div>

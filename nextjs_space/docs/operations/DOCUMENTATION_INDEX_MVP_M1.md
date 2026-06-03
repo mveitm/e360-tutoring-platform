@@ -37,6 +37,7 @@ These documents now govern roadmap direction:
 31. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_2_IMPLEMENT_M1_STUDY_PAGE_AFTER_ENROLLMENT_STATE.md`
 32. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_ENROLL_1_IMPLEMENT_MINIMAL_M1_ENROLLMENT_FROM_STUDY_PAGE.md`
 33. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_1_AUDIT_AND_REFINE_FIRST_CAPSULE_VIEWER_ENTRY_FROM_STUDY_PAGE.md`
+34. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_2_DIAGNOSE_AND_IMPLEMENT_FIRST_M1_CAPSULE_AVAILABILITY_AND_CTA_ON_STUDY_PAGE.md`
 
 Future chats must read them before proposing work.
 
@@ -97,6 +98,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_STUDY_ENROLL_1_IMPLEMENT_MINIMAL_M1_ENROLLMENT_FROM_STUDY_PAGE.md` records the controlled enrollment implementation from `/study/paes-m1`: `Matricularse` now submits an authenticated server action that creates or reactivates the minimal PAES_M1 `StudentProgramInstance`, then returns to `Tutoría Activa`; it keeps capsule lookup read-only, preserves `Ver cápsula`, and does not create cycles/capsules, StudentAccess, checkout, payment, trial, subscription, or Cápsula/StudyLoad execution automation.
 
 `MVP_SALES_PILOT_UI_CAPSULE_1_AUDIT_AND_REFINE_FIRST_CAPSULE_VIEWER_ENTRY_FROM_STUDY_PAGE.md` records the first Cápsula viewer entry refinement: `/study/paes-m1` keeps `Ver cápsula` as navigation to `/now/study-loads/[id]`, the viewer now presents a Bexauri-aligned Cápsula shell with `Volver a tutoría`, and touched Dashboard/viewer copy uses `Cápsula` / `Cápsulas` without DB mutation, backend changes, automatic StudyLoad execution, responses, submit, self-report, completion, or continuity automation.
+
+`MVP_SALES_PILOT_UI_CAPSULE_2_DIAGNOSE_AND_IMPLEMENT_FIRST_M1_CAPSULE_AVAILABILITY_AND_CTA_ON_STUDY_PAGE.md` records the diagnosis and repair for first M1 capsule visibility: the minimal Study Page enrollment left active PAES_M1 enrollments without current cycle/capsule, so `/study/paes-m1` now shows a first/siguiente capsule block with title, status, purpose, and `Ver cápsula`; a server-side idempotent helper creates/locates only the first PAES_M1 capsule when explicitly triggered, without automatic execution, responses, submit, self-report, completion, StudentAccess, schema, auth, checkout, payment, trial, subscription, staging, production, or L1/M2 readiness.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 
