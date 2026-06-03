@@ -132,6 +132,34 @@ C. MVP-SALES-PILOT-UI-CAPSULE-6 - Refine next-capsula presentation after first c
 D. MVP-SALES-PILOT-PRO-AUDIT-1 - PRO audit of LP/visual standard and student circuit.
 ```
 
+Current PRO audit verdict:
+
+```text
+MVP-SALES-PILOT-PRO-AUDIT-1 - Document top-down UI circuit audit
+Document:
+nextjs_space/docs/operations/MVP_SALES_PILOT_PRO_AUDIT_1_TOP_DOWN_UI_CIRCUIT_AUDIT.md
+
+Verdict:
+APROBADO CON RESERVAS
+
+Central reading:
+The circuit exists; now Bexauri must prove that the student learns, progresses, and does not only navigate.
+
+Next recommended focus:
+1. Audit existing next-capsule continuity.
+2. Audit first M1 capsule pedagogy.
+3. Prepare multi-capsule runbook toward Capsula 10.
+4. Execute controlled rehearsal.
+5. Replace progress/logro placeholders with reliable data or simplify UI.
+
+Do not advance to real students yet.
+Do not keep polishing LP/DB/ST/Capsule by intuition.
+Next recommended phase:
+MVP-SALES-PILOT-M1-CONTINUITY-1 - Audit existing next-capsule continuity
+
+Expected baseline after PRO-AUDIT-1 must be taken from Git preflight. Expected baseline before PRO-AUDIT-1 was c546327. After PRO-AUDIT-1, future agents must use the resulting commit titled `MVP-SALES-PILOT-PRO-AUDIT-1: document top-down UI circuit audit` from Git preflight as live truth.
+```
+
 Historical prior student-experience deliverable:
 
 ```text

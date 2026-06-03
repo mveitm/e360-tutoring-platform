@@ -225,6 +225,46 @@ Recommended next phase:
 MVP-SALES-PILOT-M1-CIRCUIT-2 - Prepare manual M1 multi-capsula test to Capsula 10
 ```
 
+### 2C-9. PRO-AUDIT-1 Active - Top-down UI Circuit Audit
+
+PRO-AUDIT-1 is active:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PRO_AUDIT_1_TOP_DOWN_UI_CIRCUIT_AUDIT.md
+```
+
+Verdict:
+
+```text
+APROBADO CON RESERVAS
+```
+
+Circuit state:
+
+* UI M1-first circuit is closed as the first operative base.
+* Accepted circuit remains: LP -> DB -> ST -> matricula M1 -> primera capsula -> responder -> enviar -> feedback -> autorreporte -> finalizar -> revisar capsula completada -> ver siguiente capsula.
+* The circuit exists; now the product must prove that it learns, progresses, and does not only navigate.
+
+Next focus:
+
+* Audit existing next-capsule continuity.
+* Audit first M1 capsule pedagogy.
+* Prepare runbook toward Capsula 10.
+* Replace progress/logro placeholders when reliable data exists.
+
+Guardrails:
+
+* Do not advance to real students yet.
+* Do not keep polishing LP/DB/ST/Capsule by intuition.
+* Preserve Student Experience-Led Delivery.
+* Do not declare Sales-Ready, MVP-Beta cerrado completo, L1 readiness, or M2 readiness.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-M1-CONTINUITY-1 - Audit existing next-capsule continuity
+```
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
 Friday full manual M1 test is the near-term operational milestone.
