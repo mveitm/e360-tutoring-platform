@@ -298,7 +298,7 @@ export default function StudyLoadAnswerForm({
   ])
 
   const handleComplete = useCallback(async () => {
-    if (!isInProgress || !selfReport) return
+    if (!canFinalizeAfterSubmission || !selfReport) return
     setCompleting(true)
     try {
       const res = await fetch(`/api/study-loads/${studyLoadId}/complete`, {
@@ -309,9 +309,9 @@ export default function StudyLoadAnswerForm({
 
       if (res.ok) {
         setCompleteSuccess(true)
+        window.sessionStorage.removeItem(draftStorageKey)
         window.sessionStorage.removeItem(autoreporteDraftStorageKey)
         startTransition(() => {
-          router.push('/now')
           router.refresh()
         })
       } else {
@@ -326,7 +326,14 @@ export default function StudyLoadAnswerForm({
     } finally {
       setCompleting(false)
     }
-  }, [autoreporteDraftStorageKey, isInProgress, selfReport, studyLoadId, router])
+  }, [
+    autoreporteDraftStorageKey,
+    canFinalizeAfterSubmission,
+    draftStorageKey,
+    selfReport,
+    studyLoadId,
+    router,
+  ])
 
   function renderInstructions() {
     return (
@@ -471,6 +478,41 @@ export default function StudyLoadAnswerForm({
 
   function renderClosureBlock() {
     if (!canFinalizeAfterSubmission && !completeSuccess) return null
+
+    if (completeSuccess) {
+      return (
+        <div
+          ref={closureBlockRef}
+          className="mb-3 rounded-2xl border border-[#79A6A4] bg-[linear-gradient(135deg,#E5F0EF_0%,#FBFCF6_62%,#F2EFF8_100%)] p-3 text-sm text-[#10213F] shadow-[0_10px_24px_rgba(16,33,63,0.10)]"
+        >
+          <div className="flex items-start gap-2">
+            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#4B7B7C]" />
+            <div className="w-full">
+              <p className="text-base font-extrabold leading-snug text-[#10213F]">
+                Cápsula finalizada
+              </p>
+              <p className="mt-1 text-sm font-medium leading-relaxed text-[#253A5F]">
+                Tu autorreporte quedó guardado. Puedes volver a la tutoría para revisar tu avance.
+              </p>
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                <a
+                  href="/study/paes-m1"
+                  className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#79A6A4] bg-white px-3 text-xs font-bold text-[#10213F] shadow-sm transition hover:bg-[#EEF4F7]"
+                >
+                  Volver a tutoría
+                </a>
+                <a
+                  href="/now"
+                  className="inline-flex min-h-9 items-center justify-center rounded-full bg-[#192F56] px-3 text-xs font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.16)] transition hover:bg-[#253A5F]"
+                >
+                  Ir DB
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    }
 
     return (
       <div
@@ -695,12 +737,31 @@ export default function StudyLoadAnswerForm({
       <>
         {renderPassage()}
         {renderInstructions()}
-        <div className="mb-6 rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-900 dark:bg-green-950/30">
+        <div className="mb-6 rounded-2xl border border-[#79A6A4] bg-[#E5F0EF] p-4 shadow-[0_10px_24px_rgba(16,33,63,0.08)]">
           <div className="flex items-start gap-2">
-            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-600 dark:text-green-400" />
-            <p className="text-sm leading-relaxed text-green-800 dark:text-green-300">
-              Esta cápsula ya fue finalizada. Tus respuestas quedan como evidencia para revisión.
-            </p>
+            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#4B7B7C]" />
+            <div className="min-w-0">
+              <p className="text-base font-extrabold leading-snug text-[#10213F]">
+                Cápsula finalizada
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-[#253A5F]">
+                Tu autorreporte quedó guardado. Puedes volver a la tutoría para revisar tu avance.
+              </p>
+            </div>
+          </div>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            <a
+              href="/study/paes-m1"
+              className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#79A6A4] bg-white px-3 text-xs font-bold text-[#10213F] shadow-sm transition hover:bg-[#EEF4F7]"
+            >
+              Volver a tutoría
+            </a>
+            <a
+              href="/now"
+              className="inline-flex min-h-9 items-center justify-center rounded-full bg-[#192F56] px-3 text-xs font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.16)] transition hover:bg-[#253A5F]"
+            >
+              Ir DB
+            </a>
           </div>
         </div>
         {renderFeedbackSummary()}

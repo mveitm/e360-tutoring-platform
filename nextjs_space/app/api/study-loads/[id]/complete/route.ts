@@ -109,7 +109,7 @@ export async function POST(
   })
 
   if (!load) {
-    return NextResponse.json({ error: 'Carga no encontrada' }, { status: 404 })
+    return NextResponse.json({ error: 'Cápsula no encontrada' }, { status: 404 })
   }
 
   // Ownership: provisional v1.0 linkage User.email == Student.email.
@@ -139,7 +139,7 @@ export async function POST(
 
   if (load.status !== 'in_progress') {
     return NextResponse.json(
-      { error: 'Esta carga no está en curso' },
+      { error: 'Esta cápsula no está en curso' },
       { status: 409 },
     )
   }
@@ -175,10 +175,10 @@ export async function POST(
         },
       })
       if (!fresh) {
-        throw { httpStatus: 404, message: 'Carga no encontrada' }
+        throw { httpStatus: 404, message: 'Cápsula no encontrada' }
       }
       if (fresh.status !== 'in_progress') {
-        throw { httpStatus: 409, message: 'Esta carga no está en curso' }
+        throw { httpStatus: 409, message: 'Esta cápsula no está en curso' }
       }
       if (fresh.learningCycle.status !== 'open') {
         throw { httpStatus: 409, message: 'El ciclo está cerrado' }

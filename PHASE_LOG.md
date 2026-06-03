@@ -32,6 +32,137 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CAPSULE-5 - Implement manual autoreporte and finalize Cápsula flow
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 2c98f48
+```
+
+Human authorization:
+
+```text
+AUTORIZO_CAPSULE_5_AUTOREPORTE_MANUAL_Y_FINALIZAR_CAPSULA
+```
+
+Inherited accepted state:
+
+* CAPSULE-4D approved.
+* Manual capsule start.
+* Manual answer selection.
+* Manual answer submit.
+* `Paso 1: Cuéntanos cómo te fue`.
+* Manual autoreporte visible.
+* `Paso 2: Revisa tu resultado`.
+* Per-question feedback visible.
+* `+ paso a paso` remains a minor non-blocking debt.
+* No automatic completion or new automatic continuity introduced by 4D.
+
+Context gate:
+
+* Current autoreporte was already wired to a manual `Finalizar cápsula` button in `study-load-answer-form.tsx`.
+* Current complete endpoint exists at `POST /api/study-loads/[id]/complete`.
+* The endpoint validates session ownership, validates the closed self-report set, saves one `Response(responseType="answer")`, marks the StudyLoad and active TutoringSession as `completed`, and updates enrollment `lastActivityAt`.
+* The endpoint also calls existing `prepareNextStudyLoadAfterCompletion` after the completion transaction.
+* That continuity behavior existed before CAPSULE-5 and is idempotent for an existing next StudyLoad title.
+* CAPSULE-5 did not add a new continuity mechanism, new endpoint, scoring, adaptive logic, or new capsule creation policy.
+
+Changes:
+
+* Kept autoreporte manual and closed to `Me fue bien`, `Me costó`, `No la terminé`.
+* Kept `Finalizar cápsula` disabled until a manual autoreporte option is selected.
+* Changed successful completion UI to stay on the Capsule Page instead of automatically redirecting to `/now`.
+* Added post-finalization state:
+
+```text
+Cápsula finalizada
+Tu autorreporte quedó guardado. Puedes volver a la tutoría para revisar tu avance.
+```
+
+* Added clear post-finalization actions: `Volver a tutoría` and `Ir DB`.
+* Cleared both local drafts after successful manual completion:
+  * `bexauri:capsule-draft:<studyLoadId>`;
+  * `bexauri:capsule-autoreporte-draft:<studyLoadId>`.
+* Updated touched complete endpoint visible error copy from `Carga` to `Cápsula`.
+
+Endpoint/action used:
+
+```text
+POST /api/study-loads/[id]/complete
+```
+
+Continuity:
+
+* Existing: yes, via `prepareNextStudyLoadAfterCompletion`.
+* New in this phase: no.
+* The existing helper skips duplicate next StudyLoads when one already exists.
+* This phase documents that behavior and does not expand it.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/api/study-loads/[id]/complete/route.ts`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5_MANUAL_AUTOREPORTE_AND_FINALIZE_CAPSULE_FLOW.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No automatic autoreporte.
+* No automatic completion.
+* No new automatic continuity.
+* No new capsule creation policy.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No M2/Lectora functional activation.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No official PAES score claim.
+* No definitive mastery claim.
+
+Next recommended phase:
+
+```text
+Human mobile audit of manual autoreporte and finalize Cápsula
+```
+
+Result marker:
+
+```text
+CAPSULE_MANUAL_AUTOREPORTE_AND_COMPLETION_FLOW_READY
+```
+
+---
+
 ### MVP-SALES-PILOT-UI-CAPSULE-4D - Refine post-submit feedback visibility and step-by-step affordance
 
 Date: 2026-06-03
