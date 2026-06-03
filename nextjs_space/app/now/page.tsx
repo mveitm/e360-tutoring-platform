@@ -73,8 +73,8 @@ const tutoringCards = [
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="h-[100svh] overflow-hidden bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
-      <div className="mx-auto flex h-full w-full max-w-7xl flex-col px-3 py-3 sm:px-5 lg:px-8 lg:py-5">
+    <main className="h-[100dvh] min-h-[100svh] overflow-hidden bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
+      <div className="mx-auto flex h-full w-full max-w-7xl flex-col px-2.5 py-2 sm:px-5 lg:px-8 lg:py-5">
         {children}
       </div>
     </main>
@@ -123,17 +123,17 @@ function DashboardFooterNav() {
 
 function DashboardHeader({ studentName }: { studentName?: string }) {
   return (
-    <header className="mb-2 shrink-0 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 px-3 py-1.5 shadow-[0_8px_20px_rgba(16,33,63,0.08)] sm:mb-4 sm:px-4 sm:py-2">
+    <header className="mb-1.5 shrink-0 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 px-2.5 py-1 shadow-[0_8px_20px_rgba(16,33,63,0.08)] sm:mb-4 sm:px-4 sm:py-2">
       <div className="flex items-center justify-between gap-3">
         <Link href="/now" className="flex min-w-0 items-center gap-3" aria-label="Bexauri">
-          <span className="rounded-2xl border border-[#DCE5EA] bg-white px-2 py-1 shadow-sm shadow-[#10213F]/10">
+          <span className="rounded-xl border border-[#DCE5EA] bg-white px-1.5 py-0.5 shadow-sm shadow-[#10213F]/10 sm:rounded-2xl sm:px-2 sm:py-1">
             <Image
               src="/brand/bexauri-logo-provisional.png"
               alt="Bexauri"
               width={220}
               height={88}
               priority
-              className="h-7 w-[106px] rounded-lg object-cover object-center sm:h-9 sm:w-[132px]"
+              className="h-6 w-[96px] rounded-lg object-cover object-center sm:h-9 sm:w-[132px]"
             />
           </span>
           <span className="hidden text-sm font-semibold text-[#5D6B7A] sm:inline">

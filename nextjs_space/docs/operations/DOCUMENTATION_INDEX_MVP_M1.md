@@ -32,6 +32,7 @@ These documents now govern roadmap direction:
 26. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_DASHBOARD_1D_REFINE_STUDY_CTA_WARMTH_AND_M1_TUTORING_CARD_COPY.md`
 27. `nextjs_space/docs/operations/MVP_SALES_PILOT_DAY_CLOSE_1_LANDING_AND_DASHBOARD_UI_PROGRESS_CLOSEOUT.md`
 28. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDENT_SPINE_1_IMPLEMENT_MINIMAL_LP_DASHBOARD_STUDY_PAGE_NAVIGATION_SPINE.md`
+29. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_1A_REFINE_STUDY_PAGE_CONTAINED_LAYOUT_TUTORING_INFO_AND_MOBILE_SHELL.md`
 
 Future chats must read them before proposing work.
 
@@ -82,6 +83,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_DAY_CLOSE_1_LANDING_AND_DASHBOARD_UI_PROGRESS_CLOSEOUT.md` records the daily closeout after landing and dashboard UI progress: Landing v0.1 remains accepted with PRO audit debt, Dashboard 1D is the current mobile-first dashboard state pending human audit, and the next product boundary is defining the operational behavior of `Comenzar Estudio` and M1 entry without repeating login `/now` gate tests by default.
 
 `MVP_SALES_PILOT_UI_STUDENT_SPINE_1_IMPLEMENT_MINIMAL_LP_DASHBOARD_STUDY_PAGE_NAVIGATION_SPINE.md` records the minimal student navigation spine from `/` to `/now` to `/study/paes-m1`: Trial/Suscripción route safely to the existing dashboard guard, dashboard M1 and `Comenzar Estudio` route to the Study Page, the Study Page reads active PAES_M1 enrollment without mutation, shows `Matricularse` / `Tutoría Activa` / `No disponible` states, and applies `Cápsulas` terminology in the touched student UI without checkout, enrollment mutation, StudyLoad execution automation, M2/Lectora activation, or backend changes.
+
+`MVP_SALES_PILOT_UI_STUDY_1A_REFINE_STUDY_PAGE_CONTAINED_LAYOUT_TUTORING_INFO_AND_MOBILE_SHELL.md` records the first Study Page refinement: `/study/paes-m1` now uses a compact mobile shell with `100dvh`/`100svh`, internal central scroll, a Dashboard-like footer, and `Tutoría Info` as a contained modal with Mauricio's provided methodology text; `/now` received only compact shell/header adjustments for consistency, without DB/base de datos, backend, auth, enrollment, or Cápsula/StudyLoad execution changes.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 
