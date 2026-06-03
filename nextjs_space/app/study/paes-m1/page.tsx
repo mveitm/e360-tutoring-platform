@@ -2,9 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
-import { ArrowLeft, BookOpenCheck, CheckCircle2, CircleDashed, Info, Route, Sparkles } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpenCheck, CheckCircle2, CircleDashed, Info, Route, Sparkles } from 'lucide-react'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
+import { getStudyLoadContent } from '@/lib/study-load-content'
 import {
   Dialog,
   DialogClose,
@@ -19,6 +20,49 @@ import {
 export const dynamic = 'force-dynamic'
 
 const m1Available = true
+
+type CapsuleStatus = 'pending' | 'in_progress' | 'completed'
+
+type CapsuleSummary = {
+  id: string
+  title: string
+  loadType: string
+  status: CapsuleStatus
+  createdAt: Date
+  updatedAt: Date
+  tutoringSessions: Array<{
+    status: string
+    completedAt: Date | null
+  }>
+}
+
+const capsuleStatusLabels: Record<CapsuleStatus, string> = {
+  pending: 'Pendiente',
+  in_progress: 'En progreso',
+  completed: 'Completada',
+}
+
+function pickCurrentCapsule(studyLoads: CapsuleSummary[]) {
+  const inProgress = studyLoads
+    .filter((load) => load.status === 'in_progress')
+    .sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime())[0]
+  if (inProgress) return inProgress
+
+  const pending = studyLoads
+    .filter((load) => load.status === 'pending')
+    .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())[0]
+  if (pending) return pending
+
+  return studyLoads
+    .filter((load) => load.status === 'completed')
+    .sort((a, b) => {
+      const aCompletedAt = a.tutoringSessions.find((session) => session.status === 'completed')?.completedAt
+      const bCompletedAt = b.tutoringSessions.find((session) => session.status === 'completed')?.completedAt
+      const ta = aCompletedAt?.getTime() ?? a.updatedAt.getTime()
+      const tb = bCompletedAt?.getTime() ?? b.updatedAt.getTime()
+      return tb - ta
+    })[0] ?? null
+}
 
 function StatusAction({ hasActiveEnrollment }: { hasActiveEnrollment: boolean }) {
   if (!m1Available) {
@@ -45,6 +89,80 @@ function StatusAction({ hasActiveEnrollment }: { hasActiveEnrollment: boolean })
     >
       Matricularse
     </button>
+  )
+}
+
+function StatCard({
+  label,
+  value,
+  description,
+}: {
+  label: string
+  value: string
+  description: string
+}) {
+  return (
+    <article className="rounded-2xl border border-white/70 bg-white/70 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]">
+      <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#5D6B7A]">{label}</p>
+      <p className="mt-1 font-display text-xl font-bold text-[#10213F]">{value}</p>
+      <p className="mt-1 text-xs leading-5 text-[#5D6B7A]">{description}</p>
+    </article>
+  )
+}
+
+function CurrentCapsuleCard({ currentCapsule }: { currentCapsule: CapsuleSummary | null }) {
+  if (!currentCapsule) {
+    return (
+      <article className="rounded-3xl border border-[#E2E8EC] bg-white p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:p-5">
+        <div className="flex items-start gap-3">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#F2EFF8] text-[#34215F]">
+            <BookOpenCheck className="h-5 w-5" aria-hidden="true" />
+          </span>
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">Siguiente cápsula</p>
+            <h2 className="mt-1 font-display text-xl font-bold text-[#10213F]">Aún no tienes una cápsula disponible.</h2>
+            <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
+              Cuando haya una cápsula lista, aparecerá aquí con una acción clara.
+            </p>
+          </div>
+        </div>
+      </article>
+    )
+  }
+
+  const content = getStudyLoadContent(currentCapsule.title)
+  const statusLabel = capsuleStatusLabels[currentCapsule.status]
+  const topic = content?.topic ?? 'Foco inicial'
+
+  return (
+    <article className="rounded-3xl border border-[#79A6A4] bg-[linear-gradient(135deg,#FBFCF6_0%,#E5F0EF_100%)] p-4 shadow-[0_14px_34px_rgba(16,33,63,0.10)] sm:p-5">
+      <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div>
+          <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">Siguiente cápsula</p>
+          <h2 className="mt-1 font-display text-xl font-bold leading-tight text-[#10213F] sm:text-2xl">
+            {currentCapsule.title}
+          </h2>
+          <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-[#253A5F]">
+            <span className="rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
+              Estado: {statusLabel}
+            </span>
+            <span className="rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
+              Cápsula
+            </span>
+            <span className="rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
+              {topic}
+            </span>
+          </div>
+        </div>
+        <Link
+          href={`/now/study-loads/${currentCapsule.id}`}
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#F2B84B]/45 bg-[linear-gradient(135deg,#F2B84B_0%,#D85B8C_52%,#A63D4F_100%)] px-5 text-sm font-bold text-white shadow-[0_0_24px_rgba(216,91,140,0.22),0_12px_28px_rgba(166,61,79,0.18)] transition hover:shadow-[0_0_28px_rgba(216,91,140,0.30),0_14px_30px_rgba(166,61,79,0.22)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20"
+        >
+          Ver cápsula
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
+      </div>
+    </article>
   )
 }
 
@@ -115,6 +233,7 @@ export default async function PaesM1StudyPage() {
         select: {
           id: true,
           currentCycleId: true,
+          startedAt: true,
           program: { select: { code: true, name: true } },
         },
       })
@@ -124,21 +243,50 @@ export default async function PaesM1StudyPage() {
     ? await prisma.learningCycle.findUnique({
         where: { id: activeEnrollment.currentCycleId },
         select: {
+          id: true,
           cycleNumber: true,
           status: true,
+          openedAt: true,
           studyLoads: {
             where: { status: { in: ['pending', 'in_progress', 'completed'] } },
-            select: { id: true, status: true },
+            orderBy: { createdAt: 'asc' },
+            select: {
+              id: true,
+              title: true,
+              loadType: true,
+              status: true,
+              createdAt: true,
+              updatedAt: true,
+              tutoringSessions: {
+                where: { status: { in: ['in_progress', 'completed'] } },
+                orderBy: { updatedAt: 'desc' },
+                select: {
+                  status: true,
+                  completedAt: true,
+                },
+              },
+            },
           },
         },
       })
     : null
 
   const hasActiveEnrollment = Boolean(activeEnrollment)
-  const capsuleCount = currentCycle?.studyLoads.length ?? 0
+  const studyLoads = (currentCycle?.studyLoads ?? []) as CapsuleSummary[]
+  const currentCapsule = pickCurrentCapsule(studyLoads)
+  const capsuleCount = studyLoads.length
+  const completedCapsules = studyLoads.filter((load) => load.status === 'completed').length
+  const cycleLabel = currentCycle
+    ? `Ciclo ${currentCycle.cycleNumber} ${currentCycle.status === 'open' ? 'abierto' : currentCycle.status}`
+    : 'Estado inicial'
   const currentFocus = hasActiveEnrollment
     ? 'Continúa desde tu ciclo M1 activo cuando una cápsula esté disponible.'
     : 'Primero elige esta tutoría y prepara tu punto de partida.'
+  const displayFocus = hasActiveEnrollment
+    ? currentCapsule
+      ? getStudyLoadContent(currentCapsule.title)?.topic ?? 'Foco inicial'
+      : 'Foco inicial'
+    : currentFocus
 
   return (
     <Dialog>
@@ -195,6 +343,42 @@ export default async function PaesM1StudyPage() {
             </section>
 
             <section id="progreso" className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+              {hasActiveEnrollment && (
+                <>
+                  <article className="rounded-3xl border border-[#A99AD2]/60 bg-[linear-gradient(135deg,#F2EFF8_0%,#EEF4F7_100%)] p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)] md:col-span-2 lg:col-span-4">
+                    <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+                      <div>
+                        <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">Estado inicial</p>
+                        <h2 className="mt-1 font-display text-2xl font-bold text-[#10213F]">Tutoría Activa</h2>
+                        <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
+                          Tu tutoría PAES Matemáticas M1 está activa. Revisa tu siguiente cápsula y avanza desde el visor cuando estés listo.
+                        </p>
+                      </div>
+                      <div className="grid gap-2 sm:grid-cols-3">
+                        <StatCard
+                          label="Cápsulas trabajadas"
+                          value={`${completedCapsules} cápsula${completedCapsules === 1 ? '' : 's'}`}
+                          description={capsuleCount > 0 ? `${capsuleCount} cápsula${capsuleCount === 1 ? '' : 's'} en tu ciclo.` : '0 cápsulas visibles.'}
+                        />
+                        <StatCard
+                          label="Logro"
+                          value="--%"
+                          description="Indicador pendiente de datos confiables."
+                        />
+                        <StatCard
+                          label="Foco actual"
+                          value={displayFocus}
+                          description={cycleLabel}
+                        />
+                      </div>
+                    </div>
+                  </article>
+                  <div className="md:col-span-2 lg:col-span-4">
+                    <CurrentCapsuleCard currentCapsule={currentCapsule} />
+                  </div>
+                </>
+              )}
+
               <article id="capsulas" className="rounded-3xl border border-[#E2E8EC] bg-white p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
                 <BookOpenCheck className="h-6 w-6 text-[#4B7B7C]" aria-hidden="true" />
                 <h2 className="mt-4 font-display text-lg font-bold text-[#10213F]">Cápsulas</h2>
@@ -212,7 +396,7 @@ export default async function PaesM1StudyPage() {
               <article className="rounded-3xl border border-[#E2E8EC] bg-white p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
                 <Route className="h-6 w-6 text-[#F2B84B]" aria-hidden="true" />
                 <h2 className="mt-4 font-display text-lg font-bold text-[#10213F]">Foco actual</h2>
-                <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">{currentFocus}</p>
+                <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">{displayFocus}</p>
               </article>
               <article className="rounded-3xl border border-[#E2E8EC] bg-white p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
                 <Sparkles className="h-6 w-6 text-[#D85B8C]" aria-hidden="true" />

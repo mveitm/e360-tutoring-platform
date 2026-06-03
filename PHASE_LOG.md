@@ -29828,6 +29828,154 @@ MVP_SALES_PILOT_DB_LOCAL_5_CODEX_DB_STILL_UNAVAILABLE
 
 ---
 
+## 2026-06-03 - MVP-SALES-PILOT-UI-STUDY-2 - Implement M1 Study Page after-enrollment state
+
+Type:
+
+```text
+Level C/D - UI implementation with read-only operational integration.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 029d35a
+Latest accepted commit = 029d35a - MVP-SALES-PILOT-UI-STUDY-TRANSITION-1: define after-enrollment study page deliverable
+Working tree clean before edits.
+```
+
+Human authorization:
+
+```text
+AUTORIZO_STUDY_2_AFTER_ENROLLMENT_CON_CTA_VER_CAPSULA
+```
+
+Context gate:
+
+* Git preflight passed.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_TRANSITION_1_CLOSE_ST_PRE_ENROLLMENT_AND_DEFINE_AFTER_ENROLLMENT_DELIVERABLE.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_1A_REFINE_STUDY_PAGE_CONTAINED_LAYOUT_TUTORING_INFO_AND_MOBILE_SHELL.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDENT_SPINE_1_IMPLEMENT_MINIMAL_LP_DASHBOARD_STUDY_PAGE_NAVIGATION_SPINE.md`.
+* Read `PHASE_LOG.md` tail.
+* Inspected `nextjs_space/app/study/paes-m1/page.tsx`.
+* Inspected `nextjs_space/app/now/page.tsx`.
+* Inspected existing viewer route `/now/study-loads/[id]`.
+* Inspected existing StudyLoad start/response/complete API boundaries.
+* Phase was UI implementation with read-only operational integration.
+
+Route:
+
+```text
+/study/paes-m1
+```
+
+Read model:
+
+* Existing server session via `getServerSession(authOptions)`.
+* Existing read-only student lookup by `Student.email`.
+* Existing read-only active PAES_M1 enrollment lookup.
+* Existing read-only current cycle and StudyLoad lookup.
+* Existing `getStudyLoadContent(...)` for topic/focus display when content is known.
+
+Result:
+
+```text
+STUDY_PAGE_M1_AFTER_ENROLLMENT_STATE_IMPLEMENTED
+```
+
+After-enrollment behavior:
+
+* Active PAES_M1 enrollment shows `Tutoría Activa`.
+* Study Page shows Estado inicial, PAES Matemáticas M1 identity, progress indicators, current focus, and next capsule area.
+* Current capsule priority is `in_progress`, then `pending`, then `completed` as history/last capsule.
+* If a capsule exists, Study Page shows title, visible status, topic/focus when available, and CTA `Ver cápsula`.
+* If no capsule exists, Study Page shows a safe no-capsule state.
+* No enrollment state still preserves the existing visual/no destructive `Matricularse` path.
+
+CTA:
+
+```text
+Ver cápsula -> /now/study-loads/[id]
+```
+
+The CTA is a navigation link only. It does not call `/api/study-loads/[id]/start`.
+
+Terminology:
+
+* Study Page visible UI uses `Cápsula` / `Cápsulas`.
+* Internal technical names/routes/models remain unchanged.
+
+Responsive verification:
+
+* Mobile standard `390 x 844`: prepared through the existing contained shell and internal scroll.
+* Tablet vertical `768 x 1024`: prepared through responsive grid layout.
+* Desktop `1366 x 768`: prepared through max-width shell and responsive grid.
+* No intentional horizontal overflow.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/study/paes-m1/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDY_2_IMPLEMENT_M1_STUDY_PAGE_AFTER_ENROLLMENT_STATE.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB/base de datos mutation.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No new enrollment.
+* No M2 functional activation.
+* No Competencia Lectora functional activation.
+* No automatic Cápsula/StudyLoad execution.
+* No automatic `Empezar`.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No new automatic continuity.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging/production.
+* No secrets.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human mobile audit of Study Page after-enrollment
+```
+
+---
+
 ## 2026-06-03 - MVP-SALES-PILOT-UI-STUDY-TRANSITION-1 - Close ST M1 pre-enrollment and define after-enrollment Study Page deliverable
 
 Type:
