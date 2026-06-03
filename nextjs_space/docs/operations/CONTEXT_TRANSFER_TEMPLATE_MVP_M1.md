@@ -92,6 +92,46 @@ Open decisions: whether `Matricularse` becomes operational or enrollment happens
 Scope guardrail: do not implement ST After Enrollment, app code, DB/base de datos, auth, schema, StudentAccess, checkout, payment, trial, subscription, or Cápsula/StudyLoad execution unless a later phase explicitly authorizes it.
 ```
 
+Current accepted UI circuit:
+
+```text
+FIRST_STUDENT_UI_VISUAL_AND_FUNCTIONAL_CIRCUIT_CLOSED
+
+Accepted circuit:
+LP -> DB -> ST -> matricula M1 -> primera capsula -> responder -> enviar -> feedback -> autorreporte -> finalizar -> revisar capsula completada -> ver siguiente capsula
+
+Current baseline after CIRCUIT-1 must be taken from Git preflight. Expected baseline before CIRCUIT-1 was e1ebed7. After CIRCUIT-1, future agents must use the resulting commit titled `MVP-SALES-PILOT-UI-CIRCUIT-1: close first student UI circuit` from Git preflight as live truth.
+
+Current student-experience state:
+- Landing v0.1 accepted as student entry.
+- Dashboard mobile-first base accepted with M1 active and M2/Lectora visible non-operational.
+- Study Page M1 accepted across pre-enrollment and after-enrollment states.
+- Matricularse from Study Page creates/reactivates PAES_M1 enrollment.
+- First M1 capsule is visible with Ver capsula.
+- Capsule answering, submit, feedback, autoreporte, finalization, completed review, and next capsule visibility are accepted as the first operative circuit.
+
+Live debts:
+- improve + paso a paso;
+- later PRO audit of landing and visual standard;
+- replace Dashboard Ej./Logro placeholders or minimal indicators with reliable data;
+- review real progress/logro data;
+- prepare manual extended test toward Capsula 10;
+- define pedagogical quality audit for capsules;
+- harden visible Capsula terminology across remaining student UI surfaces;
+- run full real mobile audit of the end-to-end circuit before the larger test.
+
+Direction:
+- do not keep polishing LP/DB/ST/Capsule by intuition;
+- next focus should move to pedagogical quality, multiple-capsule continuity, and extended manual testing;
+- do not repeat login /now tests unless auth/routing changes or something fails.
+
+Next recommended phase options:
+A. MVP-SALES-PILOT-M1-CIRCUIT-2 - Prepare manual M1 multi-capsula test to Capsula 10.
+B. MVP-SALES-PILOT-PEDAGOGY-1 - Audit first M1 capsula pedagogical quality and feedback.
+C. MVP-SALES-PILOT-UI-CAPSULE-6 - Refine next-capsula presentation after first completed capsula.
+D. MVP-SALES-PILOT-PRO-AUDIT-1 - PRO audit of LP/visual standard and student circuit.
+```
+
 Historical prior student-experience deliverable:
 
 ```text

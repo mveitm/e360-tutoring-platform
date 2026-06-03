@@ -175,6 +175,56 @@ Recommended next phase:
 MVP-SALES-PILOT-UI-STUDY-2 - Implement M1 Study Page after-enrollment state
 ```
 
+### 2C-8. First Student UI Circuit Closed
+
+Git preflight remains the live truth for HEAD, origin/main, and working tree. This section supersedes older Study Page / Capsule next-boundary notes when they conflict with the accepted CIRCUIT-1 closeout.
+
+The first visual and functional M1-first student UI circuit is accepted as the current operative base:
+
+```text
+FIRST_STUDENT_UI_VISUAL_AND_FUNCTIONAL_CIRCUIT_CLOSED
+```
+
+Accepted circuit:
+
+```text
+LP -> DB -> ST -> matricula M1 -> primera capsula -> responder -> enviar -> feedback -> autorreporte -> finalizar -> revisar capsula completada -> ver siguiente capsula
+```
+
+Current student-experience state:
+
+* Landing v0.1 accepted as the student entry point.
+* Dashboard student mobile-first base accepted with M1 active and M2/Lectora visible non-operational.
+* Study Page M1 accepted across pre-enrollment and after-enrollment states.
+* `Matricularse` from Study Page creates/reactivates PAES_M1 enrollment.
+* First M1 capsule is visible from Study Page with `Ver capsula`.
+* Capsule answering supports manual start, manual responses, submit gating, answer draft persistence, feedback, manual autoreporte, manual finalization, completed review, and next capsule visibility.
+* Completed capsules remain reviewable from Study Page via `Capsulas completadas` / `Revisar capsula`.
+
+Live debts:
+
+* Improve `+ paso a paso`.
+* Later PRO audit of landing and visual standard.
+* Replace Dashboard `Ej.` / `Logro` placeholders or minimal indicators with reliable data.
+* Review real progress/logro data.
+* Prepare extended manual test toward Capsula 10.
+* Define pedagogical quality audit for capsules.
+* Harden visible `Capsula` terminology across any remaining student UI surfaces.
+* Run full real mobile audit of the end-to-end circuit before the larger test.
+
+Direction:
+
+* Do not keep polishing LP/DB/ST/Capsule by intuition.
+* Future work should move toward pedagogical quality, multiple-capsule continuity, and extended manual testing.
+* Continue under Student Experience-Led Delivery.
+* Do not repeat login `/now` tests unless auth/routing changes or something fails.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-M1-CIRCUIT-2 - Prepare manual M1 multi-capsula test to Capsula 10
+```
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
 Friday full manual M1 test is the near-term operational milestone.

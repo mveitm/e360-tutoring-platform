@@ -32,6 +32,129 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-UI-CIRCUIT-1 - Document first visual and functional student UI circuit closeout
+
+Date: 2026-06-03
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = e1ebed7
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read CAPSULE-5, CAPSULE-5B, and CAPSULE-5C operation documents.
+* Read `CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Phase was documentation-only.
+
+Human decision:
+
+* Mauricio approved the complete first student UI circuit.
+* Accepted circuit:
+
+```text
+LP -> DB -> ST -> matricula M1 -> primera capsula -> responder -> enviar -> feedback -> autorreporte -> finalizar -> revisar capsula completada -> ver siguiente capsula
+```
+
+Result:
+
+```text
+FIRST_STUDENT_UI_VISUAL_AND_FUNCTIONAL_CIRCUIT_CLOSED
+```
+
+Closeout summary:
+
+* Landing v0.1 accepted as student entry.
+* Dashboard accepted as mobile-first student base with M1 active and M2/Lectora visible non-operational.
+* Study Page M1 accepted across pre-enrollment and after-enrollment states.
+* `Matricularse` creates/reactivates PAES_M1 enrollment.
+* First M1 capsule is visible with `Ver capsula`.
+* Capsule answering supports manual `Comenzar`, answer persistence, chips, internal scroll, and submit gating.
+* Manual submit saves `mc_submission` evidence and shows initial feedback.
+* Manual autoreporte persists locally before finalization.
+* Manual `Finalizar capsula` saves autoreporte, completes capsule, clears drafts, and shows completed state.
+* Completed capsules remain reviewable without restart through Study Page `Capsulas completadas` and `Revisar capsula`.
+* Next capsule remains visible when pending/in-progress exists.
+
+Live debts:
+
+1. Improve `+ paso a paso`.
+2. Later PRO audit of landing and visual standard.
+3. Replace Dashboard `Ej.` / `Logro` placeholders or minimal indicators with reliable data.
+4. Review real progress/logro data.
+5. Prepare manual extended test toward Capsula 10.
+6. Define pedagogical quality audit for capsules.
+7. Harden visible `Capsula` terminology across any remaining student UI surfaces.
+8. Run full real mobile audit of the end-to-end circuit before the larger test.
+
+Direction decisions:
+
+* Do not keep polishing LP/DB/ST/Capsule by intuition.
+* The base student UI visual and functional circuit is closed.
+* Next focus should move to pedagogical quality, multiple-capsule continuity, and extended manual testing.
+* Future work must follow Student Experience-Led Delivery.
+* Do not repeat login `/now` tests unless auth/routing changes or something fails.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M1-CIRCUIT-2 - Prepare manual M1 multi-capsula test to Capsula 10
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CIRCUIT_1_FIRST_STUDENT_UI_VISUAL_AND_FUNCTIONAL_CIRCUIT_CLOSEOUT.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No app code.
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No Study Page implementation.
+* No Capsula execution.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No StudentAccess.
+* No checkout.
+* No pago real.
+* No trial real.
+* No suscripcion funcional completa.
+* No staging.
+* No production.
+* No secrets.
+* No nuevas funcionalidades.
+
+Result marker:
+
+```text
+FIRST_STUDENT_UI_VISUAL_AND_FUNCTIONAL_CIRCUIT_CLOSED
+```
+
 ### MVP-SALES-PILOT-UI-CAPSULE-5C - Verify and refine completed Cápsulas review access from Study Page
 
 Date: 2026-06-03

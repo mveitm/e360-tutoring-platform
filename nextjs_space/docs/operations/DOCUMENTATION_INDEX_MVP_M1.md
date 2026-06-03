@@ -50,6 +50,7 @@ These documents now govern roadmap direction:
 44. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5A_REFINE_COMPLETED_CAPSULE_REVIEW_STATE_AND_ACCESS.md`
 45. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5B_REFINE_COMPLETED_CAPSULE_FINAL_STATE_COPY_AND_NAVIGATION_POLISH.md`
 46. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CAPSULE_5C_VERIFY_AND_REFINE_COMPLETED_CAPSULES_REVIEW_ACCESS_FROM_STUDY_PAGE.md`
+47. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CIRCUIT_1_FIRST_STUDENT_UI_VISUAL_AND_FUNCTIONAL_CIRCUIT_CLOSEOUT.md`
 
 Future chats must read them before proposing work.
 
@@ -136,6 +137,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_UI_CAPSULE_5B_REFINE_COMPLETED_CAPSULE_FINAL_STATE_COPY_AND_NAVIGATION_POLISH.md` records completed final-state copy polish: `Cápsula finalizada` now has stronger visual hierarchy, `Autorreporte: [valor]` is integrated as plain text, `Volver a tutoría` encoding was corrected, `Ir DB` was reduced to a secondary treatment, and redundant `Cápsula` labels are suppressed in completed state without behavior, data, completion, continuity, schema, auth, or backend changes.
 
 `MVP_SALES_PILOT_UI_CAPSULE_5C_VERIFY_AND_REFINE_COMPLETED_CAPSULES_REVIEW_ACCESS_FROM_STUDY_PAGE.md` records Study Page completed-capsule review access: `/study/paes-m1` keeps `Siguiente cápsula` as the primary action when a pending/in-progress capsule exists and adds a compact `Cápsulas completadas` section with `Revisar cápsula` for completed capsules, using the existing viewer review mode without DB mutation, completed-capsule restart, re-submit, automatic completion, new capsule creation, new continuity, schema, auth, or backend changes.
+
+`MVP_SALES_PILOT_UI_CIRCUIT_1_FIRST_STUDENT_UI_VISUAL_AND_FUNCTIONAL_CIRCUIT_CLOSEOUT.md` records the first accepted visual and functional M1-first student UI circuit: LP -> DB -> ST -> matricula M1 -> primera capsula -> responder -> enviar -> feedback -> autorreporte -> finalizar -> revisar capsula completada -> ver siguiente capsula. It closes the base UI circuit as operative while preserving live debts around `+ paso a paso`, PRO visual audit, real progress/logro data, Capsule 10 preparation, pedagogical quality audit, remaining `Capsula` terminology hardening, and full mobile end-to-end audit. It introduces no app code, DB/base de datos, auth, StudyLoad/Capsula execution, responses, submit, self-report, completion, StudentAccess, checkout, payment, trial, subscription, staging, production, secrets, or new functionality.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 
