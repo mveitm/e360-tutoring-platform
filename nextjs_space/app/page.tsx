@@ -26,12 +26,12 @@ const tutoringOptions = [
 const subscriptionOptions = [
   {
     title: 'Trial',
-    detail: '7 días de prueba',
+    detail: 'explorar el piloto guiado',
     accent: 'border-[#A99AD2] bg-[#F2EFF8] text-[#34215F]',
   },
   {
     title: 'Suscripción',
-    detail: 'acceso ilimitado',
+    detail: 'ver continuidad disponible',
     accent: 'border-[#79A6A4] bg-[#E5F0EF] text-[#192F56]',
   },
 ]
@@ -143,7 +143,7 @@ export default function Home() {
               {subscriptionOptions.map((option) => (
                 <a
                   key={option.title}
-                  href="#opciones"
+                  href="/now"
                   className={`rounded-2xl border p-3 shadow-[0_8px_22px_rgba(16,33,63,0.07)] transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:p-4 ${option.accent}`}
                 >
                   <h3 className="font-display text-base font-bold sm:text-xl">{option.title}</h3>

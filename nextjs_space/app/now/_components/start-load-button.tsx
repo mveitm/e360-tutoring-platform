@@ -25,7 +25,7 @@ export function StartLoadButton({ loadId }: { loadId: string }) {
         headers: { 'Content-Type': 'application/json' },
       })
       if (!res.ok) {
-        let message = 'No se pudo iniciar la carga'
+        let message = 'No se pudo iniciar la cápsula'
         try {
           const data = await res.json()
           if (data?.error) message = data.error
@@ -35,7 +35,7 @@ export function StartLoadButton({ loadId }: { loadId: string }) {
         toast.error(message)
         return
       }
-      toast.success('Carga iniciada')
+      toast.success('Cápsula iniciada')
       startTransition(() => router.push(`/now/study-loads/${loadId}`))
     } catch {
       toast.error('Error de red. Intenta de nuevo.')

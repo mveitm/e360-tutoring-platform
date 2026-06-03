@@ -40,7 +40,7 @@ const tutoringCards = [
     code: 'M1',
     title: 'PAES Matemáticas M1',
     status: 'Activa',
-    exerciseCount: '0 ej.',
+    capsuleCount: '0',
     achievement: '--%',
     description: 'Fortalece tus destrezas en los 4 ejes de Matemáticas M1',
     active: true,
@@ -51,7 +51,7 @@ const tutoringCards = [
     code: 'M2',
     title: 'PAES Matemáticas M2',
     status: 'No disponible',
-    exerciseCount: '0 ej.',
+    capsuleCount: '0',
     achievement: '--%',
     description: 'Preparación matemática avanzada para una próxima etapa.',
     active: false,
@@ -62,7 +62,7 @@ const tutoringCards = [
     code: 'CL',
     title: 'PAES Competencia Lectora',
     status: 'No disponible',
-    exerciseCount: '0 ej.',
+    capsuleCount: '0',
     achievement: '--%',
     description: 'Lectura, comprensión y análisis para fortalecer tu preparación.',
     active: false,
@@ -111,7 +111,7 @@ function DashboardFooterNav() {
           Tutorías
         </a>
         <a
-          href="#matematicas-m1"
+          href="/study/paes-m1"
           className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
         >
           Estudio
@@ -178,7 +178,7 @@ function HeroSummary({
 
       <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
         <a
-          href="#matematicas-m1"
+          href="/study/paes-m1"
           className="group inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-[#F2B84B]/45 bg-[linear-gradient(135deg,#F2B84B_0%,#D85B8C_50%,#A63D4F_100%)] px-4 text-sm font-bold text-white shadow-[0_0_24px_rgba(216,91,140,0.24),0_12px_28px_rgba(166,61,79,0.18)] transition hover:shadow-[0_0_28px_rgba(216,91,140,0.30),0_14px_30px_rgba(166,61,79,0.22)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20 sm:min-h-11 sm:px-5"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#FFF3D8] shadow-[0_0_16px_rgba(255,243,216,0.95)]" aria-hidden="true" />
@@ -223,8 +223,8 @@ function TutoringSection() {
                 <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{card.status}</p>
               </div>
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Ej.</p>
-                <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{card.exerciseCount}</p>
+                <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Cápsulas</p>
+                <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{card.capsuleCount}</p>
               </div>
               <div>
                 <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Logro</p>
@@ -233,7 +233,7 @@ function TutoringSection() {
             </div>
             {card.active ? (
               <a
-                href="#matematicas-m1"
+                href="/study/paes-m1"
                 className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#F2B84B]/40 bg-[linear-gradient(135deg,#EFA45F_0%,#D85B8C_55%,#A63D4F_100%)] px-3 py-1.5 text-xs font-bold text-white shadow-[0_0_18px_rgba(216,91,140,0.22),0_8px_18px_rgba(166,61,79,0.16)] transition hover:shadow-[0_0_22px_rgba(216,91,140,0.28),0_10px_20px_rgba(166,61,79,0.20)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20 sm:px-4 sm:py-2 sm:text-sm"
               >
                 Comenzar Estudio
@@ -492,10 +492,10 @@ export default async function NowPage() {
         ) : (
           <>
             {pendingLoads.length > 0 && (
-              <section aria-label="Cargas pendientes" className="space-y-3">
+              <section aria-label="Cápsulas pendientes" className="space-y-3">
                 <div className="flex items-center gap-2 text-[#253A5F]">
                   <Clock className="h-4 w-4" aria-hidden="true" />
-                  <h2 className="text-sm font-bold">Cargas pendientes ({pendingLoads.length})</h2>
+                  <h2 className="text-sm font-bold">Cápsulas pendientes ({pendingLoads.length})</h2>
                 </div>
                 <p className="text-sm leading-6 text-[#5D6B7A]">
                   Abre la actividad cuando estés listo. Tus respuestas quedarán guardadas como evidencia de trabajo.

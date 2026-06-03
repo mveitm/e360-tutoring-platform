@@ -59,7 +59,7 @@ export function CompleteLoadButton({ loadId }: { loadId: string }) {
         body: JSON.stringify({ selfReport: selected }),
       })
       if (!res.ok) {
-        let message = 'No se pudo terminar la carga'
+        let message = 'No se pudo terminar la cápsula'
         try {
           const data = await res.json()
           if (data?.error) message = data.error
@@ -69,7 +69,7 @@ export function CompleteLoadButton({ loadId }: { loadId: string }) {
         toast.error(message)
         return
       }
-      toast.success('Carga terminada')
+      toast.success('Cápsula terminada')
       setOpen(false)
       setSelected('')
       startTransition(() => router.refresh())
@@ -97,7 +97,7 @@ export function CompleteLoadButton({ loadId }: { loadId: string }) {
         <DialogHeader>
           <DialogTitle>¿Cómo te fue?</DialogTitle>
           <DialogDescription>
-            Elige una opción para cerrar esta carga.
+            Elige una opción para cerrar esta cápsula.
           </DialogDescription>
         </DialogHeader>
         <RadioGroup

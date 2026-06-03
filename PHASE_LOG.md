@@ -29828,6 +29828,145 @@ MVP_SALES_PILOT_DB_LOCAL_5_CODEX_DB_STILL_UNAVAILABLE
 
 ---
 
+## 2026-06-03 - MVP-SALES-PILOT-UI-STUDENT-SPINE-1 - Implement minimal LP-Dashboard-Study Page navigation spine
+
+Type:
+
+```text
+Level C/D - UI navigation spine + limited operational read-only integration.
+```
+
+Required phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 396918b
+Latest accepted commit = 396918b - MVP-SALES-PILOT-DAY-CLOSE-1: document landing and dashboard UI progress
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_DAY_CLOSE_1_LANDING_AND_DASHBOARD_UI_PROGRESS_CLOSEOUT.md`.
+* Read `PHASE_LOG.md` tail.
+* Inspected `nextjs_space/app/page.tsx`.
+* Inspected `nextjs_space/app/now/page.tsx`.
+* Inspected existing routes under `nextjs_space/app`.
+* Inspected student-facing StudyLoad copy in the touched `/now` circuit.
+
+Route decision:
+
+```text
+/study/paes-m1
+```
+
+Reason:
+
+* No existing `/study/*` route existed.
+* Existing `/now/study-loads/[id]` is an activity execution route and was not appropriate as the M1 tutoring boundary for this phase.
+
+Result:
+
+```text
+STUDENT_EXPERIENCE_SPINE_LP_DB_ST_IMPLEMENTED
+```
+
+Implemented behavior:
+
+* Landing `Trial` and `Suscripción` now route to `/now`.
+* `/now` `Comenzar Estudio` routes to `/study/paes-m1`.
+* `/now` PAES Matemáticas M1 tutoring card routes to `/study/paes-m1`.
+* `/study/paes-m1` was created as a contained mobile-first Study Page.
+* Study Page reads the authenticated student and active `PAES_M1` enrollment in read-only mode.
+* Study Page shows `Tutoría Activa` for active M1 enrollment.
+* Study Page shows visual-only `Matricularse` when no active M1 enrollment exists.
+* Study Page includes the `No disponible` state in the status component model.
+* `Tutoría Info` is implemented as a disclosure with program and methodology details.
+* Study Page reserves contained pedagogical areas for `Cápsulas`, `Progreso`, `Foco actual`, and `Evidencia`.
+* Study Page footer includes `Volver a Dashboard`, `Cápsulas`, and `Progreso`.
+
+Terminology:
+
+* Visible student UI touched in the LP -> DB -> ST circuit now uses `Cápsula` / `Cápsulas` instead of `Carga` / `Cargas`.
+* Internal model names, schema, files, route names, API names, and technical `StudyLoad` identifiers were not renamed.
+
+Responsive verification:
+
+* Mobile standard `390 x 844`: prepared for human audit with contained mobile-first shells.
+* Tablet vertical `768 x 1024`: prepared through responsive grids and contained layout.
+* Desktop `1366 x 768`: prepared through max-width container and desktop grid.
+* No intentional horizontal overflow.
+
+Build:
+
+```text
+npm.cmd --prefix nextjs_space run build
+```
+
+Result:
+
+```text
+Passed.
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/app/page.tsx`.
+* `nextjs_space/app/now/page.tsx`.
+* `nextjs_space/app/now/_components/start-load-button.tsx`.
+* `nextjs_space/app/now/_components/complete-load-button.tsx`.
+* `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`.
+* `nextjs_space/app/study/paes-m1/page.tsx`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_STUDENT_SPINE_1_IMPLEMENT_MINIMAL_LP_DASHBOARD_STUDY_PAGE_NAVIGATION_SPINE.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No DB/base de datos mutation.
+* No schema.
+* No migrations.
+* No auth architecture.
+* No credentials.
+* No StudentAccess lifecycle.
+* No new enrollment.
+* No M2 functional activation.
+* No Competencia Lectora functional activation.
+* No automatic StudyLoad execution.
+* No automatic `Empezar`.
+* No responses.
+* No submit.
+* No self-report behavior changes.
+* No completion behavior changes.
+* No new automatic continuity.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 functional readiness declaration.
+
+Next recommended phase:
+
+```text
+Human mobile audit of LP -> DB -> ST spine
+```
+
+---
+
 ## MVP-SALES-PILOT-DRY-RUN-1G - Retry one-participant fixture apply after local PowerShell DB availability confirmed
 
 Date:

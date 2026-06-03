@@ -461,7 +461,7 @@ export default function StudyLoadAnswerForm({
             <AlertCircle className="h-4 w-4 mt-0.5 text-blue-600 dark:text-blue-400 shrink-0" />
             <div>
               <p className="text-sm text-blue-800 dark:text-blue-300 leading-relaxed">
-                Primero debes iniciar esta carga desde{' '}
+                Primero debes iniciar esta cápsula desde{' '}
                 <Link href="/now" className="font-medium underline underline-offset-2">/now</Link>{' '}
                 para poder enviar respuestas.
               </p>
@@ -481,7 +481,7 @@ export default function StudyLoadAnswerForm({
           <div className="flex items-start gap-2">
             <CheckCircle2 className="h-4 w-4 mt-0.5 text-green-600 dark:text-green-400 shrink-0" />
             <p className="text-sm text-green-800 dark:text-green-300 leading-relaxed">
-              Esta carga ya fue finalizada. Tus respuestas quedan como evidencia para revisión.
+              Esta cápsula ya fue finalizada. Tus respuestas quedan como evidencia para revisión.
             </p>
           </div>
         </div>
