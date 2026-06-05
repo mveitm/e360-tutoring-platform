@@ -42791,3 +42791,58 @@ MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-DERIVATION-1 - Derive BPCPv1-PAES-M1 as 
 Scope safety:
 
 Documentation-only. No app code, DB/base de datos, schema, migrations, auth, credentials, login, `/now` implementation, Study Page implementation, Capsule execution, responses, submit, self-report, completion, StudentAccess, checkout, real payment, real trial, complete functional subscription, staging/production, secrets, new functionality, BPCPv1 global derivation, complete BPCPv1-PAES-M1 derivation, continuity implementation, concrete capsule design, pedagogical content code changes, Capsule 10 execution, or real-student enablement were touched.
+
+---
+
+## MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-DERIVATION-1 - BPCPv1-PAES-M1 governing document derivation
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-DERIVATION-1
+```
+
+Baseline before:
+
+```text
+HEAD = origin/main = origin/HEAD = 230df5d
+```
+
+Result:
+
+```text
+BPCPV1_PAES_M1_DERIVED_AS_GOVERNING_DOCUMENT_WITH_IMPLEMENTATION_BLOCKERS
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md
+```
+
+Scope:
+
+Documentation / pedagogical governance only.
+
+Explicit non-actions:
+
+- No implementation.
+- No app code.
+- No DB.
+- No schema.
+- No endpoints.
+- No content registry.
+- No continuity helper changes.
+- No runtime tests.
+- No deploy.
+- No secrets.
+
+Verification:
+
+- Root RAW file validated as temporary source and removed before commit.
+- `git diff --check` passed.
+- Changed files limited to the authorized documentation scope.
+
+Commit result:
+
+Included in the authorized DERIVATION-1 closeout commit after validation.

@@ -1138,3 +1138,34 @@ MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-DERIVATION-1 - Derive BPCPv1-PAES-M1 as 
 ```
 
 If context is heavy, close the chat with a handoff before derivation. Do not implement continuity, Capsule 10, content changes, app code, DB, schema, auth, or real-student access from this precontract.
+
+## 23. BPCPv1-PAES-M1 Derivation-1 status
+
+BPCPv1-PAES-M1 DERIVATION-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md
+```
+
+Verdict:
+
+```text
+BPCPV1_PAES_M1_DERIVED_AS_GOVERNING_DOCUMENT_WITH_IMPLEMENTATION_BLOCKERS
+```
+
+Status:
+
+- Governing document only.
+- Implementation remains blocked.
+- BPCPv1-PAES-M1 is the specific PAES Matematicas M1 derivation, not global BPCPv1.
+- The current continuity may only be treated as `operational sequence v0` / ruta inicial secuenciada.
+
+Next recommended direction:
+
+1. Accept documentation closeout.
+2. Then audit current M1 capsules or continuity before any implementation.
+3. Do not start implementation from this document without explicit future phase authorization.
+
+Context Transfer Protocol remains autopropagable: future handoffs must carry this status, the verdict, Git preflight as live truth, implementation blockers, and the rule that no implementation can begin from this document without explicit future phase authorization.
