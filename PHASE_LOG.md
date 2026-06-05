@@ -42846,3 +42846,52 @@ Verification:
 Commit result:
 
 Included in the authorized DERIVATION-1 closeout commit after validation.
+
+---
+
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-AUDIT-1A - Source-grounded current M1 capsule audit
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-AUDIT-1A
+```
+
+Baseline before:
+
+```text
+c0e6896
+```
+
+Result:
+
+```text
+CURRENT_M1_CAPSULES_REQUIRE_PEDAGOGICAL_REVIEW_BEFORE_READINESS
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md
+```
+
+Scope:
+
+Documentation/read-only source-grounded audit.
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No content registry changes.
+- No continuity helper changes.
+- No runtime tests.
+- No deploy.
+- No secrets.
+
+Final readiness:
+
+Not declared. Requires ChatGPT/PRO pedagogical review.

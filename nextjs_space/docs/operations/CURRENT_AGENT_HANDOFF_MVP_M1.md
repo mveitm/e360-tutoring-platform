@@ -1169,3 +1169,36 @@ Next recommended direction:
 3. Do not start implementation from this document without explicit future phase authorization.
 
 Context Transfer Protocol remains autopropagable: future handoffs must carry this status, the verdict, Git preflight as live truth, implementation blockers, and the rule that no implementation can begin from this document without explicit future phase authorization.
+
+## 24. M1 Capsule Audit 1A status
+
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-AUDIT-1A is documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md
+```
+
+Verdict:
+
+```text
+CURRENT_M1_CAPSULES_REQUIRE_PEDAGOGICAL_REVIEW_BEFORE_READINESS
+```
+
+Principal findings:
+
+- Six current M1 registry contents were inventoried.
+- Sources show internal provisional metadata, MC evidence, answer keys, self-report, completion, and completed review.
+- M1 authored feedback was not found in the registry entries inspected.
+- M1 `+ paso a paso` is not source-grounded as authored help for current M1 contents.
+- Current M1 continuity is fixed rule-based continuity and must remain `operational sequence v0`.
+- Some Study Page copy can imply adaptive/personalized continuity or unsupported step-by-step help.
+
+Next recommendation:
+
+```text
+PRO pedagogical review of the source-grounded audit before any readiness decision.
+```
+
+No implementation is authorized. Final pedagogical readiness is not declared. ChatGPT/PRO review is required before any readiness or implementation-planning decision.
