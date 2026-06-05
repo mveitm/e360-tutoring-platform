@@ -57,6 +57,8 @@ These documents now govern roadmap direction:
 51. `nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md`
 52. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
 53. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
+54. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
+55. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
 
 Future chats must read them before proposing work.
 
@@ -287,6 +289,7 @@ Read these first in current chats:
 13. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md`
 14. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5E_DOCUMENTATION_INDEX_UPDATE_AFTER_SCOPE_FIRST_BLOCK.md`
 15. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md` when preparing or running CPA-AUDIT-1R.
+16. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md` before deriving BPCPv1-PAES-M1.
 
 ## 6. Supporting roadmap/source documents
 
@@ -315,6 +318,7 @@ These remain important upstream sources:
 | `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` | Present | Stable next-chat handoff template | Highest for context transfer | Creating future handoffs | Replacing live Git preflight | Yes |
 | `DOCUMENTATION_INDEX_MVP_M1.md` | Present | Documentation map | High | Identify canonical docs and current phase chain | Runtime truth or implementation permission | Yes |
 | `MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md` | Present | Source-grounded CPA audit package for PRO | Highest for CPA-AUDIT-1R preparation | Give PRO canonical excerpts, source cards, live code summaries, external-source context, staleness assessment, and audit questions | Treating it as final CPA audit or BPCPv1 | Yes for CPA audit |
+| `CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md` | Present | Source-grounded CPA reconciliation audit | Highest for BPCPv1-PAES-M1 precontract | Reconcile CPA against BPCPI/BPTT/Blueprint M1 Integrado and orient BPCPv1-PAES-M1 | Treating it as implementation authorization, global BPCPv1, M2/L1 readiness, or complete BPCPv1-PAES-M1 | Yes for BPCPv1-PAES-M1 work |
 | `MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md` | Present | Complete tutoring scope | Highest for PAES_M1 scope | Scope of full tutoring experience | Implementation authorization | Yes |
 | `MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md` | Present | Canonical student journey | Highest for flow | Student/SRA journey, roadmap traversal | Runtime proof | Yes |
 | `MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md` | Present | Milestone model | High | Milestones, checkpoints, special actions | Treating milestones as gates | Yes |
@@ -357,7 +361,9 @@ The aligned direction is:
 - N1/G1/PE1 proposed complements, not implemented routes.
 - PE1-MSL-01 data/table/graph reading is the first non-algebra candidate, not implemented.
 - Expert review request package exists but review has not occurred.
-- CPA source inventory and source-grounded audit package exist; the next PRO CPA audit should use the package and must not treat preliminary source-limited output as final.
+- CPA source inventory, source-grounded audit package, and CPA-AUDIT-1R exist.
+- CPA-AUDIT-1R is accepted with reservations as source-grounded reconciliation audit and should be read before BPCPv1-PAES-M1 work.
+- BPCPv1 is global; the next derivation is BPCPv1-PAES-M1, not global BPCPv1 and not M2/L1.
 - Future implementation candidate is metadata-first, not selector-first.
 - No adaptive AI, theta, mastery, or PAES score claims.
 
@@ -469,20 +475,14 @@ git log --oneline --decorate --graph -8
 If continuing documentation-only:
 
 ```text
-MVP-SRA-SCOPE-5F - Next-chat handoff package after scope-first block
+MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Define minimum contracts before deriving BPCPv1-PAES-M1
 ```
 
 Purpose:
 
-- create a ready-to-paste next-chat handoff using the updated handoff/template/index.
+- define the minimum contracts required before deriving BPCPv1-PAES-M1 from BPCPI, BPTT, the integrated M1 blueprint, and CPA-AUDIT-1R.
 
-If implementation is desired later:
-
-```text
-MVP-SRA-IMPL-1 - Add provisional taxonomy metadata to current M1 registry activities
-```
-
-Only after explicit authorization from Mauricio.
+If implementation is desired later, complete the BPCPv1-PAES-M1 precontract first and require explicit authorization from Mauricio.
 
 ## 15. Standing guardrails
 

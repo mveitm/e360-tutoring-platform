@@ -525,7 +525,13 @@ Current pedagogical decision layer context:
 - CPA-SOURCES-1 is inventory-only: it does not audit CPA, derive BPCPv1, or authorize implementation.
 - The CPA source-grounded audit package is active and must be read before PRO CPA-AUDIT-1R.
 - CPA-AUDIT-PACK-1 is source packaging only: it does not audit CPA, derive BPCPv1, or authorize implementation.
-- The next recommended phase is `MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1R - PRO CPA reconciliation audit using source-grounded package`.
+- CPA-AUDIT-1R is documented and active. Required document: `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`.
+- CPA-AUDIT-1R verdict is APROBADO CON RESERVAS.
+- CPA must be reconciled, not discarded and not canonized complete.
+- BPCPv1 is the global Bexauri Pedagogical Layer v1, composed by distinct tutorias, pedagogical managers, and pedagogical agents.
+- The next derivation is BPCPv1-PAES-M1, specific to PAES Matematicas M1; it is not global BPCPv1, PAES Matematicas M2, or PAES Competencia Lectora.
+- Current baseline after CPA-AUDIT-1R is the resulting commit for `MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1R: document source-grounded CPA reconciliation audit`; future agents must verify the exact hash with Git preflight.
+- The next recommended phase is `MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Define minimum contracts before deriving BPCPv1-PAES-M1`.
 - BPCPv1 and minimum M1 capsule/feedback/continuity contracts must be derived from BPCPI/BPTT/integrated M1 blueprint before continuity or pedagogical-layer implementation is designed.
 - BPCPv1 must be a simple version of the correct system, not a poor version.
 - Bexauri PAES_M1 = guided, evidence-aware roadmap traversal, not a static StudyLoad sequence.
@@ -623,18 +629,18 @@ Context preservation obligation:
 - SCOPE-1 through SCOPE-5D define the current scope-first PAES_M1 tutoring direction.
 - ROADMAP-2B through ROADMAP-2G remain upstream source/taxonomy/metadata/expert-review foundation.
 
-## 8. Current recommended next phase after SCOPE-5D
+## 8. Current recommended next phase after CPA-AUDIT-1R
 
 If continuing documentation-only, the recommended next phase is:
 
 ```text
-MVP-SRA-SCOPE-5E - Documentation index update after scope-first block
+MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Define minimum contracts before deriving BPCPv1-PAES-M1
 ```
 
 Purpose:
 
-- update `DOCUMENTATION_INDEX_MVP_M1.md` so it reflects the current scope-first canonical chain and latest next-phase logic.
+- define the minimum contracts required before deriving BPCPv1-PAES-M1 from BPCPI, BPTT, the integrated M1 blueprint, and CPA-AUDIT-1R.
 
 If switching chats, generate a next-chat handoff using this updated template.
 
-If implementation is desired, require explicit authorization before `MVP-SRA-IMPL-1`.
+If implementation is desired, complete the BPCPv1-PAES-M1 precontract first and require explicit authorization from Mauricio.

@@ -42662,3 +42662,62 @@ MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1R - PRO CPA reconciliation audit using sourc
 Scope safety:
 
 No app code, DB/base de datos, schema, migrations, auth, credentials, login, `/now` implementation, Study Page implementation, Capsule execution, responses, submit, self-report, completion, StudentAccess lifecycle, checkout, real payment, real trial, complete functional subscription, staging/production, secrets, or external folder mutation were touched.
+
+---
+
+## MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1R - Source-grounded CPA reconciliation audit
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = d247e2a
+```
+
+Origin:
+
+PRO CPA-AUDIT-1R output reviewed and accepted by Mauricio and ChatGPT Ampliado as a source-grounded reconciliation audit, with reservations.
+
+Result:
+
+```text
+CPA_RECONCILIATION_AUDIT_1R_DOCUMENTED_AND_ACTIVE
+```
+
+Documented audit:
+
+```text
+nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md
+```
+
+Verdict:
+
+```text
+APROBADO CON RESERVAS
+```
+
+Central reading:
+
+The CPA should be reconciled, not discarded and not fully canonized. BPCPv1-PAES-M1 should canonize what already converts interaction into reviewable evidence, correct continuity and indicators, contain technical behavior that must not promise intelligence, recover valuable SRA/LearningCycle ideas, and add minimum contracts before implementation.
+
+Naming clarification:
+
+- BPCPv1 is the global Bexauri Pedagogical Layer v1.
+- BPCPv1 will be composed of different tutorias, pedagogical managers, and pedagogical agents.
+- The next derivation is BPCPv1-PAES-M1, specific to PAES Matematicas M1.
+- BPCPv1-PAES-M1 is not the whole global BPCPv1, not PAES Matematicas M2, and not PAES Competencia Lectora.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Define minimum contracts before deriving BPCPv1-PAES-M1
+```
+
+Scope safety:
+
+Documentation-only. No app code, DB/base de datos, schema, migrations, auth, credentials, login, `/now` implementation, Study Page implementation, Capsule execution, responses, submit, self-report, completion, StudentAccess, checkout, real payment, real trial, complete functional subscription, staging/production, secrets, new functionality, BPCPv1 derivation, BPCPv1-PAES-M1 derivation, continuity implementation, concrete capsule design, or pedagogical content code changes were touched.

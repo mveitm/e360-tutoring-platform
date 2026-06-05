@@ -1059,3 +1059,41 @@ MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1R - PRO CPA reconciliation audit using sourc
 ```
 
 No BPCPv1 yet.
+
+## 21. CPA-AUDIT-1R status
+
+CPA-AUDIT-1R is documented and active:
+
+```text
+nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md
+```
+
+Verdict:
+
+```text
+APROBADO CON RESERVAS
+```
+
+Current reading:
+
+- CPA must be reconciled, not discarded and not canonized complete.
+- Canonize what already converts interaction into reviewable evidence.
+- Correct continuity and indicators before treating them as pedagogically reliable.
+- Contain technical behavior that must not promise intelligence.
+- Recover valuable SRA/LearningCycle ideas with supersession checks.
+- Add minimum contracts before deriving or implementing BPCPv1-PAES-M1.
+
+Naming clarification:
+
+- BPCPv1 is the global Bexauri Pedagogical Layer v1.
+- BPCPv1 will be composed by different tutorias, pedagogical managers, and pedagogical agents.
+- The next conceptual work is BPCPv1-PAES-M1, not global BPCPv1.
+- BPCPv1-PAES-M1 is specific to PAES Matematicas M1 and does not cover PAES Matematicas M2 or PAES Competencia Lectora.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Define minimum contracts before deriving BPCPv1-PAES-M1
+```
+
+No BPCPv1 global, BPCPv1-PAES-M1, continuity implementation, Capsule 10 execution, estudiantes reales, Sales-Ready, MVP-Beta cerrado completo, M2 readiness, or L1 readiness yet.
