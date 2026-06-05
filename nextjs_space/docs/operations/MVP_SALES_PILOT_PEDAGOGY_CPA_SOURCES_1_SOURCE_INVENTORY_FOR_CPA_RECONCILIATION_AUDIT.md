@@ -20,6 +20,10 @@ Expected result:
 CPA_RECONCILIATION_AUDIT_SOURCE_INVENTORY_PREPARED
 ```
 
+CPA-SOURCES-1B update:
+
+After the initial inventory, Mauricio manually confirmed the Google Drive roots as available. Codex then confirmed both roots with read-only escalation and added a path/metadata-level inventory supplement. No G-drive document contents were copied into the repo or audited in 1B.
+
 ## Scope and safety boundaries
 
 Allowed in this phase:
@@ -84,13 +88,14 @@ Sensitive candidates were not opened. They are classified only as `excluded_sens
 |---|---|---|---|
 | `C:\projects\e360-tutoring-platform\tutoring_platform_mvp` | Available | Active repo source | Primary source of truth after Git preflight. |
 | `C:\Projects\e360-tutoring-platform` | Available | External/local source inventory only | Contains root-level RAW pedagogical documents, E360 cycle contract files, and the active repo. Do not copy external documents in this phase. |
+| `G:\Mi unidad\YO 2026\E360` | Available after CPA-SOURCES-1B read-only verification | External/local source inventory only | Contains master/foundational, versioned, marketing, Abacus, historical, and AI manual folders. Do not copy external documents in this phase. |
+| `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra` | Available after CPA-SOURCES-1B read-only verification | Master documentation inventory only | Contains master strategy/governance/system docs, historical/transitory docs, blueprint/rector docs, process openings, and tactical/pedagogical architecture. |
 
 ## Unavailable source roots, if any
 
-| Root | Status | Treatment |
-|---|---|---|
-| `G:\Mi unidad\YO 2026\E360` | Unavailable / access denied at preflight | Documented as unavailable. Future PRO audit should request access or a curated source package if needed. |
-| `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra` | Unavailable / access denied at preflight | Documented as unavailable. Likely important if it contains Mauricio's external master documentation. |
+None after CPA-SOURCES-1B read-only verification.
+
+Historical note: during CPA-SOURCES-1 initial preflight, both `G:\...` roots returned access denied inside the sandbox. Mauricio later verified them manually, and Codex confirmed availability with read-only escalation during CPA-SOURCES-1B.
 
 ## Methodology and truth priority
 
@@ -169,8 +174,13 @@ P0 count: 25.
 | `nextjs_space/docs/operations/MVP_FLOW_4_E5M_M1_LOCAL_PATH_VALIDATION_AND_CONTENT_ALIGNMENT.md` | validation evidence | Vigente with reservations | Validated local AS1 path evidence. | Full |
 | `nextjs_space/docs/operations/MVP_CONTENT_1_PAES_M1_MASTER_ROADMAP_SKELETON.md` through `MVP_CONTENT_10C_*` | content history | Vigente with reservations / historical | PAES M1 content and first balanced entry path. | Targeted |
 | `nextjs_space/docs/strategy/MVP_COMMERCIAL_SALES_READY_GATE_1B_TWO_STATE_FEEDBACK_READINESS_BOUNDARY.md` | strategy / feedback readiness | Recent but commercial-scope | Useful feedback boundary, not M1 CPA norm by itself. | Reference |
+| `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra\README_MASTER.md` | external/local master index | Status uncertain but likely important | May describe master documentation structure and freshness rules. | Full if PRO has access |
+| `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra\E360_SYSTEM_BLUEPRINT_v2.1.md` | external/local system blueprint | Status uncertain / candidate canonical | May contain broad E360 system framing predating repo blueprints. | Full with supersession check |
+| `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra\E360_PRODUCT_STRATEGY_v2.1.md` | external/local product strategy | Status uncertain / candidate contextual | May define product assumptions behind CPA. | Full with supersession check |
+| `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra\E360_OPERATING_MODEL_v2.1.md` | external/local operating model | Status uncertain / candidate contextual | May define operating roles and governance that affect CPA. | Full with supersession check |
+| `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra\02_Arquitectura_Tactica_y_Pedagogica\ARRANQUE_TACTICO_CONTINUIDAD_v1.docx` | external/local tactical pedagogy | Status uncertain / candidate_to_recover_or_canonize | May contain continuity/pedagogical architecture not fully migrated into repo. | Full if accessible |
 
-P1 count: 18 source entries/families.
+P1 count: 23 source entries/families.
 
 ## P2 historical/contextual sources
 
@@ -188,8 +198,10 @@ P1 count: 18 source entries/families.
 | `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_*`, `MVP_ROADMAP_LOCK_1_*` | governance | Vigente for roadmap semantics | Ensures M1-first is tactical, not final scope. | Reference |
 | `nextjs_space/docs/governance/*` | governance docs | Mixed | May contain source alignment and memory protocols. | Targeted context |
 | `nextjs_space/docs/strategy/MVP_COMMERCIAL_L1_*` | L1 commercial/feedback docs | Recent but outside M1 CPA | Useful for transversal constraints and future L1. | Context only for CPA M1 |
+| `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra\99_HISTORICO_TRANSITORIO\*` | external/local historical | Historical / possibly superseded | Explains v1.0 strategy/system evolution. | Context only |
+| `G:\Mi unidad\YO 2026\E360\Versiones superadas\*` | external/local superseded versions | Superseded by folder label | Useful only to understand evolution and avoid reviving old decisions. | Context only |
 
-P2 count: 12 source entries/families.
+P2 count: 14 source entries/families.
 
 ## P3 optional sources
 
@@ -200,8 +212,10 @@ P2 count: 12 source entries/families.
 | `nextjs_space/docs/operations/MVP_BETA_*` budget/scope/target docs | commercial/governance | Vigente for target scope | Optional for CPA if audit scope stays M1 pedagogical. |
 | Root PDFs mirroring repo docs | duplicate artifacts | Possibly duplicate | Avoid unless Markdown source unavailable. |
 | External root-level `.docx`/`.pdf` E360 audit/contract files | external/local | Status uncertain | Candidate for PRO if human confirms freshness. |
+| `G:\Mi unidad\YO 2026\E360\Marketing\*` | marketing | Optional | Useful only if PRO audits visible/public claims. |
+| `G:\Mi unidad\YO 2026\E360\Manuales IAs\*` | AI manuals | Optional | Useful only for agent/tool process context, not CPA norm. |
 
-P3 count: 5 source entries/families.
+P3 count: 7 source entries/families.
 
 ## Excluded/sensitive sources
 
@@ -219,7 +233,8 @@ Excluded categories:
 Observed in authorized external/local root:
 
 ```text
-excluded_sensitive_candidate count: 20
+C:\Projects\e360-tutoring-platform excluded_sensitive_candidate count: 20
+G:\Mi unidad\YO 2026\E360 excluded_sensitive_candidate count: 3
 ```
 
 These were not opened.
@@ -282,7 +297,63 @@ Notable non-sensitive path-level sources observed:
 | `C:\Projects\e360-tutoring-platform\tutoring_platform_mvp\E360_CYCLE_WIRING_CONTRACT_v1.0.md` | repo-root/local contract | Historical / possibly useful | Candidate_to_recover_or_canonize if not already superseded. |
 | `C:\Projects\e360-tutoring-platform\tutoring_platform_mvp\.project_instructions.md` | local operating instructions | Supporting | Reference only if agent/process context matters. |
 
-External G-drive roots were not available, so this inventory cannot confirm the state of Mauricio's Google Drive master documentation.
+Available G-drive root:
+
+```text
+G:\Mi unidad\YO 2026\E360
+```
+
+Visible top-level subfolders:
+
+| Folder | LastWriteTime | Treatment |
+|---|---:|---|
+| `Documentos_Versionados` | 2026-04-06 | P1/P2 candidate depending document freshness. |
+| `Marketing` | 2026-04-24 | P3 unless public claims are audited. |
+| `E360_System` | 2026-05-05 | P1/P2 candidate. |
+| `Versiones superadas` | 2026-04-13 | P2 historical/superseded by folder label. |
+| `Abacus` | 2026-04-17 | P2/P3 duplicate/archive context. |
+| `Manuales IAs` | 2026-04-15 | P3 agent/process context only. |
+
+Path-level inventory summary for `G:\Mi unidad\YO 2026\E360`:
+
+| Group | Non-sensitive document count | Treatment |
+|---|---:|---|
+| `E360_System` | 67 | P1/P2 depending subfolder and freshness. |
+| `Documentos_Versionados` | 9 | P1/P2; versioned architecture/program/skill/diagnostic docs. |
+| `Versiones superadas` | 8 | P2 historical/superseded. |
+| `Abacus` | 8 | P2/P3 archive/duplicate context. |
+| root loose docs | 8 | P1/P3 depending document. |
+| `Marketing` | 1 | P3 unless public claim audit. |
+| `Manuales IAs` | 1 | P3. |
+
+Available master documentation root:
+
+```text
+G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra
+```
+
+Visible subfolders:
+
+| Folder | Treatment |
+|---|---|
+| `00_PENDIENTE_CLASIFICAR` | P3 until classified. |
+| `99_HISTORICO_TRANSITORIO` | P2 historical/contextual, not normative without validation. |
+| `E360 02_Blueprint_y_Marco_Rector` | P1 candidate canonical/contextual with supersession check. |
+| `90_Aperturas_de_Proceso` | P1/P2 process-opening context, especially adaptive M1 cycle. |
+| `02_Arquitectura_Tactica_y_Pedagogica` | P1 candidate for CPA audit, especially continuity/pedagogical architecture. |
+
+Path-level inventory summary for `01_Documentacion_Maestra`:
+
+| Group | Non-sensitive document count | Notable sources |
+|---|---:|---|
+| Root master docs | 13 | `README_MASTER.md`, `E360_SYSTEM_BLUEPRINT_v2.1.md`, `E360_PRODUCT_STRATEGY_v2.1.md`, `E360_OPERATING_MODEL_v2.1.md`, `E360_IMPLEMENTATION_STRATEGY_v2.1.md`, `E360_GOVERNANCE_AND_VERSIONING_v2.1.md`, `E360_PAES_LAUNCH_STRATEGY_v2.1.md`, `AUDITORIA_ESTRATEGICA_MVP_MONETIZACION_E360_BEXAURI_ENTREGABLE_MAYO_2026.md`. |
+| `99_HISTORICO_TRANSITORIO` | 8 | v1.0 system/product/MVP scope/build/decision docs; several zero-length placeholders observed. |
+| `90_Aperturas_de_Proceso/.../E360_pkg_shortnames_2026-04-21` | 7 | `CONTRACT_v1.0.md`, `IMPL_STRAT_v2.1.md`, `LEARN_CYCLE_v1.0.md`, `MINDSTUDIO_MAP_v1.0.md`, `REL_MODEL_v1.0.md`, `SYS_BLUEPRINT_v2.1.md`, `README_DECISION.md`. |
+| `E360 02_Blueprint_y_Marco_Rector` | 2 | `E360_Sistema_de_Navegacion_Radial_del_Nucleo_v1.docx`, `E360_Decision_Estrategica_frente_a_Gemini_v1.docx`. |
+| `02_Arquitectura_Tactica_y_Pedagogica` | 1 | `ARRANQUE_TACTICO_CONTINUIDAD_v1.docx`. |
+| `00_PENDIENTE_CLASIFICAR` | 1 | `README.md`. |
+
+CPA-SOURCES-1B did not open these documents. It only recorded path-level inventory, sizes, timestamps, and priority candidates for future PRO.
 
 ## CPA components covered by sources
 
@@ -329,6 +400,8 @@ Useful but old:
 - FL_UX continuity/cycle docs.
 - SRA roadmap/scope docs.
 - E360 cycle wiring contract files if human confirms relevance.
+- G-drive master v2.1 strategy/system/operating docs until PRO checks whether repo blueprints supersede them.
+- G-drive April 21 adaptive M1 cycle opening package until PRO checks relationship with current LearningCycle/SRA docs.
 
 Potentially superseded:
 
@@ -337,11 +410,13 @@ Potentially superseded:
 - Older BPCPI/BPTT/M1 RAW files outside the repo are superseded by repo canonical documents unless human review says otherwise.
 - Older index/handoff baseline paragraphs are superseded by Git preflight and latest PHASE_LOG.
 - Older AS1-only or linear route assumptions are superseded by BPCPI/BPTT/integrated M1 blueprint and SRA scope constraints.
+- G-drive `Versiones superadas` documents are superseded by folder label unless PRO identifies a recoverable idea.
+- G-drive `99_HISTORICO_TRANSITORIO` documents are historical/contextual unless explicitly re-canonized.
 
 Contradictions found:
 
 - Several handoff/index sections contain stale baseline and next-phase references. They are not contradictions in pedagogy if treated as historical context, but they must not be used as live Git truth.
-- External Google Drive roots were unavailable, so no contradiction could be assessed there.
+- No content-level contradictions were assessed in G-drive documents because CPA-SOURCES-1B did not open or audit their contents.
 
 Ideas ancient enough to require validation but potentially valuable:
 
@@ -349,10 +424,12 @@ Ideas ancient enough to require validation but potentially valuable:
 - `candidate_to_recover_or_canonize`: next-load decision record format from SRA roadmap.
 - `candidate_to_recover_or_canonize`: E360 Cycle Wiring Contract if it contains a durable LearningCycle/StudyLoad contract still not captured in current blueprints.
 - `candidate_to_recover_or_canonize`: older MVP_CONTENT item blueprint and balanced entry docs where they contain concrete M1 item/content quality constraints not yet fully represented in the integrated M1 blueprint.
+- `candidate_to_recover_or_canonize`: G-drive `ARRANQUE_TACTICO_CONTINUIDAD_v1.docx` if it defines continuity principles absent from current repo docs.
+- `candidate_to_recover_or_canonize`: G-drive April 21 adaptive M1 cycle package if it contains durable LearningCycle/SRA contracts absent from current repo docs.
 
 ## Gaps in source coverage
 
-- Google Drive master documentation roots were unavailable/access denied.
+- Google Drive master documentation roots are now available, but their documents were inventoried by path/metadata only.
 - External `.docx`/`.pdf` documents were inventoried by path only; their contents were not copied or audited.
 - CPA code behavior was searched/read-only, not audited.
 - No runtime DB inspection was performed.
@@ -375,7 +452,7 @@ P0 package:
 9. `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
 10. `PHASE_LOG.md` latest relevant tail
 11. Live Study Page / dashboard / capsule / responses / complete / continuity code sources listed in P0
-12. External/local canonical candidates if human confirms they remain relevant, especially E360 cycle contract files
+12. External/local canonical candidates if human confirms they remain relevant, especially E360 cycle contract files, `01_Documentacion_Maestra` root v2.1 master docs, `ARRANQUE_TACTICO_CONTINUIDAD_v1.docx`, and the April 21 adaptive M1 cycle opening package
 
 P1 package:
 
@@ -386,6 +463,7 @@ P1 package:
 5. MVP_FLOW docs for validated local continuity and AS1 path evidence.
 6. GOV/PRODUCT/ROADMAP context when CPA implications touch MVP-Beta or Sales-Ready claims.
 7. Historical E360/Bexauri documents if they contain source-of-truth decisions not yet migrated into repo docs.
+8. G-drive `Documentos_Versionados` and `01_Documentacion_Maestra` candidates with strict staleness/supersession assessment.
 
 ## Questions PRO should answer using this inventory
 
@@ -409,7 +487,7 @@ P1 package:
 - PRO may miss hidden mismatch between feedback UI and backend evidence.
 - PRO may miss that continuity exists technically but may not be pedagogically justified.
 - PRO may overtrust external RAW docs already superseded by repo canonical documents.
-- PRO may understate gaps caused by unavailable Google Drive master sources.
+- PRO may overstate or understate G-drive sources if it reads them without staleness/supersession discipline.
 
 ## Next recommended phase
 

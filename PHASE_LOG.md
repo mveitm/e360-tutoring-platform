@@ -32,6 +32,89 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-PEDAGOGY-CPA-SOURCES-1B - Add available G-drive source inventory supplement
+
+Date: 2026-06-05
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 9b0c1ba
+Latest accepted commit = 9b0c1ba - MVP-SALES-PILOT-PEDAGOGY-CPA-SOURCES-1: inventory CPA audit sources
+Working tree clean before edits.
+```
+
+Objective:
+
+Resume CPA-SOURCES-1 after Mauricio manually verified the Google Drive roots as available, and update the CPA source inventory with a path/metadata-level G-drive supplement.
+
+External roots:
+
+* `G:\Mi unidad\YO 2026\E360` - available after read-only escalation.
+* `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra` - available after read-only escalation.
+* `C:\Projects\e360-tutoring-platform` - remains available from CPA-SOURCES-1.
+
+Result:
+
+```text
+CPA_RECONCILIATION_AUDIT_SOURCE_INVENTORY_GDRIVE_SUPPLEMENT_PREPARED
+```
+
+Inventory update:
+
+* Updated the CPA source inventory to mark both G-drive roots available.
+* Added visible top-level subfolders and master-documentation subfolders.
+* Added path/metadata-level counts and candidate sources from `01_Documentacion_Maestra`.
+* Added G-drive candidates to P1/P2/P3 and staleness/supersession assessment.
+* Counted 3 G-drive `excluded_sensitive_candidate` files by name pattern only and did not open them.
+
+No audit yet:
+
+* No G-drive document content was copied into the repo.
+* No G-drive document content was audited.
+* No CPA reconciliation was performed.
+* No BPCPv1 was derived.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1 - PRO audit CPA against BPCPI/BPTT/M1 integrated blueprint
+```
+
+Scope safety:
+
+* Documentation-only / inventory supplement only.
+* External folders read-only.
+* No app code.
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now` implementation.
+* No Study Page implementation.
+* No Capsule execution.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No StudentAccess lifecycle.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No external folder mutation.
+
 ### MVP-SALES-PILOT-PEDAGOGY-CPA-SOURCES-1 - Prepare source inventory for CPA reconciliation audit
 
 Date: 2026-06-05

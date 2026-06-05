@@ -289,9 +289,12 @@ Scope:
 Inventory-only. It maps canonical pedagogy docs, historical/foundational E360/Bexauri docs, UI circuit docs, SRA/LearningCycle/StudyLoad docs, live code sources, and authorized external/local roots. It does not audit CPA, derive BPCPv1, modify app code, inspect secrets, or execute DB/runtime flows.
 
 External roots:
-G:\Mi unidad\YO 2026\E360 - unavailable/access denied during CPA-SOURCES-1.
-G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra - unavailable/access denied during CPA-SOURCES-1.
+G:\Mi unidad\YO 2026\E360 - available after CPA-SOURCES-1B read-only escalation.
+G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra - available after CPA-SOURCES-1B read-only escalation.
 C:\Projects\e360-tutoring-platform - available.
+
+CPA-SOURCES-1B update:
+The G-drive roots were added to the inventory at path/metadata level only. External documents were not copied or audited. Sensitive candidates were excluded and not opened.
 
 Current pedagogical focus:
 BPCPI + BPTT + integrated M1 blueprint + CPA source inventory are documented. Next: run PRO CPA reconciliation audit before deriving BPCPv1 or implementing continuity/pedagogical-layer mechanics.

@@ -407,8 +407,10 @@ Status:
 * The inventory maps sources for a future PRO reconciliation audit of the Capa Pedagogica Actual (CPA).
 * It includes canonical pedagogy docs, UI circuit docs, historical/foundational E360/Bexauri docs, SRA/LearningCycle/StudyLoad families, live code sources, and authorized external/local roots.
 * External roots authorized for inventory were `G:\Mi unidad\YO 2026\E360`, `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra`, and `C:\Projects\e360-tutoring-platform`.
-* In this phase, both `G:\...` roots were unavailable/access denied; `C:\Projects\e360-tutoring-platform` was available.
+* CPA-SOURCES-1 initially saw both `G:\...` roots as unavailable/access denied inside the sandbox; Mauricio manually verified them and CPA-SOURCES-1B confirmed both roots as available with read-only escalation.
+* `C:\Projects\e360-tutoring-platform` was available.
 * Sensitive candidates were excluded and not opened.
+* CPA-SOURCES-1B added G-drive path/metadata-level inventory only; it did not copy or audit external document contents.
 
 Direction:
 
