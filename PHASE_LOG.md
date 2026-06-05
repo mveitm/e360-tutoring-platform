@@ -42895,3 +42895,54 @@ Explicit non-actions:
 Final readiness:
 
 Not declared. Requires ChatGPT/PRO pedagogical review.
+
+---
+
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-AUDIT-1B - PRO pedagogical review of 1A
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-AUDIT-1B
+```
+
+Baseline before:
+
+```text
+147c530
+```
+
+Result:
+
+```text
+M1_CAPSULES_PARTIAL_BASE_REQUIRES_FICHAS_AND_FEEDBACK_BEFORE_IMPLEMENTATION
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md
+```
+
+Scope:
+
+Documentation-only PRO pedagogical review.
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No content registry changes.
+- No continuity helper changes.
+- No runtime tests.
+- No deploy.
+- No secrets.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1
+```

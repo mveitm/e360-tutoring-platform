@@ -62,6 +62,7 @@ These documents now govern roadmap direction:
 56. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
 57. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
 58. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
+59. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
 
 Future chats must read them before proposing work.
 
@@ -296,6 +297,7 @@ Read these first in current chats:
 17. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md` before deriving BPCPv1-PAES-M1.
 18. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md` before auditing capsules, continuity, or any future implementation-readiness work for PAES Matematicas M1.
 19. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md` before any M1 capsule readiness, feedback, step-by-step, or continuity decision.
+20. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md` before any M1 capsule implementation planning or readiness claim.
 
 ## 6. Supporting roadmap/source documents
 
@@ -328,6 +330,7 @@ These remain important upstream sources:
 | `BPCPV1_PAES_M1_PRECONTRACT.md` | Present | Minimum precontract before BPCPv1-PAES-M1 derivation | Highest for BPCPv1-PAES-M1 derivation readiness | Define mandatory minimums, conditions, exclusions, blockers, and readiness for documentation-only derivation | Treating it as implementation authorization, global BPCPv1, complete BPCPv1-PAES-M1, Capsule 10 readiness, or real-student readiness | Yes for BPCPv1-PAES-M1 derivation |
 | `BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md` | Present | BPCPv1-PAES-M1 governing document | Highest for PAES Matematicas M1 pedagogical governance | Govern future PAES M1 pedagogical layer v1 audits and implementation-readiness decisions | Treating it as implementation authorization, global BPCPv1, Capsule 10 final test approval, real-student readiness, Sales-Ready, MVP-Beta cerrado completo, M2 readiness, L1 readiness, adaptive AI, theta, mastery, PAES score, payment/trial/subscription readiness, or continuity helper authorization | Yes for PAES M1 pedagogical work |
 | `MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md` | Present | Source-grounded audit of current M1 capsules/content against BPCPv1-PAES-M1 | Highest for current M1 capsule gap evidence | Inventory current M1 contents, identify BPCPv1 gaps, feedback/step-by-step/continuity/copy risks, and PRO review needs | Treating it as final pedagogical acceptance, readiness, implementation authorization, or content registry change authorization | Yes for M1 capsule/continuity work |
+| `MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md` | Present | PRO pedagogical review of source-grounded M1 capsule audit 1A | Highest for M1 capsule readiness decision direction | Establish that current M1 capsules are a partial reusable operational base requiring fichas and feedback before implementation, and set CAPSULE-FICHA-1 as the next documentation phase | Treating it as implementation authorization, registry edit authorization, feedback implementation, UI copy change authorization, continuity change authorization, or BPCPv1-ready acceptance | Yes for M1 capsule/feedback/step-by-step work |
 | `MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md` | Present | Complete tutoring scope | Highest for PAES_M1 scope | Scope of full tutoring experience | Implementation authorization | Yes |
 | `MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md` | Present | Canonical student journey | Highest for flow | Student/SRA journey, roadmap traversal | Runtime proof | Yes |
 | `MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md` | Present | Milestone model | High | Milestones, checkpoints, special actions | Treating milestones as gates | Yes |
@@ -377,6 +380,8 @@ The aligned direction is:
 - BPCPv1-PAES-M1 is now documented as the PAES Matematicas M1-specific governing document, but it does not authorize implementation.
 - M1 Capsule Audit 1A exists and concludes `CURRENT_M1_CAPSULES_REQUIRE_PEDAGOGICAL_REVIEW_BEFORE_READINESS`.
 - Current M1 capsule sources show partial source evidence, internal provisional metadata, missing authored M1 feedback, missing authored M1 step-by-step help, operational sequence v0 continuity, and copy risks requiring PRO review.
+- M1 Capsule Audit 1B exists and concludes `M1_CAPSULES_PARTIAL_BASE_REQUIRES_FICHAS_AND_FEEDBACK_BEFORE_IMPLEMENTATION`.
+- Current M1 capsules are a partial reusable operational base, but not BPCPv1-ready and not implementation-ready; next recommended phase is `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1`.
 - BPCPv1 is global; the next derivation is BPCPv1-PAES-M1, not global BPCPv1 and not M2/L1.
 - Current continuity may only be treated as `operational sequence v0` / ruta inicial secuenciada until later audit or explicit implementation-readiness work.
 - Future implementation candidate is metadata-first, not selector-first.
@@ -490,14 +495,14 @@ git log --oneline --decorate --graph -8
 If continuing documentation-only:
 
 ```text
-PRO pedagogical review of MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-AUDIT-1A before any M1 capsule readiness or implementation-planning decision.
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1
 ```
 
 Purpose:
 
-- review the source-grounded current M1 capsule/content gaps against BPCPv1-PAES-M1 and decide the next documentation/content-audit direction.
+- derive the BPCPv1-compliant ficha, feedback, step-by-step contract, continuity possibility, inference limits, and copy boundaries for the first M1 capsule before any implementation.
 
-If implementation is desired later, PRO review and an explicit future implementation phase remain required.
+If implementation is desired later, CAPSULE-FICHA-1 and an explicit future implementation phase remain required.
 
 ## 15. Standing guardrails
 

@@ -1202,3 +1202,31 @@ PRO pedagogical review of the source-grounded audit before any readiness decisio
 ```
 
 No implementation is authorized. Final pedagogical readiness is not declared. ChatGPT/PRO review is required before any readiness or implementation-planning decision.
+
+## 25. M1 Capsule Audit 1B status
+
+M1 Capsule Audit 1B documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_PARTIAL_BASE_REQUIRES_FICHAS_AND_FEEDBACK_BEFORE_IMPLEMENTATION
+```
+
+Decision:
+
+The current M1 capsules are a partial reusable operational base, but not BPCPv1-ready and not implementation-ready.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1
+```
+
+No implementation is authorized.
