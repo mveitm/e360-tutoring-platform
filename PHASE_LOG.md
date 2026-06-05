@@ -32,6 +32,116 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-SCHEDULE-1 - Reschedule app review and prioritize pedagogical layer audit
+
+Date: 2026-06-05
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 3cf3318
+Latest accepted commit = 3cf3318 - MVP-SALES-PILOT-PRO-AUDIT-1: document top-down UI circuit audit
+Working tree clean before edits.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_PRO_AUDIT_1_TOP_DOWN_UI_CIRCUIT_AUDIT.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CIRCUIT_1_FIRST_STUDENT_UI_VISUAL_AND_FUNCTIONAL_CIRCUIT_CLOSEOUT.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Phase was Level A documentation-only.
+
+Decision:
+
+```text
+The app review/test planned for Friday, June 5, 2026 is postponed to Tuesday, June 9, 2026.
+```
+
+Reason:
+
+```text
+Mauricio decided to gain more time to audit, redesign, and improve the pedagogical layer before the app review.
+```
+
+Relation to PRO-AUDIT-1:
+
+* The UI M1-first circuit already exists.
+* PRO-AUDIT-1 verdict remains `APROBADO CON RESERVAS`.
+* The central reading remains: the circuit exists; now Bexauri must prove that the student learns, progresses, and does not only navigate.
+* The next useful work is continuity and pedagogy, not more UI polish by intuition.
+
+Pedagogical focus before Tuesday:
+
+* multi-capsule continuity;
+* pedagogical audit;
+* quality of Capsule 1;
+* preparation of test path toward Capsule 10;
+* consistency between visible experience and backend behavior.
+
+Result:
+
+```text
+APP_REVIEW_RESCHEDULED_AND_PEDAGOGICAL_LAYER_AUDIT_PRIORITIZED
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/MVP_SALES_PILOT_SCHEDULE_1_RESCHEDULE_APP_REVIEW_AND_PRIORITIZE_PEDAGOGICAL_LAYER_AUDIT.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No app code.
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No Study Page implementation.
+* No Capsule execution.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No StudentAccess.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No real students.
+* No Sales-Ready declaration.
+* No MVP-Beta cerrado completo declaration.
+* No L1/M2 readiness declaration.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M1-CONTINUITY-1 - Audit existing next-capsule continuity
+```
+
+---
+
 ### MVP-SALES-PILOT-PRO-AUDIT-1 - Document top-down UI circuit audit
 
 Date: 2026-06-03

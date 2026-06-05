@@ -160,6 +160,39 @@ MVP-SALES-PILOT-M1-CONTINUITY-1 - Audit existing next-capsule continuity
 Expected baseline after PRO-AUDIT-1 must be taken from Git preflight. Expected baseline before PRO-AUDIT-1 was c546327. After PRO-AUDIT-1, future agents must use the resulting commit titled `MVP-SALES-PILOT-PRO-AUDIT-1: document top-down UI circuit audit` from Git preflight as live truth.
 ```
 
+Current schedule and pedagogical focus:
+
+```text
+MVP-SALES-PILOT-SCHEDULE-1 - Reschedule app review and prioritize pedagogical layer audit
+Document:
+nextjs_space/docs/operations/MVP_SALES_PILOT_SCHEDULE_1_RESCHEDULE_APP_REVIEW_AND_PRIORITIZE_PEDAGOGICAL_LAYER_AUDIT.md
+
+Schedule:
+Friday, June 5, 2026 app review/test -> postponed to Tuesday, June 9, 2026.
+
+Reason:
+Mauricio decided to gain more time to audit, redesign, and improve the pedagogical layer before review.
+
+Current focus:
+1. Audit existing next-capsule continuity.
+2. Audit first M1 capsule pedagogical quality.
+3. Prepare manual M1 multi-capsula test to Capsula 10.
+4. Execute controlled multi-capsula rehearsal.
+5. Confirm consistency between visible student experience and backend behavior.
+
+PRO-AUDIT-1 remains active as guide:
+The circuit exists; now Bexauri must prove that the student learns, progresses, and does not only navigate.
+
+Do not advance to real students yet.
+Do not declare Sales-Ready.
+Do not declare complete closed MVP-Beta.
+Do not declare L1/M2 readiness.
+Do not keep polishing LP/DB/ST/Capsule by intuition.
+
+Next recommended phase:
+MVP-SALES-PILOT-M1-CONTINUITY-1 - Audit existing next-capsule continuity
+```
+
 Historical prior student-experience deliverable:
 
 ```text
@@ -312,7 +345,7 @@ First read:
 Sales-ready phase gate:
 - Current active roadmap block: <CURRENT_ACTIVE_ROADMAP_BLOCK>
 - Proposed next phase: <PROPOSED_NEXT_PHASE>
-- Near-term milestone: Friday full manual M1 test - fictitious student from account creation to StudyLoad 10 in PAES_M1.
+- Near-term milestone: Tuesday, June 9, 2026 app review/test after continuity and pedagogical-layer audit.
 - Roadmap block match: <ROADMAP_BLOCK_MATCH>
 - Sales-ready relevance verdict: <SALES_READY_RELEVANCE_VERDICT>
 - Off-roadmap? yes/no: <OFF_ROADMAP_YES_NO>

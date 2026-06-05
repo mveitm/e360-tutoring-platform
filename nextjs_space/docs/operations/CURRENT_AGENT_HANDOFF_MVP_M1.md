@@ -265,11 +265,51 @@ Recommended next phase:
 MVP-SALES-PILOT-M1-CONTINUITY-1 - Audit existing next-capsule continuity
 ```
 
+### 2C-10. SCHEDULE-1 Active - App Review Rescheduled For Pedagogical Layer Audit
+
+SCHEDULE-1 is active:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_SCHEDULE_1_RESCHEDULE_APP_REVIEW_AND_PRIORITIZE_PEDAGOGICAL_LAYER_AUDIT.md
+```
+
+Schedule decision:
+
+* The app review/test planned for Friday, June 5, 2026 is postponed.
+* New target date: Tuesday, June 9, 2026.
+* Reason: Mauricio decided to gain more time to audit, redesign, and improve the pedagogical layer before review.
+
+Current focus before Tuesday:
+
+* continuity multi-capsule;
+* pedagogical audit;
+* quality of Capsule 1;
+* preparation of test path toward Capsule 10;
+* consistency between visible student experience and backend behavior.
+
+Direction:
+
+* PRO-AUDIT-1 remains active as the guide.
+* The UI M1-first circuit exists and remains approved with reservations.
+* The product must now prove that it learns, progresses, and does not only navigate.
+* Do not test the app only because the UI circuit exists.
+* Do not continue LP/DB/ST/Capsule polish by intuition.
+* No real students yet.
+* Do not declare Sales-Ready, MVP-Beta cerrado completo, L1 readiness, or M2 readiness.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-M1-CONTINUITY-1 - Audit existing next-capsule continuity
+```
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
-Friday full manual M1 test is the near-term operational milestone.
+Friday full manual M1 test is now superseded by the SCHEDULE-1 decision.
 
-Mauricio will personally execute a complete manual test with a fictitious student, from account creation through completing or reaching StudyLoad 10 in `PAES_M1`.
+The previous review/test planned for Friday, June 5, 2026 is postponed. The new target date is Tuesday, June 9, 2026.
+
+Mauricio will use the added time to audit, redesign, and improve the pedagogical layer before the review.
 
 Scope:
 
@@ -283,13 +323,12 @@ Scope:
 
 Immediate blockers and prioritization:
 
-1. Resolve the core login/UI blocker.
-2. Ensure signup/login works.
-3. Ensure `/now` works.
-4. Ensure M1 continuity can sustain progress to load 10.
-5. Prepare the Friday manual test runbook.
-6. Prepare functional and pedagogical observation guidance.
-7. Document evidence and blockers.
+1. Audit existing next-capsule continuity.
+2. Audit first M1 capsule pedagogical quality.
+3. Prepare manual multi-capsule test toward Capsule 10.
+4. Confirm consistency between visible experience and backend-supported continuity.
+5. Prepare functional and pedagogical observation guidance.
+6. Document evidence and blockers.
 
 No commercial readiness claims:
 
