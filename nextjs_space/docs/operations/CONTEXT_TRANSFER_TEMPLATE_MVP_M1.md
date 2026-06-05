@@ -531,7 +531,11 @@ Current pedagogical decision layer context:
 - BPCPv1 is the global Bexauri Pedagogical Layer v1, composed by distinct tutorias, pedagogical managers, and pedagogical agents.
 - The next derivation is BPCPv1-PAES-M1, specific to PAES Matematicas M1; it is not global BPCPv1, PAES Matematicas M2, or PAES Competencia Lectora.
 - Current baseline after CPA-AUDIT-1R is the resulting commit for `MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1R: document source-grounded CPA reconciliation audit`; future agents must verify the exact hash with Git preflight.
-- The next recommended phase is `MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Define minimum contracts before deriving BPCPv1-PAES-M1`.
+- BPCPv1-PAES-M1 Precontract is documented and active. Required document: `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`.
+- BPCPv1-PAES-M1 Precontract verdict is READY_FOR_DERIVATION_WITH_CONDITIONS.
+- The precontract enables future documentation-only derivation of BPCPv1-PAES-M1 with conditions, but does not authorize implementation.
+- Current baseline after BPCPV1-PAES-M1-PRECONTRACT-1 is the resulting commit for `MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1: document minimum contracts before derivation`; future agents must verify the exact hash with Git preflight.
+- The next recommended phase is `MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-DERIVATION-1 - Derive BPCPv1-PAES-M1 as governing document`.
 - BPCPv1 and minimum M1 capsule/feedback/continuity contracts must be derived from BPCPI/BPTT/integrated M1 blueprint before continuity or pedagogical-layer implementation is designed.
 - BPCPv1 must be a simple version of the correct system, not a poor version.
 - Bexauri PAES_M1 = guided, evidence-aware roadmap traversal, not a static StudyLoad sequence.
@@ -629,18 +633,18 @@ Context preservation obligation:
 - SCOPE-1 through SCOPE-5D define the current scope-first PAES_M1 tutoring direction.
 - ROADMAP-2B through ROADMAP-2G remain upstream source/taxonomy/metadata/expert-review foundation.
 
-## 8. Current recommended next phase after CPA-AUDIT-1R
+## 8. Current recommended next phase after BPCPV1-PAES-M1-PRECONTRACT-1
 
 If continuing documentation-only, the recommended next phase is:
 
 ```text
-MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Define minimum contracts before deriving BPCPv1-PAES-M1
+MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-DERIVATION-1 - Derive BPCPv1-PAES-M1 as governing document
 ```
 
 Purpose:
 
-- define the minimum contracts required before deriving BPCPv1-PAES-M1 from BPCPI, BPTT, the integrated M1 blueprint, and CPA-AUDIT-1R.
+- derive BPCPv1-PAES-M1 as the governing document from BPCPI, BPTT, the integrated M1 blueprint, CPA-AUDIT-1R, and the BPCPv1-PAES-M1 Precontract.
 
 If switching chats, generate a next-chat handoff using this updated template.
 
-If implementation is desired, complete the BPCPv1-PAES-M1 precontract first and require explicit authorization from Mauricio.
+If implementation is desired, derive and approve BPCPv1-PAES-M1 first and require explicit authorization from Mauricio.

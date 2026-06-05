@@ -42721,3 +42721,73 @@ MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Define minimum contracts
 Scope safety:
 
 Documentation-only. No app code, DB/base de datos, schema, migrations, auth, credentials, login, `/now` implementation, Study Page implementation, Capsule execution, responses, submit, self-report, completion, StudentAccess, checkout, real payment, real trial, complete functional subscription, staging/production, secrets, new functionality, BPCPv1 derivation, BPCPv1-PAES-M1 derivation, continuity implementation, concrete capsule design, or pedagogical content code changes were touched.
+
+---
+
+## MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Minimum contracts before BPCPv1-PAES-M1 derivation
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = db0f685
+```
+
+Origin:
+
+PRO precontract output reviewed and accepted by Mauricio and ChatGPT Ampliado as sufficiently mature to enable a future documentation-only BPCPv1-PAES-M1 derivation, with conditions.
+
+Result:
+
+```text
+BPCPV1_PAES_M1_PRECONTRACT_DOCUMENTED_AND_ACTIVE
+```
+
+Documented precontract:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md
+```
+
+Verdict:
+
+```text
+READY_FOR_DERIVATION_WITH_CONDITIONS
+```
+
+Central reading:
+
+Bexauri is ready to derive BPCPv1-PAES-M1 as a governing document with conditions, but not to implement it yet. The precontract defines mandatory inheritance from BPCPI, BPTT, the integrated M1 blueprint, and CPA-AUDIT-1R; what to canonize, correct, contain, exclude, and recover; and the minimum contracts for capsule, evidence, feedback, step-by-step help, self-report, continuity, progress/indicators, model classification, content audit, derivation, implementation, Capsule 10, and real students.
+
+Naming clarification:
+
+- BPCPv1 is the global Bexauri Pedagogical Layer v1.
+- BPCPv1 global will be composed of different tutorias, pedagogical managers, and pedagogical agents.
+- BPCPv1-PAES-M1 is the v1 derivation specific to PAES Matematicas M1.
+- BPCPv1-PAES-M1 is not the whole global BPCPv1, not PAES Matematicas M2, and not PAES Competencia Lectora.
+- Future derivations may include BPCPv1-PAES-M2, BPCPv1-PAES-L1, or other skill-oriented tutorias.
+
+Remaining blockers before implementation:
+
+- continuity;
+- indicators;
+- step-by-step help;
+- initial content;
+- capsule audit;
+- Capsule 10 test;
+- real students.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-DERIVATION-1 - Derive BPCPv1-PAES-M1 as governing document
+```
+
+Scope safety:
+
+Documentation-only. No app code, DB/base de datos, schema, migrations, auth, credentials, login, `/now` implementation, Study Page implementation, Capsule execution, responses, submit, self-report, completion, StudentAccess, checkout, real payment, real trial, complete functional subscription, staging/production, secrets, new functionality, BPCPv1 global derivation, complete BPCPv1-PAES-M1 derivation, continuity implementation, concrete capsule design, pedagogical content code changes, Capsule 10 execution, or real-student enablement were touched.

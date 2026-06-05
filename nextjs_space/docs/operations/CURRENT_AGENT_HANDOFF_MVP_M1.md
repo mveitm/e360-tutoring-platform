@@ -1097,3 +1097,44 @@ MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Define minimum contracts
 ```
 
 No BPCPv1 global, BPCPv1-PAES-M1, continuity implementation, Capsule 10 execution, estudiantes reales, Sales-Ready, MVP-Beta cerrado completo, M2 readiness, or L1 readiness yet.
+
+## 22. BPCPv1-PAES-M1 Precontract status
+
+BPCPv1-PAES-M1 Precontract is documented and active:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md
+```
+
+Verdict:
+
+```text
+READY_FOR_DERIVATION_WITH_CONDITIONS
+```
+
+Current reading:
+
+- The precontract enables a future documentation-only derivation of BPCPv1-PAES-M1 with conditions.
+- The precontract does not enable implementation.
+- The precontract does not declare global BPCPv1 ready.
+- The precontract does not declare BPCPv1-PAES-M1 ready for implementation.
+- BPCPv1 global remains not derived.
+- BPCPv1-PAES-M1 remains specific to PAES Matematicas M1, not M2/L1.
+
+Still blocked or pending before implementation:
+
+- continuity;
+- indicators;
+- step-by-step help;
+- initial content;
+- capsule audit;
+- Capsule 10 test;
+- real students.
+
+Next recommended focus:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-DERIVATION-1 - Derive BPCPv1-PAES-M1 as governing document
+```
+
+If context is heavy, close the chat with a handoff before derivation. Do not implement continuity, Capsule 10, content changes, app code, DB, schema, auth, or real-student access from this precontract.

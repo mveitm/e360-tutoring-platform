@@ -59,6 +59,7 @@ These documents now govern roadmap direction:
 53. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
 54. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
 55. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
+56. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
 
 Future chats must read them before proposing work.
 
@@ -290,6 +291,7 @@ Read these first in current chats:
 14. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5E_DOCUMENTATION_INDEX_UPDATE_AFTER_SCOPE_FIRST_BLOCK.md`
 15. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md` when preparing or running CPA-AUDIT-1R.
 16. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md` before deriving BPCPv1-PAES-M1.
+17. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md` before deriving BPCPv1-PAES-M1.
 
 ## 6. Supporting roadmap/source documents
 
@@ -319,6 +321,7 @@ These remain important upstream sources:
 | `DOCUMENTATION_INDEX_MVP_M1.md` | Present | Documentation map | High | Identify canonical docs and current phase chain | Runtime truth or implementation permission | Yes |
 | `MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md` | Present | Source-grounded CPA audit package for PRO | Highest for CPA-AUDIT-1R preparation | Give PRO canonical excerpts, source cards, live code summaries, external-source context, staleness assessment, and audit questions | Treating it as final CPA audit or BPCPv1 | Yes for CPA audit |
 | `CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md` | Present | Source-grounded CPA reconciliation audit | Highest for BPCPv1-PAES-M1 precontract | Reconcile CPA against BPCPI/BPTT/Blueprint M1 Integrado and orient BPCPv1-PAES-M1 | Treating it as implementation authorization, global BPCPv1, M2/L1 readiness, or complete BPCPv1-PAES-M1 | Yes for BPCPv1-PAES-M1 work |
+| `BPCPV1_PAES_M1_PRECONTRACT.md` | Present | Minimum precontract before BPCPv1-PAES-M1 derivation | Highest for BPCPv1-PAES-M1 derivation readiness | Define mandatory minimums, conditions, exclusions, blockers, and readiness for documentation-only derivation | Treating it as implementation authorization, global BPCPv1, complete BPCPv1-PAES-M1, Capsule 10 readiness, or real-student readiness | Yes for BPCPv1-PAES-M1 derivation |
 | `MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md` | Present | Complete tutoring scope | Highest for PAES_M1 scope | Scope of full tutoring experience | Implementation authorization | Yes |
 | `MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md` | Present | Canonical student journey | Highest for flow | Student/SRA journey, roadmap traversal | Runtime proof | Yes |
 | `MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md` | Present | Milestone model | High | Milestones, checkpoints, special actions | Treating milestones as gates | Yes |
@@ -363,6 +366,8 @@ The aligned direction is:
 - Expert review request package exists but review has not occurred.
 - CPA source inventory, source-grounded audit package, and CPA-AUDIT-1R exist.
 - CPA-AUDIT-1R is accepted with reservations as source-grounded reconciliation audit and should be read before BPCPv1-PAES-M1 work.
+- BPCPv1-PAES-M1 Precontract exists and is accepted as READY_FOR_DERIVATION_WITH_CONDITIONS.
+- The precontract enables a future documentation-only BPCPv1-PAES-M1 derivation with conditions, but not implementation.
 - BPCPv1 is global; the next derivation is BPCPv1-PAES-M1, not global BPCPv1 and not M2/L1.
 - Future implementation candidate is metadata-first, not selector-first.
 - No adaptive AI, theta, mastery, or PAES score claims.
@@ -475,14 +480,14 @@ git log --oneline --decorate --graph -8
 If continuing documentation-only:
 
 ```text
-MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-PRECONTRACT-1 - Define minimum contracts before deriving BPCPv1-PAES-M1
+MVP-SALES-PILOT-PEDAGOGY-BPCPV1-PAES-M1-DERIVATION-1 - Derive BPCPv1-PAES-M1 as governing document
 ```
 
 Purpose:
 
-- define the minimum contracts required before deriving BPCPv1-PAES-M1 from BPCPI, BPTT, the integrated M1 blueprint, and CPA-AUDIT-1R.
+- derive BPCPv1-PAES-M1 as the governing document from BPCPI, BPTT, the integrated M1 blueprint, CPA-AUDIT-1R, and the BPCPv1-PAES-M1 Precontract.
 
-If implementation is desired later, complete the BPCPv1-PAES-M1 precontract first and require explicit authorization from Mauricio.
+If implementation is desired later, derive and approve BPCPv1-PAES-M1 first and require explicit authorization from Mauricio.
 
 ## 15. Standing guardrails
 
