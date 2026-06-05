@@ -1031,3 +1031,31 @@ Guardrails:
 - no SQL, Prisma CLI, .env, secrets, or npm install;
 - no PAES score, theta, mastery, or adaptive AI claims.
 ```
+
+## 20. CPA audit package status
+
+CPA audit preliminary output must be treated as insufficient if it did not have direct access to the full inventory, canonical blueprints, live code, and selected external/local source context.
+
+The source-grounded CPA audit package is now active:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md
+```
+
+Use it as a required source before any PRO CPA reconciliation audit.
+
+Current direction:
+
+- CPA-AUDIT-PACK-1 is source packaging only.
+- It does not audit CPA.
+- It does not derive BPCPv1.
+- It does not authorize implementation.
+- It does not modify app code, DB, schema, auth, capsules, responses, completion, or continuity.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1R - PRO CPA reconciliation audit using source-grounded package
+```
+
+No BPCPv1 yet.

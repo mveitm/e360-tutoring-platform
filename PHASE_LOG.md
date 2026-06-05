@@ -42616,3 +42616,49 @@ Result marker:
 ```text
 STUDENT_DASHBOARD_MOBILE_COPY_AND_TUTORING_INDICATORS_REFINED
 ```
+
+---
+
+## MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-PACK-1 - Source-grounded CPA audit package for PRO
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = efe9824
+```
+
+Reason:
+
+CPA-SOURCES-1 and CPA-SOURCES-1B prepared the source inventory, but a preliminary PRO audit declared source-access limitations. A final CPA reconciliation audit now requires a self-contained source-grounded package with canonical blueprint extracts, live code source cards, external-source notes, staleness assessment, and PRO questions.
+
+Result:
+
+```text
+SOURCE_GROUNDED_CPA_AUDIT_PACKAGE_PREPARED_FOR_PRO
+```
+
+Package created:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md
+```
+
+Limits:
+
+This phase is source packaging only. It is not the final CPA audit, not BPCPv1, not implementation, and not a pedagogical decision. Repo docs, selected external safe excerpts, and live code were read read-only. No external folders were mutated.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1R - PRO CPA reconciliation audit using source-grounded package
+```
+
+Scope safety:
+
+No app code, DB/base de datos, schema, migrations, auth, credentials, login, `/now` implementation, Study Page implementation, Capsule execution, responses, submit, self-report, completion, StudentAccess lifecycle, checkout, real payment, real trial, complete functional subscription, staging/production, secrets, or external folder mutation were touched.

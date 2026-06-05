@@ -286,6 +286,7 @@ Read these first in current chats:
 12. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md`
 13. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md`
 14. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5E_DOCUMENTATION_INDEX_UPDATE_AFTER_SCOPE_FIRST_BLOCK.md`
+15. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md` when preparing or running CPA-AUDIT-1R.
 
 ## 6. Supporting roadmap/source documents
 
@@ -313,6 +314,7 @@ These remain important upstream sources:
 | `CURRENT_AGENT_HANDOFF_MVP_M1.md` | Present | First-read operational handoff | Highest for onboarding | Current state, construction authorization, guardrails, quickstart | Detailed source evidence | Yes |
 | `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` | Present | Stable next-chat handoff template | Highest for context transfer | Creating future handoffs | Replacing live Git preflight | Yes |
 | `DOCUMENTATION_INDEX_MVP_M1.md` | Present | Documentation map | High | Identify canonical docs and current phase chain | Runtime truth or implementation permission | Yes |
+| `MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md` | Present | Source-grounded CPA audit package for PRO | Highest for CPA-AUDIT-1R preparation | Give PRO canonical excerpts, source cards, live code summaries, external-source context, staleness assessment, and audit questions | Treating it as final CPA audit or BPCPv1 | Yes for CPA audit |
 | `MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md` | Present | Complete tutoring scope | Highest for PAES_M1 scope | Scope of full tutoring experience | Implementation authorization | Yes |
 | `MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md` | Present | Canonical student journey | Highest for flow | Student/SRA journey, roadmap traversal | Runtime proof | Yes |
 | `MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md` | Present | Milestone model | High | Milestones, checkpoints, special actions | Treating milestones as gates | Yes |
@@ -355,6 +357,7 @@ The aligned direction is:
 - N1/G1/PE1 proposed complements, not implemented routes.
 - PE1-MSL-01 data/table/graph reading is the first non-algebra candidate, not implemented.
 - Expert review request package exists but review has not occurred.
+- CPA source inventory and source-grounded audit package exist; the next PRO CPA audit should use the package and must not treat preliminary source-limited output as final.
 - Future implementation candidate is metadata-first, not selector-first.
 - No adaptive AI, theta, mastery, or PAES score claims.
 

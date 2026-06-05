@@ -444,19 +444,20 @@ First read:
 9. nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md
 10. nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md
 11. nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md
-12. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
-13. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
-14. nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md
-15. nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md
-16. nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md
-17. nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md
-18. nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md
-19. nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md
-20. nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md
-21. nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md
-22. nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md
-23. nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md
-24. PHASE_LOG.md, latest relevant entries only if safe to inspect without full-file overwrite risk
+12. nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md
+13. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+14. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
+15. nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md
+16. nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md
+17. nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md
+18. nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md
+19. nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md
+20. nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md
+21. nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md
+22. nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md
+23. nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md
+24. nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md
+25. PHASE_LOG.md, latest relevant entries only if safe to inspect without full-file overwrite risk
 
 Sales-ready phase gate:
 - Current active roadmap block: <CURRENT_ACTIVE_ROADMAP_BLOCK>
@@ -522,6 +523,9 @@ Current pedagogical decision layer context:
 - The integrated M1 blueprint is the rector contract of the Gerente Pedagogico M1 and the operational shielding base for M1.
 - The CPA source inventory is active and must be read before the next PRO CPA reconciliation audit.
 - CPA-SOURCES-1 is inventory-only: it does not audit CPA, derive BPCPv1, or authorize implementation.
+- The CPA source-grounded audit package is active and must be read before PRO CPA-AUDIT-1R.
+- CPA-AUDIT-PACK-1 is source packaging only: it does not audit CPA, derive BPCPv1, or authorize implementation.
+- The next recommended phase is `MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1R - PRO CPA reconciliation audit using source-grounded package`.
 - BPCPv1 and minimum M1 capsule/feedback/continuity contracts must be derived from BPCPI/BPTT/integrated M1 blueprint before continuity or pedagogical-layer implementation is designed.
 - BPCPv1 must be a simple version of the correct system, not a poor version.
 - Bexauri PAES_M1 = guided, evidence-aware roadmap traversal, not a static StudyLoad sequence.
