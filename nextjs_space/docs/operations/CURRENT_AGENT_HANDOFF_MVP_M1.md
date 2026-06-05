@@ -335,7 +335,34 @@ Direction:
 Recommended next phase:
 
 ```text
-MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-2 - Derive BPCPv1 from BPCPI
+MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-2 - Document BPTT transversal pedagogical blueprint
+```
+
+### 2C-12. BPTT Active - Transversal Tactical-Pedagogical Blueprint
+
+BPTT is documented and active:
+
+```text
+nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md
+```
+
+Status:
+
+* BPTT is the transversal tactical-pedagogical blueprint for Bexauri tutorias.
+* BPTT derives from BPCPI.
+* BPTT is the common grammar for any Bexauri tutoring experience: test-oriented, skill-oriented, or hybrid.
+* BPTT is not implementation, not BPCPv1, and not an M1-specific blueprint.
+
+Direction:
+
+* Future M1/M2/L1 and non-PAES skill tutorias must respect BPTT.
+* BPTT prepares future derivations: tactical M1 blueprint and/or BPCPv1.
+* Do not implement continuity or Capsule 10 before this pedagogical base is translated into the appropriate tactical layer.
+
+Recommended next phase:
+
+```text
+Define tactical-pedagogical M1 blueprint from BPTT
 ```
 
 ### 2D. Friday Full Manual M1 Test Milestone

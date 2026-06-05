@@ -32,6 +32,113 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-2 - Document BPTT transversal pedagogical blueprint
+
+Date: 2026-06-05
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 458816d
+Latest accepted commit = 458816d - MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-1: document BPCPI canonical blueprint
+Working tree clean before edits except expected untracked source file BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL_RAW_v0_1.md.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Source file `BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL_RAW_v0_1.md` was confirmed at repo root.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_SCHEDULE_1_RESCHEDULE_APP_REVIEW_AND_PRIORITIZE_PEDAGOGICAL_LAYER_AUDIT.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_PRO_AUDIT_1_TOP_DOWN_UI_CIRCUIT_AUDIT.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Read the full BPTT RAW source.
+* Phase was Level A pedagogical blueprint documentation/governance-only.
+
+Human inherited decision:
+
+* Mauricio and ChatGPT Ampliado accepted BPTT as a first base.
+* BPTT bridges BPCPI and future tactical derivations.
+* BPTT is not implementation.
+* BPTT is not BPCPv1.
+* BPTT is not an M1-specific blueprint.
+* BPTT is the common grammar that every Bexauri tutoring experience must respect.
+* The next natural derivation is a tactical-pedagogical M1 blueprint and/or the prior discussion required for that derivation.
+
+Reading:
+
+* BPTT translates BPCPI into a transversal tactical-pedagogical grammar for Bexauri tutorias.
+* It applies to test-oriented, skill-oriented, and hybrid tutorias.
+* It defines common structure around purpose, domain/skill, progression, resources, capsules, evidence, feedback, self-report, continuity, honest progress, and review.
+* It protects against treating M1 as the whole pedagogical model.
+
+Result:
+
+```text
+BPTT_TRANSVERSAL_PEDAGOGICAL_BLUEPRINT_DOCUMENTED_AND_ACTIVE
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Source file handling:
+
+* Root source was copied into `nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md`.
+* The root RAW source was temporary and must not be staged if still present after copy.
+
+Scope safety:
+
+* No app code.
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No Study Page implementation.
+* No Capsule execution.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No StudentAccess.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No new functionality.
+* No BPCPv1 derivation.
+* No M1-specific blueprint.
+
+Next recommended phase:
+
+```text
+Define tactical-pedagogical M1 blueprint from BPTT
+```
+
+---
+
 ### MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-1 - Document BPCPI canonical ideal pedagogical layer blueprint
 
 Date: 2026-06-05
