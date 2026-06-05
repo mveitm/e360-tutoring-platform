@@ -56,6 +56,7 @@ These documents now govern roadmap direction:
 50. `nextjs_space/docs/operations/BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md`
 51. `nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md`
 52. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
+53. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
 
 Future chats must read them before proposing work.
 
@@ -154,6 +155,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md` is the transversal tactical-pedagogical document and common grammar for Bexauri tutorias. It bridges BPCPI to future BPCPv1 and tutoring-specific tactical blueprints, including M1. It applies to test-oriented, skill-oriented, and hybrid tutorias. It is not implementation, technical roadmap, BPCPv1, or M1-specific blueprint.
 
 `BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md` is the integrated tactical-pedagogical M1 blueprint and rector document of the Gerente Pedagogico M1. It integrates the initial M1 base, the operative contract, and the operational shielding layer for PAES Mathematics M1. It is the base for future BPCPv1 derivation, minimum M1 capsule contract v1, feedback/continuity criteria, and M1 capsule pedagogical audits. It is not implementation, technical roadmap, schema, UI, BPCPv1, or concrete capsule design.
+
+`MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md` is the CPA reconciliation audit source inventory. It maps P0/P1/P2/P3 sources for a future PRO audit against BPCPI, BPTT, the integrated M1 blueprint, historical/foundational E360/Bexauri docs, the M1-first UI circuit, and live code where evidence, feedback, continuity, self-report, capsules, progress, LearningCycle/SRA, and backend models are materialized. It is inventory-only and not a CPA audit, BPCPv1 derivation, implementation authorization, code change, DB action, or external document copy.
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

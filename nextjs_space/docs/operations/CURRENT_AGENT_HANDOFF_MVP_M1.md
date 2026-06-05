@@ -394,6 +394,35 @@ Recommended next focus:
 Derive BPCPv1 or define minimum M1 capsule contract v1 from this integrated blueprint
 ```
 
+### 2C-14. CPA Source Inventory Active - Future Reconciliation Audit Package
+
+CPA source inventory is prepared and active:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md
+```
+
+Status:
+
+* The inventory maps sources for a future PRO reconciliation audit of the Capa Pedagogica Actual (CPA).
+* It includes canonical pedagogy docs, UI circuit docs, historical/foundational E360/Bexauri docs, SRA/LearningCycle/StudyLoad families, live code sources, and authorized external/local roots.
+* External roots authorized for inventory were `G:\Mi unidad\YO 2026\E360`, `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra`, and `C:\Projects\e360-tutoring-platform`.
+* In this phase, both `G:\...` roots were unavailable/access denied; `C:\Projects\e360-tutoring-platform` was available.
+* Sensitive candidates were excluded and not opened.
+
+Direction:
+
+* Next phase should be a PRO CPA reconciliation audit using the inventory.
+* No BPCPv1 yet.
+* Do not implement continuity, Capsule 10, or operative pedagogical-layer mechanics before reconciling the actual CPA against BPCPI, BPTT, and the integrated M1 blueprint.
+* Git preflight remains the live truth over stale embedded baselines in older docs.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1 - PRO audit CPA against BPCPI/BPTT/M1 integrated blueprint
+```
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
 Friday full manual M1 test is now superseded by the SCHEDULE-1 decision.

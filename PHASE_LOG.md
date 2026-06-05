@@ -32,6 +32,88 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-PEDAGOGY-CPA-SOURCES-1 - Prepare source inventory for CPA reconciliation audit
+
+Date: 2026-06-05
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 7e9a68a
+Latest accepted commit = 7e9a68a - MVP-SALES-PILOT-PEDAGOGY-M1-BLUEPRINT-1: document integrated M1 pedagogical blueprint
+Working tree clean before edits.
+```
+
+Objective:
+
+Prepare a complete, bounded, and safe source inventory for a future PRO reconciliation audit of the Capa Pedagogica Actual (CPA) against BPCPI, BPTT, the integrated M1 blueprint, historical/foundational E360/Bexauri documentation, the M1-first UI/functional circuit, and live code where evidence, feedback, continuity, self-report, capsules, and progress are materialized.
+
+External roots included:
+
+* `C:\Projects\e360-tutoring-platform` - available.
+* `G:\Mi unidad\YO 2026\E360` - unavailable / access denied.
+* `G:\Mi unidad\YO 2026\E360\E360_System\01_Documentacion_Maestra` - unavailable / access denied.
+
+Result:
+
+```text
+CPA_RECONCILIATION_AUDIT_SOURCE_INVENTORY_PREPARED
+```
+
+Inventory result:
+
+* Created `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`.
+* Classified sources as P0 required, P1 recommended, P2 historical/contextual, P3 optional, and excluded/sensitive.
+* Inventoried repo docs, live code sources, authorized external/local document roots, and sensitive exclusions by category.
+* Added staleness/supersession assessment so older documents are not treated as equally normative.
+* Marked Google Drive roots unavailable for this phase.
+
+No audit yet:
+
+* This phase did not reconcile CPA.
+* This phase did not derive BPCPv1.
+* This phase did not evaluate pedagogical correctness.
+* This phase did not modify app behavior.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-CPA-AUDIT-1 - PRO audit CPA against BPCPI/BPTT/M1 integrated blueprint
+```
+
+Scope safety:
+
+* Documentation-only / inventory-only.
+* No app code.
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now` implementation.
+* No Study Page implementation.
+* No Capsule execution.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No StudentAccess lifecycle.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No external folder mutation.
+
 ### MVP-SALES-PILOT-PEDAGOGY-M1-BLUEPRINT-1 - Document integrated M1 tactical-pedagogical blueprint
 
 Date: 2026-06-05
