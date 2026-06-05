@@ -239,12 +239,40 @@ Scope:
 It applies to test-oriented, skill-oriented, and hybrid tutorias. It is not implementation, not BPCPv1, and not an M1-specific blueprint.
 
 Current pedagogical focus:
-BPCPI documented + BPTT documented. Next: define tactical-pedagogical M1 blueprint from BPTT or complete the prior discussion needed for that derivation.
+BPCPI documented + BPTT documented + integrated M1 blueprint documented. Next: derive BPCPv1 or define minimum M1 capsule contract v1 from the integrated M1 blueprint.
 
 Next recommended phase:
-Define tactical-pedagogical M1 blueprint from BPTT
+MVP-SALES-PILOT-PEDAGOGY-M1-BLUEPRINT-1 - Document integrated M1 tactical-pedagogical blueprint
 
 Expected baseline after PEDAGOGY-BLUEPRINT-2 must be taken from Git preflight. Expected baseline before PEDAGOGY-BLUEPRINT-2 was 458816d. After PEDAGOGY-BLUEPRINT-2, future agents must use the resulting commit titled `MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-2: document BPTT transversal blueprint` from Git preflight as live truth.
+```
+
+Current integrated M1 tactical-pedagogical blueprint:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-BLUEPRINT-1 - Document integrated M1 tactical-pedagogical blueprint
+Document:
+nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md
+
+Status:
+The integrated M1 blueprint is documented and active as the rector contract of the Gerente Pedagogico M1.
+
+Relation:
+It derives from BPCPI and BPTT, and translates them into PAES Mathematics M1.
+
+Scope:
+It integrates the initial M1 tactical-pedagogical base with the M1 operational shielding contract. It defines contracts for capsules, mathematical focus, evidence, errors, feedback, step-by-step help, self-report, continuity, progress, review, allowed decisions, and escalations.
+
+Not implementation:
+It is not BPCPv1, not app code, not schema, not UI design, not technical roadmap, not concrete capsule design, and not pedagogical content modification in code.
+
+Current pedagogical focus:
+BPCPI + BPTT + integrated M1 blueprint are documented. Next: derive BPCPv1 or define minimum M1 capsule contract v1 from this integrated blueprint.
+
+Next recommended phase:
+Derive BPCPv1 from BPCPI + BPTT + integrated M1 blueprint
+
+Expected baseline after PEDAGOGY-M1-BLUEPRINT-1 must be taken from Git preflight. Expected baseline before PEDAGOGY-M1-BLUEPRINT-1 was 3468c32. After PEDAGOGY-M1-BLUEPRINT-1, future agents must use the resulting commit titled `MVP-SALES-PILOT-PEDAGOGY-M1-BLUEPRINT-1: document integrated M1 pedagogical blueprint` from Git preflight as live truth.
 ```
 
 Historical prior student-experience deliverable:
@@ -384,19 +412,20 @@ First read:
 7. nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md
 8. nextjs_space/docs/operations/BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md
 9. nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md
-10. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
-11. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
-12. nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md
-13. nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md
-14. nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md
-15. nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md
-16. nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md
-17. nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md
-18. nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md
-19. nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md
-20. nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md
-21. nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md
-22. PHASE_LOG.md, latest relevant entries only if safe to inspect without full-file overwrite risk
+10. nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md
+11. nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+12. nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md
+13. nextjs_space/docs/operations/MVP_SRA_SCOPE_1_COMPLETE_PAES_M1_TUTORING_SCOPE_CHARTER.md
+14. nextjs_space/docs/operations/MVP_SRA_SCOPE_2_CANONICAL_PAES_M1_STUDENT_JOURNEY_AND_ROADMAP_TRAVERSAL.md
+15. nextjs_space/docs/operations/MVP_SRA_SCOPE_2A_CYCLE_MILESTONE_AND_SPECIAL_ACTION_MODEL.md
+16. nextjs_space/docs/operations/MVP_SRA_SCOPE_3_HUMAN_OPERATOR_PARALLEL_ROLE_MODEL.md
+17. nextjs_space/docs/operations/MVP_SRA_SCOPE_4_FUTURE_TUTOR_AGENT_GOVERNANCE_MODEL.md
+18. nextjs_space/docs/operations/MVP_SRA_SCOPE_5_CONSTRUCTION_RESTART_OPTIONS_AND_READINESS_REVIEW.md
+19. nextjs_space/docs/operations/MVP_SRA_SCOPE_5A_IMPLEMENTATION_SPEC_FOR_PROVISIONAL_REGISTRY_METADATA.md
+20. nextjs_space/docs/operations/MVP_SRA_SCOPE_5B_IMPLEMENTATION_SPEC_FOR_FIRST_NON_ALGEBRA_SLICE.md
+21. nextjs_space/docs/operations/MVP_SRA_SCOPE_5C_PAES_M1_EXPERT_REVIEW_REQUEST_PACKAGE.md
+22. nextjs_space/docs/operations/MVP_SRA_SCOPE_5D_HANDOFF_HARDENING_AFTER_SCOPE_FIRST_BLOCK.md
+23. PHASE_LOG.md, latest relevant entries only if safe to inspect without full-file overwrite risk
 
 Sales-ready phase gate:
 - Current active roadmap block: <CURRENT_ACTIVE_ROADMAP_BLOCK>
@@ -458,7 +487,9 @@ Current pedagogical decision layer context:
 - BPTT is active and must be read before future pedagogical-layer or tutoring-specific blueprint phases.
 - BPTT is the common tactical-pedagogical grammar for Bexauri tutorias and bridges BPCPI to BPCPv1 and M1-specific blueprint derivations.
 - BPTT is not implementation, not BPCPv1, and not a specific M1 blueprint.
-- BPCPv1 and the tactical-pedagogical M1 blueprint must be derived from BPCPI/BPTT before continuity or pedagogical-layer implementation is designed.
+- The integrated M1 blueprint is active and must be read before future M1 pedagogical-layer phases.
+- The integrated M1 blueprint is the rector contract of the Gerente Pedagogico M1 and the operational shielding base for M1.
+- BPCPv1 and minimum M1 capsule/feedback/continuity contracts must be derived from BPCPI/BPTT/integrated M1 blueprint before continuity or pedagogical-layer implementation is designed.
 - BPCPv1 must be a simple version of the correct system, not a poor version.
 - Bexauri PAES_M1 = guided, evidence-aware roadmap traversal, not a static StudyLoad sequence.
 - The next-load decision cannot be only a linear continuity edge.

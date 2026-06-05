@@ -362,7 +362,36 @@ Direction:
 Recommended next phase:
 
 ```text
-Define tactical-pedagogical M1 blueprint from BPTT
+MVP-SALES-PILOT-PEDAGOGY-M1-BLUEPRINT-1 - Document integrated M1 tactical-pedagogical blueprint
+```
+
+### 2C-13. Integrated M1 Blueprint Active - Tactical-Pedagogical Contract For M1
+
+Blueprint Tactico-Pedagogico M1 Integrado is documented and active:
+
+```text
+nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md
+```
+
+Status:
+
+* This document is the contract of the Gerente Pedagogico M1.
+* It translates BPCPI and BPTT into the PAES Mathematics M1 domain.
+* It integrates the initial M1 tactical-pedagogical base plus the operational shielding contract.
+* It shields the M1 operational pedagogical layer before future implementation.
+* It is not implementation, not BPCPv1, not technical roadmap, and not concrete capsule design.
+
+Direction:
+
+* M1 must not be implemented as a list of exercises.
+* Future M1 work must preserve capsules with purpose, interpretable evidence, useful feedback, self-report, review, and pedagogically justified continuity.
+* Do not implement continuity or Capsule 10 without considering this document.
+* Do not modify pedagogical content in code from this document alone.
+
+Recommended next focus:
+
+```text
+Derive BPCPv1 or define minimum M1 capsule contract v1 from this integrated blueprint
 ```
 
 ### 2D. Friday Full Manual M1 Test Milestone

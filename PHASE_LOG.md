@@ -32,6 +32,114 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-PEDAGOGY-M1-BLUEPRINT-1 - Document integrated M1 tactical-pedagogical blueprint
+
+Date: 2026-06-05
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = 3468c32
+Latest accepted commit = 3468c32 - MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-2: document BPTT transversal blueprint
+Working tree clean before edits except expected untracked source file BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO_RAW_v0_1.md.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Source file `BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO_RAW_v0_1.md` was confirmed at repo root.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md`.
+* Read `nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_SCHEDULE_1_RESCHEDULE_APP_REVIEW_AND_PRIORITIZE_PEDAGOGICAL_LAYER_AUDIT.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_PRO_AUDIT_1_TOP_DOWN_UI_CIRCUIT_AUDIT.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Read the full integrated M1 RAW source.
+* Phase was Level A pedagogical blueprint documentation/governance-only.
+
+Human inherited decision:
+
+* Mauricio and ChatGPT Ampliado accepted the initial M1 tactical-pedagogical blueprint as a pertinent first base.
+* Mauricio and ChatGPT Ampliado accepted the M1 operational shielding annex as sufficient shielding base.
+* Both sources were integrated into a single RAW v0.1.
+* The integrated document is the M1 rector base before deriving BPCPv1 or implementing the operative pedagogical layer.
+
+Reading:
+
+* The integrated M1 blueprint defines what the M1 Pedagogical Manager must order to the operative level of the pedagogical layer.
+* It translates BPCPI and BPTT into PAES Mathematics M1.
+* It establishes tactical-operational pedagogical contracts for capsules, mathematical focus, evidence, errors, feedback, step-by-step help, self-report, continuity, progress, review, allowed decisions, and escalations.
+* It protects M1 from becoming a list of exercises or a technically-driven continuity sequence.
+
+Relation with BPCPI/BPTT:
+
+* BPCPI remains the ideal canonical pedagogical layer contract.
+* BPTT remains the transversal tactical-pedagogical grammar for Bexauri tutorias.
+* The integrated M1 blueprint is the domain-specific translation of both into PAES Mathematics M1.
+
+Result:
+
+```text
+INTEGRATED_M1_TACTICAL_PEDAGOGICAL_BLUEPRINT_DOCUMENTED_AND_ACTIVE
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Scope safety:
+
+* No app code.
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No Study Page implementation.
+* No Capsule execution.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No StudentAccess.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No new functionality.
+* No BPCPv1 derivation.
+* No continuity implementation.
+* No concrete capsule design.
+* No pedagogical content changes in code.
+
+Next recommended phase:
+
+```text
+Derive BPCPv1 from BPCPI + BPTT + integrated M1 blueprint
+```
+
+---
+
 ### MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-2 - Document BPTT transversal pedagogical blueprint
 
 Date: 2026-06-05
