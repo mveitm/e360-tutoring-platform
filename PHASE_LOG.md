@@ -32,6 +32,119 @@
 
 ## Phase log
 
+### MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-1 - Document BPCPI canonical ideal pedagogical layer blueprint
+
+Date: 2026-06-05
+
+Continuity phrase:
+
+```text
+Primera vertical M1-first dentro del camino hacia MVP-Beta cerrado M1/M2/L1.
+```
+
+Baseline:
+
+```text
+HEAD = origin/main = origin/HEAD = f91e55c
+Latest accepted commit = f91e55c - MVP-SALES-PILOT-SCHEDULE-1: reschedule app review for pedagogical audit
+Working tree clean before edits except expected untracked source file BPCPI_BLUEPRINT_CANONICO_RAW_v0_1.md.
+```
+
+Context gate:
+
+* Git preflight passed and remained the live truth.
+* Source file `BPCPI_BLUEPRINT_CANONICO_RAW_v0_1.md` was confirmed at repo root.
+* Read `nextjs_space/docs/operations/PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/STUDENT_EXPERIENCE_LED_DELIVERY_PROTOCOL.md`.
+* Read `nextjs_space/docs/operations/BEXAURI_VISUAL_STANDARD_V0_1.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_PRO_AUDIT_1_TOP_DOWN_UI_CIRCUIT_AUDIT.md`.
+* Read `nextjs_space/docs/operations/MVP_SALES_PILOT_SCHEDULE_1_RESCHEDULE_APP_REVIEW_AND_PRIORITIZE_PEDAGOGICAL_LAYER_AUDIT.md`.
+* Read `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* Read `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+* Read `PHASE_LOG.md` tail.
+* Read the full BPCPI RAW source.
+* Phase was Level A documentation/governance-only.
+
+Human inherited decision:
+
+* Mauricio and ChatGPT Ampliado reviewed the PRO BPCPI output.
+* The document is accepted as a solid first BPCPI RAW.
+* It remains a foundational document, not implementation.
+* The main agreed adjustment is to broaden the Director Pedagogico mandate beyond exercises.
+* The evidence -> feedback -> continuity relationship remains the operative-pedagogical core.
+* The distinction between BPCPI, BPCPv2, and BPCPv1 remains correct.
+* The principle remains especially important: BPCPv1 must be a simple version of the correct system, not a poor version.
+
+Mandate adjustment incorporated:
+
+```text
+Transformar la interacción del estudiante con los recursos y experiencias pedagógicas de Bexauri en una experiencia de aprendizaje guiada, progresiva, evidenciable, revisable y orientada al desarrollo real de destrezas.
+```
+
+Reading:
+
+* BPCPI defines Bexauri's Ideal Pedagogical Layer as a systemic Director Pedagogico.
+* Its role is to govern quality, coherence, progression, evidence, feedback, and continuity of learning.
+* It is a canonical contract and rector framework for future BPCPv2 and BPCPv1 derivation.
+* It is not a technical roadmap, schema, adaptive engine, UI design, agent prompt, or feature backlog.
+
+Result:
+
+```text
+BPCPI_CANONICAL_IDEAL_PEDAGOGICAL_LAYER_BLUEPRINT_DOCUMENTED_AND_ACTIVE
+```
+
+Files changed:
+
+* `PHASE_LOG.md`.
+* `nextjs_space/docs/operations/BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md`.
+* `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`.
+* `nextjs_space/docs/operations/CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md`.
+* `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`.
+
+Source file handling:
+
+* Root source file `BPCPI_BLUEPRINT_CANONICO_RAW_v0_1.md` was treated as a temporary RAW input.
+* It was copied into `nextjs_space/docs/operations/BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md`.
+* If still untracked after copy, it should be removed from root and not staged.
+
+Scope safety:
+
+* No app code.
+* No DB/base de datos.
+* No schema.
+* No migrations.
+* No auth.
+* No credentials.
+* No login.
+* No `/now`.
+* No Study Page implementation.
+* No Capsule execution.
+* No responses.
+* No submit.
+* No self-report.
+* No completion.
+* No StudentAccess.
+* No checkout.
+* No real payment.
+* No real trial.
+* No complete functional subscription.
+* No staging.
+* No production.
+* No secrets.
+* No new functionality.
+* No BPCPv1 derivation.
+* No continuity implementation design.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-2 - Derive BPCPv1 from BPCPI
+```
+
+---
+
 ### MVP-SALES-PILOT-SCHEDULE-1 - Reschedule app review and prioritize pedagogical layer audit
 
 Date: 2026-06-05

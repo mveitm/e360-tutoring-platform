@@ -53,6 +53,7 @@ These documents now govern roadmap direction:
 47. `nextjs_space/docs/operations/MVP_SALES_PILOT_UI_CIRCUIT_1_FIRST_STUDENT_UI_VISUAL_AND_FUNCTIONAL_CIRCUIT_CLOSEOUT.md`
 48. `nextjs_space/docs/operations/MVP_SALES_PILOT_PRO_AUDIT_1_TOP_DOWN_UI_CIRCUIT_AUDIT.md`
 49. `nextjs_space/docs/operations/MVP_SALES_PILOT_SCHEDULE_1_RESCHEDULE_APP_REVIEW_AND_PRIORITIZE_PEDAGOGICAL_LAYER_AUDIT.md`
+50. `nextjs_space/docs/operations/BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md`
 
 Future chats must read them before proposing work.
 
@@ -145,6 +146,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `MVP_SALES_PILOT_PRO_AUDIT_1_TOP_DOWN_UI_CIRCUIT_AUDIT.md` records the PRO top-down audit of the first M1-first student UI circuit. Verdict: `APROBADO CON RESERVAS`. It confirms the circuit exists and directs the next work toward proving learning/progress rather than only navigation: audit existing continuity, audit first capsule pedagogy, prepare runbook to Capsula 10, execute controlled rehearsal, and replace progress/logro placeholders. It also records that real students should not start yet and that LP/DB/ST/Capsule should not be polished further by intuition.
 
 `MVP_SALES_PILOT_SCHEDULE_1_RESCHEDULE_APP_REVIEW_AND_PRIORITIZE_PEDAGOGICAL_LAYER_AUDIT.md` records the schedule change that postpones the app review/test from Friday, June 5, 2026 to Tuesday, June 9, 2026. Reason: Mauricio chose to gain more time to audit, redesign, and improve the pedagogical layer. It preserves PRO-AUDIT-1 as active guide and makes continuity multi-capsule, Capsule 1 pedagogical quality, preparation toward Capsule 10, and visible/backend consistency the priority before review. It explicitly does not declare real students ready, Sales-Ready, complete closed MVP-Beta, L1 readiness, or M2 readiness.
+
+`BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md` is the rector document for Bexauri's Ideal Pedagogical Layer. It is the canonical contract of the Ideal Pedagogical Director and the foundation for deriving BPCPv2 and BPCPv1. It defines the pedagogical layer as governance over quality, coherence, progression, evidence, feedback, continuity, reviewability, and limits of inference. It is not implementation, technical roadmap, schema, adaptive engine, UI design, agent prompt, or feature backlog. Its updated mandate is: `Transformar la interacción del estudiante con los recursos y experiencias pedagógicas de Bexauri en una experiencia de aprendizaje guiada, progresiva, evidenciable, revisable y orientada al desarrollo real de destrezas.`
 
 `MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md` is a governance/continuity document, not a pedagogical M1 document.
 

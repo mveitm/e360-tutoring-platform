@@ -303,6 +303,41 @@ Recommended next phase:
 MVP-SALES-PILOT-M1-CONTINUITY-1 - Audit existing next-capsule continuity
 ```
 
+### 2C-11. BPCPI Active - Canonical Ideal Pedagogical Layer Blueprint
+
+BPCPI is documented and active:
+
+```text
+nextjs_space/docs/operations/BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md
+```
+
+Status:
+
+* BPCPI is the canonical contract for the Ideal Pedagogical Layer of Bexauri.
+* It defines the Ideal Pedagogical Layer as a systemic Director Pedagogico.
+* It governs quality, coherence, progression, evidence, feedback, continuity, reviewability, and future delegation boundaries.
+* It is foundational guidance, not implementation.
+
+Updated Director Pedagogico mandate:
+
+```text
+Transformar la interacción del estudiante con los recursos y experiencias pedagógicas de Bexauri en una experiencia de aprendizaje guiada, progresiva, evidenciable, revisable y orientada al desarrollo real de destrezas.
+```
+
+Direction:
+
+* BPCPI is not app code, roadmap técnico, schema, adaptive engine, UI design, agent prompt, or feature backlog.
+* BPCPI is the source for deriving BPCPv2 and BPCPv1.
+* The evidence -> feedback -> continuity relation is the operative-pedagogical core.
+* Preserve the principle: BPCPv1 must be a simple version of the correct system, not a poor version.
+* Continuity implementation and app execution remain paused until a BPCPv1 derivation phase defines the minimum version.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-BLUEPRINT-2 - Derive BPCPv1 from BPCPI
+```
+
 ### 2D. Friday Full Manual M1 Test Milestone
 
 Friday full manual M1 test is now superseded by the SCHEDULE-1 decision.
