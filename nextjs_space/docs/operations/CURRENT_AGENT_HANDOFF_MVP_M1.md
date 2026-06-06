@@ -1256,3 +1256,35 @@ Implication:
 M1-SEQUENCING-1 must derive the PAES M1-specific early sequencing strategy as an application of this transversal contract.
 
 No implementation is authorized.
+
+## 27. M1-SEQUENCING-1 status
+
+M1-SEQUENCING-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_EARLY_SEQUENCING_STRATEGY.md
+```
+
+Verdict:
+
+```text
+BPCPV1_M1_EARLY_SEQUENCING_STRATEGY_DERIVED
+```
+
+Decision:
+
+BPCPv1-PAES-M1 uses distributed pedagogical calibration through learning, not rigid upfront diagnosis.
+
+Core rule:
+
+```text
+Bexauri calibra mientras ensena.
+```
+
+Implication:
+
+FICHA-1 must design the first capsule as a balanced initial signal, not as a diagnostic placement.
+
+No implementation is authorized.

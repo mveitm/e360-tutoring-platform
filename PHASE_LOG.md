@@ -42997,3 +42997,54 @@ Next recommended phase:
 ```text
 MVP-SALES-PILOT-PEDAGOGY-M1-SEQUENCING-1
 ```
+
+---
+
+## MVP-SALES-PILOT-PEDAGOGY-M1-SEQUENCING-1 - Early M1 sequencing strategy
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-SEQUENCING-1
+```
+
+Baseline before:
+
+```text
+bd776d1
+```
+
+Result:
+
+```text
+BPCPV1_M1_EARLY_SEQUENCING_STRATEGY_DERIVED
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_EARLY_SEQUENCING_STRATEGY.md
+```
+
+Scope:
+
+Documentation-only BPCPv1-PAES-M1 sequencing strategy.
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No content registry changes.
+- No continuity helper changes.
+- No runtime tests.
+- No deploy.
+- No secrets.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1
+```

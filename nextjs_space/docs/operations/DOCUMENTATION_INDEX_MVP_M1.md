@@ -56,14 +56,15 @@ These documents now govern roadmap direction:
 50. `nextjs_space/docs/operations/BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md`
 51. `nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md`
 52. `nextjs_space/docs/operations/BPTT_ROADMAP_AND_LIVING_MICROROADMAP_TRANSVERSAL_CONTRACT.md`
-53. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
-54. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
-55. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
-56. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
-57. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
-58. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
-59. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
-60. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
+53. `nextjs_space/docs/operations/BPCPV1_PAES_M1_EARLY_SEQUENCING_STRATEGY.md`
+54. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
+55. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
+56. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
+57. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
+58. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
+59. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
+60. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
+61. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
 
 Future chats must read them before proposing work.
 
@@ -160,6 +161,10 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md` is the rector document for Bexauri's Ideal Pedagogical Layer. It is the canonical contract of the Ideal Pedagogical Director and the foundation for deriving BPCPv2 and BPCPv1. It defines the pedagogical layer as governance over quality, coherence, progression, evidence, feedback, continuity, reviewability, and limits of inference. It is not implementation, technical roadmap, schema, adaptive engine, UI design, agent prompt, or feature backlog. Its updated mandate is: `Transformar la interacción del estudiante con los recursos y experiencias pedagógicas de Bexauri en una experiencia de aprendizaje guiada, progresiva, evidenciable, revisable y orientada al desarrollo real de destrezas.`
 
 `BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md` is the transversal tactical-pedagogical document and common grammar for Bexauri tutorias. It bridges BPCPI to future BPCPv1 and tutoring-specific tactical blueprints, including M1. It applies to test-oriented, skill-oriented, and hybrid tutorias. It is not implementation, technical roadmap, BPCPv1, or M1-specific blueprint.
+
+`BPTT_ROADMAP_AND_LIVING_MICROROADMAP_TRANSVERSAL_CONTRACT.md` is the transversal BPTT addendum for secuencia simple, roadmap maestro, and living student microroadmap. It requires future pedagogical phases to declare source access and prevents confusing a fixed sequence with roadmap, microroadmap, or adaptivity.
+
+`BPCPV1_PAES_M1_EARLY_SEQUENCING_STRATEGY.md` is the BPCPv1-PAES-M1 early sequencing strategy. It derives the M1-specific application of the transversal roadmap contract: Bexauri calibrates while teaching, the first capsule is a balanced initial signal and not diagnostic placement, the first 15-20 capsules are an orientative distributed calibration window and not a rigid gate, and FICHA-1 is the next recommended documentation phase. It is not implementation, content registry, continuity helper, UI copy, selector, PAES score, mastery, theta, adaptive AI, or readiness authorization.
 
 `BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md` is the integrated tactical-pedagogical M1 blueprint and rector document of the Gerente Pedagogico M1. It integrates the initial M1 base, the operative contract, and the operational shielding layer for PAES Mathematics M1. It is the base for future BPCPv1 derivation, minimum M1 capsule contract v1, feedback/continuity criteria, and M1 capsule pedagogical audits. It is not implementation, technical roadmap, schema, UI, BPCPv1, or concrete capsule design.
 
