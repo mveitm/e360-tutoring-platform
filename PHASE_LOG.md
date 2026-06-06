@@ -43051,6 +43051,57 @@ MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FEEDBACK-1B
 
 ---
 
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FEEDBACK-1B - First balanced capsule feedback and step-by-step contract
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FEEDBACK-1B
+```
+
+Baseline before:
+
+```text
+83ae255
+```
+
+Result:
+
+```text
+FIRST_BALANCED_CAPSULE_FEEDBACK_CONTRACT_DERIVED_WITH_IMPLEMENTATION_BLOCKERS
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_FIRST_BALANCED_CAPSULE_FEEDBACK_CONTRACT.md
+```
+
+Scope:
+
+Documentation-only first balanced capsule feedback and step-by-step contract.
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No content registry changes.
+- No continuity helper changes.
+- No runtime tests.
+- No deploy.
+- No secrets.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-PLAN-1
+```
+
+---
+
 ## MVP-SALES-PILOT-PEDAGOGY-BPTT-ROADMAP-CONTRACT-1 - BPTT roadmap and living microroadmap transversal contract
 
 Phase:

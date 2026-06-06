@@ -59,14 +59,15 @@ These documents now govern roadmap direction:
 53. `nextjs_space/docs/operations/BPCPV1_PAES_M1_EARLY_SEQUENCING_STRATEGY.md`
 54. `nextjs_space/docs/operations/BPCPV1_PAES_M1_FIRST_BALANCED_CAPSULE_FICHA.md`
 55. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_FEEDBACK_1A_FIRST_BALANCED_CAPSULE_SOURCE_PACKET.md`
-56. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
-57. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
-58. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
-59. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
-60. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
-61. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
-62. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
-63. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
+56. `nextjs_space/docs/operations/BPCPV1_PAES_M1_FIRST_BALANCED_CAPSULE_FEEDBACK_CONTRACT.md`
+57. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
+58. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
+59. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
+60. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
+61. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
+62. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
+63. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
+64. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
 
 Future chats must read them before proposing work.
 
@@ -171,6 +172,8 @@ The M1 documents remain pedagogical and operational support. They are not the wh
 `BPCPV1_PAES_M1_FIRST_BALANCED_CAPSULE_FICHA.md` is the BPCPv1-PAES-M1 pedagogical ficha for the first M1 capsule, `paes_m1_balanced_entry_initial`. It defines the capsule as a balanced initial signal, not diagnostic placement, and sets contracts for purpose, evidence, expected errors, feedback, step-by-step help, self-report, review, continuity limits, copy boundaries, and implications for capsules 2-6. It is not implementation, registry edit authorization, authored feedback implementation, UI copy change, continuity helper change, PAES score, mastery, theta, adaptive AI, or readiness authorization.
 
 `MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_FEEDBACK_1A_FIRST_BALANCED_CAPSULE_SOURCE_PACKET.md` is the source-grounded extraction packet for the current `paes_m1_balanced_entry_initial` item source. It records the four current MC items, answer keys, absent authored feedback/step-by-step fields, limitation notices, and source-grounded risks for PRO feedback design. It is not final feedback, implementation, registry edit, UI copy change, continuity helper change, or readiness authorization.
+
+`BPCPV1_PAES_M1_FIRST_BALANCED_CAPSULE_FEEDBACK_CONTRACT.md` is the PRO pedagogical contract for feedback authored and step-by-step help for the four current items of `paes_m1_balanced_entry_initial`. It defines expected feedback, step-by-step structure, possible distractor readings with cautious language, transfer ideas, and inference limits. It is not implemented feedback, content registry edit authorization, UI change authorization, continuity helper change, PAES score, mastery, theta, adaptive AI, or readiness authorization.
 
 `BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md` is the integrated tactical-pedagogical M1 blueprint and rector document of the Gerente Pedagogico M1. It integrates the initial M1 base, the operative contract, and the operational shielding layer for PAES Mathematics M1. It is the base for future BPCPv1 derivation, minimum M1 capsule contract v1, feedback/continuity criteria, and M1 capsule pedagogical audits. It is not implementation, technical roadmap, schema, UI, BPCPv1, or concrete capsule design.
 
