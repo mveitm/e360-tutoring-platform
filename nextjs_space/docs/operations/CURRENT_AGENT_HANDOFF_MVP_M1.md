@@ -1288,3 +1288,29 @@ Implication:
 FICHA-1 must design the first capsule as a balanced initial signal, not as a diagnostic placement.
 
 No implementation is authorized.
+
+## 28. M1-CAPSULE-FICHA-1 status
+
+M1-CAPSULE-FICHA-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_FIRST_BALANCED_CAPSULE_FICHA.md
+```
+
+Verdict:
+
+```text
+FIRST_M1_BALANCED_CAPSULE_FICHA_DERIVED_WITH_IMPLEMENTATION_BLOCKERS
+```
+
+Decision:
+
+The first M1 capsule `paes_m1_balanced_entry_initial` is a balanced initial signal, not a diagnostic placement.
+
+Implication:
+
+Future content/feedback/step-by-step/implementation phases must read this ficha before modifying the first capsule.
+
+No implementation is authorized.

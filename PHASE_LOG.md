@@ -42949,6 +42949,57 @@ MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1
 
 ---
 
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1 - First M1 balanced capsule BPCPv1 ficha
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1
+```
+
+Baseline before:
+
+```text
+e64fb77
+```
+
+Result:
+
+```text
+FIRST_M1_BALANCED_CAPSULE_FICHA_DERIVED_WITH_IMPLEMENTATION_BLOCKERS
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_FIRST_BALANCED_CAPSULE_FICHA.md
+```
+
+Scope:
+
+Documentation-only first M1 balanced capsule BPCPv1 ficha.
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No content registry changes.
+- No continuity helper changes.
+- No runtime tests.
+- No deploy.
+- No secrets.
+
+Next recommended phase:
+
+```text
+Decide between MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FEEDBACK-1 and MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-PLAN-1
+```
+
+---
+
 ## MVP-SALES-PILOT-PEDAGOGY-BPTT-ROADMAP-CONTRACT-1 - BPTT roadmap and living microroadmap transversal contract
 
 Phase:
