@@ -43000,6 +43000,57 @@ Decide between MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FEEDBACK-1 and MVP-SALES-PILO
 
 ---
 
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FEEDBACK-1A - First balanced capsule source packet extraction
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FEEDBACK-1A
+```
+
+Baseline before:
+
+```text
+b6a3bc2
+```
+
+Result:
+
+```text
+FIRST_BALANCED_CAPSULE_SOURCE_PACKET_EXTRACTED_FOR_FEEDBACK_DESIGN
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_FEEDBACK_1A_FIRST_BALANCED_CAPSULE_SOURCE_PACKET.md
+```
+
+Scope:
+
+Documentation/read-only source extraction for feedback design.
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No content registry changes.
+- No continuity helper changes.
+- No runtime tests.
+- No deploy.
+- No secrets.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FEEDBACK-1B
+```
+
+---
+
 ## MVP-SALES-PILOT-PEDAGOGY-BPTT-ROADMAP-CONTRACT-1 - BPTT roadmap and living microroadmap transversal contract
 
 Phase:

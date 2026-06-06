@@ -1314,3 +1314,31 @@ Implication:
 Future content/feedback/step-by-step/implementation phases must read this ficha before modifying the first capsule.
 
 No implementation is authorized.
+
+## 29. M1-CAPSULE-FEEDBACK-1A status
+
+M1-CAPSULE-FEEDBACK-1A documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_FEEDBACK_1A_FIRST_BALANCED_CAPSULE_SOURCE_PACKET.md
+```
+
+Verdict:
+
+```text
+FIRST_BALANCED_CAPSULE_SOURCE_PACKET_EXTRACTED_FOR_FEEDBACK_DESIGN
+```
+
+Decision:
+
+The current source packet for `paes_m1_balanced_entry_initial` is available for PRO feedback and step-by-step design.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FEEDBACK-1B
+```
+
+No implementation is authorized.
