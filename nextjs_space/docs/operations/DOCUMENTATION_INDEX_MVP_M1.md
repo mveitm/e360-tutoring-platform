@@ -55,14 +55,15 @@ These documents now govern roadmap direction:
 49. `nextjs_space/docs/operations/MVP_SALES_PILOT_SCHEDULE_1_RESCHEDULE_APP_REVIEW_AND_PRIORITIZE_PEDAGOGICAL_LAYER_AUDIT.md`
 50. `nextjs_space/docs/operations/BPCPI_BLUEPRINT_CANONICO_CAPA_PEDAGOGICA_IDEAL.md`
 51. `nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md`
-52. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
-53. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
-54. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
-55. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
-56. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
-57. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
-58. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
-59. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
+52. `nextjs_space/docs/operations/BPTT_ROADMAP_AND_LIVING_MICROROADMAP_TRANSVERSAL_CONTRACT.md`
+53. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
+54. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
+55. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
+56. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
+57. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
+58. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
+59. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
+60. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
 
 Future chats must read them before proposing work.
 
@@ -294,10 +295,11 @@ Read these first in current chats:
 14. `nextjs_space/docs/operations/MVP_SRA_SCOPE_5E_DOCUMENTATION_INDEX_UPDATE_AFTER_SCOPE_FIRST_BLOCK.md`
 15. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md` when preparing or running CPA-AUDIT-1R.
 16. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md` before deriving BPCPv1-PAES-M1.
-17. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md` before deriving BPCPv1-PAES-M1.
-18. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md` before auditing capsules, continuity, or any future implementation-readiness work for PAES Matematicas M1.
-19. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md` before any M1 capsule readiness, feedback, step-by-step, or continuity decision.
-20. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md` before any M1 capsule implementation planning or readiness claim.
+17. `nextjs_space/docs/operations/BPTT_ROADMAP_AND_LIVING_MICROROADMAP_TRANSVERSAL_CONTRACT.md` before any roadmap, microroadmap, sequencing, continuity, or readiness decision.
+18. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md` before deriving BPCPv1-PAES-M1.
+19. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md` before auditing capsules, continuity, or any future implementation-readiness work for PAES Matematicas M1.
+20. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md` before any M1 capsule readiness, feedback, step-by-step, or continuity decision.
+21. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md` before any M1 capsule implementation planning or readiness claim.
 
 ## 6. Supporting roadmap/source documents
 
@@ -326,6 +328,7 @@ These remain important upstream sources:
 | `CONTEXT_TRANSFER_TEMPLATE_MVP_M1.md` | Present | Stable next-chat handoff template | Highest for context transfer | Creating future handoffs | Replacing live Git preflight | Yes |
 | `DOCUMENTATION_INDEX_MVP_M1.md` | Present | Documentation map | High | Identify canonical docs and current phase chain | Runtime truth or implementation permission | Yes |
 | `MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md` | Present | Source-grounded CPA audit package for PRO | Highest for CPA-AUDIT-1R preparation | Give PRO canonical excerpts, source cards, live code summaries, external-source context, staleness assessment, and audit questions | Treating it as final CPA audit or BPCPv1 | Yes for CPA audit |
+| `BPTT_ROADMAP_AND_LIVING_MICROROADMAP_TRANSVERSAL_CONTRACT.md` | Present | BPTT addendum for roadmap maestro and living student microroadmap | Highest for roadmap/microroadmap/sequence governance | Distinguish simple sequence, tutoring master roadmap, and living student microroadmap; require Pedagogical Context Gate and source hierarchy before decisions | Treating a fixed sequence as adaptivity, bypassing BPCPI/BPTT/specific sources, or authorizing implementation | Yes for roadmap, continuity, sequencing, and readiness work |
 | `CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md` | Present | Source-grounded CPA reconciliation audit | Highest for BPCPv1-PAES-M1 precontract | Reconcile CPA against BPCPI/BPTT/Blueprint M1 Integrado and orient BPCPv1-PAES-M1 | Treating it as implementation authorization, global BPCPv1, M2/L1 readiness, or complete BPCPv1-PAES-M1 | Yes for BPCPv1-PAES-M1 work |
 | `BPCPV1_PAES_M1_PRECONTRACT.md` | Present | Minimum precontract before BPCPv1-PAES-M1 derivation | Highest for BPCPv1-PAES-M1 derivation readiness | Define mandatory minimums, conditions, exclusions, blockers, and readiness for documentation-only derivation | Treating it as implementation authorization, global BPCPv1, complete BPCPv1-PAES-M1, Capsule 10 readiness, or real-student readiness | Yes for BPCPv1-PAES-M1 derivation |
 | `BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md` | Present | BPCPv1-PAES-M1 governing document | Highest for PAES Matematicas M1 pedagogical governance | Govern future PAES M1 pedagogical layer v1 audits and implementation-readiness decisions | Treating it as implementation authorization, global BPCPv1, Capsule 10 final test approval, real-student readiness, Sales-Ready, MVP-Beta cerrado completo, M2 readiness, L1 readiness, adaptive AI, theta, mastery, PAES score, payment/trial/subscription readiness, or continuity helper authorization | Yes for PAES M1 pedagogical work |
@@ -378,6 +381,8 @@ The aligned direction is:
 - BPCPv1-PAES-M1 Precontract exists and is accepted as READY_FOR_DERIVATION_WITH_CONDITIONS.
 - BPCPv1-PAES-M1 Derivation governing document exists and is accepted as `BPCPV1_PAES_M1_DERIVED_AS_GOVERNING_DOCUMENT_WITH_IMPLEMENTATION_BLOCKERS`.
 - BPCPv1-PAES-M1 is now documented as the PAES Matematicas M1-specific governing document, but it does not authorize implementation.
+- BPTT Roadmap/Microroadmap Transversal Contract exists and concludes `BPTT_ROADMAP_MICROROADMAP_TRANSVERSAL_CONTRACT_DERIVED`.
+- Roadmap maestro and living student microroadmap are transversal BPTT concepts, not M1-only concepts; M1-SEQUENCING-1 must apply this contract to PAES M1 before FICHA-1.
 - M1 Capsule Audit 1A exists and concludes `CURRENT_M1_CAPSULES_REQUIRE_PEDAGOGICAL_REVIEW_BEFORE_READINESS`.
 - Current M1 capsule sources show partial source evidence, internal provisional metadata, missing authored M1 feedback, missing authored M1 step-by-step help, operational sequence v0 continuity, and copy risks requiring PRO review.
 - M1 Capsule Audit 1B exists and concludes `M1_CAPSULES_PARTIAL_BASE_REQUIRES_FICHAS_AND_FEEDBACK_BEFORE_IMPLEMENTATION`.
@@ -495,14 +500,14 @@ git log --oneline --decorate --graph -8
 If continuing documentation-only:
 
 ```text
-MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1
+MVP-SALES-PILOT-PEDAGOGY-M1-SEQUENCING-1
 ```
 
 Purpose:
 
-- derive the BPCPv1-compliant ficha, feedback, step-by-step contract, continuity possibility, inference limits, and copy boundaries for the first M1 capsule before any implementation.
+- derive the PAES M1-specific early sequencing strategy as an application of the BPTT roadmap/microroadmap transversal contract before FICHA-1.
 
-If implementation is desired later, CAPSULE-FICHA-1 and an explicit future implementation phase remain required.
+If implementation is desired later, M1-SEQUENCING-1, CAPSULE-FICHA-1, and an explicit future implementation phase remain required.
 
 ## 15. Standing guardrails
 

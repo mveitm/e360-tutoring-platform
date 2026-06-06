@@ -1230,3 +1230,29 @@ MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1
 ```
 
 No implementation is authorized.
+
+## 26. BPTT Roadmap/Microroadmap Transversal Contract status
+
+BPTT Roadmap/Microroadmap Transversal Contract documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPTT_ROADMAP_AND_LIVING_MICROROADMAP_TRANSVERSAL_CONTRACT.md
+```
+
+Verdict:
+
+```text
+BPTT_ROADMAP_MICROROADMAP_TRANSVERSAL_CONTRACT_DERIVED
+```
+
+Decision:
+
+Roadmap maestro and living student microroadmap are transversal BPTT concepts, not M1-only concepts.
+
+Implication:
+
+M1-SEQUENCING-1 must derive the PAES M1-specific early sequencing strategy as an application of this transversal contract.
+
+No implementation is authorized.
