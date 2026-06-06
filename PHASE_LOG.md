@@ -43102,6 +43102,57 @@ MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-PLAN-1
 
 ---
 
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-PLAN-1 - Calibration-wide pedagogical plan for capsules 2-6
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-PLAN-1
+```
+
+Baseline before:
+
+```text
+6d41222
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_6_CALIBRATION_PLAN_DERIVED_WITH_IMPLEMENTATION_BLOCKERS
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_CALIBRATION_PLAN.md
+```
+
+Scope:
+
+Documentation-only calibration-wide pedagogical plan for capsules 2-6.
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No content registry changes.
+- No continuity helper changes.
+- No runtime tests.
+- No deploy.
+- No secrets.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-SOURCE-AUDIT-1
+```
+
+---
+
 ## MVP-SALES-PILOT-PEDAGOGY-BPTT-ROADMAP-CONTRACT-1 - BPTT roadmap and living microroadmap transversal contract
 
 Phase:

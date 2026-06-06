@@ -1374,3 +1374,45 @@ MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-PLAN-1
 ```
 
 No implementation is authorized.
+
+## 31. M1-CAPSULES-2-6-PLAN-1 status
+
+M1-CAPSULES-2-6-PLAN-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_CALIBRATION_PLAN.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_2_6_CALIBRATION_PLAN_DERIVED_WITH_IMPLEMENTATION_BLOCKERS
+```
+
+Decision:
+
+Capsules 2-6 are a calibration-wide early learning window, not diagnostic placement, fixed route, or adaptive selector.
+
+Suggested pedagogical sequence:
+
+```text
+2. Algebra/funciones inicial.
+3. Numeros / porcentaje / proporcionalidad.
+4. Datos / tabla / grafico.
+5. Geometria / area / medida.
+6. Puente contextual o validacion temprana.
+```
+
+Important:
+
+This is orientation, not implementation and not a registry rule.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-SOURCE-AUDIT-1
+```
+
+No implementation is authorized.
