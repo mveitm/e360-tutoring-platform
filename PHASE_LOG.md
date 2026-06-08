@@ -42,6 +42,63 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-08 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-FINALIZATION-1
+
+Baseline before:
+
+```text
+c85293e
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_3_5_SOURCE_FINALIZATION_DOCUMENTED
+```
+
+Source-finalization verdict:
+
+```text
+CAPSULES_3_5_SOURCE_FINALIZED_DOCUMENTATION_PLAN_NOT_IMPLEMENTED
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_FINALIZATION.md
+```
+
+Scope summary:
+
+Documentation-only source-finalization for capsules 3 and 5; freezes title, contentKey, stems, options, candidate keys, item order, item count and source status as documentation plans before key-validation and implementation planning.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-KEY-VALIDATION-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No source-code changes.
+- No source content changes.
+- No candidate key changes.
+- No final implementation keys.
+- No content registry changes.
+- No continuity logic changes.
+- No route-order changes.
+- No deployed student-facing content.
+- No adaptive AI claim.
+- No Sales-Ready claim.
+
 ## 3. Current verified baseline
 
 Baseline before compaction:
