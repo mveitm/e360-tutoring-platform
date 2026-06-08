@@ -430,6 +430,62 @@ Explicit non-actions:
 - No adaptive AI claim.
 - No Sales-Ready claim.
 
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-PRO-REVIEW-1 — Document source authoring review
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-PRO-REVIEW-1
+```
+
+Baseline before:
+
+```text
+0a115c3
+```
+
+Result:
+
+```text
+M1_CAPSULES_3_5_SOURCE_AUTHORING_APPROVED_WITH_MINOR_REVISIONS_DOCUMENTED
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_PRO_REVIEW_1.md
+```
+
+Scope:
+
+Documentation-only PRO pedagogical review of PAES_M1 capsule 3 and capsule 5 source-authoring candidates.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-REVISIONS-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No registry-ready final capsule content.
+- No item revisions applied in this phase.
+- No ficha derivation.
+- No final implementation answer keys.
+- No authored feedback.
+- No content registry changes.
+- No continuity logic changes.
+- No adaptive AI claim.
+- No Sales-Ready claim.
+
 ## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-1 — Draft missing source candidates
 
 Phase:

@@ -1694,3 +1694,45 @@ No content registry or continuity logic changes are authorized.
 No ficha derivation is authorized.
 No final capsule 6 selection is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 40. M1-CAPSULES-3-5-PRO-REVIEW-1 status
+
+M1-CAPSULES-3-5-PRO-REVIEW-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_PRO_REVIEW_1.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_3_5_SOURCE_AUTHORING_APPROVED_WITH_MINOR_REVISIONS
+```
+
+Decision:
+
+Capsule 3 and capsule 5 source-authoring candidates are approved conceptually with mandatory minor revisions before ficha derivation. Capsule 3 requires wording revisions for item 2 and item 3. Capsule 5 requires item 2 clarity or a diagram note, plus an item 4 overlap decision against item 1. Proposed keys are correct as source-authoring proposals, not final implementation keys.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-REVISIONS-1
+```
+
+Purpose:
+
+```text
+Apply mandatory minor revisions to capsule 3 and capsule 5 source-authoring candidates before ficha derivation.
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No item revisions were applied in the PRO review phase.
+No final implementation answer keys are authorized.
+No authored feedback is authorized.
+No content registry or continuity logic changes are authorized.
+No ficha derivation is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
