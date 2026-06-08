@@ -2212,3 +2212,44 @@ No capsule 4 or capsule 6 authoring is included in this phase.
 No final implementation answer keys are authorized.
 No deployed student-facing content is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 52. M1-CAPSULES-2-3-5-AUTHORING-REVIEW-1 status
+
+M1-CAPSULES-2-3-5-AUTHORING-REVIEW-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_AUTHORING_REVIEW.md
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_3_5_AUTHORING_REVIEW_COMPLETED
+```
+
+Review verdict:
+
+```text
+AUTHORING_REVIEW_PASSED_WITH_MINOR_FIXES_RECOMMENDED
+```
+
+Decision:
+
+The documentation-level final authoring assets for capsules 2, 3, and 5 pass review without major or blocker findings. Minor fixes are recommended before integration: normalize visible source-snippet encoding artifacts, tighten a few feedback breve entries for mobile readability, and optionally harmonize cautious-language phrasing.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-AUTHORING-MINOR-ADJUSTMENTS-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No rewriting of authoring assets occurred in the review phase.
+No final implementation answer keys are authorized.
+No deployed student-facing content is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
