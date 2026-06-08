@@ -1416,3 +1416,31 @@ MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-SOURCE-AUDIT-1
 ```
 
 No implementation is authorized.
+
+## 32. M1-CAPSULES-2-6-SOURCE-AUDIT-1 status
+
+M1-CAPSULES-2-6-SOURCE-AUDIT-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_2_6_SOURCE_AUDIT_1_CURRENT_CONTENT_AGAINST_CALIBRATION_PLAN.md
+```
+
+Verdict:
+
+```text
+CURRENT_M1_CONTENT_HAS_GAPS_AGAINST_2_6_CALIBRATION_PLAN
+```
+
+Decision:
+
+Current M1 content has been audited against the BPCPv1 2-6 calibration plan without forcing alignment.
+
+Next recommended phase:
+
+```text
+C. Redesign missing capsule concepts before fichas.
+```
+
+No implementation is authorized.

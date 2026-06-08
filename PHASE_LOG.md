@@ -43252,3 +43252,48 @@ Next recommended phase:
 ```text
 MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-FICHA-1
 ```
+
+---
+
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-SOURCE-AUDIT-1 - Audit current M1 content against calibration plan
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-SOURCE-AUDIT-1
+```
+
+Baseline before:
+
+```text
+9649efb
+```
+
+Result:
+
+```text
+CURRENT_M1_CONTENT_HAS_GAPS_AGAINST_2_6_CALIBRATION_PLAN
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_2_6_SOURCE_AUDIT_1_CURRENT_CONTENT_AGAINST_CALIBRATION_PLAN.md
+```
+
+Scope:
+
+Documentation/read-only source audit of current M1 content against 2-6 calibration plan.
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No content registry changes.
+- No continuity helper changes.
+- No runtime tests.
+- No deploy.
+- No secrets.
