@@ -1491,3 +1491,35 @@ nextjs_space/docs/operations/PHASE_LOG_ARCHIVE_PRE_COMPACTION_2026_06_08.md
 Future phases must treat `PHASE_LOG.md` as the active compact log, not as full historical memory. Long-form phase evidence, audits, strategies, runbooks, derivations, and reports should live in dedicated documents under `nextjs_space/docs/operations/`, with `PHASE_LOG.md` summarizing and pointing to them.
 
 The current live baseline after compaction will be the commit that closes `MVP-GOV-DOCUMENTATION-LOG-COMPACTION-1`.
+
+## 35. BPTT continuous improvement addendum status
+
+BPTT-CONTINUOUS-IMPROVEMENT-ADDENDUM-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPTT_CONTINUOUS_IMPROVEMENT_ADDENDUM.md
+```
+
+Verdict:
+
+```text
+BPTT_CONTINUOUS_IMPROVEMENT_PRINCIPLE_DOCUMENTED
+```
+
+Decision:
+
+Continuous improvement is now a transversal Bexauri principle across tutorias: capsules, feedback, step-by-step help, routes, evidence interpretation, supervision loops, and content bank quality should improve over time from evidence of use, under supervision, governance, and versioning.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-MISSING-CONCEPTS-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No API integration is authorized.
+No automatic route mutation is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.

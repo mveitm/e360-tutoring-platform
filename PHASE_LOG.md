@@ -212,3 +212,55 @@ Commit:
 ```text
 See git log after commit.
 ```
+
+## MVP-SALES-PILOT-PEDAGOGY-BPTT-CONTINUOUS-IMPROVEMENT-ADDENDUM-1 — Document supervised continuous improvement principle
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-BPTT-CONTINUOUS-IMPROVEMENT-ADDENDUM-1
+```
+
+Baseline before:
+
+```text
+2bd2f3e
+```
+
+Result:
+
+```text
+BPTT_CONTINUOUS_IMPROVEMENT_PRINCIPLE_DOCUMENTED
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPTT_CONTINUOUS_IMPROVEMENT_ADDENDUM.md
+```
+
+Scope:
+
+Documentation-only BPTT addendum elevating supervised, governed, versioned continuous improvement as a transversal Bexauri tutoring principle.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-MISSING-CONCEPTS-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No content registry changes.
+- No continuity logic changes.
+- No automatic route mutation.
+- No adaptive AI claim.
+- No Sales-Ready claim.
