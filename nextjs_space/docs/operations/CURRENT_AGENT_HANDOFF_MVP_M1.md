@@ -2335,3 +2335,44 @@ No authoring rewrite occurred.
 No final implementation answer keys are authorized.
 No deployed student-facing content is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 55. M1-CAPSULES-2-3-5-IMPLEMENTATION-READINESS-1 status
+
+M1-CAPSULES-2-3-5-IMPLEMENTATION-READINESS-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_IMPLEMENTATION_READINESS.md
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_3_5_IMPLEMENTATION_READINESS_AUDITED
+```
+
+Implementation-readiness verdict:
+
+```text
+IMPLEMENTATION_READINESS_PARTIAL_NEEDS_SOURCE_AND_KEY_GUARDRAILS
+```
+
+Decision:
+
+The integrated and adjusted authoring assets for capsules 2, 3, and 5 are ready for source/key guardrail work, not implementation. Capsule 2 is closest to implementation planning because it exists in current live source. Capsules 3 and 5 remain revised source-authoring candidates and are not registry-ready. All three capsules still require key-validation and feedback data-shape guardrails before any implementation plan can touch registry, code, UI, API, schema, continuity, or route order.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-SOURCE-KEY-GUARDRAILS-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No source content changes are authorized.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No candidate key changes or final implementation answer keys are authorized.
+No deployed student-facing content is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.

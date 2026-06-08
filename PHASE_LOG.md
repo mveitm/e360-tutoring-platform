@@ -1329,6 +1329,62 @@ Explicit non-actions:
 - No adaptive AI claim.
 - No Sales-Ready claim.
 
+## 2026-06-08 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-IMPLEMENTATION-READINESS-1
+
+Baseline before:
+
+```text
+6787f59
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_2_3_5_IMPLEMENTATION_READINESS_AUDITED
+```
+
+Implementation-readiness verdict:
+
+```text
+IMPLEMENTATION_READINESS_PARTIAL_NEEDS_SOURCE_AND_KEY_GUARDRAILS
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_IMPLEMENTATION_READINESS.md
+```
+
+Scope summary:
+
+Documentation-only implementation-readiness audit for integrated and adjusted capsule 2, 3, and 5 authoring assets; inspected source/registry/continuity/UI/API surfaces read-only and identified source, key, data-shape and continuity guardrails.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-SOURCE-KEY-GUARDRAILS-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No source content changes.
+- No candidate key changes.
+- No content registry changes.
+- No continuity logic changes.
+- No route-order changes.
+- No final implementation keys.
+- No deployed student-facing content.
+- No adaptive AI claim.
+- No Sales-Ready claim.
+
 ## 2026-06-08 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-AUTHORING-INTEGRATION-1
 
 Baseline before:
