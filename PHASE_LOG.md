@@ -1138,3 +1138,66 @@ Explicit non-actions:
 - No continuity logic changes.
 - No adaptive AI claim.
 - No Sales-Ready claim.
+
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-FINAL-AUTHORING-1 - Author capsule 2, 3, and 5 feedback assets
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-FINAL-AUTHORING-1
+```
+
+Baseline before:
+
+```text
+658f511
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_3_5_FINAL_AUTHORING_DRAFTED_DOCUMENTATION_LEVEL
+```
+
+Authoring completion:
+
+```text
+COMPLETED_WITHOUT_ITEM_BLOCKERS
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_FINAL_AUTHORING.md
+```
+
+Scope:
+
+Documentation-level final authoring assets for PAES_M1 capsules 2, 3, and 5 only: feedback breve, feedback completo, step-by-step scripts, item-level rationales, distractor/error-family rationales, key-validation notes, and inference-limit notes.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-AUTHORING-REVIEW-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No content registry changes.
+- No continuity logic changes.
+- No route-order changes.
+- No source content changes.
+- No capsule 4 authoring.
+- No capsule 6 authoring.
+- No final implementation keys.
+- No deployed student-facing content.
+- No adaptive AI claim.
+- No Sales-Ready claim.
