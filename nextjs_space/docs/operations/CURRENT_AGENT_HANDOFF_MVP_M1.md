@@ -2130,3 +2130,44 @@ No final implementation answer keys are authorized.
 No authored feedback is authorized.
 No content registry or continuity logic changes are authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 50. M1-CAPSULES-2-6-LIMITED-AUTHORING-SCOPE-1 status
+
+M1-CAPSULES-2-6-LIMITED-AUTHORING-SCOPE-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_LIMITED_AUTHORING_SCOPE.md
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_6_LIMITED_AUTHORING_SCOPE_DEFINED
+```
+
+Authoring scope verdict:
+
+```text
+LIMITED_AUTHORING_SCOPE_DEFINED_AUTHOR_2_3_5_FIRST
+```
+
+Decision:
+
+The next final-authoring phase should be limited to capsules 2, 3, and 5. Capsules 4 and 6 remain deferred from the first authoring batch because they have eight-item scope and additional route-order, mobile-load, AS1 tunnel, item-count, or bridge-scope risks. This is documentation-level authoring scope only, not implementation or registry readiness.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-FINAL-AUTHORING-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final implementation answer keys are authorized.
+No final authored feedback, final complete feedback, final step-by-step scripts, final rationales, or final distractor rationales are authorized by this scope phase.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.

@@ -154,6 +154,71 @@ Purpose summary:
 
 Future phase entries should be appended here in compact form.
 
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-LIMITED-AUTHORING-SCOPE-1 - Define limited authoring scope
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-LIMITED-AUTHORING-SCOPE-1
+```
+
+Baseline before:
+
+```text
+f39eac0
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_6_LIMITED_AUTHORING_SCOPE_DEFINED
+```
+
+Authoring scope verdict:
+
+```text
+LIMITED_AUTHORING_SCOPE_DEFINED_AUTHOR_2_3_5_FIRST
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_LIMITED_AUTHORING_SCOPE.md
+```
+
+Scope:
+
+Documentation-only limited authoring-scope definition for PAES_M1 capsules 2-6. The phase defines a first future final-authoring batch for capsules 2, 3, and 5, while deferring capsules 4 and 6 pending item-count, mobile-load, route-order, AS1 tunnel, and bridge-scope handling.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-FINAL-AUTHORING-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No registry-ready final capsule content.
+- No final authored feedback.
+- No final complete feedback.
+- No final step-by-step scripts.
+- No final rationales.
+- No final implementation answer keys.
+- No content registry changes.
+- No continuity logic changes.
+- No route-order changes.
+- No student-facing claims.
+- No adaptive AI claim.
+- No Sales-Ready claim.
+
 ## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-AUTHORING-READINESS-1 - Audit authoring readiness
 
 Phase:
