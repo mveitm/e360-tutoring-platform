@@ -1523,3 +1523,42 @@ No generated capsules are authorized.
 No API integration is authorized.
 No automatic route mutation is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 36. M1-CAPSULES-3-5-MISSING-CONCEPTS-1 status
+
+M1-CAPSULES-3-5-MISSING-CONCEPTS-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_MISSING_SOURCE_CONCEPTS.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_3_5_MISSING_CONCEPTS_DEFINED
+```
+
+Decision:
+
+Missing source concepts are now defined at concept/blueprint level for capsule 3 Numbers/percentage/proportionality and capsule 5 Geometry/area/measure. These concepts are improvement targets under BPTT continuous improvement and are not registry-ready content.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-SOURCE-PACKETS-1
+```
+
+Purpose:
+
+```text
+Derive source packets for capsule 2 existing candidate, capsule 3 missing Numbers concept, capsule 4 existing data representation candidate, capsule 5 missing Geometry concept, and capsule 6 candidate bridge options.
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No authored feedback is authorized.
+No content registry or continuity logic changes are authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.

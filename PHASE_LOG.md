@@ -264,3 +264,58 @@ Explicit non-actions:
 - No automatic route mutation.
 - No adaptive AI claim.
 - No Sales-Ready claim.
+
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-MISSING-CONCEPTS-1 — Define missing early calibration concepts
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-MISSING-CONCEPTS-1
+```
+
+Baseline before:
+
+```text
+a8ddebc
+```
+
+Result:
+
+```text
+M1_CAPSULES_3_5_MISSING_CONCEPTS_DEFINED
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_MISSING_SOURCE_CONCEPTS.md
+```
+
+Scope:
+
+Documentation-only concept-level source design for missing capsule 3 Numbers/percentage/proportionality and capsule 5 Geometry/area/measure.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-SOURCE-PACKETS-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No registry-ready final capsule content.
+- No final answer choices.
+- No final answer keys.
+- No authored feedback.
+- No content registry changes.
+- No continuity logic changes.
+- No adaptive AI claim.
+- No Sales-Ready claim.
