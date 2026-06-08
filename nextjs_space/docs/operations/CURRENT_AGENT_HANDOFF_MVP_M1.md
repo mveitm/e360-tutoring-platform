@@ -1562,3 +1562,42 @@ No registry-ready final capsule content is authorized.
 No authored feedback is authorized.
 No content registry or continuity logic changes are authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 37. M1-CAPSULES-2-6-SOURCE-PACKETS-1 status
+
+M1-CAPSULES-2-6-SOURCE-PACKETS-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_SOURCE_PACKETS.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_2_6_SOURCE_PACKETS_DERIVED_WITH_BLOCKERS
+```
+
+Decision:
+
+Source packets for capsules 2-6 are derived with blockers. Capsules 2 and 4 can support ficha work from current source with feedback, step-by-step, rationale, metadata, and route-order blockers. Capsules 3 and 5 are concept packets ready for source authoring, not registry-ready content. Capsule 6 remains deferred/candidate-based because current options are AS1-heavy and risk extending the Algebra tunnel.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-PRO-REVIEW-1
+```
+
+Purpose:
+
+```text
+Review the 2-6 source packets before splitting execution into existing-source fichas for capsules 2/4, source authoring for capsules 3/5, and a deferred capsule 6 bridge decision.
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No authored feedback is authorized.
+No content registry or continuity logic changes are authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
