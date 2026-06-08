@@ -1781,6 +1781,48 @@ No route-order changes are authorized.
 No student-facing claims are authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
 
+## 48. M1-CAPSULES-2-6-FEEDBACK-CONTRACTS-INTEGRATION-1 status
+
+M1-CAPSULES-2-6-FEEDBACK-CONTRACTS-INTEGRATION-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_FEEDBACK_CONTRACTS_INTEGRATION.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_2_6_FEEDBACK_CONTRACT_CHAIN_INTEGRATED_WITH_CAPSULE_6
+```
+
+Decision:
+
+The PAES_M1 capsules 2-6 feedback-contract chain is integrated at documentation level. The original 2-6 contract remains valid for shared principles and capsules 2-5, while its historical capsule 6 deferred boundary is complemented by the later capsule 6 bridge decision, ficha, and specific feedback contract.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-AUTHORING-READINESS-1
+```
+
+Purpose:
+
+```text
+Audit whether the 2-6 ficha and contract chain is ready for a later final authoring phase for feedback, rationales, and step-by-step, without implementing yet.
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final implementation answer keys are authorized.
+No final authored feedback, final complete feedback, or final step-by-step scripts are authorized.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No student-facing claims are authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
 ## 43. M1-CAPSULES-2-4-FICHAS-1 status
 
 M1-CAPSULES-2-4-FICHAS-1 documented and active.

@@ -557,3 +557,18 @@ Do not execute those phases here.
 ```text
 M1_CAPSULES_2_6_FEEDBACK_CONTRACTS_DERIVED_WITH_CAPSULE_6_DEFERRED
 ```
+
+## Postscript - Later capsule 6 integration note
+
+This document remains historically valid for the phase that derived shared feedback and step-by-step contracts for capsules 2-5 while capsule 6 was deferred.
+
+Later documentation completed the capsule 6 bridge chain:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_6_BRIDGE_DECISION.md
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_6_FICHA.md
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_6_FEEDBACK_CONTRACT.md
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_FEEDBACK_CONTRACTS_INTEGRATION.md
+```
+
+This postscript does not rewrite the original verdict. It records that the original capsule 6 deferred boundary is now complemented by later documentation.
