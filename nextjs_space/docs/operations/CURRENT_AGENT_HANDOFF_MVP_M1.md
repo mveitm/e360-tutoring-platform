@@ -2253,3 +2253,44 @@ No rewriting of authoring assets occurred in the review phase.
 No final implementation answer keys are authorized.
 No deployed student-facing content is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 53. M1-CAPSULES-2-3-5-AUTHORING-MINOR-ADJUSTMENTS-1 status
+
+M1-CAPSULES-2-3-5-AUTHORING-MINOR-ADJUSTMENTS-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_AUTHORING_MINOR_ADJUSTMENTS.md
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_3_5_AUTHORING_MINOR_ADJUSTMENTS_APPLIED
+```
+
+Adjustment completion:
+
+```text
+COMPLETED_WITHOUT_BLOCKERS
+```
+
+Decision:
+
+Minor readability and cautious-language adjustments were applied to the documentation-level authoring package for capsules 2, 3, and 5. The phase verified the reviewed encoding-artifact pattern, tightened selected feedback breve entries, and harmonized selected "puede indicar" phrasing to "puede sugerir" without changing mathematics, candidate keys, stems/options, substantive rationales, pedagogical scope, source content, registry, continuity, or route order.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-AUTHORING-INTEGRATION-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No substantive authoring rewrite occurred.
+No final implementation answer keys are authorized.
+No deployed student-facing content is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.

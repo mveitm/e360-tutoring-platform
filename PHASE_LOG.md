@@ -1265,3 +1265,66 @@ Explicit non-actions:
 - No deployed student-facing content.
 - No adaptive AI claim.
 - No Sales-Ready claim.
+
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-AUTHORING-MINOR-ADJUSTMENTS-1 - Adjust capsule 2, 3, and 5 authoring
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-AUTHORING-MINOR-ADJUSTMENTS-1
+```
+
+Baseline before:
+
+```text
+804ea0f
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_3_5_AUTHORING_MINOR_ADJUSTMENTS_APPLIED
+```
+
+Adjustment completion:
+
+```text
+COMPLETED_WITHOUT_BLOCKERS
+```
+
+Documents created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_AUTHORING_MINOR_ADJUSTMENTS.md
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_FINAL_AUTHORING.md
+```
+
+Scope:
+
+Documentation-only minor adjustment pass for the capsule 2, 3, and 5 authoring package: encoding-artifact verification, selected feedback breve tightening, and cautious-language harmonization.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-AUTHORING-INTEGRATION-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No substantive authoring rewrite.
+- No source content changes.
+- No content registry changes.
+- No continuity logic changes.
+- No route-order changes.
+- No final implementation keys.
+- No deployed student-facing content.
+- No adaptive AI claim.
+- No Sales-Ready claim.

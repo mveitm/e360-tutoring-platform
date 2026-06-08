@@ -206,7 +206,7 @@ Candidate B appears mathematically consistent because `7 + 5 = 12`. This is not 
 
 Final feedback breve:
 
-Revisa la operacion inversa: si a `x` se le suma 5, conviene restar 5 a ambos lados y comprobar el valor en la ecuacion.
+Revisa la operacion inversa: resta 5 a ambos lados y comprueba el valor en la ecuacion.
 
 Final feedback completo:
 
@@ -259,7 +259,7 @@ El foco es deshacer la multiplicacion: si `3x` vale 21, divide 21 por 3 y luego 
 
 Final feedback completo:
 
-El item pide resolver una ecuacion donde `x` esta multiplicada por 3. La opcion candidata funciona porque dividir ambos lados por 3 da `x = 7`, y la comprobacion `3 * 7 = 21` confirma la igualdad. Las opciones incorrectas pueden aparecer si se copia el coeficiente, si se resta 3 a 21, o si se suma en vez de dividir. Esto puede indicar una friccion puntual con la operacion inversa, no una conclusion general sobre ecuaciones.
+El item pide resolver una ecuacion donde `x` esta multiplicada por 3. La opcion candidata funciona porque dividir ambos lados por 3 da `x = 7`, y la comprobacion `3 * 7 = 21` confirma la igualdad. Las opciones incorrectas pueden aparecer si se copia el coeficiente, si se resta 3 a 21, o si se suma en vez de dividir. Esto puede sugerir una friccion puntual con la operacion inversa, no una conclusion general sobre ecuaciones.
 
 Step-by-step script:
 
@@ -358,7 +358,7 @@ Si `x` esta dividido por 3, la operacion inversa es multiplicar por 3. Despues r
 
 Final feedback completo:
 
-El item pide resolver `x/3 = 9`. La opcion candidata funciona porque multiplicar ambos lados por 3 da `x = 27`, y la comprobacion `27 / 3 = 9` mantiene la igualdad. Las opciones incorrectas pueden aparecer si se copia el divisor, si se suma 3 y 9, o si se resta en vez de multiplicar. Esto puede indicar una necesidad de revisar fracciones simples en ecuaciones, con evidencia limitada a este item.
+El item pide resolver `x/3 = 9`. La opcion candidata funciona porque multiplicar ambos lados por 3 da `x = 27`, y la comprobacion `27 / 3 = 9` mantiene la igualdad. Las opciones incorrectas pueden aparecer si se copia el divisor, si se suma 3 y 9, o si se resta en vez de multiplicar. Esto puede sugerir una necesidad de revisar fracciones simples en ecuaciones, con evidencia limitada a este item.
 
 Step-by-step script:
 
@@ -439,7 +439,7 @@ Candidate B appears mathematically consistent because 25% is one fourth, and one
 
 Final feedback breve:
 
-El foco es reconocer la base: el 25% se calcula sobre 40 estudiantes. Como 25% es un cuarto, conviene revisar `40 / 4`.
+Reconoce la base: el 25% se calcula sobre 40. Como es un cuarto, conviene revisar `40 / 4`.
 
 Final feedback completo:
 
@@ -488,7 +488,7 @@ Candidate B appears mathematically consistent because 20% of 600 is 120, and `60
 
 Final feedback breve:
 
-La idea central es separar cuanto disminuye de cuanto queda. Primero calcula el 20% de 600 y despues restalo al total inicial.
+Separa cuanto disminuye de cuanto queda: calcula el 20% de 600 y restalo al total inicial.
 
 Final feedback completo:
 
@@ -769,7 +769,7 @@ Candidate B appears mathematically consistent because 2 meters are 200 centimete
 
 Final feedback breve:
 
-Antes de dividir, pon las medidas en la misma unidad: 2 metros son 200 centimetros. Luego calcula cuantos trozos de 25 cm caben.
+Antes de dividir, usa la misma unidad: 2 metros son 200 centimetros. Luego calcula cuantos trozos de 25 cm caben.
 
 Final feedback completo:
 
