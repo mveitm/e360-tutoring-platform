@@ -4,6 +4,11 @@
 
 These documents now govern roadmap direction:
 
+## Phase log governance
+
+- `PHASE_LOG.md` - active compact operational phase log.
+- `nextjs_space/docs/operations/PHASE_LOG_ARCHIVE_PRE_COMPACTION_2026_06_08.md` - full pre-compaction historical PHASE_LOG record.
+
 1. `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`
 2. `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`
 3. `nextjs_space/docs/operations/MVP_SALES_READY_ACTIVE_CONTEXT.md`

@@ -1477,3 +1477,17 @@ No implementation is authorized.
 No API calls are authorized.
 No generated capsules are authorized.
 No adaptive AI claim is authorized.
+
+## 34. Documentation log compaction status
+
+`PHASE_LOG.md` has been compacted into an active compact operational log.
+
+Full pre-compaction history is archived at:
+
+```text
+nextjs_space/docs/operations/PHASE_LOG_ARCHIVE_PRE_COMPACTION_2026_06_08.md
+```
+
+Future phases must treat `PHASE_LOG.md` as the active compact log, not as full historical memory. Long-form phase evidence, audits, strategies, runbooks, derivations, and reports should live in dedicated documents under `nextjs_space/docs/operations/`, with `PHASE_LOG.md` summarizing and pointing to them.
+
+The current live baseline after compaction will be the commit that closes `MVP-GOV-DOCUMENTATION-LOG-COMPACTION-1`.
