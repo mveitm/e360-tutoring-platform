@@ -1601,3 +1601,54 @@ No registry-ready final capsule content is authorized.
 No authored feedback is authorized.
 No content registry or continuity logic changes are authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 38. M1-CAPSULES-2-6-PRO-REVIEW-1 status
+
+M1-CAPSULES-2-6-PRO-REVIEW-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_2_6_PRO_REVIEW_1.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_2_6_SOURCE_PACKETS_APPROVED_FOR_SPLIT_EXECUTION
+```
+
+Decision:
+
+The source packets 2-6 are pedagogically approved for split execution. No general rework is required. Capsules 2 and 4 may use current source as ficha bases with blockers carried; capsules 3 and 5 should proceed first to documentation-level source authoring; capsule 6 remains deferred pending 3/5 authoring and review.
+
+Recommended execution order:
+
+```text
+1. MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-1
+2. MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-PRO-REVIEW-1
+3. MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-4-FICHAS-1
+4. MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-FICHAS-1
+5. MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-BRIDGE-DECISION-1
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-1
+```
+
+Purpose:
+
+```text
+Author documentation-level source candidates for capsule 3 Numbers/percentage/proportionality and capsule 5 Geometry/area/measure, without registry implementation.
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final answer keys for 3/5 are authorized.
+No authored feedback is authorized.
+No content registry or continuity logic changes are authorized.
+No final capsule 6 selection is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.

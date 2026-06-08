@@ -374,3 +374,58 @@ Explicit non-actions:
 - No continuity logic changes.
 - No adaptive AI claim.
 - No Sales-Ready claim.
+
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-PRO-REVIEW-1 — Document source packet review
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-PRO-REVIEW-1
+```
+
+Baseline before:
+
+```text
+df334fc
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_6_SOURCE_PACKETS_APPROVED_FOR_SPLIT_EXECUTION_DOCUMENTED
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_2_6_PRO_REVIEW_1.md
+```
+
+Scope:
+
+Documentation-only PRO pedagogical review of PAES_M1 capsules 2-6 source packets.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No registry-ready final capsule content.
+- No final answer keys for 3/5.
+- No authored feedback.
+- No content registry changes.
+- No continuity logic changes.
+- No final capsule 6 selection.
+- No adaptive AI claim.
+- No Sales-Ready claim.
