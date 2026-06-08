@@ -154,6 +154,63 @@ Purpose summary:
 
 Future phase entries should be appended here in compact form.
 
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-FEEDBACK-CONTRACTS-1 - Derive feedback contracts
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-FEEDBACK-CONTRACTS-1
+```
+
+Baseline before:
+
+```text
+204e525
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_6_FEEDBACK_CONTRACTS_DERIVED_WITH_CAPSULE_6_DEFERRED
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_FEEDBACK_CONTRACTS.md
+```
+
+Scope:
+
+Documentation-only feedback breve/completo and step-by-step contract derivation for PAES_M1 capsules 2-6, using fichas 2-5 and keeping capsule 6 deferred.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-BRIDGE-DECISION-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No registry-ready final capsule content.
+- No final authored feedback.
+- No final complete feedback.
+- No final step-by-step scripts.
+- No final implementation answer keys.
+- No content registry changes.
+- No continuity logic changes.
+- No capsule 6 decision.
+- No adaptive AI claim.
+- No Sales-Ready claim.
+
 ## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-4-FICHAS-1 - Derive current-source capsule fichas
 
 Phase:

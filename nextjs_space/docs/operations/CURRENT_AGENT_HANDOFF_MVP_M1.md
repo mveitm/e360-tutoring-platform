@@ -1609,6 +1609,53 @@ No authored feedback or final step-by-step scripts are authorized.
 No content registry or continuity logic changes are authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
 
+## 44. M1-CAPSULES-2-6-FEEDBACK-CONTRACTS-1 status
+
+M1-CAPSULES-2-6-FEEDBACK-CONTRACTS-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_FEEDBACK_CONTRACTS.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_2_6_FEEDBACK_CONTRACTS_DERIVED_WITH_CAPSULE_6_DEFERRED
+```
+
+Decision:
+
+Feedback breve/completo and step-by-step contracts are derived for capsules 2-5 from the available ficha set. Capsule 6 remains deferred pending a bridge decision, so only a boundary contract is documented for it. The document defines structure, required fields, guardrails, interpretation rules, and future authoring requirements; it does not write final student-facing feedback, final complete feedback, or final step-by-step scripts.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-BRIDGE-DECISION-1
+```
+
+Purpose:
+
+```text
+Decide capsule 6 bridge role after reviewing the complete 2-5 ficha and feedback-contract set.
+```
+
+Later phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-FEEDBACK-AUTHORING-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final implementation answer keys are authorized.
+No final authored feedback, final complete feedback, or final step-by-step scripts are authorized.
+No content registry or continuity logic changes are authorized.
+No capsule 6 decision is authorized in this phase.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
 ## 43. M1-CAPSULES-2-4-FICHAS-1 status
 
 M1-CAPSULES-2-4-FICHAS-1 documented and active.
