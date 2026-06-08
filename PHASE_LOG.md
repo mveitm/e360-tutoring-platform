@@ -541,3 +541,58 @@ Explicit non-actions:
 - No final capsule 6 selection.
 - No adaptive AI claim.
 - No Sales-Ready claim.
+
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-REVISIONS-1 — Apply minor source revisions
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-REVISIONS-1
+```
+
+Baseline before:
+
+```text
+3a48516
+```
+
+Result:
+
+```text
+M1_CAPSULES_3_5_SOURCE_AUTHORING_MINOR_REVISIONS_APPLIED
+```
+
+Document modified:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_AUTHORING.md
+```
+
+Scope:
+
+Documentation-only revision phase applying mandatory minor PRO revisions to PAES_M1 capsule 3 and capsule 5 source-authoring candidates.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-FICHAS-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No registry-ready final capsule content.
+- No ficha derivation.
+- No final implementation answer keys.
+- No authored feedback.
+- No content registry changes.
+- No continuity logic changes.
+- No adaptive AI claim.
+- No Sales-Ready claim.

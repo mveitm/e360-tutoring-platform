@@ -1736,3 +1736,43 @@ No authored feedback is authorized.
 No content registry or continuity logic changes are authorized.
 No ficha derivation is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 41. M1-CAPSULES-3-5-SOURCE-AUTHORING-REVISIONS-1 status
+
+M1-CAPSULES-3-5-SOURCE-AUTHORING-REVISIONS-1 documented and active.
+
+Modified document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_AUTHORING.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_3_5_SOURCE_AUTHORING_MINOR_REVISIONS_APPLIED
+```
+
+Decision:
+
+Mandatory minor PRO revisions were applied to the capsule 3 and capsule 5 source-authoring candidates. Capsule 3 item 2 and item 3 wording were clarified. Capsule 5 item 2 was clarified, and item 4 was replaced with an area-comparison item to resolve overlap with item 1. Proposed keys remain source-authoring proposals, not final implementation keys.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-FICHAS-1
+```
+
+Purpose:
+
+```text
+Derive BPCPv1 fichas for capsule 3 and capsule 5 from the revised source-authoring candidates, without registry implementation.
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final implementation answer keys are authorized.
+No authored feedback is authorized.
+No content registry or continuity logic changes are authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.

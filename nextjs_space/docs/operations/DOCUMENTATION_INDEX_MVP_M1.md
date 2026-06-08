@@ -85,6 +85,13 @@ These documents now govern roadmap direction:
 
 Future chats must read them before proposing work.
 
+Current source-authoring status:
+
+- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_AUTHORING.md` now includes the mandatory minor PRO revisions for capsule 3 and capsule 5.
+- Result: `M1_CAPSULES_3_5_SOURCE_AUTHORING_MINOR_REVISIONS_APPLIED`.
+- The revised source candidates are ready for later ficha derivation, pending an explicit future ficha phase.
+- This remains documentation only: no registry implementation, no final implementation keys, no authored feedback, and no continuity changes.
+
 The Block 7 anchor is mandatory before content-route phases.
 
 `PHASE_SCOPE_OPTIMIZATION_PROTOCOL.md` is ACTIVE. Future prompts should use the widest safe phase scope, not the narrowest possible scope by default, and should default to diagnosis + minor safe repair + local verification for local reversible issues while keeping structural boundaries separate.

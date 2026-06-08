@@ -1,13 +1,14 @@
 # BPCPv1 PAES_M1 — Source authoring para cápsulas 3 y 5
 
 **Phase:** `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-1`
+**Revision phase:** `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-REVISIONS-1`
 **Nature:** Documentation-level source authoring.
 **Scope:** Documentation only. No implementation.
 
 ## 1. Executive verdict
 
 ```text
-M1_CAPSULES_3_5_SOURCE_AUTHORING_DRAFTED_FOR_PRO_REVIEW
+M1_CAPSULES_3_5_SOURCE_AUTHORING_MINOR_REVISIONS_APPLIED
 ```
 
 Documentation-level source candidates are drafted for:
@@ -15,7 +16,7 @@ Documentation-level source candidates are drafted for:
 - Capsule 3: `paes_m1_numbers_percentage_proportionality_entry`.
 - Capsule 5: `paes_m1_geometry_area_measure_entry`.
 
-These candidates are not registry-ready content, not final authored feedback, not final implementation keys, not generated capsules, and not continuity rules. They are source-authoring artifacts for PRO review before ficha derivation.
+These candidates are not registry-ready content, not final authored feedback, not final implementation keys, not generated capsules, and not continuity rules. The mandatory minor revisions from PRO review have been applied, so these source-authoring artifacts are ready for later ficha derivation, pending an explicit future ficha phase.
 
 ## 2. Purpose
 
@@ -44,6 +45,7 @@ This phase follows:
 - `BPCPV1_PAES_M1_CAPSULES_3_5_MISSING_SOURCE_CONCEPTS.md`;
 - `BPCPV1_PAES_M1_CAPSULES_2_6_SOURCE_PACKETS.md`;
 - `MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_2_6_PRO_REVIEW_1.md`;
+- `MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_PRO_REVIEW_1.md`;
 - `BPTT_CONTINUOUS_IMPROVEMENT_ADDENDUM.md`;
 - `BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`.
 
@@ -51,7 +53,9 @@ Governing constraints:
 
 - Capsule 3 and 5 source authoring is the immediate priority after the 2–6 PRO review.
 - The work must close missing multiaxis coverage before the source path advances too far into AS1.
-- The output remains documentation-level and pending PRO review.
+- The output remains documentation-level.
+- Mandatory minor revisions from PRO review have been applied.
+- Ficha derivation still requires an explicit future phase.
 - Cautious evidence language is mandatory.
 - No implementation is authorized.
 
@@ -73,7 +77,7 @@ Accepted execution order:
 5. MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-BRIDGE-DECISION-1
 ```
 
-This document executes the first step only. It does not execute PRO review, ficha derivation, feedback contracts, registry implementation, or capsule 6 decision.
+This document first executed source authoring and now applies the mandatory minor revisions from the PRO review. It does not execute ficha derivation, feedback contracts, registry implementation, or capsule 6 decision.
 
 ## 5. Shared authoring constraints
 
@@ -155,13 +159,13 @@ Recommended candidate scale:
 | item count | 4 |
 | difficulty band | `foundational_early_m1` |
 | expected skills | `resolver_problemas`, `modelar`, `representar` |
-| source status | `documentation_candidate_pending_pro_review` |
+| source status | `documentation_candidate_minor_revisions_applied_pending_ficha` |
 | implementation status | `not_implemented` |
 | inference status | `limited_signal_only` |
 
 ## 8. Capsule 3 candidate items
 
-All items in this section are source-authoring candidates pending PRO review.
+All items in this section are revised source-authoring candidates pending a future ficha phase.
 
 ### Capsule 3 item 1 — Percent of a quantity
 
@@ -213,7 +217,7 @@ One response may suggest a percent-of-quantity signal only. More evidence is nee
 Draft stem:
 
 ```text
-Una botella tenía 600 ml de agua. Después de beber, queda un 20% menos de agua. ¿Cuánta agua queda en la botella?
+Una botella tenía 600 ml de agua. Después de beber, queda un 20% menos que al inicio. ¿Cuánta agua queda en la botella?
 ```
 
 Answer options:
@@ -258,7 +262,7 @@ A wrong response may indicate base confusion, operation confusion, or reading di
 Draft stem:
 
 ```text
-En una tienda, 3 cuadernos cuestan $2.400. En otra tienda, 5 cuadernos cuestan $4.500. Si los cuadernos son iguales, ¿en qué tienda conviene comprar cada cuaderno?
+En una tienda, 3 cuadernos cuestan $2.400. En otra tienda, 5 cuadernos cuestan $4.500. Si los cuadernos son iguales, ¿en qué tienda conviene comprar si se busca el menor precio por cuaderno?
 ```
 
 Answer options:
@@ -345,7 +349,7 @@ A distractor may indicate additive reasoning or over-multiplication, but a singl
 
 ## 9. Capsule 3 answer key proposals
 
-These proposed keys are for PRO review only.
+These proposed keys are for source-authoring and future ficha derivation only. They are not final implementation keys.
 
 | Item | Proposed correct option | Source-authoring status |
 |---|---|---|
@@ -432,14 +436,15 @@ Capsule 3 cannot support:
 
 Blocked before ficha:
 
-- PRO review of item wording and difficulty.
-- PRO review of distractor quality.
+- Future ficha phase to formalize the revised source candidate.
+- Final ficha-level review of wording and difficulty.
+- Final ficha-level review of distractor quality.
 - Final decision on item count.
 - Final metadata alignment.
 - Feedback breve/completo contract.
 - Step-by-step contract.
 - Validation of answer key proposals.
-- Decision whether any item should be revised or replaced.
+- Confirmation that the applied item 2 and item 3 wording revisions remain suitable in ficha form.
 
 ## 15. Capsule 5 source candidate
 
@@ -490,13 +495,13 @@ Recommended candidate scale:
 | item count | 4 |
 | difficulty band | `foundational_early_m1` |
 | expected skills | `resolver_problemas`, `representar`, `modelar` |
-| source status | `documentation_candidate_pending_pro_review` |
+| source status | `documentation_candidate_minor_revisions_applied_pending_ficha` |
 | implementation status | `not_implemented` |
 | inference status | `limited_signal_only` |
 
 ## 17. Capsule 5 candidate items
 
-All items in this section are source-authoring candidates pending PRO review.
+All items in this section are revised source-authoring candidates pending a future ficha phase.
 
 ### Capsule 5 item 1 — Area vs perimeter distinction
 
@@ -548,7 +553,7 @@ This item gives one signal about area/perimeter distinction. It does not establi
 Draft stem:
 
 ```text
-Una sala tiene forma de L y se puede dividir en dos rectángulos: uno mide 5 m por 3 m y el otro mide 2 m por 4 m. ¿Cuál es el área total de la sala?
+Una sala con forma de L ya está dividida en dos rectángulos: uno mide 5 m por 3 m y el otro mide 2 m por 4 m. ¿Cuál es el área total de la sala?
 ```
 
 Answer options:
@@ -633,61 +638,61 @@ Inference limit:
 
 This item gives one signal about measure conversion and division in context. It does not diagnose Geometry or measurement ability.
 
-### Capsule 5 item 4 — Formula/relation choice from context
+### Capsule 5 item 4 — Area comparison between rectangles
 
 Draft stem:
 
 ```text
-Una familia quiere cubrir con pasto una zona rectangular de 9 m de largo y 3 m de ancho. ¿Qué cálculo responde a la cantidad de superficie que se debe cubrir?
+Dos zonas rectangulares se quieren cubrir con pasto. La zona A mide 4 m de largo y 3 m de ancho. La zona B mide 5 m de largo y 2 m de ancho. ¿Cuál zona tiene mayor superficie?
 ```
 
 Answer options:
 
 | Option | Text |
 |---|---|
-| A | 9 + 3 |
-| B | 9 + 3 + 9 + 3 |
-| C | 9 × 3 |
-| D | 9 × 9 × 3 |
+| A | La zona A, porque su área es 12 m². |
+| B | La zona B, porque su área es 10 m². |
+| C | Las dos zonas tienen la misma área. |
+| D | No se puede saber sin calcular el perímetro. |
 
 Proposed correct option:
 
 ```text
-C
+A
 ```
 
 Short rationale:
 
 ```text
-Cubrir una superficie rectangular requiere calcular el área: largo por ancho.
+La zona A tiene área 4 × 3 = 12 m². La zona B tiene área 5 × 2 = 10 m². La zona A tiene mayor superficie.
 ```
 
 Expected evidence:
 
-The item may suggest whether the student selects the relation that matches surface coverage rather than border length.
+The item may suggest whether the student can compare rectangular areas by calculating surface, not by comparing a single visible dimension or perimeter.
 
 Feedback requirement:
 
-Future feedback should connect "cubrir superficie" with area and distinguish it from perimeter.
+Future feedback should connect "mayor superficie" with area calculation and distinguish it from comparing only one side length or perimeter.
 
 Step-by-step requirement:
 
-Read the action in the context, identify the requested magnitude, select the area relation, calculate or identify the expression, and check square units.
+Identify the two rectangles, calculate each area, compare the two results, and check square units.
 
 Inference limit:
 
-One response may suggest a formula-choice signal only. It cannot establish broader Geometry understanding.
+One response may suggest an area-comparison signal only. It cannot establish broader Geometry understanding.
 
 ## 18. Capsule 5 answer key proposals
 
-These proposed keys are for PRO review only.
+These proposed keys are for source-authoring and future ficha derivation only. They are not final implementation keys.
 
 | Item | Proposed correct option | Source-authoring status |
 |---|---|---|
 | 1 | B | Candidate key, not final implementation key |
 | 2 | B | Candidate key, not final implementation key |
 | 3 | B | Candidate key, not final implementation key |
-| 4 | C | Candidate key, not final implementation key |
+| 4 | A | Candidate key, not final implementation key |
 
 ## 19. Capsule 5 rationale and distractor rationale proposals
 
@@ -696,7 +701,7 @@ These proposed keys are for PRO review only.
 | 1 | A border requires perimeter. | A may suggest area/perimeter confusion; C may suggest adding dimensions without matching the context; D may suggest an irrelevant 3D interpretation. |
 | 2 | Areas are 15 m² and 8 m²; total is 23 m². | A may suggest adding visible dimensions; C may suggest multiplying one pair and doubling incorrectly; D may suggest multiplying unrelated dimensions. |
 | 3 | Convert 2 m to 200 cm; 200 / 25 = 8. | A may suggest treating 2 m as 100 cm or halving; C may suggest copying 25; D may suggest using 50 cm or multiplying instead of dividing. |
-| 4 | Surface coverage requires area, so 9 × 3. | A may suggest adding dimensions only; B may suggest perimeter; D may suggest multiplying an irrelevant extra dimension. |
+| 4 | The areas are 12 m² and 10 m²; the larger surface is zone A. | B may suggest choosing the longer visible side instead of comparing areas; C may suggest assuming similar-looking rectangles have equal area; D may suggest confusing area comparison with perimeter. |
 
 ## 20. Capsule 5 feedback requirements
 
@@ -751,7 +756,7 @@ Capsule 5 can provide:
 - an early signal about area/perimeter distinction;
 - an early signal about simple composite area;
 - an early signal about measure/unit interpretation;
-- an early signal about formula/relation choice from context.
+- an early signal about rectangular area comparison.
 
 Capsule 5 cannot support:
 
@@ -769,15 +774,15 @@ Capsule 5 cannot support:
 
 Blocked before ficha:
 
-- PRO review of item wording and difficulty.
-- PRO review of whether item 1 and item 4 overlap too much.
-- PRO review of composite-figure wording without diagram.
-- Final decision on whether a simple diagram is needed for item 2.
+- Future ficha phase to formalize the revised source candidate.
+- Final ficha-level review of wording and difficulty.
+- The item 1 / item 4 overlap identified by PRO review has been resolved by replacing item 4 with a rectangular area-comparison item.
+- Composite-figure wording for item 2 has been clarified by stating that the L-shaped room is already divided into two rectangles.
 - Final metadata alignment.
 - Feedback breve/completo contract.
 - Step-by-step contract.
 - Validation of answer key proposals.
-- Decision whether any item should be revised or replaced.
+- Confirmation that the revised item 4 remains suitable in ficha form.
 
 ## 24. Cross-capsule alignment 3/5
 
@@ -797,9 +802,11 @@ Differences:
 - Capsule 3 focuses on base quantity, proportional relation, and reasonableness.
 - Capsule 5 focuses on requested magnitude, dimensions, unit, and geometric relation.
 
-## 25. Readiness for PRO review
+## 25. Readiness after minor revisions
 
-The source-authoring candidates are suitable for PRO review because they include:
+The mandatory minor revisions from PRO review have been applied. The source-authoring candidates are ready for later ficha derivation, pending an explicit future ficha phase.
+
+They now include:
 
 - capsule identity;
 - metadata proposal;
@@ -814,14 +821,14 @@ The source-authoring candidates are suitable for PRO review because they include
 - inference limits;
 - blockers.
 
-PRO review should decide:
+Future ficha work should decide:
 
-- whether each item is pedagogically aligned;
-- whether the item set is too easy, too hard, too repetitive, or too wordy;
-- whether distractors are interpretable;
-- whether the proposed keys are correct;
-- whether any item should be replaced before ficha derivation;
-- whether the source candidate can proceed to ficha work after revisions.
+- final ficha wording;
+- final ficha-level item count and ordering;
+- final metadata alignment;
+- final feedback breve/completo design;
+- final step-by-step design;
+- validation of proposed keys as implementation candidates only if a later implementation phase is authorized.
 
 ## 26. What remains blocked
 
@@ -855,18 +862,17 @@ Blocked:
 Recommended next phase:
 
 ```text
-MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-PRO-REVIEW-1
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-FICHAS-1
 ```
 
 Purpose:
 
 ```text
-Review the authored source candidates for capsule 3 and capsule 5 before ficha derivation or registry implementation.
+Derive BPCPv1 fichas for capsule 3 and capsule 5 from the revised source-authoring candidates, without registry implementation.
 ```
 
 ## 28. Final verdict
 
 ```text
-M1_CAPSULES_3_5_SOURCE_AUTHORING_DRAFTED_FOR_PRO_REVIEW
+M1_CAPSULES_3_5_SOURCE_AUTHORING_MINOR_REVISIONS_APPLIED
 ```
-
