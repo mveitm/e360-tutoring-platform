@@ -320,6 +320,62 @@ Explicit non-actions:
 - No adaptive AI claim.
 - No Sales-Ready claim.
 
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-FICHAS-1 — Derive missing capsule fichas
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-FICHAS-1
+```
+
+Baseline before:
+
+```text
+083b185
+```
+
+Result:
+
+```text
+M1_CAPSULES_3_5_FICHAS_DERIVED_WITH_FEEDBACK_BLOCKERS
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_FICHAS.md
+```
+
+Scope:
+
+Documentation-only ficha derivation for PAES_M1 capsule 3 Numbers/percentage/proportionality and capsule 5 Geometry/area/measure from revised source-authoring candidates.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-4-FICHAS-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No registry-ready final capsule content.
+- No final implementation answer keys.
+- No authored feedback.
+- No authored complete feedback.
+- No final step-by-step scripts.
+- No content registry changes.
+- No continuity logic changes.
+- No adaptive AI claim.
+- No Sales-Ready claim.
+
 ## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-SOURCE-PACKETS-1 — Derive early calibration source packets
 
 Phase:

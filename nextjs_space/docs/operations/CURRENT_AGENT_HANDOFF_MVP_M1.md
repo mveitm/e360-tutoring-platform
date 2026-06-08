@@ -1563,6 +1563,52 @@ No authored feedback is authorized.
 No content registry or continuity logic changes are authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
 
+## 42. M1-CAPSULES-3-5-FICHAS-1 status
+
+M1-CAPSULES-3-5-FICHAS-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_FICHAS.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_3_5_FICHAS_DERIVED_WITH_FEEDBACK_BLOCKERS
+```
+
+Decision:
+
+BPCPv1 fichas are derived for capsule 3 `paes_m1_numbers_percentage_proportionality_entry` and capsule 5 `paes_m1_geometry_area_measure_entry` from the revised source-authoring candidates. The fichas define identity, purpose, non-purpose, evidence, likely distractor/error families, metadata proposals, feedback implications, step-by-step implications, inference limits, prohibited claims, and implementation blockers. Proposed keys remain ficha/source candidates, not final implementation keys.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-4-FICHAS-1
+```
+
+Purpose:
+
+```text
+Derive BPCPv1 fichas for capsule 2 and capsule 4 from current live source, carrying feedback/step-by-step/rationale blockers.
+```
+
+Later phase to prepare after fichas 2-6:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-FEEDBACK-CONTRACTS-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final implementation answer keys are authorized.
+No authored feedback or final step-by-step scripts are authorized.
+No content registry or continuity logic changes are authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
 ## 37. M1-CAPSULES-2-6-SOURCE-PACKETS-1 status
 
 M1-CAPSULES-2-6-SOURCE-PACKETS-1 documented and active.
