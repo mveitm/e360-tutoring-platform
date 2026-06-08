@@ -1656,6 +1656,47 @@ No content registry or continuity logic changes are authorized.
 No capsule 6 decision is authorized in this phase.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
 
+## 45. M1-CAPSULE-6-BRIDGE-DECISION-1 status
+
+M1-CAPSULE-6-BRIDGE-DECISION-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_6_BRIDGE_DECISION.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULE_6_BRIDGE_DECISION_SELECTED_CURRENT_SOURCE
+```
+
+Decision:
+
+Capsule 6 now has a documentation-level current source direction: `paes_m1_linear_functions_basic`. It was selected over `paes_m1_linear_equations_word_problems` because it has stronger representation/modeling bridge potential after the 2-5 multiaxis ficha and feedback-contract set. The selection remains constrained by AS1 tunnel risk, broad item count, and missing authored feedback/step-by-step/rationale metadata.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-FICHA-1
+```
+
+Purpose:
+
+```text
+Derive a BPCPv1 ficha for the selected capsule 6 bridge source, carrying feedback/step-by-step/rationale blockers.
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final implementation answer keys are authorized.
+No final authored feedback, final complete feedback, or final step-by-step scripts are authorized.
+No content registry or continuity logic changes are authorized.
+No student-facing claims are authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
 ## 43. M1-CAPSULES-2-4-FICHAS-1 status
 
 M1-CAPSULES-2-4-FICHAS-1 documented and active.
