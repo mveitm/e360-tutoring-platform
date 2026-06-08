@@ -1823,6 +1823,54 @@ No route-order changes are authorized.
 No student-facing claims are authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
 
+## 49. M1-CAPSULES-2-6-AUTHORING-READINESS-1 status
+
+M1-CAPSULES-2-6-AUTHORING-READINESS-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_AUTHORING_READINESS.md
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_6_AUTHORING_READINESS_AUDITED
+```
+
+Readiness verdict:
+
+```text
+READY_WITH_LIMITED_SCOPE
+```
+
+Decision:
+
+The PAES_M1 capsules 2-6 ficha and feedback-contract chain is prepared enough for a future limited final-authoring scope, but not for unrestricted final authoring or implementation. All capsules 2-6 have fichas and contracts, but key validation, item rationales, distractor rationales, final feedback, final complete feedback, final step-by-step, capsule 4 route-order risk, and capsule 6 AS1/item-count risk remain active blockers.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-LIMITED-AUTHORING-SCOPE-1
+```
+
+Purpose:
+
+```text
+Define the exact limited final-authoring scope, order, validation boundaries, and item-count handling for capsules 2-6 before writing final feedback, rationales, and step-by-step content.
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final implementation answer keys are authorized.
+No final authored feedback, final complete feedback, final rationales, or final step-by-step scripts are authorized.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No student-facing claims are authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
 ## 43. M1-CAPSULES-2-4-FICHAS-1 status
 
 M1-CAPSULES-2-4-FICHAS-1 documented and active.
