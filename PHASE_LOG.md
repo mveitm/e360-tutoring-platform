@@ -429,3 +429,59 @@ Explicit non-actions:
 - No final capsule 6 selection.
 - No adaptive AI claim.
 - No Sales-Ready claim.
+
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-1 — Draft missing source candidates
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-AUTHORING-1
+```
+
+Baseline before:
+
+```text
+a407a3c
+```
+
+Result:
+
+```text
+M1_CAPSULES_3_5_SOURCE_AUTHORING_DRAFTED_FOR_PRO_REVIEW
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_AUTHORING.md
+```
+
+Scope:
+
+Documentation-only source authoring for PAES_M1 capsule 3 Numbers/percentage/proportionality and capsule 5 Geometry/area/measure candidates.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-PRO-REVIEW-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No registry-ready final capsule content.
+- No final implementation answer keys.
+- No authored feedback contract.
+- No content registry changes.
+- No continuity logic changes.
+- No ficha derivation.
+- No final capsule 6 selection.
+- No adaptive AI claim.
+- No Sales-Ready claim.

@@ -1652,3 +1652,45 @@ No authored feedback is authorized.
 No content registry or continuity logic changes are authorized.
 No final capsule 6 selection is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 39. M1-CAPSULES-3-5-SOURCE-AUTHORING-1 status
+
+M1-CAPSULES-3-5-SOURCE-AUTHORING-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_AUTHORING.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_3_5_SOURCE_AUTHORING_DRAFTED_FOR_PRO_REVIEW
+```
+
+Decision:
+
+Documentation-level source candidates are drafted for `paes_m1_numbers_percentage_proportionality_entry` and `paes_m1_geometry_area_measure_entry`. The document includes candidate stems, options, proposed keys, rationale proposals, distractor rationale proposals, metadata proposals, feedback requirements, step-by-step requirements, inference limits, and blockers. These candidates are pending PRO review and are not registry-ready content.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-PRO-REVIEW-1
+```
+
+Purpose:
+
+```text
+Review the authored source candidates for capsule 3 and capsule 5 before ficha derivation or registry implementation.
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final implementation answer keys are authorized.
+No authored feedback contract is authorized.
+No content registry or continuity logic changes are authorized.
+No ficha derivation is authorized.
+No final capsule 6 selection is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
