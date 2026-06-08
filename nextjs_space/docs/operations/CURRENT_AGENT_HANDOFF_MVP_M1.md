@@ -1697,6 +1697,48 @@ No content registry or continuity logic changes are authorized.
 No student-facing claims are authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
 
+## 46. M1-CAPSULE-6-FICHA-1 status
+
+M1-CAPSULE-6-FICHA-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_6_FICHA.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULE_6_FICHA_DERIVED_WITH_FEEDBACK_AND_IMPLEMENTATION_BLOCKERS
+```
+
+Decision:
+
+The BPCPv1 ficha for capsule 6 is derived from selected current source `paes_m1_linear_functions_basic`. The ficha frames capsule 6 as an early bridge/contextual validation signal connecting equation mechanics with representation/modeling. It carries blockers for authored feedback, complete feedback, step-by-step, item-level rationale, distractor rationale, proposal-level metadata, broad 8-item source shape, and moderate/high AS1 tunnel risk.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-FEEDBACK-CONTRACT-1
+```
+
+Purpose:
+
+```text
+Derive the capsule 6 feedback breve/completo and step-by-step contract from the capsule 6 ficha, without writing final authored feedback or implementation content.
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final implementation answer keys are authorized.
+No final authored feedback, final complete feedback, or final step-by-step scripts are authorized.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No student-facing claims are authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
 ## 43. M1-CAPSULES-2-4-FICHAS-1 status
 
 M1-CAPSULES-2-4-FICHAS-1 documented and active.

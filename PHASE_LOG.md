@@ -154,6 +154,64 @@ Purpose summary:
 
 Future phase entries should be appended here in compact form.
 
+## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-FICHA-1 - Derive capsule 6 ficha
+
+Phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-FICHA-1
+```
+
+Baseline before:
+
+```text
+89ce528
+```
+
+Result:
+
+```text
+M1_CAPSULE_6_FICHA_DERIVED_WITH_FEEDBACK_AND_IMPLEMENTATION_BLOCKERS
+```
+
+Document created:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_6_FICHA.md
+```
+
+Scope:
+
+Documentation-only BPCPv1 ficha derivation for PAES_M1 capsule 6 using selected current source `paes_m1_linear_functions_basic`, carrying feedback, step-by-step, rationale, metadata, item-count, AS1 tunnel, and implementation blockers.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-FEEDBACK-CONTRACT-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No registry-ready final capsule content.
+- No final authored feedback.
+- No final complete feedback.
+- No final step-by-step scripts.
+- No final implementation answer keys.
+- No content registry changes.
+- No continuity logic changes.
+- No route-order changes.
+- No student-facing claims.
+- No adaptive AI claim.
+- No Sales-Ready claim.
+
 ## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-BRIDGE-DECISION-1 - Decide capsule bridge role
 
 Phase:

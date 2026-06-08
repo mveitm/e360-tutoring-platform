@@ -77,15 +77,16 @@ These documents now govern roadmap direction:
 66. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_4_FICHAS.md`
 67. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_FEEDBACK_CONTRACTS.md`
 68. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_6_BRIDGE_DECISION.md`
-69. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
-70. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
-71. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
-72. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
-73. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
-74. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
-75. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
-76. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
-77. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
+69. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_6_FICHA.md`
+70. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
+71. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
+72. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
+73. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
+74. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
+75. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
+76. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
+77. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
+78. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
 
 Future chats must read them before proposing work.
 
@@ -99,6 +100,7 @@ Current source-authoring status:
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_4_FICHAS.md` derives BPCPv1 fichas for capsules 2 and 4 from current live source with feedback/step-by-step/rationale blockers and capsule 4 route-order risk carried.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_6_FEEDBACK_CONTRACTS.md` derives feedback breve/completo and step-by-step contracts for capsules 2-5, with capsule 6 deferred pending bridge decision.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_6_BRIDGE_DECISION.md` selects `paes_m1_linear_functions_basic` as the documentation-level current source direction for capsule 6 bridge/contextual validation and recommends a capsule 6 ficha next.
+- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_6_FICHA.md` derives the BPCPv1 ficha for capsule 6 from `paes_m1_linear_functions_basic`, carrying feedback, step-by-step, rationale, metadata, item-count, AS1 tunnel, and implementation blockers.
 
 The Block 7 anchor is mandatory before content-route phases.
 
