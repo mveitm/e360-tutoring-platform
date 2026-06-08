@@ -1385,6 +1385,62 @@ Explicit non-actions:
 - No adaptive AI claim.
 - No Sales-Ready claim.
 
+## 2026-06-08 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-SOURCE-KEY-GUARDRAILS-1
+
+Baseline before:
+
+```text
+994249f
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_2_3_5_SOURCE_KEY_GUARDRAILS_DEFINED
+```
+
+Guardrails verdict:
+
+```text
+SOURCE_KEY_GUARDRAILS_DEFINED_SOURCE_FINALIZATION_REQUIRED_FIRST
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_SOURCE_KEY_GUARDRAILS.md
+```
+
+Scope summary:
+
+Documentation-only source-finalization and key-validation guardrails for capsules 2, 3, and 5; defines pass/fail criteria, source status labels, per-item key-validation requirements, source-finalization checklists, stop conditions and remaining blockers before implementation planning.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-FINALIZATION-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No source content changes.
+- No candidate key changes.
+- No content registry changes.
+- No continuity logic changes.
+- No route-order changes.
+- No final implementation keys.
+- No deployed student-facing content.
+- No adaptive AI claim.
+- No Sales-Ready claim.
+
 ## 2026-06-08 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-AUTHORING-INTEGRATION-1
 
 Baseline before:
