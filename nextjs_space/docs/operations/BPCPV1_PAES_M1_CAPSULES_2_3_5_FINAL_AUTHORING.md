@@ -16,6 +16,16 @@ Authoring completion:
 COMPLETED_WITHOUT_ITEM_BLOCKERS
 ```
 
+## Postscript - Authoring integration note
+
+This authoring package was later reviewed, adjusted, and integrated at documentation level through:
+
+- `BPCPV1_PAES_M1_CAPSULES_2_3_5_AUTHORING_REVIEW.md`
+- `BPCPV1_PAES_M1_CAPSULES_2_3_5_AUTHORING_MINOR_ADJUSTMENTS.md`
+- `BPCPV1_PAES_M1_CAPSULES_2_3_5_AUTHORING_INTEGRATION.md`
+
+This postscript records traceability only. It does not rewrite feedback breve, feedback completo, step-by-step scripts, rationales, distractor rationales, stems, options, calculations, or key candidates. The assets remain documentation-level, not implementation-ready or registry-ready.
+
 No item is marked as blocked in this phase. The source details, candidate keys, and item roles were sufficiently visible in the audited documents and current live source for documentation-level final authoring.
 
 Important boundary: "final" in this document means final as an authoring artifact for review and future implementation planning. It does not mean implemented, registry-ready, deployed, or approved as final implementation keys.

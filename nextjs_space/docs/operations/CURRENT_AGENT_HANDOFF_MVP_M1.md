@@ -2294,3 +2294,44 @@ No substantive authoring rewrite occurred.
 No final implementation answer keys are authorized.
 No deployed student-facing content is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 54. M1-CAPSULES-2-3-5-AUTHORING-INTEGRATION-1 status
+
+M1-CAPSULES-2-3-5-AUTHORING-INTEGRATION-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_AUTHORING_INTEGRATION.md
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_3_5_AUTHORING_CHAIN_INTEGRATED_DOCUMENTATION_LEVEL
+```
+
+Integration completion:
+
+```text
+COMPLETED_WITHOUT_BLOCKERS
+```
+
+Decision:
+
+The adjusted documentation-level authoring package for capsules 2, 3, and 5 is integrated with traceability to fichas, feedback contracts, readiness, limited scope, final authoring, review, and minor adjustments. The package remains documentation-level only and is not implementation-ready, registry-ready, deployed student-facing content, or approval of final implementation keys.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-IMPLEMENTATION-READINESS-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No authoring rewrite occurred.
+No final implementation answer keys are authorized.
+No deployed student-facing content is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.

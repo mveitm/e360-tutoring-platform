@@ -1328,3 +1328,60 @@ Explicit non-actions:
 - No deployed student-facing content.
 - No adaptive AI claim.
 - No Sales-Ready claim.
+
+## 2026-06-08 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-AUTHORING-INTEGRATION-1
+
+Baseline before:
+
+```text
+db11488
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_2_3_5_AUTHORING_CHAIN_INTEGRATED_DOCUMENTATION_LEVEL
+```
+
+Integration completion:
+
+```text
+COMPLETED_WITHOUT_BLOCKERS
+```
+
+Documents:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_AUTHORING_INTEGRATION.md
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_FINAL_AUTHORING.md
+```
+
+Scope:
+
+Documentation-only integration of the adjusted capsule 2, 3, and 5 authoring chain with traceability to fichas, contracts, readiness, scope, review, and minor adjustments.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-IMPLEMENTATION-READINESS-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No authoring rewrite.
+- No source content changes.
+- No content registry changes.
+- No continuity logic changes.
+- No route-order changes.
+- No final implementation keys.
+- No deployed student-facing content.
+- No adaptive AI claim.
+- No Sales-Ready claim.
