@@ -1609,6 +1609,52 @@ No authored feedback or final step-by-step scripts are authorized.
 No content registry or continuity logic changes are authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
 
+## 43. M1-CAPSULES-2-4-FICHAS-1 status
+
+M1-CAPSULES-2-4-FICHAS-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_4_FICHAS.md
+```
+
+Verdict:
+
+```text
+M1_CAPSULES_2_4_FICHAS_DERIVED_WITH_FEEDBACK_BLOCKERS
+```
+
+Decision:
+
+BPCPv1 fichas are derived for capsule 2 `paes_m1_linear_equations_basic` and capsule 4 `paes_m1_data_representation_entry` from current live source. Current answer keys are treated as source/ficha candidates only, not final implementation keys. Capsule 4's current route-order risk remains unresolved because operational continuity still places Data/table/graph late after AS1 content.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-FEEDBACK-CONTRACTS-1
+```
+
+Purpose:
+
+```text
+Derive feedback breve/completo and step-by-step contracts for capsules 2-6 after fichas 2-5 are available and capsule 6 remains deferred.
+```
+
+Later phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-6-BRIDGE-DECISION-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No registry-ready final capsule content is authorized.
+No final implementation answer keys are authorized.
+No authored feedback or final step-by-step scripts are authorized.
+No content registry or continuity logic changes are authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
 ## 37. M1-CAPSULES-2-6-SOURCE-PACKETS-1 status
 
 M1-CAPSULES-2-6-SOURCE-PACKETS-1 documented and active.
