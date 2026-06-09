@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-REVIEW-1
+
+Baseline before:
+
+```text
+2fd0ec7
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_REVIEW_COMPLETED
+```
+
+Smoke review verdict:
+
+```text
+SMOKE_REVIEW_BLOCKED_EVIDENCE_INSUFFICIENT
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_REVIEW.md
+```
+
+Scope summary:
+
+Reviewed existing manual local smoke evidence without re-running smoke. The prior smoke preserved scope safety but was blocked before authenticated UI execution, so capsule 2 authoredFeedback cannot be treated as locally UI-verified.
+
+Evidence summary:
+
+Read-only source and route evidence confirms q1-q4 authoredFeedback and expected UI/API/lifecycle wiring. Required UI evidence is missing: no app start, login, `/now` observation, capsule 2 StudyLoad opening, q1-q4 submission, feedback visibility, lifecycle observation, or UI leakage/claims observation.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-EVIDENCE-REPAIR-1
+```
+
+Explicit non-actions:
+
+```text
+No smoke rerun, no app start, no login, no API calls, no browser/runtime tests, no browser automation, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no source/key changes, no final implementation keys, no production/staging, no secrets printed, no deployed public commercial content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-MANUAL-LOCAL-SMOKE-1
 
 Baseline before:
