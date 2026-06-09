@@ -8,6 +8,7 @@ These documents now govern roadmap direction:
 
 - `PHASE_LOG.md` - active compact operational phase log.
 - `nextjs_space/docs/operations/PHASE_LOG_ARCHIVE_PRE_COMPACTION_2026_06_08.md` - full pre-compaction historical PHASE_LOG record.
+- `nextjs_space/docs/operations/MVP_GOV_CONTENT_CAPSULE_CORRELATIVE_PROTOCOL_1.md` - active governance protocol for visible capsule correlativos such as `M1-C04`; prevents internal candidate numbers such as capsule 3/5 from masquerading as student/admin-visible sequence.
 
 1. `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`
 2. `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`

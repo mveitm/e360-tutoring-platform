@@ -42,6 +42,53 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-GOV-CONTENT-CAPSULE-CORRELATIVE-PROTOCOL-1
+
+Baseline before:
+
+```text
+0b0f725c1f82fd0422c4dc376ee4022fc236fe13
+```
+
+Result/verdict:
+
+```text
+CAPSULE_CORRELATIVE_PROTOCOL_DOCUMENTED_LIVING_INDEX_REFERENCE_ADDED
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_GOV_CONTENT_CAPSULE_CORRELATIVE_PROTOCOL_1.md
+nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only governance protocol. Defined the rule that implemented or in-implementation capsules must use a unique visible correlativo such as `M1-C04` instead of relying only on internal planning numbers like candidate capsule 3/5.
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No data mutation.
+- No fixture prep.
+- No smoke executed.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-CLOSEOUT-1
 
 Baseline before:
