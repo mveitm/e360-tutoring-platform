@@ -42,6 +42,60 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-MANUAL-LOCAL-SMOKE-RETRY-1
+
+Baseline before:
+
+```text
+0d1596a
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE_RETRY_COMPLETED
+```
+
+Smoke retry classification:
+
+```text
+MANUAL_LOCAL_SMOKE_RETRY_PASS_CAPSULE_2_AUTHOREDFEEDBACK_VISIBLE
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE_RETRY.md
+```
+
+Scope summary:
+
+Manual local/dev UI smoke retry evidence capture for PAES_M1 capsule 2 authoredFeedback. Human reported the exact PASS verdict after prior auth/access status confirmed local app, student login, `/now`, and capsule 2 StudyLoad visibility. No code files were edited.
+
+Evidence summary:
+
+```text
+Human smoke retry result: MANUAL_LOCAL_SMOKE_RETRY_PASS_CAPSULE_2_AUTHOREDFEEDBACK_VISIBLE
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-LOCAL-VERIFICATION-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+```text
+No browser automation, no API-only tests, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no source/key changes, no final implementation keys, no production/staging, no secrets printed, no deployed public commercial content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-HUMAN-STATUS-CHECK-1
 
 Baseline before:

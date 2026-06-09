@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 Capsule 2 AuthoredFeedback Manual Local Smoke Retry Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-MANUAL-LOCAL-SMOKE-RETRY-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE_RETRY.md` with verdict `MANUAL_LOCAL_SMOKE_RETRY_PASS_CAPSULE_2_AUTHOREDFEEDBACK_VISIBLE`. Human smoke retry evidence reported the exact PASS classification after app/login/`/now`/capsule 2 access was confirmed; next recommended phase is local verification closeout, without authorizing capsules 3/5, code, UI/API/schema/DB, continuity, route-order, production/staging, Sales-Ready, or adaptive AI claims.
+
 ## PAES_M1 Capsule 2 AuthoredFeedback Auth Access Human Status Check Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-HUMAN-STATUS-CHECK-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_HUMAN_STATUS_CHECK.md` with verdict `HUMAN_STATUS_CHECK_READY_FOR_MANUAL_SMOKE_RETRY`. Human non-secret status confirmed local/dev app open, student login, `/now`, and capsule 2 StudyLoad visibility with no secrets shared; next recommended phase is a separate manual local smoke retry, not code or fixture prep.
