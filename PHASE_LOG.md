@@ -42,6 +42,62 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-REVIEW-1
+
+Baseline before:
+
+```text
+c19138d
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_CODE_PHASE_A_REVIEW_COMPLETED
+```
+
+Review verdict:
+
+```text
+CAPSULE_2_CODE_PHASE_A_REVIEW_PASSED
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_CODE_PHASE_A_REVIEW.md
+```
+
+Scope summary:
+
+Reviewed Code Phase A as capsule 2 `authoredFeedback`-only enrichment. Confirmed preserved contentKey, contentVersion, item count, stems, options, correctOptionKey values, UI/API/lifecycle, continuity, route-order, schema/DB, capsules 3/5, capsules 4/6 and internal-asset boundaries.
+
+Verification summary:
+
+```text
+Static review of c19138d diff and study-load-content.ts completed.
+No-leakage rg matched only pre-existing limitation notices outside new authoredFeedback.
+Build was not rerun; review relies on Code Phase A report where npm.cmd --prefix nextjs_space run build passed.
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-READINESS-1
+```
+
+Explicit non-actions:
+
+```text
+No code changes, no study-load-content.ts edits, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no source/key changes, no authoredFeedback text changes, no final implementation keys, no browser/runtime/API tests, no deployed public commercial content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-AUTHOREDFEEDBACK-1
 
 Baseline before:

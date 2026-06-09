@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 Capsule 2 Code Phase A Review Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-REVIEW-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_CODE_PHASE_A_REVIEW.md` with verdict `CAPSULE_2_CODE_PHASE_A_REVIEW_PASSED`. The review accepted the capsule 2 authoredFeedback-only change as in scope and recommends a separate smoke-readiness phase; browser/runtime/API smoke, UI changes, registry insertion for capsules 3/5, continuity, route-order, schema/DB, and final implementation keys remain blocked.
+
 ## PAES_M1 Capsule 2 Code Phase A AuthoredFeedback Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-AUTHOREDFEEDBACK-1` implemented `authoredFeedback` for the existing live `paes_m1_linear_equations_basic` capsule in `nextjs_space/lib/study-load-content.ts` only. Stems, options, correctOptionKey values, contentKey/contentVersion, UI/API, lifecycle, continuity, route-order, schema/DB, capsules 3/5, and final implementation-key status remain unchanged; next recommended phase is code review of this narrow change.
