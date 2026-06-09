@@ -2856,6 +2856,64 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-LOCAL-DEV-ACCESS-CHECK-1
+
+Baseline before:
+
+```text
+8a28f48
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_3_5_LOCAL_DEV_ACCESS_CHECK_COMPLETED
+ACCESS_UNCLEAR_NEEDS_HUMAN_LOCAL_CHECK
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_LOCAL_DEV_ACCESS_CHECK_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Read-only local/dev access check documentation. No code changes, no app start, no login, no browser automation, no API-only tests, no DB query/mutation, no seed scripts, no fixture mutation, no UI/API/schema/DB/Prisma changes, no continuity or route-order changes.
+
+Access summary:
+
+Capsule 3 and capsule 5 are present in the static registry with expected item counts, keys, and authoredFeedback shape. Current continuity does not automatically route to capsule 3 or capsule 5. Existing local/dev StudyLoad visibility/openability could not be proven from static repository evidence alone.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-HUMAN-LOCAL-ACCESS-STATUS-CHECK-1
+```
+
+Explicit non-actions:
+
+- No edit to `nextjs_space/lib/study-load-content.ts`.
+- No UI/API/schema/DB/Prisma/auth/access changes.
+- No continuity or route-order changes.
+- No app start or login by Codex.
+- No smoke execution.
+- No browser automation.
+- No API-only tests.
+- No DB reset, seed scripts, direct DB edits, or fixture mutation.
+- No production/staging.
+- No secrets or `.env` inspection.
+- No capsules 4/6.
+- No Sales-Ready or adaptive AI claim.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-MANUAL-UI-SMOKE-READINESS-1
 
 Baseline before:
