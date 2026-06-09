@@ -2856,6 +2856,69 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-DIRECT-SMOKE-LINK-HANDOFF-1
+
+Baseline before:
+
+```text
+643c3af6bb664ca2f20f07f033be53c2d4c79fa8
+```
+
+Result/verdict:
+
+```text
+DIRECT_SMOKE_LINK_HANDOFF_READY
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_DIRECT_SMOKE_LINK_HANDOFF_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation/read-only link handoff only. Confirmed existing direct local/dev student viewer route `/now/study-loads/[id]` and captured capsule 3/5 direct paths in the full report. No smoke was executed and no data was mutated.
+
+Handoff summary:
+
+```text
+Capsule 3 direct path recorded in full report.
+Capsule 5 direct path recorded in full report.
+Word-problems remains pending and must not be completed merely as navigation.
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-MANUAL-UI-SMOKE-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No data mutation.
+- No fixture prep.
+- No UI/API changes.
+- No schema/Prisma schema changes.
+- No continuity or route-order changes.
+- No word-problems completion.
+- No smoke executed.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+- No capsules 4/6.
+- No Sales-Ready or adaptive AI claim.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-DIRECT-SMOKE-ACCESS-PLAN-1
 
 Baseline before:
