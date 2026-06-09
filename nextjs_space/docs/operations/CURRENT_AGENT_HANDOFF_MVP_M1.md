@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 Capsule 2 AuthoredFeedback Smoke Evidence Repair Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-EVIDENCE-REPAIR-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_EVIDENCE_REPAIR.md` with verdict `SMOKE_EVIDENCE_REPAIR_BLOCKED_LOGIN_OR_FIXTURE_NOT_AVAILABLE`. Capsule 2 authoredFeedback remains not locally UI-verified; next recommended phase is a safe local fixture/access plan before any further manual UI smoke.
+
 ## PAES_M1 Capsule 2 AuthoredFeedback Smoke Review Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-REVIEW-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_REVIEW.md` with verdict `SMOKE_REVIEW_BLOCKED_EVIDENCE_INSUFFICIENT`. Capsule 2 authoredFeedback is not locally UI-verified yet because the prior smoke was blocked before app/login/UI submission; next recommended phase is smoke evidence repair, not local verification closeout.
