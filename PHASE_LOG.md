@@ -42,6 +42,54 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-CODE-PHASE-AUTHORIZATION-REVIEW-1
+
+Baseline before:
+
+```text
+9275d5c
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_2_3_5_CODE_PHASE_AUTHORIZATION_REVIEW_COMPLETED
+```
+
+Authorization verdict:
+
+```text
+CODE_PHASE_A_AUTHORIZED_CAPSULE_2_AUTHOREDFEEDBACK_ONLY
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_CODE_PHASE_AUTHORIZATION_REVIEW.md
+```
+
+Scope summary:
+
+Documentation-only authorization review for a future first narrow code phase. Authorizes only later capsule 2 `authoredFeedback` enrichment in `nextjs_space/lib/study-load-content.ts`, with source/key recheck, existing `StudyLoadAuthoredFeedback` shape, and no capsules 3/5 registry insertion, UI/API, lifecycle, continuity, route-order, schema, DB, or final-key approval in Code Phase A.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-AUTHOREDFEEDBACK-1
+```
+
+Explicit non-actions:
+
+```text
+No implementation, no code changes, no DB/schema/endpoints, no registry or continuity changes, no route-order changes, no source-code changes, no candidate key changes, no generated capsules, no API calls, no UI changes, no final implementation keys, no deployed student-facing content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-NARROW-IMPLEMENTATION-PLAN-1
 
 Baseline before:

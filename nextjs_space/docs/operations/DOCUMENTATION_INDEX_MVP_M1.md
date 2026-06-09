@@ -94,15 +94,16 @@ These documents now govern roadmap direction:
 83. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_UI_API_LIFECYCLE_GUARDRAILS.md`
 84. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_IMPLEMENTATION_PLAN_AUDIT.md`
 85. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_NARROW_IMPLEMENTATION_PLAN.md`
-86. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
-87. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
-88. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
-89. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
-90. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
-91. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
-92. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
-93. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
-94. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
+86. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_CODE_PHASE_AUTHORIZATION_REVIEW.md`
+87. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
+88. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
+89. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
+90. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
+91. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
+92. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
+93. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
+94. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
+95. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
 
 Future chats must read them before proposing work.
 
@@ -133,6 +134,7 @@ Current source-authoring status:
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_UI_API_LIFECYCLE_GUARDRAILS.md` defines documentation-level UI/API/lifecycle guardrails for later feedback breve/completo display, concludes `UI_API_LIFECYCLE_GUARDRAILS_DEFINED_READY_FOR_IMPLEMENTATION_PLAN_AUDIT`, flags `paso a paso` label accuracy as a guardrail, and preserves no-code/no-registry/no-continuity boundaries before an implementation-plan audit.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_IMPLEMENTATION_PLAN_AUDIT.md` audits the complete source/key/data-shape/UI-API-lifecycle chain for capsules 2/3/5, concludes `IMPLEMENTATION_PLAN_AUDIT_READY_FOR_NARROW_IMPLEMENTATION_PLAN`, and recommends a narrow implementation-plan drafting phase while preserving no-code, no-final-keys, no-registry-ready, no-continuity, and no-route-order boundaries.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_NARROW_IMPLEMENTATION_PLAN.md` drafts the documentation-only narrow implementation plan for capsules 2/3/5, concludes `NARROW_IMPLEMENTATION_PLAN_DRAFTED_READY_FOR_CODE_PHASE_AUTHORIZATION_REVIEW`, recommends a split future code path beginning with authorization review and likely capsule 2 authoredFeedback enrichment, and preserves no-code, no-final-keys, no-registry-ready-by-default, no-continuity, no-route-order, and no-overclaiming boundaries.
+- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_CODE_PHASE_AUTHORIZATION_REVIEW.md` authorizes a later first narrow Code Phase A limited to capsule 2 `authoredFeedback` enrichment only, concludes `CODE_PHASE_A_AUTHORIZED_CAPSULE_2_AUTHOREDFEEDBACK_ONLY`, and keeps capsules 3/5 registry insertion, UI/API, continuity, route-order, schema/DB, final implementation keys, and implementation itself blocked until a separate explicit code-phase prompt.
 
 The Block 7 anchor is mandatory before content-route phases.
 
