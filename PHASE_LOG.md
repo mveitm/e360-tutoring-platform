@@ -42,6 +42,54 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-NARROW-IMPLEMENTATION-PLAN-1
+
+Baseline before:
+
+```text
+7e0ce0b
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_2_3_5_NARROW_IMPLEMENTATION_PLAN_DRAFTED
+```
+
+Narrow implementation plan verdict:
+
+```text
+NARROW_IMPLEMENTATION_PLAN_DRAFTED_READY_FOR_CODE_PHASE_AUTHORIZATION_REVIEW
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_NARROW_IMPLEMENTATION_PLAN.md
+```
+
+Scope summary:
+
+Documentation-only narrow implementation plan for later PAES_M1 capsules 2/3/5 code authorization review. Defines future candidate scope for capsule 2 authoredFeedback enrichment, capsule 3/5 source-finalized registry insertion candidates after exact source/key recheck, brief/complete feedback mapping, UI label guardrail, API/lifecycle boundaries, phase split, verification plan, and future stop conditions.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-CODE-PHASE-AUTHORIZATION-REVIEW-1
+```
+
+Explicit non-actions:
+
+```text
+No implementation, no code changes, no DB/schema/endpoints, no registry or continuity changes, no route-order changes, no source-code changes, no candidate key changes, no generated capsules, no API calls, no UI changes, no final implementation keys, no deployed student-facing content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-08 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-SOURCE-FINALIZATION-1
 
 Baseline before:

@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 Capsules 2/3/5 Narrow Implementation Plan Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-NARROW-IMPLEMENTATION-PLAN-1` drafted `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_NARROW_IMPLEMENTATION_PLAN.md` with verdict `NARROW_IMPLEMENTATION_PLAN_DRAFTED_READY_FOR_CODE_PHASE_AUTHORIZATION_REVIEW`. Code remains blocked until a new explicit code-phase authorization prompt; likely next review starts with capsule 2 authoredFeedback enrichment only.
+
 ## Current Governance Handoff — MVP-GOV-CONTEXT-15
 
 This top section supersedes older baseline, roadmap, and handoff-start instructions below when they conflict with Git preflight or GOV-CONTEXT governance docs. Older content remains useful as historical and operational support, but future chats and agents must start here.
