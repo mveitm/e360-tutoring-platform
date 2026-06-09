@@ -42,6 +42,64 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-SMOKE-READINESS-1
+
+Baseline before:
+
+```text
+77cd012
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_COMPLETION_FLOW_SMOKE_READINESS_DEFINED
+```
+
+Readiness verdict:
+
+```text
+COMPLETION_FLOW_SMOKE_READINESS_READY_WITH_PRECONDITIONS
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_COMPLETION_FLOW_SMOKE_READINESS.md
+```
+
+Scope summary:
+
+Documentation-only readiness for a future manual local/dev smoke of capsule 2 post-feedback self-report, `Finalizar capsula`, completion state and continuity behavior. PRO recommendation was carried: close completion-flow readiness before advancing to capsules 3/5 code.
+
+Completion-flow readiness summary:
+
+Read-only evidence confirms `responses/route.ts` handles `mc_submission` without completion, `study-load-answer-form.tsx` gates self-report and `Finalizar capsula` after submitted feedback, `complete/route.ts` handles self-report/completion, and continuity is invoked only after completion. Future smoke still requires local/dev session and capsule 2 post-feedback state.
+
+Future manual smoke checklist:
+
+```text
+COMPLETION_FLOW_HUMAN_OBSERVATION A-L defined in the readiness document.
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-MANUAL-LOCAL-SMOKE-1
+```
+
+Explicit non-actions:
+
+```text
+No smoke executed, no app start, no login, no self-report selected, no Finalizar capsula pressed, no StudyLoad completion, no API calls, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-AUTHORIZATION-REVIEW-1
 
 Baseline before:

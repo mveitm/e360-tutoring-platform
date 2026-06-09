@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 Capsule 2 Completion Flow Smoke Readiness Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-SMOKE-READINESS-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_COMPLETION_FLOW_SMOKE_READINESS.md` with verdict `COMPLETION_FLOW_SMOKE_READINESS_READY_WITH_PRECONDITIONS`. The next recommended phase is a controlled manual local/dev smoke of self-report / `Finalizar capsula` / completion / continuity after capsule 2 authoredFeedback, without code/API/DB changes. Capsules 3/5 code prep remains deferred.
+
 ## PAES_M1 Capsules 3/5 Registry Authorization Review Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-AUTHORIZATION-REVIEW-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_REGISTRY_AUTHORIZATION_REVIEW.md` with verdict `CAPSULES_3_5_REGISTRY_AUTHORIZATION_READY_WITH_PREP_CONDITIONS`. Capsules 3 and 5 are source-finalized and documentation-level key-validated, but future code still requires exact source/key/item-order/shape recheck and a separate explicit prompt. Recommended next phase is registry code-phase prep, not implementation.
