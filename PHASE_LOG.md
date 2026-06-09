@@ -42,6 +42,74 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-CLOSEOUT-1
+
+Baseline before:
+
+```text
+ba94023
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_COMPLETION_FLOW_CLOSED
+```
+
+Closeout verdict:
+
+```text
+COMPLETION_FLOW_CLOSEOUT_PASSED_WITH_NON_BLOCKING_FOLLOWUP
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_COMPLETION_FLOW_CLOSEOUT.md
+```
+
+Verification chain summary:
+
+Capsule 2 authoredFeedback implementation and review passed; authoredFeedback smoke readiness passed; human auth/access status was confirmed; authoredFeedback manual local/dev smoke passed; authoredFeedback local verification closeout passed; verified milestone handoff was created; PRO recommended validating completion/self-report/continuity before expanding to capsules 3/5; completion-flow readiness passed with preconditions; completion-flow manual local/dev smoke passed.
+
+Verified flow summary:
+
+Capsule 2 now has a verified local/dev vertical slice from response submission to authoredFeedback, self-report, `Finalizar capsula`, completed/terminal state, progress update, and expected next StudyLoad behavior. The `Cerrar paso a paso` UX follow-up remains non-blocking and unauthorized until a separate UX phase.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-CODE-PHASE-PREP-1
+```
+
+Explicit non-actions:
+
+- No smoke executed.
+- No app start.
+- No login.
+- No self-report selected.
+- No `Finalizar capsula` pressed.
+- No API calls.
+- No browser automation.
+- No API-only tests.
+- No DB reset.
+- No seed scripts.
+- No fixture mutation.
+- No code changes.
+- No UI/API/schema/DB changes.
+- No registry insertion for capsules 3/5.
+- No continuity or route-order changes.
+- No production/staging.
+- No secrets printed.
+- No Sales-Ready claim.
+- No adaptive AI claim.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-MANUAL-LOCAL-SMOKE-1
 
 Baseline before:
@@ -101,7 +169,7 @@ Explicit non-actions:
 Commit hash after closeout:
 
 ```text
-pending
+ba94023
 ```
 
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-SMOKE-READINESS-1

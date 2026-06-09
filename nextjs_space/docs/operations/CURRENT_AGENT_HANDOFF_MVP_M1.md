@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 Capsule 2 Completion Flow Closeout Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-CLOSEOUT-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_COMPLETION_FLOW_CLOSEOUT.md` with verdict `COMPLETION_FLOW_CLOSEOUT_PASSED_WITH_NON_BLOCKING_FOLLOWUP`. Capsule 2 is now closed as a verified local/dev vertical slice from response submission to authoredFeedback, self-report, `Finalizar capsula`, completion/terminal state, progress update, and expected next StudyLoad behavior. Recommended next phase is capsules 3/5 registry code-phase prep, without authorizing implementation; `Cerrar paso a paso` remains a separate non-blocking UX follow-up.
+
 ## PAES_M1 Capsule 2 Completion Flow Manual Local Smoke Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-MANUAL-LOCAL-SMOKE-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_COMPLETION_FLOW_MANUAL_LOCAL_SMOKE.md` with verdict `COMPLETION_FLOW_MANUAL_SMOKE_PASS`. Human local/dev evidence confirmed self-report selection, `Finalizar capsula`, completed/terminal state, dashboard/ST progress update, expected next StudyLoad behavior, preserved feedback/completion boundary, and no leakage or prohibited claims. Recommended next phase is completion-flow closeout before returning to capsules 3/5 code prep.
