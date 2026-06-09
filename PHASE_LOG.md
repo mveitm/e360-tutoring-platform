@@ -2796,3 +2796,62 @@ Explicit non-actions:
 - No deployed student-facing content.
 - No adaptive AI claim.
 - No Sales-Ready claim.
+
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-CODE-PHASE-PREP-1
+
+Baseline before:
+
+```text
+4ceea35
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_3_5_REGISTRY_CODE_PHASE_PREP_DOCUMENTED
+READY_FOR_FUTURE_NARROW_CODE_PHASE_PROMPT
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_REGISTRY_CODE_PHASE_PREP_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only prep for a future narrow code phase. No capsules 3/5 registry insertion was implemented.
+
+Readiness summary:
+
+Capsule 3 and capsule 5 source, item order, keys, authoredFeedback availability, current registry shape, and leakage boundaries were rechecked from source-finalization, key-validation, final-authoring, guardrail, authorization-review, and registry files.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-CODE-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No edit to `nextjs_space/lib/study-load-content.ts`.
+- No registry insertion.
+- No UI/API/schema/DB changes.
+- No continuity or route-order changes.
+- No browser automation.
+- No API-only tests.
+- No smoke.
+- No app start.
+- No login.
+- No production/staging.
+- No capsules 4/6.
+- No Sales-Ready or adaptive AI claim.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
