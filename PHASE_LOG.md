@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-MANUAL-LOCAL-SMOKE-1
+
+Baseline before:
+
+```text
+036e5cd
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE_COMPLETED
+```
+
+Smoke classification:
+
+```text
+MANUAL_LOCAL_SMOKE_BLOCKED_LOCAL_FIXTURE_OR_AUTH
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE.md
+```
+
+Scope summary:
+
+Attempted the authorized manual local/dev smoke gate for capsule 2 authoredFeedback. Completed Git/document/code read-only prechecks and confirmed capsule 2 authoredFeedback and UI/API/lifecycle wiring from source. Manual UI execution was blocked because no approved local/dev authenticated student session or human browser login handoff was available without secrets, and browser automation/API-only tests/DB fixture mutation were prohibited.
+
+Evidence summary:
+
+Read-only evidence confirms `paes_m1_linear_equations_basic` exists with q1-q4 authoredFeedback and that the existing answer form/responses route can surface authored brief/complete after selected answers. No browser UI observation, answer submission, app start, login, API call, DB reset, or code change was performed.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-BLOCKER-DIAGNOSIS-1
+```
+
+Explicit non-actions:
+
+```text
+No browser automation, no API-only tests, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no source/key changes, no final implementation keys, no production/staging, no secrets printed, no .env inspection, no deployed public commercial content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-READINESS-1
 
 Baseline before:

@@ -97,15 +97,16 @@ These documents now govern roadmap direction:
 86. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_CODE_PHASE_AUTHORIZATION_REVIEW.md`
 87. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_CODE_PHASE_A_REVIEW.md`
 88. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_READINESS.md`
-89. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
-90. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
-91. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
-92. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
-93. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
-94. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
-95. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
-96. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
-97. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
+89. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE.md`
+90. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
+91. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
+92. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
+93. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
+94. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
+95. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
+96. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
+97. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
+98. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
 
 Future chats must read them before proposing work.
 
@@ -140,6 +141,7 @@ Current source-authoring status:
 - `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-AUTHOREDFEEDBACK-1` implemented the authorized capsule 2-only `authoredFeedback` enrichment in `nextjs_space/lib/study-load-content.ts`, preserving stems/options/keys/contentKey/contentVersion and leaving capsules 3/5 registry insertion, UI/API, lifecycle, continuity, route-order, schema/DB, final implementation keys, and capsules 4/6 blocked.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_CODE_PHASE_A_REVIEW.md` reviews the capsule 2 Code Phase A change, concludes `CAPSULE_2_CODE_PHASE_A_REVIEW_PASSED`, confirms authoredFeedback-only scope preservation and no internal leakage, and recommends a separate smoke-readiness phase before any browser/runtime/API smoke.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_READINESS.md` defines readiness for a later narrow manual local/dev smoke of capsule 2 authoredFeedback display, concludes `SMOKE_READINESS_READY_FOR_MANUAL_LOCAL_SMOKE`, and keeps smoke execution, app start, login, API calls, browser/runtime tests, browser automation, code changes, UI/API/schema/DB, registry insertion for capsules 3/5, continuity, route-order, and public/Sales-Ready claims blocked until a separate explicit prompt.
+- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE.md` records the attempted manual local/dev smoke gate for capsule 2 authoredFeedback, concludes `MANUAL_LOCAL_SMOKE_BLOCKED_LOCAL_FIXTURE_OR_AUTH`, confirms read-only code/UI/API readiness evidence, and identifies the blocker as lack of approved authenticated local/dev student session or human browser login handoff without secrets.
 
 The Block 7 anchor is mandatory before content-route phases.
 

@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 Capsule 2 AuthoredFeedback Manual Local Smoke Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-MANUAL-LOCAL-SMOKE-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE.md` with verdict `MANUAL_LOCAL_SMOKE_BLOCKED_LOCAL_FIXTURE_OR_AUTH`. Read-only evidence confirmed capsule 2 authoredFeedback and UI/API wiring, but manual UI execution was blocked because no approved authenticated local/dev student session or human browser login handoff was available without secrets; next recommended phase is blocker diagnosis, not smoke review.
+
 ## PAES_M1 Capsule 2 AuthoredFeedback Smoke Readiness Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-READINESS-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_READINESS.md` with verdict `SMOKE_READINESS_READY_FOR_MANUAL_LOCAL_SMOKE`. The next recommended phase is a separately prompted manual local/dev smoke of capsule 2 authoredFeedback display; this phase did not start the app, log in, call APIs, run browser/runtime tests, use browser automation, edit code, or touch UI/API/schema/DB/continuity/route-order.
