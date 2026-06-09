@@ -1,55 +1,64 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-MANUAL-LOCAL-SMOKE-RETRY-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-LOCAL-VERIFICATION-CLOSEOUT-1`
 
 Baseline before:
-`0d1596a`
+`8cbcaad`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
 - `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE_RETRY.md`
+- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_LOCAL_VERIFICATION_CLOSEOUT.md`
 
 Result:
-`M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE_RETRY_COMPLETED`
+`M1_CAPSULE_2_AUTHOREDFEEDBACK_LOCAL_VERIFICATION_CLOSED`
 
-Smoke retry verdict:
-`MANUAL_LOCAL_SMOKE_RETRY_PASS_CAPSULE_2_AUTHOREDFEEDBACK_VISIBLE`
+Closeout verdict:
+`LOCAL_VERIFICATION_CLOSEOUT_PASSED_CAPSULE_2_AUTHOREDFEEDBACK`
 
-Smoke summary:
-- Human non-secret access status from the prior phase confirmed local/dev app, student login, `/now`, and capsule 2 StudyLoad visibility.
-- Human smoke retry result reported the exact PASS verdict: `MANUAL_LOCAL_SMOKE_RETRY_PASS_CAPSULE_2_AUTHOREDFEEDBACK_VISIBLE`.
-- This report records the compact PASS classification without inventing raw screenshots, transcripts, credentials, or field-by-field details not separately supplied.
-- No code, UI, API, DB, fixture, continuity, route-order, registry, or production/staging action was performed by Codex.
+Verification summary:
+- Code Phase A added authoredFeedback to existing capsule 2 only.
+- Code Phase A review passed.
+- Smoke readiness passed.
+- Auth/access status was confirmed by human non-secret fields.
+- Manual local smoke retry passed with `MANUAL_LOCAL_SMOKE_RETRY_PASS_CAPSULE_2_AUTHOREDFEEDBACK_VISIBLE`.
+- No code/UI/API/schema/DB/continuity/route-order/registry changes occurred during smoke/review/closeout phases.
 
-Observed:
-- contentKey/title: `paes_m1_linear_equations_basic` / `PAES M1 - Ecuaciones lineales basicas`
-- q1 brief: PASS by human smoke retry verdict.
-- q1 complete: PASS by human smoke retry verdict.
-- q2 brief: PASS by human smoke retry verdict.
-- q2 complete: PASS by human smoke retry verdict.
-- q3 brief: PASS by human smoke retry verdict.
-- q3 complete: PASS by human smoke retry verdict.
-- q4 brief: PASS by human smoke retry verdict.
-- q4 complete: PASS by human smoke retry verdict.
-- lifecycle: PASS by human smoke retry verdict; no auto-completion or feedback-triggered route/continuity change was reported.
-- leakage/claims: PASS by human smoke retry verdict; no internal leakage or prohibited claims were reported.
-- scope safety: preserved.
+Now verified:
+- Capsule 2 contentKey `paes_m1_linear_equations_basic` exists.
+- q1-q4 authoredFeedback exists in source.
+- Student UI local/dev path can reach capsule 2.
+- q1-q4 submission was accepted in local/dev UI smoke retry.
+- q1-q4 brief feedback was visible.
+- q1-q4 complete/paso-a-paso feedback was visible.
+- q1-q4 complete feedback matched expected checks.
+- Self-report/completion remained separate.
+- StudyLoad did not auto-complete from feedback display.
+- No internal leakage or prohibited claims were reported.
 
-Blocked items, if any:
-- None for this smoke retry classification.
-- Residual evidence note: the human supplied the compact PASS verdict rather than the full field-by-field checklist; the next closeout review may decide whether that is sufficient for final local verification closeout.
+Still blocked:
+- capsules 3/5 registry insertion
+- capsules 3/5 authoredFeedback implementation
+- UI changes, including any future close/collapse affordance for `paso a paso`
+- API changes
+- schema/DB changes
+- continuity/route-order changes
+- capsules 4/6
+- production/staging
+- Sales-Ready/public commercial claims
+- adaptive AI claims
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-LOCAL-VERIFICATION-CLOSEOUT-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-VERIFIED-MILESTONE-HANDOFF-1`
 
 Verification:
 - `git status --short`: four allowed documentation files modified and one allowed new documentation file added.
-- `git log --oneline --decorate --graph -8`: `HEAD`, `origin/main`, and `origin/HEAD` aligned at `0d1596a` before commit.
+- `git log --oneline --decorate --graph -8`: `HEAD`, `origin/main`, and `origin/HEAD` aligned at `8cbcaad` before commit.
 - `git diff --check`: passed with CRLF normalization warnings only.
+- read-only rg/search: completed for smoke PASS, capsule 2 content key, authoredFeedback, response/complete lifecycle, continuity/route-order, capsules 3 block terms, and prohibited-claim terms.
 
 Scope safety:
-Manual local/dev UI smoke retry only. No browser automation, no API-only tests, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no source/key changes, no final implementation keys, no production/staging, no secrets printed, no deployed public commercial content, no Sales-Ready or adaptive AI claim.
+Documentation-only local verification closeout. No smoke executed, no app start, no login, no q1-q4 submission, no completion, no API calls, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.

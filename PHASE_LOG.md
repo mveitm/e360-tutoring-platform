@@ -42,6 +42,60 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-LOCAL-VERIFICATION-CLOSEOUT-1
+
+Baseline before:
+
+```text
+8cbcaad
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_LOCAL_VERIFICATION_CLOSED
+```
+
+Closeout verdict:
+
+```text
+LOCAL_VERIFICATION_CLOSEOUT_PASSED_CAPSULE_2_AUTHOREDFEEDBACK
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_LOCAL_VERIFICATION_CLOSEOUT.md
+```
+
+Scope summary:
+
+Documentation-only closeout of capsule 2 authoredFeedback local UI verification. The chain from Code Phase A, review, smoke readiness, human auth/access status and manual local smoke retry supports closing capsule 2 authoredFeedback as locally verified within the narrow scope.
+
+Verification summary:
+
+```text
+Code Phase A added authoredFeedback to existing capsule 2 only; Code Phase A review passed; smoke readiness passed; auth/access status was confirmed by human non-secret fields; manual local smoke retry passed with MANUAL_LOCAL_SMOKE_RETRY_PASS_CAPSULE_2_AUTHOREDFEEDBACK_VISIBLE.
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-VERIFIED-MILESTONE-HANDOFF-1
+```
+
+Explicit non-actions:
+
+```text
+No smoke executed, no app start, no login, no q1-q4 submission, no completion, no API calls, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-MANUAL-LOCAL-SMOKE-RETRY-1
 
 Baseline before:
