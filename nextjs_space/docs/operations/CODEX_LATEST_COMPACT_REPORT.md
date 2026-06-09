@@ -1,62 +1,52 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-LOCAL-DEV-FIXTURE-DATA-PREP-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-VISIBILITY-SEQUENCE-DIAGNOSIS-1`
 
 Baseline before:
-`45eb55dead05f0cc0b7a8ff688c8d64cb8b1da44`
-
-Human authorization:
-`AUTORIZO_FASE_ESTRECHA_FIXTURE_DATA_PREP_LOCAL_DEV_CAPSULAS_3_5_SIN_PROD_SIN_STAGING_SIN_SECRETS`
+`ad884226497abcdf818f9e5f1feac1d1d1297355`
 
 Preflight result:
 - `git status --short`: clean.
-- `git log --oneline --decorate --graph -8`: `45eb55d` aligned with `HEAD`, `origin/main`, and `origin/HEAD`.
-- `git rev-parse HEAD`: `45eb55dead05f0cc0b7a8ff688c8d64cb8b1da44`.
-- `git rev-parse origin/main`: `45eb55dead05f0cc0b7a8ff688c8d64cb8b1da44`.
-- `git rev-parse origin/HEAD`: `45eb55dead05f0cc0b7a8ff688c8d64cb8b1da44`.
+- `git log --oneline --decorate --graph -8`: `ad88422` aligned with `HEAD`, `origin/main`, and `origin/HEAD`.
+- `git rev-parse HEAD`: `ad884226497abcdf818f9e5f1feac1d1d1297355`.
+- `git rev-parse origin/main`: `ad884226497abcdf818f9e5f1feac1d1d1297355`.
+- `git rev-parse origin/HEAD`: `ad884226497abcdf818f9e5f1feac1d1d1297355`.
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_LOCAL_DEV_FIXTURE_DATA_PREP_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_VISIBILITY_SEQUENCE_DIAGNOSIS_1.md`
 
-Registry confirmation:
-- Capsule 3 `paes_m1_numbers_percentage_proportionality_entry`: present in static registry.
-- Capsule 5 `paes_m1_geometry_area_measure_entry`: present in static registry.
-- No registry file was edited.
+Human observation:
+- ST M1 showed `PAES M1 - Problemas con ecuaciones lineales` / `Ecuaciones lineales (problemas)` as the next pending capsule.
+- `Abrir capsula` worked.
+- `Comenzar` was not pressed.
+- Panel showed 2 completed capsules and 3 capsules in the active cycle.
 
-Local/dev safety:
-- `LOCAL_DEV_ENV_CONFIRMED_WITHOUT_SECRET_PRINT`.
-- LOCAL_DEV DB availability check passed.
-- No secrets, tokens, cookies, DB URLs, `.env` values, passwords, session values, credentials, or private personal data printed.
+Diagnosis evidence:
+- `paes_m1_linear_equations_word_problems` is the contentKey for the visible next capsule.
+- ST M1 selects the current capsule from the active cycle, preferring in-progress then oldest pending by `createdAt`.
+- Read-only local/dev inspection found one cycle matching the human-observed pattern and one cycle containing prepared capsules 3/5.
+- The prepared capsules 3/5 are not in the human-observed visible cycle.
 
-Target selection:
-- One synthetic local/dev fixture target found.
-- One active PAES_M1 enrollment and one open learning cycle found.
-- Target was not ambiguous.
-
-Data prep operation:
-- `DB_MUTATION_PERFORMED_LOCAL_DEV_FIXTURE_ONLY`.
-- Created pending practice StudyLoad for capsule 3.
-- Created pending practice StudyLoad for capsule 5.
-- No capsule 2 mutation intended or observed.
-
-Post-prep verification:
-- `capsule3Prepared: 1`.
-- `capsule5Prepared: 1`.
-- `capsule2CountObserved: 1`.
+Classification:
+`DIAGNOSIS_3_5_PREPARED_DIFFERENT_TARGET_OR_CYCLE`
 
 Result:
-`LOCAL_DEV_FIXTURE_DATA_PREP_COMPLETED_CAPSULES_3_5_READY_FOR_MANUAL_SMOKE`
+`M1_CAPSULES_3_5_VISIBILITY_SEQUENCE_DIAGNOSIS_COMPLETED`
+
+Correlative visibility issue:
+- Future student/admin UX should expose a stable human-readable capsule correlativo such as `Capsula 01` or `M1-C01`.
+- No UI change is implemented or authorized in this phase.
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-MANUAL-UI-SMOKE-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-VISIBLE-STUDENT-FLOW-FIXTURE-ALIGNMENT-PLAN-1`
 
 Validation:
 - `git diff --check`: passed; only LF-to-CRLF working-copy warnings reported.
 - `git status --short`: only authorized documentation files modified/added.
-- `git log --oneline --decorate --graph -8`: baseline `45eb55d` remained aligned before commit.
+- `git log --oneline --decorate --graph -8`: baseline `ad88422` remained aligned before commit.
 
 Scope safety:
-Minimal LOCAL_DEV fixture/data prep plus documentation. No code changes, no edit to `study-load-content.ts`, no UI/API/schema/DB schema/Prisma schema changes, no continuity or route-order changes, no auth/access changes, no DB reset, no seed scripts, no fixture script edits, no package/migration changes, no browser automation, no API-only tests, no production/staging, no secrets printed, no capsules 4/6, no Sales-Ready or adaptive AI claim.
+Documentation-only visibility/sequence diagnosis. Read-only static/code/docs and local/dev data inspection only. No data mutation, no fixture prep, no code changes, no edit to `study-load-content.ts`, no UI/API/schema/DB/Prisma changes, no continuity or route-order changes, no auth/access changes, no DB reset, no seed scripts, no browser automation, no API-only tests, no production/staging, no secrets printed, no capsules 4/6, no Sales-Ready or adaptive AI claim.

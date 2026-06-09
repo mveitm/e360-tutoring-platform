@@ -2856,6 +2856,65 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-VISIBILITY-SEQUENCE-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+ad88422
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_3_5_VISIBILITY_SEQUENCE_DIAGNOSIS_COMPLETED
+DIAGNOSIS_3_5_PREPARED_DIFFERENT_TARGET_OR_CYCLE
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_VISIBILITY_SEQUENCE_DIAGNOSIS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Diagnosis summary:
+
+Capsules 3/5 are present in the registry and were prepared in a local/dev synthetic target cycle. The human-observed ST M1 flow corresponds to a different open M1 cycle where `paes_m1_linear_equations_word_problems` is the visible pending next capsule. The ST page selects the current capsule by active cycle and pending/in-progress ordering, not by global registry availability.
+
+Human observation carried:
+
+`PAES M1 - Problemas con ecuaciones lineales` was visible/openable as the next pending capsule; `Comenzar` was not pressed; the panel showed 2 completed capsules and 3 capsules in the active cycle.
+
+Correlative visibility issue:
+
+Future student/admin UX should expose a stable human-readable capsule correlativo such as `Capsula 01` or `M1-C01`. No UI change is authorized in this phase.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-VISIBLE-STUDENT-FLOW-FIXTURE-ALIGNMENT-PLAN-1
+```
+
+Explicit non-actions:
+
+- No data mutation.
+- No fixture prep.
+- No code changes.
+- No UI/API/schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets or `.env` values printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-LOCAL-DEV-FIXTURE-DATA-PREP-1
 
 Baseline before:
