@@ -2856,6 +2856,68 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-VISIBLE-FLOW-LOCAL-DEV-DATA-ALIGNMENT-1
+
+Baseline before:
+
+```text
+e30e2054a2ec4f2277e8f0c2d6cdf5aedbcff150
+```
+
+Result/verdict:
+
+```text
+VISIBLE_FLOW_LOCAL_DEV_ALIGNMENT_COMPLETED_CAPSULES_3_5_READY_FOR_HUMAN_SMOKE
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_VISIBLE_FLOW_LOCAL_DEV_DATA_ALIGNMENT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+LOCAL_DEV-only visible-flow data alignment. A unique visible PAES_M1 cycle was identified by normalized read-only checks, then capsules 3/5 were added as pending practice StudyLoads while preserving the existing pending word-problems StudyLoad.
+
+Alignment summary:
+
+```text
+Capsule 3 prepared in visible cycle: paes_m1_numbers_percentage_proportionality_entry, pending.
+Capsule 5 prepared in visible cycle: paes_m1_geometry_area_measure_entry, pending.
+Existing word-problems StudyLoad preserved as pending.
+Completed count preserved: 2.
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-HUMAN-UI-VISIBILITY-CHECK-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/Prisma schema changes.
+- No continuity or route-order changes.
+- No production/staging.
+- No DB reset.
+- No seed scripts.
+- No browser automation.
+- No API-only tests.
+- No secrets printed.
+- No capsules 4/6.
+- No Sales-Ready or adaptive AI claim.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-VISIBLE-FLOW-ALIGNMENT-PLAN-1
 
 Baseline before:
