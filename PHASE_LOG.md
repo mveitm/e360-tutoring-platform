@@ -99,6 +99,54 @@ Explicit non-actions:
 - No adaptive AI claim.
 - No Sales-Ready claim.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-FEEDBACK-DATA-SHAPE-GUARDRAILS-1
+
+Baseline before:
+
+```text
+948f9e9
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_2_3_5_FEEDBACK_DATA_SHAPE_GUARDRAILS_DEFINED
+```
+
+Data-shape verdict:
+
+```text
+FEEDBACK_DATA_SHAPE_GUARDRAILS_DEFINED_READY_FOR_UI_API_LIFECYCLE_GUARDRAILS
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_FEEDBACK_DATA_SHAPE_GUARDRAILS.md
+```
+
+Scope summary:
+
+Documentation-only feedback data-shape guardrails for capsules 2, 3 and 5. Defines `MVP_STATIC_BRIEF_COMPLETE_ONLY` as primary mapping, keeps step-by-step/rationales/distractor rationales/key-validation notes/inference-limit notes internal by default, and requires UI/API/lifecycle guardrails before implementation planning.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-UI-API-LIFECYCLE-GUARDRAILS-1
+```
+
+Explicit non-actions:
+
+```text
+No implementation, no code changes, no DB/schema/endpoints, no registry or continuity changes, no route-order changes, no source-code changes, no candidate key changes, no generated capsules, no API calls, no final implementation keys, no deployed student-facing content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 3. Current verified baseline
 
 Baseline before compaction:

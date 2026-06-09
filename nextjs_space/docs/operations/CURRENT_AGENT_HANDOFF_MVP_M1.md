@@ -2213,6 +2213,47 @@ No final implementation answer keys are authorized.
 No deployed student-facing content is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
 
+## 59. M1-CAPSULES-2-3-5-FEEDBACK-DATA-SHAPE-GUARDRAILS-1 status
+
+M1-CAPSULES-2-3-5-FEEDBACK-DATA-SHAPE-GUARDRAILS-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_FEEDBACK_DATA_SHAPE_GUARDRAILS.md
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_3_5_FEEDBACK_DATA_SHAPE_GUARDRAILS_DEFINED
+```
+
+Data-shape verdict:
+
+```text
+FEEDBACK_DATA_SHAPE_GUARDRAILS_DEFINED_READY_FOR_UI_API_LIFECYCLE_GUARDRAILS
+```
+
+Decision:
+
+The current repo shape supports authored feedback through `briefId`, `completeId`, `version`, `brief`, and `complete`. The recommended primary mapping is `MVP_STATIC_BRIEF_COMPLETE_ONLY`; step-by-step, item rationales, distractor/error-family rationales, key-validation notes, and inference-limit notes remain internal/reviewer assets by default unless a later UI/API/lifecycle guardrail phase explicitly authorizes a narrower student-facing treatment.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-UI-API-LIFECYCLE-GUARDRAILS-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No source-code or source content changes are authorized.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No candidate key changes or final implementation answer keys are authorized.
+No deployed student-facing content is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
 
 ## 52. M1-CAPSULES-2-3-5-AUTHORING-REVIEW-1 status
 
