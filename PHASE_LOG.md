@@ -147,6 +147,54 @@ Commit hash after closeout:
 See git log after commit.
 ```
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-UI-API-LIFECYCLE-GUARDRAILS-1
+
+Baseline before:
+
+```text
+154df82
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_2_3_5_UI_API_LIFECYCLE_GUARDRAILS_DEFINED
+```
+
+UI/API/lifecycle verdict:
+
+```text
+UI_API_LIFECYCLE_GUARDRAILS_DEFINED_READY_FOR_IMPLEMENTATION_PLAN_AUDIT
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_UI_API_LIFECYCLE_GUARDRAILS.md
+```
+
+Scope summary:
+
+Documentation-only UI/API/lifecycle guardrails for future display of feedback breve and feedback completo for PAES_M1 capsules 2, 3 and 5. Defines timing, label, payload, lifecycle, student-facing/internal asset, inference-limit, persistence and continuity boundaries before any implementation-plan audit.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-IMPLEMENTATION-PLAN-AUDIT-1
+```
+
+Explicit non-actions:
+
+```text
+No implementation, no code changes, no DB/schema/endpoints, no registry or continuity changes, no route-order changes, no source-code changes, no source item changes, no candidate key changes, no generated capsules, no API calls, no UI changes, no final implementation keys, no deployed student-facing content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 3. Current verified baseline
 
 Baseline before compaction:

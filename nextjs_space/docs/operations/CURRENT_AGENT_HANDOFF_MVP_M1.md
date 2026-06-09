@@ -2254,6 +2254,48 @@ No candidate key changes or final implementation answer keys are authorized.
 No deployed student-facing content is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
 
+## 60. M1-CAPSULES-2-3-5-UI-API-LIFECYCLE-GUARDRAILS-1 status
+
+M1-CAPSULES-2-3-5-UI-API-LIFECYCLE-GUARDRAILS-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_UI_API_LIFECYCLE_GUARDRAILS.md
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_3_5_UI_API_LIFECYCLE_GUARDRAILS_DEFINED
+```
+
+UI/API/lifecycle verdict:
+
+```text
+UI_API_LIFECYCLE_GUARDRAILS_DEFINED_READY_FOR_IMPLEMENTATION_PLAN_AUDIT
+```
+
+Decision:
+
+UI/API/lifecycle guardrails are defined for later feedback breve/completo display. The current UI/API can surface authored brief and complete feedback when present, but future implementation planning must audit label accuracy because current complete feedback expansion is labeled `paso a paso`. Internal rationales, key-validation notes and inference-limit governance assets remain non-student-facing by default. Feedback display must not alter submission, completion, continuity, route order, scoring, mastery, readiness, theta, adaptive AI or Sales-Ready boundaries.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-IMPLEMENTATION-PLAN-AUDIT-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No source-code or source content changes are authorized.
+No UI/API/schema/registry changes are authorized.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No candidate key changes or final implementation answer keys are authorized.
+No deployed student-facing content is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
 
 ## 52. M1-CAPSULES-2-3-5-AUTHORING-REVIEW-1 status
 
