@@ -42,6 +42,52 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C03-FEEDBACK-QUALITY-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+0084be64df870042c77f81743c8f3246a553a743
+```
+
+Result/verdict:
+
+```text
+M1_C03_FEEDBACK_QUALITY_BLOCKER_DIAGNOSED_AUTHORED_FEEDBACK_MISSING
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C03_FEEDBACK_QUALITY_DIAGNOSIS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only diagnosis of human local/dev finding in `M1-C03 - Problemas con ecuaciones lineales`: feedback visible after submission is key-only fallback, with no feedback breve, no feedback completo and no `paso a paso`. Static registry inspection found q1-q4 `correctOptionKey` values but no `authoredFeedback` on M1-C03 items.
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No data mutation.
+- No browser automation.
+- No API-only tests.
+- No self-report completion requested.
+- No `Finalizar capsula` action requested.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C04-C05-BLOCK-CLOSEOUT-HANDOFF-1
 
 Baseline before:

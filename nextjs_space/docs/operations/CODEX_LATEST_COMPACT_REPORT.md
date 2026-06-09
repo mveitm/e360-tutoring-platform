@@ -1,46 +1,46 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C04-C05-BLOCK-CLOSEOUT-HANDOFF-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C03-FEEDBACK-QUALITY-DIAGNOSIS-1`
 
 Baseline before:
-`11e4fd692e78926ab86bb717dbb084cba04df908`
+`0084be64df870042c77f81743c8f3246a553a743`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
-- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C04_C05_BLOCK_CLOSEOUT_HANDOFF_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C03_FEEDBACK_QUALITY_DIAGNOSIS_1.md`
 
 Result:
-`M1_C04_C05_BLOCK_CLOSEOUT_HANDOFF_COMPLETED_LIVING_REFERENCE_ADDED`
+`M1_C03_FEEDBACK_QUALITY_BLOCKER_DIAGNOSED_AUTHORED_FEEDBACK_MISSING`
 
-Block closeout summary:
-- `M1-C04 - Porcentaje y proporcionalidad en contexto` is registry implemented and human manual local/dev UI smoke passed.
-- `M1-C05 - Area, perimetro y medida en figuras simples` is registry implemented and human manual local/dev UI smoke passed.
-- Prior manual smoke closeout result: `M1_C04_C05_MANUAL_UI_SMOKE_CLOSEOUT_PASSED`.
-- Visible correlativo protocol applied; do not refer to the block only as internal candidate capsules 3/5.
+Human observation:
+- Human paused on local/dev self-report screen for `M1-C03 - Problemas con ecuaciones lineales`.
+- Self-report not answered; `Finalizar capsula` not pressed.
+- Feedback containers showed key-only feedback such as selected answer and correct answer.
+- No feedback breve, feedback completo or `paso a paso` was observed.
+- Header/self-report area did not clearly show M1-C03 title/correlativo.
 
-Living references:
-- Added brief reference to `CURRENT_AGENT_HANDOFF_MVP_M1.md`.
-- Added brief reference to `DOCUMENTATION_INDEX_MVP_M1.md`.
+Static diagnosis:
+- M1-C03 maps to `paes_m1_linear_equations_word_problems`.
+- M1-C03 q1-q4 have `correctOptionKey` values.
+- M1-C03 q1-q4 do not have `authoredFeedback` blocks in the registry.
+- The UI renders authored brief/complete and `paso a paso` only when authored feedback fields are present.
 
-Open non-blocking debts:
-- UI/admin visible correlativo display.
-- Feedback completo / paso-a-paso close affordance.
+Comparison:
+- M1-C04 and M1-C05 passed local/dev smoke with authored feedback behavior.
+- M1-C03 currently falls below that feedback quality standard.
 
-Recommended next decisions:
-- Retomar flujo natural M1 y probar continuidad despues de `PAES M1 - Problemas con ecuaciones lineales`.
-- Or prepare future UI/admin correlativo display.
-- Or prepare the next M1 content block using visible correlativos from the start.
+Recommended next step:
+`MVP-SALES-PILOT-PEDAGOGY-M1-C03-AUTHOREDFEEDBACK-NARROW-CODE-PREP-1`
 
 Verification:
 - `git status --short`: clean at preflight.
-- `git log --oneline --decorate --graph -8`: `11e4fd6` aligned at preflight.
-- `git rev-parse HEAD`, `origin/main`, `origin/HEAD`: all `11e4fd692e78926ab86bb717dbb084cba04df908`.
+- `git log --oneline --decorate --graph -8`: `0084be6` aligned at preflight.
+- `git rev-parse HEAD`, `origin/main`, `origin/HEAD`: all `0084be64df870042c77f81743c8f3246a553a743`.
+- Required read-only document/code inspection completed.
 - `git diff --check`: passed.
 - Only authorized documentation files changed before commit.
 
 Scope safety:
-Documentation-only block closeout handoff. No code changes, no data mutation, no UI/API/schema/DB/Prisma changes, no continuity or route-order changes, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+Documentation-only/read-only diagnosis. No code changes, no data mutation, no UI/API/schema/DB/Prisma changes, no continuity or route-order changes, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no self-report completion requested, no `Finalizar capsula` action requested, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
