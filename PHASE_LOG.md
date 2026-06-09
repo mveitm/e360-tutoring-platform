@@ -42,6 +42,62 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-AUTHOREDFEEDBACK-1
+
+Baseline before:
+
+```text
+57c7f8c
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_IMPLEMENTED
+```
+
+Code scope verdict:
+
+```text
+CAPSULE_2_AUTHOREDFEEDBACK_ONLY_IMPLEMENTED_WITHIN_SCOPE
+```
+
+File changed:
+
+```text
+nextjs_space/lib/study-load-content.ts
+```
+
+Scope summary:
+
+Implemented authoredFeedback enrichment for the existing live PAES_M1 capsule 2 `paes_m1_linear_equations_basic` only. Preserved contentKey, contentVersion, title, program, item count, item keys/order, stems, options, and correctOptionKey values. No capsules 3/5 registry insertion, UI/API/lifecycle, continuity, route-order, schema/DB, source/key, final implementation key, capsule 4/6, Sales-Ready, or adaptive AI changes.
+
+Verification summary:
+
+```text
+git diff --check passed with CRLF normalization warnings only.
+No-leakage rg produced only pre-existing non-authoredFeedback limitation-notice matches for "puntaje PAES"; no new authoredFeedback internal/governance leakage found.
+npm.cmd --prefix nextjs_space run build passed.
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-REVIEW-1
+```
+
+Explicit non-actions:
+
+```text
+No capsules 3/5 registry insertion, no UI changes, no API route changes, no response lifecycle changes, no complete lifecycle changes, no continuity changes, no route-order changes, no pedagogical decision logic changes, no Prisma/schema/DB changes, no stem/option/key changes, no content generation logic changes, no adaptive routing, no scoring/theta/mastery/readiness claims, no Sales-Ready claims, no payment/access/admin analytics changes, no capsules 4/6 changes, no secret or .env inspection.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-CODE-PHASE-AUTHORIZATION-REVIEW-1
 
 Baseline before:

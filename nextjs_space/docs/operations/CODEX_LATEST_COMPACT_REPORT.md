@@ -1,57 +1,63 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-CODE-PHASE-AUTHORIZATION-REVIEW-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-AUTHOREDFEEDBACK-1`
 
 Baseline before:
-`9275d5c`
+`57c7f8c`
 
 Files changed:
+- `nextjs_space/lib/study-load-content.ts`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
 - `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_CODE_PHASE_AUTHORIZATION_REVIEW.md`
 
 Result:
-`M1_CAPSULES_2_3_5_CODE_PHASE_AUTHORIZATION_REVIEW_COMPLETED`
+`M1_CAPSULE_2_AUTHOREDFEEDBACK_IMPLEMENTED`
 
-Authorization verdict:
-`CODE_PHASE_A_AUTHORIZED_CAPSULE_2_AUTHOREDFEEDBACK_ONLY`
+Code scope verdict:
+`CAPSULE_2_AUTHOREDFEEDBACK_ONLY_IMPLEMENTED_WITHIN_SCOPE`
 
-Authorized next code scope:
-- Edit only `nextjs_space/lib/study-load-content.ts`.
-- Locate existing live `paes_m1_linear_equations_basic`.
-- Preserve contentKey/contentVersion/item count/stems/options/correctOptionKey values; stop if versioning unclear.
-- Add `authoredFeedback` to each existing capsule 2 item using existing `StudyLoadAuthoredFeedback` fields only.
-- Keep all internal notes/rationales/inference-limit/source-finalization/implementation-readiness notes out of code/student-facing payloads.
-- Run future authorized static/build verification and compact report.
+Implementation summary:
+- Added `authoredFeedback` to the four existing `paes_m1_linear_equations_basic` items only.
+- Used existing `StudyLoadAuthoredFeedback` fields: `briefId`, `completeId`, `version`, `brief`, `complete`.
+- Used stable ids with version `bpcpv1-capsule2-feedback-v1`.
+- Mapped feedback breve to `brief` and feedback completo with concise steps to `complete`.
+- Kept internal rationales, key-validation notes, source-finalization notes, implementation-readiness notes and raw inference-limit notes out of code.
 
-Explicitly not authorized:
-- Adding capsules 3 and 5 to registry.
-- Editing UI/API/routes/response lifecycle/complete lifecycle.
-- Editing continuity, route order, or pedagogical decision logic.
-- Editing Prisma/schema/DB.
-- Changing stems/options/keys/content generation logic.
-- Adding adaptive routing, scoring/theta/mastery/readiness, Sales-Ready claims, payment/access/admin analytics, or capsules 4/6.
+Preserved:
+- contentKey
+- contentVersion
+- item count
+- stems
+- options
+- correctOptionKey
+- UI/API/lifecycle
+- continuity
+- route-order
 
-Blocked items, if any:
-- Code edits still blocked until next explicit code-phase prompt.
-- Final implementation keys blocked until code-time recheck.
-- 3/5 registry insertion blocked.
-- UI label changes blocked.
-- API/lifecycle/continuity/route-order/schema/DB changes blocked.
-
-Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-AUTHOREDFEEDBACK-1`
+Blocked / not touched:
+- capsules 3 and 5 registry insertion
+- UI label
+- API routes
+- response lifecycle
+- complete lifecycle
+- continuity
+- route-order
+- schema/DB
+- final implementation keys
+- capsules 4/6
 
 Verification:
-- `git status --short`: `M PHASE_LOG.md`; `M nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`; `M nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`; `M nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`; `?? nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_CODE_PHASE_AUTHORIZATION_REVIEW.md`
-- `git log --oneline --decorate --graph -8`: `9275d5c (HEAD -> main, origin/main, origin/HEAD) MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-NARROW-IMPLEMENTATION-PLAN-1: draft narrow implementation plan`; then `7e0ce0b`, `a792804`, `154df82`, `948f9e9`, `f62dee2`, `c85293e`, `994249f`
+- `git status --short`: `M PHASE_LOG.md`; `M nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`; `M nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`; `M nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`; `M nextjs_space/lib/study-load-content.ts`
+- `git log --oneline --decorate --graph -8`: `57c7f8c (HEAD -> main, origin/main, origin/HEAD) MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-CODE-PHASE-AUTHORIZATION-REVIEW-1: authorize first narrow code phase`; then `9275d5c`, `7e0ce0b`, `a792804`, `154df82`, `948f9e9`, `f62dee2`, `c85293e`
 - `git diff --check`: passed; CRLF normalization warnings only
+- no-leakage rg: exact required scan returned pre-existing limitation-notice matches at `nextjs_space/lib/study-load-content.ts:452`, `:580`, `:607`, `:663`, `:788`, `:910`; no internal/governance leakage found in the added authoredFeedback.
+- build/typecheck: `npm.cmd --prefix nextjs_space run build` passed.
 
 Commit:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-CODE-PHASE-AUTHORIZATION-REVIEW-1: authorize first narrow code phase`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A: add authored feedback`
 
 Scope safety:
-Documentation-only code-phase authorization review. No implementation, no code changes, no DB/schema/endpoints, no registry or continuity changes, no route-order changes, no source-code changes, no candidate key changes, no generated capsules, no API calls, no UI changes, no final implementation keys, no deployed student-facing content, no Sales-Ready or adaptive AI claim.
+Narrow code phase. Edited only the authorized code file plus allowed documentation files. No registry insertion for capsules 3/5, no UI/API/schema/DB changes, no continuity or route-order changes, no source/key changes, no final implementation keys, no deployed public commercial content, no Sales-Ready or adaptive AI claim.

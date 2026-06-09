@@ -207,6 +207,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '17' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_basic_q1_brief_bpcpv1_v1',
+          completeId: 'paes_m1_linear_equations_basic_q1_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsule2-feedback-v1',
+          brief:
+            'Revisa la operacion inversa: resta 5 a ambos lados y comprueba el valor en la ecuacion.',
+          complete:
+            'El item pide encontrar el valor que hace verdadera la ecuacion x + 5 = 12. Paso 1: identifica que a x se le suma 5. Paso 2: deshaz esa suma restando 5 a ambos lados. Paso 3: calcula 12 - 5 = 7. Paso 4: comprueba que 7 + 5 = 12. Si elegiste otra opcion, puede sugerir que conviene revisar como usar operaciones inversas en ecuaciones de un paso.',
+        },
       },
       {
         key: 'q2',
@@ -218,6 +227,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '24' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_basic_q2_brief_bpcpv1_v1',
+          completeId: 'paes_m1_linear_equations_basic_q2_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsule2-feedback-v1',
+          brief:
+            'El foco es deshacer la multiplicacion: divide 21 por 3 y verifica multiplicando de nuevo.',
+          complete:
+            'El item pide resolver una ecuacion donde x esta multiplicada por 3. Paso 1: interpreta 3x como 3 * x. Paso 2: divide ambos lados por 3. Paso 3: calcula 21 / 3 = 7. Paso 4: comprueba que 3 * 7 = 21. Si elegiste otra opcion, puede sugerir que conviene revisar la division como operacion inversa de la multiplicacion.',
+        },
       },
       {
         key: 'q3',
@@ -229,6 +247,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '14' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_basic_q3_brief_bpcpv1_v1',
+          completeId: 'paes_m1_linear_equations_basic_q3_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsule2-feedback-v1',
+          brief:
+            'En una ecuacion de dos pasos, primero deshaz la resta y despues la multiplicacion. Luego comprueba.',
+          complete:
+            'El item pide resolver 2x - 4 = 10. Paso 1: deshaz la resta sumando 4 a ambos lados. Paso 2: obtienes 2x = 14. Paso 3: divide ambos lados por 2. Paso 4: obtienes x = 7. Paso 5: comprueba que 2 * 7 - 4 = 10. Si elegiste otra opcion, puede sugerir que conviene revisar el orden de las operaciones inversas.',
+        },
       },
       {
         key: 'q4',
@@ -240,6 +267,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '6' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_basic_q4_brief_bpcpv1_v1',
+          completeId: 'paes_m1_linear_equations_basic_q4_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsule2-feedback-v1',
+          brief:
+            'Si x esta dividido por 3, la operacion inversa es multiplicar por 3. Despues verifica.',
+          complete:
+            'El item pide resolver x/3 = 9. Paso 1: identifica que x esta dividida por 3. Paso 2: multiplica ambos lados por 3. Paso 3: calcula 9 * 3 = 27. Paso 4: comprueba que 27 / 3 = 9. Si elegiste otra opcion, puede sugerir que conviene revisar como deshacer una division dentro de una ecuacion.',
+        },
       },
     ],
     currentLimitationNotice:
