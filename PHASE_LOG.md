@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-LOCAL-FIXTURE-ACCESS-PLAN-1
+
+Baseline before:
+
+```text
+a1e97a8
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_LOCAL_FIXTURE_ACCESS_PLAN_DEFINED
+```
+
+Access-plan verdict:
+
+```text
+LOCAL_FIXTURE_ACCESS_PLAN_BLOCKED_BY_AUTH_ACCESS
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_LOCAL_FIXTURE_ACCESS_PLAN.md
+```
+
+Scope summary:
+
+Defined a documentation-only local fixture/access plan for later capsule 2 authoredFeedback student-UI smoke. The plan separates a human-assisted existing-session route, a future narrow fixture-prep authorization route, and a blocked diagnostic route.
+
+Decision summary:
+
+Read-only evidence confirms capsule 2 authoredFeedback and UI/API/lifecycle wiring, but UI verification remains blocked by missing safe human-authenticated local/dev student session and capsule 2 StudyLoad access confirmation.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-HUMAN-HANDOFF-1
+```
+
+Explicit non-actions:
+
+```text
+No smoke executed, no app start, no login, no API calls, no browser/runtime tests, no browser automation, no DB reset, no seed scripts, no fixture mutation, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no source/key changes, no final implementation keys, no production/staging, no secrets printed, no .env inspection, no deployed public commercial content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-EVIDENCE-REPAIR-1
 
 Baseline before:
