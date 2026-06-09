@@ -42,6 +42,54 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-READINESS-1
+
+Baseline before:
+
+```text
+b291294
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_READINESS_DEFINED
+```
+
+Readiness verdict:
+
+```text
+SMOKE_READINESS_READY_FOR_MANUAL_LOCAL_SMOKE
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_READINESS.md
+```
+
+Scope summary:
+
+Defined readiness for a later narrow local/manual smoke of capsule 2 `authoredFeedback` display through the existing `/now` StudyLoad answer flow. The readiness defines preconditions, fixture/session requirements, manual steps, expected UI/API/lifecycle boundaries, pass/fail criteria, stop conditions, evidence to collect, and out-of-scope areas.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-MANUAL-LOCAL-SMOKE-1
+```
+
+Explicit non-actions:
+
+```text
+No smoke executed, no app start, no login, no API calls, no browser/runtime tests, no browser automation, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no source/key changes, no final implementation keys, no deployed public commercial content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-REVIEW-1
 
 Baseline before:

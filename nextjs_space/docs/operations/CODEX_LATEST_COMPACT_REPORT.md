@@ -1,69 +1,51 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-REVIEW-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-READINESS-1`
 
 Baseline before:
-`c19138d`
+`b291294`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
 - `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_CODE_PHASE_A_REVIEW.md`
+- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_READINESS.md`
 
 Result:
-`M1_CAPSULE_2_CODE_PHASE_A_REVIEW_COMPLETED`
+`M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_READINESS_DEFINED`
 
-Review verdict:
-`CAPSULE_2_CODE_PHASE_A_REVIEW_PASSED`
+Smoke-readiness verdict:
+`SMOKE_READINESS_READY_FOR_MANUAL_LOCAL_SMOKE`
 
-Review summary:
-- Code Phase A changed only `nextjs_space/lib/study-load-content.ts` plus allowed docs.
-- Capsule 2 `authoredFeedback` exists for q1-q4 using existing fields only.
-- Source, item count, stems, options, and `correctOptionKey` values were preserved.
-- No UI/API/lifecycle/continuity/route-order/schema/DB/capsules 3/5/capsules 4/6 change was found.
-- Student-facing text is concise, explanatory, cautious, and includes item-specific steps.
+Readiness summary:
+- Code Phase A review passed and accepted capsule 2 authoredFeedback-only scope.
+- Current UI/API surface can expose authored brief/complete after accepted submission.
+- Responses lifecycle uses `mc_submission`; completion, self-report and continuity remain separate.
+- Future smoke is local/manual only and must not execute browser automation, API-only tests, code changes, DB resets, production/staging activity or scope expansion.
 
-Verified preserved:
-- contentKey
-- contentVersion
-- item count
-- stems
-- options
-- correctOptionKey
-- UI/API/lifecycle
-- continuity
-- route-order
-
-Leakage review:
-- Exact no-leakage scan returned only pre-existing limitation-notice matches outside new authoredFeedback at `nextjs_space/lib/study-load-content.ts:452`, `:580`, `:607`, `:663`, `:788`, `:910`.
-- No raw rationale/key-validation/source-finalization/implementation-readiness/raw inference-limit or prohibited claim leaked into authoredFeedback.
-
-Build/static review:
-- Build was not rerun in this review phase.
-- Review relies on Code Phase A compact report and static inspection; `npm.cmd --prefix nextjs_space run build` passed in Code Phase A.
+Manual smoke target:
+- `paes_m1_linear_equations_basic`
+- Student `/now` StudyLoad answer flow for existing capsule 2.
+- Verify q1-q4 brief and complete feedback after submission only.
 
 Blocked items, if any:
-- Browser/runtime/API smoke remains blocked until a separate smoke-readiness/authorization phase.
-- UI label changes remain blocked.
-- Capsules 3/5 registry insertion remains blocked.
-- Continuity/route-order/schema/DB/API changes remain blocked.
-- Final implementation keys remain blocked beyond preservation/recheck evidence.
+- Smoke execution remains blocked until next explicit manual-local-smoke prompt.
+- Browser automation, API-only tests, production/staging, DB reset, UI/API/code/schema/continuity/route-order changes remain blocked.
+- Capsules 3/5, capsules 4/6, registry insertion, final implementation keys, Sales-Ready claims and adaptive AI claims remain out of scope.
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-READINESS-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-MANUAL-LOCAL-SMOKE-1`
 
 Verification:
-- `git status --short`: `M PHASE_LOG.md`; `M nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`; `M nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`; `M nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`; `?? nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_CODE_PHASE_A_REVIEW.md`
-- `git log --oneline --decorate --graph -8`: `c19138d (HEAD -> main, origin/main, origin/HEAD) MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A: add authored feedback`; then `57c7f8c`, `9275d5c`, `7e0ce0b`, `a792804`, `154df82`, `948f9e9`, `f62dee2`
-- `git diff --check`: passed; CRLF normalization warnings only
-- no-leakage rg: exact required scan returned only pre-existing limitation-notice matches at `nextjs_space/lib/study-load-content.ts:452`, `:580`, `:607`, `:663`, `:788`, `:910`
-- build/static if rerun: not rerun; prior Code Phase A build passed
+- `git status --short`: five allowed documentation files changed (`PHASE_LOG.md`, `CODEX_LATEST_COMPACT_REPORT.md`, `CURRENT_AGENT_HANDOFF_MVP_M1.md`, `DOCUMENTATION_INDEX_MVP_M1.md`, new smoke-readiness doc)
+- `git log --oneline --decorate --graph -8`: HEAD/origin/main/origin/HEAD aligned at `b291294` before commit
+- `git diff --check`: passed with CRLF normalization warnings only
+- read-only rg/search: completed; confirmed authoredFeedback, response submission, complete lifecycle, continuity, route-order, and claim-boundary terms across authorized read-only surface.
 
 Commit:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-REVIEW-1: review authored feedback implementation`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-READINESS-1: define smoke readiness`
 
 Scope safety:
-Documentation-only review. No code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no source/key changes, no final implementation keys, no deployed public commercial content, no Sales-Ready or adaptive AI claim.
+Documentation-only smoke readiness. No smoke executed, no app start, no login, no API calls, no browser/runtime tests, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no source/key changes, no final implementation keys, no deployed public commercial content, no Sales-Ready or adaptive AI claim.

@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 Capsule 2 AuthoredFeedback Smoke Readiness Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-SMOKE-READINESS-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_READINESS.md` with verdict `SMOKE_READINESS_READY_FOR_MANUAL_LOCAL_SMOKE`. The next recommended phase is a separately prompted manual local/dev smoke of capsule 2 authoredFeedback display; this phase did not start the app, log in, call APIs, run browser/runtime tests, use browser automation, edit code, or touch UI/API/schema/DB/continuity/route-order.
+
 ## PAES_M1 Capsule 2 Code Phase A Review Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-CODE-PHASE-A-REVIEW-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_CODE_PHASE_A_REVIEW.md` with verdict `CAPSULE_2_CODE_PHASE_A_REVIEW_PASSED`. The review accepted the capsule 2 authoredFeedback-only change as in scope and recommends a separate smoke-readiness phase; browser/runtime/API smoke, UI changes, registry insertion for capsules 3/5, continuity, route-order, schema/DB, and final implementation keys remain blocked.
