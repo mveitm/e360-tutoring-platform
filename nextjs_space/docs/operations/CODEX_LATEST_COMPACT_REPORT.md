@@ -1,39 +1,38 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-ROUTE-ORDER-CORRELATIVE-AUDIT-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-VISIBLE-CORRELATIVE-RENUMBERING-DOC-1`
 
 Baseline before:
-`5c6dfc7d5f6e7b30176b0ca7b2b25e5e382481e1`
+`01a220b055829be9bc217eebbb915562112751e9`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_ROUTE_ORDER_CORRELATIVE_AUDIT_1.md`
+- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
+- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_VISIBLE_CORRELATIVE_RENUMBERING_DOC_1.md`
 
 Result:
-`M1_ROUTE_ORDER_CORRELATIVE_AUDIT_READY_RENUMBERING_RECOMMENDED`
+`M1_VISIBLE_CORRELATIVE_RENUMBERING_DOCUMENTED_LIVING_REFERENCE_ADDED`
 
-Audit summary:
-- Current continuity routes `paes_m1_linear_equations_word_problems` to `paes_m1_linear_equations_reinforcement`.
-- `Refuerzo de ecuaciones lineales` is registry-backed as `paes_m1_linear_equations_reinforcement`.
-- Current continuity then routes Refuerzo to `paes_m1_linear_functions_basic`, then to `paes_m1_data_representation_entry`.
-- Percentage/proportionality and geometry/measure are implemented and direct-smoke-passed, but are not present in the inspected natural continuity path.
+Renumbering summary:
+- Current visible M1 route-order correlativos now include `M1-C04 - Refuerzo de ecuaciones lineales`.
+- `M1-C05` is `Funciones lineales basicas`.
+- `M1-C06` is `Lectura de tablas y graficos`.
+- The former percentage/geometry `M1-C04/M1-C05` labels are now legacy pending correction, while their registry/direct-smoke-passed status remains historically preserved.
 
-Recommended visible correlativo correction:
-- `M1-C04 - Refuerzo de ecuaciones lineales`
-- `M1-C05 - Funciones lineales basicas`
-- `M1-C06 - Lectura de tablas y graficos`
-- Prior percentage/geometry `M1-C04/M1-C05` labels: `legacy correlativo pending correction`.
+Living docs updated:
+- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
+- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
 
-Recommended next decision:
-`A) Documentar renumeracion visible y actualizar handoff/docs vivos.`
+Recommended next step:
+`MVP-SALES-PILOT-PEDAGOGY-M1-C04-REFUERZO-FEEDBACK-QUALITY-DIAGNOSIS-1`
 
 Validation:
 - `git status --short`: clean at preflight.
-- `git log --oneline --decorate --graph -8`: baseline aligned at `5c6dfc7`.
+- `git log --oneline --decorate --graph -8`: baseline aligned at `01a220b`.
 - `git diff --check`: passed.
-- Read-only search/static inspection confirmed registry and continuity evidence.
 
 Scope safety:
-Documentation-only route-order/correlativo audit. No code changes, no UI/API/schema/DB/Prisma changes, no registry changes, no continuity or route-order changes, no data mutation, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+Documentation-only visible correlativo renumbering. No code changes, no UI/API/schema/DB/Prisma changes, no registry changes, no continuity or route-order changes, no data mutation, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.

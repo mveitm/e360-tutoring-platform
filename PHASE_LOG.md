@@ -42,6 +42,53 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-VISIBLE-CORRELATIVE-RENUMBERING-DOC-1
+
+Baseline before:
+
+```text
+01a220b055829be9bc217eebbb915562112751e9
+```
+
+Result/verdict:
+
+```text
+M1_VISIBLE_CORRELATIVE_RENUMBERING_DOCUMENTED_LIVING_REFERENCE_ADDED
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_VISIBLE_CORRELATIVE_RENUMBERING_DOC_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only renumbering freeze after route-order correlativo audit. Current visible M1 correlativos now treat `M1-C04` as `Refuerzo de ecuaciones lineales`, `M1-C05` as `Funciones lineales basicas`, and `M1-C06` as `Lectura de tablas y graficos`. The prior percentage/geometry `M1-C04/M1-C05` labels are legacy pending correction while preserving their registry-implemented and direct-smoke-passed historical block status.
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No registry changes.
+- No data mutation.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-ROUTE-ORDER-CORRELATIVE-AUDIT-1
 
 Baseline before:

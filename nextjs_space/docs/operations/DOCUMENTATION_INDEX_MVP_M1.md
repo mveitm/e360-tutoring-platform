@@ -9,7 +9,8 @@ These documents now govern roadmap direction:
 - `PHASE_LOG.md` - active compact operational phase log.
 - `nextjs_space/docs/operations/PHASE_LOG_ARCHIVE_PRE_COMPACTION_2026_06_08.md` - full pre-compaction historical PHASE_LOG record.
 - `nextjs_space/docs/operations/MVP_GOV_CONTENT_CAPSULE_CORRELATIVE_PROTOCOL_1.md` - active governance protocol for visible capsule correlativos such as `M1-C04`; prevents internal candidate numbers such as capsule 3/5 from masquerading as student/admin-visible sequence.
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C04_C05_BLOCK_CLOSEOUT_HANDOFF_1.md` - closes the M1-C04/M1-C05 content block as registry implemented, local/dev direct-smoked by human UI, and passed; use visible correlativos instead of internal candidate 3/5 shorthand.
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_VISIBLE_CORRELATIVE_RENUMBERING_DOC_1.md` - freezes the current route-order visible correlativo map: `M1-C04` is now `Refuerzo de ecuaciones lineales`, `M1-C05` is `Funciones lineales basicas`, and `M1-C06` is `Lectura de tablas y graficos`; prior percentage/geometry M1-C04/M1-C05 labels are legacy pending correction.
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C04_C05_BLOCK_CLOSEOUT_HANDOFF_1.md` - historical closeout for the formerly labeled M1-C04/M1-C05 percentage/geometry content block as registry implemented, local/dev direct-smoked by human UI, and passed; those correlativos are now legacy pending correction after the route-order audit.
 
 1. `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_1_MVP_BETA_CLOSED_CONSTITUTION.md`
 2. `nextjs_space/docs/operations/MVP_ROADMAP_LOCK_0_PRO_CONTEXT_PACKAGE.md`
