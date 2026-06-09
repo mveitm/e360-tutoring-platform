@@ -2856,6 +2856,68 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-MANUAL-UI-SMOKE-READINESS-1
+
+Baseline before:
+
+```text
+2af8f46
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_3_5_MANUAL_UI_SMOKE_READINESS_DEFINED
+MANUAL_UI_SMOKE_READINESS_READY_WITH_FIXTURE_PRECONDITIONS
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_MANUAL_UI_SMOKE_READINESS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only readiness for future human manual local/dev UI smoke of PAES_M1 capsules 3 and 5 after static registry insertion. No code or data was modified.
+
+Readiness summary:
+
+Static registry checks passed for capsule 3 and capsule 5. Current continuity does not automatically reach these capsules, so future smoke requires existing local/dev StudyLoads or a separately authorized narrow fixture/data preparation phase.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-LOCAL-FIXTURE-ACCESS-CHECK-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No edit to `nextjs_space/lib/study-load-content.ts`.
+- No UI/API/schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No auth/access changes.
+- No fixture mutation.
+- No DB reset.
+- No seed scripts.
+- No app start.
+- No login.
+- No smoke executed.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No capsules 4/6.
+- No Sales-Ready or adaptive AI claim.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-CODE-1
 
 Baseline before:

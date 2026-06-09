@@ -1,87 +1,52 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-CODE-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-MANUAL-UI-SMOKE-READINESS-1`
 
 Baseline before:
-`8d1dcc6`
+`2af8f46669d0204803cd7c9342b1822b2f4cf08b`
 
 Preflight result:
 - `git status --short`: clean.
-- `git log --oneline --decorate --graph -8`: `8d1dcc6` aligned with `HEAD`, `origin/main`, and `origin/HEAD`.
-- `git rev-parse HEAD`: `8d1dcc6e93aefc45f3f25d2efa0ea5a35416e2a6`.
-- `git rev-parse origin/main`: `8d1dcc6e93aefc45f3f25d2efa0ea5a35416e2a6`.
-- `git rev-parse origin/HEAD`: `8d1dcc6e93aefc45f3f25d2efa0ea5a35416e2a6`.
-
-Files read:
-- `PHASE_LOG.md`
-- `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_REGISTRY_CODE_PHASE_PREP_1.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_FINALIZATION.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_KEY_VALIDATION.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_FINAL_AUTHORING.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_REGISTRY_AUTHORIZATION_REVIEW.md`
-- `nextjs_space/lib/study-load-content.ts`
+- `git log --oneline --decorate --graph -8`: `2af8f46` aligned with `HEAD`, `origin/main`, and `origin/HEAD`.
+- `git rev-parse HEAD`: `2af8f46669d0204803cd7c9342b1822b2f4cf08b`.
+- `git rev-parse origin/main`: `2af8f46669d0204803cd7c9342b1822b2f4cf08b`.
+- `git rev-parse origin/HEAD`: `2af8f46669d0204803cd7c9342b1822b2f4cf08b`.
 
 Files changed:
-- `nextjs_space/lib/study-load-content.ts`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_MANUAL_UI_SMOKE_READINESS_1.md`
 
-Capsule 3 registry result:
-- Added `paes_m1_numbers_percentage_proportionality_entry`.
-- Title: `PAES M1 - Porcentaje y proporcionalidad en contexto`.
-- Program: `PAES_M1`.
-- Item count/order: q1, q2, q3, q4.
-- Keys: B/B/A/C.
-- Source status at implementation input: `SOURCE_FINALIZED_DOCUMENTATION_PLAN_NOT_IMPLEMENTED`.
+Registry static confirmation:
+- Capsule 3 `paes_m1_numbers_percentage_proportionality_entry`: found, 4 items, order q1-q4, keys `BBAC`, 4 authoredFeedback blocks.
+- Capsule 5 `paes_m1_geometry_area_measure_entry`: found, 4 items, order q1-q4, keys `BBBA`, 4 authoredFeedback blocks.
+- Existing authoredFeedback shape confirmed as `briefId`, `completeId`, `version`, `brief`, `complete`.
 
-Capsule 5 registry result:
-- Added `paes_m1_geometry_area_measure_entry`.
-- Title: `PAES M1 - Area, perimetro y medida en figuras simples`.
-- Program: `PAES_M1`.
-- Item count/order: q1, q2, q3, q4.
-- Keys: B/B/B/A.
-- Source status at implementation input: `SOURCE_FINALIZED_DOCUMENTATION_PLAN_NOT_IMPLEMENTED`.
+Reachability / continuity:
+- Current PAES_M1 continuity does not automatically reach capsule 3 or capsule 5.
+- Future manual smoke requires existing local/dev StudyLoads for both target titles, or a separately authorized narrow fixture/data preparation phase.
+- No continuity or route-order change is authorized by this readiness.
 
-authoredFeedback mapping:
-- Existing shape preserved: `briefId`, `completeId`, `version`, `brief`, `complete`.
-- Final feedback breve mapped to `brief`.
-- Final feedback completo mapped to `complete`.
-- Capsule 2 authoredFeedback and existing registry entries preserved.
+Readiness verdict:
+`MANUAL_UI_SMOKE_READINESS_READY_WITH_FIXTURE_PRECONDITIONS`
 
-Leakage review:
-- No internal rationale, distractor rationale, key-validation note, source-finalization note, implementation-readiness note, inference-limit note, diagnosis, score, theta, mastery, readiness, routeDecision, Sales-Ready, or adaptive AI field was added.
-- Student-facing feedback text uses final-authoring brief/complete only.
+Result:
+`M1_CAPSULES_3_5_MANUAL_UI_SMOKE_READINESS_DEFINED`
+
+Manual UI smoke checklist:
+- Future checklist covers local/dev session, `/now` or student surface, title/contentKey confirmation, q1-q4 submission, brief feedback, complete/paso-a-paso feedback, self-report, Finalizar capsula, terminal/completion state, continuity/route-order observation, leakage/claims review, visual anomalies, and the non-blocking `Cerrar paso a paso` UX follow-up.
 
 Validation:
 - `git diff --check`: passed; only LF-to-CRLF working-copy warnings reported.
-- `git status --short`: only authorized files modified.
-- `git log --oneline --decorate --graph -8`: baseline `8d1dcc6` remained current before commit.
-- Static scope check: only `study-load-content.ts`, `PHASE_LOG.md`, and `CODEX_LATEST_COMPACT_REPORT.md` changed.
-- Static content check: capsule 3 has 4 items and keys `BBAC`; capsule 5 has 4 items and keys `BBBA`.
-- Static authoredFeedback check: capsule 3 and capsule 5 each have 4 `authoredFeedback` blocks using the existing shape.
-- Static leakage check: no prohibited internal metadata fields were added in the new registry diff.
+- `git status --short`: only authorized documentation files modified/added.
+- `git log --oneline --decorate --graph -8`: baseline `2af8f46` remained aligned before commit.
 
-Build:
-- `npm.cmd --prefix nextjs_space run build`: passed.
+Recommended next step:
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-LOCAL-FIXTURE-ACCESS-CHECK-1`
 
-Commit:
-- Pending final commit after report update.
-
-Push:
-- Pending final push after commit.
-
-Final HEAD:
-- Pending final git verification after commit/push.
-
-Result:
-`M1_CAPSULES_3_5_REGISTRY_CODE_COMPLETED`
-
-Open follow-ups:
-- Manual/local UI smoke for capsules 3/5 remains unexecuted.
-- No continuity/route-order linkage for capsules 3/5 was added.
-- UX `Cerrar paso a paso`, capsules 4/6, production/staging, Sales-Ready claims, and adaptive AI claims remain blocked until separately authorized.
+Follow-up/blocker:
+- Need non-secret human/local-dev confirmation that capsule 3 and capsule 5 StudyLoads are already visible/openable, or a separate narrow fixture/data preparation authorization if they are missing.
 
 Scope safety:
-Narrow registry code phase only. No UI/API/schema/DB/Prisma changes, no continuity changes, no route-order changes, no pedagogical decision changes, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no production/staging, no secrets printed, no capsules 4/6, no Sales-Ready or adaptive AI claim, and no new operational document.
+Documentation-only manual UI smoke readiness. No code changes, no edit to `study-load-content.ts`, no app start, no login, no smoke execution, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no UI/API/schema/DB/Prisma changes, no continuity or route-order changes, no auth/access changes, no production/staging, no secrets printed, no capsules 4/6, no Sales-Ready or adaptive AI claim.
