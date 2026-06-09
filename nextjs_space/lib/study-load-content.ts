@@ -552,6 +552,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '12' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_word_problems_q1_brief_m1c03_v1',
+          completeId: 'paes_m1_linear_equations_word_problems_q1_complete_m1c03_v1',
+          version: 'm1-c03-authored-feedback-v1',
+          brief:
+            'Primero reparte el 2 en el parentesis o divide ambos lados por 2. Luego despeja x paso a paso.',
+          complete:
+            'La ecuacion es 2(x + 3) = 18. Puedes partir dividiendo ambos lados por 2: x + 3 = 9. Luego resta 3 en ambos lados: x = 6. Tambien puedes distribuir primero: 2x + 6 = 18, despues restar 6 para obtener 2x = 12 y dividir por 2. En ambos caminos, x = 6.',
+        },
       },
       {
         key: 'q2',
@@ -563,6 +572,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '9' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_word_problems_q2_brief_m1c03_v1',
+          completeId: 'paes_m1_linear_equations_word_problems_q2_complete_m1c03_v1',
+          version: 'm1-c03-authored-feedback-v1',
+          brief:
+            'Junta los terminos con x en un lado y los numeros en el otro. Mantener el orden de los signos es clave.',
+          complete:
+            'La ecuacion es 4x - 5 = 2x + 11. Resta 2x en ambos lados para juntar las x: 2x - 5 = 11. Luego suma 5 en ambos lados: 2x = 16. Finalmente divide por 2: x = 8. La alternativa correcta es 8.',
+        },
       },
       {
         key: 'q3',
@@ -574,6 +592,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '18' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_word_problems_q3_brief_m1c03_v1',
+          completeId: 'paes_m1_linear_equations_word_problems_q3_complete_m1c03_v1',
+          version: 'm1-c03-authored-feedback-v1',
+          brief:
+            'Primero elimina el +7. Despues recuerda que x/2 significa que x esta dividido por 2.',
+          complete:
+            'La ecuacion es (x/2) + 7 = 15. Resta 7 en ambos lados: x/2 = 8. Para deshacer la division por 2, multiplica ambos lados por 2: x = 16. La alternativa correcta es 16. Un error comun es detenerse en 8, pero 8 es el valor de x/2, no de x.',
+        },
       },
       {
         key: 'q4',
@@ -585,6 +612,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '12' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_word_problems_q4_brief_m1c03_v1',
+          completeId: 'paes_m1_linear_equations_word_problems_q4_complete_m1c03_v1',
+          version: 'm1-c03-authored-feedback-v1',
+          brief:
+            'Ordena la ecuacion antes de despejar: distribuye el 3 o elimina primero el +6 y luego divide.',
+          complete:
+            'La ecuacion es 3(x - 4) + 6 = 24. Una forma directa es restar 6 en ambos lados: 3(x - 4) = 18. Luego divide por 3: x - 4 = 6. Finalmente suma 4: x = 10. Si distribuyes, obtienes 3x - 12 + 6 = 24, es decir 3x - 6 = 24; al sumar 6 y dividir por 3 tambien llegas a x = 10.',
+        },
       },
     ],
     currentLimitationNotice:
