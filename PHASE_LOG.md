@@ -42,6 +42,59 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C04-C05-MANUAL-UI-SMOKE-CLOSEOUT-1
+
+Baseline before:
+
+```text
+e3b68213a9d0f0c7a2b78d5b1f7d2cb85be594ad
+```
+
+Result/verdict:
+
+```text
+M1_C04_C05_MANUAL_UI_SMOKE_CLOSEOUT_PASSED
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C04_C05_MANUAL_UI_SMOKE_CLOSEOUT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only closeout of human manual local/dev UI smoke for `M1-C04 - Porcentaje y proporcionalidad en contexto` and `M1-C05 - Area, perimetro y medida en figuras simples`, applying the visible correlativo protocol.
+
+Human smoke summary:
+
+```text
+M1-C04: PASSED
+M1-C05: PASSED
+Overall: M1_C04_C05_MANUAL_UI_SMOKE_PASSED_LOCAL_DEV
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No data mutation.
+- No fixture prep.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-GOV-CONTENT-CAPSULE-CORRELATIVE-PROTOCOL-1
 
 Baseline before:
