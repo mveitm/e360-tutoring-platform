@@ -42,6 +42,68 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-MANUAL-LOCAL-SMOKE-1
+
+Baseline before:
+
+```text
+1e7668f
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_COMPLETION_FLOW_MANUAL_LOCAL_SMOKE_COMPLETED
+```
+
+Manual smoke verdict:
+
+```text
+COMPLETION_FLOW_MANUAL_SMOKE_PASS
+```
+
+Human observation summary:
+
+Human non-secret observation reported capsule 2 post-feedback start, self-report options visible, `ME_FUE_BIEN` selected, `Finalizar capsula` visible and accepted, terminal/completed state visible, dashboard/ST progress updated, next StudyLoad offered/created expectedly, no unexpected continuity change, preserved feedback/completion boundary, no internal leakage or prohibited claims, and no error.
+
+Scope summary:
+
+Documentation-only recording of human manual local/dev completion-flow smoke evidence. No code, UI/API/schema/DB, registry, continuity, route-order, production/staging, API-only, automation, DB reset, seed, fixture mutation, or secrets work.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No Codex app start.
+- No Codex login.
+- No Codex self-report selection.
+- No Codex `Finalizar capsula` action.
+- No API calls.
+- No browser automation.
+- No API-only tests.
+- No DB reset.
+- No seed scripts.
+- No fixture mutation.
+- No UI/API/schema/DB changes.
+- No registry insertion.
+- No continuity or route-order changes.
+- No capsules 3/5 work.
+- No production/staging.
+- No secrets printed.
+- No Sales-Ready claim.
+- No adaptive AI claim.
+
+Commit hash after closeout:
+
+```text
+pending
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-SMOKE-READINESS-1
 
 Baseline before:
