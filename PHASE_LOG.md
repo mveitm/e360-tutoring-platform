@@ -42,6 +42,51 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-ROUTE-ORDER-CORRELATIVE-AUDIT-1
+
+Baseline before:
+
+```text
+5c6dfc7d5f6e7b30176b0ca7b2b25e5e382481e1
+```
+
+Result/verdict:
+
+```text
+M1_ROUTE_ORDER_CORRELATIVE_AUDIT_READY_RENUMBERING_RECOMMENDED
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_ROUTE_ORDER_CORRELATIVE_AUDIT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only audit of PAES_M1 route-order/continuity and visible correlativos after M1-C03 completion surfaced `Refuerzo de ecuaciones lineales` as the next capsule. Static continuity evidence supports `M1-C04 - Refuerzo de ecuaciones lineales` as the next route-order correlativo. The previously labeled M1-C04/M1-C05 percentage/geometry block is recorded as `legacy correlativo pending correction` until route-order placement is explicitly decided.
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No registry changes.
+- No data mutation.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C03-COMPLETION-NEXT-CAPSULE-DIAGNOSIS-1
 
 Baseline before:
