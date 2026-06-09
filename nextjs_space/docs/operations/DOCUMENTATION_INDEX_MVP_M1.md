@@ -101,15 +101,16 @@ These documents now govern roadmap direction:
 90. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_REVIEW.md`
 91. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_EVIDENCE_REPAIR.md`
 92. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_LOCAL_FIXTURE_ACCESS_PLAN.md`
-93. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
-94. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
-95. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
-96. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
-97. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
-98. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
-99. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
-100. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
-101. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
+93. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_HUMAN_HANDOFF.md`
+94. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
+95. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
+96. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
+97. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
+98. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
+99. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
+100. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
+101. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
+102. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
 
 Future chats must read them before proposing work.
 
@@ -148,6 +149,7 @@ Current source-authoring status:
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_REVIEW.md` reviews the manual local smoke evidence, concludes `SMOKE_REVIEW_BLOCKED_EVIDENCE_INSUFFICIENT`, and keeps capsule 2 authoredFeedback local UI verification blocked until sufficient manual student-UI evidence is collected.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_SMOKE_EVIDENCE_REPAIR.md` repairs the evidence gap by classifying the real blocker as `SMOKE_EVIDENCE_REPAIR_BLOCKED_LOGIN_OR_FIXTURE_NOT_AVAILABLE`, preserving scope safety and recommending a local fixture/access plan before any further manual UI smoke.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_LOCAL_FIXTURE_ACCESS_PLAN.md` defines the safe local/dev access and fixture routes for a future capsule 2 authoredFeedback student-UI smoke, concludes `LOCAL_FIXTURE_ACCESS_PLAN_BLOCKED_BY_AUTH_ACCESS`, and recommends a human-assisted auth/access handoff before any smoke retry or fixture-prep authorization.
+- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_HUMAN_HANDOFF.md` records the safe auth/access handoff protocol, concludes `AUTH_ACCESS_HANDOFF_BLOCKED_AUTH_ACCESS` because no human-safe app/login/`/now`/capsule 2 status was captured, and recommends auth/access diagnosis before any manual smoke retry.
 
 The Block 7 anchor is mandatory before content-route phases.
 

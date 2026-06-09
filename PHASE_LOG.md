@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-HUMAN-HANDOFF-1
+
+Baseline before:
+
+```text
+5bcc2fa
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_HUMAN_HANDOFF_COMPLETED
+```
+
+Handoff verdict:
+
+```text
+AUTH_ACCESS_HANDOFF_BLOCKED_AUTH_ACCESS
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_HUMAN_HANDOFF.md
+```
+
+Scope summary:
+
+Defined and documented the safe human auth/access handoff protocol for capsule 2 authoredFeedback UI verification. No human-safe app/login/`/now`/capsule 2 status response was captured, so smoke retry remains blocked.
+
+Human status summary without secrets:
+
+No credentials or secrets were requested, received, printed or stored. No human response confirmed local app availability, login, `/now`, or capsule 2 StudyLoad visibility.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-DIAGNOSIS-1
+```
+
+Explicit non-actions:
+
+```text
+No smoke executed, no q1-q4 submission, no app start, no login, no API calls, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no production/staging, no secrets printed, no .env inspection, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-LOCAL-FIXTURE-ACCESS-PLAN-1
 
 Baseline before:
