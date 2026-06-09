@@ -2855,3 +2855,67 @@ Commit hash after closeout:
 ```text
 See final git log after commit/push.
 ```
+
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-CODE-1
+
+Baseline before:
+
+```text
+8d1dcc6
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_3_5_REGISTRY_CODE_COMPLETED
+```
+
+Files changed:
+
+```text
+nextjs_space/lib/study-load-content.ts
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Narrow registry code phase. Added only PAES_M1 capsule 3 and capsule 5 static StudyLoadContent entries to `study-load-content.ts`, preserving capsule 2 and all existing entries.
+
+Registry summary:
+
+```text
+Capsule 3: paes_m1_numbers_percentage_proportionality_entry, 4 items, keys B/B/A/C, authoredFeedback brief/complete mapped from final authoring.
+Capsule 5: paes_m1_geometry_area_measure_entry, 4 items, keys B/B/B/A, authoredFeedback brief/complete mapped from final authoring.
+```
+
+Validation summary:
+
+```text
+Source/key/item-order recheck completed; static scope checks completed; final validation recorded in CODEX_LATEST_COMPACT_REPORT.md.
+```
+
+Explicit non-actions:
+
+- No UI changes.
+- No API changes.
+- No schema/DB/Prisma changes.
+- No continuity changes.
+- No route-order changes.
+- No pedagogical decision changes.
+- No browser automation.
+- No API-only tests.
+- No DB reset.
+- No seed scripts.
+- No fixture mutation.
+- No production/staging.
+- No secrets or `.env` inspection.
+- No capsules 4/6.
+- No Sales-Ready or adaptive AI claim.
+- No new operational document.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```

@@ -298,6 +298,230 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     },
   },
 
+  'PAES M1 - Porcentaje y proporcionalidad en contexto': {
+    contentKey: 'paes_m1_numbers_percentage_proportionality_entry',
+    contentVersion: 'v1',
+    title: 'PAES M1 - Porcentaje y proporcionalidad en contexto',
+    program: 'PAES_M1',
+    topic: 'Porcentaje y proporcionalidad',
+    estimatedMinutes: '20-30 minutos',
+    instructions:
+      'Esta actividad tiene 4 ejercicios de opcion multiple sobre porcentaje y proporcionalidad en contexto.\n\n' +
+      '1. Trabaja en tu cuaderno o en una hoja de papel.\n' +
+      '2. Lee cada enunciado con atencion.\n' +
+      '3. Identifica la cantidad base, la proporcion o la relacion que se mantiene.\n' +
+      '4. Calcula paso a paso antes de elegir una alternativa.\n' +
+      '5. Envia tus respuestas.\n' +
+      '6. Luego deja tu autorreporte y finaliza la actividad en esta misma pagina.\n' +
+      '7. No necesitas volver a /now para cerrar la actividad.\n\n' +
+      'No hay presion por la perfeccion. Lo importante es intentar cada ejercicio con orden.',
+    items: [
+      {
+        key: 'q1',
+        stem:
+          'En un curso hay 40 estudiantes. El 25% participa en el taller de ciencias. ' +
+          '\u00bfCuantos estudiantes participan en ese taller?',
+        options: [
+          { label: 'A', text: '8' },
+          { label: 'B', text: '10' },
+          { label: 'C', text: '15' },
+          { label: 'D', text: '25' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_numbers_percentage_proportionality_entry_q1_brief_bpcpv1_v1',
+          completeId: 'paes_m1_numbers_percentage_proportionality_entry_q1_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsules3-5-feedback-v1',
+          brief:
+            'Reconoce la base: el 25% se calcula sobre 40. Como es un cuarto, conviene revisar 40 / 4.',
+          complete:
+            'El item pide calcular una parte de un total: 25% de 40 estudiantes. La opcion candidata funciona porque 25% equivale a un cuarto, y 40 / 4 = 10. Las otras opciones pueden ser tentadoras si se usa otro porcentaje, si se suma un valor parcial, o si se toma 25 como cantidad de estudiantes. Esta respuesta puede sugerir revisar la relacion parte-todo, pero un item no permite concluir desempeno general en porcentajes.',
+        },
+      },
+      {
+        key: 'q2',
+        stem:
+          'Una botella tenia 600 ml de agua. Despues de beber, queda un 20% menos que al inicio. ' +
+          '\u00bfCuanta agua queda en la botella?',
+        options: [
+          { label: 'A', text: '120 ml' },
+          { label: 'B', text: '480 ml' },
+          { label: 'C', text: '580 ml' },
+          { label: 'D', text: '720 ml' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_numbers_percentage_proportionality_entry_q2_brief_bpcpv1_v1',
+          completeId: 'paes_m1_numbers_percentage_proportionality_entry_q2_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsules3-5-feedback-v1',
+          brief:
+            'Separa cuanto disminuye de cuanto queda: calcula el 20% de 600 y restalo al total inicial.',
+          complete:
+            'El item pregunta por la cantidad que queda, no solo por la disminucion. La opcion candidata funciona porque 20% de 600 ml es 120 ml, y al quedar 20% menos se calcula 600 - 120 = 480 ml. Las otras opciones pueden aparecer si se informa solo la disminucion, si se resta 20 como cantidad fija, o si se aumenta en vez de disminuir. Esta respuesta puede sugerir revisar base, porcentaje y significado de "queda".',
+        },
+      },
+      {
+        key: 'q3',
+        stem:
+          'En una tienda, 3 cuadernos cuestan $2.400. En otra tienda, 5 cuadernos cuestan $4.500. ' +
+          'Si los cuadernos son iguales, \u00bfen que tienda conviene comprar si se busca el menor precio por cuaderno?',
+        options: [
+          { label: 'A', text: 'En la primera tienda, porque cada cuaderno cuesta $800' },
+          { label: 'B', text: 'En la segunda tienda, porque cada cuaderno cuesta $900' },
+          { label: 'C', text: 'En la primera tienda, porque 3 cuadernos son menos que 5' },
+          { label: 'D', text: 'En la segunda tienda, porque el total es mayor' },
+        ],
+        correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m1_numbers_percentage_proportionality_entry_q3_brief_bpcpv1_v1',
+          completeId: 'paes_m1_numbers_percentage_proportionality_entry_q3_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsules3-5-feedback-v1',
+          brief:
+            'Para comparar ofertas, conviene comparar precio por cuaderno. Calcula cada precio unitario y elige el menor.',
+          complete:
+            'El item pide decidir donde conviene comprar si se busca menor precio por cuaderno. La opcion candidata funciona porque en la primera tienda cada cuaderno cuesta $800 y en la segunda cuesta $900. Comparar solo el total o solo la cantidad de cuadernos no basta, porque las ofertas tienen cantidades distintas. Esta respuesta puede sugerir revisar precio unitario y comparacion proporcional.',
+        },
+      },
+      {
+        key: 'q4',
+        stem:
+          'Para preparar jugo, una receta usa 2 vasos de concentrado por cada 5 vasos de agua. ' +
+          'Si se usan 4 vasos de concentrado y se mantiene la misma proporcion, \u00bfcuantos vasos de agua se necesitan?',
+        options: [
+          { label: 'A', text: '7' },
+          { label: 'B', text: '8' },
+          { label: 'C', text: '10' },
+          { label: 'D', text: '20' },
+        ],
+        correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_numbers_percentage_proportionality_entry_q4_brief_bpcpv1_v1',
+          completeId: 'paes_m1_numbers_percentage_proportionality_entry_q4_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsules3-5-feedback-v1',
+          brief:
+            'El foco es mantener la misma proporcion: si el concentrado se duplica, el agua tambien debe duplicarse.',
+          complete:
+            'El item pide mantener una relacion proporcional entre concentrado y agua. La opcion candidata funciona porque pasar de 2 a 4 vasos de concentrado multiplica por 2, por lo que los 5 vasos de agua tambien se multiplican por 2: 5 * 2 = 10. Las otras opciones pueden surgir si se suma en vez de multiplicar o si se combinan numeros visibles sin conservar la relacion. Esta respuesta puede sugerir revisar escalamiento multiplicativo.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Puedes seleccionar tus respuestas y enviarlas desde esta pagina. ' +
+      'Luego deja tu autorreporte y finaliza la actividad en esta misma pagina.',
+  },
+
+  'PAES M1 - Area, perimetro y medida en figuras simples': {
+    contentKey: 'paes_m1_geometry_area_measure_entry',
+    contentVersion: 'v1',
+    title: 'PAES M1 - Area, perimetro y medida en figuras simples',
+    program: 'PAES_M1',
+    topic: 'Area, perimetro y medida',
+    estimatedMinutes: '20-30 minutos',
+    instructions:
+      'Esta actividad tiene 4 ejercicios de opcion multiple sobre area, perimetro y medidas en figuras simples.\n\n' +
+      '1. Trabaja en tu cuaderno o en una hoja de papel.\n' +
+      '2. Lee cada enunciado con atencion.\n' +
+      '3. Decide si la pregunta pide borde, superficie, conversion o comparacion.\n' +
+      '4. Calcula paso a paso antes de elegir una alternativa.\n' +
+      '5. Envia tus respuestas.\n' +
+      '6. Luego deja tu autorreporte y finaliza la actividad en esta misma pagina.\n' +
+      '7. No necesitas volver a /now para cerrar la actividad.\n\n' +
+      'No hay presion por la perfeccion. Lo importante es interpretar la medida que pide cada situacion.',
+    items: [
+      {
+        key: 'q1',
+        stem:
+          'Un jardin rectangular mide 6 m de largo y 4 m de ancho. Se quiere poner una reja alrededor de todo el borde. ' +
+          '\u00bfQue medida se necesita calcular?',
+        options: [
+          { label: 'A', text: 'El area: 6 x 4' },
+          { label: 'B', text: 'El perimetro: 6 + 4 + 6 + 4' },
+          { label: 'C', text: 'La diagonal: 6 + 4' },
+          { label: 'D', text: 'El volumen: 6 x 4 x 2' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_geometry_area_measure_entry_q1_brief_bpcpv1_v1',
+          completeId: 'paes_m1_geometry_area_measure_entry_q1_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsules3-5-feedback-v1',
+          brief:
+            'La palabra clave es "alrededor del borde": eso apunta a perimetro. Revisa si la pregunta pide borde o superficie.',
+          complete:
+            'El item pregunta que medida se necesita para poner una reja alrededor del borde de un rectangulo. La opcion candidata funciona porque el borde completo se calcula con el perimetro: 6 + 4 + 6 + 4. El area serviria para cubrir superficie, no para rodear el borde. La diagonal y el volumen no responden a esta situacion. Esta respuesta puede sugerir revisar la diferencia entre borde y superficie.',
+        },
+      },
+      {
+        key: 'q2',
+        stem:
+          'Una sala con forma de L ya esta dividida en dos rectangulos: uno mide 5 m por 3 m y el otro mide 2 m por 4 m. ' +
+          '\u00bfCual es el area total de la sala?',
+        options: [
+          { label: 'A', text: '14 m2' },
+          { label: 'B', text: '23 m2' },
+          { label: 'C', text: '30 m2' },
+          { label: 'D', text: '40 m2' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_geometry_area_measure_entry_q2_brief_bpcpv1_v1',
+          completeId: 'paes_m1_geometry_area_measure_entry_q2_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsules3-5-feedback-v1',
+          brief:
+            'Como la sala ya esta dividida en dos rectangulos, calcula cada area y despues suma las dos partes.',
+          complete:
+            'El item pide el area total de una sala en forma de L ya separada en dos rectangulos. La opcion candidata funciona porque el primer rectangulo tiene area 5 * 3 = 15 m2 y el segundo 2 * 4 = 8 m2; juntas suman 23 m2. Las otras opciones pueden aparecer si se suman solo dimensiones visibles, si se duplica una parte, o si se multiplican medidas que no forman un mismo rectangulo. Esta respuesta puede sugerir revisar area compuesta por partes.',
+        },
+      },
+      {
+        key: 'q3',
+        stem:
+          'Una cinta mide 2 metros. Para un trabajo se necesitan trozos de 25 centimetros. ' +
+          '\u00bfCuantos trozos completos de 25 cm se pueden cortar?',
+        options: [
+          { label: 'A', text: '4' },
+          { label: 'B', text: '8' },
+          { label: 'C', text: '25' },
+          { label: 'D', text: '50' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_geometry_area_measure_entry_q3_brief_bpcpv1_v1',
+          completeId: 'paes_m1_geometry_area_measure_entry_q3_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsules3-5-feedback-v1',
+          brief:
+            'Antes de dividir, usa la misma unidad: 2 metros son 200 centimetros. Luego calcula cuantos trozos de 25 cm caben.',
+          complete:
+            'El item pide cuantos trozos completos de 25 cm se pueden cortar desde una cinta de 2 metros. La opcion candidata funciona porque primero hay que convertir 2 m = 200 cm, y luego dividir 200 / 25 = 8. Las otras opciones pueden aparecer si se trabaja con unidades mezcladas, si se copia 25, o si se multiplica en vez de dividir. Esta respuesta puede sugerir revisar consistencia de unidades antes de calcular.',
+        },
+      },
+      {
+        key: 'q4',
+        stem:
+          'Dos zonas rectangulares se quieren cubrir con pasto. La zona A mide 4 m de largo y 3 m de ancho. ' +
+          'La zona B mide 5 m de largo y 2 m de ancho. \u00bfCual zona tiene mayor superficie?',
+        options: [
+          { label: 'A', text: 'La zona A, porque su area es 12 m2' },
+          { label: 'B', text: 'La zona B, porque su area es 10 m2' },
+          { label: 'C', text: 'Las dos zonas tienen la misma area' },
+          { label: 'D', text: 'No se puede saber sin calcular el perimetro' },
+        ],
+        correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m1_geometry_area_measure_entry_q4_brief_bpcpv1_v1',
+          completeId: 'paes_m1_geometry_area_measure_entry_q4_complete_bpcpv1_v1',
+          version: 'bpcpv1-capsules3-5-feedback-v1',
+          brief:
+            'Para comparar superficies, calcula el area de cada zona y compara los resultados. No basta mirar solo un lado mas largo.',
+          complete:
+            'El item pide comparar la superficie de dos rectangulos. La opcion candidata funciona porque la zona A tiene area 4 * 3 = 12 m2, mientras que la zona B tiene area 5 * 2 = 10 m2; por eso la zona A tiene mayor superficie. Las otras opciones pueden aparecer si se elige el lado mas largo, si se asume igualdad sin calcular, o si se confunde superficie con perimetro. Esta respuesta puede sugerir revisar comparacion de areas rectangulares.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Puedes seleccionar tus respuestas y enviarlas desde esta pagina. ' +
+      'Luego deja tu autorreporte y finaliza la actividad en esta misma pagina.',
+  },
+
   'PAES M1 \u2014 Problemas con ecuaciones lineales': {
     contentKey: 'paes_m1_linear_equations_word_problems',
     contentVersion: 'v1',

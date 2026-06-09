@@ -1,89 +1,87 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-CODE-PHASE-PREP-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-CODE-1`
 
 Baseline before:
-`4ceea35`
+`8d1dcc6`
 
 Preflight result:
 - `git status --short`: clean.
-- `git log --oneline --decorate --graph -8`: `4ceea35` aligned with `HEAD`, `origin/main`, and `origin/HEAD`.
-- `git rev-parse HEAD`: `4ceea359b8e064ff41b4538ecb522075f16d4834`.
-- `git rev-parse origin/main`: `4ceea359b8e064ff41b4538ecb522075f16d4834`.
+- `git log --oneline --decorate --graph -8`: `8d1dcc6` aligned with `HEAD`, `origin/main`, and `origin/HEAD`.
+- `git rev-parse HEAD`: `8d1dcc6e93aefc45f3f25d2efa0ea5a35416e2a6`.
+- `git rev-parse origin/main`: `8d1dcc6e93aefc45f3f25d2efa0ea5a35416e2a6`.
+- `git rev-parse origin/HEAD`: `8d1dcc6e93aefc45f3f25d2efa0ea5a35416e2a6`.
 
 Files read:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/lib/study-load-content.ts`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_REGISTRY_CODE_PHASE_PREP_1.md`
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_FINALIZATION.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_AUTHORING.md`
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_KEY_VALIDATION.md`
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_FINAL_AUTHORING.md`
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_REGISTRY_AUTHORIZATION_REVIEW.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_FEEDBACK_DATA_SHAPE_GUARDRAILS.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_UI_API_LIFECYCLE_GUARDRAILS.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_COMPLETION_FLOW_CLOSEOUT.md`
+- `nextjs_space/lib/study-load-content.ts`
 
 Files changed:
+- `nextjs_space/lib/study-load-content.ts`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_REGISTRY_CODE_PHASE_PREP_1.md`
 
-Source recheck summary:
-- Capsule 3 and capsule 5 source-finalization documents were found and used as the source of truth for contentKey, title, program, item count, item order, stems, options, and expected keys.
-- Key validation confirms documentation-level keys for capsules 3/5, with a required code-time recheck before insertion.
-- Final authoring confirms student-facing brief/complete feedback exists for capsules 3/5.
-- Future code phase remains blocked until an explicit code prompt authorizes implementation.
+Capsule 3 registry result:
+- Added `paes_m1_numbers_percentage_proportionality_entry`.
+- Title: `PAES M1 - Porcentaje y proporcionalidad en contexto`.
+- Program: `PAES_M1`.
+- Item count/order: q1, q2, q3, q4.
+- Keys: B/B/A/C.
+- Source status at implementation input: `SOURCE_FINALIZED_DOCUMENTATION_PLAN_NOT_IMPLEMENTED`.
 
-Capsule 3 verified data:
-- contentKey: `paes_m1_numbers_percentage_proportionality_entry`
-- title: `PAES M1 - Porcentaje y proporcionalidad en contexto`
-- program: `PAES_M1`
-- item count/order: q1, q2, q3, q4.
-- keys: q1 `B`, q2 `B`, q3 `A`, q4 `C`.
-- status: `SOURCE_FINALIZED_DOCUMENTATION_PLAN_NOT_IMPLEMENTED`.
+Capsule 5 registry result:
+- Added `paes_m1_geometry_area_measure_entry`.
+- Title: `PAES M1 - Area, perimetro y medida en figuras simples`.
+- Program: `PAES_M1`.
+- Item count/order: q1, q2, q3, q4.
+- Keys: B/B/B/A.
+- Source status at implementation input: `SOURCE_FINALIZED_DOCUMENTATION_PLAN_NOT_IMPLEMENTED`.
 
-Capsule 5 verified data:
-- contentKey: `paes_m1_geometry_area_measure_entry`
-- title: `PAES M1 - Area, perimetro y medida en figuras simples`
-- program: `PAES_M1`
-- item count/order: q1, q2, q3, q4.
-- keys: q1 `B`, q2 `B`, q3 `B`, q4 `A`.
-- status: `SOURCE_FINALIZED_DOCUMENTATION_PLAN_NOT_IMPLEMENTED`.
-
-authoredFeedback shape confirmation:
-- Existing registry shape confirmed from capsule 2 in `nextjs_space/lib/study-load-content.ts`.
-- Allowed shape: `briefId`, `completeId`, `version`, `brief`, `complete`.
-- Future mapping must use final student-facing feedback only.
+authoredFeedback mapping:
+- Existing shape preserved: `briefId`, `completeId`, `version`, `brief`, `complete`.
+- Final feedback breve mapped to `brief`.
+- Final feedback completo mapped to `complete`.
+- Capsule 2 authoredFeedback and existing registry entries preserved.
 
 Leakage review:
-- Do not map rationale, key-validation notes, source-finalization notes, implementation-readiness notes, inference-limit notes, diagnosis, score, theta, mastery, readiness, route-decision, Sales-Ready, or adaptive AI claims into student-facing fields.
-- No leakage blocker was found for preparing the future prompt; future code phase must recheck content again before editing.
-
-Future code prompt location:
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_REGISTRY_CODE_PHASE_PREP_1.md`
+- No internal rationale, distractor rationale, key-validation note, source-finalization note, implementation-readiness note, inference-limit note, diagnosis, score, theta, mastery, readiness, routeDecision, Sales-Ready, or adaptive AI field was added.
+- Student-facing feedback text uses final-authoring brief/complete only.
 
 Validation:
 - `git diff --check`: passed; only LF-to-CRLF working-copy warnings reported.
-- `git status --short`: only authorized documentation files modified/added.
+- `git status --short`: only authorized files modified.
+- `git log --oneline --decorate --graph -8`: baseline `8d1dcc6` remained current before commit.
+- Static scope check: only `study-load-content.ts`, `PHASE_LOG.md`, and `CODEX_LATEST_COMPACT_REPORT.md` changed.
+- Static content check: capsule 3 has 4 items and keys `BBAC`; capsule 5 has 4 items and keys `BBBA`.
+- Static authoredFeedback check: capsule 3 and capsule 5 each have 4 `authoredFeedback` blocks using the existing shape.
+- Static leakage check: no prohibited internal metadata fields were added in the new registry diff.
+
+Build:
+- `npm.cmd --prefix nextjs_space run build`: passed.
 
 Commit:
-- Planned message if validation passes: `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5: prepare registry code phase`
+- Pending final commit after report update.
 
 Push:
-- Planned: `git push origin main` after successful commit.
+- Pending final push after commit.
 
 Final HEAD:
 - Pending final git verification after commit/push.
 
 Result:
-`M1_CAPSULES_3_5_REGISTRY_CODE_PHASE_PREP_DOCUMENTED`
+`M1_CAPSULES_3_5_REGISTRY_CODE_COMPLETED`
 
 Open follow-ups:
-- Future code phase `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-CODE-1` remains unexecuted.
-- Future code phase must recheck source/key/item-order/authoredFeedback before editing.
-- Capsules 3/5 implementation, registry insertion, capsules 4/6, UI/API/schema/DB changes, continuity/route-order changes, production/staging, browser automation, API-only tests, Sales-Ready claims, and adaptive AI claims remain blocked until separately authorized.
+- Manual/local UI smoke for capsules 3/5 remains unexecuted.
+- No continuity/route-order linkage for capsules 3/5 was added.
+- UX `Cerrar paso a paso`, capsules 4/6, production/staging, Sales-Ready claims, and adaptive AI claims remain blocked until separately authorized.
 
 Scope safety:
-Documentation-only registry code phase prep. No code changes, no registry insertion, no edit to `nextjs_space/lib/study-load-content.ts`, no UI/API/schema/DB changes, no continuity or route-order changes, no app start, no login, no smoke, no API calls, no browser automation, no DB reset, no fixture mutation, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+Narrow registry code phase only. No UI/API/schema/DB/Prisma changes, no continuity changes, no route-order changes, no pedagogical decision changes, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no production/staging, no secrets printed, no capsules 4/6, no Sales-Ready or adaptive AI claim, and no new operational document.
