@@ -2856,6 +2856,63 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-VISIBLE-FLOW-ALIGNMENT-PLAN-1
+
+Baseline before:
+
+```text
+b89a249
+```
+
+Result/verdict:
+
+```text
+VISIBLE_FLOW_ALIGNMENT_PLAN_READY
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_VISIBLE_FLOW_ALIGNMENT_PLAN_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Plan summary:
+
+The prior diagnosis showed capsules 3/5 were prepared in a different target/cycle than the ST M1 flow currently visible to the human. The recommended option is to align capsules 3/5 to the exact visible M1 cycle in a future local/dev-only data alignment phase, creating only missing pending practice StudyLoads if the target can be identified safely.
+
+Options evaluated:
+
+- Align 3/5 to the visible M1 student cycle.
+- Use the separate synthetic prepared target.
+- Wait for natural continuity.
+- Pause until a correlativo visibility rule exists.
+
+Recommended next phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-VISIBLE-FLOW-LOCAL-DEV-DATA-ALIGNMENT-1
+```
+
+Explicit non-actions:
+
+- No data mutation.
+- No fixture prep.
+- No code changes.
+- No UI/API/schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets or `.env` values printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-VISIBILITY-SEQUENCE-DIAGNOSIS-1
 
 Baseline before:
