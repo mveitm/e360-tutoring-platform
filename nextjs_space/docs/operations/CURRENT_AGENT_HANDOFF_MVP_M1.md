@@ -2461,3 +2461,44 @@ No route-order changes are authorized.
 No candidate key changes or final implementation answer keys are authorized.
 No deployed student-facing content is authorized.
 No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.
+
+## 58. M1-CAPSULES-2-3-5-KEY-VALIDATION-1 status
+
+M1-CAPSULES-2-3-5-KEY-VALIDATION-1 documented and active.
+
+Document:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_KEY_VALIDATION.md
+```
+
+Result:
+
+```text
+M1_CAPSULES_2_3_5_KEY_VALIDATION_DOCUMENTED
+```
+
+Key-validation verdict:
+
+```text
+KEY_VALIDATION_PASSED_DOCUMENTATION_LEVEL_NOT_IMPLEMENTATION_KEYS
+```
+
+Decision:
+
+All q1-q4 candidate keys for capsules 2, 3, and 5 pass documentation-level validation against source stem, options, mathematics, item rationale, feedback completo, step-by-step, distractor/error-family rationale, and inference-limit notes. These keys remain documentation-level validated candidates only, not implementation keys, not registry keys, and not authorization for source/code/continuity changes.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-FEEDBACK-DATA-SHAPE-GUARDRAILS-1
+```
+
+No implementation is authorized.
+No generated capsules are authorized.
+No source-code or source content changes are authorized.
+No content registry or continuity logic changes are authorized.
+No route-order changes are authorized.
+No candidate key changes or final implementation answer keys are authorized.
+No deployed student-facing content is authorized.
+No adaptive AI, mastery, theta, PAES score, readiness, or Sales-Ready claim is authorized.

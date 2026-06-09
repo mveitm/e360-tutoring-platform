@@ -89,15 +89,16 @@ These documents now govern roadmap direction:
 78. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_IMPLEMENTATION_READINESS.md`
 79. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_SOURCE_KEY_GUARDRAILS.md`
 80. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_FINALIZATION.md`
-81. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
-82. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
-83. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
-84. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
-85. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
-86. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
-87. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
-88. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
-89. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
+81. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_KEY_VALIDATION.md`
+82. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
+83. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
+84. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
+85. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
+86. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
+87. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
+88. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
+89. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
+90. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
 
 Future chats must read them before proposing work.
 
@@ -123,6 +124,7 @@ Current source-authoring status:
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_IMPLEMENTATION_READINESS.md` audits whether the integrated 2/3/5 authoring package can enter implementation planning, concluding `IMPLEMENTATION_READINESS_PARTIAL_NEEDS_SOURCE_AND_KEY_GUARDRAILS` and recommending source/key guardrails before any code, registry, UI, API, schema, continuity or route-order work.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_SOURCE_KEY_GUARDRAILS.md` defines source-finalization and key-validation guardrails for capsules 2/3/5, concludes `SOURCE_KEY_GUARDRAILS_DEFINED_SOURCE_FINALIZATION_REQUIRED_FIRST`, and recommends source-finalizing capsules 3 and 5 before implementation planning.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_SOURCE_FINALIZATION.md` freezes capsule 3 and capsule 5 as `SOURCE_FINALIZED_DOCUMENTATION_PLAN_NOT_IMPLEMENTED`, preserving documentation-only status and recommending per-item key-validation for capsules 2/3/5 before implementation planning.
+- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_KEY_VALIDATION.md` records documentation-level per-item key validation for capsules 2/3/5, concluding `KEY_VALIDATION_PASSED_DOCUMENTATION_LEVEL_NOT_IMPLEMENTATION_KEYS` and recommending feedback data-shape guardrails before any implementation plan.
 
 The Block 7 anchor is mandatory before content-route phases.
 

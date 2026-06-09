@@ -211,6 +211,70 @@ Purpose summary:
 
 Future phase entries should be appended here in compact form.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-KEY-VALIDATION-1
+
+Baseline before:
+
+```text
+f62dee2
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_2_3_5_KEY_VALIDATION_DOCUMENTED
+```
+
+Key-validation verdict:
+
+```text
+KEY_VALIDATION_PASSED_DOCUMENTATION_LEVEL_NOT_IMPLEMENTATION_KEYS
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_KEY_VALIDATION.md
+```
+
+Scope summary:
+
+Documentation-only per-item key-validation records for PAES_M1 capsules 2, 3, and 5; validates each candidate key against source stem, options, mathematics, rationale, feedback completo, step-by-step, distractor/error-family and inference-limit notes, while preserving all keys as non-implementation keys.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-FEEDBACK-DATA-SHAPE-GUARDRAILS-1
+```
+
+Explicit non-actions:
+
+- No implementation.
+- No code changes.
+- No DB.
+- No schema.
+- No endpoints.
+- No API calls.
+- No external API calls.
+- No generated capsules.
+- No source-code changes.
+- No source content changes.
+- No stem/options changes.
+- No candidate key changes.
+- No content registry changes.
+- No continuity logic changes.
+- No route-order changes.
+- No final implementation keys.
+- No deployed student-facing content.
+- No adaptive AI claim.
+- No Sales-Ready claim.
+
+Commit:
+
+```text
+See git log after commit.
+```
+
 ## MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-6-LIMITED-AUTHORING-SCOPE-1 - Define limited authoring scope
 
 Phase:
