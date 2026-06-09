@@ -2856,6 +2856,72 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-LOCAL-DEV-FIXTURE-DATA-PREP-1
+
+Baseline before:
+
+```text
+45eb55d
+```
+
+Result/verdict:
+
+```text
+LOCAL_DEV_FIXTURE_DATA_PREP_COMPLETED_CAPSULES_3_5_READY_FOR_MANUAL_SMOKE
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_LOCAL_DEV_FIXTURE_DATA_PREP_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Data prep summary:
+
+LOCAL_DEV was confirmed without printing secret values. A single safe synthetic PAES_M1 fixture target was identified with one active enrollment and one open learning cycle. Two pending practice StudyLoads were created for capsule 3 and capsule 5 only.
+
+Post-prep verification:
+
+```text
+capsule3Prepared: 1
+capsule5Prepared: 1
+capsule2CountObserved: 1
+```
+
+Scope summary:
+
+Minimal LOCAL_DEV fixture/data prep only. No code, UI, API, schema, Prisma schema, route-order, continuity, auth/access, seed script, fixture script, package, migration, production, or staging changes.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-MANUAL-UI-SMOKE-1
+```
+
+Explicit non-actions:
+
+- No edit to `nextjs_space/lib/study-load-content.ts`.
+- No UI/API/schema/DB schema/Prisma schema changes.
+- No continuity or route-order changes.
+- No auth/access changes.
+- No DB reset.
+- No seed scripts.
+- No fixture script edits.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets or `.env` values printed.
+- No capsules 4/6.
+- No Sales-Ready or adaptive AI claim.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-HUMAN-ACCESS-CHECK-CLOSEOUT-1
 
 Baseline before:
