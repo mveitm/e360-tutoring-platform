@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 Capsule 2 AuthoredFeedback Auth Access Diagnosis Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-DIAGNOSIS-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_DIAGNOSIS.md` with classification `AUTH_ACCESS_DIAGNOSIS_READY_FOR_HUMAN_STATUS_CHECK`. Capsule 2 authoredFeedback remains not locally UI-verified; the next recommended phase is a non-secret human status check for local app, login, `/now`, and capsule 2 StudyLoad availability before any smoke retry or fixture-prep authorization.
+
 ## PAES_M1 Capsule 2 AuthoredFeedback Auth Access Human Handoff Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-HUMAN-HANDOFF-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_HUMAN_HANDOFF.md` with verdict `AUTH_ACCESS_HANDOFF_BLOCKED_AUTH_ACCESS`. No human-safe app/login/`/now`/capsule 2 status response was captured; next recommended phase is auth/access diagnosis before any manual smoke retry or fixture-prep authorization.

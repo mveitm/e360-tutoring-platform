@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+cda629e
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_DIAGNOSIS_COMPLETED
+```
+
+Diagnosis classification:
+
+```text
+AUTH_ACCESS_DIAGNOSIS_READY_FOR_HUMAN_STATUS_CHECK
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_DIAGNOSIS.md
+```
+
+Scope summary:
+
+Documentation-only auth/access diagnosis for capsule 2 authoredFeedback UI verification. Read-only evidence confirms capsule 2 source, q1-q4 authoredFeedback, answer-form feedback display, responses route mc_submission behavior, and separate complete route. No human-safe app/login/`/now`/capsule 2 status response exists yet.
+
+Evidence summary:
+
+Capsule 2 code and UI/API wiring are ready for a future manual smoke after auth/access gates are confirmed, but missing evidence remains: local app availability, student login availability, `/now` availability, capsule 2 StudyLoad availability, q1-q4 UI submission, and UI feedback brief/complete observation.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-HUMAN-STATUS-CHECK-1
+```
+
+Explicit non-actions:
+
+```text
+No app start, no login, no smoke, no q1-q4 submission, no API calls, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no production/staging, no secrets printed, no .env inspection, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-HUMAN-HANDOFF-1
 
 Baseline before:
