@@ -107,15 +107,16 @@ These documents now govern roadmap direction:
 96. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE_RETRY.md`
 97. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_LOCAL_VERIFICATION_CLOSEOUT.md`
 98. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_VERIFIED_MILESTONE_HANDOFF.md`
-99. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
-100. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
-101. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
-102. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
-103. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
-104. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
-105. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
-106. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
-107. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
+99. `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_REGISTRY_AUTHORIZATION_REVIEW.md`
+100. `nextjs_space/docs/operations/BEXAURI_AI_COMPLETE_CAPSULE_GENERATION_CONTINUOUS_IMPROVEMENT_STRATEGY.md`
+101. `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M1_INTEGRADO.md`
+102. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_SOURCES_1_SOURCE_INVENTORY_FOR_CPA_RECONCILIATION_AUDIT.md`
+103. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_CPA_AUDIT_PACK_1_SOURCE_GROUNDED_PACKAGE_FOR_PRO.md`
+104. `nextjs_space/docs/operations/CPA_RECONCILIATION_AUDIT_1R_SOURCE_GROUNDED.md`
+105. `nextjs_space/docs/operations/BPCPV1_PAES_M1_PRECONTRACT.md`
+106. `nextjs_space/docs/operations/BPCPV1_PAES_M1_DERIVATION_GOVERNING_DOCUMENT.md`
+107. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1A_SOURCE_GROUNDED_CURRENT_CAPSULES_AGAINST_BPCPV1_PAES_M1.md`
+108. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_AUDIT_1B_PRO_PEDAGOGICAL_REVIEW_OF_1A.md`
 
 Future chats must read them before proposing work.
 
@@ -160,6 +161,7 @@ Current source-authoring status:
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_MANUAL_LOCAL_SMOKE_RETRY.md` records the manual local/dev UI smoke retry result, concludes `MANUAL_LOCAL_SMOKE_RETRY_PASS_CAPSULE_2_AUTHOREDFEEDBACK_VISIBLE`, and recommends local verification closeout without authorizing capsules 3/5, code, UI/API/schema/DB, continuity, route-order, production/staging, Sales-Ready, or adaptive AI claims.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_LOCAL_VERIFICATION_CLOSEOUT.md` closes capsule 2 authoredFeedback local UI verification, concludes `LOCAL_VERIFICATION_CLOSEOUT_PASSED_CAPSULE_2_AUTHOREDFEEDBACK`, and recommends a verified milestone handoff while preserving all capsules 3/5, UI/API/schema/DB, continuity, route-order, production/staging, Sales-Ready, and adaptive AI blocks.
 - `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_VERIFIED_MILESTONE_HANDOFF.md` creates the compact verified milestone handoff for capsule 2 authoredFeedback, concludes `VERIFIED_MILESTONE_HANDOFF_CREATED_WITH_NON_BLOCKING_FOLLOWUP`, records `Cerrar paso a paso` as a non-blocking UX follow-up, and recommends capsules 3/5 registry authorization review as a next branch without authorizing implementation.
+- `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_REGISTRY_AUTHORIZATION_REVIEW.md` reviews whether capsules 3/5 can move toward a future narrow registry code branch, concludes `CAPSULES_3_5_REGISTRY_AUTHORIZATION_READY_WITH_PREP_CONDITIONS`, and recommends a code-phase prep document while preserving no implementation, no registry insertion, no final implementation keys, no UI/API/schema/DB, no continuity, and no route-order changes.
 
 The Block 7 anchor is mandatory before content-route phases.
 

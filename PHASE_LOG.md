@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-AUTHORIZATION-REVIEW-1
+
+Baseline before:
+
+```text
+58fd198
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_3_5_REGISTRY_AUTHORIZATION_REVIEW_COMPLETED
+```
+
+Authorization verdict:
+
+```text
+CAPSULES_3_5_REGISTRY_AUTHORIZATION_READY_WITH_PREP_CONDITIONS
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_REGISTRY_AUTHORIZATION_REVIEW.md
+```
+
+Scope summary:
+
+Documentation-only registry authorization review for PAES_M1 capsules 3 and 5. Capsule 2 authoredFeedback verified milestone was carried forward but does not auto-authorize capsules 3/5. Future registry work remains limited to a separately prompted narrow code-prep/code path.
+
+Readiness summary:
+
+Capsule 3 `paes_m1_numbers_percentage_proportionality_entry` and capsule 5 `paes_m1_geometry_area_measure_entry` are source-finalized documentation plans with documentation-level key validation. Future code still requires exact source/key/item-order/shape recheck and explicit authorization.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-CODE-PHASE-PREP-1
+```
+
+Explicit non-actions:
+
+```text
+No code changes, no registry insertion, no UI/API/schema/DB changes, no continuity or route-order changes, no app start, no login, no smoke, no API calls, no browser automation, no DB reset, no fixture mutation, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-VERIFIED-MILESTONE-HANDOFF-1
 
 Baseline before:

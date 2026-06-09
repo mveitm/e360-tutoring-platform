@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 Capsules 3/5 Registry Authorization Review Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-AUTHORIZATION-REVIEW-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_3_5_REGISTRY_AUTHORIZATION_REVIEW.md` with verdict `CAPSULES_3_5_REGISTRY_AUTHORIZATION_READY_WITH_PREP_CONDITIONS`. Capsules 3 and 5 are source-finalized and documentation-level key-validated, but future code still requires exact source/key/item-order/shape recheck and a separate explicit prompt. Recommended next phase is registry code-phase prep, not implementation.
+
 ## PAES_M1 Capsule 2 AuthoredFeedback Verified Milestone Handoff Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-VERIFIED-MILESTONE-HANDOFF-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_VERIFIED_MILESTONE_HANDOFF.md` with verdict `VERIFIED_MILESTONE_HANDOFF_CREATED_WITH_NON_BLOCKING_FOLLOWUP`. Capsule 2 authoredFeedback is a verified local/dev student-UI milestone; non-blocking UX follow-up is `Cerrar paso a paso`, not authorized yet. Recommended next branch is capsules 3/5 registry authorization review, or pause/UX backlog/completion-flow readiness depending on product priority.
