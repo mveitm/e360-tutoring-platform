@@ -42,6 +42,66 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-HUMAN-STATUS-CHECK-1
+
+Baseline before:
+
+```text
+1111e65
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_HUMAN_STATUS_CHECK_COMPLETED
+```
+
+Human status verdict:
+
+```text
+HUMAN_STATUS_CHECK_READY_FOR_MANUAL_SMOKE_RETRY
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_AUTH_ACCESS_HUMAN_STATUS_CHECK.md
+```
+
+Scope summary:
+
+Documentation-only human non-secret status check for capsule 2 authoredFeedback UI verification. Human response confirmed local app opens, student login works, `/now` opens, and capsule 2 StudyLoad is visible. No smoke was executed in this phase.
+
+Human non-secret status summary:
+
+```text
+APP_LOCAL_DEV_OPEN=YES
+LOGIN_LOCAL_DEV_STUDENT=YES
+NOW_OPENS=YES
+CAPSULE_2_STUDYLOAD_VISIBLE=YES
+IF_CAPSULE_2_NOT_VISIBLE_CAN_OPEN_BY_UI_ONLY=UNKNOWN
+NON_SECRET_ERROR_TEXT=NONE
+SECRETS_SHARED=NO
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-MANUAL-LOCAL-SMOKE-RETRY-1
+```
+
+Explicit non-actions:
+
+```text
+No app start by Codex, no login by Codex, no smoke executed, no q1-q4 submission, no completion, no API calls, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-AUTH-ACCESS-DIAGNOSIS-1
 
 Baseline before:
