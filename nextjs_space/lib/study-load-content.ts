@@ -672,6 +672,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'x = 3,5' },
         ],
         correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_reinforcement_q1_brief_m1c04_v1',
+          completeId: 'paes_m1_linear_equations_reinforcement_q1_complete_m1c04_v1',
+          version: 'm1-c04-refuerzo-authored-feedback-v1',
+          brief:
+            'Primero elimina el -7 sumando 7 a ambos lados. Despues divide por 4 y verifica el resultado.',
+          complete:
+            'La ecuacion es 4x - 7 = 21. Paso 1: suma 7 a ambos lados para deshacer la resta: 4x = 28. Paso 2: divide ambos lados por 4: x = 7. Paso 3: verifica reemplazando: 4 * 7 - 7 = 28 - 7 = 21. Por eso la alternativa correcta es x = 7.',
+        },
       },
       {
         key: 'q2',
@@ -683,6 +692,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'x = 10' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_reinforcement_q2_brief_m1c04_v1',
+          completeId: 'paes_m1_linear_equations_reinforcement_q2_complete_m1c04_v1',
+          version: 'm1-c04-refuerzo-authored-feedback-v1',
+          brief:
+            'Puedes partir dividiendo por 3 para simplificar el parentesis. Luego resta 2 para despejar x.',
+          complete:
+            'La ecuacion es 3(x + 2) = 24. Paso 1: divide ambos lados por 3: x + 2 = 8. Paso 2: resta 2 a ambos lados: x = 6. Paso 3: verifica reemplazando: 3(6 + 2) = 3 * 8 = 24. Por eso la alternativa correcta es x = 6.',
+        },
       },
       {
         key: 'q3',
@@ -694,6 +712,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'x = 45' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_reinforcement_q3_brief_m1c04_v1',
+          completeId: 'paes_m1_linear_equations_reinforcement_q3_complete_m1c04_v1',
+          version: 'm1-c04-refuerzo-authored-feedback-v1',
+          brief:
+            'Primero resta 4 para aislar x/5. Luego multiplica por 5 para encontrar x.',
+          complete:
+            'La ecuacion es x/5 + 4 = 9. Paso 1: resta 4 a ambos lados: x/5 = 5. Paso 2: multiplica ambos lados por 5 para deshacer la division: x = 25. Paso 3: verifica reemplazando: 25/5 + 4 = 5 + 4 = 9. Por eso la alternativa correcta es x = 25.',
+        },
       },
       {
         key: 'q4',
@@ -705,6 +732,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'x = 26' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_equations_reinforcement_q4_brief_m1c04_v1',
+          completeId: 'paes_m1_linear_equations_reinforcement_q4_complete_m1c04_v1',
+          version: 'm1-c04-refuerzo-authored-feedback-v1',
+          brief:
+            'Junta las x en un lado y los numeros en el otro. Despues comprueba reemplazando el valor.',
+          complete:
+            'La ecuacion es 2x + 9 = x + 17. Paso 1: resta x a ambos lados para juntar las variables: x + 9 = 17. Paso 2: resta 9 a ambos lados: x = 8. Paso 3: verifica reemplazando: 2 * 8 + 9 = 25 y 8 + 17 = 25. Ambos lados coinciden, por eso la alternativa correcta es x = 8.',
+        },
       },
     ],
     currentLimitationNotice:

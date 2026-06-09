@@ -42,6 +42,52 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C04-REFUERZO-AUTHORED-FEEDBACK-1
+
+Baseline before:
+
+```text
+5559fb70f1b32bd93b1d223feff9f023b054a2e0
+```
+
+Result/verdict:
+
+```text
+M1_C04_REFUERZO_AUTHORED_FEEDBACK_IMPLEMENTED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/lib/study-load-content.ts
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C04_REFUERZO_AUTHORED_FEEDBACK_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Narrow registry-only authoredFeedback addition for current `M1-C04 - Refuerzo de ecuaciones lineales` / `paes_m1_linear_equations_reinforcement`. Added `authoredFeedback` to q1-q4 using existing `briefId`, `completeId`, `version`, `brief`, `complete` shape. Preserved contentKey, title, stems, options, correctOptionKey values A/B/C/B, item order, M1-C03/M1-C05/M1-C06 behavior, UI/API/schema/DB/Prisma, continuity and route-order.
+
+Explicit non-actions:
+
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No data mutation.
+- No browser automation.
+- No API-only tests.
+- No DB reset.
+- No seed scripts.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C04-REFUERZO-FEEDBACK-QUALITY-DIAGNOSIS-1
 
 Baseline before:
