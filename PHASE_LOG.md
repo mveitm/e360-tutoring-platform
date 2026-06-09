@@ -42,6 +42,53 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C04-C05-BLOCK-CLOSEOUT-HANDOFF-1
+
+Baseline before:
+
+```text
+11e4fd692e78926ab86bb717dbb084cba04df908
+```
+
+Result/verdict:
+
+```text
+M1_C04_C05_BLOCK_CLOSEOUT_HANDOFF_COMPLETED_LIVING_REFERENCE_ADDED
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C04_C05_BLOCK_CLOSEOUT_HANDOFF_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only block closeout handoff for `M1-C04 - Porcentaje y proporcionalidad en contexto` and `M1-C05 - Area, perimetro y medida en figuras simples`. The block is closed as local/dev smoke passed, with the visible correlativo protocol applied and internal candidate 3/5 references demoted to historical/internal context only.
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No data mutation.
+- No fixture prep.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C04-C05-MANUAL-UI-SMOKE-CLOSEOUT-1
 
 Baseline before:

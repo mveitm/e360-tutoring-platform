@@ -1,5 +1,9 @@
 # Current Agent Handoff - MVP M1
 
+## PAES_M1 M1-C04/M1-C05 Block Closeout Handoff Note
+
+`MVP-SALES-PILOT-PEDAGOGY-M1-C04-C05-BLOCK-CLOSEOUT-HANDOFF-1` documented `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C04_C05_BLOCK_CLOSEOUT_HANDOFF_1.md` with result `M1_C04_C05_BLOCK_CLOSEOUT_HANDOFF_COMPLETED_LIVING_REFERENCE_ADDED`. `M1-C04 - Porcentaje y proporcionalidad en contexto` and `M1-C05 - Area, perimetro y medida en figuras simples` are now closed as registry implemented and human manual local/dev UI smoke passed. Continue using visible correlativos, not internal candidate 3/5 shorthand; UI/admin correlativo display remains non-blocking product debt.
+
 ## PAES_M1 Capsule 2 Completion Flow Closeout Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-COMPLETION-FLOW-CLOSEOUT-1` documented `nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_COMPLETION_FLOW_CLOSEOUT.md` with verdict `COMPLETION_FLOW_CLOSEOUT_PASSED_WITH_NON_BLOCKING_FOLLOWUP`. Capsule 2 is now closed as a verified local/dev vertical slice from response submission to authoredFeedback, self-report, `Finalizar capsula`, completion/terminal state, progress update, and expected next StudyLoad behavior. Recommended next phase is capsules 3/5 registry code-phase prep, without authorizing implementation; `Cerrar paso a paso` remains a separate non-blocking UX follow-up.
