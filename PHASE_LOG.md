@@ -195,6 +195,54 @@ Commit hash after closeout:
 See git log after commit.
 ```
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-IMPLEMENTATION-PLAN-AUDIT-1
+
+Baseline before:
+
+```text
+a792804
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_2_3_5_IMPLEMENTATION_PLAN_AUDIT_COMPLETED
+```
+
+Implementation-plan audit verdict:
+
+```text
+IMPLEMENTATION_PLAN_AUDIT_READY_FOR_NARROW_IMPLEMENTATION_PLAN
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULES_2_3_5_IMPLEMENTATION_PLAN_AUDIT.md
+```
+
+Scope summary:
+
+Documentation-only implementation-plan readiness audit for PAES_M1 capsules 2, 3 and 5. Confirms the source-finalization, key-validation, feedback data-shape, and UI/API/lifecycle guardrail chain is sufficient to draft a later narrow implementation plan while preserving registry, key, lifecycle, continuity, route-order, and claims boundaries.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-2-3-5-NARROW-IMPLEMENTATION-PLAN-1
+```
+
+Explicit non-actions:
+
+```text
+No implementation, no full implementation plan, no code changes, no DB/schema/endpoints, no registry or continuity changes, no route-order changes, no source-code changes, no source item changes, no candidate key changes, no generated capsules, no API calls, no UI changes, no final implementation keys, no deployed student-facing content, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 3. Current verified baseline
 
 Baseline before compaction:
