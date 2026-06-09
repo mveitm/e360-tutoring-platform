@@ -2856,6 +2856,64 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-HUMAN-ACCESS-CHECK-CLOSEOUT-1
+
+Baseline before:
+
+```text
+afcc60d
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULES_3_5_HUMAN_ACCESS_CHECK_CLOSEOUT_COMPLETED
+CAPSULES_3_5_NOT_VISIBLE_IN_CURRENT_M1_STUDENT_FLOW
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULES_3_5_HUMAN_ACCESS_CHECK_CLOSEOUT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Human observation summary:
+
+In local/dev M1 student surface, the next visible capsule was `Problemas con ecuaciones lineales`. `Abrir capsula` opened that capsule/UI. `Comenzar` was not pressed. Capsules 3/5 were not visible as the current next capsule.
+
+Scope summary:
+
+Documentation-only human access closeout. No fixture prep, no DB mutation, no code changes, no UI/API/schema/DB/Prisma changes, no continuity or route-order changes, no browser automation, no API-only tests.
+
+Next recommended decision:
+
+Choose whether to authorize a narrow local/dev fixture/data prep phase for capsules 3/5, wait for future natural continuity/route-order exposure, or audit the readiness/access-check docs before deciding.
+
+Explicit non-actions:
+
+- No edit to `nextjs_space/lib/study-load-content.ts`.
+- No UI/API/schema/DB/Prisma/auth/access changes.
+- No continuity or route-order changes.
+- No fixture/data prep.
+- No DB reset, seed scripts, direct DB edits, or fixture mutation.
+- No app start or login by Codex.
+- No smoke execution.
+- No q1-q4 submission, self-report, or completion.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets or `.env` inspection.
+- No capsules 4/6.
+- No Sales-Ready or adaptive AI claim.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-LOCAL-DEV-ACCESS-CHECK-1
 
 Baseline before:
