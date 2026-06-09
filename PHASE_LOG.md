@@ -42,6 +42,64 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-VERIFIED-MILESTONE-HANDOFF-1
+
+Baseline before:
+
+```text
+97c766a
+```
+
+Result/verdict:
+
+```text
+M1_CAPSULE_2_AUTHOREDFEEDBACK_VERIFIED_MILESTONE_HANDOFF_CREATED
+```
+
+Milestone handoff verdict:
+
+```text
+VERIFIED_MILESTONE_HANDOFF_CREATED_WITH_NON_BLOCKING_FOLLOWUP
+```
+
+Document created/updated:
+
+```text
+nextjs_space/docs/operations/BPCPV1_PAES_M1_CAPSULE_2_AUTHOREDFEEDBACK_VERIFIED_MILESTONE_HANDOFF.md
+```
+
+Verified milestone summary:
+
+Capsule 2 authoredFeedback for PAES_M1 / `paes_m1_linear_equations_basic` is implemented, code-reviewed, smoke-readiness-reviewed, manually local/dev UI-smoked, and formally closed as verified. q1-q4 brief and complete feedback are visible after submission through existing student UI. Self-report/completion stayed separate. No internal leakage or prohibited claims were reported.
+
+Safe next-branch options:
+
+```text
+PAUSE_AFTER_VERIFIED_MILESTONE
+CAPSULES_3_5_REGISTRY_AUTHORIZATION_REVIEW
+UX_FOLLOWUP_BACKLOG
+LOCAL_COMPLETION_FLOW_SMOKE_READINESS
+VERIFIED_MILESTONE_CONTEXT_TRANSFER
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULES-3-5-REGISTRY-AUTHORIZATION-REVIEW-1
+```
+
+Explicit non-actions:
+
+```text
+No smoke executed, no app start, no login, no q1-q4 submission, no completion, no API calls, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no code changes, no UI/API/schema/DB changes, no registry insertion for capsules 3/5, no continuity or route-order changes, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+```
+
+Commit hash after closeout:
+
+```text
+See git log after commit.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-CAPSULE-2-AUTHOREDFEEDBACK-LOCAL-VERIFICATION-CLOSEOUT-1
 
 Baseline before:
