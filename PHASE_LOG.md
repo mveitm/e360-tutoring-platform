@@ -42,6 +42,51 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C04-REFUERZO-HUMAN-UI-SMOKE-CLOSEOUT-1
+
+Baseline before:
+
+```text
+81392bae22c2328f66d82a753a5f5e895dcb208c
+```
+
+Result/verdict:
+
+```text
+M1_C04_REFUERZO_HUMAN_UI_SMOKE_CLOSEOUT_PASSED_WITH_NON_BLOCKING_REFRESH_UX_ISSUE
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C04_REFUERZO_HUMAN_UI_SMOKE_CLOSEOUT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only closeout of human local/dev UI smoke for current `M1-C04 - Refuerzo de ecuaciones lineales`. Human reported capsule visible/opened, q1-q4 answered/submitted, brief feedback visible, paso-a-paso visible, complete feedback visible, self-report answered, capsule finalized, terminal message visible, and ST after finalizing OK. Recorded non-blocking UX issue: pressing `Comenzar` showed `Esta capsula ya fue iniciada` without questions until refresh; after refresh the flow completed. Next visible capsule reported: `PAES M1 - Funciones lineales basicas`.
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No data mutation.
+- No continuity or route-order changes.
+- No registry changes.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C04-REFUERZO-HUMAN-UI-SMOKE-READINESS-1
 
 Baseline before:
