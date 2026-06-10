@@ -763,15 +763,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     },
   },
 
-  'PAES M1 \u2014 Funciones lineales b\u00e1sicas': {
+  'PAES M1 \u2014 Funciones lineales b\u00e1sicas I': {
     contentKey: 'paes_m1_linear_functions_basic',
     contentVersion: 'v1',
-    title: 'PAES M1 \u2014 Funciones lineales b\u00e1sicas',
+    title: 'PAES M1 \u2014 Funciones lineales b\u00e1sicas I',
     program: 'PAES_M1',
     topic: 'Funciones lineales (inicio)',
-    estimatedMinutes: '20\u201330 minutos',
+    estimatedMinutes: '10\u201315 minutos',
     instructions:
-      'Esta actividad tiene 8 ejercicios de opci\u00f3n m\u00faltiple sobre funciones lineales.\n\n' +
+      'Esta actividad tiene 4 ejercicios de opci\u00f3n m\u00faltiple sobre funciones lineales b\u00e1sicas.\n\n' +
       '1. Trabaja en tu cuaderno o en una hoja de papel.\n' +
       '2. Identifica la regla de la funci\u00f3n cuando corresponda.\n' +
       '3. Calcula valores de la funci\u00f3n paso a paso.\n' +
@@ -862,6 +862,45 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
             'La funcion es y = -2x + 6. Paso 1: reconoce la forma y = mx + b. Paso 2: identifica que m es la pendiente, aqui -2. Paso 3: identifica que b es el termino constante, aqui 6. Paso 4: tambien puedes verificar con x = 0: y = -2 * 0 + 6 = 6. Por eso el intercepto con el eje y es 6.',
         },
       },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revisi\u00f3n. ' +
+      'No recibir\u00e1s puntaje PAES ni retroalimentaci\u00f3n autom\u00e1tica en esta versi\u00f3n.',
+    pedagogicalMetadata: {
+      programCode: 'PAES_M1',
+      sliceId: 'AS1',
+      sliceName: 'AS1 algebra/functions - initial corridor',
+      axis: 'algebra_functions',
+      roadmapNodes: ['internal:as1_linear_functions_basic', 'internal:as1_linear_representation'],
+      officialSkillRefs: ['internal:representar', 'internal:resolver_problemas', 'internal:modelar'],
+      difficultyBand: 'transition',
+      primaryPurpose: 'bridge',
+      evidenceType: 'mc_submission',
+      estimatedMinutes: 12,
+      reviewStatus: 'internal_provisional',
+      expertReviewed: false,
+      routingStatus: 'available_not_universal',
+    },
+  },
+
+  'PAES M1 \u2014 Funciones lineales b\u00e1sicas II': {
+    contentKey: 'paes_m1_linear_functions_basic_ii',
+    contentVersion: 'v1',
+    title: 'PAES M1 \u2014 Funciones lineales b\u00e1sicas II',
+    program: 'PAES_M1',
+    topic: 'Funciones lineales (representaci\u00f3n y modelamiento)',
+    estimatedMinutes: '10\u201315 minutos',
+    instructions:
+      'Esta actividad tiene 4 ejercicios de opci\u00f3n m\u00faltiple sobre funciones lineales b\u00e1sicas.\n\n' +
+      '1. Trabaja en tu cuaderno o en una hoja de papel.\n' +
+      '2. Identifica pendiente, intercepto o regla de la funci\u00f3n cuando corresponda.\n' +
+      '3. Relaciona cada modelo lineal con la situaci\u00f3n o tabla presentada.\n' +
+      '4. Selecciona la alternativa que corresponde.\n' +
+      '5. Presiona \u201cEnviar respuestas\u201d.\n' +
+      '6. Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.\n' +
+      '7. No necesitas volver a /now para cerrar la actividad.\n\n' +
+      'No hay presi\u00f3n por la perfecci\u00f3n. Lo importante es interpretar con orden la relaci\u00f3n entre variables.',
+    items: [
       {
         key: 'q5',
         stem: '\u00bfCu\u00e1l de las siguientes funciones tiene pendiente 4 e intercepto -1?',
@@ -956,7 +995,7 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       difficultyBand: 'transition',
       primaryPurpose: 'bridge',
       evidenceType: 'mc_submission',
-      estimatedMinutes: 25,
+      estimatedMinutes: 12,
       reviewStatus: 'internal_provisional',
       expertReviewed: false,
       routingStatus: 'available_not_universal',

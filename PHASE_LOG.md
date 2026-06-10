@@ -42,6 +42,57 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-SPLIT-CODE-1
+
+Baseline before:
+
+```text
+211fa439876a93d06c38bd0f46ee44b0e2b9f1a2
+```
+
+Result/verdict:
+
+```text
+M1_C05_FUNCIONES_LINEALES_SPLIT_CODE_COMPLETED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/lib/study-load-content.ts
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_FUNCIONES_LINEALES_SPLIT_CODE_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Implemented the approved static registry split for current `M1-C05 - Funciones lineales basicas`. The former 8-item `paes_m1_linear_functions_basic` registry entry is now `PAES M1 - Funciones lineales basicas I` with q1-q4. Added `PAES M1 - Funciones lineales basicas II` with `contentKey` `paes_m1_linear_functions_basic_ii` and q5-q8. Preserved stems, options, correctOptionKey values B/B/A/C/D/A/B/C, authoredFeedback ids, versions, brief text, and complete text. Did not touch continuity/route-order.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-FUNCIONES-LINEALES-CONTINUITY-ALIGNMENT-1
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No fixture mutation.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-SPLIT-PLAN-1
 
 Baseline before:
