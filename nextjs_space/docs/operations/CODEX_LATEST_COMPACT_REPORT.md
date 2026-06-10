@@ -1,35 +1,35 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C07-LECTURA-TABLAS-GRAFICOS-I-HUMAN-UI-SMOKE-CLOSEOUT-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-GRAPH-RENDERING-CONTENT-DIAGNOSIS-1`
 
 Baseline before:
-`5fba39fc9d5d80eb5490d5f3f1e8f975b8a205b7`
+`9fd983555d4ca16ce9aeef11b299662efecabd38`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_LECTURA_TABLAS_GRAFICOS_I_HUMAN_UI_SMOKE_CLOSEOUT_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_TABLE_GRAPH_RENDERING_CONTENT_DIAGNOSIS_1.md`
 
 Result:
-`M1_C07_HUMAN_UI_SMOKE_CLOSEOUT_PASSED_WITH_CONTENT_RENDERING_DEBT`
+`C07_C08_TABLE_GRAPH_DIAGNOSIS_CONTENT_TABLE_TEXT_REPAIR_RECOMMENDED`
 
 Decision summary:
-- Closed/documented human local/dev UI smoke for M1-C07 - Lectura de tablas y graficos I.
-- Human reported the capsule works correctly and all verification points passed OK.
-- Start/resume sequence passed: `Ver capsula -> abre capsula + Comenzar -> muestra ejercicios`.
-- No F5/refresh requirement was reported.
-- Next capsule shown in ST: Lectura de tablas y graficos II.
-- Recorded content/rendering debt: exercises refer to a table that is not shown.
+- Diagnosed the table/graph representation debt observed in C07.
+- C07 q1-q3 and C08 q5-q8 refer to tables; C07 q4 refers to a bar graph.
+- Registry stores the values inline in stem prose, with no separate table/graph field, image asset, or rendering metadata.
+- Data exists, so the primary blocker is content representation, not missing image assets.
+- C07 remains functionally passed, but pedagogically has table/graph representation debt.
+- C08 should pause before deep smoke until the same representation debt is repaired or explicitly accepted.
 
 Validation:
-- Preflight passed at `5fba39fc9d5d80eb5490d5f3f1e8f975b8a205b7`.
+- Preflight passed at `9fd983555d4ca16ce9aeef11b299662efecabd38`.
 - `git diff --check`: passed.
 - `git status --short`: only authorized documentation files changed before commit.
 - No browser automation or API-only tests run.
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-GRAPH-RENDERING-CONTENT-DIAGNOSIS-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-TEXT-CONTENT-REPAIR-1`
 
 Scope safety:
-Documentation-only closeout phase. No code files modified, no DB mutation, no UI/API/schema/Prisma changes, no route-order/continuity changes, no registry/content/authoredFeedback changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no secrets printed, no Sales-Ready or adaptive AI claim.
+Documentation-only diagnosis phase. No code files modified, no DB mutation, no UI/API/schema/Prisma changes, no route-order/continuity changes, no registry/content/authoredFeedback changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no secrets printed, no Sales-Ready or adaptive AI claim.

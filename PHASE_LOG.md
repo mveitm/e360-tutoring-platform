@@ -42,6 +42,52 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-GRAPH-RENDERING-CONTENT-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+9fd983555d4ca16ce9aeef11b299662efecabd38
+```
+
+Result/verdict:
+
+```text
+C07_C08_TABLE_GRAPH_DIAGNOSIS_CONTENT_TABLE_TEXT_REPAIR_RECOMMENDED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_TABLE_GRAPH_RENDERING_CONTENT_DIAGNOSIS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation/read-only diagnosis of the C07 human observation that exercises refer to a table that is not shown. Static registry review found that C07 q1-q3 and C08 q5-q8 refer to tables, and C07 q4 refers to a bar graph, but all data is embedded inline in stem prose with no separate table/graph field, image asset, or rendering metadata. The data exists, so the preferred repair is narrow content work: represent C07/C08 values as visible textual tables or data blocks in stems before continuing deep C08 smoke.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-TEXT-CONTENT-REPAIR-1
+```
+
+Explicit non-actions:
+
+- No code files modified.
+- No UI/API/schema/Prisma changes.
+- No registry/content changes.
+- No authoredFeedback/stems/options/correctOptionKey changes.
+- No route-order/continuity changes.
+- No DB mutation.
+- No seed/fixture/reset/migration.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-LECTURA-TABLAS-GRAFICOS-I-HUMAN-UI-SMOKE-CLOSEOUT-1
 
 Baseline before:
