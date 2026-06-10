@@ -15,6 +15,7 @@ const NEXT_STUDYLOAD_BY_PROGRAM_AND_CONTENT_KEY: Record<string, Record<string, s
     // or diagnosis claim.
     paes_m1_linear_functions_basic: 'paes_m1_linear_functions_basic_ii',
     paes_m1_linear_functions_basic_ii: 'paes_m1_data_representation_entry',
+    paes_m1_data_representation_entry: 'paes_m1_data_representation_entry_ii',
   },
 }
 
