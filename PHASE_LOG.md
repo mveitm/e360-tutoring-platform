@@ -42,6 +42,61 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C06-FUNCIONES-LINEALES-II-HUMAN-UI-SMOKE-READINESS-1
+
+Baseline before:
+
+```text
+8294ee93d833b0d11f01c43b72bb7c8be001b627
+```
+
+Result/verdict:
+
+```text
+M1_C06_FUNCIONES_LINEALES_II_HUMAN_UI_SMOKE_READINESS_DEFINED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C06_FUNCIONES_LINEALES_II_HUMAN_UI_SMOKE_READINESS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Prepared documentation/readiness for future human local/dev UI smoke of M1-C06 - Funciones lineales basicas II. Static evidence confirms C06 II uses `contentKey` `paes_m1_linear_functions_basic_ii`, has 4 exercises, keys D/A/B/C, authoredFeedback brief/complete shape on all items, and complies with the M1 maximum 4-exercise standard. Checklist includes confirming C06 II appears as the next capsule, no stale 8-exercise instance opens, feedback breve/completo works, self-report/finalization works, and any recurring `Comenzar` -> F5/refresh issue is recorded.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C06-FUNCIONES-LINEALES-II-HUMAN-UI-SMOKE-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+- No human smoke executed.
+- No code changes.
+- No DB mutation.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No registry changes.
+- No authoredFeedback/stems/options/correctOptionKey changes.
+- No route-order/continuity changes.
+- No seed reset.
+- No fixture mutation.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-I-HUMAN-UI-SMOKE-CLOSEOUT-1
 
 Baseline before:
