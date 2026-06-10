@@ -42,6 +42,51 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-ITEM-COUNT-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+d0cf5a092d8d2e7bd34ccf8d6461d62889ec996f
+```
+
+Result/verdict:
+
+```text
+M1_LECTURA_TABLAS_GRAFICOS_ITEM_COUNT_BLOCKER_DIAGNOSED_SPLIT_REQUIRED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_LECTURA_TABLAS_GRAFICOS_ITEM_COUNT_DIAGNOSIS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation/read-only diagnosis of the human local/dev blocker after the start/resume UX fix passed. Human observed `Lectura de tablas y graficos` as the next visible capsule, start showed exercises without F5, but the capsule displayed 8 exercises and the review was stopped before answering/submitting/finalizing. Static registry evidence confirms `paes_m1_data_representation_entry` has q1-q8 with keys D/B/C/A/C/B/B/A, so the observed 8 exercises match registry content and violate the living M1 max-4 standard. The same entry currently lacks authoredFeedback, so it also is not feedback-smoke ready.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-PLAN-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No DB mutation.
+- No UI/API/schema/Prisma changes.
+- No registry/content changes.
+- No continuity/route-order changes.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
 ## 2026-06-10 - MVP-UX-STUDYLOAD-START-RESUME-REFRESH-ISSUE-FIX-1
 
 Baseline before:

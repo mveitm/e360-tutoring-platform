@@ -1,36 +1,37 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-UX-STUDYLOAD-START-RESUME-REFRESH-ISSUE-FIX-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-ITEM-COUNT-DIAGNOSIS-1`
 
 Baseline before:
-`f7e477e80512ec45f39fe24b25e64ee157308d50`
+`d0cf5a092d8d2e7bd34ccf8d6461d62889ec996f`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_UX_STUDYLOAD_START_RESUME_REFRESH_ISSUE_FIX_1.md`
-- `nextjs_space/app/now/_components/start-load-button.tsx`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_LECTURA_TABLAS_GRAFICOS_ITEM_COUNT_DIAGNOSIS_1.md`
 
 Result:
-`STUDYLOAD_START_RESUME_REFRESH_FIX_IMPLEMENTED`
+`M1_LECTURA_TABLAS_GRAFICOS_ITEM_COUNT_BLOCKER_DIAGNOSED_SPLIT_REQUIRED`
 
 Decision summary:
-- Implemented the narrow start/resume UI fix in `StartLoadButton`.
-- After successful start, the button now sets durable local started state and disables itself.
-- If already on `/now/study-loads/[id]`, successful start now calls `router.refresh()` so the Server Component can re-read `in_progress` status.
-- From other routes such as `/now`, successful start still navigates to the StudyLoad viewer.
-- Server-side duplicate-start guards were preserved; no API route or lifecycle semantics changed.
+- Human verification confirmed the start/resume UX fix passed: pressing `Comenzar` showed exercises without F5/refresh.
+- The next visible capsule was `Lectura de tablas y graficos`.
+- Static registry diagnosis maps it to `paes_m1_data_representation_entry`.
+- Registry item count is 8 items, q1-q8, with keys D/B/C/A/C/B/B/A.
+- The observed 8 exercises match registry content, not an evident stale local/dev mismatch.
+- The capsule violates the living M1 maximum 4-exercise standard and should not continue ordinary human smoke in its current form.
+- Static inspection found no authoredFeedback blocks on q1-q8, so feedback readiness is also blocked.
 
 Validation:
-- Preflight passed at `f7e477e80512ec45f39fe24b25e64ee157308d50`.
+- Preflight passed at `d0cf5a092d8d2e7bd34ccf8d6461d62889ec996f`.
 - `git diff --check`: passed.
-- `git status --short`: only authorized/scope-approved files changed before commit.
-- Build: `npm.cmd --prefix nextjs_space run build` passed.
+- `git status --short`: only authorized documentation files changed before commit.
+- Build: not run; documentation-only phase.
 - No browser automation or API-only tests run.
 
 Recommended next step:
-`MVP-UX-STUDYLOAD-START-RESUME-REFRESH-ISSUE-HUMAN-VERIFY-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-PLAN-1`
 
 Scope safety:
-Start/resume UI fix plus documentation only. No DB mutation, no UI/API route changes beyond the targeted client component, no schema/Prisma/registry/content/route-order/continuity files changed, no authoredFeedback/stems/options/correctOptionKey changed, no seed/reset/migration/fixture reset, no production/staging, no browser automation, no API-only tests, no secrets printed, no Sales-Ready or adaptive AI claim.
+Documentation-only diagnosis. No code changes, no DB mutation, no UI/API/schema/Prisma changes, no registry/content changes, no continuity/route-order changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no build, no secrets printed, no Sales-Ready or adaptive AI claim.
