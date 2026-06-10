@@ -42,6 +42,57 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-CONTINUITY-ROUTE-ORDER-CODE-1
+
+Baseline before:
+
+```text
+bf694f4bfd797b82e66fa6638e8eb49e83ef01d1
+```
+
+Result/verdict:
+
+```text
+C05_C06_CONTINUITY_ROUTE_ORDER_CODE_COMPLETED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/lib/study-load-continuity.ts
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_C06_CONTINUITY_ROUTE_ORDER_CODE_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Implemented the minimum route-order/continuity alignment identified by the prior plan. Updated `nextjs_space/lib/study-load-continuity.ts` so `paes_m1_linear_functions_basic` now routes to `paes_m1_linear_functions_basic_ii`, and `paes_m1_linear_functions_basic_ii` routes to `paes_m1_data_representation_entry`. Preserved the existing C04 -> C05 I route. No registry content, stems, options, correctOptionKey values, authoredFeedback, UI/API/schema/DB/fixtures, or local/dev data were changed.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-LOCAL-DEV-DATA-ALIGNMENT-1
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No registry content changes.
+- No fixture mutation.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-CONTINUITY-ROUTE-ORDER-ALIGNMENT-PLAN-1
 
 Baseline before:
