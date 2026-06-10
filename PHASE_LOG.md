@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-SPLIT-PLAN-1
+
+Baseline before:
+
+```text
+72792f487844e3c6bda35824b428a0c8a83306c0
+```
+
+Result/verdict:
+
+```text
+M1_C05_FUNCIONES_LINEALES_SPLIT_PLAN_READY
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_FUNCIONES_LINEALES_SPLIT_PLAN_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only split/repair plan for current `M1-C05 - Funciones lineales basicas` / `paes_m1_linear_functions_basic`. Static registry evidence confirms 8 items with keys B/B/A/C/D/A/B/C and authoredFeedback on q1-q8. Applied the living PAES capsule standard that blocks M1 capsules above 4 exercises. Recommended preserving all useful items via a 4+4 split: q1-q4 as `M1-C05 - Funciones lineales basicas I` and q5-q8 as `M1-C06 - Funciones lineales basicas II`, with a future correlativo/continuity alignment phase before smoke resumes.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-FUNCIONES-LINEALES-SPLIT-IMPLEMENTATION-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No registry changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No data mutation.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-GOV-PAES-CAPSULE-PEDAGOGICAL-STANDARD-1
 
 Baseline before:

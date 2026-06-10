@@ -1,39 +1,37 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-GOV-PAES-CAPSULE-PEDAGOGICAL-STANDARD-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-SPLIT-PLAN-1`
 
 Baseline before:
-`0ac9a4ca8883552444d83612bce877aad79ac538`
+`72792f487844e3c6bda35824b428a0c8a83306c0`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_GOV_PAES_CAPSULE_PEDAGOGICAL_STANDARD_1.md`
-- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
-- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_FUNCIONES_LINEALES_SPLIT_PLAN_1.md`
 
 Result:
-`PAES_CAPSULE_PEDAGOGICAL_STANDARD_DOCUMENTED_LIVING_REFERENCE_ADDED`
+`M1_C05_FUNCIONES_LINEALES_SPLIT_PLAN_READY`
 
 Decision summary:
-- M1 ideal and maximum: 4 exercises per capsule.
-- M2 maximum: 4 exercises; ideal 3 or 4 depending on cognitive load.
-- M1/M2 recommended minimum: 3; exceptional minimum: 2 only with pedagogical justification.
-- L1 recommended range: 1 to 4 answerable questions, possibly from a base text.
-- M1-C05 8-item human smoke must pause.
-- Next required work is M1-C05 split/repair planning, not continuing the 8-item smoke.
-- Agentic layer remains on hold.
+- Current M1-C05 target is `paes_m1_linear_functions_basic`.
+- Current registry capsule has 8 items with keys B/B/A/C/D/A/B/C.
+- q1-q8 already have authoredFeedback.
+- The living PAES standard blocks ordinary M1 capsules above 4 exercises.
+- Do not continue, answer, submit, or finalize the current 8-item M1-C05 smoke.
+- Recommended repair is split 4+4, preserving all items.
+- Proposed future visible sequence is M1-C05 Funciones lineales basicas I and M1-C06 Funciones lineales basicas II, with downstream correlativo/continuity alignment.
 
 Validation:
-- Preflight passed at `0ac9a4ca8883552444d83612bce877aad79ac538`.
+- Preflight passed at `72792f487844e3c6bda35824b428a0c8a83306c0`.
 - `git diff --check`: passed.
 - `git status --short`: only authorized documentation files changed before commit.
 - No build run; documentation-only phase.
 - No browser automation or API-only tests run.
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-SPLIT-PLAN-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-FUNCIONES-LINEALES-SPLIT-IMPLEMENTATION-1`
 
 Scope safety:
-Documentation-only governance phase. No code changes, no UI/API/schema/DB/Prisma changes, no registry changes, no continuity or route-order changes, no data mutation, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+Documentation-only split planning. No code changes, no registry changes, no UI/API/schema/DB/Prisma changes, no continuity or route-order changes, no data mutation, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
