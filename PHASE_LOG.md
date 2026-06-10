@@ -42,6 +42,59 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-LOCAL-DEV-DATA-ALIGNMENT-1
+
+Baseline before:
+
+```text
+1be2c04dfc7eb490ad308c1eef6e9df1cb718139
+```
+
+Result/verdict:
+
+```text
+C05_C06_LOCAL_DEV_DATA_ALIGNMENT_COMPLETED_READY_FOR_C05_I_SMOKE
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_C06_LOCAL_DEV_DATA_ALIGNMENT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Human authorization was received for LOCAL_DEV stale data alignment only. LOCAL_DEV DB availability was confirmed without printing secrets. The target active PAES_M1/open cycle had C03 and C04 completed and one legacy C05 `in_progress` StudyLoad with zero responses. The empty stale session was retired as `cancelled_stale`, and the same StudyLoad row was aligned to `PAES M1 - Funciones lineales basicas I` with status `pending`. C06 II was not precreated; continuity should create/reuse it after C05 I completion.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-I-HUMAN-UI-SMOKE-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No registry changes.
+- No authoredFeedback/stems/options/correctOptionKey changes.
+- No route-order/continuity changes.
+- No UI/API/schema/Prisma changes.
+- No seed reset.
+- No DB reset.
+- No fixture reset.
+- No production/staging.
+- No browser automation.
+- No API-only tests.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-CONTINUITY-ROUTE-ORDER-CODE-1
 
 Baseline before:

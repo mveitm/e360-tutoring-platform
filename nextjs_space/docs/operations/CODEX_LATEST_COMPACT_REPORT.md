@@ -1,37 +1,37 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-CONTINUITY-ROUTE-ORDER-CODE-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-LOCAL-DEV-DATA-ALIGNMENT-1`
 
 Baseline before:
-`bf694f4bfd797b82e66fa6638e8eb49e83ef01d1`
+`1be2c04dfc7eb490ad308c1eef6e9df1cb718139`
 
 Files changed:
-- `nextjs_space/lib/study-load-continuity.ts`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_C06_CONTINUITY_ROUTE_ORDER_CODE_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_C06_LOCAL_DEV_DATA_ALIGNMENT_1.md`
 
 Result:
-`C05_C06_CONTINUITY_ROUTE_ORDER_CODE_COMPLETED`
+`C05_C06_LOCAL_DEV_DATA_ALIGNMENT_COMPLETED_READY_FOR_C05_I_SMOKE`
 
 Decision summary:
-- The prior plan identified `nextjs_space/lib/study-load-continuity.ts` as the exact continuity target.
-- C04 -> C05 I remains `paes_m1_linear_equations_reinforcement -> paes_m1_linear_functions_basic`.
-- C05 I now routes to C06 II: `paes_m1_linear_functions_basic -> paes_m1_linear_functions_basic_ii`.
-- C06 II now routes to data representation: `paes_m1_linear_functions_basic_ii -> paes_m1_data_representation_entry`.
-- Local/dev stale 8-item StudyLoad data was not touched and remains a separate follow-up.
+- Human authorization for LOCAL_DEV stale data alignment was received.
+- LOCAL_DEV environment and DB availability were confirmed without printing secrets.
+- The target cycle was identified by active PAES_M1/open-cycle status, C03/C04 completed state, and one stale legacy C05 load with zero responses.
+- The empty stale C05 `in_progress` session was retired as `cancelled_stale`.
+- The same StudyLoad row was aligned to `PAES M1 - Funciones lineales basicas I` and reset to `pending`.
+- C06 II was not precreated; route-order continuity should create/reuse it after C05 I completion.
 
 Validation:
-- Preflight passed at `bf694f4bfd797b82e66fa6638e8eb49e83ef01d1`.
+- Preflight passed at `1be2c04dfc7eb490ad308c1eef6e9df1cb718139`.
+- Read-only post-mutation verification: C03 completed true, C04 completed true, legacy Funciones lineales active false, C05 I pending true, C05 I active sessions 0, C05 I responses 0.
 - `git diff --check`: passed.
-- `git status --short`: only authorized/scope-approved files changed before commit.
-- Static diff confirms only the continuity map changed in `study-load-continuity.ts`.
-- Build: `npm.cmd --prefix nextjs_space run build` passed.
+- `git status --short`: only authorized documentation files changed before commit.
+- No build run; not required for documentation plus local/dev data alignment.
 - No browser automation or API-only tests run.
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-LOCAL-DEV-DATA-ALIGNMENT-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-I-HUMAN-UI-SMOKE-1`
 
 Scope safety:
-Continuity and documentation phase only. No DB mutation, no UI/API/schema/DB/Prisma changes, no registry content changes, no stems/options/correctOptionKey/authoredFeedback changes, no fixture mutation, no browser automation, no API-only tests, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+LOCAL_DEV data alignment plus documentation only. No code files changed, no UI/API/schema/Prisma/registry/route-order/continuity files changed, no stems/options/correctOptionKey/authoredFeedback changed, no seed/reset/migration/fixture reset, no production/staging, no browser automation, no API-only tests, no secrets printed, no Sales-Ready or adaptive AI claim.
