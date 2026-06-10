@@ -42,6 +42,51 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-LOCAL-DEV-DATA-ALIGNMENT-1
+
+Baseline before:
+
+```text
+a396ad0287d94164e01aaa222df76ce771dc9155
+```
+
+Result/verdict:
+
+```text
+C07_C08_LOCAL_DEV_DATA_ALIGNMENT_COMPLETED_READY_FOR_C07_I_SMOKE
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_LOCAL_DEV_DATA_ALIGNMENT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Human authorization was received for LOCAL_DEV stale data alignment only. LOCAL_DEV DB availability was confirmed without printing secrets. The target active PAES_M1/open cycle had C05 I and C06 II completed and one legacy `Lectura de tablas y graficos` in_progress StudyLoad with zero responses. The empty stale session was retired as `cancelled_stale`, and the same StudyLoad row was aligned to `PAES M1 - Lectura de tablas y graficos I` with status `pending`. C08 II was not precreated; continuity should create/reuse it after C07 I completion.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C07-LECTURA-TABLAS-GRAFICOS-I-HUMAN-UI-SMOKE-READINESS-1
+```
+
+Explicit non-actions:
+
+- No code files modified.
+- No UI/API/schema/Prisma changes.
+- No registry/content changes.
+- No authoredFeedback/stems/options/correctOptionKey changes.
+- No route-order/continuity changes.
+- No seed/fixture/reset/migration.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-CONTINUITY-ROUTE-ORDER-CODE-1
 
 Baseline before:
