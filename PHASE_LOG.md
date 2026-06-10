@@ -42,6 +42,60 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-UX-STUDYLOAD-START-RESUME-REFRESH-ISSUE-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+3b4d224d8e091067ea5a487d20f6d05a359c1be5
+```
+
+Result/verdict:
+
+```text
+STUDYLOAD_START_RESUME_REFRESH_ISSUE_DIAGNOSED_UI_REVALIDATION_GAP
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_UX_STUDYLOAD_START_RESUME_REFRESH_ISSUE_DIAGNOSIS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation/read-only diagnosis of recurring StudyLoad start/resume UX issue observed in M1-C04 Refuerzo, M1-C05 I, and M1-C06 II. Static code review found that `/api/study-loads/[id]/start` correctly transitions StudyLoad `pending -> in_progress` and creates an `in_progress` session, while `StartLoadButton` only calls same-route `router.push(...)` after success and does not call `router.refresh()` or persist a local started state. The StudyLoad viewer renders exercises from server-read `studyLoad.status`; if the Server Component payload remains stale as `pending`, `Comenzar` stays visible and a second click correctly hits the server duplicate-start guard. Recommended narrow fix: refresh/revalidate or update local state after successful start, hide/disable/replace `Comenzar`, and preserve server guards.
+
+Next recommended phase:
+
+```text
+MVP-UX-STUDYLOAD-START-RESUME-REFRESH-ISSUE-FIX-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No DB mutation.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No registry changes.
+- No authoredFeedback/stems/options/correctOptionKey changes.
+- No route-order/continuity changes.
+- No seed reset.
+- No fixture mutation.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C06-II-HUMAN-UI-SMOKE-CLOSEOUT-1
 
 Baseline before:
