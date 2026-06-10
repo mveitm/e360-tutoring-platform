@@ -42,6 +42,60 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-UX-STUDYLOAD-START-RESUME-REFRESH-ISSUE-FIX-1
+
+Baseline before:
+
+```text
+f7e477e80512ec45f39fe24b25e64ee157308d50
+```
+
+Result/verdict:
+
+```text
+STUDYLOAD_START_RESUME_REFRESH_FIX_IMPLEMENTED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/app/now/_components/start-load-button.tsx
+nextjs_space/docs/operations/MVP_UX_STUDYLOAD_START_RESUME_REFRESH_ISSUE_FIX_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Implemented the narrow start/resume UI fix identified by the diagnosis. `StartLoadButton` now keeps local started state after a successful start, disables the button to prevent a confusing second click, calls `router.refresh()` when the user is already on `/now/study-loads/[id]`, and preserves navigation from `/now` to the StudyLoad viewer. Server-side duplicate-start guards and lifecycle semantics were not changed.
+
+Next recommended phase:
+
+```text
+MVP-UX-STUDYLOAD-START-RESUME-REFRESH-ISSUE-HUMAN-VERIFY-1
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No API route changes.
+- No schema/DB/Prisma changes.
+- No registry/content changes.
+- No authoredFeedback/stems/options/correctOptionKey changes.
+- No route-order/continuity changes.
+- No seed reset.
+- No fixture mutation.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-UX-STUDYLOAD-START-RESUME-REFRESH-ISSUE-DIAGNOSIS-1
 
 Baseline before:
