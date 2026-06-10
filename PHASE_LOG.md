@@ -42,6 +42,60 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-I-HUMAN-UI-SMOKE-CLOSEOUT-1
+
+Baseline before:
+
+```text
+e06b1b504ca40068c8a11c92fb37e9b14f8c0e1d
+```
+
+Result/verdict:
+
+```text
+M1_C05_I_HUMAN_UI_SMOKE_CLOSEOUT_PASSED_WITH_NON_BLOCKING_REFRESH_UX_ISSUE
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_I_HUMAN_UI_SMOKE_CLOSEOUT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Closed the human local/dev UI smoke for M1-C05 - Funciones lineales basicas I after the split, route-order/continuity alignment, and LOCAL_DEV data alignment. Human report: all review points passed OK, item count was correct at 4 exercises, brief feedback passed, step-by-step action passed, complete feedback passed, self-report/finalization passed, and final state passed. Recorded the only issue as non-blocking: pressing `Comenzar` required F5/refresh before exercises appeared, a recurring UX pattern also observed in M1-C04 Refuerzo.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C06-FUNCIONES-LINEALES-II-HUMAN-UI-SMOKE-READINESS-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No DB mutation.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No registry changes.
+- No authoredFeedback/stems/options/correctOptionKey changes.
+- No route-order/continuity changes.
+- No seed reset.
+- No fixture mutation.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-LOCAL-DEV-DATA-ALIGNMENT-1
 
 Baseline before:
