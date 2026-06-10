@@ -42,6 +42,60 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-GOV-PAES-CAPSULE-PEDAGOGICAL-STANDARD-1
+
+Baseline before:
+
+```text
+0ac9a4ca8883552444d83612bce877aad79ac538
+```
+
+Result/verdict:
+
+```text
+PAES_CAPSULE_PEDAGOGICAL_STANDARD_DOCUMENTED_LIVING_REFERENCE_ADDED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_GOV_PAES_CAPSULE_PEDAGOGICAL_STANDARD_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only governance phase. Documented the accepted PRO/direction standard: M1/M2 ideal and maximum 4 exercises per capsule, M1 recommended minimum 3 and exceptional minimum 2 only with justification, M2 ideal 3 or 4 depending on cognitive load, and L1 1-4 answerable questions. Established feedback breve/completo, exercise formatting, LaTeX/image, and pre-implementation pedagogical gate standards. Superseded the prior operational recommendation to continue M1-C05 8-item smoke: `M1-C05 - Funciones lineales basicas` must pause and move to split/repair planning.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-SPLIT-PLAN-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No registry changes.
+- No continuity or route-order changes.
+- No data mutation.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-ITEM-COUNT-DIAGNOSIS-1
 
 Baseline before:

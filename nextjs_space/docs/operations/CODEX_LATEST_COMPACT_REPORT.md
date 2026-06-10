@@ -1,39 +1,39 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-ITEM-COUNT-DIAGNOSIS-1`
+`MVP-GOV-PAES-CAPSULE-PEDAGOGICAL-STANDARD-1`
 
 Baseline before:
-`cbce8aa52e0a0a1a104d7082160f967f61923af2`
+`0ac9a4ca8883552444d83612bce877aad79ac538`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_FUNCIONES_LINEALES_ITEM_COUNT_DIAGNOSIS_1.md`
+- `nextjs_space/docs/operations/MVP_GOV_PAES_CAPSULE_PEDAGOGICAL_STANDARD_1.md`
+- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
+- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
 
 Result:
-`M1_C05_ITEM_COUNT_DIAGNOSED_8_EXPECTED_CONTINUE_SMOKE`
+`PAES_CAPSULE_PEDAGOGICAL_STANDARD_DOCUMENTED_LIVING_REFERENCE_ADDED`
 
-Diagnosis summary:
-- Human observed `M1-C05 - Funciones lineales basicas` opening correctly.
-- After `Comenzar`, UI showed 8 exercises and the review was stopped.
-- contentKey: `paes_m1_linear_functions_basic`.
-- Current docs and registry define M1-C05 as 8 MC items.
-- Registry item order is q1-q8 with keys B/B/A/C/D/A/B/C.
-- q1-q8 have authoredFeedback.
-- Cause classification: `REGISTRY_HAS_8_ITEMS_EXPECTATION_WAS_WRONG`.
-- The q1-q4 readiness checklist was too narrow for the current 8-item UI/submission flow.
+Decision summary:
+- M1 ideal and maximum: 4 exercises per capsule.
+- M2 maximum: 4 exercises; ideal 3 or 4 depending on cognitive load.
+- M1/M2 recommended minimum: 3; exceptional minimum: 2 only with pedagogical justification.
+- L1 recommended range: 1 to 4 answerable questions, possibly from a base text.
+- M1-C05 8-item human smoke must pause.
+- Next required work is M1-C05 split/repair planning, not continuing the 8-item smoke.
+- Agentic layer remains on hold.
 
 Validation:
-- Preflight passed at `cbce8aa52e0a0a1a104d7082160f967f61923af2`.
+- Preflight passed at `0ac9a4ca8883552444d83612bce877aad79ac538`.
 - `git diff --check`: passed.
 - `git status --short`: only authorized documentation files changed before commit.
 - No build run; documentation-only phase.
 - No browser automation or API-only tests run.
 
 Recommended next step:
-Continue human smoke expecting 8 exercises, then close out:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-HUMAN-UI-SMOKE-CLOSEOUT-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-SPLIT-PLAN-1`
 
 Scope safety:
-Documentation-only diagnosis. No code changes, no UI/API/schema/DB/Prisma changes, no registry changes, no continuity or route-order changes, no data mutation, no DB query required or executed, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
+Documentation-only governance phase. No code changes, no UI/API/schema/DB/Prisma changes, no registry changes, no continuity or route-order changes, no data mutation, no browser automation, no API-only tests, no DB reset, no seed scripts, no fixture mutation, no production/staging, no secrets printed, no Sales-Ready or adaptive AI claim.
