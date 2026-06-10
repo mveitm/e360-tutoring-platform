@@ -42,6 +42,51 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-CONTINUITY-ROUTE-ORDER-ALIGNMENT-PLAN-1
+
+Baseline before:
+
+```text
+41157563a82a61320bfd500606733930dcf65a37
+```
+
+Result/verdict:
+
+```text
+C07_C08_ALIGNMENT_PLAN_READY_ROUTE_ORDER_AND_DATA
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_CONTINUITY_ROUTE_ORDER_ALIGNMENT_PLAN_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation/read-only alignment plan after C07/C08 split and authoredFeedback. Static evidence shows C06 II already routes to `paes_m1_data_representation_entry`, which now resolves to C07 I. Missing continuity is `paes_m1_data_representation_entry -> paes_m1_data_representation_entry_ii` so C07 I can create C08 II. Also recorded local/dev stale StudyLoad risk because the human started the old 8-item `Lectura de tablas y graficos` instance and stopped before answering/submitting/finalizing.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-CONTINUITY-ROUTE-ORDER-CODE-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No DB mutation.
+- No UI/API/schema/Prisma changes.
+- No registry/content changes.
+- No continuity/route-order changes.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-LECTURA-TABLAS-GRAFICOS-AUTHORED-FEEDBACK-1
 
 Baseline before:

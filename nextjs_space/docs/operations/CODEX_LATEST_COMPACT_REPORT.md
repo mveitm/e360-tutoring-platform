@@ -1,38 +1,36 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-LECTURA-TABLAS-GRAFICOS-AUTHORED-FEEDBACK-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-CONTINUITY-ROUTE-ORDER-ALIGNMENT-PLAN-1`
 
 Baseline before:
-`43263a84ab6ca4267f256ceef67040b5660d04b0`
+`41157563a82a61320bfd500606733930dcf65a37`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_LECTURA_TABLAS_GRAFICOS_AUTHORED_FEEDBACK_1.md`
-- `nextjs_space/lib/study-load-content.ts`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_CONTINUITY_ROUTE_ORDER_ALIGNMENT_PLAN_1.md`
 
 Result:
-`M1_C07_C08_LECTURA_TABLAS_GRAFICOS_AUTHORED_FEEDBACK_IMPLEMENTED`
+`C07_C08_ALIGNMENT_PLAN_READY_ROUTE_ORDER_AND_DATA`
 
 Decision summary:
-- Implemented authoredFeedback for C07/C08 after the 4+4 registry split.
-- C07 `paes_m1_data_representation_entry` has q1-q4 authoredFeedback.
-- C08 `paes_m1_data_representation_entry_ii` has q5-q8 authoredFeedback.
-- Feedback uses `briefId`, `completeId`, `version`, `brief`, and `complete`.
-- Preserved stems, options, correctOptionKey values D/B/C/A/C/B/B/A, contentKey values, and item order.
-- C07/C08 now satisfy item-count and authoredFeedback readiness at the registry level.
-- Continuity/route-order and LOCAL_DEV stale-data alignment remain deferred.
+- C07 target: `paes_m1_data_representation_entry`, 4 items, authoredFeedback present.
+- C08 target: `paes_m1_data_representation_entry_ii`, 4 items, authoredFeedback present.
+- Current continuity already maps C06 II to `paes_m1_data_representation_entry`, so C06 II -> C07 I is aligned.
+- Current continuity does not map `paes_m1_data_representation_entry` to `paes_m1_data_representation_entry_ii`, so C07 I -> C08 II is missing.
+- Human had started the old 8-item Lectura StudyLoad before split; local/dev stale data alignment is still required before smoke.
+- Recommended future path: route-order code phase, then explicit LOCAL_DEV data alignment phase, then C07 smoke readiness.
 
 Validation:
-- Preflight passed at `43263a84ab6ca4267f256ceef67040b5660d04b0`.
+- Preflight passed at `41157563a82a61320bfd500606733930dcf65a37`.
 - `git diff --check`: passed.
-- `git status --short`: only authorized/scope-approved files changed before commit.
-- Build: `npm.cmd --prefix nextjs_space run build` passed.
+- `git status --short`: only authorized documentation files changed before commit.
+- Build: not run; documentation-only phase.
 - No browser automation or API-only tests run.
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-CONTINUITY-ROUTE-ORDER-ALIGNMENT-PLAN-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-CONTINUITY-ROUTE-ORDER-CODE-1`
 
 Scope safety:
-Registry authoredFeedback plus documentation only. No DB mutation, no UI/API/schema/Prisma changes, no continuity/route-order changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no secrets printed, no Sales-Ready or adaptive AI claim.
+Documentation-only alignment plan. No code changes, no DB mutation, no UI/API/schema/Prisma changes, no registry/content/authoredFeedback changes, no continuity/route-order changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no build, no secrets printed, no Sales-Ready or adaptive AI claim.
