@@ -42,6 +42,60 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C06-II-HUMAN-UI-SMOKE-CLOSEOUT-1
+
+Baseline before:
+
+```text
+c729da30138aaa6c05894d6ccb0fdd2b8f8de522
+```
+
+Result/verdict:
+
+```text
+M1_C06_II_HUMAN_UI_SMOKE_CLOSEOUT_PASSED_WITH_RECURRING_START_REFRESH_UX_ISSUE
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C06_II_HUMAN_UI_SMOKE_CLOSEOUT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Closed human local/dev UI smoke for M1-C06 - Funciones lineales basicas II. Human report: Ver capsula opened the capsule; initially exercises were not shown; pressing `Comenzar` did not immediately show exercises; F5/refresh was required; after refresh exercises appeared; `Comenzar` still remained active and a second click showed `Esta capsula ya fue iniciada`; all other verification points passed/OK. Recorded the start/refresh problem as recurring UX debt already seen in M1-C04 Refuerzo, M1-C05 I, and M1-C06 II. Next visible capsule after return to tutoring: Lectura de tablas y graficos.
+
+Next recommended phase:
+
+```text
+MVP-UX-STUDYLOAD-START-RESUME-REFRESH-ISSUE-DIAGNOSIS-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No DB mutation.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No registry changes.
+- No authoredFeedback/stems/options/correctOptionKey changes.
+- No route-order/continuity changes.
+- No seed reset.
+- No fixture mutation.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C06-FUNCIONES-LINEALES-II-HUMAN-UI-SMOKE-READINESS-1
 
 Baseline before:

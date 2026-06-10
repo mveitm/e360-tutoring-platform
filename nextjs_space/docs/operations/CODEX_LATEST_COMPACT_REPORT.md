@@ -1,35 +1,36 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C06-FUNCIONES-LINEALES-II-HUMAN-UI-SMOKE-READINESS-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C06-II-HUMAN-UI-SMOKE-CLOSEOUT-1`
 
 Baseline before:
-`8294ee93d833b0d11f01c43b72bb7c8be001b627`
+`c729da30138aaa6c05894d6ccb0fdd2b8f8de522`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C06_FUNCIONES_LINEALES_II_HUMAN_UI_SMOKE_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C06_II_HUMAN_UI_SMOKE_CLOSEOUT_1.md`
 
 Result:
-`M1_C06_FUNCIONES_LINEALES_II_HUMAN_UI_SMOKE_READINESS_DEFINED`
+`M1_C06_II_HUMAN_UI_SMOKE_CLOSEOUT_PASSED_WITH_RECURRING_START_REFRESH_UX_ISSUE`
 
 Decision summary:
-- Prepared human local/dev UI smoke readiness for M1-C06 - Funciones lineales basicas II.
-- Static registry basis: `paes_m1_linear_functions_basic_ii`, 4 items, keys D/A/B/C.
-- C06 II has authoredFeedback shape on all four items: briefId, completeId, version, brief, complete.
-- C06 II satisfies the living M1 max-4 capsule standard.
-- Checklist includes confirming no stale 8-exercise instance appears and recording whether `Comenzar` requires F5/refresh.
+- Human local/dev smoke for M1-C06 - Funciones lineales basicas II passed.
+- All non-start verification points were reported passed/OK.
+- Start/resume issue reproduced: after pressing `Comenzar`, exercises required F5/refresh to appear.
+- After refresh, `Comenzar` remained active; a second click showed `Esta capsula ya fue iniciada`.
+- The issue is now recurrent across M1-C04 Refuerzo, M1-C05 I, and M1-C06 II.
+- Next capsule observed after return to tutoring: Lectura de tablas y graficos.
 
 Validation:
-- Preflight passed at `8294ee93d833b0d11f01c43b72bb7c8be001b627`.
+- Preflight passed at `c729da30138aaa6c05894d6ccb0fdd2b8f8de522`.
 - `git diff --check`: passed.
 - `git status --short`: only authorized documentation files changed before commit.
-- No build run; documentation-only readiness.
+- No build run; documentation-only closeout.
 - No browser automation or API-only tests run.
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C06-FUNCIONES-LINEALES-II-HUMAN-UI-SMOKE-CLOSEOUT-1`
+`MVP-UX-STUDYLOAD-START-RESUME-REFRESH-ISSUE-DIAGNOSIS-1`
 
 Scope safety:
-Documentation-only readiness. No code files changed, no DB mutation, no UI/API/schema/Prisma/registry/route-order/continuity files changed, no authoredFeedback/stems/options/correctOptionKey changed, no seed/reset/migration/fixture reset, no production/staging, no browser automation, no API-only tests, no secrets printed, no Sales-Ready or adaptive AI claim.
+Documentation-only closeout. No code files changed, no DB mutation, no UI/API/schema/Prisma/registry/route-order/continuity files changed, no authoredFeedback/stems/options/correctOptionKey changed, no seed/reset/migration/fixture reset, no production/staging, no browser automation, no API-only tests, no secrets printed, no Sales-Ready or adaptive AI claim.
