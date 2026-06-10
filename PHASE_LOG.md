@@ -42,6 +42,59 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-HUMAN-UI-SMOKE-READINESS-1
+
+Baseline before:
+
+```text
+4d7d70ac869ca725b2878bc1c78bd7a404429270
+```
+
+Result/verdict:
+
+```text
+M1_C05_FUNCIONES_LINEALES_HUMAN_UI_SMOKE_READINESS_DEFINED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_FUNCIONES_LINEALES_HUMAN_UI_SMOKE_READINESS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only readiness for a future human local/dev UI smoke of current `M1-C05 - Funciones lineales basicas` after `M1_C05_FUNCIONES_LINEALES_AUTHORED_FEEDBACK_IMPLEMENTED`. Confirmed the target `paes_m1_linear_functions_basic`, q1-q8 authoredFeedback implementation, and defined the q1-q4 human checklist for brief feedback, paso-a-paso/complete feedback, self-report, completion, terminal state, ST return, and next visible capsule recording.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-HUMAN-UI-SMOKE-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+- No human smoke executed.
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No data mutation.
+- No continuity or route-order changes.
+- No registry changes.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-AUTHORED-FEEDBACK-1
 
 Baseline before:
