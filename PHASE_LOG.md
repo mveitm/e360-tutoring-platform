@@ -42,6 +42,51 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-PLAN-1
+
+Baseline before:
+
+```text
+36c1ec0196322ef287f341cd6c377456d2f53ac9
+```
+
+Result/verdict:
+
+```text
+M1_LECTURA_TABLAS_GRAFICOS_SPLIT_PLAN_READY
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_LECTURA_TABLAS_GRAFICOS_SPLIT_PLAN_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only split/repair plan for `Lectura de tablas y graficos` / `paes_m1_data_representation_entry`. Static registry evidence confirms 8 items with keys D/B/C/A/C/B/B/A and no authoredFeedback. Applied the living PAES standard that blocks M1 capsules above 4 exercises. Recommended preserving all useful items via a 4+4 split: q1-q4 as `M1-C07 - Lectura de tablas y graficos I` and q5-q8 as `M1-C08 - Lectura de tablas y graficos II`, with future authoredFeedback, continuity/route-order alignment, and explicit LOCAL_DEV stale-data alignment before smoke resumes.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-CODE-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No DB mutation.
+- No UI/API/schema/Prisma changes.
+- No registry/content changes.
+- No continuity/route-order changes.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-ITEM-COUNT-DIAGNOSIS-1
 
 Baseline before:

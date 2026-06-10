@@ -1,37 +1,38 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-ITEM-COUNT-DIAGNOSIS-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-PLAN-1`
 
 Baseline before:
-`d0cf5a092d8d2e7bd34ccf8d6461d62889ec996f`
+`36c1ec0196322ef287f341cd6c377456d2f53ac9`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_LECTURA_TABLAS_GRAFICOS_ITEM_COUNT_DIAGNOSIS_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_LECTURA_TABLAS_GRAFICOS_SPLIT_PLAN_1.md`
 
 Result:
-`M1_LECTURA_TABLAS_GRAFICOS_ITEM_COUNT_BLOCKER_DIAGNOSED_SPLIT_REQUIRED`
+`M1_LECTURA_TABLAS_GRAFICOS_SPLIT_PLAN_READY`
 
 Decision summary:
-- Human verification confirmed the start/resume UX fix passed: pressing `Comenzar` showed exercises without F5/refresh.
-- The next visible capsule was `Lectura de tablas y graficos`.
-- Static registry diagnosis maps it to `paes_m1_data_representation_entry`.
-- Registry item count is 8 items, q1-q8, with keys D/B/C/A/C/B/B/A.
-- The observed 8 exercises match registry content, not an evident stale local/dev mismatch.
-- The capsule violates the living M1 maximum 4-exercise standard and should not continue ordinary human smoke in its current form.
-- Static inspection found no authoredFeedback blocks on q1-q8, so feedback readiness is also blocked.
+- Planned a documentation-only split/repair for `Lectura de tablas y graficos`.
+- Current registry target is `paes_m1_data_representation_entry`, title `PAES M1 - Lectura de tablas y graficos`, with 8 items.
+- Current keys are D/B/C/A/C/B/B/A.
+- Current authoredFeedback is absent on q1-q8.
+- Recommended preserving all useful items with a 4+4 split.
+- Proposed `M1-C07 - Lectura de tablas y graficos I` for q1-q4 and `M1-C08 - Lectura de tablas y graficos II` for q5-q8.
+- Recommended keeping `paes_m1_data_representation_entry` for Part I and adding `paes_m1_data_representation_entry_ii` for Part II.
+- Future phases must handle registry split, authoredFeedback, continuity/route-order alignment, and LOCAL_DEV stale-data alignment before smoke resumes.
 
 Validation:
-- Preflight passed at `d0cf5a092d8d2e7bd34ccf8d6461d62889ec996f`.
+- Preflight passed at `36c1ec0196322ef287f341cd6c377456d2f53ac9`.
 - `git diff --check`: passed.
 - `git status --short`: only authorized documentation files changed before commit.
 - Build: not run; documentation-only phase.
 - No browser automation or API-only tests run.
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-PLAN-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-CODE-1`
 
 Scope safety:
-Documentation-only diagnosis. No code changes, no DB mutation, no UI/API/schema/Prisma changes, no registry/content changes, no continuity/route-order changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no build, no secrets printed, no Sales-Ready or adaptive AI claim.
+Documentation-only split plan. No code changes, no DB mutation, no UI/API/schema/Prisma changes, no registry/content changes, no continuity/route-order changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no build, no secrets printed, no Sales-Ready or adaptive AI claim.
