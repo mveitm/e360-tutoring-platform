@@ -42,6 +42,52 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-LECTURA-TABLAS-GRAFICOS-I-HUMAN-UI-SMOKE-CLOSEOUT-1
+
+Baseline before:
+
+```text
+5fba39fc9d5d80eb5490d5f3f1e8f975b8a205b7
+```
+
+Result/verdict:
+
+```text
+M1_C07_HUMAN_UI_SMOKE_CLOSEOUT_PASSED_WITH_CONTENT_RENDERING_DEBT
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_LECTURA_TABLAS_GRAFICOS_I_HUMAN_UI_SMOKE_CLOSEOUT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Closed/documented human local/dev UI smoke for M1-C07 - Lectura de tablas y graficos I. Human reported that the capsule works correctly, all verification points passed OK, and the start/resume sequence `Ver capsula -> abre capsula + Comenzar -> muestra ejercicios` worked without F5/refresh. Next capsule shown in ST was Lectura de tablas y graficos II. Recorded content/rendering debt: exercises refer to a table that is not shown.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-GRAPH-RENDERING-CONTENT-DIAGNOSIS-1
+```
+
+Explicit non-actions:
+
+- No code files modified.
+- No UI/API/schema/Prisma changes.
+- No registry/content changes.
+- No authoredFeedback/stems/options/correctOptionKey changes.
+- No route-order/continuity changes.
+- No DB mutation.
+- No seed/fixture/reset/migration.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-LECTURA-TABLAS-GRAFICOS-I-HUMAN-UI-SMOKE-READINESS-1
 
 Baseline before:
