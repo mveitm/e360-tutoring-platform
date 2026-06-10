@@ -42,6 +42,50 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-LECTURA-TABLAS-GRAFICOS-AUTHORED-FEEDBACK-1
+
+Baseline before:
+
+```text
+43263a84ab6ca4267f256ceef67040b5660d04b0
+```
+
+Result/verdict:
+
+```text
+M1_C07_C08_LECTURA_TABLAS_GRAFICOS_AUTHORED_FEEDBACK_IMPLEMENTED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/lib/study-load-content.ts
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_LECTURA_TABLAS_GRAFICOS_AUTHORED_FEEDBACK_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Added authoredFeedback to the split `Lectura de tablas y graficos` capsules. C07 `paes_m1_data_representation_entry` now has q1-q4 feedback for direct lookup, subtraction comparison, maximum identification, and trend interpretation. C08 `paes_m1_data_representation_entry_ii` now has q5-q8 feedback for total, average, supported conclusion, and equal-frequency identification. Preserved stems, options, correctOptionKey values D/B/C/A/C/B/B/A, contentKey values, and item order. Did not touch continuity/route-order or local/dev data.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-CONTINUITY-ROUTE-ORDER-ALIGNMENT-PLAN-1
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No UI/API/schema/Prisma changes.
+- No continuity/route-order changes.
+- No seed/fixture changes.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-CODE-1
 
 Baseline before:

@@ -1111,6 +1111,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '15' },
         ],
         correctOptionKey: 'D',
+        authoredFeedback: {
+          briefId: 'paes_m1_data_representation_entry_q1_brief_m1c07_v1',
+          completeId: 'paes_m1_data_representation_entry_q1_complete_m1c07_v1',
+          version: 'm1-c07-c08-lectura-tablas-graficos-authored-feedback-v1',
+          brief:
+            'Busca la fila o dato de 2 medio y lee su valor directamente: corresponde a 15 libros.',
+          complete:
+            'Se pide cuantos libros leyo 2 medio. Paso 1: identifica las categorias de la tabla: 1 medio, 2 medio, 3 medio y 4 medio. Paso 2: ubica la categoria 2 medio. Paso 3: lee el numero asociado a esa categoria: 15. Paso 4: compara con las alternativas y elige D. Un error tipico es responder otro curso cercano, como 1 medio o 4 medio, sin revisar la categoria pedida.',
+        },
       },
       {
         key: 'q2',
@@ -1122,6 +1131,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '40' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_data_representation_entry_q2_brief_m1c07_v1',
+          completeId: 'paes_m1_data_representation_entry_q2_complete_m1c07_v1',
+          version: 'm1-c07-c08-lectura-tablas-graficos-authored-feedback-v1',
+          brief:
+            'Compara Ciencias con Musica restando sus asistentes: 24 - 16 = 8.',
+          complete:
+            'Se pide cuantos asistentes mas tuvo Ciencias que Musica. Paso 1: lee el dato de Ciencias: 24. Paso 2: lee el dato de Musica: 16. Paso 3: como la pregunta dice cuantos mas, calcula la diferencia: 24 - 16 = 8. Paso 4: la alternativa que muestra 8 es B. Un cuidado importante es no sumar 24 + 16, porque eso daria el total entre ambos talleres, no la diferencia.',
+        },
       },
       {
         key: 'q3',
@@ -1133,6 +1151,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'Jueves' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_data_representation_entry_q3_brief_m1c07_v1',
+          completeId: 'paes_m1_data_representation_entry_q3_complete_m1c07_v1',
+          version: 'm1-c07-c08-lectura-tablas-graficos-authored-feedback-v1',
+          brief:
+            'Busca el mayor numero de ventas en la tabla: 25 corresponde a miercoles.',
+          complete:
+            'Se pide identificar el dia con mayor venta. Paso 1: lee los valores: lunes 20, martes 18, miercoles 25 y jueves 21. Paso 2: compara los cuatro numeros. Paso 3: el mayor valor es 25. Paso 4: ese valor corresponde a miercoles, por eso la alternativa correcta es C. Un error tipico es elegir el ultimo dia de la lista o un dia cercano sin verificar cual numero es mayor.',
+        },
       },
       {
         key: 'q4',
@@ -1144,6 +1171,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'Primero bajan y luego suben' },
         ],
         correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m1_data_representation_entry_q4_brief_m1c07_v1',
+          completeId: 'paes_m1_data_representation_entry_q4_complete_m1c07_v1',
+          version: 'm1-c07-c08-lectura-tablas-graficos-authored-feedback-v1',
+          brief:
+            'Observa los valores en orden: 30, 36 y 42. Como suben cada mes, la tendencia aumenta.',
+          complete:
+            'Se pide describir la tendencia de las visitas. Paso 1: ordena los meses como aparecen: marzo, abril y mayo. Paso 2: lee sus valores: 30, 36 y 42. Paso 3: compara mes a mes: de 30 a 36 aumenta, y de 36 a 42 tambien aumenta. Paso 4: la descripcion correcta es que aumentan mes a mes, alternativa A. Un cuidado importante es mirar el orden temporal, no solo los numeros aislados.',
+        },
       },
     ],
     currentLimitationNotice:
@@ -1198,6 +1234,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '32' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_data_representation_entry_q5_brief_m1c08_v1',
+          completeId: 'paes_m1_data_representation_entry_q5_complete_m1c08_v1',
+          version: 'm1-c07-c08-lectura-tablas-graficos-authored-feedback-v1',
+          brief:
+            'Para el total, suma las tres categorias: 10 + 8 + 12 = 30.',
+          complete:
+            'Se pide cuantas colaciones se vendieron en total. Paso 1: identifica las cantidades de cada categoria: frutas 10, yogures 8 y jugos 12. Paso 2: como se pide total, suma todas las cantidades. Paso 3: calcula 10 + 8 + 12 = 30. Paso 4: la alternativa correcta es C. Un error tipico es sumar solo dos categorias o elegir el valor mayor, pero el total usa todos los datos.',
+        },
       },
       {
         key: 'q6',
@@ -1209,6 +1254,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '22 \u00b0C' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_data_representation_entry_q6_brief_m1c08_v1',
+          completeId: 'paes_m1_data_representation_entry_q6_complete_m1c08_v1',
+          version: 'm1-c07-c08-lectura-tablas-graficos-authored-feedback-v1',
+          brief:
+            'Suma las tres temperaturas y divide por 3: (18 + 20 + 22) / 3 = 20.',
+          complete:
+            'Se pide el promedio de tres temperaturas. Paso 1: lee los valores: 18, 20 y 22 grados. Paso 2: suma los valores: 18 + 20 + 22 = 60. Paso 3: divide por la cantidad de datos, que es 3: 60 / 3 = 20. Paso 4: el promedio es 20 grados, alternativa B. Un cuidado importante es dividir por 3 datos, no por 2 ni elegir simplemente el valor del medio sin comprobar.',
+        },
       },
       {
         key: 'q7',
@@ -1220,6 +1274,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'Ning\u00fan estudiante prefiere deporte' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_data_representation_entry_q7_brief_m1c08_v1',
+          completeId: 'paes_m1_data_representation_entry_q7_complete_m1c08_v1',
+          version: 'm1-c07-c08-lectura-tablas-graficos-authored-feedback-v1',
+          brief:
+            'El deporte tiene la frecuencia mas alta: 14 supera a lectura 9 y videojuegos 11.',
+          complete:
+            'Se pide elegir una conclusion apoyada por la tabla. Paso 1: lee las preferencias: deporte 14, lectura 9 y videojuegos 11. Paso 2: compara las frecuencias. Paso 3: la mayor frecuencia es deporte con 14. Paso 4: por eso la conclusion respaldada es que el deporte es la actividad mas preferida, alternativa B. Un error tipico es elegir una afirmacion que suena posible pero no esta apoyada por los datos.',
+        },
       },
       {
         key: 'q8',
@@ -1231,6 +1294,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'Rojo y amarillo' },
         ],
         correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m1_data_representation_entry_q8_brief_m1c08_v1',
+          completeId: 'paes_m1_data_representation_entry_q8_complete_m1c08_v1',
+          version: 'm1-c07-c08-lectura-tablas-graficos-authored-feedback-v1',
+          brief:
+            'Compara las frecuencias y busca las iguales: azul y rojo tienen 7.',
+          complete:
+            'Se pide identificar que colores tienen la misma frecuencia. Paso 1: lee cada dato: azul 7, verde 5, rojo 7 y amarillo 3. Paso 2: compara los numeros entre si. Paso 3: azul y rojo comparten la misma frecuencia, 7. Paso 4: la alternativa correcta es A. Un cuidado importante es no elegir colores cercanos en la lista; hay que verificar que sus valores sean exactamente iguales.',
+        },
       },
     ],
     currentLimitationNotice:
