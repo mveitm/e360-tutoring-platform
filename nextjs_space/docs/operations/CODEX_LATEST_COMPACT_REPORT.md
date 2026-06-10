@@ -1,38 +1,38 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-PLAN-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-CODE-1`
 
 Baseline before:
-`36c1ec0196322ef287f341cd6c377456d2f53ac9`
+`7a6d2e2ef3b381b1b3e82d5e426ae934e9865826`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_LECTURA_TABLAS_GRAFICOS_SPLIT_PLAN_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_LECTURA_TABLAS_GRAFICOS_SPLIT_CODE_1.md`
+- `nextjs_space/lib/study-load-content.ts`
 
 Result:
-`M1_LECTURA_TABLAS_GRAFICOS_SPLIT_PLAN_READY`
+`M1_LECTURA_TABLAS_GRAFICOS_SPLIT_CODE_COMPLETED`
 
 Decision summary:
-- Planned a documentation-only split/repair for `Lectura de tablas y graficos`.
-- Current registry target is `paes_m1_data_representation_entry`, title `PAES M1 - Lectura de tablas y graficos`, with 8 items.
-- Current keys are D/B/C/A/C/B/B/A.
-- Current authoredFeedback is absent on q1-q8.
-- Recommended preserving all useful items with a 4+4 split.
-- Proposed `M1-C07 - Lectura de tablas y graficos I` for q1-q4 and `M1-C08 - Lectura de tablas y graficos II` for q5-q8.
-- Recommended keeping `paes_m1_data_representation_entry` for Part I and adding `paes_m1_data_representation_entry_ii` for Part II.
-- Future phases must handle registry split, authoredFeedback, continuity/route-order alignment, and LOCAL_DEV stale-data alignment before smoke resumes.
+- Implemented the approved 4+4 static registry split for `Lectura de tablas y graficos`.
+- Existing `paes_m1_data_representation_entry` now resolves to `PAES M1 - Lectura de tablas y graficos I` with q1-q4.
+- Added `paes_m1_data_representation_entry_ii` for `PAES M1 - Lectura de tablas y graficos II` with q5-q8.
+- Preserved stems, options, and correctOptionKey values D/B/C/A/C/B/B/A.
+- No authoredFeedback existed on the source q1-q8 items, so no authoredFeedback was moved or changed.
+- Each resulting capsule has 4 exercises and complies with the living M1 max-4 standard.
+- Continuity/route-order and local/dev data alignment were deliberately deferred.
 
 Validation:
-- Preflight passed at `36c1ec0196322ef287f341cd6c377456d2f53ac9`.
+- Preflight passed at `7a6d2e2ef3b381b1b3e82d5e426ae934e9865826`.
 - `git diff --check`: passed.
-- `git status --short`: only authorized documentation files changed before commit.
-- Build: not run; documentation-only phase.
+- `git status --short`: only authorized/scope-approved files changed before commit.
+- Build: `npm.cmd --prefix nextjs_space run build` passed.
 - No browser automation or API-only tests run.
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-CODE-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-LECTURA-TABLAS-GRAFICOS-AUTHORED-FEEDBACK-1`
 
 Scope safety:
-Documentation-only split plan. No code changes, no DB mutation, no UI/API/schema/Prisma changes, no registry/content changes, no continuity/route-order changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no build, no secrets printed, no Sales-Ready or adaptive AI claim.
+Registry split plus documentation only. No DB mutation, no UI/API/schema/Prisma changes, no continuity/route-order changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no secrets printed, no Sales-Ready or adaptive AI claim.

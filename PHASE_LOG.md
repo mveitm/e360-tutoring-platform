@@ -42,6 +42,50 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-CODE-1
+
+Baseline before:
+
+```text
+7a6d2e2ef3b381b1b3e82d5e426ae934e9865826
+```
+
+Result/verdict:
+
+```text
+M1_LECTURA_TABLAS_GRAFICOS_SPLIT_CODE_COMPLETED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/lib/study-load-content.ts
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_LECTURA_TABLAS_GRAFICOS_SPLIT_CODE_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Implemented the approved static registry split for `Lectura de tablas y graficos`. The former 8-item `paes_m1_data_representation_entry` entry is now `PAES M1 - Lectura de tablas y graficos I` with q1-q4 and keys D/B/C/A. Added `PAES M1 - Lectura de tablas y graficos II` with `contentKey` `paes_m1_data_representation_entry_ii`, q5-q8, and keys C/B/B/A. Preserved stems, options, correctOptionKey values, and the prior absence of authoredFeedback. Did not touch continuity/route-order or local/dev data.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-LECTURA-TABLAS-GRAFICOS-AUTHORED-FEEDBACK-1
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No UI/API/schema/Prisma changes.
+- No continuity/route-order changes.
+- No seed/fixture changes.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-LECTURA-TABLAS-GRAFICOS-SPLIT-PLAN-1
 
 Baseline before:

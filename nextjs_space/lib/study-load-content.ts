@@ -1084,18 +1084,18 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       routingStatus: 'available_not_universal',
     },
   },
-  'PAES M1 \u2014 Lectura de tablas y gr\u00e1ficos': {
+  'PAES M1 \u2014 Lectura de tablas y gr\u00e1ficos I': {
     contentKey: 'paes_m1_data_representation_entry',
     contentVersion: 'v1',
-    title: 'PAES M1 \u2014 Lectura de tablas y gr\u00e1ficos',
+    title: 'PAES M1 \u2014 Lectura de tablas y gr\u00e1ficos I',
     program: 'PAES_M1',
-    topic: 'Lectura de tablas y gr\u00e1ficos',
-    estimatedMinutes: '10\u201315 minutos',
+    topic: 'Lectura de tablas y gr\u00e1ficos I',
+    estimatedMinutes: '8\u201310 minutos',
     instructions:
-      'Esta actividad tiene 8 preguntas de opci\u00f3n m\u00faltiple sobre lectura de tablas y gr\u00e1ficos simples.\n\n' +
+      'Esta actividad tiene 4 preguntas de opci\u00f3n m\u00faltiple sobre lectura de tablas y gr\u00e1ficos simples.\n\n' +
       '1. Lee cada tabla o descripci\u00f3n con calma.\n' +
       '2. Busca el dato pedido antes de elegir una alternativa.\n' +
-      '3. Si necesitas sumar o promediar, usa c\u00e1lculos breves y ordenados.\n' +
+      '3. Si necesitas comparar datos, usa c\u00e1lculos breves y ordenados.\n' +
       '4. Selecciona una alternativa por pregunta.\n' +
       '5. Env\u00eda tus respuestas.\n' +
       '6. Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.\n\n' +
@@ -1145,6 +1145,49 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
         ],
         correctOptionKey: 'A',
       },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revisi\u00f3n. ' +
+      'No recibir\u00e1s puntaje PAES ni diagn\u00f3stico autom\u00e1tico en esta versi\u00f3n.',
+    pedagogicalMetadata: {
+      programCode: 'PAES_M1',
+      sliceId: 'PE1',
+      sliceName: 'PE1 data and probability entry',
+      axis: 'data_probability',
+      roadmapNodes: [
+        'internal:pe1_data_representation_entry',
+        'internal:pe1_tables_and_graphs_reading',
+      ],
+      officialSkillRefs: [
+        'internal:interpretar_representaciones',
+        'internal:leer_tablas_y_graficos',
+      ],
+      difficultyBand: 'entry',
+      primaryPurpose: 'bridge',
+      evidenceType: 'mc_submission',
+      estimatedMinutes: 8,
+      reviewStatus: 'internal_provisional',
+      expertReviewed: false,
+      routingStatus: 'available_not_universal',
+    },
+  },
+  'PAES M1 \u2014 Lectura de tablas y gr\u00e1ficos II': {
+    contentKey: 'paes_m1_data_representation_entry_ii',
+    contentVersion: 'v1',
+    title: 'PAES M1 \u2014 Lectura de tablas y gr\u00e1ficos II',
+    program: 'PAES_M1',
+    topic: 'Lectura de tablas y gr\u00e1ficos II',
+    estimatedMinutes: '8\u201310 minutos',
+    instructions:
+      'Esta actividad tiene 4 preguntas de opci\u00f3n m\u00faltiple sobre lectura de tablas y gr\u00e1ficos simples.\n\n' +
+      '1. Lee cada tabla o descripci\u00f3n con calma.\n' +
+      '2. Busca el dato pedido antes de elegir una alternativa.\n' +
+      '3. Si necesitas sumar o promediar, usa c\u00e1lculos breves y ordenados.\n' +
+      '4. Selecciona una alternativa por pregunta.\n' +
+      '5. Env\u00eda tus respuestas.\n' +
+      '6. Luego deja tu autorreporte y finaliza la actividad en esta misma p\u00e1gina.\n\n' +
+      'La idea es observar c\u00f3mo interpretas informaci\u00f3n presentada en tablas y gr\u00e1ficos simples.',
+    items: [
       {
         key: 'q5',
         stem: 'La tabla muestra colaciones vendidas: frutas = 10, yogures = 8, jugos = 12. \u00bfCu\u00e1ntas colaciones se vendieron en total?',
