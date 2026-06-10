@@ -42,6 +42,59 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-ITEM-COUNT-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+cbce8aa52e0a0a1a104d7082160f967f61923af2
+```
+
+Result/verdict:
+
+```text
+M1_C05_ITEM_COUNT_DIAGNOSED_8_EXPECTED_CONTINUE_SMOKE
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_FUNCIONES_LINEALES_ITEM_COUNT_DIAGNOSIS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation/read-only diagnosis of the human local/dev smoke blocker for `M1-C05 - Funciones lineales basicas`. Human observed 8 exercises after pressing `Comenzar` and stopped. Static evidence confirms `paes_m1_linear_functions_basic` is an 8-item registry capsule with q1-q8 authoredFeedback and keys B/B/A/C/D/A/B/C. The UI showing 8 exercises matches the current registry and viewer behavior; the mismatch was the q1-q4-only smoke expectation/checklist.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-HUMAN-UI-SMOKE-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No registry changes.
+- No continuity or route-order changes.
+- No data mutation.
+- No DB query required or executed.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-HUMAN-UI-SMOKE-READINESS-1
 
 Baseline before:
