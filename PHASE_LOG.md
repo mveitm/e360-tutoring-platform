@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-NEXT-FUNCIONES-LINEALES-FEEDBACK-READINESS-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+fc6b01f942731b9ee59e90415ba0885f285f3c1d
+```
+
+Result/verdict:
+
+```text
+M1_FUNCIONES_LINEALES_FEEDBACK_BLOCKER_AUTHORED_FEEDBACK_MISSING
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_NEXT_FUNCIONES_LINEALES_FEEDBACK_READINESS_DIAGNOSIS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation/read-only diagnosis of the next visible capsule after closed `M1-C04 - Refuerzo de ecuaciones lineales`. Confirmed `PAES M1 - Funciones lineales basicas` maps to current visible `M1-C05` and contentKey `paes_m1_linear_functions_basic`. Static registry inspection confirms 8 MC items with keys B/B/A/C/D/A/B/C, but q1-q8 have no `authoredFeedback`, so the capsule would not meet the current M1-C03/M1-C04 brief/complete feedback and paso-a-paso standard.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-AUTHORED-FEEDBACK-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No registry changes.
+- No continuity or route-order changes.
+- No data mutation.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-09 - MVP-SALES-PILOT-PEDAGOGY-M1-C04-REFUERZO-HUMAN-UI-SMOKE-CLOSEOUT-1
 
 Baseline before:
