@@ -792,6 +792,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '20' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_functions_basic_q1_brief_m1c05_v1',
+          completeId: 'paes_m1_linear_functions_basic_q1_complete_m1c05_v1',
+          version: 'm1-c05-funciones-lineales-authored-feedback-v1',
+          brief:
+            'Reemplaza x por 4 en la regla de la funcion y calcula en orden: primero 2 * 4 y luego suma 3.',
+          complete:
+            'La funcion es f(x) = 2x + 3 y se pide f(4). Paso 1: identifica que el valor de entrada es x = 4. Paso 2: reemplaza x por 4 en la regla: f(4) = 2 * 4 + 3. Paso 3: calcula 2 * 4 = 8. Paso 4: suma 8 + 3 = 11. Por eso el valor de f(4) es 11.',
+        },
       },
       {
         key: 'q2',
@@ -803,6 +812,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '15' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_functions_basic_q2_brief_m1c05_v1',
+          completeId: 'paes_m1_linear_functions_basic_q2_complete_m1c05_v1',
+          version: 'm1-c05-funciones-lineales-authored-feedback-v1',
+          brief:
+            'Aqui f(x) ya vale 10. Escribe 3x - 5 = 10 y despeja x con operaciones inversas.',
+          complete:
+            'La regla es f(x) = 3x - 5 y el enunciado dice que f(x) = 10. Paso 1: iguala la expresion a 10: 3x - 5 = 10. Paso 2: suma 5 a ambos lados: 3x = 15. Paso 3: divide por 3: x = 5. Paso 4: comprueba reemplazando: 3 * 5 - 5 = 15 - 5 = 10. Por eso el valor de x es 5.',
+        },
       },
       {
         key: 'q3',
@@ -814,6 +832,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '8' },
         ],
         correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_functions_basic_q3_brief_m1c05_v1',
+          completeId: 'paes_m1_linear_functions_basic_q3_complete_m1c05_v1',
+          version: 'm1-c05-funciones-lineales-authored-feedback-v1',
+          brief:
+            'La pendiente compara cuanto cambia y con cuanto cambia x entre los dos puntos.',
+          complete:
+            'Los puntos son (0, 2) y (3, 8). Paso 1: calcula el cambio en y: 8 - 2 = 6. Paso 2: calcula el cambio en x: 3 - 0 = 3. Paso 3: divide cambio en y por cambio en x: 6 / 3 = 2. Paso 4: interpreta que por cada 1 que aumenta x, y aumenta 2. Por eso la pendiente es 2.',
+        },
       },
       {
         key: 'q4',
@@ -825,6 +852,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '-6' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_functions_basic_q4_brief_m1c05_v1',
+          completeId: 'paes_m1_linear_functions_basic_q4_complete_m1c05_v1',
+          version: 'm1-c05-funciones-lineales-authored-feedback-v1',
+          brief:
+            'En la forma y = mx + b, el intercepto con el eje y es el numero constante b.',
+          complete:
+            'La funcion es y = -2x + 6. Paso 1: reconoce la forma y = mx + b. Paso 2: identifica que m es la pendiente, aqui -2. Paso 3: identifica que b es el termino constante, aqui 6. Paso 4: tambien puedes verificar con x = 0: y = -2 * 0 + 6 = 6. Por eso el intercepto con el eje y es 6.',
+        },
       },
       {
         key: 'q5',
@@ -836,6 +872,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'y = 4x - 1' },
         ],
         correctOptionKey: 'D',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_functions_basic_q5_brief_m1c05_v1',
+          completeId: 'paes_m1_linear_functions_basic_q5_complete_m1c05_v1',
+          version: 'm1-c05-funciones-lineales-authored-feedback-v1',
+          brief:
+            'Busca una funcion donde el numero que multiplica a x sea 4 y el termino constante sea -1.',
+          complete:
+            'Se pide pendiente 4 e intercepto -1. Paso 1: usa la forma y = mx + b, donde m es la pendiente y b es el intercepto. Paso 2: reemplaza m por 4 y b por -1. Paso 3: la regla queda y = 4x - 1. Paso 4: revisa las opciones y confirma que solo esa tiene coeficiente 4 en x y constante -1. Por eso la funcion correcta es y = 4x - 1.',
+        },
       },
       {
         key: 'q6',
@@ -847,6 +892,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'C(h) = 1000h - 500' },
         ],
         correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_functions_basic_q6_brief_m1c05_v1',
+          completeId: 'paes_m1_linear_functions_basic_q6_complete_m1c05_v1',
+          version: 'm1-c05-funciones-lineales-authored-feedback-v1',
+          brief:
+            'Separa el cobro fijo del cobro que depende de las horas: fijo 1000 y variable 500h.',
+          complete:
+            'El servicio cobra 1000 fijos mas 500 por cada hora h. Paso 1: el cobro fijo se suma una sola vez, por eso aparece como 1000. Paso 2: el cobro por hora depende de h, por eso es 500h. Paso 3: suma ambas partes para representar el costo total: C(h) = 1000 + 500h. Paso 4: verifica con 0 horas: el costo seria 1000, que coincide con el cobro fijo. Por eso la funcion correcta es C(h) = 1000 + 500h.',
+        },
       },
       {
         key: 'q7',
@@ -858,6 +912,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '12' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_functions_basic_q7_brief_m1c05_v1',
+          completeId: 'paes_m1_linear_functions_basic_q7_complete_m1c05_v1',
+          version: 'm1-c05-funciones-lineales-authored-feedback-v1',
+          brief:
+            'Reemplaza x por 3 y cuida el signo negativo: -x significa el opuesto del valor de x.',
+          complete:
+            'La funcion es f(x) = -x + 9 y se pide f(3). Paso 1: identifica que el valor de entrada es x = 3. Paso 2: reemplaza x por 3: f(3) = -3 + 9. Paso 3: calcula -3 + 9 = 6. Paso 4: interpreta que ese resultado es la salida de la funcion para x = 3. Por eso f(3) = 6.',
+        },
       },
       {
         key: 'q8',
@@ -869,6 +932,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: 'y = 4x' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_linear_functions_basic_q8_brief_m1c05_v1',
+          completeId: 'paes_m1_linear_functions_basic_q8_complete_m1c05_v1',
+          version: 'm1-c05-funciones-lineales-authored-feedback-v1',
+          brief:
+            'Mira el cambio en y cuando x aumenta de 1 en 1 y usa el valor inicial cuando x = 0.',
+          complete:
+            'La tabla muestra x = 0, 1, 2 y y = 1, 4, 7. Paso 1: observa que cuando x aumenta de 0 a 1, y aumenta de 1 a 4; el cambio es 3. Paso 2: de 1 a 2, y aumenta de 4 a 7; el cambio tambien es 3, entonces la pendiente es 3. Paso 3: cuando x = 0, y = 1, entonces el intercepto es 1. Paso 4: combina pendiente e intercepto: y = 3x + 1. Paso 5: verifica con x = 2: 3 * 2 + 1 = 7. Por eso la regla es y = 3x + 1.',
+        },
       },
     ],
     currentLimitationNotice:

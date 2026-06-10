@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-AUTHORED-FEEDBACK-1
+
+Baseline before:
+
+```text
+b8e72ddc01214a248cda50e2196bfad515c1ae66
+```
+
+Result/verdict:
+
+```text
+M1_C05_FUNCIONES_LINEALES_AUTHORED_FEEDBACK_IMPLEMENTED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/lib/study-load-content.ts
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_FUNCIONES_LINEALES_AUTHORED_FEEDBACK_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Narrow registry-only authoredFeedback addition for current `M1-C05 - Funciones lineales basicas` / `paes_m1_linear_functions_basic`. Added `authoredFeedback` to q1-q8 using the existing `briefId`, `completeId`, `version`, `brief`, `complete` shape. Preserved contentKey, title, stems, options, correctOptionKey values B/B/A/C/D/A/B/C, item order, M1-C03/M1-C04/M1-C06 behavior, UI/API/schema/DB/Prisma, continuity and route-order.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-HUMAN-UI-SMOKE-READINESS-1
+```
+
+Explicit non-actions:
+
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No data mutation.
+- No browser automation.
+- No API-only tests.
+- No DB reset.
+- No seed scripts.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-NEXT-FUNCIONES-LINEALES-FEEDBACK-READINESS-DIAGNOSIS-1
 
 Baseline before:
