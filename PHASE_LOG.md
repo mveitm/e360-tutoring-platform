@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-CONTINUITY-ROUTE-ORDER-ALIGNMENT-PLAN-1
+
+Baseline before:
+
+```text
+b9d1349da0ee15d49ecf3f31049cbdc874f8ea71
+```
+
+Result/verdict:
+
+```text
+C05_C06_ALIGNMENT_PLAN_READY_ROUTE_ORDER_AND_DATA
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C05_C06_CONTINUITY_ROUTE_ORDER_ALIGNMENT_PLAN_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation/read-only alignment plan after the C05/C06 registry split. Static evidence shows `paes_m1_linear_equations_reinforcement` still routes to `paes_m1_linear_functions_basic`, which now resolves to `PAES M1 - Funciones lineales basicas I`, so C04 -> C05 I is aligned. Current continuity still maps `paes_m1_linear_functions_basic` directly to `paes_m1_data_representation_entry`, skipping `paes_m1_linear_functions_basic_ii`; future code must map C05 I -> C06 II -> Lectura de tablas. Also documented local/dev stale StudyLoad risk from the previously opened 8-item instance and recommended separate explicit local/dev data alignment before smoke resumes.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C05-C06-CONTINUITY-ROUTE-ORDER-ALIGNMENT-CODE-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API changes.
+- No schema/DB/Prisma changes.
+- No continuity or route-order changes.
+- No registry changes.
+- No DB query or mutation.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C05-FUNCIONES-LINEALES-SPLIT-CODE-1
 
 Baseline before:
