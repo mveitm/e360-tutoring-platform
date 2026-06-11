@@ -197,6 +197,57 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-11 - MVP-SALES-PILOT-PEDAGOGY-M1-C08-NEXT-CAPSULE-OR-CYCLE-END-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+dba1c61fbec95cfe323d3837a2c3e6020646625f
+```
+
+Result/verdict:
+
+```text
+M1_C08_NEXT_DIAGNOSIS_CYCLE_END_EXPECTED_UI_TERMINAL_STATE_NEEDED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C08_NEXT_CAPSULE_OR_CYCLE_END_DIAGNOSIS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation/read-only diagnosis of the post-C08 state. Static continuity maps C07 I to C08 II, but no next contentKey is mapped after `paes_m1_data_representation_entry_ii`, so the helper reaches `end_of_sequence`. ST M1 selection logic then chooses the latest completed capsule when no pending/in_progress load exists, making the observed completed-capsule container consistent with current behavior. Primary diagnosis: expected sequence end with unclear terminal/transition UI, not proven stale data or missing next capsule. Table visual formatting remains separate non-blocking debt.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-UX-M1-CYCLE-END-TERMINAL-STATE-COPY-1
+```
+
+Explicit non-actions:
+
+- No code files modified.
+- No UI/API/schema/Prisma changes.
+- No continuity/route-order changes.
+- No DB mutation.
+- No seed/fixture/reset/migration.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-GRAPH-RENDERING-CONTENT-DIAGNOSIS-1
 
 Baseline before:
