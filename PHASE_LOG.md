@@ -146,6 +146,57 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-11 - MVP-SALES-PILOT-PEDAGOGY-M1-C08-LECTURA-TABLAS-GRAFICOS-II-HUMAN-UI-SMOKE-CLOSEOUT-1
+
+Baseline before:
+
+```text
+07c4e735d07c61475f583dccf1e312dcb9664d94
+```
+
+Result/verdict:
+
+```text
+M1_C08_HUMAN_UI_SMOKE_CLOSEOUT_PASSED_WITH_NEXT_CAPSULE_DISPLAY_GAP
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C08_LECTURA_TABLAS_GRAFICOS_II_HUMAN_UI_SMOKE_CLOSEOUT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only closeout of human local/dev UI smoke for M1-C08 - Lectura de tablas y graficos II. Human reported most verification points passed/OK, with one exception: on return to ST M1, a completed-capsule container appeared instead of a next capsule. Recorded this as a next-capsule/cycle-end display gap requiring diagnosis. Also recorded later UI/content formatting debt: table data appears as text rows, not visually formatted as tables.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C08-NEXT-CAPSULE-OR-CYCLE-END-DIAGNOSIS-1
+```
+
+Explicit non-actions:
+
+- No code files modified.
+- No UI/API/schema/Prisma changes.
+- No continuity/route-order changes.
+- No DB mutation.
+- No seed/fixture/reset/migration.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-GRAPH-RENDERING-CONTENT-DIAGNOSIS-1
 
 Baseline before:
