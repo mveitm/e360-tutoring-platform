@@ -94,6 +94,58 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-11 - MVP-SALES-PILOT-PEDAGOGY-M1-C08-LECTURA-TABLAS-GRAFICOS-II-HUMAN-UI-SMOKE-READINESS-1
+
+Baseline before:
+
+```text
+65de21258288283c1e644df93dcca4bd29921af1
+```
+
+Result/verdict:
+
+```text
+M1_C08_LECTURA_TABLAS_GRAFICOS_II_HUMAN_UI_SMOKE_READINESS_DEFINED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C08_LECTURA_TABLAS_GRAFICOS_II_HUMAN_UI_SMOKE_READINESS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Documentation-only readiness for future human local/dev UI smoke of M1-C08 - Lectura de tablas y graficos II. Confirmed prior split, authoredFeedback, continuity/route-order, LOCAL_DEV alignment, C07 closeout, and table-text content repair evidence. C08 II uses `contentKey` `paes_m1_data_representation_entry_ii`, has 4 items, keys C/B/B/A, authoredFeedback breve/completo, and visible textual tables in all four stems. Human checklist, expected result, known start/refresh UX watch, and stop conditions were documented.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C08-LECTURA-TABLAS-GRAFICOS-II-HUMAN-UI-SMOKE-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+- No human smoke executed.
+- No code files modified.
+- No UI/API/schema/Prisma changes.
+- No route-order/continuity changes.
+- No DB mutation.
+- No seed/fixture/reset/migration.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-GRAPH-RENDERING-CONTENT-DIAGNOSIS-1
 
 Baseline before:
