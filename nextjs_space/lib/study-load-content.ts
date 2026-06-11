@@ -1103,7 +1103,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     items: [
       {
         key: 'q1',
-        stem: 'La tabla muestra libros le\u00eddos por curso: 1\u00ba medio = 12, 2\u00ba medio = 15, 3\u00ba medio = 9, 4\u00ba medio = 14. \u00bfCu\u00e1ntos libros ley\u00f3 2\u00ba medio?',
+        stem:
+          'La tabla muestra libros leidos por curso.\n\n' +
+          'Tabla:\n' +
+          'Curso | Libros leidos\n' +
+          '1 medio | 12\n' +
+          '2 medio | 15\n' +
+          '3 medio | 9\n' +
+          '4 medio | 14\n\n' +
+          '\u00bfCuantos libros leyo 2 medio?',
         options: [
           { label: 'A', text: '9' },
           { label: 'B', text: '12' },
@@ -1123,7 +1131,14 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       },
       {
         key: 'q2',
-        stem: 'La tabla muestra asistentes a talleres: Arte = 18, Ciencias = 24, M\u00fasica = 16. \u00bfCu\u00e1ntos asistentes m\u00e1s tuvo Ciencias que M\u00fasica?',
+        stem:
+          'La tabla muestra asistentes a talleres.\n\n' +
+          'Tabla:\n' +
+          'Taller | Asistentes\n' +
+          'Arte | 18\n' +
+          'Ciencias | 24\n' +
+          'Musica | 16\n\n' +
+          '\u00bfCuantos asistentes mas tuvo Ciencias que Musica?',
         options: [
           { label: 'A', text: '6' },
           { label: 'B', text: '8' },
@@ -1143,7 +1158,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       },
       {
         key: 'q3',
-        stem: 'La tabla muestra ventas por d\u00eda: lunes = 20, martes = 18, mi\u00e9rcoles = 25, jueves = 21. \u00bfQu\u00e9 d\u00eda tuvo la mayor venta?',
+        stem:
+          'La tabla muestra ventas por dia.\n\n' +
+          'Tabla:\n' +
+          'Dia | Ventas\n' +
+          'Lunes | 20\n' +
+          'Martes | 18\n' +
+          'Miercoles | 25\n' +
+          'Jueves | 21\n\n' +
+          '\u00bfQue dia tuvo la mayor venta?',
         options: [
           { label: 'A', text: 'Lunes' },
           { label: 'B', text: 'Martes' },
@@ -1163,7 +1186,13 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       },
       {
         key: 'q4',
-        stem: 'Un gr\u00e1fico de barras describe visitas a una biblioteca: marzo = 30, abril = 36, mayo = 42. \u00bfQu\u00e9 tendencia muestran las visitas?',
+        stem:
+          'Un grafico de barras describe visitas a una biblioteca. Los datos del grafico son:\n\n' +
+          'Mes | Visitas\n' +
+          'Marzo | 30\n' +
+          'Abril | 36\n' +
+          'Mayo | 42\n\n' +
+          '\u00bfQue tendencia muestran las visitas?',
         options: [
           { label: 'A', text: 'Aumentan mes a mes' },
           { label: 'B', text: 'Disminuyen mes a mes' },
@@ -1226,7 +1255,14 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
     items: [
       {
         key: 'q5',
-        stem: 'La tabla muestra colaciones vendidas: frutas = 10, yogures = 8, jugos = 12. \u00bfCu\u00e1ntas colaciones se vendieron en total?',
+        stem:
+          'La tabla muestra colaciones vendidas.\n\n' +
+          'Tabla:\n' +
+          'Colacion | Cantidad vendida\n' +
+          'Frutas | 10\n' +
+          'Yogures | 8\n' +
+          'Jugos | 12\n\n' +
+          '\u00bfCuantas colaciones se vendieron en total?',
         options: [
           { label: 'A', text: '20' },
           { label: 'B', text: '28' },
@@ -1246,7 +1282,14 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       },
       {
         key: 'q6',
-        stem: 'La tabla muestra temperaturas de tres d\u00edas: lunes = 18 \u00b0C, martes = 20 \u00b0C, mi\u00e9rcoles = 22 \u00b0C. \u00bfCu\u00e1l es el promedio?',
+        stem:
+          'La tabla muestra temperaturas de tres dias.\n\n' +
+          'Tabla:\n' +
+          'Dia | Temperatura (grados C)\n' +
+          'Lunes | 18\n' +
+          'Martes | 20\n' +
+          'Miercoles | 22\n\n' +
+          '\u00bfCual es el promedio?',
         options: [
           { label: 'A', text: '18 \u00b0C' },
           { label: 'B', text: '20 \u00b0C' },
@@ -1266,7 +1309,14 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       },
       {
         key: 'q7',
-        stem: 'La tabla muestra estudiantes que prefieren actividades: deporte = 14, lectura = 9, videojuegos = 11. \u00bfQu\u00e9 conclusi\u00f3n est\u00e1 apoyada por la tabla?',
+        stem:
+          'La tabla muestra estudiantes que prefieren actividades.\n\n' +
+          'Tabla:\n' +
+          'Actividad | Estudiantes\n' +
+          'Deporte | 14\n' +
+          'Lectura | 9\n' +
+          'Videojuegos | 11\n\n' +
+          '\u00bfQue conclusion esta apoyada por la tabla?',
         options: [
           { label: 'A', text: 'La lectura es la actividad m\u00e1s preferida' },
           { label: 'B', text: 'El deporte es la actividad m\u00e1s preferida' },
@@ -1286,7 +1336,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       },
       {
         key: 'q8',
-        stem: 'La tabla muestra colores elegidos por un grupo: azul = 7, verde = 5, rojo = 7, amarillo = 3. \u00bfQu\u00e9 colores tienen la misma frecuencia?',
+        stem:
+          'La tabla muestra colores elegidos por un grupo.\n\n' +
+          'Tabla:\n' +
+          'Color | Frecuencia\n' +
+          'Azul | 7\n' +
+          'Verde | 5\n' +
+          'Rojo | 7\n' +
+          'Amarillo | 3\n\n' +
+          '\u00bfQue colores tienen la misma frecuencia?',
         options: [
           { label: 'A', text: 'Azul y rojo' },
           { label: 'B', text: 'Verde y amarillo' },

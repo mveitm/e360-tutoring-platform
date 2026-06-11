@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-11 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-TEXT-CONTENT-REPAIR-1
+
+Baseline before:
+
+```text
+d03af0965fe5feb4be66549574723ffd7444dec5
+```
+
+Result/verdict:
+
+```text
+C07_C08_TABLE_TEXT_CONTENT_REPAIR_COMPLETED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/lib/study-load-content.ts
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_TABLE_TEXT_CONTENT_REPAIR_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+PHASE_LOG.md
+```
+
+Scope summary:
+
+Narrow static registry content repair for M1-C07 and M1-C08. C07 q1-q3 and C08 q5-q8 now show explicit textual tables in the stems, and C07 q4 now shows a textual data block for the bar graph. Preserved contentKey values, item counts, ordering, options, correctOptionKey values D/B/C/A and C/B/B/A, and authoredFeedback text.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C08-LECTURA-TABLAS-GRAFICOS-II-HUMAN-UI-SMOKE-READINESS-1
+```
+
+Explicit non-actions:
+
+- No UI/API/schema/Prisma changes.
+- No route-order/continuity changes.
+- No DB mutation.
+- No seed/fixture/reset/migration.
+- No options/correctOptionKey/contentKey/order changes.
+- No authoredFeedback changes.
+- No browser automation.
+- No API-only tests.
+- No production/staging.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-10 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-GRAPH-RENDERING-CONTENT-DIAGNOSIS-1
 
 Baseline before:
