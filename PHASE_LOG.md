@@ -318,6 +318,51 @@ Commit:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-STIMULUS-HUMAN-UI-SMOKE-CLOSEOUT-1
+
+Baseline before:
+
+```text
+bde4c145a3e59af68698462ab558a2e3f9c65b03
+```
+
+Result/verdict:
+
+```text
+M1_C07_C08_TABLE_STIMULUS_HUMAN_UI_SMOKE_CLOSEOUT_PASSED_WITH_NON_BLOCKING_CORRELATIVE_DISPLAY_DEBT
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_TABLE_STIMULUS_HUMAN_UI_SMOKE_CLOSEOUT_1.md
+```
+
+Scope summary:
+
+Documentation/read-only closeout for human local/dev completed-view smoke of C07/C08 table stimuli after the completed-view repair. Human verification points were reported as passed/OK. The prior completed-view table rendering gap is considered repaired from the human UI smoke perspective. Recorded non-blocking product debt: ST shows capsule counter = 10, while capsule UI does not show visible capsule correlatives.
+
+Next recommended phase:
+
+```text
+MVP-UX-CAPSULE-VISIBLE-CORRELATIVE-DISPLAY-PLAN-1
+```
+
+Explicit non-actions:
+
+- No code/UI/API/schema/Prisma changes.
+- No route-order/continuity changes.
+- No study-load-content registry or authoredFeedback changes.
+- No DB mutation, seed, fixture, migration, production/staging, browser automation, API-only tests, build, smoke execution, or agentic changes.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-11 - MVP-GOV-ROADMAP-PAES-VISUAL-STIMULUS-AUTHORED-AGENTIC-ALIGNMENT-1
 
 Baseline before:
