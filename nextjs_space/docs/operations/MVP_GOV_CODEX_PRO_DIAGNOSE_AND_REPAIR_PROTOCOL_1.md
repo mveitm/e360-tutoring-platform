@@ -35,6 +35,29 @@ Diagnose first.
 Repair only if the root cause matches the expected narrow class.
 If the cause differs, the scope expands, or the repair touches a prohibited area, STOP and document.
 
+## Golden rule before writing Codex phase prompts
+
+Before generating any Codex phase prompt, first evaluate whether the work can be safely optimized by fusing phases.
+
+Default question:
+Can this be safely handled as diagnose-and-repair, plan-and-implement, or another fused Codex PRO phase?
+
+If yes, generate a fused phase with explicit stop gates.
+If no, keep phases separated.
+
+This evaluation must happen before writing the prompt, not after.
+
+Prefer fused phases when:
+
+- the task is technical, narrow, reversible and low-risk;
+- expected target files are known;
+- validation can be done with static checks/build and later human smoke;
+- no DB/schema/Prisma, continuity, route-order, pedagogy, roadmap or agentic decision is involved.
+
+Keep phases separated when:
+
+- the task involves governance, roadmap, pedagogy, standards, DB/schema/Prisma, continuity/route-order, data mutation, production/staging, agentic behavior, ambiguous root cause, or human validation/closeout.
+
 ## When diagnose-and-repair is allowed
 
 Allowed when all are true:

@@ -8,6 +8,8 @@
 
 `MVP-GOV-CODEX-PRO-DIAGNOSE-AND-REPAIR-PROTOCOL-1` documents `nextjs_space/docs/operations/MVP_GOV_CODEX_PRO_DIAGNOSE_AND_REPAIR_PROTOCOL_1.md` with result `CODEX_PRO_DIAGNOSE_AND_REPAIR_PROTOCOL_ACCEPTED`. Future chats should prefer a combined diagnose-and-repair phase for narrow, technical, reversible, low-risk issues when the expected root cause, allowed repair path, stop gates and validation are explicit. Governance, roadmap, pedagogy, DB/schema, continuity and agentic decisions must remain separate phases.
 
+`MVP-GOV-CODEX-PRO-PHASE-PROMPT-GOLDEN-RULE-1` documents `nextjs_space/docs/operations/MVP_GOV_CODEX_PRO_PHASE_PROMPT_GOLDEN_RULE_1.md` with result `CODEX_PRO_PHASE_PROMPT_GOLDEN_RULE_ACCEPTED`. Before writing future Codex prompts, chats must evaluate whether the work can be safely optimized as a fused Codex PRO phase with explicit stop gates.
+
 ## PAES_M1 Visible Correlativo Renumbering Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-VISIBLE-CORRELATIVE-RENUMBERING-DOC-1` documented `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_VISIBLE_CORRELATIVE_RENUMBERING_DOC_1.md` with result `M1_VISIBLE_CORRELATIVE_RENUMBERING_DOCUMENTED_LIVING_REFERENCE_ADDED`. Current visible route-order correlativos are now `M1-C01 - Entrada balanceada inicial`, `M1-C02 - Ecuaciones lineales basicas`, `M1-C03 - Problemas con ecuaciones lineales`, `M1-C04 - Refuerzo de ecuaciones lineales`, `M1-C05 - Funciones lineales basicas`, and `M1-C06 - Lectura de tablas y graficos`. The prior percentage/geometry labels `M1-C04/M1-C05` are legacy/historical only and must be marked as `legacy correlativo pending correction` until placement is decided.

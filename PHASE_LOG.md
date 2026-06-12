@@ -556,6 +556,64 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-GOV-CODEX-PRO-PHASE-PROMPT-GOLDEN-RULE-1
+
+Baseline before:
+
+```text
+1f766674f5f96f45139486c5bd5f35636fe4dc69
+```
+
+Result/verdict:
+
+```text
+CODEX_PRO_PHASE_PROMPT_GOLDEN_RULE_ACCEPTED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_CODEX_PRO_DIAGNOSE_AND_REPAIR_PROTOCOL_1.md
+nextjs_space/docs/operations/MVP_GOV_CODEX_PRO_PHASE_PROMPT_GOLDEN_RULE_1.md
+nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+```
+
+Scope summary:
+
+Documentation/governance-only update that adds the Codex PRO phase-prompt golden rule: before generating any future Codex prompt, evaluate whether the work can be safely optimized by fusing phases such as diagnose-and-repair or plan-and-implement. The rule preserves explicit stop gates and keeps governance, roadmap, pedagogy, DB/schema, continuity/route-order, data mutation, production/staging, agentic behavior, ambiguous diagnosis, and human smoke closeout separated.
+
+Next recommended phase:
+
+```text
+None required by this governance phase.
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No UI changes.
+- No API changes.
+- No schema/DB/Prisma changes.
+- No route-order/continuity changes.
+- No study-load-content registry changes.
+- No authoredFeedback changes.
+- No DB mutation.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No agentic layer opened.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-12 - MVP-SALES-PILOT-UX-CAPSULE-CORRELATIVE-HUMAN-UI-SMOKE-CLOSEOUT-1
 
 Baseline before:
