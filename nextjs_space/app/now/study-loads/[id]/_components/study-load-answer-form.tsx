@@ -7,15 +7,30 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 
 interface ItemOption {
   label: string
   text: string
 }
 
+interface TableStimulus {
+  caption?: string
+  headers: string[]
+  rows: string[][]
+}
+
 interface Item {
   key: string
   stem: string
+  tableStimulus?: TableStimulus
   options: ItemOption[]
 }
 
@@ -476,6 +491,42 @@ export default function StudyLoadAnswerForm({
     )
   }
 
+  function renderTableStimulus(tableStimulus?: TableStimulus) {
+    if (!tableStimulus) return null
+
+    return (
+      <div className="mb-3 overflow-hidden rounded-xl border border-[#DCE5EA] bg-[#FBFCF6]">
+        {tableStimulus.caption && (
+          <p className="border-b border-[#DCE5EA] bg-[#EEF4F7] px-3 py-2 text-xs font-bold text-[#253A5F]">
+            {tableStimulus.caption}
+          </p>
+        )}
+        <Table className="min-w-[320px] text-xs sm:text-sm">
+          <TableHeader>
+            <TableRow className="bg-white hover:bg-white">
+              {tableStimulus.headers.map((header) => (
+                <TableHead key={header} className="h-auto px-3 py-2 font-bold text-[#10213F]">
+                  {header}
+                </TableHead>
+              ))}
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {tableStimulus.rows.map((row, rowIndex) => (
+              <TableRow key={`${tableStimulus.caption ?? 'table'}-${rowIndex}`} className="bg-white/70">
+                {tableStimulus.headers.map((header, cellIndex) => (
+                  <TableCell key={`${header}-${cellIndex}`} className="px-3 py-2 text-[#253A5F]">
+                    {row[cellIndex] ?? ''}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    )
+  }
+
   function renderClosureBlock() {
     if (!canFinalizeAfterSubmission && !completeSuccess) return null
 
@@ -608,6 +659,7 @@ export default function StudyLoadAnswerForm({
                   <p className="mb-3 whitespace-pre-line text-sm font-medium">
                     {item.stem}
                   </p>
+                  {renderTableStimulus(item.tableStimulus)}
                   <ul className="space-y-1.5">
                     {item.options.map((opt) => {
                       const wasSelected = selections[item.key] === opt.label
@@ -657,6 +709,7 @@ export default function StudyLoadAnswerForm({
                     <p className="mb-3 whitespace-pre-line text-sm font-semibold leading-6 text-[#10213F]">
                       {item.stem}
                     </p>
+                    {renderTableStimulus(item.tableStimulus)}
                     <ul className="space-y-1.5">
                       {item.options.map((opt) => {
                         const isSelected = selected === opt.label

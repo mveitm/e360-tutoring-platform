@@ -1,43 +1,51 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-GOV-PAES-FIGURE-SPEC-AND-QA-STANDARD-1`
+`MVP-UI-PAES-TABLE-STIMULUS-MINIMUM-1`
 
 Baseline before:
-`dc28a3c5ddafc8aa0d341321bea17e034a636b1f`
+`85da138514056637f1e29943bc5220cf81a5940e`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_GOV_PAES_FIGURE_SPEC_AND_QA_STANDARD_1.md`
+- `nextjs_space/docs/operations/MVP_UI_PAES_TABLE_STIMULUS_MINIMUM_1.md`
+- `nextjs_space/lib/study-load-content.ts`
+- `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`
 
 Result:
-`PAES_FIGURE_SPEC_AND_QA_STANDARD_ACCEPTED`
+`PAES_TABLE_STIMULUS_MINIMUM_IMPLEMENTED_WITH_CONTENT_SHAPE_EXTENSION`
 
-Decision summary:
-- Defined `FigureSpec` / `VisualStimulusSpec` as the auditable contract between PAES items and required visual stimuli.
-- Proposed a documentary schema draft for table, chart, graph, cartesian plane, geometry figure, static image, diagram, and math render stimuli.
-- Required stable `stimulusId`, version, type, sourceType, item/capsule references, lifecycle status, and review metadata before student-facing use.
-- Defined version increments for changes affecting interpretation, labels, values, geometry, data, scale, keys, options, or feedback.
-- Defined `draft`, `approved`, and `deprecated` lifecycle states.
-- Defined source types: `html_table`, `svg_template`, `static_asset`, `latex_render`, and temporary `text_bridge`.
-- Preserved the approved source rule: free-form AI-generated images/figures are not final student-facing PAES stimuli.
-- Documented parameter/content integrity, snapshot/preview expectations, human QA, static QA, accessibility/mobile checks, authored capsule dependency, and agentic boundary.
+Implementation summary:
+- Added optional `tableStimulus` shape with `caption`, `headers`, and `rows`.
+- Passed `tableStimulus` through `getSafeStudyLoadItems` without exposing keys or internal metadata.
+- Rendered `tableStimulus` as deterministic HTML tables in the StudyLoad answer and review UI.
+- Converted C07/C08 text-row table bridges into structured table stimuli.
+- Preserved fallback plain-text stems for all items without `tableStimulus`.
+- Preserved C07/C08 contentKey values, item counts, ordering, options, correctOptionKey values, and authoredFeedback.
 
 Validation:
-- Preflight passed at `dc28a3c5ddafc8aa0d341321bea17e034a636b1f`.
+- Preflight passed at `85da138514056637f1e29943bc5220cf81a5940e`.
 - Required source documents were read.
-- Required documentation search was executed across `PHASE_LOG.md` and `nextjs_space/docs`.
+- Required implementation search was executed across `nextjs_space/app`, `nextjs_space/components`, and `nextjs_space/lib`.
 - `git diff --check`: passed.
-- `git status --short`: only authorized documentation files changed before commit.
+- `git status --short`: only authorized files changed before commit.
 - `git log --oneline --decorate --graph -8`: reviewed.
-- No build, browser automation, API-only tests, DB operations, production/staging operations, rendering implementation, capsule generation, or agentic generation run.
+- `npm.cmd --prefix nextjs_space run build`: passed.
+- No browser automation, API-only tests, DB operations, production/staging operations, SVG/graph/geometry/image/asset/LaTeX implementation, capsule generation, or agentic generation run.
+
+Static content checks:
+- C07 item count preserved: 4.
+- C08 item count preserved: 4.
+- C07 correctOptionKey order preserved: D/B/C/A.
+- C08 correctOptionKey order preserved: C/B/B/A.
+- C07 contentKey preserved: `paes_m1_data_representation_entry`.
+- C08 contentKey preserved: `paes_m1_data_representation_entry_ii`.
+- authoredFeedback remains present on q1-q8.
+- tableStimulus present on q1-q8.
 
 Recommended next step:
-`MVP-UI-PAES-TABLE-STIMULUS-MINIMUM-1`
-
-Purpose:
-`Implementar soporte minimo de tabla formateada para capsulas como C07/C08, sin abordar todavia motor completo SVG/figuras.`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-STIMULUS-HUMAN-UI-SMOKE-READINESS-1`
 
 Scope safety:
-Documentation/governance-only phase. No code modified, no DB mutation, no UI/API/schema/Prisma changes, no route-order/continuity changes, no study-load registry or authoredFeedback changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no build, no secrets printed, no SVG/table/rendering implementation, no image/asset generation, no new capsules, no Sales-Ready or adaptive AI claim.
+No schema/DB/Prisma changes, no route-order/continuity changes, no StudyLoad state machine or submission/evaluation API changes, no seed/reset/migration/fixture mutation, no DB mutation, no production/staging, no browser automation, no API-only tests, no secrets printed, no correctOptionKey/item count/contentKey/order changes, no package changes, no agentic code.

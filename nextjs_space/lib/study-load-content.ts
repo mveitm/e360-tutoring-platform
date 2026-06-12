@@ -23,9 +23,16 @@ export interface StudyLoadAuthoredFeedback {
   complete: string
 }
 
+export interface StudyLoadTableStimulus {
+  caption?: string
+  headers: string[]
+  rows: string[][]
+}
+
 export interface StudyLoadItem {
   key: string    // stable item identifier, e.g. "q1", "q2"
   stem: string
+  tableStimulus?: StudyLoadTableStimulus
   options: StudyLoadItemOption[]
   correctOptionKey?: string  // e.g. "B"; undefined if answer key unavailable
   authoredFeedback?: StudyLoadAuthoredFeedback
@@ -88,6 +95,7 @@ export interface StudyLoadContent {
 export interface SafeStudyLoadItem {
   key: string
   stem: string
+  tableStimulus?: StudyLoadTableStimulus
   options: StudyLoadItemOption[]
 }
 
@@ -126,6 +134,13 @@ export function getSafeStudyLoadItems(content: StudyLoadContent): SafeStudyLoadI
   return content.items.map((item) => ({
     key: item.key,
     stem: item.stem,
+    tableStimulus: item.tableStimulus
+      ? {
+          caption: item.tableStimulus.caption,
+          headers: [...item.tableStimulus.headers],
+          rows: item.tableStimulus.rows.map((row) => [...row]),
+        }
+      : undefined,
     options: item.options.map((option) => ({
       label: option.label,
       text: option.text,
@@ -1105,13 +1120,17 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
         key: 'q1',
         stem:
           'La tabla muestra libros leidos por curso.\n\n' +
-          'Tabla:\n' +
-          'Curso | Libros leidos\n' +
-          '1 medio | 12\n' +
-          '2 medio | 15\n' +
-          '3 medio | 9\n' +
-          '4 medio | 14\n\n' +
           '\u00bfCuantos libros leyo 2 medio?',
+        tableStimulus: {
+          caption: 'Libros leidos por curso',
+          headers: ['Curso', 'Libros leidos'],
+          rows: [
+            ['1 medio', '12'],
+            ['2 medio', '15'],
+            ['3 medio', '9'],
+            ['4 medio', '14'],
+          ],
+        },
         options: [
           { label: 'A', text: '9' },
           { label: 'B', text: '12' },
@@ -1133,12 +1152,16 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
         key: 'q2',
         stem:
           'La tabla muestra asistentes a talleres.\n\n' +
-          'Tabla:\n' +
-          'Taller | Asistentes\n' +
-          'Arte | 18\n' +
-          'Ciencias | 24\n' +
-          'Musica | 16\n\n' +
           '\u00bfCuantos asistentes mas tuvo Ciencias que Musica?',
+        tableStimulus: {
+          caption: 'Asistentes a talleres',
+          headers: ['Taller', 'Asistentes'],
+          rows: [
+            ['Arte', '18'],
+            ['Ciencias', '24'],
+            ['Musica', '16'],
+          ],
+        },
         options: [
           { label: 'A', text: '6' },
           { label: 'B', text: '8' },
@@ -1160,13 +1183,17 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
         key: 'q3',
         stem:
           'La tabla muestra ventas por dia.\n\n' +
-          'Tabla:\n' +
-          'Dia | Ventas\n' +
-          'Lunes | 20\n' +
-          'Martes | 18\n' +
-          'Miercoles | 25\n' +
-          'Jueves | 21\n\n' +
           '\u00bfQue dia tuvo la mayor venta?',
+        tableStimulus: {
+          caption: 'Ventas por dia',
+          headers: ['Dia', 'Ventas'],
+          rows: [
+            ['Lunes', '20'],
+            ['Martes', '18'],
+            ['Miercoles', '25'],
+            ['Jueves', '21'],
+          ],
+        },
         options: [
           { label: 'A', text: 'Lunes' },
           { label: 'B', text: 'Martes' },
@@ -1188,11 +1215,16 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
         key: 'q4',
         stem:
           'Un grafico de barras describe visitas a una biblioteca. Los datos del grafico son:\n\n' +
-          'Mes | Visitas\n' +
-          'Marzo | 30\n' +
-          'Abril | 36\n' +
-          'Mayo | 42\n\n' +
           '\u00bfQue tendencia muestran las visitas?',
+        tableStimulus: {
+          caption: 'Datos del grafico de barras',
+          headers: ['Mes', 'Visitas'],
+          rows: [
+            ['Marzo', '30'],
+            ['Abril', '36'],
+            ['Mayo', '42'],
+          ],
+        },
         options: [
           { label: 'A', text: 'Aumentan mes a mes' },
           { label: 'B', text: 'Disminuyen mes a mes' },
@@ -1257,12 +1289,16 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
         key: 'q5',
         stem:
           'La tabla muestra colaciones vendidas.\n\n' +
-          'Tabla:\n' +
-          'Colacion | Cantidad vendida\n' +
-          'Frutas | 10\n' +
-          'Yogures | 8\n' +
-          'Jugos | 12\n\n' +
           '\u00bfCuantas colaciones se vendieron en total?',
+        tableStimulus: {
+          caption: 'Colaciones vendidas',
+          headers: ['Colacion', 'Cantidad vendida'],
+          rows: [
+            ['Frutas', '10'],
+            ['Yogures', '8'],
+            ['Jugos', '12'],
+          ],
+        },
         options: [
           { label: 'A', text: '20' },
           { label: 'B', text: '28' },
@@ -1284,12 +1320,16 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
         key: 'q6',
         stem:
           'La tabla muestra temperaturas de tres dias.\n\n' +
-          'Tabla:\n' +
-          'Dia | Temperatura (grados C)\n' +
-          'Lunes | 18\n' +
-          'Martes | 20\n' +
-          'Miercoles | 22\n\n' +
           '\u00bfCual es el promedio?',
+        tableStimulus: {
+          caption: 'Temperaturas de tres dias',
+          headers: ['Dia', 'Temperatura (grados C)'],
+          rows: [
+            ['Lunes', '18'],
+            ['Martes', '20'],
+            ['Miercoles', '22'],
+          ],
+        },
         options: [
           { label: 'A', text: '18 \u00b0C' },
           { label: 'B', text: '20 \u00b0C' },
@@ -1311,12 +1351,16 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
         key: 'q7',
         stem:
           'La tabla muestra estudiantes que prefieren actividades.\n\n' +
-          'Tabla:\n' +
-          'Actividad | Estudiantes\n' +
-          'Deporte | 14\n' +
-          'Lectura | 9\n' +
-          'Videojuegos | 11\n\n' +
           '\u00bfQue conclusion esta apoyada por la tabla?',
+        tableStimulus: {
+          caption: 'Preferencias de actividades',
+          headers: ['Actividad', 'Estudiantes'],
+          rows: [
+            ['Deporte', '14'],
+            ['Lectura', '9'],
+            ['Videojuegos', '11'],
+          ],
+        },
         options: [
           { label: 'A', text: 'La lectura es la actividad m\u00e1s preferida' },
           { label: 'B', text: 'El deporte es la actividad m\u00e1s preferida' },
@@ -1338,13 +1382,17 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
         key: 'q8',
         stem:
           'La tabla muestra colores elegidos por un grupo.\n\n' +
-          'Tabla:\n' +
-          'Color | Frecuencia\n' +
-          'Azul | 7\n' +
-          'Verde | 5\n' +
-          'Rojo | 7\n' +
-          'Amarillo | 3\n\n' +
           '\u00bfQue colores tienen la misma frecuencia?',
+        tableStimulus: {
+          caption: 'Colores elegidos por un grupo',
+          headers: ['Color', 'Frecuencia'],
+          rows: [
+            ['Azul', '7'],
+            ['Verde', '5'],
+            ['Rojo', '7'],
+            ['Amarillo', '3'],
+          ],
+        },
         options: [
           { label: 'A', text: 'Azul y rojo' },
           { label: 'B', text: 'Verde y amarillo' },

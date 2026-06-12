@@ -132,6 +132,55 @@ Commit:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-UI-PAES-TABLE-STIMULUS-MINIMUM-1
+
+Baseline before:
+
+```text
+85da138514056637f1e29943bc5220cf81a5940e
+```
+
+Result/verdict:
+
+```text
+PAES_TABLE_STIMULUS_MINIMUM_IMPLEMENTED_WITH_CONTENT_SHAPE_EXTENSION
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_UI_PAES_TABLE_STIMULUS_MINIMUM_1.md
+nextjs_space/lib/study-load-content.ts
+nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx
+```
+
+Scope summary:
+
+Implemented minimum deterministic HTML table stimulus support for StudyLoad items. Added optional `tableStimulus` content shape, safely passed it to the student StudyLoad form, and rendered it using existing UI table components. Converted C07/C08 text-row table bridges into structured headers/rows while preserving contentKey values, item counts, ordering, correctOptionKey sequences D/B/C/A and C/B/B/A, options, and authoredFeedback.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-STIMULUS-HUMAN-UI-SMOKE-READINESS-1
+```
+
+Explicit non-actions:
+
+- No schema/DB/Prisma changes.
+- No seed/fixture/migration changes.
+- No route-order/continuity changes.
+- No StudyLoad state machine or submission/evaluation API changes.
+- No correctOptionKey, item count, contentKey, ordering, or authoredFeedback meaning changes.
+- No SVG/graph/geometry/image/asset/LaTeX implementation, browser automation, API-only tests, DB mutation, production/staging, or agentic code.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-11 - MVP-GOV-ROADMAP-PAES-VISUAL-STIMULUS-AUTHORED-AGENTIC-ALIGNMENT-1
 
 Baseline before:
