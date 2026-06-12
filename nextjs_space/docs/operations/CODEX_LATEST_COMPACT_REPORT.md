@@ -1,40 +1,37 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-GOV-CODEX-PRO-PHASE-PROMPT-GOLDEN-RULE-1`
+`MVP-GOV-PAES-M1-CAPSULE-STANDARD-IMPACT-AUDIT-1`
 
 Baseline before:
-`1f766674f5f96f45139486c5bd5f35636fe4dc69`
+`9cfd23d3d5cb3d1d2ece9e4518711f8591baab40`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_GOV_CODEX_PRO_DIAGNOSE_AND_REPAIR_PROTOCOL_1.md`
-- `nextjs_space/docs/operations/MVP_GOV_CODEX_PRO_PHASE_PROMPT_GOLDEN_RULE_1.md`
-- `nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md`
-- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+- `nextjs_space/docs/operations/MVP_GOV_PAES_M1_CAPSULE_STANDARD_IMPACT_AUDIT_1.md`
 
 Result:
-`CODEX_PRO_PHASE_PROMPT_GOLDEN_RULE_ACCEPTED`
+`PAES_M1_CAPSULE_STANDARD_IMPACT_AUDIT_COMPLETED_WITH_REPAIR_BACKLOG_RECOMMENDED`
 
 Summary:
-- Added the golden rule to the accepted Codex PRO diagnose-and-repair protocol.
-- Created the dedicated golden-rule governance document.
-- Added minimal references to the active handoff and documentation index.
-- The rule requires future chats to evaluate safe phase fusion before generating Codex prompts.
+- Audited current PAES M1 authored registry entries against accepted item-count, feedback, visual-stimulus, FigureSpec, correlative, smoke and agentic-boundary standards.
+- Identified current route-order M1-C01 through M1-C08 plus legacy percentage/proportionality and geometry/measure entries.
+- Found repair backlog before further scaling: M1-C01 feedback, M1-C06 tableStimulus, legacy geometry visuals, legacy placement/correlativo, and post-C08 continuity/product direction.
+- Recommended `MVP-GOV-PAES-M1-CAPSULE-STANDARD-REPAIR-BACKLOG-1`.
 
 Validation:
-- Preflight passed at `1f766674f5f96f45139486c5bd5f35636fe4dc69`.
-- Required source documents were read.
-- Required related-documentation search was executed across `PHASE_LOG.md` and `nextjs_space/docs`.
+- Preflight passed at `9cfd23d3d5cb3d1d2ece9e4518711f8591baab40`.
+- Required source documents and registry files were read.
+- Required related-documentation/code search was executed.
 - `git diff --check`: passed.
 - `git status --short`: only authorized documentation files changed before commit.
 - `git log --oneline --decorate --graph -8`: reviewed.
 - No build required for this documentation/governance phase.
-- No browser automation, API-only tests, DB operations, production/staging operations, fixture mutation, or agentic generation run.
+- No browser automation, API-only tests, DB operations, production/staging operations, fixture mutation, content mutation, route-order/continuity changes, or agentic generation run.
 
 Recommended next step:
-None required by this governance phase.
+`MVP-GOV-PAES-M1-CAPSULE-STANDARD-REPAIR-BACKLOG-1`
 
 Scope safety:
-Documentation-only governance update. No code changes, no UI changes, no DB mutation, no schema/Prisma changes, no route-order/continuity changes, no contentKey/correctOptionKey/item count/authoredFeedback changes, no API changes, no production/staging, no browser automation, no API-only tests, no secrets printed, no agentic layer opened.
+Documentation-only audit. No code changes, no UI changes, no DB mutation, no schema/Prisma changes, no route-order/continuity changes, no contentKey/correctOptionKey/item count/authoredFeedback changes, no visual stimulus content changes, no API changes, no production/staging, no browser automation, no API-only tests, no secrets printed, no agentic layer opened.
