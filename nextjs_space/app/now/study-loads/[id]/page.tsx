@@ -8,6 +8,7 @@ import {
   buildStudyLoadFeedback,
   getSafeStudyLoadItems,
   getStudyLoadContent,
+  getStudyLoadContentByKey,
 } from '@/lib/study-load-content'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -191,70 +192,102 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
     redirect('/now')
   }
 
-  const content = getStudyLoadContent(studyLoad.title)
+  let content = getStudyLoadContent(studyLoad.title)
 
   let initialAnswers: Record<string, string> | undefined
   let initialFeedback: McFeedback | undefined
   let completedSelfReport: string | undefined
-  if (content) {
-    try {
-      const [existingResponse, existingSelfReport] = await Promise.all([
-        prisma.response.findFirst({
-          where: {
-            responseType: 'mc_submission',
-            tutoringSession: {
-              studyLoadId: studyLoad.id,
-            },
+  try {
+    const [existingResponse, existingSelfReport] = await Promise.all([
+      prisma.response.findFirst({
+        where: {
+          responseType: 'mc_submission',
+          tutoringSession: {
+            studyLoadId: studyLoad.id,
           },
-          select: { content: true },
-          orderBy: { updatedAt: 'desc' },
-        }),
-        prisma.response.findFirst({
-          where: {
-            responseType: 'answer',
-            tutoringSession: {
-              studyLoadId: studyLoad.id,
-            },
+        },
+        select: { content: true },
+        orderBy: { updatedAt: 'desc' },
+      }),
+      prisma.response.findFirst({
+        where: {
+          responseType: 'answer',
+          tutoringSession: {
+            studyLoadId: studyLoad.id,
           },
-          select: { content: true },
-          orderBy: { updatedAt: 'desc' },
-        }),
-      ])
+        },
+        select: { content: true },
+        orderBy: { updatedAt: 'desc' },
+      }),
+    ])
 
-      if (existingResponse?.content) {
-        const parsed = JSON.parse(existingResponse.content)
+    let parsedMc:
+      | {
+          kind?: unknown
+          contentKey?: unknown
+          contentVersion?: unknown
+          answers?: unknown
+        }
+      | null = null
+
+    if (existingResponse?.content) {
+      const raw = JSON.parse(existingResponse.content) as unknown
+      if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+        parsedMc = raw
+      }
+    }
+
+    if (
+      !content &&
+      parsedMc?.kind === 'multiple_choice_submission' &&
+      typeof parsedMc.contentKey === 'string'
+    ) {
+      const contentFromSubmission = getStudyLoadContentByKey(parsedMc.contentKey)
+      if (
+        contentFromSubmission &&
+        (typeof parsedMc.contentVersion !== 'string' ||
+          contentFromSubmission.contentVersion === parsedMc.contentVersion)
+      ) {
+        content = contentFromSubmission
+      }
+    }
+
+    if (
+      content &&
+      parsedMc?.kind === 'multiple_choice_submission' &&
+      Array.isArray(parsedMc.answers)
+    ) {
+      initialAnswers = {}
+      const storedAnswers: StoredAnswer[] = []
+      for (const ans of parsedMc.answers) {
+        if (!ans || typeof ans !== 'object' || Array.isArray(ans)) {
+          continue
+        }
+        const answer = ans as Record<string, unknown>
         if (
-          parsed?.kind === 'multiple_choice_submission' &&
-          Array.isArray(parsed.answers)
+          typeof answer.itemKey === 'string' &&
+          typeof answer.selectedOptionKey === 'string'
         ) {
-          initialAnswers = {}
-          const storedAnswers: StoredAnswer[] = []
-          for (const ans of parsed.answers) {
-            if (
-              typeof ans.itemKey === 'string' &&
-              typeof ans.selectedOptionKey === 'string'
-            ) {
-              initialAnswers[ans.itemKey] = ans.selectedOptionKey
-              storedAnswers.push({
-                itemKey: ans.itemKey,
-                selectedOptionKey: ans.selectedOptionKey,
-              })
-            }
-          }
-          if (Object.keys(initialAnswers).length === 0) {
-            initialAnswers = undefined
-          }
-          initialFeedback = buildStudyLoadFeedback(content, storedAnswers)
+          initialAnswers[answer.itemKey] = answer.selectedOptionKey
+          storedAnswers.push({
+            itemKey: answer.itemKey,
+            selectedOptionKey: answer.selectedOptionKey,
+          })
         }
       }
-      if (typeof existingSelfReport?.content === 'string') {
-        completedSelfReport = existingSelfReport.content
+      if (Object.keys(initialAnswers).length === 0) {
+        initialAnswers = undefined
       }
-    } catch {
-      initialAnswers = undefined
-      initialFeedback = undefined
-      completedSelfReport = undefined
+      initialFeedback = buildStudyLoadFeedback(content, storedAnswers)
     }
+
+    if (typeof existingSelfReport?.content === 'string') {
+      completedSelfReport = existingSelfReport.content
+    }
+  } catch {
+    initialAnswers = undefined
+    initialFeedback = undefined
+    completedSelfReport = undefined
   }
 
   const safeItems = content ? getSafeStudyLoadItems(content) : []

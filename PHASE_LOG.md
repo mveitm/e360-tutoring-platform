@@ -271,6 +271,53 @@ Commit:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-UI-PAES-TABLE-STIMULUS-COMPLETED-VIEW-REPAIR-1
+
+Baseline before:
+
+```text
+544fd2b60726d0daad5f7dd3b0b7ae9e77671e4b
+```
+
+Result/verdict:
+
+```text
+PAES_TABLE_STIMULUS_COMPLETED_VIEW_REPAIR_IMPLEMENTED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_UI_PAES_TABLE_STIMULUS_COMPLETED_VIEW_REPAIR_1.md
+nextjs_space/app/now/study-loads/[id]/page.tsx
+```
+
+Scope summary:
+
+Minimal completed StudyLoad review repair. The student StudyLoad detail route now reads the latest `mc_submission` before declaring content unavailable and, when exact title lookup fails, resolves registry content by the stored `contentKey` with `contentVersion` guard. This reconnects completed historical C07/C08 reviews to the existing `StudyLoadAnswerForm` completed/read-only renderer, which already renders `tableStimulus` as formatted HTML tables.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-STIMULUS-HUMAN-UI-SMOKE-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+- No schema/DB/Prisma changes.
+- No DB mutation.
+- No route-order/continuity changes.
+- No contentKey, correctOptionKey, item count, ordering, or authoredFeedback changes.
+- No StudyLoad state machine, submission/evaluation API, seed, fixture, migration, graph/SVG/geometry/image/LaTeX, browser automation, API-only test, production/staging, or agentic changes.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-11 - MVP-GOV-ROADMAP-PAES-VISUAL-STIMULUS-AUTHORED-AGENTIC-ALIGNMENT-1
 
 Baseline before:
