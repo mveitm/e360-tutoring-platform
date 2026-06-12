@@ -9,6 +9,7 @@ import {
   getSafeStudyLoadItems,
   getStudyLoadContent,
   getStudyLoadContentByKey,
+  getStudyLoadDisplayTitle,
 } from '@/lib/study-load-content'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -294,6 +295,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
   const capsuleStatusLabel = capsuleStatusLabels[studyLoad.status] ?? studyLoad.status
   const isAnswering = studyLoad.status === 'in_progress'
   const isCompleted = studyLoad.status === 'completed'
+  const visibleCapsuleTitle = content ? getStudyLoadDisplayTitle(content) : studyLoad.title
 
   return (
     <main className="h-[100dvh] min-h-[100svh] overflow-hidden bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
@@ -311,8 +313,11 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
                   className="h-6 w-[96px] rounded-lg object-cover object-center sm:h-8 sm:w-[120px]"
                 />
               </span>
-              <span className="hidden text-sm font-semibold text-[#5D6B7A] sm:inline">
-                {isCompleted ? 'Revisión PAES_M1' : 'Cápsula PAES_M1'}
+              <span className="min-w-0 text-xs font-bold leading-tight text-[#253A5F] sm:text-sm">
+                <span className="block text-[10px] uppercase tracking-[0.12em] text-[#5D6B7A]">
+                  {isCompleted ? 'Revision PAES_M1' : 'Capsula PAES_M1'}
+                </span>
+                <span className="block truncate">{visibleCapsuleTitle}</span>
               </span>
             </Link>
             <CapsuleNavigation />
@@ -329,7 +334,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
                     {isCompleted ? `Revisión ${enrollment.program.code}` : `Cápsula ${enrollment.program.code}`}
                   </p>
                   <CardTitle className="font-display text-xl leading-snug text-[#10213F] sm:text-2xl">
-                    {studyLoad.title}
+                    {visibleCapsuleTitle}
                   </CardTitle>
                   <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
                     {isCompleted

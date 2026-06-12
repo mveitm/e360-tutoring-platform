@@ -11,7 +11,7 @@ import {
   PAES_M1_FIRST_CAPSULE_TITLE,
   ensurePaesM1FirstCapsuleForEnrollment,
 } from '@/lib/paes-m1-first-capsule'
-import { getStudyLoadContent } from '@/lib/study-load-content'
+import { getStudyLoadContent, getStudyLoadDisplayTitle } from '@/lib/study-load-content'
 import {
   Dialog,
   DialogClose,
@@ -270,6 +270,11 @@ function StatCard({
 
 function CurrentCapsuleCard({ currentCapsule }: { currentCapsule: CapsuleSummary | null }) {
   if (!currentCapsule) {
+    const firstContent = getStudyLoadContent(PAES_M1_FIRST_CAPSULE_TITLE)
+    const firstVisibleTitle = firstContent
+      ? getStudyLoadDisplayTitle(firstContent)
+      : PAES_M1_FIRST_CAPSULE_TITLE
+
     return (
       <article className="rounded-3xl border border-[#79A6A4] bg-[linear-gradient(135deg,#FBFCF6_0%,#E5F0EF_100%)] p-4 shadow-[0_14px_34px_rgba(16,33,63,0.10)] sm:p-5">
         <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
@@ -280,7 +285,7 @@ function CurrentCapsuleCard({ currentCapsule }: { currentCapsule: CapsuleSummary
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">Siguiente cápsula</p>
             <h2 className="mt-1 font-display text-xl font-bold leading-tight text-[#10213F] sm:text-2xl">
-              {PAES_M1_FIRST_CAPSULE_TITLE}
+              {firstVisibleTitle}
             </h2>
             <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-[#253A5F]">
               <span className="rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
@@ -315,6 +320,7 @@ function CurrentCapsuleCard({ currentCapsule }: { currentCapsule: CapsuleSummary
   const content = getStudyLoadContent(currentCapsule.title)
   const statusLabel = capsuleStatusLabels[currentCapsule.status]
   const topic = content?.topic ?? 'Foco inicial'
+  const visibleTitle = content ? getStudyLoadDisplayTitle(content) : currentCapsule.title
   const isCompleted = currentCapsule.status === 'completed'
   const purpose =
     isCompleted
@@ -331,7 +337,7 @@ function CurrentCapsuleCard({ currentCapsule }: { currentCapsule: CapsuleSummary
             {isCompleted ? 'Cápsula completada' : 'Siguiente cápsula'}
           </p>
           <h2 className="mt-1 font-display text-xl font-bold leading-tight text-[#10213F] sm:text-2xl">
-            {currentCapsule.title}
+            {visibleTitle}
           </h2>
           <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-[#253A5F]">
             <span className="rounded-full border border-[#DCE5EA] bg-white/80 px-3 py-1">
@@ -374,6 +380,7 @@ function CompletedCapsulesReviewSection({ capsules }: { capsules: CapsuleSummary
         {capsules.map((capsule) => {
           const content = getStudyLoadContent(capsule.title)
           const topic = content?.topic ?? 'Revisión'
+          const visibleTitle = content ? getStudyLoadDisplayTitle(content) : capsule.title
 
           return (
             <article
@@ -383,7 +390,7 @@ function CompletedCapsulesReviewSection({ capsules }: { capsules: CapsuleSummary
               <div className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#4B7B7C]">Cápsula completada</p>
-                  <h3 className="mt-1 text-sm font-bold leading-5 text-[#10213F]">{capsule.title}</h3>
+                  <h3 className="mt-1 text-sm font-bold leading-5 text-[#10213F]">{visibleTitle}</h3>
                   <div className="mt-2 flex flex-wrap gap-2 text-[11px] font-bold text-[#253A5F]">
                     <span className="rounded-full border border-[#79A6A4] bg-[#E5F0EF] px-2.5 py-1 text-[#10213F]">
                       Estado: Completada

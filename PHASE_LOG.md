@@ -410,6 +410,55 @@ Commit:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-UX-CAPSULE-VISIBLE-CORRELATIVE-DISPLAY-PLAN-AND-IMPLEMENT-1
+
+Baseline before:
+
+```text
+6b0589936adc2114fa5296e076db7d472380feaa
+```
+
+Result/verdict:
+
+```text
+CAPSULE_VISIBLE_CORRELATIVE_DISPLAY_IMPLEMENTED_DISPLAY_ONLY
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_UX_CAPSULE_VISIBLE_CORRELATIVE_DISPLAY_PLAN_AND_IMPLEMENT_1.md
+nextjs_space/lib/study-load-content.ts
+nextjs_space/app/now/study-loads/[id]/page.tsx
+nextjs_space/app/study/paes-m1/page.tsx
+```
+
+Scope summary:
+
+Applied the Codex PRO diagnose-and-repair protocol. Diagnosed a safe display-only source for visible capsule correlatives from existing static PAES M1 `contentKey` sequence and authored titles, without DB/schema/continuity/route-order changes. Added display helper functions and rendered visible correlatives in the student capsule header/open/completed view and ST M1 current/completed capsule cards.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-UX-CAPSULE-CORRELATIVE-HUMAN-UI-SMOKE-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+- No schema/DB/Prisma changes.
+- No DB mutation.
+- No route-order/continuity changes.
+- No contentKey, correctOptionKey, item count, ordering, or authoredFeedback changes.
+- No StudyLoad state machine, submission/evaluation API, seed, fixture, migration, production/staging, browser automation, API-only test, or agentic changes.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-11 - MVP-GOV-ROADMAP-PAES-VISUAL-STIMULUS-AUTHORED-AGENTIC-ALIGNMENT-1
 
 Baseline before:

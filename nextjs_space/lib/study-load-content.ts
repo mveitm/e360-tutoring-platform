@@ -148,6 +148,38 @@ export function getSafeStudyLoadItems(content: StudyLoadContent): SafeStudyLoadI
   }))
 }
 
+const STUDY_LOAD_VISIBLE_CORRELATIVES_BY_CONTENT_KEY: Record<string, string> = {
+  paes_m1_balanced_entry_initial: 'M1-C01',
+  paes_m1_linear_equations_basic: 'M1-C02',
+  paes_m1_linear_equations_word_problems: 'M1-C03',
+  paes_m1_linear_equations_reinforcement: 'M1-C04',
+  paes_m1_linear_functions_basic: 'M1-C05',
+  paes_m1_linear_functions_basic_ii: 'M1-C06',
+  paes_m1_data_representation_entry: 'M1-C07',
+  paes_m1_data_representation_entry_ii: 'M1-C08',
+}
+
+function getStudyLoadDisplayBaseTitle(content: StudyLoadContent): string {
+  return content.title
+    .replace(/^PAES M1\s+(?:\u2014|-)\s+/, '')
+    .replace(/^PAES L1\s+(?:\u2014|-)\s+/, '')
+}
+
+export function getStudyLoadVisibleCorrelative(
+  content: StudyLoadContent,
+): string | undefined {
+  return STUDY_LOAD_VISIBLE_CORRELATIVES_BY_CONTENT_KEY[content.contentKey]
+}
+
+export function getStudyLoadDisplayTitle(content: StudyLoadContent): string {
+  const visibleCorrelative = getStudyLoadVisibleCorrelative(content)
+  if (!visibleCorrelative) {
+    return content.title
+  }
+
+  return `${visibleCorrelative} \u2014 ${getStudyLoadDisplayBaseTitle(content)}`
+}
+
 export function buildStudyLoadFeedback(
   content: StudyLoadContent,
   submittedAnswers: StudyLoadSubmittedAnswer[],
