@@ -181,6 +181,51 @@ Commit:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-STIMULUS-HUMAN-UI-SMOKE-READINESS-1
+
+Baseline before:
+
+```text
+8fe99b9ad06c6d8bfa65c12c64bd8e5e123e15b1
+```
+
+Result/verdict:
+
+```text
+M1_C07_C08_TABLE_STIMULUS_HUMAN_UI_SMOKE_READINESS_DEFINED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_TABLE_STIMULUS_HUMAN_UI_SMOKE_READINESS_1.md
+```
+
+Scope summary:
+
+Documentation/readiness-only phase for later human local/dev UI smoke of C07/C08 after minimum table stimulus rendering. Confirmed prior implementation added optional `tableStimulus`, deterministic HTML table rendering, and structured C07/C08 q1-q8 table stimuli while preserving contentKey values, item counts, ordering, correctOptionKey sequences, options, and authoredFeedback. Defined checklist, stop conditions, expected result, known watch items, and separated C08 continuity/terminal-state debt from table stimulus quality.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-STIMULUS-HUMAN-UI-SMOKE-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+- No code/UI/API/schema/Prisma changes.
+- No route-order/continuity changes.
+- No study-load-content registry or authoredFeedback changes.
+- No DB mutation, seed, fixture, migration, production/staging, browser automation, API-only tests, build, or smoke execution.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-11 - MVP-GOV-ROADMAP-PAES-VISUAL-STIMULUS-AUTHORED-AGENTIC-ALIGNMENT-1
 
 Baseline before:
