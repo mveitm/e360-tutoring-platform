@@ -760,6 +760,51 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-ROADMAP-PAES-M2-L1-AUTHORED-MINIMUM-SCOPE-1
+
+Baseline before:
+
+```text
+67848da04bc856bc9920a236ad53d8ce3b23fbd3
+```
+
+Result/verdict:
+
+```text
+M2_L1_AUTHORED_MINIMUM_SCOPE_COMPLETED_WITH_M2_SEED_PLAN_RECOMMENDED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_ROADMAP_PAES_M2_L1_AUTHORED_MINIMUM_SCOPE_1.md
+```
+
+Scope summary:
+
+Documentation/roadmap/pedagogical phase. Converted the authored coverage plan into a minimum M2/L1 authored scope. Defined PAES_M2 thresholds of 2-3 capsules for circuit validation, 4-8 for first closed pilot exposure, and 12-20 curated capsules before agentic recommendation. Defined PAES_L1 thresholds of 1-2 text-base capsules for circuit validation, 4-8 for first closed pilot exposure, and 12-20 curated text-base capsules before agentic recommendation. Recommended planning M2 seed content first.
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-AUTHORED-SEED-PLAN-1
+```
+
+Explicit non-actions:
+
+- No code/UI/API/schema/DB/Prisma changes.
+- No route-order/continuity changes.
+- No registry, authoredFeedback, visual stimulus, contentKey, correctOptionKey, item count, ordering, stems/options or tableStimulus changes.
+- No build, browser automation, API-only tests, DB mutation, production/staging, fixture mutation, capsule creation or agentic layer.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-12 - MVP-ROADMAP-PAES-AUTHORED-COVERAGE-PLAN-1
 
 Baseline before:
