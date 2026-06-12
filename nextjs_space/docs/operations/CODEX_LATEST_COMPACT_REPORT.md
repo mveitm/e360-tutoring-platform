@@ -1,31 +1,31 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-GOV-PAES-VISUAL-STIMULUS-STANDARD-1`
+`MVP-GOV-PAES-FIGURE-SPEC-AND-QA-STANDARD-1`
 
 Baseline before:
-`c5a21e84172be2a6682c2908a301f5e6c3a15c1f`
+`dc28a3c5ddafc8aa0d341321bea17e034a636b1f`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_GOV_PAES_VISUAL_STIMULUS_STANDARD_1.md`
+- `nextjs_space/docs/operations/MVP_GOV_PAES_FIGURE_SPEC_AND_QA_STANDARD_1.md`
 
 Result:
-`PAES_VISUAL_STIMULUS_STANDARD_ACCEPTED`
+`PAES_FIGURE_SPEC_AND_QA_STANDARD_ACCEPTED`
 
 Decision summary:
-- Defined the PAES visual-stimulus standard for Bexauri capsules.
-- Plain text is allowed only when the assessed skill does not depend on visual, spatial, tabular, or mathematical rendering.
-- Required stimuli must be visible, legible, unambiguous, and auditable.
-- Missing/contradictory required table, graph, figure, image, math expression, wrong-answer-inducing stimulus, ambiguous notation, or feedback depending on absent visual stimulus is a blocker.
-- Correct but visually rough stimuli, readable but imperfect tables, acceptable but non-optimal mobile readability, or correct figures needing aesthetics are non-blocking debt.
-- Tables, graphs, geometry figures, images/assets, LaTeX-equivalent notation, L1 source text, feedback dependency, accessibility, and mobile readability standards were documented.
-- Agentic generation remains outside final student-facing visual stimulus production.
-- Frozen rule preserved: AI may draft; deterministic renderer must produce; human/QA must approve.
+- Defined `FigureSpec` / `VisualStimulusSpec` as the auditable contract between PAES items and required visual stimuli.
+- Proposed a documentary schema draft for table, chart, graph, cartesian plane, geometry figure, static image, diagram, and math render stimuli.
+- Required stable `stimulusId`, version, type, sourceType, item/capsule references, lifecycle status, and review metadata before student-facing use.
+- Defined version increments for changes affecting interpretation, labels, values, geometry, data, scale, keys, options, or feedback.
+- Defined `draft`, `approved`, and `deprecated` lifecycle states.
+- Defined source types: `html_table`, `svg_template`, `static_asset`, `latex_render`, and temporary `text_bridge`.
+- Preserved the approved source rule: free-form AI-generated images/figures are not final student-facing PAES stimuli.
+- Documented parameter/content integrity, snapshot/preview expectations, human QA, static QA, accessibility/mobile checks, authored capsule dependency, and agentic boundary.
 
 Validation:
-- Preflight passed at `c5a21e84172be2a6682c2908a301f5e6c3a15c1f`.
+- Preflight passed at `dc28a3c5ddafc8aa0d341321bea17e034a636b1f`.
 - Required source documents were read.
 - Required documentation search was executed across `PHASE_LOG.md` and `nextjs_space/docs`.
 - `git diff --check`: passed.
@@ -34,10 +34,10 @@ Validation:
 - No build, browser automation, API-only tests, DB operations, production/staging operations, rendering implementation, capsule generation, or agentic generation run.
 
 Recommended next step:
-`MVP-GOV-PAES-FIGURE-SPEC-AND-QA-STANDARD-1`
+`MVP-UI-PAES-TABLE-STIMULUS-MINIMUM-1`
 
 Purpose:
-`Define FigureSpec, visual stimulus ids, versioning, status draft/approved/deprecated, snapshots, QA checklist and approved asset/template workflow.`
+`Implementar soporte minimo de tabla formateada para capsulas como C07/C08, sin abordar todavia motor completo SVG/figuras.`
 
 Scope safety:
-Documentation/governance-only phase. No code modified, no DB mutation, no UI/API/schema/Prisma changes, no route-order/continuity changes, no study-load registry or authoredFeedback changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no build, no secrets printed, no table/HTML/SVG/LaTeX implementation, no image/asset generation, no new capsules, no Sales-Ready or adaptive AI claim.
+Documentation/governance-only phase. No code modified, no DB mutation, no UI/API/schema/Prisma changes, no route-order/continuity changes, no study-load registry or authoredFeedback changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no build, no secrets printed, no SVG/table/rendering implementation, no image/asset generation, no new capsules, no Sales-Ready or adaptive AI claim.

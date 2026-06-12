@@ -87,6 +87,51 @@ Commit:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-GOV-PAES-FIGURE-SPEC-AND-QA-STANDARD-1
+
+Baseline before:
+
+```text
+dc28a3c5ddafc8aa0d341321bea17e034a636b1f
+```
+
+Result/verdict:
+
+```text
+PAES_FIGURE_SPEC_AND_QA_STANDARD_ACCEPTED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_PAES_FIGURE_SPEC_AND_QA_STANDARD_1.md
+```
+
+Scope summary:
+
+Documentation/governance-only standard defining `FigureSpec` / `VisualStimulusSpec` as the auditable contract between PAES items and visual stimuli. Documented required identifiers, draft/approved/deprecated lifecycle, versioning rules, renderer/source types, approved source rule, parameter/content integrity checks, snapshot/preview expectations, human QA, static QA, accessibility/mobile checks, examples, and the boundary that agentic systems may draft/spec/flag but may not approve or publish final student-facing visual stimuli.
+
+Next recommended phase:
+
+```text
+MVP-UI-PAES-TABLE-STIMULUS-MINIMUM-1
+```
+
+Explicit non-actions:
+
+- No code/UI/API/schema/Prisma changes.
+- No route-order/continuity changes.
+- No study-load registry or authoredFeedback changes.
+- No DB mutation, seed, fixture, migration, production/staging, browser automation, API-only tests, build, SVG/table/rendering implementation, asset generation, capsule generation, or agentic product layer.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-11 - MVP-GOV-ROADMAP-PAES-VISUAL-STIMULUS-AUTHORED-AGENTIC-ALIGNMENT-1
 
 Baseline before:
