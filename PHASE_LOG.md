@@ -670,6 +670,51 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-SALES-PILOT-M1-CURRENT-SET-HUMAN-REGRESSION-SMOKE-PLAN-1
+
+Baseline before:
+
+```text
+bc3cd5a1ce7ee023f6596c11cf9d8d3a81e2bf9e
+```
+
+Result/verdict:
+
+```text
+M1_CURRENT_SET_HUMAN_REGRESSION_SMOKE_PLAN_READY
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M1_CURRENT_SET_HUMAN_REGRESSION_SMOKE_PLAN_1.md
+```
+
+Scope summary:
+
+Documentation/readiness only. Planned a focused human regression smoke for current route-order M1-C01 through M1-C08 after PAES visual-stimulus, table stimulus, completed-view, visible correlative and authoredFeedback Batch 1 repairs. Defined completed-view, active/new capsule and document/text review modes, checklist blocks, stop conditions and evidence format. Post-C08 continuity remains a separate roadmap issue.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M1-CURRENT-SET-HUMAN-REGRESSION-SMOKE-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+- No code/UI/API/schema/DB/Prisma changes.
+- No route-order/continuity changes.
+- No registry, authoredFeedback, visual stimulus, contentKey, correctOptionKey, item count, ordering, stems/options or tableStimulus changes.
+- No build, browser automation, API-only tests, DB mutation, production/staging, fixture mutation, smoke execution or agentic layer.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-12 - MVP-PEDAGOGY-M1-AUTHORED-FEEDBACK-BATCH-1-HUMAN-REVIEW-CLOSEOUT-1
 
 Baseline before:
