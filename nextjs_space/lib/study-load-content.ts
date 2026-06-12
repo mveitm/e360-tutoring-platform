@@ -157,11 +157,13 @@ const STUDY_LOAD_VISIBLE_CORRELATIVES_BY_CONTENT_KEY: Record<string, string> = {
   paes_m1_linear_functions_basic_ii: 'M1-C06',
   paes_m1_data_representation_entry: 'M1-C07',
   paes_m1_data_representation_entry_ii: 'M1-C08',
+  paes_m2_modeling_expressions_functions_entry: 'M2-C01',
 }
 
 function getStudyLoadDisplayBaseTitle(content: StudyLoadContent): string {
   return content.title
     .replace(/^PAES M1\s+(?:\u2014|-)\s+/, '')
+    .replace(/^PAES M2\s+(?:\u2014|-)\s+/, '')
     .replace(/^PAES L1\s+(?:\u2014|-)\s+/, '')
 }
 
@@ -1503,6 +1505,118 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
       expertReviewed: false,
       routingStatus: 'available_not_universal',
     },
+  },
+  'PAES M2 \u2014 Modelacion con expresiones y funciones': {
+    contentKey: 'paes_m2_modeling_expressions_functions_entry',
+    contentVersion: 'v1',
+    contentType: 'practice',
+    title: 'PAES M2 \u2014 Modelacion con expresiones y funciones',
+    program: 'PAES_M2',
+    skillFamily: 'algebra/functions/modelling',
+    topic: 'Modelacion con expresiones y funciones',
+    estimatedMinutes: '10-14 minutos',
+    instructions:
+      'Esta actividad tiene 4 ejercicios de opcion multiple sobre modelacion con expresiones y funciones simples.\n\n' +
+      '1. Lee cada contexto con atencion.\n' +
+      '2. Identifica que cantidad es fija y que cantidad cambia.\n' +
+      '3. Escribe o revisa la expresion antes de elegir una alternativa.\n' +
+      '4. Si aparece una funcion, sustituye el valor indicado paso a paso.\n' +
+      '5. Envia tus respuestas.\n' +
+      '6. Luego revisa la retroalimentacion y deja tu autorreporte si corresponde.\n\n' +
+      'No necesitas graficos ni figuras para resolver esta capsula.',
+    items: [
+      {
+        key: 'q1',
+        stem:
+          'Una academia cobra una matricula fija de $12.000 y $2.500 por cada clase tomada. ' +
+          'Si x representa la cantidad de clases, cual expresion modela el costo total?',
+        options: [
+          { label: 'A', text: '12000 + 2500x' },
+          { label: 'B', text: '12000x + 2500' },
+          { label: 'C', text: '2500 - 12000x' },
+          { label: 'D', text: '12000 + x' },
+        ],
+        correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m2_modeling_expressions_functions_entry_q1_brief_v1',
+          completeId: 'paes_m2_modeling_expressions_functions_entry_q1_complete_v1',
+          version: 'm2-c01-authored-feedback-v1',
+          brief:
+            'Identifica la parte fija y la parte variable: la matricula se suma una vez y cada clase aporta 2500x.',
+          complete:
+            'El item pide representar el costo total a partir de un contexto. Paso 1: reconoce la cantidad fija: la matricula de $12.000 se paga una sola vez. Paso 2: reconoce la cantidad variable: cada una de las x clases cuesta $2.500, por eso se modela como 2500x. Paso 3: suma ambas partes para obtener 12000 + 2500x. Por eso la alternativa correcta es A. Un error tipico es multiplicar la matricula por x, pero la matricula no depende de la cantidad de clases.',
+        },
+      },
+      {
+        key: 'q2',
+        stem:
+          'El costo de un servicio se modela por f(x) = 1800x + 4000, donde x es la cantidad de sesiones. ' +
+          'Cual es el costo si se realizan 3 sesiones?',
+        options: [
+          { label: 'A', text: '$5.400' },
+          { label: 'B', text: '$5.800' },
+          { label: 'C', text: '$9.400' },
+          { label: 'D', text: '$11.200' },
+        ],
+        correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m2_modeling_expressions_functions_entry_q2_brief_v1',
+          completeId: 'paes_m2_modeling_expressions_functions_entry_q2_complete_v1',
+          version: 'm2-c01-authored-feedback-v1',
+          brief:
+            'Sustituye x por 3: primero calcula 1800 * 3 y luego suma el costo fijo 4000.',
+          complete:
+            'El item pide evaluar la funcion para 3 sesiones. Paso 1: toma la regla f(x) = 1800x + 4000. Paso 2: sustituye x por 3: f(3) = 1800 * 3 + 4000. Paso 3: calcula 1800 * 3 = 5400. Paso 4: suma 5400 + 4000 = 9400. Por eso el costo es $9.400 y la alternativa correcta es C. Un cuidado importante es no olvidar el costo fijo despues de multiplicar por la cantidad de sesiones.',
+        },
+      },
+      {
+        key: 'q3',
+        stem:
+          'Una aplicacion cobra $3.000 de activacion y $700 por cada dia de uso. ' +
+          'Si d representa los dias de uso, cual funcion representa el costo total C(d)?',
+        options: [
+          { label: 'A', text: 'C(d) = 3000d + 700' },
+          { label: 'B', text: 'C(d) = 3000 + 700d' },
+          { label: 'C', text: 'C(d) = 3700d' },
+          { label: 'D', text: 'C(d) = 700 + 3000/d' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_modeling_expressions_functions_entry_q3_brief_v1',
+          completeId: 'paes_m2_modeling_expressions_functions_entry_q3_complete_v1',
+          version: 'm2-c01-authored-feedback-v1',
+          brief:
+            'La activacion es fija y los dias son variables: el modelo suma 3000 una vez y 700d por los dias.',
+          complete:
+            'El item pide escoger la funcion que representa un costo total. Paso 1: identifica el costo fijo de activacion: $3.000. Paso 2: identifica el costo que depende de los dias: $700 por cada dia, es decir 700d. Paso 3: suma ambas partes: C(d) = 3000 + 700d. Por eso la alternativa correcta es B. Un error frecuente es multiplicar la activacion por d, pero la activacion se cobra una sola vez.',
+        },
+      },
+      {
+        key: 'q4',
+        stem:
+          'Para imprimir invitaciones, el precio se modela por P(n) = 15000 + 1200n, donde n es la cantidad de invitaciones. ' +
+          'Que representa el numero 1200 en este modelo?',
+        options: [
+          { label: 'A', text: 'El costo fijo de diseno' },
+          { label: 'B', text: 'El costo por cada invitacion' },
+          { label: 'C', text: 'La cantidad total de invitaciones' },
+          { label: 'D', text: 'El precio total cuando no se imprimen invitaciones' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_modeling_expressions_functions_entry_q4_brief_v1',
+          completeId: 'paes_m2_modeling_expressions_functions_entry_q4_complete_v1',
+          version: 'm2-c01-authored-feedback-v1',
+          brief:
+            'En 15000 + 1200n, el numero que multiplica a n indica cuanto aumenta el precio por cada invitacion.',
+          complete:
+            'El item pide interpretar un parametro del modelo. Paso 1: identifica que n representa la cantidad de invitaciones. Paso 2: observa que 1200 multiplica a n, por lo que cambia cuando cambia la cantidad de invitaciones. Paso 3: interpreta ese valor como el costo adicional por cada invitacion. Por eso la alternativa correcta es B. Un error tipico es confundir 1200 con el costo fijo; el costo fijo es 15000 porque no depende de n.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revision. ' +
+      'No recibiras puntaje PAES, diagnostico automatico ni declaracion de dominio M2 en esta version.',
   },
   'PAES L1 - Localizacion de informacion - Piloto interno 01': {
     contentKey: 'l1_locating_information_pilot_set_01',
