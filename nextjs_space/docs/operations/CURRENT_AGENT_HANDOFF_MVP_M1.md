@@ -4,6 +4,10 @@
 
 `MVP-GOV-PAES-CAPSULE-PEDAGOGICAL-STANDARD-1` documented `nextjs_space/docs/operations/MVP_GOV_PAES_CAPSULE_PEDAGOGICAL_STANDARD_1.md` with result `PAES_CAPSULE_PEDAGOGICAL_STANDARD_DOCUMENTED_LIVING_REFERENCE_ADDED`. Current PAES capsule standard: M1/M2 maximum 4 exercises per capsule; M1 ideal 4, M2 ideal 3 or 4 depending on cognitive load; recommended minimum 3; exceptional minimum 2 only with explicit pedagogical justification; L1 recommended range 1-4 answerable questions. The prior recommendation to continue M1-C05 8-item smoke is superseded: `M1-C05 - Funciones lineales basicas` must pause and enter split/repair planning before any further human smoke.
 
+## Codex PRO Diagnose-and-Repair Protocol Note
+
+`MVP-GOV-CODEX-PRO-DIAGNOSE-AND-REPAIR-PROTOCOL-1` documents `nextjs_space/docs/operations/MVP_GOV_CODEX_PRO_DIAGNOSE_AND_REPAIR_PROTOCOL_1.md` with result `CODEX_PRO_DIAGNOSE_AND_REPAIR_PROTOCOL_ACCEPTED`. Future chats should prefer a combined diagnose-and-repair phase for narrow, technical, reversible, low-risk issues when the expected root cause, allowed repair path, stop gates and validation are explicit. Governance, roadmap, pedagogy, DB/schema, continuity and agentic decisions must remain separate phases.
+
 ## PAES_M1 Visible Correlativo Renumbering Note
 
 `MVP-SALES-PILOT-PEDAGOGY-M1-VISIBLE-CORRELATIVE-RENUMBERING-DOC-1` documented `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_VISIBLE_CORRELATIVE_RENUMBERING_DOC_1.md` with result `M1_VISIBLE_CORRELATIVE_RENUMBERING_DOCUMENTED_LIVING_REFERENCE_ADDED`. Current visible route-order correlativos are now `M1-C01 - Entrada balanceada inicial`, `M1-C02 - Ecuaciones lineales basicas`, `M1-C03 - Problemas con ecuaciones lineales`, `M1-C04 - Refuerzo de ecuaciones lineales`, `M1-C05 - Funciones lineales basicas`, and `M1-C06 - Lectura de tablas y graficos`. The prior percentage/geometry labels `M1-C04/M1-C05` are legacy/historical only and must be marked as `legacy correlativo pending correction` until placement is decided.

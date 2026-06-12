@@ -363,6 +363,53 @@ Commit:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-GOV-CODEX-PRO-DIAGNOSE-AND-REPAIR-PROTOCOL-1
+
+Baseline before:
+
+```text
+0e9eade5ea614d5c6c62a71c30dd198ce5cf7731
+```
+
+Result/verdict:
+
+```text
+CODEX_PRO_DIAGNOSE_AND_REPAIR_PROTOCOL_ACCEPTED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_CODEX_PRO_DIAGNOSE_AND_REPAIR_PROTOCOL_1.md
+nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+nextjs_space/docs/operations/CURRENT_AGENT_HANDOFF_MVP_M1.md
+```
+
+Scope summary:
+
+Documentation/governance-only protocol responding to the human decision to use Codex PRO capacity to reduce artificial phase fragmentation. Defined when future phases may combine diagnosis and repair for narrow, technical, reversible, low-risk issues, and when they must remain separate. Added explicit stop gates for preflight mismatch, differing root cause, scope expansion, forbidden areas, data mutation, schema/continuity requirements, and pedagogical decisions.
+
+Next recommended phase:
+
+```text
+None required by this protocol phase.
+```
+
+Explicit non-actions:
+
+- No code/UI/API/schema/Prisma changes.
+- No route-order/continuity changes.
+- No study-load-content registry or authoredFeedback changes.
+- No DB mutation, seed, fixture, migration, production/staging, browser automation, API-only tests, build, or agentic changes.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-11 - MVP-GOV-ROADMAP-PAES-VISUAL-STIMULUS-AUTHORED-AGENTIC-ALIGNMENT-1
 
 Baseline before:
