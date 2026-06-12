@@ -670,6 +670,51 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-PEDAGOGY-M1-AUTHORED-FEEDBACK-P0-REPAIR-PLAN-1
+
+Baseline before:
+
+```text
+503b22854b7e8d2163afbe40f91be88b41b1ef08
+```
+
+Result/verdict:
+
+```text
+M1_AUTHORED_FEEDBACK_P0_REPAIR_PLAN_COMPLETED_WITH_BATCH_1_RECOMMENDED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_PEDAGOGY_M1_AUTHORED_FEEDBACK_P0_REPAIR_PLAN_1.md
+```
+
+Scope summary:
+
+Documentation/pedagogical planning only. Converted the authoredFeedback quality audit into a P0 repair plan. Confirmed the only feedback P0 cluster is M1-C01 q1-q4 missing authoredFeedback, with stable apparent keys C/B/C/B and no complex visual dependency. Defined repair rubric, P0 inventory, acceptance criteria, batching strategy and smoke/review implications.
+
+Next recommended phase:
+
+```text
+MVP-PEDAGOGY-M1-AUTHORED-FEEDBACK-P0-REPAIR-BATCH-1
+```
+
+Explicit non-actions:
+
+- No code/UI/API/schema/DB/Prisma changes.
+- No route-order/continuity changes.
+- No registry, authoredFeedback, visual stimulus, contentKey, correctOptionKey or item count changes.
+- No browser automation, API-only tests, DB mutation, production/staging, fixture mutation or agentic layer.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-12 - MVP-PEDAGOGY-M1-AUTHORED-FEEDBACK-QUALITY-AUDIT-1
 
 Baseline before:
