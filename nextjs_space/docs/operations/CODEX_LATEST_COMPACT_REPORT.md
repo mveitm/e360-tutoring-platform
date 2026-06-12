@@ -1,42 +1,34 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-UX-CAPSULE-VISIBLE-CORRELATIVE-DISPLAY-PLAN-AND-IMPLEMENT-1`
+`MVP-SALES-PILOT-UX-CAPSULE-CORRELATIVE-HUMAN-UI-SMOKE-CLOSEOUT-1`
 
 Baseline before:
-`6b0589936adc2114fa5296e076db7d472380feaa`
+`01c99a5cc647695161d541f22b129a93fb25227e`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_UX_CAPSULE_VISIBLE_CORRELATIVE_DISPLAY_PLAN_AND_IMPLEMENT_1.md`
-- `nextjs_space/lib/study-load-content.ts`
-- `nextjs_space/app/now/study-loads/[id]/page.tsx`
-- `nextjs_space/app/study/paes-m1/page.tsx`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_UX_CAPSULE_CORRELATIVE_HUMAN_UI_SMOKE_CLOSEOUT_1.md`
 
 Result:
-`CAPSULE_VISIBLE_CORRELATIVE_DISPLAY_IMPLEMENTED_DISPLAY_ONLY`
+`CAPSULE_VISIBLE_CORRELATIVE_HUMAN_UI_SMOKE_CLOSEOUT_PASSED`
 
-Implementation summary:
-- Applied the Codex PRO diagnose-and-repair protocol.
-- Diagnosed safe source-of-truth as display-only derivation from existing PAES M1 `contentKey` sequence and authored titles.
-- Added `getStudyLoadVisibleCorrelative` and `getStudyLoadDisplayTitle` helpers.
-- Rendered visible correlatives in `/now/study-loads/[id]` capsule header and open/completed title card.
-- Rendered visible correlatives in ST M1 current capsule and completed capsule cards.
-- Did not expose DB id, StudyLoad id, contentKey, internal counter or technical metadata.
+Human smoke summary:
+- The user reported that all visible capsule correlative UI verification points passed/OK.
+- Visible capsule correlatives are considered smoke-passed from the human UI verification perspective.
 
 Validation:
-- Preflight passed at `6b0589936adc2114fa5296e076db7d472380feaa`.
+- Preflight passed at `01c99a5cc647695161d541f22b129a93fb25227e`.
 - Required source documents were read.
-- Required context search was executed across `PHASE_LOG.md`, `nextjs_space/docs`, `nextjs_space/app`, `nextjs_space/components`, and `nextjs_space/lib`.
 - `git diff --check`: passed.
-- `git status --short`: only authorized files changed before commit.
+- `git status --short`: only authorized documentation files changed before commit.
 - `git log --oneline --decorate --graph -8`: reviewed.
-- `npm.cmd --prefix nextjs_space run build`: passed.
+- No build required for this documentation/read-only closeout.
 - No browser automation, API-only tests, DB operations, production/staging operations, fixture mutation, or agentic generation run.
 
 Recommended next step:
-`MVP-SALES-PILOT-UX-CAPSULE-CORRELATIVE-HUMAN-UI-SMOKE-CLOSEOUT-1`
+`MVP-GOV-CODEX-PRO-PHASE-PROMPT-GOLDEN-RULE-1`
 
 Scope safety:
-Display-only UI/helper phase plus documentation. No DB mutation, no schema/Prisma changes, no route-order/continuity changes, no contentKey/correctOptionKey/item count/ordering/authoredFeedback changes, no StudyLoad state machine or submission/evaluation API changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no secrets printed, no agentic layer opened.
+Documentation-only closeout. No code changes, no UI changes, no DB mutation, no schema/Prisma changes, no route-order/continuity changes, no contentKey/correctOptionKey/item count/authoredFeedback changes, no API changes, no production/staging, no browser automation, no API-only tests, no secrets printed, no agentic layer opened.

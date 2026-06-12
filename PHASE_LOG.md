@@ -556,6 +556,61 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-SALES-PILOT-UX-CAPSULE-CORRELATIVE-HUMAN-UI-SMOKE-CLOSEOUT-1
+
+Baseline before:
+
+```text
+01c99a5cc647695161d541f22b129a93fb25227e
+```
+
+Result/verdict:
+
+```text
+CAPSULE_VISIBLE_CORRELATIVE_HUMAN_UI_SMOKE_CLOSEOUT_PASSED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_UX_CAPSULE_CORRELATIVE_HUMAN_UI_SMOKE_CLOSEOUT_1.md
+```
+
+Scope summary:
+
+Documentation/read-only closeout for the human UI smoke of visible capsule correlatives after the display-only implementation. The user reported all verification points passed/OK, so visible capsule correlatives are considered smoke-passed from the human UI verification perspective.
+
+Next recommended phase:
+
+```text
+MVP-GOV-CODEX-PRO-PHASE-PROMPT-GOLDEN-RULE-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No UI changes.
+- No API changes.
+- No schema/DB/Prisma changes.
+- No route-order/continuity changes.
+- No study-load-content registry changes.
+- No authoredFeedback changes.
+- No DB mutation.
+- No browser automation.
+- No API-only tests.
+- No build.
+- No production/staging.
+- No agentic layer opened.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-11 - MVP-SALES-PILOT-PEDAGOGY-M1-C08-LECTURA-TABLAS-GRAFICOS-II-HUMAN-UI-SMOKE-READINESS-1
 
 Baseline before:
