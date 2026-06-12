@@ -670,6 +670,52 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-PEDAGOGY-M1-AUTHORED-FEEDBACK-P0-REPAIR-BATCH-1
+
+Baseline before:
+
+```text
+71e3a6e23fc1ce0f06e9b9204ae701795b439a86
+```
+
+Result/verdict:
+
+```text
+M1_AUTHORED_FEEDBACK_P0_REPAIR_BATCH_1_COMPLETED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/lib/study-load-content.ts
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_PEDAGOGY_M1_AUTHORED_FEEDBACK_P0_REPAIR_BATCH_1.md
+```
+
+Scope summary:
+
+Implemented the planned Batch 1 P0 authoredFeedback repair for M1-C01 only. Added `authoredFeedback` brief/complete objects to q1-q4 of `paes_m1_balanced_entry_initial`, covering percentage discount, fixed-plus-variable expression, rectangle area and simple probability. Preserved contentKey, correctOptionKey values, item count, ordering, stems, options, visual stimuli, route-order/continuity, UI/API and schema/DB.
+
+Next recommended phase:
+
+```text
+MVP-PEDAGOGY-M1-AUTHORED-FEEDBACK-BATCH-1-STATIC-REVIEW-1
+```
+
+Explicit non-actions:
+
+- No UI/API/schema/DB/Prisma changes.
+- No route-order/continuity changes.
+- No contentKey, correctOptionKey, item count, ordering, stems/options or visual stimulus changes.
+- No browser automation, API-only tests, DB mutation, production/staging, fixture mutation or agentic layer.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-12 - MVP-PEDAGOGY-M1-AUTHORED-FEEDBACK-P0-REPAIR-PLAN-1
 
 Baseline before:

@@ -1077,6 +1077,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '$12.000' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_balanced_entry_initial_q1_brief_m1c01_v1',
+          completeId: 'paes_m1_balanced_entry_initial_q1_complete_m1c01_v1',
+          version: 'm1-c01-balanced-entry-authored-feedback-v1',
+          brief:
+            'El foco es calcular el descuento, no el precio final. El 20% de 15.000 corresponde a 3.000.',
+          complete:
+            'El item pregunta cuanto dinero se descuenta en un producto de $15.000 con 20% de descuento. Paso 1: identifica que 20% equivale a 20/100 = 0,20. Paso 2: multiplica el precio por 0,20: 15.000 * 0,20 = 3.000. Paso 3: compara con las alternativas y elige $3.000. Un error tipico es calcular el precio final despues del descuento o mover mal el porcentaje.',
+        },
       },
       {
         key: 'q2',
@@ -1088,6 +1097,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '1500h' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_balanced_entry_initial_q2_brief_m1c01_v1',
+          completeId: 'paes_m1_balanced_entry_initial_q2_complete_m1c01_v1',
+          version: 'm1-c01-balanced-entry-authored-feedback-v1',
+          brief:
+            'Separa el cobro fijo del cobro por hora: 1.000 se suma una vez y 500 se multiplica por h.',
+          complete:
+            'El item pide representar el costo total de un arriendo con un cobro fijo y un cobro por hora. Paso 1: el cobro fijo de 1.000 se paga una sola vez, por eso aparece como 1000. Paso 2: el cobro de 500 depende de la cantidad de horas h, por eso se escribe 500h. Paso 3: suma ambas partes: 1000 + 500h. La alternativa correcta es B. Un error tipico es multiplicar tambien el cobro fijo por h o cambiar el orden de fijo y variable.',
+        },
       },
       {
         key: 'q3',
@@ -1099,6 +1117,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '80 m2' },
         ],
         correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m1_balanced_entry_initial_q3_brief_m1c01_v1',
+          completeId: 'paes_m1_balanced_entry_initial_q3_complete_m1c01_v1',
+          version: 'm1-c01-balanced-entry-authored-feedback-v1',
+          brief:
+            'Para el area de un rectangulo, multiplica largo por ancho: 8 * 5 = 40.',
+          complete:
+            'El item pregunta por el area de un terreno rectangular. Paso 1: identifica las medidas relevantes: largo 8 metros y ancho 5 metros. Paso 2: usa la regla de area de un rectangulo: largo * ancho. Paso 3: calcula 8 * 5 = 40. Paso 4: como las unidades son metros por metros, el resultado es 40 m2. La alternativa correcta es C. Un error tipico es sumar 8 + 5 o calcular perimetro en vez de superficie.',
+        },
       },
       {
         key: 'q4',
@@ -1110,6 +1137,15 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
           { label: 'D', text: '1/2' },
         ],
         correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m1_balanced_entry_initial_q4_brief_m1c01_v1',
+          completeId: 'paes_m1_balanced_entry_initial_q4_complete_m1c01_v1',
+          version: 'm1-c01-balanced-entry-authored-feedback-v1',
+          brief:
+            'La probabilidad se calcula como casos favorables sobre casos totales: hay 2 azules de 5 bolitas.',
+          complete:
+            'El item pide la probabilidad de sacar una bolita azul. Paso 1: identifica los casos favorables: hay 2 bolitas azules. Paso 2: identifica el total de bolitas: 3 rojas + 2 azules = 5. Paso 3: escribe la probabilidad como favorables / total: 2/5. La alternativa correcta es B. Un error tipico es usar solo las bolitas rojas como total o comparar azul contra rojo en vez de azul contra todas las bolitas.',
+        },
       },
     ],
     currentLimitationNotice:
