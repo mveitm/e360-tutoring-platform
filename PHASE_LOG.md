@@ -760,6 +760,51 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-SALES-PILOT-M1-CURRENT-SET-HUMAN-REGRESSION-SMOKE-CLOSEOUT-1
+
+Baseline before:
+
+```text
+7869bbb3a9e7bc5d157036f83416c216de38494b
+```
+
+Result/verdict:
+
+```text
+M1_CURRENT_SET_HUMAN_REGRESSION_SMOKE_CLOSEOUT_PASSED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M1_CURRENT_SET_HUMAN_REGRESSION_SMOKE_CLOSEOUT_1.md
+```
+
+Scope summary:
+
+Documentation/read-only closeout. Recorded the user's simplified human regression of the current M1 set as passed/OK across visual orientation/correlative/title, C07/C08 table stimulus, brief and step-by-step feedback, navigation and completed view. The current repaired M1 set is considered passed for the recently repaired surfaces.
+
+Next recommended phase:
+
+```text
+MVP-ROADMAP-PAES-AUTHORED-COVERAGE-PLAN-1
+```
+
+Explicit non-actions:
+
+- No code/UI/API/schema/DB/Prisma changes.
+- No route-order/continuity changes.
+- No registry, authoredFeedback, visual stimulus, contentKey, correctOptionKey, item count, ordering, stems/options or tableStimulus changes.
+- No build, browser automation, API-only tests, DB mutation, production/staging, fixture mutation or agentic layer.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-12 - MVP-PEDAGOGY-M1-AUTHORED-FEEDBACK-BATCH-1-HUMAN-REVIEW-OR-SMOKE-READINESS-1
 
 Baseline before:
