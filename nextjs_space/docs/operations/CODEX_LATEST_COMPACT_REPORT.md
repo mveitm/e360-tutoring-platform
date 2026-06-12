@@ -1,38 +1,40 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-STIMULUS-HUMAN-UI-SMOKE-READINESS-1`
+`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-STIMULUS-COMPLETED-VIEW-DIAGNOSIS-1`
 
 Baseline before:
-`8fe99b9ad06c6d8bfa65c12c64bd8e5e123e15b1`
+`9c9029bfa45443c0bdfbb2f856f7c4e1c9d2a416`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_TABLE_STIMULUS_HUMAN_UI_SMOKE_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_TABLE_STIMULUS_COMPLETED_VIEW_DIAGNOSIS_1.md`
 
 Result:
-`M1_C07_C08_TABLE_STIMULUS_HUMAN_UI_SMOKE_READINESS_DEFINED`
+`C07_C08_TABLE_STIMULUS_DIAGNOSIS_COMPLETED_VIEW_RENDERER_MISSING`
 
-Readiness summary:
-- Confirmed prior implementation result: `PAES_TABLE_STIMULUS_MINIMUM_IMPLEMENTED_WITH_CONTENT_SHAPE_EXTENSION`.
-- Confirmed C07/C08 need smoke because earlier functional smoke passed while table stimuli were only text rows.
-- Confirmed current C07/C08 q1-q8 have structured `tableStimulus` in the static registry.
-- Defined human smoke checklist for C07 and C08 table visibility, formatting, headers, legibility, coherence with stem/options/feedback, authoredFeedback, paso a paso, and submit/autoreporte/finalizar flow.
-- Defined stop conditions including missing/unformatted tables, stale 8-item instance, missing feedback, key incoherence, internal leakage, refresh requirement, session loss, or unexpected redirect.
-- Recorded that C08 continuity/terminal-state behavior is a separate roadmap issue and must not be reclassified by this table stimulus smoke readiness phase.
+Diagnosis summary:
+- Registered the human observation: completed C07/C08 capsules appeared completed, but formatted table stimuli were not visible during review.
+- Confirmed C07/C08 registry items include structured `tableStimulus`.
+- Confirmed `getSafeStudyLoadItems` preserves `tableStimulus`.
+- Confirmed the canonical `/now/study-loads/[id]` `StudyLoadAnswerForm` renders `tableStimulus` in active and completed/read-only question views.
+- Confirmed completed PAES M1 summary cards link to the detail route and do not render question/table content themselves.
+- Diagnosed the gap as completed review surface specific, not a full stored-content snapshot issue and not a general disconnection from the canonical StudyLoad renderer.
+- Noted that if `/now/study-loads/[id]` still fails for exact-title C07/C08, the follow-up should audit local/dev stale title/content resolution or a separate completed/evidence renderer.
 
 Validation:
-- Preflight passed at `8fe99b9ad06c6d8bfa65c12c64bd8e5e123e15b1`.
+- Preflight passed at `9c9029bfa45443c0bdfbb2f856f7c4e1c9d2a416`.
 - Required source documents were read.
-- Required context search was executed across `PHASE_LOG.md`, `nextjs_space/docs`, `nextjs_space/lib`, `nextjs_space/app`, and `nextjs_space/components`.
+- Required context search was executed across `nextjs_space/app`, `nextjs_space/components`, `nextjs_space/lib`, `nextjs_space/docs`, and `PHASE_LOG.md`.
+- Static code inspection only; no browser automation or API-only tests.
 - `git diff --check`: passed.
 - `git status --short`: only authorized documentation files changed before commit.
 - `git log --oneline --decorate --graph -8`: reviewed.
-- No build, browser automation, API-only tests, DB operations, production/staging operations, code changes, UI changes, smoke execution, or agentic generation run.
+- No build, DB operations, production/staging operations, code changes, UI changes, fixture mutation, smoke execution, or agentic generation run.
 
 Recommended next step:
-`MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-STIMULUS-HUMAN-UI-SMOKE-CLOSEOUT-1`
+`MVP-UI-PAES-TABLE-STIMULUS-COMPLETED-VIEW-REPAIR-1`
 
 Scope safety:
-Documentation/readiness-only phase. No code modified, no DB mutation, no UI/API/schema/Prisma changes, no route-order/continuity changes, no study-load registry or authoredFeedback changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no build, no secrets printed, no smoke executed.
+Documentation/diagnosis-only phase. No code modified, no DB mutation, no UI/API/schema/Prisma changes, no route-order/continuity changes, no study-load registry or authoredFeedback changes, no seed/reset/migration/fixture mutation, no production/staging, no browser automation, no API-only tests, no build, no secrets printed, no smoke executed.

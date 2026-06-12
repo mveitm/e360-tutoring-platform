@@ -226,6 +226,51 @@ Commit:
 See final git log after commit/push.
 ```
 
+## 2026-06-12 - MVP-SALES-PILOT-PEDAGOGY-M1-C07-C08-TABLE-STIMULUS-COMPLETED-VIEW-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+9c9029bfa45443c0bdfbb2f856f7c4e1c9d2a416
+```
+
+Result/verdict:
+
+```text
+C07_C08_TABLE_STIMULUS_DIAGNOSIS_COMPLETED_VIEW_RENDERER_MISSING
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_C07_C08_TABLE_STIMULUS_COMPLETED_VIEW_DIAGNOSIS_1.md
+```
+
+Scope summary:
+
+Read-only diagnostic/documentation phase for the reported absence of formatted table stimuli when reviewing completed C07/C08 capsules. Confirmed structured `tableStimulus` exists in the C07/C08 registry, is preserved by safe item serialization, and is rendered by the canonical `/now/study-loads/[id]` StudyLoad answer form in both active and completed/read-only question views. Diagnosed the visible gap as completed review surface specific: summary/evidence completed views do not render table stimuli unless explicitly wired or routed to the canonical detail renderer.
+
+Next recommended phase:
+
+```text
+MVP-UI-PAES-TABLE-STIMULUS-COMPLETED-VIEW-REPAIR-1
+```
+
+Explicit non-actions:
+
+- No code/UI/API/schema/Prisma changes.
+- No route-order/continuity changes.
+- No study-load-content registry or authoredFeedback changes.
+- No DB mutation, seed, fixture, migration, production/staging, browser automation, API-only tests, build, or smoke execution.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-11 - MVP-GOV-ROADMAP-PAES-VISUAL-STIMULUS-AUTHORED-AGENTIC-ALIGNMENT-1
 
 Baseline before:
