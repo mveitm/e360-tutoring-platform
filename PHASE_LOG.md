@@ -42,6 +42,56 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-SALES-PILOT-M2-C01-HUMAN-UI-SMOKE-ACCESS-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+419e419f7ab616c90282db277ff45ad315bb38e1
+```
+
+Result/verdict:
+
+```text
+M2_C01_SMOKE_ACCESS_DIAGNOSIS_NO_ENROLLMENT
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_HUMAN_UI_SMOKE_ACCESS_DIAGNOSIS_1.md
+```
+
+Scope summary:
+
+Documentation/read-only access diagnosis after the user attempted LP -> Iniciar -> DB/dashboard and observed PAES_M2 as `NO DISPONIBLE`. Confirmed M2-C01 content is implemented and static-review passed, and static seed code includes `Program` `PAES_M2` as active. Diagnosed the current blocker as access/enrollment availability: `/now` selects an active `StudentProgramInstance`, the dashboard remains M1-first with M2/CL unavailable cards, only `/study/paes-m1` exists as a student study/enrollment route, M1 has specific first-capsule creation logic, and generic admin enrollment auto-creates first cycle/StudyLoad only for PAES_M1. Therefore M2-C01 smoke cannot start from the current account until a separately authorized local/dev M2 enrollment/access prep phase verifies and prepares the needed records.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ENROLLMENT-ACCESS-PREP-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API/schema/Prisma changes.
+- No route-order/continuity changes.
+- No registry/content/authoredFeedback changes.
+- No correctOptionKey/contentKey/item count/order/stem/option/tableStimulus changes.
+- No DB mutation, StudentAccess mutation, enrollment creation, seed/fixture mutation, migration, prisma db push, or prisma migrate.
+- No build, browser automation, API-only tests, production/staging, or smoke execution.
+- No agentic layer opened.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-CONTENT-PAES-M2-C01-HUMAN-UI-SMOKE-READINESS-1
 
 Baseline before:
