@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-CONTENT-PAES-M2-C01-HUMAN-UI-SMOKE-READINESS-1
+
+Baseline before:
+
+```text
+b2373d94662a40882cdf7d7e8ee110310dd8185d
+```
+
+Result/verdict:
+
+```text
+PAES_M2_C01_HUMAN_UI_SMOKE_READINESS_READY
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C01_HUMAN_UI_SMOKE_READINESS_1.md
+```
+
+Scope summary:
+
+Documentation/readiness-only phase for future human local/dev UI smoke of `M2-C01 - Modelacion con expresiones y funciones` after authored implementation and static review passed. Defined active/new M2-C01 flow as the primary access mode when already reachable without Codex data mutation, completed-view review as an accepted fallback if an existing completed M2-C01 StudyLoad is available, document review as insufficient for UI smoke pass by itself, and blocked closeout if M2-C01 is not reachable in local/dev UI. Added checklist, stop conditions, expected evidence format and closeout recommendation.
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-C01-HUMAN-UI-SMOKE-CLOSEOUT-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No content changes.
+- No registry or authoredFeedback changes.
+- No correctOptionKey/contentKey/item count/order/stem/option/tableStimulus changes.
+- No DB/schema/Prisma changes.
+- No route-order/continuity changes.
+- No UI/API/auth/access/package/migration changes.
+- No seed/fixture changes.
+- No DB mutation, build, browser automation, API-only tests, production/staging, or smoke execution.
+- No agentic layer opened.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-CONTENT-PAES-M2-C01-STATIC-REVIEW-1
 
 Baseline before:
