@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-M2-C01-HUMAN-UI-SMOKE-1`
+`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-CONTRACT-1`
 
 Result:
-`M2_C01_HUMAN_UI_SMOKE_BLOCKED_DASHBOARD_TUTORING_STATE_CONTRACT`
+`STUDENT_DASHBOARD_MULTI_TUTORING_UI_CONTRACT_ACCEPTED`
 
 Commit:
 `pending in this documentation commit`
@@ -18,21 +18,20 @@ Working tree:
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_HUMAN_UI_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_CONTRACT_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_HUMAN_UI_SMOKE_1.md`
+`nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_CONTRACT_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `7bac06442eec9d53e476a1cfc702eb82150f9850`.
-- Required Context Gate docs were read.
-- Sanitized human UI evidence was reviewed.
-- Evidence confirms login and dashboard were reachable.
-- Evidence confirms PAES_M2 dashboard state is inconsistent: M2 remains shown as unavailable in available tutoring cards while PAES_M2 appears in active route and M2-C01 appears as pending.
-- Evidence does not support a passed smoke because M2-C01 was only partially visible and not opened.
+- Preflight passed at `3fb31874f8d24255b6799157c86bcb50b04c4cf4`.
+- Prior smoke report was read.
+- Contract records the multi-tutoring dashboard structure and state rules.
+- Contract documents the current PAES_M2 inconsistency and blocks further M2-C01 smoke until dashboard alignment.
+- No code, UI/API, content, schema, DB or payment/subscription change was made.
 - `git diff --check`: passed.
 - Secret-pattern scan over authorized changed docs: zero high-risk matches.
 
@@ -46,10 +45,7 @@ Code/content/schema changes:
 `NOT_PERFORMED`
 
 Follow-up/blocker:
-`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-CONTRACT-1`
-
-Alternative follow-up:
-`MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ACCESS-ROLLBACK-PROTOCOL-1`
+`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-IMPLEMENT-1`
 
 Scope safety:
-Documentation only. No Codex DB execution, no DB mutation, no StudentAccess mutation, no payment/subscription mutation, no production/staging action, no schema/Prisma changes, no code/content/UI/API functional changes, no reset, no seed reset, no direct SQL, no secrets printed.
+Documentation-only contract. No Codex DB execution, no DB mutation, no StudentAccess mutation, no payment/subscription mutation, no production/staging action, no schema/Prisma changes, no code/content/UI/API functional changes, no rollback, no build, no browser automation, no API-only tests, no secrets printed.

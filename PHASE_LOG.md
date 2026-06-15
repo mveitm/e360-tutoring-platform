@@ -42,6 +42,63 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-CONTRACT-1
+
+Baseline before:
+
+```text
+3fb31874f8d24255b6799157c86bcb50b04c4cf4
+```
+
+Result/verdict:
+
+```text
+STUDENT_DASHBOARD_MULTI_TUTORING_UI_CONTRACT_ACCEPTED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_CONTRACT_1.md
+```
+
+Scope summary:
+
+Accepted the Bexauri dashboard multi-tutoring UI contract after M2-C01 smoke found PAES_M2 state inconsistencies. The contract defines stable dashboard zones: persistent header, welcome, Tus Tutorias, Tutorias Bexauri, Ultima actividad de estudio, Mensaje de tu tutor Bexauri, and persistent footer. It eliminates dependency on a single Ruta Activa and establishes tutoring state rules for Disponible, Activa, No disponible and Completada.
+
+Implementation guidance:
+
+- M2 implementation must align with the new dashboard structure.
+- Dashboard must not be forced into M2-specific special logic.
+- M2-C01 smoke should not continue until dashboard state contract is aligned.
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-IMPLEMENT-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No UI/API functional changes.
+- No content changes.
+- No schema/Prisma changes.
+- No DB execution or mutation.
+- No StudentAccess/payment/subscription mutation.
+- No prod/staging action.
+- No rollback.
+- No build, browser automation or API-only tests.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-SALES-PILOT-M2-C01-HUMAN-UI-SMOKE-1
 
 Baseline before:
