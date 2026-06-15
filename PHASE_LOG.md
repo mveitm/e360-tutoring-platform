@@ -42,6 +42,54 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-GOV-LOCAL-DEV-SAFE-DB-PROGRAM-CHECK-REPAIR-2
+
+Baseline before:
+
+```text
+a6643b93efb0c8c26bf68d3c84adb824c251694a
+```
+
+Result/verdict:
+
+```text
+LOCAL_DEV_SAFE_DB_PROGRAM_CHECK_READY_WITH_HUMAN_ACTION
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_PROGRAM_CHECK_REPAIR_2.md
+nextjs_space/scripts/local-dev-db-availability-check.ts
+```
+
+Scope summary:
+
+Diagnosed the Repair 1 blocker as an incompatibility between safe LOCAL_DEV confirmation and Program-table read completion. Extended the canonical local/dev availability checker with guarded read-only `program-check` and `program-align-readiness` modes plus sanitized Program readiness output and error classification. LOCAL_DEV generic check still passes, but Program check/readiness still fail safely with redacted details, no mutation, and no secrets printed. Program alignment remains blocked until a human/local operator verifies the Program-table read path or authorizes a narrower diagnostic.
+
+Next recommended phase:
+
+```text
+MVP-GOV-LOCAL-DEV-PROGRAM-TABLE-READ-DIAGNOSTIC-1
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No Program PAES_M2 creation, alignment, or retry.
+- No StudentAccess, enrollment, StudentProgramInstance, LearningCycle, or StudyLoad mutation.
+- No schema/Prisma, migration, prisma db push, DB reset, seed reset, UI/API functional, route-order/continuity, registry/content, M2-C01, or authoredFeedback changes.
+- No build, browser automation, API-only tests, production/staging, payment/subscription, or agentic layer.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-GOV-LOCAL-DEV-SAFE-DB-PROGRAM-CHECK-REPAIR-1
 
 Baseline before:
