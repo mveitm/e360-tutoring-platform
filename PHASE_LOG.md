@@ -42,6 +42,53 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-GOV-LOCAL-DEV-PROGRAM-TABLE-READ-DIAGNOSTIC-1
+
+Baseline before:
+
+```text
+f7716b256bac438bd7507359614eabb3c217d140
+```
+
+Result/verdict:
+
+```text
+LOCAL_DEV_PROGRAM_TABLE_READ_DIAGNOSTIC_BLOCKED_HUMAN_ACTION_REQUIRED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_PROGRAM_TABLE_READ_DIAGNOSTIC_1.md
+```
+
+Scope summary:
+
+Executed read-only diagnostics using the repaired safe local/dev DB tooling. The canonical LOCAL_DEV check passed with safe boolean signals, `readCheck: passed`, `NO DATA MUTATED`, and `NO SECRET VALUES PRINTED`. Program table read-only check and Program alignment readiness dry-run both failed safely with redacted details, `dataMutated: false`, `databaseUrlValuePrinted: false`, and `secretValuesPrinted: false`. PAES_M1/PAES_M2 Program row state remains unknown. No Program PAES_M2 creation/alignment was attempted.
+
+Next recommended phase:
+
+```text
+MVP-GOV-LOCAL-DEV-PROGRAM-TABLE-READ-HUMAN-ACTION-1
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No Program PAES_M2 creation, alignment, or retry.
+- No StudentAccess, enrollment, StudentProgramInstance, LearningCycle, or StudyLoad mutation.
+- No schema/Prisma, migration, prisma db push, DB reset, seed reset, UI/API functional, route-order/continuity, registry/content, M2-C01, or authoredFeedback changes.
+- No build, browser automation, API-only tests, production/staging, payment/subscription, or agentic layer.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-GOV-LOCAL-DEV-SAFE-DB-PROGRAM-CHECK-REPAIR-2
 
 Baseline before:
