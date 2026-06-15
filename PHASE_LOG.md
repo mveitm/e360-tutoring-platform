@@ -42,6 +42,54 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-GOV-LOCAL-DEV-SAFE-DB-PROGRAM-CHECK-REPAIR-1
+
+Baseline before:
+
+```text
+dd8ef067ba4798ec70e06d833093b8c1618010b9
+```
+
+Result/verdict:
+
+```text
+LOCAL_DEV_SAFE_DB_PROGRAM_CHECK_REPAIR_DOCUMENTED_BLOCKED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_PROGRAM_CHECK_REPAIR_1.md
+nextjs_space/scripts/local-dev-safe-db-tool.ts
+```
+
+Scope summary:
+
+Attempted to repair the safe Program DB helper without mutating DB. Added clearer read-only modes (`confirm-local-dev`, `program-check`, `program-align-readiness`), corrected PAES_M2 expected Program metadata to match seed naming, and added sanitized error classification. The canonical local/dev checker still confirmed LOCAL_DEV, but the Program helper DB-backed read-only modes continued to fail with sanitized `PrismaClientInitializationError` / `db_unreachable`; therefore Program row state could not be checked and no alignment was attempted.
+
+Next recommended phase:
+
+```text
+MVP-GOV-LOCAL-DEV-SAFE-DB-PROGRAM-CHECK-REPAIR-2
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No Program PAES_M2 creation, alignment, or retry.
+- No StudentAccess, enrollment, StudentProgramInstance, LearningCycle, or StudyLoad mutation.
+- No schema/Prisma, migration, prisma db push, DB reset, seed reset, UI/API functional, route-order/continuity, registry/content, M2-C01, or authoredFeedback changes.
+- No build, browser automation, API-only tests, production/staging, payment/subscription, or agentic layer.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-ALIGNMENT-1D-STOP-DOCS-SAFE-CLOSEOUT
 
 Baseline before:

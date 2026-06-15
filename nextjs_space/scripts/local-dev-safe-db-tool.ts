@@ -1,6 +1,13 @@
+import { randomUUID } from 'node:crypto'
 import { loadLocalEnvPrivate } from './lib/load-local-env-private'
 
-type Mode = 'check-programs' | 'plan-paes-m2-program' | 'align-paes-m2-program'
+type Mode =
+  | 'confirm-local-dev'
+  | 'program-check'
+  | 'program-align-readiness'
+  | 'check-programs'
+  | 'plan-paes-m2-program'
+  | 'align-paes-m2-program'
 
 interface Args {
   mode?: string
@@ -17,7 +24,14 @@ interface Args {
 
 const PAES_M2_PROGRAM = {
   code: 'PAES_M2',
-  name: 'PAES Matematica M2',
+  name: 'PAES Matemática M2',
+  vertical: 'PAES',
+  status: 'active',
+} as const
+
+const PAES_M1_PROGRAM = {
+  code: 'PAES_M1',
+  name: 'PAES Matemática M1',
   vertical: 'PAES',
   status: 'active',
 } as const
@@ -59,8 +73,28 @@ function stop(code: string, details: Record<string, unknown> = {}, exitCode = 2)
   process.exit(exitCode)
 }
 
+function classifyError(error: unknown): Record<string, unknown> {
+  const maybeError = error as { name?: unknown; code?: unknown; message?: unknown }
+  const message = typeof maybeError.message === 'string' ? maybeError.message : ''
+  let errorKind = 'unknown'
+  if (message.includes('Environment variable not found')) errorKind = 'env_missing'
+  else if (message.includes('Can\'t reach database server')) errorKind = 'db_unreachable'
+  else if (message.includes('does not exist')) errorKind = 'db_object_missing'
+  else if (message.includes('Invalid `prisma')) errorKind = 'prisma_client_query'
+  else if (message.includes('Query engine')) errorKind = 'query_engine'
+
+  return {
+    errorName: typeof maybeError.name === 'string' ? maybeError.name : 'unknown',
+    errorCode: typeof maybeError.code === 'string' ? maybeError.code : 'none',
+    errorKind,
+  }
+}
+
 function assertCommonGuards(args: Args): asserts args is Args & { mode: Mode } {
   if (
+    args.mode !== 'confirm-local-dev' &&
+    args.mode !== 'program-check' &&
+    args.mode !== 'program-align-readiness' &&
     args.mode !== 'check-programs' &&
     args.mode !== 'plan-paes-m2-program' &&
     args.mode !== 'align-paes-m2-program'
@@ -116,12 +150,14 @@ async function createPrismaClient() {
   return new PrismaClient()
 }
 
-function summarizeProgram(program: {
+interface ProgramSummary {
   code: string
   name: string
   vertical: string
   status: string
-} | null) {
+}
+
+function summarizeProgram(program: ProgramSummary | null) {
   if (!program) return { present: false }
   return {
     present: true,
@@ -132,40 +168,142 @@ function summarizeProgram(program: {
   }
 }
 
-async function checkPrograms(): Promise<void> {
+function isAligned(
+  program: ProgramSummary | null,
+  expected: ProgramSummary,
+): boolean {
+  return Boolean(
+    program &&
+      program.code === expected.code &&
+      program.name === expected.name &&
+      program.vertical === expected.vertical &&
+      program.status === expected.status,
+  )
+}
+
+async function readProgramRows(prisma: Awaited<ReturnType<typeof createPrismaClient>>) {
+  const rows = await prisma.$queryRaw<ProgramSummary[]>`
+    SELECT code, name, vertical, status
+    FROM programs
+    WHERE code IN ('PAES_M1', 'PAES_M2')
+    ORDER BY code ASC
+  `
+
+  return {
+    PAES_M1: rows.find((program) => program.code === 'PAES_M1') ?? null,
+    PAES_M2: rows.find((program) => program.code === 'PAES_M2') ?? null,
+  }
+}
+
+async function confirmLocalDev(): Promise<void> {
   const prisma = await createPrismaClient()
   try {
-    const [paesM1, paesM2] = await Promise.all([
-      prisma.program.findUnique({
-        where: { code: 'PAES_M1' },
-        select: { code: true, name: true, vertical: true, status: true },
-      }),
-      prisma.program.findUnique({
-        where: { code: 'PAES_M2' },
-        select: { code: true, name: true, vertical: true, status: true },
-      }),
-    ])
-
+    await prisma.$queryRaw`SELECT 1`
     printJson({
-      status: 'LOCAL_DEV_SAFE_DB_CHECK_COMPLETED',
-      mode: 'check-programs',
+      status: 'LOCAL_DEV_SAFE_DB_CONFIRMATION_COMPLETED',
+      mode: 'confirm-local-dev',
       databaseUrlPresent: true,
       databaseUrlValuePrinted: false,
       dataMutated: false,
-      programs: {
-        PAES_M1: summarizeProgram(paesM1),
-        PAES_M2: summarizeProgram(paesM2),
-      },
+      readCheck: 'passed',
     })
-  } catch {
-    stop('LOCAL_DEV_SAFE_DB_CHECK_FAILED', {
-      mode: 'check-programs',
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_CONFIRMATION_FAILED', {
+      mode: 'confirm-local-dev',
       databaseUrlPresent: true,
       databaseUrlValuePrinted: false,
+      ...classifyError(error),
     }, 1)
   } finally {
     await prisma.$disconnect().catch(() => undefined)
   }
+}
+
+function summarizeReadiness(program: ProgramSummary | null) {
+  if (!program) {
+    return {
+      state: 'absent',
+      aligned: false,
+      futureMutationNeeded: true,
+      futureMutationType: 'create Program PAES_M2 only',
+    }
+  }
+
+  const aligned = isAligned(program, PAES_M2_PROGRAM)
+  return {
+    state: aligned ? 'present_aligned' : 'present_not_aligned',
+    aligned,
+    futureMutationNeeded: !aligned,
+    futureMutationType: aligned ? 'none' : 'update Program PAES_M2 metadata only',
+  }
+}
+
+async function checkPrograms(): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const programs = await readProgramRows(prisma)
+
+    printJson({
+      status: 'LOCAL_DEV_SAFE_DB_PROGRAM_CHECK_COMPLETED',
+      mode: 'program-check',
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: false,
+      programs: {
+        PAES_M1: summarizeProgram(programs.PAES_M1),
+        PAES_M2: summarizeProgram(programs.PAES_M2),
+      },
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_PROGRAM_CHECK_FAILED', {
+      mode: 'program-check',
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
+async function programAlignReadiness(): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const programs = await readProgramRows(prisma)
+    const readiness = summarizeReadiness(programs.PAES_M2)
+
+    printJson({
+      status: 'LOCAL_DEV_SAFE_DB_PROGRAM_ALIGNMENT_READINESS_COMPLETED',
+      mode: 'program-align-readiness',
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: false,
+      expectedProgram: PAES_M2_PROGRAM,
+      currentProgram: summarizeProgram(programs.PAES_M2),
+      metadataClear: true,
+      readiness,
+      mutationExecuted: false,
+      requiresFutureAuthorization: readiness.futureMutationNeeded,
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_PROGRAM_ALIGNMENT_READINESS_FAILED', {
+      mode: 'program-align-readiness',
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
+function summarizeProgramForPlan(program: {
+  code: string
+  name: string
+  vertical: string
+  status: string
+}) {
+  return program
 }
 
 function planPaesM2Program(): void {
@@ -173,7 +311,9 @@ function planPaesM2Program(): void {
     status: 'LOCAL_DEV_SAFE_DB_PLAN_COMPLETED',
     mode: 'plan-paes-m2-program',
     dataMutated: false,
-    plannedProgram: PAES_M2_PROGRAM,
+    expectedProgram: PAES_M2_PROGRAM,
+    referenceProgram: PAES_M1_PROGRAM,
+    plannedProgram: summarizeProgramForPlan(PAES_M2_PROGRAM),
     requiresFutureAuthorization: true,
   })
 }
@@ -181,16 +321,25 @@ function planPaesM2Program(): void {
 async function alignPaesM2Program(phase: string): Promise<void> {
   const prisma = await createPrismaClient()
   try {
-    const program = await prisma.program.upsert({
-      where: { code: PAES_M2_PROGRAM.code },
-      create: PAES_M2_PROGRAM,
-      update: {
-        name: PAES_M2_PROGRAM.name,
-        vertical: PAES_M2_PROGRAM.vertical,
-        status: PAES_M2_PROGRAM.status,
-      },
-      select: { code: true, name: true, vertical: true, status: true },
-    })
+    await prisma.$executeRaw`
+      INSERT INTO programs (id, code, name, vertical, status, "createdAt", "updatedAt")
+      VALUES (
+        ${randomUUID()},
+        ${PAES_M2_PROGRAM.code},
+        ${PAES_M2_PROGRAM.name},
+        ${PAES_M2_PROGRAM.vertical},
+        ${PAES_M2_PROGRAM.status},
+        NOW(),
+        NOW()
+      )
+      ON CONFLICT (code) DO UPDATE SET
+        name = EXCLUDED.name,
+        vertical = EXCLUDED.vertical,
+        status = EXCLUDED.status,
+        "updatedAt" = NOW()
+    `
+
+    const programs = await readProgramRows(prisma)
 
     printJson({
       status: 'LOCAL_DEV_SAFE_DB_PROGRAM_ALIGNMENT_COMPLETED',
@@ -205,14 +354,15 @@ async function alignPaesM2Program(phase: string): Promise<void> {
       studentProgramInstanceMutated: false,
       learningCycleMutated: false,
       studyLoadMutated: false,
-      program: summarizeProgram(program),
+      program: summarizeProgram(programs.PAES_M2),
     })
-  } catch {
+  } catch (error) {
     stop('LOCAL_DEV_SAFE_DB_PROGRAM_ALIGNMENT_FAILED', {
       mode: 'align-paes-m2-program',
       databaseUrlPresent: true,
       databaseUrlValuePrinted: false,
       mutationResultUnknown: true,
+      ...classifyError(error),
     }, 1)
   } finally {
     await prisma.$disconnect().catch(() => undefined)
@@ -223,9 +373,21 @@ async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2))
   assertCommonGuards(args)
 
-  if (args.mode === 'check-programs') {
+  if (args.mode === 'confirm-local-dev') {
+    assertReadOnlyGuards(args)
+    await confirmLocalDev()
+    return
+  }
+
+  if (args.mode === 'check-programs' || args.mode === 'program-check') {
     assertReadOnlyGuards(args)
     await checkPrograms()
+    return
+  }
+
+  if (args.mode === 'program-align-readiness') {
+    assertReadOnlyGuards(args)
+    await programAlignReadiness()
     return
   }
 
