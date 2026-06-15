@@ -1,35 +1,37 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-GOV-LOCAL-DEV-SAFE-DB-CODEX-EXECUTION-REPAIR-2`
+`MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-HUMAN-ALIGNMENT-1`
 
 Baseline before:
-`fa83a9446f7102328f474e46b8b56f04f318dbd7`
+`2c2ce074d14f95cd1b78b3a4bf6eb3f5c07ea05d`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_CODEX_EXECUTION_REPAIR_2.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_LOCAL_DEV_PAES_M2_PROGRAM_DATA_HUMAN_ALIGNMENT_1.md`
 
 Result:
-`CODEX_EXECUTION_REPAIR_HUMAN_LOCAL_PROTOCOL_ACCEPTED`
+`PAES_M2_PROGRAM_LOCAL_DEV_HUMAN_ALIGNED`
 
 Summary:
-- Reviewed the prior `CODEX_NETWORK_CONTEXT_BLOCKED` diagnosis.
-- Confirmed no safe Codex-side repair exists inside this scope without external network/configuration changes or secret exposure risk.
-- Formalized `HUMAN_LOCAL_SECRET_SAFE_DB_OPERATION_PROTOCOL` for the future Program PAES_M2 alignment phase.
-- Documented allowed human commands, prohibited commands and sanitized evidence required.
+- Documented sanitized human-local evidence for LOCAL_DEV `Program PAES_M2` alignment.
+- Precheck evidence showed `PAES_M1` present and `PAES_M2` absent.
+- Human-local mutation evidence reported `dataMutated: true` with `mutationScope: Program PAES_M2 only`.
+- Postcheck evidence showed `PAES_M1` present and `PAES_M2` present.
+- Sanitized evidence confirmed no enrollment, StudentAccess, StudentProgramInstance, LearningCycle or StudyLoad mutation.
 
 Validation:
-- Preflight passed at `fa83a9446f7102328f474e46b8b56f04f318dbd7`.
-- Required docs and tooling files were read.
-- No DB command, Program alignment, mutation, build, browser automation or API-only test was run.
+- Preflight passed at `2c2ce074d14f95cd1b78b3a4bf6eb3f5c07ea05d`.
+- Required docs were read.
+- Codex did not execute DB commands or mutate DB.
+- Program alignment was documented only from human-provided sanitized evidence.
 - No `.env`, `DATABASE_URL`, DB URL, DB host, connection string, token, cookie, secret, private key or credential value was printed.
 - Secret-pattern scan: zero high-risk matches in authorized changed docs.
 - `git diff --check`: passed.
 
 Recommended next step:
-`MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-HUMAN-ALIGNMENT-1`
+`MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ENROLLMENT-ACCESS-PREP-2`
 
 Scope safety:
-Documentation-only. No Program row creation/alignment, no DB mutation, no schema/Prisma changes, no tooling/package changes, no UI/API/content changes, no StudentAccess mutation, no enrollment creation, no StudentProgramInstance/LearningCycle/StudyLoad creation, no fixture/seed changes, no route-order/continuity changes, no registry/content/authoredFeedback/key/item changes, no production/staging action, no secrets printed, no agentic layer opened.
+Documentation-only from Codex. No Codex DB mutation, no Codex Program row creation/alignment command, no schema/Prisma changes, no tooling/package changes, no UI/API/content changes, no StudentAccess mutation, no enrollment creation, no StudentProgramInstance/LearningCycle/StudyLoad creation, no fixture/seed changes, no route-order/continuity changes, no registry/content/authoredFeedback/key/item changes, no production/staging action, no secrets printed, no agentic layer opened.

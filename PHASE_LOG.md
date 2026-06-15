@@ -129,6 +129,46 @@ Commit:
 See final git log after commit/push.
 ```
 
+## 2026-06-15 - MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-HUMAN-ALIGNMENT-1
+
+Baseline before:
+
+```text
+2c2ce074d14f95cd1b78b3a4bf6eb3f5c07ea05d
+```
+
+Result/verdict:
+
+```text
+PAES_M2_PROGRAM_LOCAL_DEV_HUMAN_ALIGNED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_LOCAL_DEV_PAES_M2_PROGRAM_DATA_HUMAN_ALIGNMENT_1.md
+```
+
+Scope summary:
+
+Documented sanitized human-local evidence that `Program PAES_M2` was aligned in LOCAL_DEV under the accepted human-local secret-safe protocol. Precheck showed PAES_M2 absent; human-local mutation scope was `Program PAES_M2 only`; postcheck showed PAES_M2 present with code `PAES_M2`, name `PAES Matemática M2`, vertical `PAES`, and status `active`.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ENROLLMENT-ACCESS-PREP-2
+```
+
+Explicit non-actions:
+
+- No Codex DB mutation.
+- No Codex DB command execution.
+- No StudentAccess/enrollment/StudentProgramInstance/LearningCycle/StudyLoad changes.
+- No schema/Prisma/package/tooling/code/content/UI/API changes.
+- No secrets printed.
+
 ## 2026-06-15 - MVP-GOV-LOCAL-DEV-SAFE-DB-CODEX-CWD-EXECUTION-DIAGNOSIS-1
 
 Baseline before:
