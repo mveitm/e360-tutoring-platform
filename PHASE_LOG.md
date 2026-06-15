@@ -42,6 +42,53 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-GOV-LOCAL-DEV-DB-SERVICE-HUMAN-RECOVERY-3
+
+Baseline before:
+
+```text
+12abb9fd272ab669f31880c5567810011196b870
+```
+
+Result/verdict:
+
+```text
+LOCAL_DEV_DB_SERVICE_HUMAN_RECOVERY_CONFIRMED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_DB_SERVICE_HUMAN_RECOVERY_3.md
+```
+
+Scope summary:
+
+Documented the human/local recovery that resolved the safe Program table read blocker. Root cause: Prisma Program read tooling must be executed from `nextjs_space` so `nextjs_space/.env` is loaded correctly. Human-verified sanitized output shows Program read passed, PAES_M1 Program row present, PAES_M2 Program row absent, no DB mutation, and no secrets printed.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-ALIGNMENT-1E
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No Program PAES_M2 creation, alignment, or retry.
+- No StudentAccess, enrollment, StudentProgramInstance, LearningCycle, or StudyLoad mutation.
+- No schema/Prisma, migration, prisma db push, DB reset, seed reset, UI/API functional, route-order/continuity, registry/content, M2-C01, tooling, or authoredFeedback changes.
+- No build, browser automation, API-only tests, production/staging, payment/subscription, or agentic layer.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-GOV-LOCAL-DEV-DB-SERVICE-HUMAN-RECOVERY-2
 
 Baseline before:
