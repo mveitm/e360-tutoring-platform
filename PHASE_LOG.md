@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-SALES-PILOT-M2-C01-HUMAN-UI-SMOKE-1
+
+Baseline before:
+
+```text
+7bac06442eec9d53e476a1cfc702eb82150f9850
+```
+
+Result/verdict:
+
+```text
+M2_C01_HUMAN_UI_SMOKE_BLOCKED_DASHBOARD_TUTORING_STATE_CONTRACT
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_HUMAN_UI_SMOKE_1.md
+```
+
+Scope summary:
+
+Human UI smoke executed with target `mv.estudiante@bexauri.dev`. Login and dashboard passed. PAES_M2 state is inconsistent: `Tutorias disponibles` still shows M2 as unavailable, while `Ruta Activa` shows PAES_M2 and a pending PAES_M2/M2-C01 capsule is visible. M2-C01 was partially visible but not opened, so the smoke is blocked on dashboard multi-tutoring state contract rather than missing Program/enrollment data.
+
+Notes:
+
+- Human UI smoke executed with target `mv.estudiante@bexauri.dev`.
+- Codex did not execute or mutate DB.
+- No StudentAccess/payment/subscription/schema/content/UI/API functional changes.
+- Result and follow-up documented.
+- No secrets printed.
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-CONTRACT-1
+```
+
+Alternative follow-up:
+
+```text
+MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ACCESS-ROLLBACK-PROTOCOL-1
+```
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ENROLLMENT-ACCESS-HUMAN-ALIGNMENT-1
 
 Baseline before:
