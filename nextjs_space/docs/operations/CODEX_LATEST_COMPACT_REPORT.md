@@ -1,33 +1,40 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-GOV-PAES-M2-PEDAGOGICAL-BLUEPRINT-ALIGNMENT-1`
+`MVP-GOV-PAES-M2-SPECIFIC-PEDAGOGICAL-DERIVATION-1`
 
 Baseline before:
-`b044921eaf132fd408c8c53bb0d407bb26736063`
+`97018b8be46d47f36ee09798eb344bbd5194cd54`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_GOV_PAES_M2_PEDAGOGICAL_BLUEPRINT_ALIGNMENT_1.md`
+- `nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md`
+- `nextjs_space/docs/operations/MVP_GOV_PAES_M2_SPECIFIC_PEDAGOGICAL_DERIVATION_1.md`
+- `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M2_INTEGRADO.md`
+- `nextjs_space/docs/operations/BPCPV1_PAES_M2_PRECONTRACT.md`
+- `nextjs_space/docs/operations/BPCPV1_PAES_M2_DERIVATION_GOVERNING_DOCUMENT.md`
+- `nextjs_space/docs/operations/PAES_M2_PEDAGOGICAL_BRANCH_INDEX.md`
 
 Result:
-`PAES_M2_PEDAGOGICAL_BLUEPRINT_ALIGNMENT_ACCEPTED`
+`PAES_M2_SPECIFIC_PEDAGOGICAL_DERIVATION_ACCEPTED`
 
 Summary:
-- Documented the accepted PRO decision that PAES_M2 Program alignment must follow a PAES_M2-specific pedagogical contract, not a technical row insertion to unblock smoke.
-- Recorded the hierarchy `BPCPI -> BPTT -> roadmap/master roadmap/microroadmap contract -> PAES_M2-specific pedagogical contract -> Program PAES_M2 -> access/enrollment -> StudyLoad/Capsule -> human smoke`.
-- Recorded `PROGRAM_CREATION_PEDAGOGICAL_BLUEPRINT_FIRST`: before creating or aligning a Program/tutoring, the canonical pedagogical blueprint must be read and a program-specific pedagogical contract must be documented.
-- Recorded the operating formula: Modelo ampliado dirige; PRO designs and decides pedagogical/roadmap phases; Codex documents in repo and executes bounded technical phases.
-- Defined the PAES_M2 pedagogical contract for guided test-oriented M2 preparation through authored capsules, interpretable evidence, useful feedback, self-report, review and justified continuity.
-- Corrected closed MVP scope language: M1/M2/L1 closed MVP is not merely minimal; it is the closed validation scope for whether the platform can sustain the future MVP Sales-Ready promise, without claiming full PAES coverage or public Sales-Ready.
-- Clarified that M2-C01 is accepted as the first authored PAES_M2 artifact and passed static review, but does not make PAES_M2 complete tutoring, closed MVP ready, Sales-Ready or agentic-ready by itself.
+- Created the physical PAES_M2 pedagogical branch in repo as living documentation.
+- Created `BLUEPRINT_TACTICO_PEDAGOGICO_M2_INTEGRADO.md` to define the M2 tactical-pedagogical contract and Gerente Pedagogico M2 role.
+- Created `BPCPV1_PAES_M2_PRECONTRACT.md` to define minimum conditions and blocks before PAES_M2 technical execution.
+- Created `BPCPV1_PAES_M2_DERIVATION_GOVERNING_DOCUMENT.md` as the specific BPCPv1-PAES-M2 governing derivation.
+- Created `PAES_M2_PEDAGOGICAL_BRANCH_INDEX.md` to organize the M2 branch and gates before Program alignment.
+- Documented that BPTT is transversal and must not be duplicated as "BPTT de M2"; M2 needs a specific derivation from BPTT.
+- Preserved the closed MVP / Sales-Ready correction: M1/M2/L1 closed MVP is a complete validation scope for future MVP Sales-Ready, without implying full PAES coverage or public Sales-Ready claims.
+- Confirmed that Program PAES_M2 alignment remains a later local/dev technical/data phase and was not performed here.
 
 Validation:
-- Preflight passed at `b044921eaf132fd408c8c53bb0d407bb26736063`.
+- Preflight passed at `97018b8be46d47f36ee09798eb344bbd5194cd54`.
 - Required source documents were read.
-- Required context search was executed across docs/code/schema.
-- Existing M1-only documentation index/handoff files were detected but not modified because no clearly appropriate M2/transversal living index exists.
+- Required context search was executed across `PHASE_LOG.md` and `nextjs_space/docs`.
+- `DOCUMENTATION_INDEX_MVP_M1.md` was updated because it functions as the broad living documentation index despite its M1 name.
+- `CURRENT_AGENT_HANDOFF_MVP_M1.md` was not modified because it remains M1-focused rather than a clearly global PAES_M2 branch handoff.
 - `git diff --check`: passed.
 - `git status --short`: only authorized documentation files changed before commit.
 - `git log --oneline --decorate --graph -8`: reviewed.

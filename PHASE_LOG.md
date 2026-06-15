@@ -42,6 +42,58 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-GOV-PAES-M2-SPECIFIC-PEDAGOGICAL-DERIVATION-1
+
+Baseline before:
+
+```text
+97018b8be46d47f36ee09798eb344bbd5194cd54
+```
+
+Result/verdict:
+
+```text
+PAES_M2_SPECIFIC_PEDAGOGICAL_DERIVATION_ACCEPTED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/DOCUMENTATION_INDEX_MVP_M1.md
+nextjs_space/docs/operations/MVP_GOV_PAES_M2_SPECIFIC_PEDAGOGICAL_DERIVATION_1.md
+nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M2_INTEGRADO.md
+nextjs_space/docs/operations/BPCPV1_PAES_M2_PRECONTRACT.md
+nextjs_space/docs/operations/BPCPV1_PAES_M2_DERIVATION_GOVERNING_DOCUMENT.md
+nextjs_space/docs/operations/PAES_M2_PEDAGOGICAL_BRANCH_INDEX.md
+```
+
+Scope summary:
+
+Documentation/governance phase implementing the accepted PRO PAES_M2-specific pedagogical derivation in repo. Created the physical PAES_M2 branch under the BPCPI -> BPTT -> roadmap/microroadmap hierarchy, documented that BPTT remains transversal and must not be duplicated as "BPTT de M2", and established the M2 integrated blueprint, precontract, governing derivation document and branch index before any `Program PAES_M2` alignment.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-ALIGNMENT-1
+```
+
+Explicit non-actions:
+
+- No Program PAES_M2 creation or alignment.
+- No DB mutation, StudentAccess mutation, enrollment/StudentProgramInstance creation, LearningCycle creation, or StudyLoad creation.
+- No code, UI/API, schema/Prisma, seed, fixture, route-order/continuity, auth/access, package, migration, registry, authoredFeedback, visual stimulus, correctOptionKey, contentKey, item, ordering, stem, option, or tableStimulus changes.
+- No M2-C01 content changes.
+- No build, browser automation, API-only tests, production/staging, payment/subscription, or agentic layer.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-GOV-PAES-M2-PEDAGOGICAL-BLUEPRINT-ALIGNMENT-1
 
 Baseline before:

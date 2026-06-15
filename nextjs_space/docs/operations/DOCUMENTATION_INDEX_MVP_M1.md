@@ -68,6 +68,15 @@ These documents now govern roadmap direction:
 51. `nextjs_space/docs/operations/BPTT_BLUEPRINT_PEDAGOGICO_TACTICO_TRANSVERSAL.md`
 52. `nextjs_space/docs/operations/BPTT_ROADMAP_AND_LIVING_MICROROADMAP_TRANSVERSAL_CONTRACT.md`
 53. `nextjs_space/docs/operations/BPTT_CONTINUOUS_IMPROVEMENT_ADDENDUM.md`
+
+### PAES_M2 pedagogical branch
+
+- `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_M2_INTEGRADO.md` - PAES_M2 integrated tactical-pedagogical blueprint derived from BPCPI/BPTT.
+- `nextjs_space/docs/operations/BPCPV1_PAES_M2_PRECONTRACT.md` - PAES_M2 precontract with minimum conditions and blocks before technical execution.
+- `nextjs_space/docs/operations/BPCPV1_PAES_M2_DERIVATION_GOVERNING_DOCUMENT.md` - BPCPv1-PAES-M2 governing derivation document.
+- `nextjs_space/docs/operations/PAES_M2_PEDAGOGICAL_BRANCH_INDEX.md` - PAES_M2 branch index and gates before Program/access/smoke.
+- `nextjs_space/docs/operations/MVP_GOV_PAES_M2_SPECIFIC_PEDAGOGICAL_DERIVATION_1.md` - phase report creating the PAES_M2-specific pedagogical branch.
+
 54. `nextjs_space/docs/operations/BPCPV1_PAES_M1_EARLY_SEQUENCING_STRATEGY.md`
 55. `nextjs_space/docs/operations/BPCPV1_PAES_M1_FIRST_BALANCED_CAPSULE_FICHA.md`
 56. `nextjs_space/docs/operations/MVP_SALES_PILOT_PEDAGOGY_M1_CAPSULE_FEEDBACK_1A_FIRST_BALANCED_CAPSULE_SOURCE_PACKET.md`
