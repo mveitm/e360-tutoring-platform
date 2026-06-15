@@ -42,6 +42,53 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-GOV-LOCAL-DEV-DB-SERVICE-HUMAN-RECOVERY-1
+
+Baseline before:
+
+```text
+8e0cebbb96c20d0739408629310938a055c89785
+```
+
+Result/verdict:
+
+```text
+LOCAL_DEV_DB_SERVICE_HUMAN_RECOVERY_STILL_REQUIRED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_DB_SERVICE_HUMAN_RECOVERY_1.md
+```
+
+Scope summary:
+
+Documented the local/dev DB service recovery verification. Generic LOCAL_DEV confirmation still passes with safe non-secret signals, but the safe Program table read-only check remains blocked with sanitized `PrismaClientInitializationError` / `db_unreachable`. PAES_M1/PAES_M2 Program row state remains unknown. No DB mutation and no Program PAES_M2 creation/alignment occurred.
+
+Next recommended phase:
+
+```text
+MVP-GOV-LOCAL-DEV-DB-SERVICE-HUMAN-RECOVERY-2
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No Program PAES_M2 creation, alignment, or retry.
+- No StudentAccess, enrollment, StudentProgramInstance, LearningCycle, or StudyLoad mutation.
+- No schema/Prisma, migration, prisma db push, DB reset, seed reset, UI/API functional, route-order/continuity, registry/content, M2-C01, tooling, or authoredFeedback changes.
+- No build, browser automation, API-only tests, production/staging, payment/subscription, or agentic layer.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-GOV-LOCAL-DEV-PROGRAM-TABLE-READ-HUMAN-ACTION-1
 
 Baseline before:
