@@ -30,11 +30,20 @@ function parseArgs(argv: string[]): Args {
   }
 }
 
-function printBlocked(): never {
-  console.error('LOCAL_DEV_DB_CHECK_BLOCKED')
-  console.error('DETAILS_REDACTED')
-  console.error('NO DATA MUTATED')
-  console.error('NO SECRET VALUES PRINTED')
+function printSafeStatus(lines: string[]): void {
+  for (const line of lines) {
+    console.log(line)
+  }
+}
+
+function printBlocked(extraLines: string[] = []): never {
+  printSafeStatus([
+    'LOCAL_DEV_DB_CHECK_BLOCKED',
+    'DETAILS_REDACTED',
+    ...extraLines,
+    'NO DATA MUTATED',
+    'NO SECRET VALUES PRINTED',
+  ])
   process.exit(2)
 }
 
@@ -48,22 +57,40 @@ function assertConfirmed(args: Args): asserts args is Args & { mode: Mode } {
 }
 
 async function runReadOnlyCheck(): Promise<void> {
-  loadLocalEnvPrivate()
+  const envLoadResult = loadLocalEnvPrivate()
+  const databaseUrlPresent = Boolean(process.env.DATABASE_URL)
+
+  const signalLines = [
+    `localEnvFilePresent: ${envLoadResult.localEnvFilePresent ? 'yes' : 'no'}`,
+    `databaseUrlPresent: ${databaseUrlPresent ? 'yes' : 'no'}`,
+    'databaseUrlValuePrinted: no',
+  ]
+
+  if (!databaseUrlPresent) {
+    printBlocked(signalLines)
+  }
+
   const { PrismaClient } = await import('@prisma/client')
   const prisma = new PrismaClient()
 
   try {
     await prisma.user.count()
-    console.log('LOCAL_DEV_DB_AVAILABLE')
-    console.log('readCheck: passed')
-    console.log('NO DATA MUTATED')
-    console.log('NO SECRET VALUES PRINTED')
+    printSafeStatus([
+      'LOCAL_DEV_DB_AVAILABLE',
+      ...signalLines,
+      'readCheck: passed',
+      'NO DATA MUTATED',
+      'NO SECRET VALUES PRINTED',
+    ])
   } catch {
-    console.error('LOCAL_DEV_DB_UNAVAILABLE')
-    console.error('DETAILS_REDACTED')
-    console.error('readCheck: failed')
-    console.error('NO DATA MUTATED')
-    console.error('NO SECRET VALUES PRINTED')
+    printSafeStatus([
+      'LOCAL_DEV_DB_UNAVAILABLE',
+      'DETAILS_REDACTED',
+      ...signalLines,
+      'readCheck: failed',
+      'NO DATA MUTATED',
+      'NO SECRET VALUES PRINTED',
+    ])
     process.exitCode = 1
   } finally {
     await prisma.$disconnect().catch(() => undefined)
@@ -77,9 +104,11 @@ async function main(): Promise<void> {
 }
 
 main().catch(() => {
-  console.error('LOCAL_DEV_DB_CHECK_BLOCKED')
-  console.error('DETAILS_REDACTED')
-  console.error('NO DATA MUTATED')
-  console.error('NO SECRET VALUES PRINTED')
+  printSafeStatus([
+    'LOCAL_DEV_DB_CHECK_BLOCKED',
+    'DETAILS_REDACTED',
+    'NO DATA MUTATED',
+    'NO SECRET VALUES PRINTED',
+  ])
   process.exit(1)
 })

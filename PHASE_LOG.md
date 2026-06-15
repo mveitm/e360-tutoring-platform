@@ -42,6 +42,54 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-GOV-LOCAL-DEV-DB-CONNECTIVITY-RECOVERY-2
+
+Baseline before:
+
+```text
+5999fdfef78701545f06d536903b3cb5fe7f0891
+```
+
+Result/verdict:
+
+```text
+LOCAL_DEV_DB_CONNECTIVITY_RECOVERED_CONFIRMED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_DB_CONNECTIVITY_RECOVERY_2.md
+nextjs_space/scripts/local-dev-db-availability-check.ts
+```
+
+Scope summary:
+
+Diagnosed why Recovery 1 was insufficient after alignment retry 1C stopped again with `STOP_NOT_LOCAL_DEV`. The canonical checker was safe but under-instrumented: it could say the read-only check failed without exposing which non-sensitive LOCAL_DEV signal was present or absent. Updated the checker to report only safe booleans (`localEnvFilePresent`, `databaseUrlPresent`, `databaseUrlValuePrinted`) plus `readCheck`. Confirmed the checker from repo root and `nextjs_space` with `LOCAL_DEV_DB_AVAILABLE`, no data mutation, and no secret values printed.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-ALIGNMENT-1D
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No Program PAES_M2 creation, alignment, retry, or Program table query.
+- No StudentAccess, enrollment, StudentProgramInstance, LearningCycle, or StudyLoad mutation.
+- No schema/Prisma, migration, prisma db push, DB reset, seed reset, UI/API functional, route-order/continuity, registry/content, M2-C01, or authoredFeedback changes.
+- No build, browser automation, API-only tests, production/staging, payment/subscription, or agentic layer.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-ALIGNMENT-1C-STOP-DOCS-SAFE-CLOSEOUT
 
 Baseline before:
