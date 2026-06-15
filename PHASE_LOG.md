@@ -42,6 +42,53 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-GOV-LOCAL-DEV-DB-CONNECTIVITY-RECOVERY-1
+
+Baseline before:
+
+```text
+1b55751e729f607205511a5482dadeeb4cb8a0d2
+```
+
+Result/verdict:
+
+```text
+LOCAL_DEV_DB_CONNECTIVITY_RECOVERED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_DB_CONNECTIVITY_RECOVERY_1.md
+```
+
+Scope summary:
+
+Diagnosed the prior `STOP_NOT_LOCAL_DEV` as a protocol issue: 1B used the Program-specific `local-dev-safe-db-tool.ts --mode check-programs` as the LOCAL_DEV confirmation gate, which conflated connectivity confirmation with Program state inspection. Recovered the safe confirmation path by selecting the existing `local-dev-db-availability-check.ts` as the canonical LOCAL_DEV connectivity gate. Validated it read-only with `LOCAL_DEV_DB_AVAILABLE`, `readCheck: passed`, `NO DATA MUTATED`, and `NO SECRET VALUES PRINTED`. No Program PAES_M2 retry or DB mutation occurred.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-ALIGNMENT-1C
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No Program PAES_M2 creation, alignment, or retry.
+- No StudentAccess, enrollment, StudentProgramInstance, LearningCycle, or StudyLoad mutation.
+- No schema/Prisma, migration, prisma db push, DB reset, seed reset, UI/API functional, route-order/continuity, registry/content, M2-C01, or authoredFeedback changes.
+- No build, browser automation, API-only tests, production/staging, payment/subscription, or agentic layer.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-ALIGNMENT-1B-STOP-DOCS-SAFE-CLOSEOUT
 
 Baseline before:
