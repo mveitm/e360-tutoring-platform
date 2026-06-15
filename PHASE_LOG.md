@@ -42,6 +42,53 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-GOV-LOCAL-DEV-SAFE-DB-CODEX-CWD-EXECUTION-DIAGNOSIS-1
+
+Baseline before:
+
+```text
+9a794c02ee8afc6dcc8fef57b10ea303d42f79d4
+```
+
+Result/verdict:
+
+```text
+CODEX_CWD_EXECUTION_DIAGNOSIS_COMPLETED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_CODEX_CWD_EXECUTION_DIAGNOSIS_1.md
+```
+
+Scope summary:
+
+Diagnosed the Codex execution discrepancy for safe `Program` read-only checks. Codex ran from `nextjs_space`, found `.env` and `DATABASE_URL` present without printing values, and `prisma validate` passed; however both `npx.cmd tsx ... program-check` and `.bin\tsx.cmd ... program-check` failed with sanitized `PrismaClientInitializationError` / `db_unreachable`. Command form is not the root cause. No DB mutation and no Program PAES_M2 alignment occurred.
+
+Next recommended phase:
+
+```text
+MVP-GOV-LOCAL-DEV-SAFE-DB-CODEX-EXECUTION-REPAIR-1
+```
+
+Explicit non-actions:
+
+- No DB mutation.
+- No Program PAES_M2 creation, alignment, or retry.
+- No StudentAccess, enrollment, StudentProgramInstance, LearningCycle, or StudyLoad mutation.
+- No schema/Prisma, migration, prisma db push, DB reset, seed reset, UI/API functional, route-order/continuity, registry/content, M2-C01, tooling, package, or authoredFeedback changes.
+- No build, browser automation, API-only tests, production/staging, payment/subscription, or agentic layer.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-ALIGNMENT-1E-STOP-DOCS-SAFE-CLOSEOUT
 
 Baseline before:
