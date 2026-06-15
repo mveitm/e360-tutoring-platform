@@ -42,6 +42,69 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ENROLLMENT-ACCESS-HUMAN-AUTHORIZATION-1
+
+Baseline before:
+
+```text
+925d6c35cbd6f69453049aaed30a0804704dd8c8
+```
+
+Result/verdict:
+
+```text
+M2_C01_LOCAL_DEV_ENROLLMENT_ACCESS_HUMAN_AUTHORIZATION_DOCUMENTED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_LOCAL_DEV_ENROLLMENT_ACCESS_HUMAN_AUTHORIZATION_1.md
+```
+
+Scope summary:
+
+Documentation-only phase. Recorded explicit human authorization for a future human-local LOCAL_DEV M2-C01 access operation using only safe tooling. Authorized future mutation scope is limited to PAES_M2 StudentProgramInstance, M2 LearningCycle, and M2-C01 StudyLoad. StudentAccess, payment/subscription, prod/staging, schema/reset/secrets and non-tooling paths remain excluded. Target student email still must be provided in the next human-local phase.
+
+Prepared human-local command classes:
+
+```text
+m2-access-precheck
+plan-m2-c01-access
+align-m2-c01-access
+m2-access-postcheck
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ENROLLMENT-ACCESS-HUMAN-ALIGNMENT-1
+```
+
+Explicit non-actions:
+
+- No Codex DB execution.
+- No Codex DB mutation.
+- No human DB mutation in this phase.
+- No StudentAccess mutation.
+- No enrollment creation.
+- No StudentProgramInstance creation.
+- No LearningCycle creation.
+- No StudyLoad creation.
+- No schema/Prisma changes.
+- No migration, db push, DB reset, seed reset or direct SQL.
+- No M2-C01 content/authoredFeedback, registry/content, UI/API, tooling or package changes.
+- No prod/staging, payment/subscription or agentic-layer action.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-GOV-LOCAL-DEV-SAFE-DB-CODEX-EXECUTION-REPAIR-1
 
 Baseline before:
