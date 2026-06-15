@@ -42,6 +42,52 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-GOV-PAES-M2-PEDAGOGICAL-BLUEPRINT-ALIGNMENT-1
+
+Baseline before:
+
+```text
+b044921eaf132fd408c8c53bb0d407bb26736063
+```
+
+Result/verdict:
+
+```text
+PAES_M2_PEDAGOGICAL_BLUEPRINT_ALIGNMENT_ACCEPTED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_GOV_PAES_M2_PEDAGOGICAL_BLUEPRINT_ALIGNMENT_1.md
+```
+
+Scope summary:
+
+Documentation/governance phase documenting the PRO decision that `Program PAES_M2` must not be created as a merely technical row to unblock M2-C01 smoke. Recorded the hierarchy `BPCPI -> BPTT -> roadmap/master roadmap/microroadmap contract -> PAES_M2-specific pedagogical contract -> Program PAES_M2 -> access/enrollment -> StudyLoad/Capsule -> human smoke`, the rule `PROGRAM_CREATION_PEDAGOGICAL_BLUEPRINT_FIRST`, the direction formula "Modelo ampliado dirige / PRO disena y decide / Codex documenta y ejecuta fases tecnicas acotadas", and the PAES_M2 pedagogical contract. Corrected scope language: closed MVP M1/M2/L1 is not merely minimal; it is the closed validation scope for whether the platform can sustain the future MVP Sales-Ready promise, without implying full PAES coverage or public Sales-Ready claims.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-LOCAL-DEV-PAES-M2-PROGRAM-DATA-ALIGNMENT-1
+```
+
+Explicit non-actions:
+
+- No Program PAES_M2 creation or alignment.
+- No DB mutation, StudentAccess mutation, enrollment/StudentProgramInstance creation, LearningCycle creation, or StudyLoad creation.
+- No code, UI/API, schema/Prisma, seed, fixture, route-order/continuity, auth/access, package, migration, registry, authoredFeedback, visual stimulus, correctOptionKey, contentKey, item, ordering, stem, option, or tableStimulus changes.
+- No build, browser automation, API-only tests, production/staging, payment/subscription, or agentic layer.
+- No secrets printed.
+
+Commit:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ENROLLMENT-ACCESS-PREP-1
 
 Baseline before:
