@@ -42,6 +42,52 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ENROLLMENT-ACCESS-HUMAN-ALIGNMENT-1
+
+Baseline before:
+
+```text
+9f92f8c22843d4b696b0492c353f4dfa2cff7242
+```
+
+Result/verdict:
+
+```text
+M2_C01_LOCAL_DEV_ENROLLMENT_ACCESS_HUMAN_ALIGNED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_LOCAL_DEV_ENROLLMENT_ACCESS_HUMAN_ALIGNMENT_1.md
+```
+
+Scope summary:
+
+Documented sanitized human-local execution evidence for M2-C01 access alignment. Evidence confirms precheck and plan were read-only, then the human-local mutation created/aligned only PAES_M2 StudentProgramInstance, M2 LearningCycle and M2-C01 StudyLoad, followed by read-only postcheck. Codex did not execute DB and did not mutate DB.
+
+Notes:
+
+- Codex did not execute DB.
+- Human-local executed safe tooling.
+- Mutation limited to PAES_M2 StudentProgramInstance, M2 LearningCycle, M2-C01 StudyLoad.
+- No StudentAccess/payment/subscription/schema/content/UI/API/prod/staging mutation.
+- No secrets printed.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-HUMAN-UI-SMOKE-1
+```
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-SALES-PILOT-M2-C01-LOCAL-DEV-ENROLLMENT-ACCESS-HUMAN-AUTHORIZATION-1
 
 Baseline before:
