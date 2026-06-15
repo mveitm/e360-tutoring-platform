@@ -42,6 +42,64 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-IMPLEMENT-1
+
+Baseline before:
+
+```text
+91275ab97e9421510ee30d91810b22451a1aa024
+```
+
+Result/verdict:
+
+```text
+STUDENT_DASHBOARD_MULTI_TUTORING_UI_IMPLEMENTED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/app/now/page.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_IMPLEMENT_1.md
+```
+
+Scope summary:
+
+Dashboard `/now` was aligned to the accepted multi-tutoring UI contract. The implementation now renders persistent header/footer, welcome copy without global study button, `Tus Tutorias`, `Tutorias Bexauri`, `Ultima actividad de estudio`, and `Mensaje de tu tutor Bexauri`. Data derivation now uses all active StudentProgramInstance rows for the student instead of a single latest active enrollment.
+
+Notes:
+
+- Dashboard aligned to accepted multi-tutoring UI contract.
+- Codex did not execute or mutate DB.
+- No schema/content/payment/subscription/StudentAccess changes.
+- TypeScript noEmit and Next build passed.
+- Follow-up documented.
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-HUMAN-SMOKE-1
+```
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No schema/Prisma changes.
+- No content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No reset, seed reset, migration, db push or direct SQL.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-CONTRACT-1
 
 Baseline before:

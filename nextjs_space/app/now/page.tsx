@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
-import { ArrowRight, CheckCircle2, Clock, Route, Sparkles } from 'lucide-react'
+import { ArrowRight, Clock, Compass, Layers, Sparkles } from 'lucide-react'
 import { authOptions } from '@/lib/auth-options'
 import { isAdminEmail } from '@/lib/admin-guard'
 import { prisma } from '@/lib/prisma'
@@ -23,6 +23,8 @@ type LoadWithSessions = {
   title: string
   loadType: string
   status: string
+  createdAt: Date
+  updatedAt: Date
   tutoringSessions: Array<{
     id: string
     status: string
@@ -30,46 +32,63 @@ type LoadWithSessions = {
     responses: Array<{
       id: string
       responseType: string
-      content: string
+      content: string | null
     }>
   }>
 }
 
-const tutoringCards = [
+type ActiveTutoring = {
+  id: string
+  programCode: string
+  programName: string
+  startedAt: Date
+  cycle: {
+    id: string
+    cycleNumber: number
+    status: string
+    openedAt: Date
+  } | null
+  loads: LoadWithSessions[]
+}
+
+type CatalogTutoring = {
+  code: string
+  title: string
+  description: string
+  state: 'Disponible' | 'No disponible' | 'Activa' | 'Completada'
+  action: string
+  href?: string
+  disabled?: boolean
+}
+
+type ActivityCandidate = {
+  tutoring: ActiveTutoring
+  load: LoadWithSessions
+}
+
+const catalogDefinitions = [
   {
-    code: 'M1',
-    title: 'PAES Matemáticas M1',
-    status: 'Activa',
-    capsuleCount: '0',
-    achievement: '--%',
-    description: 'Fortalece tus destrezas en los 4 ejes de Matemáticas M1',
-    active: true,
-    surface: 'border-[#79A6A4] bg-[linear-gradient(180deg,#FBFCF6_0%,#E5F0EF_100%)]',
-    badge: 'bg-[#192F56] text-white',
+    code: 'PAES_M1',
+    shortCode: 'M1',
+    title: 'PAES Matematicas M1',
+    description: 'Refuerza contenidos de Matematica M1.',
+    availableWhenProgramActive: true,
   },
   {
-    code: 'M2',
-    title: 'PAES Matemáticas M2',
-    status: 'No disponible',
-    capsuleCount: '0',
-    achievement: '--%',
-    description: 'Preparación matemática avanzada para una próxima etapa.',
-    active: false,
-    surface: 'border-[#A99AD2] bg-[#F2EFF8]',
-    badge: 'bg-[#34215F] text-white',
+    code: 'PAES_M2',
+    shortCode: 'M2',
+    title: 'PAES Matematicas M2',
+    description: 'Prepara Matematica M2 con foco en modelacion y funciones.',
+    availableWhenProgramActive: true,
   },
   {
-    code: 'CL',
+    code: 'PAES_L1',
+    shortCode: 'L1',
     title: 'PAES Competencia Lectora',
-    status: 'No disponible',
-    capsuleCount: '0',
-    achievement: '--%',
-    description: 'Lectura, comprensión y análisis para fortalecer tu preparación.',
-    active: false,
-    surface: 'border-[#E9DFCF] bg-[#FFF3D8]',
-    badge: 'bg-[#4B7B7C] text-white',
+    description: 'Comprension lectora PAES para una proxima etapa.',
+    availableWhenProgramActive: false,
   },
-]
+] as const
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
@@ -84,9 +103,7 @@ function Shell({ children }: { children: React.ReactNode }) {
 function DashboardContent({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain scroll-smooth pr-1 [scrollbar-width:thin]">
-      <div className="pb-3">
-        {children}
-      </div>
+      <div className="pb-3">{children}</div>
     </div>
   )
 }
@@ -95,26 +112,17 @@ function DashboardFooterNav() {
   return (
     <footer className="shrink-0 pt-2">
       <nav
-        aria-label="Guía de navegación del dashboard"
+        aria-label="Guia de navegacion del dashboard"
         className="grid grid-cols-3 gap-1 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 p-1.5 text-xs font-bold text-[#253A5F] shadow-[0_-8px_22px_rgba(16,33,63,0.08)] backdrop-blur"
       >
-        <a
-          href="#inicio"
-          className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
-        >
+        <a href="#inicio" className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20">
           Inicio
         </a>
-        <a
-          href="#tutorias"
-          className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
-        >
-          Tutorías
+        <a href="#tutorias" className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20">
+          Tutorias
         </a>
-        <a
-          href="/study/paes-m1"
-          className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
-        >
-          Estudio
+        <a href="#actividad" className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20">
+          Actividad
         </a>
       </nav>
     </footer>
@@ -140,19 +148,21 @@ function DashboardHeader({ studentName }: { studentName?: string }) {
             {studentName ? studentName : 'Bexauri'}
           </span>
         </Link>
+        <nav className="hidden items-center gap-1 text-xs font-bold text-[#253A5F] md:flex" aria-label="Navegacion principal">
+          <a href="#tutorias" className="rounded-full px-3 py-2 transition hover:bg-[#EEF4F7]">
+            Tutorias
+          </a>
+          <a href="#actividad" className="rounded-full px-3 py-2 transition hover:bg-[#EEF4F7]">
+            Actividad
+          </a>
+        </nav>
         <SignOutButton />
       </div>
     </header>
   )
 }
 
-function HeroSummary({
-  studentName,
-}: {
-  studentName?: string
-}) {
-  const nextActionText = 'Cuando tengas una cápsula asignada, aparecerá aquí con una acción clara.'
-
+function HeroSummary({ studentName }: { studentName?: string }) {
   return (
     <section id="inicio" className="rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-3.5 shadow-[0_14px_34px_rgba(16,33,63,0.09)] sm:p-5">
       <div className="grid gap-3 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
@@ -165,85 +175,17 @@ function HeroSummary({
         <div className="rounded-2xl border border-[#A99AD2]/60 bg-[linear-gradient(135deg,#F2EFF8_0%,#EEF4F7_100%)] p-3 text-[#10213F] shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] sm:p-4">
           <div className="flex items-start gap-3">
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl bg-[#10213F] text-[#F2B84B] shadow-[0_8px_18px_rgba(16,33,63,0.16)]">
-              <Route className="h-4 w-4" aria-hidden="true" />
+              <Compass className="h-4 w-4" aria-hidden="true" />
             </span>
             <div className="min-w-0">
-              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#34215F]">Qué hago ahora</p>
-              <p className="text-base font-bold leading-5 sm:text-lg">Debes matricularte/seleccionar una tutoría activa</p>
-              <p className="mt-1 text-xs leading-5 text-[#5D6B7A] sm:text-sm">{nextActionText}</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#34215F]">Que hago ahora</p>
+              <p className="text-base font-bold leading-5 sm:text-lg">Selecciona una tutoria o matriculate en una nueva</p>
+              <p className="mt-1 text-xs leading-5 text-[#5D6B7A] sm:text-sm">
+                Continua desde una tarjeta concreta para mantener clara tu ruta de estudio.
+              </p>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
-        <a
-          href="/study/paes-m1"
-          className="group inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-[#F2B84B]/45 bg-[linear-gradient(135deg,#F2B84B_0%,#D85B8C_50%,#A63D4F_100%)] px-4 text-sm font-bold text-white shadow-[0_0_24px_rgba(216,91,140,0.24),0_12px_28px_rgba(166,61,79,0.18)] transition hover:shadow-[0_0_28px_rgba(216,91,140,0.30),0_14px_30px_rgba(166,61,79,0.22)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20 sm:min-h-11 sm:px-5"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#FFF3D8] shadow-[0_0_16px_rgba(255,243,216,0.95)]" aria-hidden="true" />
-          Comenzar Estudio
-          <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
-        </a>
-      </div>
-    </section>
-  )
-}
-
-function TutoringSection() {
-  return (
-    <section id="tutorias" className="mt-2 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-2.5 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:mt-5 sm:p-6">
-      <div className="mb-2 flex items-center justify-between gap-3 sm:mb-4">
-        <div>
-          <h2 className="mt-0.5 font-display text-lg font-bold text-[#10213F] sm:text-2xl">Tutorias disponibles</h2>
-        </div>
-        <span className="hidden h-1.5 w-16 rounded-full bg-[#F2B84B] sm:block" aria-hidden="true" />
-      </div>
-
-      <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1.5 [scrollbar-width:thin] md:mx-0 md:grid md:grid-cols-3 md:gap-3 md:overflow-visible md:px-0 md:pb-0">
-        {tutoringCards.map((card) => (
-          <article
-            key={card.code}
-            id={card.active ? 'matematicas-m1' : undefined}
-            className={`min-w-[218px] flex-[0_0_74%] rounded-2xl border p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)] sm:flex-[0_0_42%] sm:rounded-3xl sm:p-4 md:min-w-0 md:flex-auto ${card.surface}`}
-          >
-            <div className="flex items-start justify-between gap-2">
-              <span className={`inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2.5 text-xs font-bold sm:h-10 sm:min-w-10 sm:px-3 sm:text-sm ${card.badge}`}>
-                {card.code}
-              </span>
-              <Badge variant="secondary" className="rounded-full bg-white/80 text-[9px] font-bold uppercase tracking-wide text-[#253A5F] sm:text-[10px]">
-                {card.status}
-              </Badge>
-            </div>
-            <h3 className="mt-3 font-display text-base font-bold leading-5 text-[#10213F] sm:text-lg sm:leading-6">{card.title}</h3>
-            <p className="mt-1.5 text-xs leading-5 text-[#5D6B7A] sm:text-sm sm:leading-6">{card.description}</p>
-            <div className="mt-3 grid grid-cols-3 gap-1.5 rounded-2xl border border-white/70 bg-white/55 p-1.5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
-              <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Estado</p>
-                <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{card.status}</p>
-              </div>
-              <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Cápsulas</p>
-                <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{card.capsuleCount}</p>
-              </div>
-              <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Logro</p>
-                <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{card.achievement}</p>
-              </div>
-            </div>
-            {card.active ? (
-              <a
-                href="/study/paes-m1"
-                className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#F2B84B]/40 bg-[linear-gradient(135deg,#EFA45F_0%,#D85B8C_55%,#A63D4F_100%)] px-3 py-1.5 text-xs font-bold text-white shadow-[0_0_18px_rgba(216,91,140,0.22),0_8px_18px_rgba(166,61,79,0.16)] transition hover:shadow-[0_0_22px_rgba(216,91,140,0.28),0_10px_20px_rgba(166,61,79,0.20)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20 sm:px-4 sm:py-2 sm:text-sm"
-              >
-                Comenzar Estudio
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            ) : (
-              <p className="mt-3 text-[11px] font-semibold leading-4 text-[#5D6B7A] sm:text-xs sm:leading-5">Visible para orientar la arquitectura de tutorias.</p>
-            )}
-          </article>
-        ))}
       </div>
     </section>
   )
@@ -259,30 +201,129 @@ function EmptyState({ message }: { message: string }) {
   )
 }
 
-function ProgramSummaryCard({
-  programCode,
-  programName,
-  openedAtLabel,
-}: {
-  programCode: string
-  programName: string
-  openedAtLabel: string
-}) {
+function getProgramShortCode(programCode: string) {
+  return programCode.replace(/^PAES_/, '')
+}
+
+function getTutoringActionHref(tutoring: ActiveTutoring) {
+  const actionableLoad = selectActivityCandidate([tutoring])?.load
+  if (actionableLoad) return `/now/study-loads/${actionableLoad.id}`
+  if (tutoring.programCode === 'PAES_M1') return '/study/paes-m1'
+  return '#actividad'
+}
+
+function OwnTutoringSection({ tutorings }: { tutorings: ActiveTutoring[] }) {
   return (
-    <Card className="rounded-3xl border-[#E2E8EC] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
-      <CardContent className="p-5 sm:p-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-[#34215F]">Ruta activa</p>
-            <h2 className="mt-1 font-display text-xl font-bold text-[#10213F]">{programCode}</h2>
-            <p className="mt-1 text-sm leading-6 text-[#5D6B7A]">{programName}</p>
-          </div>
-          <div className="rounded-2xl border border-[#DCE5EA] bg-[#EEF4F7] px-4 py-3 text-sm text-[#253A5F]">
-            <span className="font-semibold">Disponible desde:</span> {openedAtLabel}
-          </div>
+    <section id="tutorias" className="mt-2 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-2.5 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:mt-5 sm:p-6">
+      <div className="mb-2 flex items-center justify-between gap-3 sm:mb-4">
+        <div>
+          <h2 className="mt-0.5 font-display text-lg font-bold text-[#10213F] sm:text-2xl">Tus Tutorias</h2>
+          <p className="mt-1 text-sm leading-6 text-[#5D6B7A]">Tutorias activas o matriculadas para continuar desde una tarjeta concreta.</p>
         </div>
-      </CardContent>
-    </Card>
+        <span className="hidden h-1.5 w-16 rounded-full bg-[#F2B84B] sm:block" aria-hidden="true" />
+      </div>
+
+      {tutorings.length === 0 ? (
+        <EmptyState message="Aun no tienes tutorias activas. Revisa el catalogo Bexauri para iniciar una tutoria disponible." />
+      ) : (
+        <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1.5 [scrollbar-width:thin] md:mx-0 md:grid md:grid-cols-2 md:gap-3 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-3">
+          {tutorings.map((tutoring) => {
+            const pendingCount = tutoring.loads.filter((load) => load.status === 'pending').length
+            const inProgressCount = tutoring.loads.filter((load) => load.status === 'in_progress').length
+            return (
+              <article
+                key={tutoring.id}
+                className="min-w-[238px] flex-[0_0_80%] rounded-2xl border border-[#79A6A4] bg-[linear-gradient(180deg,#FBFCF6_0%,#E5F0EF_100%)] p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)] sm:flex-[0_0_42%] sm:rounded-3xl sm:p-4 md:min-w-0 md:flex-auto"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-full bg-[#192F56] px-2.5 text-xs font-bold text-white sm:h-10 sm:min-w-10 sm:px-3 sm:text-sm">
+                    {getProgramShortCode(tutoring.programCode)}
+                  </span>
+                  <Badge variant="secondary" className="rounded-full bg-white/80 text-[9px] font-bold uppercase tracking-wide text-[#253A5F] sm:text-[10px]">
+                    Activa
+                  </Badge>
+                </div>
+                <h3 className="mt-3 font-display text-base font-bold leading-5 text-[#10213F] sm:text-lg sm:leading-6">{tutoring.programName}</h3>
+                <p className="mt-1.5 text-xs leading-5 text-[#5D6B7A] sm:text-sm sm:leading-6">
+                  {tutoring.cycle ? `Ciclo ${tutoring.cycle.cycleNumber} abierto.` : 'Tutoria activa sin ciclo abierto visible.'}
+                </p>
+                <div className="mt-3 grid grid-cols-3 gap-1.5 rounded-2xl border border-white/70 bg-white/55 p-1.5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+                  <div>
+                    <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Estado</p>
+                    <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">Activa</p>
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Pendientes</p>
+                    <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{pendingCount}</p>
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">En curso</p>
+                    <p className="mt-0.5 text-[11px] font-bold leading-4 text-[#10213F]">{inProgressCount}</p>
+                  </div>
+                </div>
+                <Link
+                  href={getTutoringActionHref(tutoring)}
+                  className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#F2B84B]/40 bg-[linear-gradient(135deg,#EFA45F_0%,#D85B8C_55%,#A63D4F_100%)] px-3 py-1.5 text-xs font-bold text-white shadow-[0_0_18px_rgba(216,91,140,0.22),0_8px_18px_rgba(166,61,79,0.16)] transition hover:shadow-[0_0_22px_rgba(216,91,140,0.28),0_10px_20px_rgba(166,61,79,0.20)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20 sm:px-4 sm:py-2 sm:text-sm"
+                >
+                  Continuar
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </article>
+            )
+          })}
+        </div>
+      )}
+    </section>
+  )
+}
+
+function CatalogTutoringSection({ tutorings }: { tutorings: CatalogTutoring[] }) {
+  return (
+    <section className="mt-4 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-2.5 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:mt-5 sm:p-6">
+      <div className="mb-2 flex items-center justify-between gap-3 sm:mb-4">
+        <div>
+          <h2 className="font-display text-lg font-bold text-[#10213F] sm:text-2xl">Tutorias Bexauri</h2>
+          <p className="mt-1 text-sm leading-6 text-[#5D6B7A]">Catalogo visible con el estado contextual de cada tutoria.</p>
+        </div>
+        <Layers className="hidden h-5 w-5 text-[#34215F] sm:block" aria-hidden="true" />
+      </div>
+      <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1.5 [scrollbar-width:thin] md:mx-0 md:px-0">
+        {tutorings.map((tutoring) => (
+          <article
+            key={tutoring.code}
+            className="min-w-[232px] flex-[0_0_78%] rounded-2xl border border-[#DCE5EA] bg-white p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)] sm:flex-[0_0_34%] sm:rounded-3xl sm:p-4 lg:min-w-[260px]"
+          >
+            <div className="flex items-start justify-between gap-2">
+              <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-full bg-[#34215F] px-2.5 text-xs font-bold text-white sm:h-10 sm:min-w-10 sm:px-3 sm:text-sm">
+                {getProgramShortCode(tutoring.code)}
+              </span>
+              <Badge variant="secondary" className="rounded-full bg-[#EEF4F7] text-[9px] font-bold uppercase tracking-wide text-[#253A5F] sm:text-[10px]">
+                {tutoring.state}
+              </Badge>
+            </div>
+            <h3 className="mt-3 font-display text-base font-bold leading-5 text-[#10213F] sm:text-lg sm:leading-6">{tutoring.title}</h3>
+            <p className="mt-1.5 text-xs leading-5 text-[#5D6B7A] sm:text-sm sm:leading-6">{tutoring.description}</p>
+            {tutoring.href && !tutoring.disabled ? (
+              <Link
+                href={tutoring.href}
+                className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#4B7B7C]/25 bg-[#EEF4F7] px-3 py-1.5 text-xs font-bold text-[#192F56] transition hover:bg-[#E5F0EF] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:px-4 sm:py-2 sm:text-sm"
+              >
+                {tutoring.action}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            ) : (
+              <button
+                type="button"
+                disabled
+                className="mt-3 inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-[#DCE5EA] bg-[#F5F7F8] px-3 py-1.5 text-xs font-bold text-[#6B7280] sm:px-4 sm:py-2 sm:text-sm"
+              >
+                {tutoring.action}
+              </button>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
   )
 }
 
@@ -302,6 +343,173 @@ function LoadCard({ load, children }: { load: LoadWithSessions; children?: React
   )
 }
 
+function getActivityRank(status: string) {
+  if (status === 'in_progress') return 0
+  if (status === 'pending') return 1
+  if (status === 'completed') return 2
+  return 3
+}
+
+function selectActivityCandidate(tutorings: ActiveTutoring[]): ActivityCandidate | null {
+  const candidates = tutorings.flatMap((tutoring) => tutoring.loads.map((load) => ({ tutoring, load })))
+  candidates.sort((a, b) => {
+    const rankDiff = getActivityRank(a.load.status) - getActivityRank(b.load.status)
+    if (rankDiff !== 0) return rankDiff
+    return b.load.updatedAt.getTime() - a.load.updatedAt.getTime()
+  })
+  return candidates[0] ?? null
+}
+
+function getActivityAction(load: LoadWithSessions) {
+  if (load.status === 'completed') return 'Ver feedback'
+  if (load.status === 'in_progress') return 'Continuar capsula'
+  return 'Iniciar capsula'
+}
+
+function getActivityStateLabel(load: LoadWithSessions) {
+  if (load.status === 'completed') return 'Completada'
+  if (load.status === 'in_progress') return 'En curso'
+  return 'Pendiente'
+}
+
+function LatestActivitySection({ candidate }: { candidate: ActivityCandidate | null }) {
+  return (
+    <section id="actividad" className="mt-5 rounded-3xl border border-[#DCE5EA] bg-[#FBFCF6] p-3 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:p-6">
+      <div className="mb-3 flex items-center gap-2 text-[#253A5F]">
+        <Clock className="h-4 w-4" aria-hidden="true" />
+        <h2 className="font-display text-lg font-bold text-[#10213F] sm:text-2xl">Ultima actividad de estudio</h2>
+      </div>
+      {!candidate ? (
+        <EmptyState message="Aun no hay una capsula disponible. Cuando exista una actividad, aparecera aqui." />
+      ) : (
+        <LoadCard load={candidate.load}>
+          <div className="mt-3 grid gap-2 rounded-2xl border border-[#E2E8EC] bg-[#EEF4F7]/70 p-3 text-sm text-[#253A5F] sm:grid-cols-3">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#5D6B7A]">Tutoria</p>
+              <p className="mt-1 font-bold">{candidate.tutoring.programCode}</p>
+            </div>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#5D6B7A]">Estado</p>
+              <p className="mt-1 font-bold">{getActivityStateLabel(candidate.load)}</p>
+            </div>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#5D6B7A]">Accion</p>
+              <p className="mt-1 font-bold">{getActivityAction(candidate.load)}</p>
+            </div>
+          </div>
+          <div className="mt-4 flex items-center justify-between gap-2">
+            {getStudyLoadContent(candidate.load.title) ? (
+              <Link href={`/now/study-loads/${candidate.load.id}`} className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline">
+                Ver capsula
+              </Link>
+            ) : (
+              <span />
+            )}
+            {candidate.load.status === 'pending' && <StartLoadButton loadId={candidate.load.id} />}
+            {candidate.load.status === 'in_progress' && !getStudyLoadContent(candidate.load.title) && <CompleteLoadButton loadId={candidate.load.id} />}
+          </div>
+        </LoadCard>
+      )}
+    </section>
+  )
+}
+
+function TutorMessageSection({ hasActiveTutorings }: { hasActiveTutorings: boolean }) {
+  return (
+    <section className="mt-5 rounded-3xl border border-[#DCE5EA] bg-white p-4 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:p-6">
+      <div className="flex items-start gap-3">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#F2EFF8] text-[#34215F]">
+          <Sparkles className="h-5 w-5" aria-hidden="true" />
+        </span>
+        <div>
+          <h2 className="font-display text-xl font-bold text-[#10213F]">Mensaje de tu tutor Bexauri</h2>
+          <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
+            {hasActiveTutorings
+              ? 'Selecciona una tutoria activa para continuar tu avance o revisa tu ultima actividad de estudio.'
+              : 'Selecciona una tutoria o matriculate en una nueva cuando este disponible.'}
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function buildActiveTutorings(enrollments: Array<{
+  id: string
+  startedAt: Date
+  program: { code: string; name: string }
+  learningCycles: Array<{
+    id: string
+    cycleNumber: number
+    status: string
+    openedAt: Date
+    studyLoads: LoadWithSessions[]
+  }>
+}>): ActiveTutoring[] {
+  return enrollments.map((enrollment) => {
+    const cycle = enrollment.learningCycles[0] ?? null
+    return {
+      id: enrollment.id,
+      programCode: enrollment.program.code,
+      programName: enrollment.program.name,
+      startedAt: enrollment.startedAt,
+      cycle: cycle
+        ? {
+            id: cycle.id,
+            cycleNumber: cycle.cycleNumber,
+            status: cycle.status,
+            openedAt: cycle.openedAt,
+          }
+        : null,
+      loads: cycle?.studyLoads ?? [],
+    }
+  })
+}
+
+function buildCatalogTutorings(args: {
+  programs: Array<{ code: string; name: string; status: string }>
+  activeTutorings: ActiveTutoring[]
+}): CatalogTutoring[] {
+  const activeByCode = new Map(args.activeTutorings.map((tutoring) => [tutoring.programCode, tutoring]))
+  const programByCode = new Map(args.programs.map((program) => [program.code, program]))
+
+  return catalogDefinitions.map((definition) => {
+    const activeTutoring = activeByCode.get(definition.code)
+    if (activeTutoring) {
+      return {
+        code: definition.code,
+        title: activeTutoring.programName,
+        description: definition.description,
+        state: 'Activa',
+        action: 'Continuar',
+        href: getTutoringActionHref(activeTutoring),
+      }
+    }
+
+    const program = programByCode.get(definition.code)
+    const isReleased = definition.availableWhenProgramActive && program?.status === 'active'
+    return {
+      code: definition.code,
+      title: program?.name ?? definition.title,
+      description: definition.description,
+      state: isReleased ? 'Disponible' : 'No disponible',
+      action: isReleased ? 'Matricularme' : 'Proximamente',
+      disabled: true,
+    }
+  })
+}
+
+function AdminLink({ isAdminSession }: { isAdminSession: boolean }) {
+  if (!isAdminSession) return null
+  return (
+    <div className="mt-8 text-center">
+      <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
+        Ir al panel de administracion
+      </Link>
+    </div>
+  )
+}
+
 export default async function NowPage() {
   const session = await getServerSession(authOptions)
   if (!session?.user?.email) {
@@ -318,332 +526,75 @@ export default async function NowPage() {
 
   const studentName = student?.firstName ?? undefined
 
-  if (!student) {
-    return (
-      <Shell>
-        <DashboardHeader />
-        <DashboardContent>
-          <HeroSummary />
-          <TutoringSection />
-          {isAdminSession && (
-            <div className="mt-6 text-center">
-              <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
-                Ir al panel de administración
-              </Link>
-            </div>
-          )}
-        </DashboardContent>
-        <DashboardFooterNav />
-      </Shell>
-    )
-  }
-
-  const enrollment = await prisma.studentProgramInstance.findFirst({
-    where: { studentId: student.id, status: 'active' },
-    orderBy: { startedAt: 'desc' },
-    select: {
-      id: true,
-      currentCycleId: true,
-      program: { select: { code: true, name: true } },
-    },
+  const programs = await prisma.program.findMany({
+    where: { code: { in: catalogDefinitions.map((definition) => definition.code) } },
+    select: { code: true, name: true, status: true },
+    orderBy: { code: 'asc' },
   })
 
-  if (!enrollment) {
-    return (
-      <Shell>
-        <DashboardHeader studentName={studentName} />
-        <DashboardContent>
-          <HeroSummary studentName={studentName} />
-          <TutoringSection />
-          {isAdminSession && (
-            <div className="mt-6 text-center">
-              <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
-                Ir al panel de administración
-              </Link>
-            </div>
-          )}
-        </DashboardContent>
-        <DashboardFooterNav />
-      </Shell>
-    )
-  }
-
-  const cycle = enrollment.currentCycleId
-    ? await prisma.learningCycle.findUnique({
-        where: { id: enrollment.currentCycleId },
-        select: { id: true, cycleNumber: true, status: true, openedAt: true },
-      })
-    : null
-
-  if (!cycle || cycle.status !== 'open') {
-    return (
-      <Shell>
-        <DashboardHeader studentName={studentName} />
-        <DashboardContent>
-          <HeroSummary studentName={studentName} />
-          <TutoringSection />
-          <div className="mt-5 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-            <ProgramSummaryCard
-              programCode={enrollment.program.code}
-              programName={enrollment.program.name}
-              openedAtLabel="Por confirmar"
-            />
-            <EmptyState message="Aún no hay una cápsula abierta. Cuando esté disponible, aparecerá en este espacio." />
-          </div>
-          {isAdminSession && (
-            <div className="mt-6 text-center">
-              <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
-                Ir al panel de administración
-              </Link>
-            </div>
-          )}
-        </DashboardContent>
-        <DashboardFooterNav />
-      </Shell>
-    )
-  }
-
-  const allLoads = await prisma.studyLoad.findMany({
-    where: {
-      learningCycleId: cycle.id,
-      status: { in: ['pending', 'in_progress', 'completed'] },
-    },
-    orderBy: { createdAt: 'asc' },
-    select: {
-      id: true,
-      title: true,
-      loadType: true,
-      status: true,
-      tutoringSessions: {
-        where: { status: { in: ['in_progress', 'completed'] } },
-        orderBy: { updatedAt: 'desc' },
+  const enrollments = student
+    ? await prisma.studentProgramInstance.findMany({
+        where: { studentId: student.id, status: 'active' },
+        orderBy: { startedAt: 'asc' },
         select: {
           id: true,
-          status: true,
-          completedAt: true,
-          responses: {
-            where: { responseType: { in: ['answer', 'mc_submission'] } },
-            orderBy: { createdAt: 'desc' },
-            select: { id: true, responseType: true, content: true },
+          startedAt: true,
+          program: { select: { code: true, name: true } },
+          learningCycles: {
+            where: { status: 'open' },
+            orderBy: { cycleNumber: 'desc' },
+            take: 1,
+            select: {
+              id: true,
+              cycleNumber: true,
+              status: true,
+              openedAt: true,
+              studyLoads: {
+                where: { status: { in: ['pending', 'in_progress', 'completed'] } },
+                orderBy: [{ updatedAt: 'desc' }, { createdAt: 'desc' }],
+                select: {
+                  id: true,
+                  title: true,
+                  loadType: true,
+                  status: true,
+                  createdAt: true,
+                  updatedAt: true,
+                  tutoringSessions: {
+                    where: { status: { in: ['in_progress', 'completed'] } },
+                    orderBy: { updatedAt: 'desc' },
+                    select: {
+                      id: true,
+                      status: true,
+                      completedAt: true,
+                      responses: {
+                        where: { responseType: { in: ['answer', 'mc_submission'] } },
+                        orderBy: { createdAt: 'desc' },
+                        select: { id: true, responseType: true, content: true },
+                      },
+                    },
+                  },
+                },
+              },
+            },
           },
         },
-      },
-    },
-  })
+      })
+    : []
 
-  const pendingLoads = allLoads.filter((l) => l.status === 'pending') as LoadWithSessions[]
-  const inProgressLoads = allLoads.filter((l) => l.status === 'in_progress') as LoadWithSessions[]
-  const completedLoads = (allLoads.filter((l) => l.status === 'completed') as LoadWithSessions[])
-    .slice()
-    .sort((a, b) => {
-      const aCompletedSession = a.tutoringSessions.find((session) => session.status === 'completed')
-      const bCompletedSession = b.tutoringSessions.find((session) => session.status === 'completed')
-      const ta = aCompletedSession?.completedAt?.getTime() ?? 0
-      const tb = bCompletedSession?.completedAt?.getTime() ?? 0
-      return tb - ta
-    })
-
-  const hasActiveLoads = pendingLoads.length > 0 || inProgressLoads.length > 0
-  const hasHistory = completedLoads.length > 0
-  const showCaughtUpMessage = !hasActiveLoads && hasHistory
-
-  const openedAtLabel = new Intl.DateTimeFormat('es-CL', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  }).format(new Date(cycle.openedAt))
+  const activeTutorings = buildActiveTutorings(enrollments)
+  const catalogTutorings = buildCatalogTutorings({ programs, activeTutorings })
+  const activityCandidate = selectActivityCandidate(activeTutorings)
 
   return (
     <Shell>
       <DashboardHeader studentName={studentName} />
       <DashboardContent>
         <HeroSummary studentName={studentName} />
-        <TutoringSection />
-
-      <div className="mt-5 grid gap-4 lg:grid-cols-[0.86fr_1.14fr]">
-        <ProgramSummaryCard
-          programCode={enrollment.program.code}
-          programName={enrollment.program.name}
-          openedAtLabel={openedAtLabel}
-        />
-
-        <Card className="rounded-3xl border-[#DCE5EA] bg-[#FBFCF6] shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
-          <CardContent className="p-5 sm:p-6">
-            <div className="flex items-start gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#F2EFF8] text-[#34215F]">
-                <Sparkles className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <div>
-                <h2 className="font-display text-xl font-bold text-[#10213F]">Siguiente paso</h2>
-                <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
-                  {hasActiveLoads
-                    ? 'Revisa la cápsula disponible y avanza cuando estés listo.'
-                    : 'Revisa tu cápsula registrada mientras se prepara una nueva orientación.'}
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="mt-6 space-y-6">
-        {!hasActiveLoads && !hasHistory ? (
-          <EmptyState message="No tienes una cápsula M1 disponible en este momento. Cuando se asigne una cápsula, aparecerá aquí." />
-        ) : (
-          <>
-            {pendingLoads.length > 0 && (
-              <section aria-label="Cápsulas pendientes" className="space-y-3">
-                <div className="flex items-center gap-2 text-[#253A5F]">
-                  <Clock className="h-4 w-4" aria-hidden="true" />
-                  <h2 className="text-sm font-bold">Cápsulas pendientes ({pendingLoads.length})</h2>
-                </div>
-                <p className="text-sm leading-6 text-[#5D6B7A]">
-                  Abre la cápsula cuando estés listo. Tus respuestas quedarán guardadas como evidencia de trabajo.
-                </p>
-                <ul className="grid gap-3 md:grid-cols-2">
-                  {pendingLoads.map((load) => {
-                    const hasContent = !!getStudyLoadContent(load.title)
-                    return (
-                      <li key={load.id}>
-                        <LoadCard load={load}>
-                          <div className="mt-4 flex items-center justify-between gap-2">
-                            {hasContent ? (
-                              <Link
-                                href={`/now/study-loads/${load.id}`}
-                                className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline"
-                              >
-                                Ver cápsula
-                              </Link>
-                            ) : (
-                              <span />
-                            )}
-                            <StartLoadButton loadId={load.id} />
-                          </div>
-                        </LoadCard>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </section>
-            )}
-
-            {inProgressLoads.length > 0 && (
-              <section aria-label="En curso" className="space-y-3">
-                <div className="flex items-center gap-2 text-[#253A5F]">
-                  <Route className="h-4 w-4" aria-hidden="true" />
-                  <h2 className="text-sm font-bold">En curso ({inProgressLoads.length})</h2>
-                </div>
-                <p className="text-sm leading-6 text-[#5D6B7A]">
-                  Continúa tu cápsula y ciérrala cuando termines. Si ya enviaste respuestas, falta tu autorreporte.
-                </p>
-                <ul className="grid gap-3 md:grid-cols-2">
-                  {inProgressLoads.map((load) => {
-                    const hasContent = !!getStudyLoadContent(load.title)
-                    const hasSubmittedMcEvidence = load.tutoringSessions.some((session) =>
-                      session.status === 'in_progress' &&
-                      session.responses.some((response) => response.responseType === 'mc_submission'),
-                    )
-                    return (
-                      <li key={load.id}>
-                        <LoadCard load={load}>
-                          {hasSubmittedMcEvidence && (
-                            <p className="mt-3 text-sm leading-6 text-[#5D6B7A]">
-                              Tus respuestas ya están guardadas. Falta tu autorreporte para cerrar.
-                            </p>
-                          )}
-                          <div className="mt-4 flex items-center justify-between gap-2">
-                            <div className="flex items-center gap-2">
-                              <span
-                                className={`inline-block h-2 w-2 rounded-full ${
-                                  hasSubmittedMcEvidence ? 'bg-[#F2B84B]' : 'bg-[#4B7B7C]'
-                                }`}
-                                aria-hidden="true"
-                              />
-                              <span className="text-xs font-semibold text-[#5D6B7A]">
-                                {hasSubmittedMcEvidence ? 'Pendiente de cierre' : 'En curso'}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              {hasContent && (
-                                <Link
-                                  href={`/now/study-loads/${load.id}`}
-                                  className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline"
-                                >
-                                  {hasSubmittedMcEvidence ? 'Finalizar cápsula' : 'Ver cápsula'}
-                                </Link>
-                              )}
-                              {!hasContent && <CompleteLoadButton loadId={load.id} />}
-                            </div>
-                          </div>
-                        </LoadCard>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </section>
-            )}
-
-            {showCaughtUpMessage && (
-              <Card className="rounded-3xl border-[#E2E8EC] bg-white shadow-[0_10px_30px_rgba(16,33,63,0.08)]">
-                <CardContent className="py-8 text-center">
-                  <h2 className="text-sm font-bold text-[#10213F]">Cápsula registrada</h2>
-                  <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
-                    Tu última cápsula quedó registrada. Revisa tu evidencia mientras se prepara el siguiente paso.
-                  </p>
-                </CardContent>
-              </Card>
-            )}
-
-            {completedLoads.length > 0 && (
-              <section aria-label="Cápsulas registradas" className="space-y-3">
-                <div className="flex items-center gap-2 text-[#253A5F]">
-                  <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-                  <h2 className="text-sm font-bold">Cápsulas registradas ({completedLoads.length})</h2>
-                </div>
-                <p className="text-sm leading-6 text-[#5D6B7A]">
-                  Tu trabajo queda guardado como evidencia para revisar tu avance y orientar el siguiente foco.
-                </p>
-                <ul className="grid gap-3 md:grid-cols-2">
-                  {completedLoads.map((load) => {
-                    const completedSession = load.tutoringSessions.find((session) => session.status === 'completed')
-                    const report = completedSession?.responses.find((response) => response.responseType === 'answer')?.content ?? null
-                    const hasContent = !!getStudyLoadContent(load.title)
-                    return (
-                      <li key={load.id}>
-                        <LoadCard load={load}>
-                          {report && (
-                            <p className="mt-3 text-sm leading-6 text-[#5D6B7A]">
-                              <span className="font-bold text-[#253A5F]">Tu reporte:</span> {report}
-                            </p>
-                          )}
-                          {hasContent && (
-                            <div className="mt-3">
-                              <Link
-                                href={`/now/study-loads/${load.id}`}
-                                className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline"
-                              >
-                                Ver cápsula
-                              </Link>
-                            </div>
-                          )}
-                        </LoadCard>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </section>
-            )}
-          </>
-        )}
-      </div>
-
-      {isAdminSession && (
-        <div className="mt-8 text-center">
-          <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
-            Ir al panel de administración
-          </Link>
-        </div>
-      )}
+        <OwnTutoringSection tutorings={activeTutorings} />
+        <CatalogTutoringSection tutorings={catalogTutorings} />
+        <LatestActivitySection candidate={activityCandidate} />
+        <TutorMessageSection hasActiveTutorings={activeTutorings.length > 0} />
+        <AdminLink isAdminSession={isAdminSession} />
       </DashboardContent>
       <DashboardFooterNav />
     </Shell>

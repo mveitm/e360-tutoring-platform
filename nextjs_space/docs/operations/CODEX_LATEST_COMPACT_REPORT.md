@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-CONTRACT-1`
+`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-IMPLEMENT-1`
 
 Result:
-`STUDENT_DASHBOARD_MULTI_TUTORING_UI_CONTRACT_ACCEPTED`
+`STUDENT_DASHBOARD_MULTI_TUTORING_UI_IMPLEMENTED`
 
 Commit:
 `pending in this documentation commit`
@@ -16,24 +16,25 @@ Working tree:
 `pending documentation commit`
 
 Files changed:
+- `nextjs_space/app/now/page.tsx`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_CONTRACT_1.md`
+- `nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_IMPLEMENT_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_CONTRACT_1.md`
+`nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_IMPLEMENT_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `3fb31874f8d24255b6799157c86bcb50b04c4cf4`.
-- Prior smoke report was read.
-- Contract records the multi-tutoring dashboard structure and state rules.
-- Contract documents the current PAES_M2 inconsistency and blocks further M2-C01 smoke until dashboard alignment.
-- No code, UI/API, content, schema, DB or payment/subscription change was made.
+- Preflight passed at `91275ab97e9421510ee30d91810b22451a1aa024`.
+- Required Context Gate docs were read.
+- `nextjs_space/app/now/page.tsx` and supporting schema/package context were inspected.
+- `.\node_modules\.bin\tsc.cmd --noEmit --pretty false`: passed.
+- `npm.cmd --prefix nextjs_space run build`: passed.
 - `git diff --check`: passed.
-- Secret-pattern scan over authorized changed docs: zero high-risk matches.
+- Secret-pattern scan over changed files: zero high-risk matches.
 
 DB execution by Codex:
 `NOT_EXECUTED_BY_CODEX`
@@ -41,11 +42,20 @@ DB execution by Codex:
 DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
 
-Code/content/schema changes:
+Schema changes:
+`NOT_PERFORMED`
+
+Content changes:
+`NOT_PERFORMED`
+
+Payment/subscription changes:
+`NOT_PERFORMED`
+
+StudentAccess changes:
 `NOT_PERFORMED`
 
 Follow-up/blocker:
-`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-IMPLEMENT-1`
+`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-HUMAN-SMOKE-1`
 
 Scope safety:
-Documentation-only contract. No Codex DB execution, no DB mutation, no StudentAccess mutation, no payment/subscription mutation, no production/staging action, no schema/Prisma changes, no code/content/UI/API functional changes, no rollback, no build, no browser automation, no API-only tests, no secrets printed.
+Dashboard UI/read-only derivation and documentation only. No DB command, no DB mutation, no schema/Prisma migration, no content changes, no StudentAccess changes, no payment/subscription changes, no production/staging action, no reset, no seed reset, no direct SQL, no secrets printed.
