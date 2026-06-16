@@ -42,6 +42,81 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-FIX-2
+
+Baseline before:
+
+```text
+c4ea304b8994c91fbb9ac35f73927b00795f3189
+```
+
+Result/verdict:
+
+```text
+M2_C01_POST_COMPLETION_NAVIGATION_FIX_2_COMPLETED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/lib/tutoring-routes.ts
+nextjs_space/app/study/_components/program-study-page.tsx
+nextjs_space/app/study/paes-m2/page.tsx
+nextjs_space/app/study/paes-l1/page.tsx
+nextjs_space/app/now/page.tsx
+nextjs_space/app/now/study-loads/[id]/page.tsx
+nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_POST_COMPLETION_NAVIGATION_FIX_2.md
+```
+
+Scope summary:
+
+Corrected post-completion `Volver a tutoría` to resolve from the source Program.code to a real ST route. PAES_M2 now targets `/study/paes-m2`; PAES_M1 preserves `/study/paes-m1`; PAES_L1 targets `/study/paes-l1`. Added read-only ST pages for M2/L1 and a shared non-M1 program study page. Review action buttons were visually standardized with compact desktop widths and full-width mobile layout.
+
+Validation summary:
+
+```text
+git diff --check: passed
+TypeScript noEmit: passed
+Next build: passed
+secret-pattern scan: passed
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-FIX-2-HUMAN-SMOKE-1
+```
+
+Notes:
+
+- `Volver a tutoría` corrected to target source tutoring/program.
+- M2-C01 post-completion return now targets PAES_M2 tutoring context.
+- Review action buttons were visually standardized.
+- Codex did not execute or mutate DB.
+- No schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No reset, seed reset, migration, db push or direct SQL.
+- No StudyLoad creation or continuity mutation change.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-HUMAN-SMOKE-1
 
 Baseline before:

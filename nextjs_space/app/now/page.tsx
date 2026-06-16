@@ -12,6 +12,7 @@ import { StartLoadButton } from './_components/start-load-button'
 import { CompleteLoadButton } from './_components/complete-load-button'
 import { SignOutButton } from './_components/sign-out-button'
 import { getStudyLoadContent } from '@/lib/study-load-content'
+import { getStudyProgramHref } from '@/lib/tutoring-routes'
 
 export const dynamic = 'force-dynamic'
 
@@ -237,8 +238,7 @@ function getTutoringDescription(programCode: string) {
 function getTutoringActionHref(tutoring: ActiveTutoring) {
   const actionableLoad = selectActivityCandidate([tutoring])?.load
   if (actionableLoad) return `/now/study-loads/${actionableLoad.id}`
-  if (tutoring.programCode === 'PAES_M1') return '/study/paes-m1'
-  return '#actividad'
+  return getStudyProgramHref(tutoring.programCode)
 }
 
 function OwnTutoringSection({ tutorings }: { tutorings: ActiveTutoring[] }) {

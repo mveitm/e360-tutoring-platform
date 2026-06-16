@@ -15,6 +15,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { ArrowLeft, ArrowRight, BookOpen, Clock, LayoutDashboard } from 'lucide-react'
 import { StartLoadButton } from '../../_components/start-load-button'
+import { getStudyProgramHref } from '@/lib/tutoring-routes'
 import StudyLoadAnswerForm from './_components/study-load-answer-form'
 
 export const dynamic = 'force-dynamic'
@@ -68,9 +69,11 @@ const capsuleStatusLabels: Record<string, string> = {
 }
 
 function getSourceTutoringHref(programCode: string) {
-  if (programCode === 'PAES_M1') return '/study/paes-m1'
-  return '/now#tutorias'
+  return getStudyProgramHref(programCode)
 }
+
+const postCompletionActionClass =
+  'inline-flex min-h-9 w-full items-center justify-center rounded-full px-3 text-center text-xs font-bold leading-tight shadow-sm transition sm:w-auto sm:min-w-[9.5rem] sm:max-w-[10.75rem]'
 
 function CapsuleNavigation({
   className,
@@ -141,7 +144,7 @@ function NextCapsuleAction({ href }: { href?: string }) {
       <button
         type="button"
         disabled
-        className="inline-flex min-h-9 cursor-not-allowed items-center justify-center rounded-full border border-[#DCE5EA] bg-white/70 px-3 text-xs font-bold text-[#6B7280] shadow-sm"
+        className={`${postCompletionActionClass} cursor-not-allowed border border-[#DCE5EA] bg-white/70 text-[#6B7280]`}
       >
         Ir a la siguiente cápsula
       </button>
@@ -151,7 +154,7 @@ function NextCapsuleAction({ href }: { href?: string }) {
   return (
     <Link
       href={href}
-      className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#DCE5EA] bg-white px-3 text-xs font-bold text-[#192F56] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+      className={`${postCompletionActionClass} border border-[#DCE5EA] bg-white text-[#192F56] hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20`}
     >
       Ir a la siguiente cápsula
     </Link>
@@ -166,17 +169,17 @@ function CapsuleCompletedActions({
   nextStudyLoadHref?: string
 }) {
   return (
-    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
+    <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
       <Link
         href={sourceTutoringHref}
-        className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#79A6A4] bg-white px-3 text-xs font-bold text-[#10213F] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+        className={`${postCompletionActionClass} border border-[#79A6A4] bg-white text-[#10213F] hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20`}
       >
         Volver a tutoría
       </Link>
       <NextCapsuleAction href={nextStudyLoadHref} />
       <Link
         href="/now"
-        className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#DCE5EA] bg-[#FBFCF6] px-3 text-xs font-bold text-[#253A5F] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+        className={`${postCompletionActionClass} border border-[#DCE5EA] bg-[#FBFCF6] text-[#253A5F] hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20`}
       >
         Ir Dashboard
       </Link>
