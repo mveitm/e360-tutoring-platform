@@ -42,6 +42,63 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-HUMAN-SMOKE-1
+
+Baseline before:
+
+```text
+80116d13e0683c9625c7029dc81472a3310bf260
+```
+
+Result/verdict:
+
+```text
+STUDENT_DASHBOARD_MULTI_TUTORING_UI_HUMAN_SMOKE_ACCEPTED_WITH_MINOR_OBSERVATIONS
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_HUMAN_SMOKE_1.md
+```
+
+Scope summary:
+
+Documented sanitized human visual smoke evidence for the multi-tutoring dashboard. The human accepted the new dashboard structure: welcome, Tus Tutorias, Tutorias Bexauri, Ultima actividad de estudio, Mensaje de tu tutor Bexauri, persistent header/footer, and replacement of the single Ruta Activa. The prior critical M1/M2 structural inconsistency is resolved at structure level.
+
+Minor observations routed to follow-up:
+
+- PAES_M2 active state is accepted as internal LOCAL_DEV smoke enrollment, not user-initiated UI enrollment.
+- Tutoring subtitles should describe student-facing skills/ejes, not internal cycles.
+- Visible accents/copy need polish.
+- Tutoring visual identifiers should vary color softly within Bexauri identity.
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No DB execution or mutation.
+- No schema/Prisma changes.
+- No content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No build, browser automation or API-only tests.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-IMPLEMENT-1
 
 Baseline before:
