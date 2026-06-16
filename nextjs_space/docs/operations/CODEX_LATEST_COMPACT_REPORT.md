@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-HUMAN-SMOKE-1`
+`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-2`
 
 Result:
-`STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_HUMAN_SMOKE_ACCEPTED_WITH_REMAINING_MINOR_POLISH_OBSERVATIONS`
+`STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_2_COMPLETED`
 
 Commit:
 `see final git log after commit/push`
@@ -16,22 +16,23 @@ Working tree:
 `clean after commit/push`
 
 Files changed:
+- `nextjs_space/app/now/page.tsx`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_HUMAN_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_2.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_HUMAN_SMOKE_1.md`
+`nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_2.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `7b1e4d940954d26bcdfd444585ae235a3d94955f`.
+- Preflight passed at `8e18bce992fbf461497918ee734c4482d9587200`.
 - Context gate read.
-- Sanitized human visual evidence reviewed.
-- Human evidence accepts the polished dashboard generally, with remaining minor polish observations.
-- No code changed in this phase.
+- Static source verification performed over project documentation/code only.
+- `tsc --noEmit --pretty false`: passed.
+- `npm --prefix nextjs_space run build`: passed.
 - `git diff --check`: passed.
 - Secret-pattern scan over changed files: zero high-risk matches.
 
@@ -44,7 +45,7 @@ DB mutation by Codex:
 Schema changes:
 `NOT_PERFORMED`
 
-Content changes:
+Pedagogical capsule content changes:
 `NOT_PERFORMED`
 
 Payment/subscription changes:
@@ -53,11 +54,8 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-Code changes:
-`NOT_PERFORMED`
-
 Follow-up/blocker:
-`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-2`
+`MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-2-HUMAN-SMOKE-1`
 
 Scope safety:
-Documentation-only human smoke closeout. No DB command, no DB mutation, no schema/Prisma changes, no content changes, no StudentAccess changes, no payment/subscription changes, no production/staging action, no code/UI/API change, no build and no secrets printed.
+Dashboard card polish only. The accepted multi-tutoring structure was preserved. No DB command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no StudentAccess changes, no payment/subscription changes, no production/staging action and no secrets printed.

@@ -71,21 +71,21 @@ const catalogDefinitions = [
     code: 'PAES_M1',
     shortCode: 'M1',
     title: 'PAES Matemática M1',
-    description: 'Álgebra, funciones y resolución de problemas.',
+    description: 'Números, Álgebra y funciones, Geometría, Probabilidad y estadística para Matemática M1.',
     availableWhenProgramActive: true,
   },
   {
     code: 'PAES_M2',
     shortCode: 'M2',
     title: 'PAES Matemática M2',
-    description: 'Funciones, modelamiento y análisis matemático.',
+    description: 'Modelación algebraica y funcional, datos, geometría y control de errores para Matemática M2.',
     availableWhenProgramActive: true,
   },
   {
     code: 'PAES_L1',
     shortCode: 'L1',
     title: 'PAES Competencia Lectora',
-    description: 'Comprensión lectora e interpretación de textos.',
+    description: 'Comprensión lectora, localización de información e interpretación de textos.',
     availableWhenProgramActive: false,
   },
 ] as const
@@ -93,20 +93,20 @@ const catalogDefinitions = [
 const tutoringVisuals: Record<string, { card: string; badge: string; catalogBadge: string; accent: string }> = {
   PAES_M1: {
     card: 'border-[#79A6A4] bg-[linear-gradient(180deg,#FBFCF6_0%,#E5F0EF_100%)]',
-    badge: 'bg-[#192F56] text-white',
-    catalogBadge: 'bg-[#192F56] text-white',
+    badge: 'bg-[#173B73] text-white ring-2 ring-[#9CC3D5] shadow-[0_8px_16px_rgba(23,59,115,0.18)]',
+    catalogBadge: 'bg-[#173B73] text-white ring-2 ring-[#9CC3D5] shadow-[0_8px_16px_rgba(23,59,115,0.18)]',
     accent: 'bg-[#79A6A4]',
   },
   PAES_M2: {
     card: 'border-[#A99AD2] bg-[linear-gradient(180deg,#FBFCF6_0%,#F2EFF8_100%)]',
-    badge: 'bg-[#34215F] text-white',
-    catalogBadge: 'bg-[#34215F] text-white',
+    badge: 'bg-[#4B347C] text-white ring-2 ring-[#C5B8E6] shadow-[0_8px_16px_rgba(75,52,124,0.18)]',
+    catalogBadge: 'bg-[#4B347C] text-white ring-2 ring-[#C5B8E6] shadow-[0_8px_16px_rgba(75,52,124,0.18)]',
     accent: 'bg-[#A99AD2]',
   },
   PAES_L1: {
     card: 'border-[#8FB6AD] bg-[linear-gradient(180deg,#FBFCF6_0%,#EEF4F7_100%)]',
-    badge: 'bg-[#4B7B7C] text-white',
-    catalogBadge: 'bg-[#4B7B7C] text-white',
+    badge: 'bg-[#2F6F68] text-white ring-2 ring-[#A8CEC6] shadow-[0_8px_16px_rgba(47,111,104,0.18)]',
+    catalogBadge: 'bg-[#2F6F68] text-white ring-2 ring-[#A8CEC6] shadow-[0_8px_16px_rgba(47,111,104,0.18)]',
     accent: 'bg-[#4B7B7C]',
   },
 }
@@ -266,7 +266,7 @@ function OwnTutoringSection({ tutorings }: { tutorings: ActiveTutoring[] }) {
                 className={`min-w-[238px] flex-[0_0_80%] rounded-2xl border p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)] sm:flex-[0_0_42%] sm:rounded-3xl sm:p-4 md:min-w-0 md:flex-auto ${visual.card}`}
               >
                 <div className="flex items-start justify-between gap-2">
-                  <span className={`inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2.5 text-xs font-bold sm:h-10 sm:min-w-10 sm:px-3 sm:text-sm ${visual.badge}`}>
+                  <span className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold sm:h-10 sm:w-10 sm:text-sm ${visual.badge}`}>
                     {getProgramShortCode(tutoring.programCode)}
                   </span>
                   <Badge variant="secondary" className="rounded-full bg-white/80 text-[9px] font-bold uppercase tracking-wide text-[#253A5F] sm:text-[10px]">
@@ -325,7 +325,7 @@ function CatalogTutoringSection({ tutorings }: { tutorings: CatalogTutoring[] })
               className={`min-w-[232px] flex-[0_0_78%] rounded-2xl border p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)] sm:flex-[0_0_34%] sm:rounded-3xl sm:p-4 lg:min-w-[260px] ${visual.card}`}
             >
               <div className="flex items-start justify-between gap-2">
-                <span className={`inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2.5 text-xs font-bold sm:h-10 sm:min-w-10 sm:px-3 sm:text-sm ${visual.catalogBadge}`}>
+                <span className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold sm:h-10 sm:w-10 sm:text-sm ${visual.catalogBadge}`}>
                   {getProgramShortCode(tutoring.code)}
                 </span>
                 <Badge variant="secondary" className="rounded-full bg-white/80 text-[9px] font-bold uppercase tracking-wide text-[#253A5F] sm:text-[10px]">

@@ -42,6 +42,65 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-2
+
+Baseline before:
+
+```text
+8e18bce992fbf461497918ee734c4482d9587200
+```
+
+Result/verdict:
+
+```text
+STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_2_COMPLETED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/app/now/page.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_2.md
+```
+
+Scope summary:
+
+Completed the remaining minor polish from human smoke. The tutoring circle/logo now has visible, soft per-program color differentiation directly on the circular badge, and tutoring subtitles now use verified or conservative real axes/families from static project documentation.
+
+Notes:
+
+- Dashboard structure accepted in previous phases was preserved.
+- Tutoring circle/logo colors were softly differentiated.
+- Tutoring descriptions were aligned to verified or conservative real axes/habilidades.
+- Codex did not execute or mutate DB.
+- No schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-2-HUMAN-SMOKE-1
+```
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No reset, seed reset, migration, db push or direct SQL.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-HUMAN-SMOKE-1
 
 Baseline before:
