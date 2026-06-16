@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-HUMAN-SMOKE-1`
+`MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-POLISH-1`
 
 Result:
-`STUDENT_TUTORING_UI_STRUCTURE_POLISH_HUMAN_SMOKE_PASSED_WITH_MINOR_RESPONSIVE_LAYOUT_OBSERVATION`
+`STUDENT_CAPSULE_RESPONSIVE_LAYOUT_POLISHED`
 
 Commit:
 `see final git log after commit/push`
@@ -16,32 +16,33 @@ Working tree:
 `clean after commit/push`
 
 Files changed:
+- `nextjs_space/app/now/study-loads/[id]/page.tsx`
+- `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_POLISH_HUMAN_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_STUDENT_CAPSULE_RESPONSIVE_LAYOUT_POLISH_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_POLISH_HUMAN_SMOKE_1.md`
+`nextjs_space/docs/operations/MVP_STUDENT_CAPSULE_RESPONSIVE_LAYOUT_POLISH_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `13a325d1d8d3dd1fef5aa557bc1de7bf481b7d19`.
+- Preflight passed at `ffc19b742eb9b11d44c92ff260bda40eb5459ec2`.
+- Previous retry blocker resolved by human; `logobexauri_v1.png` was no longer in the repo working tree.
 - Context gate read.
-- Sanitized human UI evidence reviewed.
-- Dashboard `¿Qué hago ahora?`: PASS.
-- Auxiliary `Continúa desde una...` text removed: PASS.
-- `Tus Tutorías` keeps `Entrar`: PASS.
-- `Tutorías Bexauri` has no `Continuar` button for active tutorings: PASS.
-- ST M1 button `Dashboard`: PASS.
-- ST M1 without `Tutoría Activa` message: PASS.
-- M2 description corrected: PASS.
-- Main navigation preserved: PASS.
-- No functional regression observed: PASS.
-- Minor responsive capsule layout observation documented.
-- No code changed in this phase.
+- Capsule shell widened from `max-w-3xl` to `max-w-6xl` with desktop padding.
+- Capsule scroll/content area gets additional desktop padding.
+- Active answering questions now use `grid gap-4 lg:grid-cols-2`.
+- Completed/review questions now use `grid gap-4 lg:grid-cols-2`.
+- Mobile remains single-column because responsive changes start at `lg`.
+- M1/M2 covered through shared capsule viewer and answer form.
+- No post-completion navigation changes.
+- No logo integration performed.
 - `git diff --check`: passed.
+- TypeScript noEmit with explicit project: passed.
+- Next build: passed.
 - Secret-pattern scan over changed files: passed.
 
 DB execution by Codex:
@@ -49,9 +50,6 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
-
-Code changes:
-`NOT_PERFORMED`
 
 Schema changes:
 `NOT_PERFORMED`
@@ -65,8 +63,11 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
+Logo asset integration:
+`NOT_PERFORMED`
+
 Follow-up/blocker:
-`MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-POLISH-1`
+`MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-HUMAN-SMOKE-1`
 
 Scope safety:
-Documentation-only human smoke closeout. No base de datos command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action, no code/UI/API change, no build and no secrets printed.
+Shared capsule UI responsive layout polish only. No base de datos command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action, no logo movement/versioning/integration and no secrets printed.

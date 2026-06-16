@@ -42,6 +42,78 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-POLISH-1
+
+Baseline before:
+
+```text
+ffc19b742eb9b11d44c92ff260bda40eb5459ec2
+```
+
+Result/verdict:
+
+```text
+STUDENT_CAPSULE_RESPONSIVE_LAYOUT_POLISHED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/app/now/study-loads/[id]/page.tsx
+nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_CAPSULE_RESPONSIVE_LAYOUT_POLISH_1.md
+```
+
+Scope summary:
+
+Polished the shared capsule UI responsive layout for tablet/PC. The capsule shell now uses a wider desktop max width and the active/review exercise lists switch to two columns from `lg`, while mobile remains single-column. M1 and M2 are covered through the shared capsule viewer and answer form.
+
+Validation summary:
+
+```text
+git diff --check: passed
+TypeScript noEmit with explicit project: passed
+Next build: passed
+secret-pattern scan: passed
+```
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-HUMAN-SMOKE-1
+```
+
+Notes:
+
+- Capsule UI responsive layout polished for tablet/PC.
+- Mobile behavior preserved.
+- No logo integration performed in this phase.
+- Codex did not execute or mutate DB.
+- No schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No base de datos command.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No logo asset movement, versioning or integration.
+- No StudyLoad creation or modification.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-HUMAN-SMOKE-1
 
 Baseline before:

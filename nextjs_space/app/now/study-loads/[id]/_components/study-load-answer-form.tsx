@@ -671,7 +671,7 @@ export default function StudyLoadAnswerForm({
         <h2 className="mb-3 text-sm font-medium text-muted-foreground">
           Ejercicios ({totalItemCount})
         </h2>
-        <ol className="space-y-4">
+        <ol className="grid gap-4 lg:grid-cols-2">
           {items.map((item, index) => (
             <li key={item.key}>
               <Card>
@@ -719,7 +719,7 @@ export default function StudyLoadAnswerForm({
   function renderAnsweringQuestions() {
     return (
       <section className="space-y-3 pb-2">
-        <ol className="space-y-4">
+        <ol className="grid gap-4 lg:grid-cols-2">
           {items.map((item, index) => {
             const selected = selections[item.key]
             return (

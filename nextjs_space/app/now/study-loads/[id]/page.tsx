@@ -360,7 +360,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
 
   return (
     <main className="h-[100dvh] min-h-[100svh] overflow-hidden bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
-      <div className="mx-auto flex h-full w-full max-w-3xl flex-col px-2.5 py-2 sm:px-5 sm:py-6">
+      <div className="mx-auto flex h-full w-full max-w-6xl flex-col px-2.5 py-2 sm:px-5 sm:py-6 lg:px-8">
         <header className="mb-2 shrink-0 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 px-2.5 py-1.5 shadow-[0_8px_20px_rgba(16,33,63,0.08)]">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <Link href={sourceTutoringHref} className="flex min-w-0 items-center gap-2" aria-label="Bexauri">
@@ -385,7 +385,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
           </div>
         </header>
 
-        <div id="capsula-contenido" className="min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 [scrollbar-width:thin]">
+        <div id="capsula-contenido" className="min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 [scrollbar-width:thin] lg:pr-2">
           {!isAnswering && (
           <Card className="mb-4 rounded-3xl border-[#E2E8EC] bg-[#FBFCF6] shadow-[0_14px_34px_rgba(16,33,63,0.09)]">
             <CardHeader className="pb-3">
