@@ -67,14 +67,25 @@ const capsuleStatusLabels: Record<string, string> = {
   completed: 'Completada',
 }
 
-function CapsuleNavigation({ className }: { className?: string }) {
+function getSourceTutoringHref(programCode: string) {
+  if (programCode === 'PAES_M1') return '/study/paes-m1'
+  return '/now#tutorias'
+}
+
+function CapsuleNavigation({
+  className,
+  sourceTutoringHref,
+}: {
+  className?: string
+  sourceTutoringHref: string
+}) {
   return (
     <nav
       aria-label="Navegación de cápsula"
       className={className ?? 'flex items-center gap-1.5'}
     >
       <Link
-        href="/study/paes-m1"
+        href={sourceTutoringHref}
         className="inline-flex min-h-9 items-center justify-center gap-1.5 rounded-full border border-[#DCE5EA] bg-white px-3 text-xs font-bold text-[#192F56] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
       >
         <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
@@ -85,7 +96,7 @@ function CapsuleNavigation({ className }: { className?: string }) {
         className="inline-flex min-h-9 items-center justify-center gap-1.5 rounded-full border border-[#DCE5EA] bg-[#FBFCF6] px-3 text-xs font-semibold text-[#5D6B7A] shadow-sm transition hover:bg-[#EEF4F7] hover:text-[#253A5F] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
       >
         <LayoutDashboard className="h-3.5 w-3.5" aria-hidden="true" />
-        Ir DB
+        Ir Dashboard
       </Link>
     </nav>
   )
@@ -124,20 +135,50 @@ function CapsuleStartCta({
   )
 }
 
-function CapsuleCompletedActions() {
+function NextCapsuleAction({ href }: { href?: string }) {
+  if (!href) {
+    return (
+      <button
+        type="button"
+        disabled
+        className="inline-flex min-h-9 cursor-not-allowed items-center justify-center rounded-full border border-[#DCE5EA] bg-white/70 px-3 text-xs font-bold text-[#6B7280] shadow-sm"
+      >
+        Ir a la siguiente cápsula
+      </button>
+    )
+  }
+
   return (
-    <div className="mt-3 grid grid-cols-2 gap-2">
+    <Link
+      href={href}
+      className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#DCE5EA] bg-white px-3 text-xs font-bold text-[#192F56] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
+    >
+      Ir a la siguiente cápsula
+    </Link>
+  )
+}
+
+function CapsuleCompletedActions({
+  sourceTutoringHref,
+  nextStudyLoadHref,
+}: {
+  sourceTutoringHref: string
+  nextStudyLoadHref?: string
+}) {
+  return (
+    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
       <Link
-        href="/study/paes-m1"
+        href={sourceTutoringHref}
         className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#79A6A4] bg-white px-3 text-xs font-bold text-[#10213F] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
       >
         Volver a tutoría
       </Link>
+      <NextCapsuleAction href={nextStudyLoadHref} />
       <Link
         href="/now"
         className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#DCE5EA] bg-[#FBFCF6] px-3 text-xs font-bold text-[#253A5F] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20"
       >
-        Ir DB
+        Ir Dashboard
       </Link>
     </div>
   )
@@ -296,13 +337,30 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
   const isAnswering = studyLoad.status === 'in_progress'
   const isCompleted = studyLoad.status === 'completed'
   const visibleCapsuleTitle = content ? getStudyLoadDisplayTitle(content) : studyLoad.title
+  const sourceTutoringHref = getSourceTutoringHref(enrollment.program.code)
+  const nextStudyLoad = await prisma.studyLoad.findFirst({
+    where: {
+      learningCycleId: studyLoad.learningCycle.id,
+      id: { not: studyLoad.id },
+      status: { in: ['pending', 'in_progress'] },
+    },
+    orderBy: [{ createdAt: 'asc' }, { updatedAt: 'asc' }],
+    select: {
+      id: true,
+      title: true,
+    },
+  })
+  const nextStudyLoadHref =
+    nextStudyLoad && getStudyLoadContent(nextStudyLoad.title)
+      ? `/now/study-loads/${nextStudyLoad.id}`
+      : undefined
 
   return (
     <main className="h-[100dvh] min-h-[100svh] overflow-hidden bg-[linear-gradient(135deg,#F8F4EB_0%,#FBFCF6_48%,#EEF4F7_100%)] text-[#10213F]">
       <div className="mx-auto flex h-full w-full max-w-3xl flex-col px-2.5 py-2 sm:px-5 sm:py-6">
         <header className="mb-2 shrink-0 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 px-2.5 py-1.5 shadow-[0_8px_20px_rgba(16,33,63,0.08)]">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <Link href="/study/paes-m1" className="flex min-w-0 items-center gap-2" aria-label="Bexauri">
+            <Link href={sourceTutoringHref} className="flex min-w-0 items-center gap-2" aria-label="Bexauri">
               <span className="rounded-xl border border-[#DCE5EA] bg-white px-1.5 py-0.5 shadow-sm shadow-[#10213F]/10">
                 <Image
                   src="/brand/bexauri-logo-provisional.png"
@@ -315,12 +373,12 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
               </span>
               <span className="min-w-0 text-xs font-bold leading-tight text-[#253A5F] sm:text-sm">
                 <span className="block text-[10px] uppercase tracking-[0.12em] text-[#5D6B7A]">
-                  {isCompleted ? 'Revision PAES_M1' : 'Capsula PAES_M1'}
+                  {isCompleted ? `Revision ${enrollment.program.code}` : `Capsula ${enrollment.program.code}`}
                 </span>
                 <span className="block truncate">{visibleCapsuleTitle}</span>
               </span>
             </Link>
-            <CapsuleNavigation />
+            <CapsuleNavigation sourceTutoringHref={sourceTutoringHref} />
           </div>
         </header>
 
@@ -359,7 +417,12 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
                       </span>
                     </div>
                   )}
-                  {isCompleted && <CapsuleCompletedActions />}
+                  {isCompleted && (
+                    <CapsuleCompletedActions
+                      sourceTutoringHref={sourceTutoringHref}
+                      nextStudyLoadHref={nextStudyLoadHref}
+                    />
+                  )}
                 </div>
                 <div className="flex flex-col items-start gap-2 sm:items-end">
                   {!isCompleted && (
@@ -406,6 +469,8 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
               items={safeItems}
               initialAnswers={initialAnswers}
               initialFeedback={initialFeedback}
+              sourceTutoringHref={sourceTutoringHref}
+              nextStudyLoadHref={nextStudyLoadHref}
             />
           ) : (
             <Card>
@@ -418,7 +483,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
                 </p>
                 <div className="mt-4 text-center">
                   <Link
-                    href="/study/paes-m1"
+                    href={sourceTutoringHref}
                     className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4"
                   >
                     <ArrowLeft className="h-4 w-4" aria-hidden="true" />
@@ -431,7 +496,10 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
         </div>
 
         <footer className="shrink-0 pt-2">
-          <CapsuleNavigation className="grid grid-cols-2 gap-2 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 p-1.5 shadow-[0_-8px_22px_rgba(16,33,63,0.08)] backdrop-blur" />
+          <CapsuleNavigation
+            sourceTutoringHref={sourceTutoringHref}
+            className="grid grid-cols-2 gap-2 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 p-1.5 shadow-[0_-8px_22px_rgba(16,33,63,0.08)] backdrop-blur"
+          />
         </footer>
       </div>
     </main>

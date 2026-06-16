@@ -71,6 +71,8 @@ interface StudyLoadAnswerFormProps {
   items: Item[]
   initialFeedback?: Feedback
   initialAnswers?: Record<string, string>
+  sourceTutoringHref: string
+  nextStudyLoadHref?: string
 }
 
 const AUTOREPORTE_OPTIONS = ['Me fue bien', 'Me costó', 'No la terminé'] as const
@@ -85,6 +87,8 @@ export default function StudyLoadAnswerForm({
   items,
   initialAnswers,
   initialFeedback,
+  sourceTutoringHref,
+  nextStudyLoadHref,
 }: StudyLoadAnswerFormProps) {
   const router = useRouter()
   const [isPendingRefresh, startTransition] = useTransition()
@@ -545,18 +549,34 @@ export default function StudyLoadAnswerForm({
               <p className="mt-1 text-sm font-medium leading-relaxed text-[#253A5F]">
                 Tu autorreporte quedó guardado. Puedes volver a la tutoría para revisar tu avance.
               </p>
-              <div className="mt-3 grid grid-cols-2 gap-2">
+              <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
                 <a
-                  href="/study/paes-m1"
+                  href={sourceTutoringHref}
                   className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#79A6A4] bg-white px-3 text-xs font-bold text-[#10213F] shadow-sm transition hover:bg-[#EEF4F7]"
                 >
                   Volver a tutoría
                 </a>
+                {nextStudyLoadHref ? (
+                  <a
+                    href={nextStudyLoadHref}
+                    className="inline-flex min-h-9 items-center justify-center rounded-full border border-[#DCE5EA] bg-white px-3 text-xs font-bold text-[#192F56] shadow-sm transition hover:bg-[#EEF4F7]"
+                  >
+                    Ir a la siguiente cápsula
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    disabled
+                    className="inline-flex min-h-9 cursor-not-allowed items-center justify-center rounded-full border border-[#DCE5EA] bg-white/70 px-3 text-xs font-bold text-[#6B7280] shadow-sm"
+                  >
+                    Ir a la siguiente cápsula
+                  </button>
+                )}
                 <a
                   href="/now"
                   className="inline-flex min-h-9 items-center justify-center rounded-full bg-[#192F56] px-3 text-xs font-bold text-white shadow-[0_10px_22px_rgba(25,47,86,0.16)] transition hover:bg-[#253A5F]"
                 >
-                  Ir DB
+                  Ir Dashboard
                 </a>
               </div>
             </div>

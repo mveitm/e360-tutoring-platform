@@ -42,6 +42,77 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-FIX-1
+
+Baseline before:
+
+```text
+ce3c18a6a075ac104b7b28fb3d1341f9d00213d7
+```
+
+Result/verdict:
+
+```text
+M2_C01_POST_COMPLETION_NAVIGATION_FIXED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/app/now/study-loads/[id]/page.tsx
+nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_POST_COMPLETION_NAVIGATION_FIX_1.md
+```
+
+Scope summary:
+
+Fixed post-completion capsule navigation so `Volver a tutoría` derives its destination from the completed StudyLoad origin chain instead of a fixed PAES_M1 route. PAES_M1 preserves `/study/paes-m1`; PAES_M2, PAES_L1 and future program codes return to the multi-tutoring dashboard context at `/now#tutorias`.
+
+Added `Ir a la siguiente cápsula` beside `Volver a tutoría` and `Ir Dashboard` in the finalized capsule UI. The action only links to an existing same-cycle content-backed `pending` or `in_progress` StudyLoad; when none exists, it is visible but disabled and creates no data.
+
+Validation summary:
+
+```text
+git diff --check: passed
+TypeScript noEmit: passed
+Next build: passed
+secret-pattern scan: passed
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-HUMAN-SMOKE-1
+```
+
+Notes:
+
+- Post-completion navigation fixed to return to source tutoring/program.
+- Added `Ir a la siguiente cápsula` post-completion action.
+- Codex did not execute or mutate DB.
+- No schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No reset, seed reset, migration, db push or direct SQL.
+- No dashboard multi-tutoring contract change.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-SALES-PILOT-M2-C01-HUMAN-UI-SMOKE-RESUME-1
 
 Baseline before:
