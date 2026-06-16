@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-POLISH-1`
+`MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-HUMAN-SMOKE-1`
 
 Result:
-`STUDENT_CAPSULE_RESPONSIVE_LAYOUT_POLISHED`
+`STUDENT_CAPSULE_RESPONSIVE_LAYOUT_HUMAN_SMOKE_PASSED`
 
 Commit:
 `see final git log after commit/push`
@@ -16,33 +16,34 @@ Working tree:
 `clean after commit/push`
 
 Files changed:
-- `nextjs_space/app/now/study-loads/[id]/page.tsx`
-- `nextjs_space/app/now/study-loads/[id]/_components/study-load-answer-form.tsx`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_STUDENT_CAPSULE_RESPONSIVE_LAYOUT_POLISH_1.md`
+- `nextjs_space/docs/operations/MVP_STUDENT_CAPSULE_RESPONSIVE_LAYOUT_HUMAN_SMOKE_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_STUDENT_CAPSULE_RESPONSIVE_LAYOUT_POLISH_1.md`
+`nextjs_space/docs/operations/MVP_STUDENT_CAPSULE_RESPONSIVE_LAYOUT_HUMAN_SMOKE_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `ffc19b742eb9b11d44c92ff260bda40eb5459ec2`.
-- Previous retry blocker resolved by human; `logobexauri_v1.png` was no longer in the repo working tree.
+- Preflight passed at `4faa5de43e69cec8fa304ae6f65ab6dae042d9b9`.
 - Context gate read.
-- Capsule shell widened from `max-w-3xl` to `max-w-6xl` with desktop padding.
-- Capsule scroll/content area gets additional desktop padding.
-- Active answering questions now use `grid gap-4 lg:grid-cols-2`.
-- Completed/review questions now use `grid gap-4 lg:grid-cols-2`.
-- Mobile remains single-column because responsive changes start at `lg`.
-- M1/M2 covered through shared capsule viewer and answer form.
-- No post-completion navigation changes.
+- Sanitized human UI evidence reviewed.
+- Mobile layout: PASS.
+- Tablet layout: PASS.
+- PC/desktop layout: PASS.
+- Capsule UI uses tablet/PC width better: PASS.
+- Mobile behavior preserved: PASS.
+- M1 capsule layout: PASS.
+- M2 capsule layout: PASS.
+- Feedback/review visible and usable: PASS.
+- Autorreporte visible and usable: PASS.
+- Post-completion buttons visible and consistent: PASS.
+- No functional regression observed: PASS.
+- No code changed in this phase.
 - No logo integration performed.
 - `git diff --check`: passed.
-- TypeScript noEmit with explicit project: passed.
-- Next build: passed.
 - Secret-pattern scan over changed files: passed.
 
 DB execution by Codex:
@@ -50,6 +51,9 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
+
+Code changes:
+`NOT_PERFORMED`
 
 Schema changes:
 `NOT_PERFORMED`
@@ -67,7 +71,7 @@ Logo asset integration:
 `NOT_PERFORMED`
 
 Follow-up/blocker:
-`MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-HUMAN-SMOKE-1`
+`MVP-BRANDING-LOGO-ASSET-INTEGRATION-1`
 
 Scope safety:
-Shared capsule UI responsive layout polish only. No base de datos command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action, no logo movement/versioning/integration and no secrets printed.
+Documentation-only human smoke closeout. No base de datos command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action, no code/UI/API change, no build, no logo movement/versioning/integration and no secrets printed.

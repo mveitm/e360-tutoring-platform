@@ -42,6 +42,67 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-HUMAN-SMOKE-1
+
+Baseline before:
+
+```text
+4faa5de43e69cec8fa304ae6f65ab6dae042d9b9
+```
+
+Result/verdict:
+
+```text
+STUDENT_CAPSULE_RESPONSIVE_LAYOUT_HUMAN_SMOKE_PASSED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_CAPSULE_RESPONSIVE_LAYOUT_HUMAN_SMOKE_1.md
+```
+
+Scope summary:
+
+Documented sanitized human UI smoke evidence for the capsule responsive layout polish. Mobile, tablet and PC/desktop layouts passed; tablet/PC width usage improved; mobile behavior remained preserved; M1 and M2 capsule layouts passed; feedback/review, autoreporte and post-completion buttons remained visible/usable; no functional regression was observed.
+
+Next recommended phase:
+
+```text
+MVP-BRANDING-LOGO-ASSET-INTEGRATION-1
+```
+
+Notes:
+
+- Human smoke accepted the capsule responsive layout polish.
+- Logo asset integration remains separated into a dedicated branding/asset phase.
+- Codex did not execute or mutate DB.
+- No code/schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No code changes.
+- No DB execution or mutation.
+- No base de datos command.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No logo asset movement, versioning or integration.
+- No build, browser automation or API-only tests by Codex.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-POLISH-1
 
 Baseline before:
