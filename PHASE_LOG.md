@@ -42,6 +42,71 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-HUMAN-SMOKE-1
+
+Baseline before:
+
+```text
+13a325d1d8d3dd1fef5aa557bc1de7bf481b7d19
+```
+
+Result/verdict:
+
+```text
+STUDENT_TUTORING_UI_STRUCTURE_POLISH_HUMAN_SMOKE_PASSED_WITH_MINOR_RESPONSIVE_LAYOUT_OBSERVATION
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_POLISH_HUMAN_SMOKE_1.md
+```
+
+Scope summary:
+
+Documented sanitized human UI smoke evidence for tutoring UI structure polish. All observed verification points passed: dashboard `¿Qué hago ahora?`, auxiliary text removed, `Tus Tutorías` keeps `Entrar`, `Tutorías Bexauri` has no duplicated `Continuar` for active tutorings, ST M1 shows `Dashboard`, ST M1 no longer shows `Tutoría Activa`, M2 description is corrected, navigation is preserved and no functional regression was observed.
+
+Non-blocking observation:
+
+- M1/M2 capsule UI does not use tablet/PC width well enough.
+- Mobile behavior works correctly.
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-POLISH-1
+```
+
+Notes:
+
+- Human smoke accepted the tutoring UI structure polish.
+- Minor responsive capsule layout observation documented for follow-up.
+- Codex did not execute or mutate DB.
+- No code/schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No code changes.
+- No DB execution or mutation.
+- No base de datos command.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No build, browser automation or API-only tests by Codex.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-1
 
 Baseline before:
