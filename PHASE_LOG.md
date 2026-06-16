@@ -42,6 +42,68 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-SALES-PILOT-M2-C01-HUMAN-UI-SMOKE-RESUME-1
+
+Baseline before:
+
+```text
+4f8a1efe524b64c7fea55f51439f04fc8b280773
+```
+
+Result/verdict:
+
+```text
+M2_C01_HUMAN_UI_SMOKE_RESUME_COMPLETED_WITH_POST_COMPLETION_NAVIGATION_OBSERVATION
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_HUMAN_UI_SMOKE_RESUME_1.md
+```
+
+Scope summary:
+
+Documented resumed human UI smoke for PAES_M2 / M2-C01 after the accepted dashboard multi-tutoring fix. Human evidence confirms login, dashboard reachability, PAES_M2 active visibility, M2-C01 reachability, opening, 4 exercises, first interaction, submit, brief and complete feedback, active self-report, finalize action, and finalized/completed capsule UI.
+
+Post-completion navigation observation:
+
+- `Volver a tutoria` navigated to ST M1 after completing M2-C01 and should return to the PAES_M2 tutoring context.
+- The finalized capsule UI should add `Ir a la siguiente capsula` beside `Volver a tutoria` and `Ir Dashboard`.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-FIX-1
+```
+
+Notes:
+
+- Human UI smoke for PAES_M2/M2-C01 resumed after dashboard multi-tutoring fix.
+- Codex did not execute or mutate DB.
+- No code/schema/content/payment/subscription/StudentAccess changes.
+- Result and follow-up documented.
+
+Explicit non-actions:
+
+- No code changes.
+- No DB execution or mutation.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No build, browser automation or API-only tests by Codex.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-2-HUMAN-SMOKE-1
 
 Baseline before:
