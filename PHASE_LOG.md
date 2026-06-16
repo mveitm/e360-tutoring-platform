@@ -42,6 +42,81 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-BRANDING-LOGO-SIZE-POLISH-1
+
+Baseline before:
+
+```text
+d65ba42a8f5a3d26da3491bcdbb491c739ed13f6
+```
+
+Result/verdict:
+
+```text
+BRANDING_LOGO_SIZE_POLISHED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/app/page.tsx
+nextjs_space/app/now/page.tsx
+nextjs_space/app/now/study-loads/[id]/page.tsx
+nextjs_space/app/study/_components/program-study-page.tsx
+nextjs_space/app/study/paes-m1/page.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_BRANDING_LOGO_SIZE_POLISH_1.md
+```
+
+Scope summary:
+
+Adjusted only the visual rendered size of the already integrated Bexauri logo. The logo asset file was preserved unchanged. Dashboard/ST/capsule logo boxes were increased and brought closer to the asset ratio; landing received the same proportional treatment with a slightly larger header scale.
+
+Validation summary:
+
+```text
+git diff --check: passed
+TypeScript noEmit with explicit project: passed
+Next build: passed
+high-risk secret-pattern scan: passed
+```
+
+Next recommended phase:
+
+```text
+MVP-BRANDING-LOGO-SIZE-HUMAN-SMOKE-1
+```
+
+Notes:
+
+- Bexauri logo size adjusted after human smoke observation.
+- Logo asset preserved.
+- Codex did not execute or mutate DB.
+- No schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No base de datos command.
+- No logo file modification.
+- No logo replacement or generated image.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No navigation or flow changes.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-BRANDING-LOGO-ASSET-HUMAN-SMOKE-1
 
 Baseline before:

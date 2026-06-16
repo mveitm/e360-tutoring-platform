@@ -235,7 +235,7 @@ export async function ProgramStudyPage({
                   width={220}
                   height={88}
                   priority
-                  className="h-6 w-[96px] rounded-lg object-contain object-center sm:h-9 sm:w-[132px]"
+                  className="h-8 w-[60px] rounded-lg object-contain object-center sm:h-10 sm:w-[74px]"
                 />
               </span>
               <span className="hidden text-sm font-semibold text-[#5D6B7A] sm:inline">{title}</span>

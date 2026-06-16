@@ -80,7 +80,7 @@ export default function Home() {
                     width={220}
                     height={88}
                     priority
-                    className="h-9 w-[124px] rounded-lg object-contain object-center sm:h-11 sm:w-[152px]"
+                    className="h-10 w-[74px] rounded-lg object-contain object-center sm:h-12 sm:w-[88px]"
                   />
                 </span>
               </Link>
