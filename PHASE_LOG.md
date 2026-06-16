@@ -42,6 +42,68 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-FIX-2-HUMAN-SMOKE-1
+
+Baseline before:
+
+```text
+840803d52b5d80fc8c9e5bdd747b93a3f12db42e
+```
+
+Result/verdict:
+
+```text
+M2_C01_POST_COMPLETION_NAVIGATION_FIX_2_HUMAN_SMOKE_PASSED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_POST_COMPLETION_NAVIGATION_FIX_2_HUMAN_SMOKE_1.md
+```
+
+Scope summary:
+
+Documented sanitized human UI smoke evidence for Fix 2. All observed verification points passed: PAES_M2 finalized capsule remains visible and reviewable, `Volver a tutoría` no longer goes to DB/dashboard and returns to ST M2, `Ir Dashboard` is preserved, `Ir a la siguiente cápsula` keeps safe behavior, review buttons are visually more consistent, and no runtime/feedback/self-report blocker was observed.
+
+Non-blocking observations:
+
+- Use this as a clean baseline for a later UI structure alignment phase across tutoring programs.
+- In DB/dashboard `Tus Tutorías`, change action copy from `Continuar` to `Entrar` and route first into tutoring context before capsule UI.
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-1
+```
+
+Notes:
+
+- Fix 2 human smoke passed.
+- Codex did not execute or mutate DB.
+- No code/schema/content/payment/subscription/StudentAccess changes.
+- Result and follow-up documented.
+
+Explicit non-actions:
+
+- No code changes.
+- No DB execution or mutation.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No build, browser automation or API-only tests by Codex.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-FIX-2
 
 Baseline before:
