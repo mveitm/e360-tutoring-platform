@@ -366,12 +366,12 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
             <Link href={sourceTutoringHref} className="flex min-w-0 items-center gap-2" aria-label="Bexauri">
               <span className="rounded-xl border border-[#DCE5EA] bg-white px-1.5 py-0.5 shadow-sm shadow-[#10213F]/10">
                 <Image
-                  src="/brand/bexauri-logo-provisional.png"
+                  src="/brand/logobexauri_v1.png"
                   alt="Bexauri"
                   width={220}
                   height={88}
                   priority
-                  className="h-6 w-[96px] rounded-lg object-cover object-center sm:h-8 sm:w-[120px]"
+                  className="h-6 w-[96px] rounded-lg object-contain object-center sm:h-8 sm:w-[120px]"
                 />
               </span>
               <span className="min-w-0 text-xs font-bold leading-tight text-[#253A5F] sm:text-sm">

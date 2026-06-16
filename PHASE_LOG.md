@@ -42,6 +42,83 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-BRANDING-LOGO-ASSET-INTEGRATION-1
+
+Baseline before:
+
+```text
+d7a569382b5a455355a7c5d43eb9ad6504c974bc
+```
+
+Result/verdict:
+
+```text
+BRANDING_LOGO_ASSET_INTEGRATED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/public/brand/logobexauri_v1.png
+nextjs_space/app/page.tsx
+nextjs_space/app/now/page.tsx
+nextjs_space/app/study/_components/program-study-page.tsx
+nextjs_space/app/study/paes-m1/page.tsx
+nextjs_space/app/now/study-loads/[id]/page.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_BRANDING_LOGO_ASSET_INTEGRATION_1.md
+```
+
+Scope summary:
+
+Integrated the new Bexauri logo asset from the local approved source into `nextjs_space/public/brand/logobexauri_v1.png`. Updated the landing, dashboard, ST program pages, ST M1 and capsule viewer logo images to use the new asset while preserving `alt="Bexauri"`, existing dimensions and layout. Changed image fit to `object-contain` to preserve logo proportions.
+
+Validation summary:
+
+```text
+git diff --check: passed
+TypeScript noEmit with explicit project: passed
+Next build: passed
+secret-pattern scan: passed
+```
+
+Next recommended phase:
+
+```text
+MVP-BRANDING-LOGO-ASSET-HUMAN-SMOKE-1
+```
+
+Notes:
+
+- New Bexauri logo asset integrated.
+- Asset placed in public/versioned project path.
+- Header/branding updated minimally.
+- Codex did not execute or mutate DB.
+- No schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No base de datos command.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No navigation or flow changes.
+- No dashboard or capsule responsive structure changes.
+- No new libraries.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-STUDENT-CAPSULE-RESPONSIVE-LAYOUT-HUMAN-SMOKE-1
 
 Baseline before:

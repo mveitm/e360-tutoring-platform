@@ -75,12 +75,12 @@ export default function Home() {
               <Link href="/" className="flex min-w-0 items-center" aria-label="Bexauri">
                 <span className="rounded-2xl border border-[#DCE5EA] bg-white px-2.5 py-2 shadow-[0_8px_18px_rgba(16,33,63,0.12)]">
                   <Image
-                    src="/brand/bexauri-logo-provisional.png"
+                    src="/brand/logobexauri_v1.png"
                     alt="Bexauri"
                     width={220}
                     height={88}
                     priority
-                    className="h-9 w-[124px] rounded-lg object-cover object-center sm:h-11 sm:w-[152px]"
+                    className="h-9 w-[124px] rounded-lg object-contain object-center sm:h-11 sm:w-[152px]"
                   />
                 </span>
               </Link>

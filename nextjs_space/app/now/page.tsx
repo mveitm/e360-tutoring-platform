@@ -158,12 +158,12 @@ function DashboardHeader({ studentName }: { studentName?: string }) {
         <Link href="/now" className="flex min-w-0 items-center gap-3" aria-label="Bexauri">
           <span className="rounded-xl border border-[#DCE5EA] bg-white px-1.5 py-0.5 shadow-sm shadow-[#10213F]/10 sm:rounded-2xl sm:px-2 sm:py-1">
             <Image
-              src="/brand/bexauri-logo-provisional.png"
+              src="/brand/logobexauri_v1.png"
               alt="Bexauri"
               width={220}
               height={88}
               priority
-              className="h-6 w-[96px] rounded-lg object-cover object-center sm:h-9 sm:w-[132px]"
+              className="h-6 w-[96px] rounded-lg object-contain object-center sm:h-9 sm:w-[132px]"
             />
           </span>
           <span className="hidden text-sm font-semibold text-[#5D6B7A] sm:inline">
