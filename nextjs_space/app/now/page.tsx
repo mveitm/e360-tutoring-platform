@@ -236,8 +236,6 @@ function getTutoringDescription(programCode: string) {
 }
 
 function getTutoringActionHref(tutoring: ActiveTutoring) {
-  const actionableLoad = selectActivityCandidate([tutoring])?.load
-  if (actionableLoad) return `/now/study-loads/${actionableLoad.id}`
   return getStudyProgramHref(tutoring.programCode)
 }
 
@@ -247,7 +245,7 @@ function OwnTutoringSection({ tutorings }: { tutorings: ActiveTutoring[] }) {
       <div className="mb-2 flex items-center justify-between gap-3 sm:mb-4">
         <div>
           <h2 className="mt-0.5 font-display text-lg font-bold text-[#10213F] sm:text-2xl">Tus Tutorías</h2>
-          <p className="mt-1 text-sm leading-6 text-[#5D6B7A]">Tutorías activas o matriculadas para continuar desde una tarjeta concreta.</p>
+          <p className="mt-1 text-sm leading-6 text-[#5D6B7A]">Tutorías activas o matriculadas para entrar primero al contexto de estudio.</p>
         </div>
         <span className="hidden h-1.5 w-16 rounded-full bg-[#F2B84B] sm:block" aria-hidden="true" />
       </div>
@@ -294,7 +292,7 @@ function OwnTutoringSection({ tutorings }: { tutorings: ActiveTutoring[] }) {
                   href={getTutoringActionHref(tutoring)}
                   className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#F2B84B]/40 bg-[linear-gradient(135deg,#EFA45F_0%,#D85B8C_55%,#A63D4F_100%)] px-3 py-1.5 text-xs font-bold text-white shadow-[0_0_18px_rgba(216,91,140,0.22),0_8px_18px_rgba(166,61,79,0.16)] transition hover:shadow-[0_0_22px_rgba(216,91,140,0.28),0_10px_20px_rgba(166,61,79,0.20)] focus:outline-none focus:ring-4 focus:ring-[#D85B8C]/20 sm:px-4 sm:py-2 sm:text-sm"
                 >
-                  Continuar
+                  Entrar
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </article>

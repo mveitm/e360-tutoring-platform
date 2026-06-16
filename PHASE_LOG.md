@@ -42,6 +42,75 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-1
+
+Baseline before:
+
+```text
+fa36338838cc87b9fcd4a91a9eeae1d804a3ff31
+```
+
+Result/verdict:
+
+```text
+STUDENT_TUTORING_UI_STRUCTURE_ALIGNED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/app/now/page.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_1.md
+```
+
+Scope summary:
+
+Dashboard `Tus Tutorías` primary action changed from `Continuar` to `Entrar`. The active tutoring card action now routes to the source tutoring/program ST context through `getStudyProgramHref(programCode)` instead of selecting an actionable StudyLoad and jumping directly to capsule UI. M1/M2/L1 ST structure was inspected; the dashboard-to-tutoring-to-capsule flow is aligned, with M1's richer enrollment/first-capsule behavior documented as an intentional current divergence.
+
+Validation summary:
+
+```text
+git diff --check: passed
+TypeScript noEmit with explicit project: passed
+Next build: passed
+secret-pattern scan: passed
+```
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-HUMAN-SMOKE-1
+```
+
+Notes:
+
+- Dashboard `Tus Tutorías` action changed from `Continuar` to `Entrar`.
+- `Entrar` routes to tutoring/program context, not directly to capsule.
+- M1/M2/L1 tutoring UI structure inspected and aligned or follow-ups documented.
+- Codex did not execute or mutate DB.
+- No schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No base de datos command.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No StudyLoad creation or modification.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-FIX-2-HUMAN-SMOKE-1
 
 Baseline before:

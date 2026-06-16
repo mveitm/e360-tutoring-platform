@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-FIX-2-HUMAN-SMOKE-1`
+`MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-1`
 
 Result:
-`M2_C01_POST_COMPLETION_NAVIGATION_FIX_2_HUMAN_SMOKE_PASSED`
+`STUDENT_TUTORING_UI_STRUCTURE_ALIGNED`
 
 Commit:
 `see final git log after commit/push`
@@ -16,28 +16,31 @@ Working tree:
 `clean after commit/push`
 
 Files changed:
+- `nextjs_space/app/now/page.tsx`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_POST_COMPLETION_NAVIGATION_FIX_2_HUMAN_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_POST_COMPLETION_NAVIGATION_FIX_2_HUMAN_SMOKE_1.md`
+`nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `840803d52b5d80fc8c9e5bdd747b93a3f12db42e`.
+- Preflight passed at `fa36338838cc87b9fcd4a91a9eeae1d804a3ff31`.
 - Context gate read.
-- Sanitized human UI evidence reviewed.
-- Human evidence marks all verification points as passed.
-- `Volver a tutoría` no longer goes to DB/dashboard from PAES_M2 completed capsule.
-- `Volver a tutoría` returns to ST M2.
-- `Ir Dashboard`, `Ir a la siguiente cápsula`, finalized review state, feedback/self-report path and runtime state were observed OK.
-- Non-blocking follow-up documented for cross-tutoring UI structure alignment and changing dashboard `Tus Tutorías` action copy from `Continuar` to `Entrar`.
-- No code changed in this phase.
+- Dashboard `Tus Tutorías` button changed from `Continuar` to `Entrar`.
+- `Entrar` now resolves to ST tutoring/program context via `getStudyProgramHref(programCode)`.
+- PAES_M1 resolves to `/study/paes-m1`.
+- PAES_M2 resolves to `/study/paes-m2`.
+- PAES_L1 resolves to `/study/paes-l1`.
+- Direct capsule routing was removed from the `Tus Tutorías` primary action.
+- M1/M2/L1 ST structures inspected; M1's richer enrollment/first-capsule behavior remains documented as an intentional current divergence.
 - `git diff --check`: passed.
-- Secret-pattern scan over changed files: zero high-risk matches.
+- TypeScript noEmit with explicit project: passed.
+- Next build: passed.
+- Secret-pattern scan over changed files: passed.
 
 DB execution by Codex:
 `NOT_EXECUTED_BY_CODEX`
@@ -57,11 +60,8 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-Code changes:
-`NOT_PERFORMED`
-
 Follow-up/blocker:
-`MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-1`
+`MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-HUMAN-SMOKE-1`
 
 Scope safety:
-Documentation-only human smoke closeout. No DB command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no StudentAccess changes, no payment/subscription changes, no production/staging action, no code/UI/API change, no build and no secrets printed.
+Dashboard/tutoring UI routing and copy change only. No base de datos command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no StudentAccess changes, no payment/subscription changes, no production/staging action and no secrets printed.
