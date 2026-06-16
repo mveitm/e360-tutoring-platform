@@ -42,6 +42,74 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-HUMAN-SMOKE-1
+
+Baseline before:
+
+```text
+e9ede5210acf63c6993a543d371fa4254b13b126
+```
+
+Result/verdict:
+
+```text
+STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_HUMAN_SMOKE_PASSED_WITH_MINOR_COPY_ACTION_OBSERVATIONS
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_HUMAN_SMOKE_1.md
+```
+
+Scope summary:
+
+Documented sanitized human UI smoke evidence for tutoring UI structure alignment. Dashboard `Tus Tutorías` -> `Entrar` passed, `Entrar` was not observed as a blocker, and all main verification points passed. Minor pending observations were captured for dashboard/ST copy and visible actions.
+
+Minor observations carried forward:
+
+- Dashboard `Que hago ahora` title should become `¿Qué hago ahora?`.
+- Suppress auxiliary `Continúa desde una...` text in that container.
+- Suppress `Continuar` button for active tutorings in `Tutorías Bexauri`.
+- In ST M1, rename `volver` to `Dashboard`.
+- In ST M1, suppress `Tutoría Activa`.
+- Shorten visible M2 description to remove `para Matemáticas M2`.
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-1
+```
+
+Notes:
+
+- Human smoke accepted the main tutoring UI structure alignment.
+- Minor copy/action observations documented for follow-up.
+- Codex did not execute or mutate DB.
+- No code/schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No code changes.
+- No DB execution or mutation.
+- No base de datos command.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No build, browser automation or API-only tests by Codex.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-1
 
 Baseline before:

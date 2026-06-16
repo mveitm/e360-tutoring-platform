@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-1`
+`MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-HUMAN-SMOKE-1`
 
 Result:
-`STUDENT_TUTORING_UI_STRUCTURE_ALIGNED`
+`STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_HUMAN_SMOKE_PASSED_WITH_MINOR_COPY_ACTION_OBSERVATIONS`
 
 Commit:
 `see final git log after commit/push`
@@ -16,30 +16,26 @@ Working tree:
 `clean after commit/push`
 
 Files changed:
-- `nextjs_space/app/now/page.tsx`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_1.md`
+- `nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_HUMAN_SMOKE_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_1.md`
+`nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_HUMAN_SMOKE_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `fa36338838cc87b9fcd4a91a9eeae1d804a3ff31`.
+- Preflight passed at `e9ede5210acf63c6993a543d371fa4254b13b126`.
 - Context gate read.
-- Dashboard `Tus Tutorías` button changed from `Continuar` to `Entrar`.
-- `Entrar` now resolves to ST tutoring/program context via `getStudyProgramHref(programCode)`.
-- PAES_M1 resolves to `/study/paes-m1`.
-- PAES_M2 resolves to `/study/paes-m2`.
-- PAES_L1 resolves to `/study/paes-l1`.
-- Direct capsule routing was removed from the `Tus Tutorías` primary action.
-- M1/M2/L1 ST structures inspected; M1's richer enrollment/first-capsule behavior remains documented as an intentional current divergence.
+- Sanitized human UI evidence reviewed.
+- Dashboard `Tus Tutorías` -> `Entrar`: PASS/OK.
+- `Entrar` in `Tus Tutorías` was not observed as a blocker.
+- All other main verification points were observed as PASS/OK.
+- Minor copy/action observations documented for dashboard and ST tutoring views.
+- No code changed in this phase.
 - `git diff --check`: passed.
-- TypeScript noEmit with explicit project: passed.
-- Next build: passed.
 - Secret-pattern scan over changed files: passed.
 
 DB execution by Codex:
@@ -47,6 +43,9 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
+
+Code changes:
+`NOT_PERFORMED`
 
 Schema changes:
 `NOT_PERFORMED`
@@ -61,7 +60,7 @@ StudentAccess changes:
 `NOT_PERFORMED`
 
 Follow-up/blocker:
-`MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-HUMAN-SMOKE-1`
+`MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-1`
 
 Scope safety:
-Dashboard/tutoring UI routing and copy change only. No base de datos command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no StudentAccess changes, no payment/subscription changes, no production/staging action and no secrets printed.
+Documentation-only human smoke closeout. No base de datos command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no StudentAccess changes, no payment/subscription changes, no production/staging action, no code/UI/API change, no build and no secrets printed.
