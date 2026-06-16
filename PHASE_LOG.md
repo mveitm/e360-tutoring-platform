@@ -42,6 +42,56 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-2-HUMAN-SMOKE-1
+
+Baseline before:
+
+```text
+ad8cb89bd3a226cac7d16ffbf2aa890f3e9ee5a4
+```
+
+Result/verdict:
+
+```text
+STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_2_HUMAN_SMOKE_PASSED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_2_HUMAN_SMOKE_1.md
+```
+
+Scope summary:
+
+Documented sanitized human visual smoke evidence for the second dashboard polish. All visual checks passed, including accepted structure preservation, header/footer, welcome, Tus Tutorías, Tutorías Bexauri, Última actividad de estudio, Mensaje de tu tutor Bexauri, softly differentiated tutoring circles/logos, axis-aligned subtitles, visible copy/tildes, M2 coherence with internal smoke enrollment, and no observed visual regression.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-HUMAN-UI-SMOKE-RESUME-1
+```
+
+Explicit non-actions:
+
+- No code changes.
+- No DB execution or mutation.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No build, browser automation or API-only tests.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-2
 
 Baseline before:
