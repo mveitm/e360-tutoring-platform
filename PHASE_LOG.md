@@ -42,6 +42,64 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-BRANDING-LOGO-ASSET-HUMAN-SMOKE-1
+
+Baseline before:
+
+```text
+1c8c242d044e6f90ef4bc74fe20d03c040cd040f
+```
+
+Result/verdict:
+
+```text
+BRANDING_LOGO_ASSET_HUMAN_SMOKE_PASSED_WITH_MINOR_SIZE_OBSERVATION
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_BRANDING_LOGO_ASSET_HUMAN_SMOKE_1.md
+```
+
+Scope summary:
+
+Documented sanitized human visual smoke evidence for the Bexauri logo asset integration. The logo is visible, integrated, not deformed, does not break layout and header/branding remains functional across mobile/tablet/PC. The phase passed with one minor size observation: in dashboard, the logo should be visually closer to the uppercase "H" size in "Hola".
+
+Next recommended phase:
+
+```text
+MVP-BRANDING-LOGO-SIZE-POLISH-1
+```
+
+Notes:
+
+- Human smoke accepted the logo asset integration with a minor size observation.
+- Codex did not execute or mutate DB.
+- No code/schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No base de datos command.
+- No code changes.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-BRANDING-LOGO-ASSET-INTEGRATION-1
 
 Baseline before:
