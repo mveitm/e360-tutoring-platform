@@ -42,6 +42,65 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-1
+
+Baseline before:
+
+```text
+49a603d4a8c25836c118f150f9daada4f1068280
+```
+
+Result/verdict:
+
+```text
+STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISHED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/app/now/page.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_DASHBOARD_MULTI_TUTORING_UI_POLISH_1.md
+```
+
+Scope summary:
+
+Polished the already accepted multi-tutoring dashboard without changing its structure. Student-facing subtitles now describe skills/ejes instead of internal cycles, visible Spanish accents were corrected, and PAES_M1/PAES_M2/PAES_L1 cards now have soft visual differentiation within the Bexauri identity.
+
+Notes:
+
+- Dashboard copy/visual polish applied after accepted human smoke.
+- Structure accepted in previous phase was preserved.
+- PAES_M2 remains active in LOCAL_DEV as a documented internal smoke enrollment state; no rollback or hiding was performed.
+- Codex did not execute or mutate DB.
+- No schema/content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-POLISH-HUMAN-SMOKE-1
+```
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No schema/Prisma changes.
+- No content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No reset, seed reset, migration, db push or direct SQL.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-15 - MVP-STUDENT-DASHBOARD-MULTI-TUTORING-UI-HUMAN-SMOKE-1
 
 Baseline before:

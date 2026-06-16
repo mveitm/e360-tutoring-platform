@@ -70,25 +70,46 @@ const catalogDefinitions = [
   {
     code: 'PAES_M1',
     shortCode: 'M1',
-    title: 'PAES Matematicas M1',
-    description: 'Refuerza contenidos de Matematica M1.',
+    title: 'PAES Matemática M1',
+    description: 'Álgebra, funciones y resolución de problemas.',
     availableWhenProgramActive: true,
   },
   {
     code: 'PAES_M2',
     shortCode: 'M2',
-    title: 'PAES Matematicas M2',
-    description: 'Prepara Matematica M2 con foco en modelacion y funciones.',
+    title: 'PAES Matemática M2',
+    description: 'Funciones, modelamiento y análisis matemático.',
     availableWhenProgramActive: true,
   },
   {
     code: 'PAES_L1',
     shortCode: 'L1',
     title: 'PAES Competencia Lectora',
-    description: 'Comprension lectora PAES para una proxima etapa.',
+    description: 'Comprensión lectora e interpretación de textos.',
     availableWhenProgramActive: false,
   },
 ] as const
+
+const tutoringVisuals: Record<string, { card: string; badge: string; catalogBadge: string; accent: string }> = {
+  PAES_M1: {
+    card: 'border-[#79A6A4] bg-[linear-gradient(180deg,#FBFCF6_0%,#E5F0EF_100%)]',
+    badge: 'bg-[#192F56] text-white',
+    catalogBadge: 'bg-[#192F56] text-white',
+    accent: 'bg-[#79A6A4]',
+  },
+  PAES_M2: {
+    card: 'border-[#A99AD2] bg-[linear-gradient(180deg,#FBFCF6_0%,#F2EFF8_100%)]',
+    badge: 'bg-[#34215F] text-white',
+    catalogBadge: 'bg-[#34215F] text-white',
+    accent: 'bg-[#A99AD2]',
+  },
+  PAES_L1: {
+    card: 'border-[#8FB6AD] bg-[linear-gradient(180deg,#FBFCF6_0%,#EEF4F7_100%)]',
+    badge: 'bg-[#4B7B7C] text-white',
+    catalogBadge: 'bg-[#4B7B7C] text-white',
+    accent: 'bg-[#4B7B7C]',
+  },
+}
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
@@ -112,14 +133,14 @@ function DashboardFooterNav() {
   return (
     <footer className="shrink-0 pt-2">
       <nav
-        aria-label="Guia de navegacion del dashboard"
+        aria-label="Guía de navegación del dashboard"
         className="grid grid-cols-3 gap-1 rounded-2xl border border-[#E2E8EC] bg-[#FBFCF6]/95 p-1.5 text-xs font-bold text-[#253A5F] shadow-[0_-8px_22px_rgba(16,33,63,0.08)] backdrop-blur"
       >
         <a href="#inicio" className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20">
           Inicio
         </a>
         <a href="#tutorias" className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20">
-          Tutorias
+          Tutorías
         </a>
         <a href="#actividad" className="inline-flex min-h-9 items-center justify-center rounded-xl px-2 transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20">
           Actividad
@@ -148,9 +169,9 @@ function DashboardHeader({ studentName }: { studentName?: string }) {
             {studentName ? studentName : 'Bexauri'}
           </span>
         </Link>
-        <nav className="hidden items-center gap-1 text-xs font-bold text-[#253A5F] md:flex" aria-label="Navegacion principal">
+        <nav className="hidden items-center gap-1 text-xs font-bold text-[#253A5F] md:flex" aria-label="Navegación principal">
           <a href="#tutorias" className="rounded-full px-3 py-2 transition hover:bg-[#EEF4F7]">
-            Tutorias
+            Tutorías
           </a>
           <a href="#actividad" className="rounded-full px-3 py-2 transition hover:bg-[#EEF4F7]">
             Actividad
@@ -178,10 +199,10 @@ function HeroSummary({ studentName }: { studentName?: string }) {
               <Compass className="h-4 w-4" aria-hidden="true" />
             </span>
             <div className="min-w-0">
-              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#34215F]">Que hago ahora</p>
-              <p className="text-base font-bold leading-5 sm:text-lg">Selecciona una tutoria o matriculate en una nueva</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#34215F]">Qué hago ahora</p>
+              <p className="text-base font-bold leading-5 sm:text-lg">Selecciona una tutoría o matricúlate en una nueva</p>
               <p className="mt-1 text-xs leading-5 text-[#5D6B7A] sm:text-sm">
-                Continua desde una tarjeta concreta para mantener clara tu ruta de estudio.
+                Continúa desde una tarjeta concreta para mantener clara tu ruta de estudio.
               </p>
             </div>
           </div>
@@ -205,6 +226,14 @@ function getProgramShortCode(programCode: string) {
   return programCode.replace(/^PAES_/, '')
 }
 
+function getTutoringVisual(programCode: string) {
+  return tutoringVisuals[programCode] ?? tutoringVisuals.PAES_M1
+}
+
+function getTutoringDescription(programCode: string) {
+  return catalogDefinitions.find((definition) => definition.code === programCode)?.description ?? 'Habilidades PAES y continuidad de estudio.'
+}
+
 function getTutoringActionHref(tutoring: ActiveTutoring) {
   const actionableLoad = selectActivityCandidate([tutoring])?.load
   if (actionableLoad) return `/now/study-loads/${actionableLoad.id}`
@@ -217,26 +246,27 @@ function OwnTutoringSection({ tutorings }: { tutorings: ActiveTutoring[] }) {
     <section id="tutorias" className="mt-2 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-2.5 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:mt-5 sm:p-6">
       <div className="mb-2 flex items-center justify-between gap-3 sm:mb-4">
         <div>
-          <h2 className="mt-0.5 font-display text-lg font-bold text-[#10213F] sm:text-2xl">Tus Tutorias</h2>
-          <p className="mt-1 text-sm leading-6 text-[#5D6B7A]">Tutorias activas o matriculadas para continuar desde una tarjeta concreta.</p>
+          <h2 className="mt-0.5 font-display text-lg font-bold text-[#10213F] sm:text-2xl">Tus Tutorías</h2>
+          <p className="mt-1 text-sm leading-6 text-[#5D6B7A]">Tutorías activas o matriculadas para continuar desde una tarjeta concreta.</p>
         </div>
         <span className="hidden h-1.5 w-16 rounded-full bg-[#F2B84B] sm:block" aria-hidden="true" />
       </div>
 
       {tutorings.length === 0 ? (
-        <EmptyState message="Aun no tienes tutorias activas. Revisa el catalogo Bexauri para iniciar una tutoria disponible." />
+        <EmptyState message="Aún no tienes tutorías activas. Revisa el catálogo Bexauri para iniciar una tutoría disponible." />
       ) : (
         <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1.5 [scrollbar-width:thin] md:mx-0 md:grid md:grid-cols-2 md:gap-3 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-3">
           {tutorings.map((tutoring) => {
             const pendingCount = tutoring.loads.filter((load) => load.status === 'pending').length
             const inProgressCount = tutoring.loads.filter((load) => load.status === 'in_progress').length
+            const visual = getTutoringVisual(tutoring.programCode)
             return (
               <article
                 key={tutoring.id}
-                className="min-w-[238px] flex-[0_0_80%] rounded-2xl border border-[#79A6A4] bg-[linear-gradient(180deg,#FBFCF6_0%,#E5F0EF_100%)] p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)] sm:flex-[0_0_42%] sm:rounded-3xl sm:p-4 md:min-w-0 md:flex-auto"
+                className={`min-w-[238px] flex-[0_0_80%] rounded-2xl border p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)] sm:flex-[0_0_42%] sm:rounded-3xl sm:p-4 md:min-w-0 md:flex-auto ${visual.card}`}
               >
                 <div className="flex items-start justify-between gap-2">
-                  <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-full bg-[#192F56] px-2.5 text-xs font-bold text-white sm:h-10 sm:min-w-10 sm:px-3 sm:text-sm">
+                  <span className={`inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2.5 text-xs font-bold sm:h-10 sm:min-w-10 sm:px-3 sm:text-sm ${visual.badge}`}>
                     {getProgramShortCode(tutoring.programCode)}
                   </span>
                   <Badge variant="secondary" className="rounded-full bg-white/80 text-[9px] font-bold uppercase tracking-wide text-[#253A5F] sm:text-[10px]">
@@ -244,9 +274,8 @@ function OwnTutoringSection({ tutorings }: { tutorings: ActiveTutoring[] }) {
                   </Badge>
                 </div>
                 <h3 className="mt-3 font-display text-base font-bold leading-5 text-[#10213F] sm:text-lg sm:leading-6">{tutoring.programName}</h3>
-                <p className="mt-1.5 text-xs leading-5 text-[#5D6B7A] sm:text-sm sm:leading-6">
-                  {tutoring.cycle ? `Ciclo ${tutoring.cycle.cycleNumber} abierto.` : 'Tutoria activa sin ciclo abierto visible.'}
-                </p>
+                <span className={`mt-2 block h-1 w-14 rounded-full ${visual.accent}`} aria-hidden="true" />
+                <p className="mt-1.5 text-xs leading-5 text-[#5D6B7A] sm:text-sm sm:leading-6">{getTutoringDescription(tutoring.programCode)}</p>
                 <div className="mt-3 grid grid-cols-3 gap-1.5 rounded-2xl border border-white/70 bg-white/55 p-1.5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
                   <div>
                     <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#5D6B7A]">Estado</p>
@@ -282,46 +311,50 @@ function CatalogTutoringSection({ tutorings }: { tutorings: CatalogTutoring[] })
     <section className="mt-4 rounded-3xl border border-[#E2E8EC] bg-[#FBFCF6] p-2.5 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:mt-5 sm:p-6">
       <div className="mb-2 flex items-center justify-between gap-3 sm:mb-4">
         <div>
-          <h2 className="font-display text-lg font-bold text-[#10213F] sm:text-2xl">Tutorias Bexauri</h2>
-          <p className="mt-1 text-sm leading-6 text-[#5D6B7A]">Catalogo visible con el estado contextual de cada tutoria.</p>
+          <h2 className="font-display text-lg font-bold text-[#10213F] sm:text-2xl">Tutorías Bexauri</h2>
+          <p className="mt-1 text-sm leading-6 text-[#5D6B7A]">Catálogo visible con el estado contextual de cada tutoría.</p>
         </div>
         <Layers className="hidden h-5 w-5 text-[#34215F] sm:block" aria-hidden="true" />
       </div>
       <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1.5 [scrollbar-width:thin] md:mx-0 md:px-0">
-        {tutorings.map((tutoring) => (
-          <article
-            key={tutoring.code}
-            className="min-w-[232px] flex-[0_0_78%] rounded-2xl border border-[#DCE5EA] bg-white p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)] sm:flex-[0_0_34%] sm:rounded-3xl sm:p-4 lg:min-w-[260px]"
-          >
-            <div className="flex items-start justify-between gap-2">
-              <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-full bg-[#34215F] px-2.5 text-xs font-bold text-white sm:h-10 sm:min-w-10 sm:px-3 sm:text-sm">
-                {getProgramShortCode(tutoring.code)}
-              </span>
-              <Badge variant="secondary" className="rounded-full bg-[#EEF4F7] text-[9px] font-bold uppercase tracking-wide text-[#253A5F] sm:text-[10px]">
-                {tutoring.state}
-              </Badge>
-            </div>
-            <h3 className="mt-3 font-display text-base font-bold leading-5 text-[#10213F] sm:text-lg sm:leading-6">{tutoring.title}</h3>
-            <p className="mt-1.5 text-xs leading-5 text-[#5D6B7A] sm:text-sm sm:leading-6">{tutoring.description}</p>
-            {tutoring.href && !tutoring.disabled ? (
-              <Link
-                href={tutoring.href}
-                className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#4B7B7C]/25 bg-[#EEF4F7] px-3 py-1.5 text-xs font-bold text-[#192F56] transition hover:bg-[#E5F0EF] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:px-4 sm:py-2 sm:text-sm"
-              >
-                {tutoring.action}
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            ) : (
-              <button
-                type="button"
-                disabled
-                className="mt-3 inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-[#DCE5EA] bg-[#F5F7F8] px-3 py-1.5 text-xs font-bold text-[#6B7280] sm:px-4 sm:py-2 sm:text-sm"
-              >
-                {tutoring.action}
-              </button>
-            )}
-          </article>
-        ))}
+        {tutorings.map((tutoring) => {
+          const visual = getTutoringVisual(tutoring.code)
+          return (
+            <article
+              key={tutoring.code}
+              className={`min-w-[232px] flex-[0_0_78%] rounded-2xl border p-3 shadow-[0_8px_20px_rgba(16,33,63,0.07)] sm:flex-[0_0_34%] sm:rounded-3xl sm:p-4 lg:min-w-[260px] ${visual.card}`}
+            >
+              <div className="flex items-start justify-between gap-2">
+                <span className={`inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2.5 text-xs font-bold sm:h-10 sm:min-w-10 sm:px-3 sm:text-sm ${visual.catalogBadge}`}>
+                  {getProgramShortCode(tutoring.code)}
+                </span>
+                <Badge variant="secondary" className="rounded-full bg-white/80 text-[9px] font-bold uppercase tracking-wide text-[#253A5F] sm:text-[10px]">
+                  {tutoring.state}
+                </Badge>
+              </div>
+              <h3 className="mt-3 font-display text-base font-bold leading-5 text-[#10213F] sm:text-lg sm:leading-6">{tutoring.title}</h3>
+              <span className={`mt-2 block h-1 w-14 rounded-full ${visual.accent}`} aria-hidden="true" />
+              <p className="mt-1.5 text-xs leading-5 text-[#5D6B7A] sm:text-sm sm:leading-6">{tutoring.description}</p>
+              {tutoring.href && !tutoring.disabled ? (
+                <Link
+                  href={tutoring.href}
+                  className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#4B7B7C]/25 bg-white/75 px-3 py-1.5 text-xs font-bold text-[#192F56] transition hover:bg-white focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:px-4 sm:py-2 sm:text-sm"
+                >
+                  {tutoring.action}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  className="mt-3 inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-[#DCE5EA] bg-white/70 px-3 py-1.5 text-xs font-bold text-[#6B7280] sm:px-4 sm:py-2 sm:text-sm"
+                >
+                  {tutoring.action}
+                </button>
+              )}
+            </article>
+          )
+        })}
       </div>
     </section>
   )
@@ -362,8 +395,8 @@ function selectActivityCandidate(tutorings: ActiveTutoring[]): ActivityCandidate
 
 function getActivityAction(load: LoadWithSessions) {
   if (load.status === 'completed') return 'Ver feedback'
-  if (load.status === 'in_progress') return 'Continuar capsula'
-  return 'Iniciar capsula'
+  if (load.status === 'in_progress') return 'Continuar cápsula'
+  return 'Iniciar cápsula'
 }
 
 function getActivityStateLabel(load: LoadWithSessions) {
@@ -377,15 +410,15 @@ function LatestActivitySection({ candidate }: { candidate: ActivityCandidate | n
     <section id="actividad" className="mt-5 rounded-3xl border border-[#DCE5EA] bg-[#FBFCF6] p-3 shadow-[0_10px_30px_rgba(16,33,63,0.08)] sm:p-6">
       <div className="mb-3 flex items-center gap-2 text-[#253A5F]">
         <Clock className="h-4 w-4" aria-hidden="true" />
-        <h2 className="font-display text-lg font-bold text-[#10213F] sm:text-2xl">Ultima actividad de estudio</h2>
+        <h2 className="font-display text-lg font-bold text-[#10213F] sm:text-2xl">Última actividad de estudio</h2>
       </div>
       {!candidate ? (
-        <EmptyState message="Aun no hay una capsula disponible. Cuando exista una actividad, aparecera aqui." />
+        <EmptyState message="Aún no hay una cápsula disponible. Cuando exista una actividad, aparecerá aquí." />
       ) : (
         <LoadCard load={candidate.load}>
           <div className="mt-3 grid gap-2 rounded-2xl border border-[#E2E8EC] bg-[#EEF4F7]/70 p-3 text-sm text-[#253A5F] sm:grid-cols-3">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#5D6B7A]">Tutoria</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#5D6B7A]">Tutoría</p>
               <p className="mt-1 font-bold">{candidate.tutoring.programCode}</p>
             </div>
             <div>
@@ -393,14 +426,14 @@ function LatestActivitySection({ candidate }: { candidate: ActivityCandidate | n
               <p className="mt-1 font-bold">{getActivityStateLabel(candidate.load)}</p>
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#5D6B7A]">Accion</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#5D6B7A]">Acción</p>
               <p className="mt-1 font-bold">{getActivityAction(candidate.load)}</p>
             </div>
           </div>
           <div className="mt-4 flex items-center justify-between gap-2">
             {getStudyLoadContent(candidate.load.title) ? (
               <Link href={`/now/study-loads/${candidate.load.id}`} className="text-sm font-bold text-[#192F56] underline-offset-4 hover:underline">
-                Ver capsula
+                Ver cápsula
               </Link>
             ) : (
               <span />
@@ -425,8 +458,8 @@ function TutorMessageSection({ hasActiveTutorings }: { hasActiveTutorings: boole
           <h2 className="font-display text-xl font-bold text-[#10213F]">Mensaje de tu tutor Bexauri</h2>
           <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
             {hasActiveTutorings
-              ? 'Selecciona una tutoria activa para continuar tu avance o revisa tu ultima actividad de estudio.'
-              : 'Selecciona una tutoria o matriculate en una nueva cuando este disponible.'}
+              ? 'Selecciona una tutoría activa para continuar tu avance o revisa tu última actividad de estudio.'
+              : 'Selecciona una tutoría o matricúlate en una nueva cuando esté disponible.'}
           </p>
         </div>
       </div>
@@ -493,7 +526,7 @@ function buildCatalogTutorings(args: {
       title: program?.name ?? definition.title,
       description: definition.description,
       state: isReleased ? 'Disponible' : 'No disponible',
-      action: isReleased ? 'Matricularme' : 'Proximamente',
+      action: isReleased ? 'Matricularme' : 'Próximamente',
       disabled: true,
     }
   })
@@ -504,7 +537,7 @@ function AdminLink({ isAdminSession }: { isAdminSession: boolean }) {
   return (
     <div className="mt-8 text-center">
       <Link href="/admin" className="text-xs text-[#5D6B7A] underline-offset-4 hover:underline">
-        Ir al panel de administracion
+        Ir al panel de administración
       </Link>
     </div>
   )
