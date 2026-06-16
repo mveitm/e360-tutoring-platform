@@ -42,6 +42,66 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-BRANDING-LOGO-SIZE-HUMAN-SMOKE-1
+
+Baseline before:
+
+```text
+9f25269d0b5fccaa5e196ffbbae0c83e6fd6382f
+```
+
+Result/verdict:
+
+```text
+BRANDING_LOGO_SIZE_HUMAN_SMOKE_BLOCKED_NEEDS_ADDITIONAL_SIZE_POLISH
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_BRANDING_LOGO_SIZE_HUMAN_SMOKE_1.md
+```
+
+Scope summary:
+
+Documented sanitized human visual smoke evidence for the first Bexauri logo size polish. The logo remains visible, undeformed, and layout-safe, and its size improved substantially. Human verification still found the final size insufficient and requested an additional approximate 40% increase from the current rendered size.
+
+Next recommended phase:
+
+```text
+MVP-BRANDING-LOGO-SIZE-POLISH-2
+```
+
+Notes:
+
+- Human smoke blocked the first size polish on remaining visual scale.
+- Codex did not execute or mutate DB.
+- No code/schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No base de datos command.
+- No code changes.
+- No logo file modification.
+- No logo replacement or generated image.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-BRANDING-LOGO-SIZE-POLISH-1
 
 Baseline before:
