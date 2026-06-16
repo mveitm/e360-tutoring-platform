@@ -42,6 +42,67 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-HUMAN-SMOKE-1
+
+Baseline before:
+
+```text
+cfbcd40bca56e689a090969b8fede451a9d70f39
+```
+
+Result/verdict:
+
+```text
+M2_C01_POST_COMPLETION_NAVIGATION_HUMAN_SMOKE_BLOCKED_RETURN_TO_TUTORING_DESTINATION
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_POST_COMPLETION_NAVIGATION_HUMAN_SMOKE_1.md
+```
+
+Scope summary:
+
+Documented sanitized human UI smoke evidence after the post-completion navigation fix. The finalized PAES_M2 capsule UI remains visible and reviewable; `Ir Dashboard`, `Ir a la siguiente cápsula`, feedback/self-report surfaces and runtime state passed. The central criterion did not pass because `Volver a tutoría` returns to DB/dashboard instead of ST M2.
+
+Additional observation:
+
+- Review-container buttons in M1 and M2 capsule UI are too long and should be adjusted/standardized.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-FIX-2
+```
+
+Notes:
+
+- Human UI smoke after post-completion navigation fix was executed.
+- Codex did not execute or mutate DB.
+- No code/schema/content/payment/subscription/StudentAccess changes.
+- Result and follow-up documented.
+
+Explicit non-actions:
+
+- No code changes.
+- No DB execution or mutation.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No build, browser automation or API-only tests by Codex.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-SALES-PILOT-M2-C01-POST-COMPLETION-NAVIGATION-FIX-1
 
 Baseline before:
