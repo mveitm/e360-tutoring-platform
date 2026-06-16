@@ -42,6 +42,81 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-BRANDING-LOGO-SIZE-POLISH-2
+
+Baseline before:
+
+```text
+b6f09d1457f4aac4bb4091f718d10d65fdf37ed4
+```
+
+Result/verdict:
+
+```text
+BRANDING_LOGO_SIZE_POLISH_2_COMPLETED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/app/page.tsx
+nextjs_space/app/now/page.tsx
+nextjs_space/app/now/study-loads/[id]/page.tsx
+nextjs_space/app/study/_components/program-study-page.tsx
+nextjs_space/app/study/paes-m1/page.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_BRANDING_LOGO_SIZE_POLISH_2.md
+```
+
+Scope summary:
+
+Increased the rendered Bexauri logo size after human smoke requested an additional approximate 40% increase. Dashboard/ST/capsule logo classes moved from `h-8 w-[60px] sm:h-10 sm:w-[74px]` to `h-11 w-[84px] sm:h-14 sm:w-[104px]`. Landing moved from `h-10 w-[74px] sm:h-12 sm:w-[88px]` to `h-14 w-[104px] sm:h-16 sm:w-[124px]`. The logo asset file was preserved unchanged.
+
+Validation summary:
+
+```text
+git diff --check: passed
+TypeScript noEmit with explicit project: passed
+Next build: passed
+high-risk secret-pattern scan: passed
+```
+
+Next recommended phase:
+
+```text
+MVP-BRANDING-LOGO-SIZE-POLISH-2-HUMAN-SMOKE-1
+```
+
+Notes:
+
+- Bexauri logo size increased after human smoke observation.
+- Logo asset preserved.
+- Codex did not execute or mutate DB.
+- No schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No base de datos command.
+- No logo file modification.
+- No logo replacement or generated image.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No navigation or flow changes.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-BRANDING-LOGO-SIZE-HUMAN-SMOKE-1
 
 Baseline before:

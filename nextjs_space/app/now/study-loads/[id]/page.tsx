@@ -371,7 +371,7 @@ export default async function StudyLoadViewerPage({ params }: PageProps) {
                   width={220}
                   height={88}
                   priority
-                  className="h-8 w-[60px] rounded-lg object-contain object-center sm:h-10 sm:w-[74px]"
+                  className="h-11 w-[84px] rounded-lg object-contain object-center sm:h-14 sm:w-[104px]"
                 />
               </span>
               <span className="min-w-0 text-xs font-bold leading-tight text-[#253A5F] sm:text-sm">
