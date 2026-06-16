@@ -42,6 +42,78 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-16 - MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-1
+
+Baseline before:
+
+```text
+969101a6578a7732ae69a43afbf885a946f8d7d2
+```
+
+Result/verdict:
+
+```text
+STUDENT_TUTORING_UI_STRUCTURE_POLISHED
+```
+
+Document/files changed:
+
+```text
+nextjs_space/app/now/page.tsx
+nextjs_space/app/study/paes-m1/page.tsx
+nextjs_space/app/study/paes-m2/page.tsx
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_POLISH_1.md
+```
+
+Scope summary:
+
+Applied minor dashboard/ST copy and visible action polish. Dashboard now shows `¿Qué hago ahora?`, suppresses the auxiliary `Continúa desde una...` text, keeps `Entrar` in `Tus Tutorías`, and no longer duplicates `Continuar` for active tutorings in `Tutorías Bexauri`. ST M1 top return action now says `Dashboard`, the visible `Tutoría Activa` copy was suppressed, and PAES_M2 description copy was shortened.
+
+Validation summary:
+
+```text
+git diff --check: passed
+TypeScript noEmit with explicit project: passed
+Next build: passed
+secret-pattern scan: passed
+```
+
+Next recommended phase:
+
+```text
+MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-HUMAN-SMOKE-1
+```
+
+Notes:
+
+- Minor dashboard/ST copy and visible actions polished.
+- `Tus Tutorías` keeps `Entrar`.
+- `Tutorías Bexauri` no longer duplicates `Continuar` for active tutorings.
+- Codex did not execute or mutate DB.
+- No schema/pedagogical capsule content/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No base de datos command.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No StudyLoad creation or modification.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-HUMAN-SMOKE-1
 
 Baseline before:

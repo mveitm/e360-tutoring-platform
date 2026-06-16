@@ -79,7 +79,7 @@ const catalogDefinitions = [
     code: 'PAES_M2',
     shortCode: 'M2',
     title: 'PAES Matemática M2',
-    description: 'Modelación algebraica y funcional, datos, geometría y control de errores para Matemática M2.',
+    description: 'Modelación algebraica y funcional, datos, geometría y control de errores.',
     availableWhenProgramActive: true,
   },
   {
@@ -200,11 +200,8 @@ function HeroSummary({ studentName }: { studentName?: string }) {
               <Compass className="h-4 w-4" aria-hidden="true" />
             </span>
             <div className="min-w-0">
-              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#34215F]">Qué hago ahora</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#34215F]">¿Qué hago ahora?</p>
               <p className="text-base font-bold leading-5 sm:text-lg">Selecciona una tutoría o matricúlate en una nueva</p>
-              <p className="mt-1 text-xs leading-5 text-[#5D6B7A] sm:text-sm">
-                Continúa desde una tarjeta concreta para mantener clara tu ruta de estudio.
-              </p>
             </div>
           </div>
         </div>
@@ -341,7 +338,7 @@ function CatalogTutoringSection({ tutorings }: { tutorings: CatalogTutoring[] })
                   {tutoring.action}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
-              ) : (
+              ) : tutoring.disabled ? (
                 <button
                   type="button"
                   disabled
@@ -349,7 +346,7 @@ function CatalogTutoringSection({ tutorings }: { tutorings: CatalogTutoring[] })
                 >
                   {tutoring.action}
                 </button>
-              )}
+              ) : null}
             </article>
           )
         })}
@@ -512,8 +509,7 @@ function buildCatalogTutorings(args: {
         title: activeTutoring.programName,
         description: definition.description,
         state: 'Activa',
-        action: 'Continuar',
-        href: getTutoringActionHref(activeTutoring),
+        action: '',
       }
     }
 

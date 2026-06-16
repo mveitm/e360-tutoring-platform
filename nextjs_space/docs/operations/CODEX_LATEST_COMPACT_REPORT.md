@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-STUDENT-TUTORING-UI-STRUCTURE-ALIGNMENT-HUMAN-SMOKE-1`
+`MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-1`
 
 Result:
-`STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_HUMAN_SMOKE_PASSED_WITH_MINOR_COPY_ACTION_OBSERVATIONS`
+`STUDENT_TUTORING_UI_STRUCTURE_POLISHED`
 
 Commit:
 `see final git log after commit/push`
@@ -16,26 +16,32 @@ Working tree:
 `clean after commit/push`
 
 Files changed:
+- `nextjs_space/app/now/page.tsx`
+- `nextjs_space/app/study/paes-m1/page.tsx`
+- `nextjs_space/app/study/paes-m2/page.tsx`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_HUMAN_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_POLISH_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_ALIGNMENT_HUMAN_SMOKE_1.md`
+`nextjs_space/docs/operations/MVP_STUDENT_TUTORING_UI_STRUCTURE_POLISH_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `e9ede5210acf63c6993a543d371fa4254b13b126`.
+- Preflight passed at `969101a6578a7732ae69a43afbf885a946f8d7d2`.
 - Context gate read.
-- Sanitized human UI evidence reviewed.
-- Dashboard `Tus Tutorías` -> `Entrar`: PASS/OK.
-- `Entrar` in `Tus Tutorías` was not observed as a blocker.
-- All other main verification points were observed as PASS/OK.
-- Minor copy/action observations documented for dashboard and ST tutoring views.
-- No code changed in this phase.
+- Dashboard hero title changed to `¿Qué hago ahora?`.
+- Dashboard hero auxiliary `Continúa desde una...` text removed.
+- `Tus Tutorías` keeps `Entrar`.
+- `Tutorías Bexauri` no longer renders duplicated `Continuar` for active tutorings.
+- ST M1 top return action changed from `Volver` to `Dashboard`.
+- ST M1 visible `Tutoría Activa` copy suppressed.
+- PAES_M2 description shortened to `Modelación algebraica y funcional, datos, geometría y control de errores.`
 - `git diff --check`: passed.
+- TypeScript noEmit with explicit project: passed.
+- Next build: passed.
 - Secret-pattern scan over changed files: passed.
 
 DB execution by Codex:
@@ -43,9 +49,6 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
-
-Code changes:
-`NOT_PERFORMED`
 
 Schema changes:
 `NOT_PERFORMED`
@@ -60,7 +63,7 @@ StudentAccess changes:
 `NOT_PERFORMED`
 
 Follow-up/blocker:
-`MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-1`
+`MVP-STUDENT-TUTORING-UI-STRUCTURE-POLISH-HUMAN-SMOKE-1`
 
 Scope safety:
-Documentation-only human smoke closeout. No base de datos command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no StudentAccess changes, no payment/subscription changes, no production/staging action, no code/UI/API change, no build and no secrets printed.
+UI/copy polish only. No base de datos command, no DB mutation, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action and no secrets printed.

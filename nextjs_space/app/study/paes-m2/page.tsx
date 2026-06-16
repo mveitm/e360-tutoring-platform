@@ -8,7 +8,7 @@ export default function PaesM2StudyPage() {
       programCode="PAES_M2"
       shortCode="M2"
       title="PAES Matemática M2"
-      description="Modelación algebraica y funcional, datos, geometría y control de errores para Matemática M2."
+      description="Modelación algebraica y funcional, datos, geometría y control de errores."
     />
   )
 }

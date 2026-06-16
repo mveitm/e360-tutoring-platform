@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
-import { ArrowLeft, ArrowRight, BookOpenCheck, CheckCircle2, CircleDashed, Info, Route, Sparkles } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpenCheck, CircleDashed, Info, Route, Sparkles } from 'lucide-react'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/prisma'
 import {
@@ -230,12 +230,7 @@ function StatusAction({ hasActiveEnrollment }: { hasActiveEnrollment: boolean })
   }
 
   if (hasActiveEnrollment) {
-    return (
-      <span className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#79A6A4] bg-[#E5F0EF] px-5 text-sm font-bold text-[#192F56]">
-        <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-        Tutoría Activa
-      </span>
-    )
+    return null
   }
 
   return (
@@ -566,7 +561,7 @@ export default async function PaesM1StudyPage({ searchParams }: PageProps) {
                 className="inline-flex min-h-8 shrink-0 items-center justify-center gap-1.5 rounded-full border border-[#DCE5EA] bg-white px-3 text-xs font-bold text-[#192F56] shadow-sm transition hover:bg-[#EEF4F7] focus:outline-none focus:ring-4 focus:ring-[#4B7B7C]/20 sm:min-h-9 sm:px-4 sm:text-sm"
               >
                 <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                Volver
+                Dashboard
               </Link>
             </div>
           </header>
@@ -621,7 +616,7 @@ export default async function PaesM1StudyPage({ searchParams }: PageProps) {
                     <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
                       <div>
                         <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#34215F]">Estado inicial</p>
-                        <h2 className="mt-1 font-display text-2xl font-bold text-[#10213F]">Tutoría Activa</h2>
+                        <h2 className="mt-1 font-display text-2xl font-bold text-[#10213F]">Ruta de estudio</h2>
                         <p className="mt-2 text-sm leading-6 text-[#5D6B7A]">
                           Tu tutoría PAES Matemáticas M1 está activa. Revisa tu siguiente cápsula y avanza desde el visor cuando estés listo.
                         </p>
