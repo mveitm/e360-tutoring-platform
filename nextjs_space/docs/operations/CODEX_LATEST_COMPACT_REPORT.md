@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-M2-C02-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-1`
+`MVP-SALES-PILOT-M2-C02-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1`
 
 Result:
-`M2_C02_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_DOCUMENTED`
+`M2_C02_LOCAL_DEV_ACCESS_HUMAN_ALIGNED`
 
 Commit:
 `see final git log after commit/push`
@@ -18,16 +18,16 @@ Working tree:
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C02_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C02_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C02_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_1.md`
+`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C02_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `280e265d112269624144ed42728a9a7ca32b93a4`.
+- Preflight passed at `342986b7c8577292a74babc004725649b8effb04`.
 - Context gate read.
 - Safe DB tooling inspected read-only.
 - `git diff --check`: passed.
@@ -39,6 +39,12 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
+
+Human-local DB execution:
+`EXECUTED_BY_HUMAN_LOCAL`
+
+Human-local DB mutation:
+`EXECUTED_BY_HUMAN_LOCAL_LIMITED_TO_M2_C02_ACCESS`
 
 Code changes:
 `NOT_PERFORMED`
@@ -65,7 +71,7 @@ StudentAccess changes:
 `NOT_PERFORMED`
 
 Follow-up/blocker:
-`MVP-SALES-PILOT-M2-C02-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1`
+`MVP-CONTENT-PAES-M2-C02-HUMAN-UI-SMOKE-1`
 
 Scope safety:
-Documentation-only authorization phase for PAES_M2 C02 LOCAL_DEV access. Human authorization token documented and safe tooling commands prepared but not executed. No DB execution, no DB mutation, no StudyLoad creation/modification, no code changes, no tooling changes, no asset changes, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action and no secrets printed.
+Human-local alignment phase for PAES_M2 C02 LOCAL_DEV access. Human-local evidence shows safe tooling precheck, plan, authorized align and postcheck completed. Codex did not execute or mutate DB. Human-local mutation was limited to M2-C02 StudyLoad only. No code changes, no tooling changes, no asset changes, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action and no secrets printed.
