@@ -159,6 +159,7 @@ const STUDY_LOAD_VISIBLE_CORRELATIVES_BY_CONTENT_KEY: Record<string, string> = {
   paes_m1_data_representation_entry_ii: 'M1-C08',
   paes_m2_modeling_expressions_functions_entry: 'M2-C01',
   paes_m2_data_probability_table_entry: 'M2-C02',
+  paes_m2_functions_graph_behavior_entry: 'M2-C03',
 }
 
 function getStudyLoadDisplayBaseTitle(content: StudyLoadContent): string {
@@ -1757,6 +1758,138 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
             'La seleccion se hace solo entre quienes prefieren bus: el denominador es 27 y, de ellos, 15 son de 2 medio.',
           complete:
             'El item pide una probabilidad condicionada por el grupo de seleccion. Paso 1: lee la condicion: se elige entre quienes prefieren bus, por lo tanto el denominador no es 80, sino el total de la columna Bus. Paso 2: en la fila Total, la columna Bus tiene 27 estudiantes. Paso 3: de esos estudiantes que prefieren bus, los de 2 medio son 15. Paso 4: escribe probabilidad = 15/27. Por eso la alternativa correcta es B. Un error probable es responder 15/80, que usa toda la tabla como denominador y no respeta la condicion entre quienes prefieren bus. Para mejorar, identifica primero la frase que empieza con entre quienes o solo entre, porque suele definir el denominador correcto.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revision. ' +
+      'No recibiras puntaje PAES, diagnostico automatico ni declaracion de dominio M2 en esta version.',
+  },
+  'PAES M2 \u2014 Funciones y comportamiento grafico inicial': {
+    contentKey: 'paes_m2_functions_graph_behavior_entry',
+    contentVersion: 'v1',
+    contentType: 'practice',
+    title: 'PAES M2 \u2014 Funciones y comportamiento grafico inicial',
+    program: 'PAES_M2',
+    skillFamily: 'functions/representation',
+    topic: 'Funciones y comportamiento grafico inicial',
+    estimatedMinutes: '10-14 minutos',
+    instructions:
+      'Esta actividad tiene 4 ejercicios de opcion multiple sobre funciones y lectura inicial de comportamiento.\n\n' +
+      '1. Lee la regla, tabla o descripcion antes de mirar las alternativas.\n' +
+      '2. Identifica el valor inicial, el cambio constante o la condicion que se compara.\n' +
+      '3. Si se menciona un grafico, usa solo la informacion textual o tabular entregada.\n' +
+      '4. Revisa que la alternativa elegida coincida con la regla completa, no solo con un dato aislado.\n' +
+      '5. Envia tus respuestas.\n' +
+      '6. Luego revisa la retroalimentacion y deja tu autorreporte si corresponde.\n\n' +
+      'No necesitas graficos ni figuras para resolver esta capsula.',
+    items: [
+      {
+        key: 'q1',
+        stem:
+          'La tabla representa una funcion lineal que relaciona x con f(x).\n\n' +
+          'Cual es el valor inicial de la funcion, es decir, el valor de f(x) cuando x = 0?',
+        tableStimulus: {
+          caption: 'Valores de una funcion',
+          headers: ['x', '0', '1', '2', '3'],
+          rows: [
+            ['f(x)', '3', '5', '7', '9'],
+          ],
+        },
+        options: [
+          { label: 'A', text: '0' },
+          { label: 'B', text: '3' },
+          { label: 'C', text: '5' },
+          { label: 'D', text: '2' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_functions_graph_behavior_entry_q1_brief_v1',
+          completeId: 'paes_m2_functions_graph_behavior_entry_q1_complete_v1',
+          version: 'm2-c03-authored-feedback-v1',
+          brief:
+            'El valor inicial se lee cuando x = 0. En la tabla, f(0) = 3.',
+          complete:
+            'El item pide interpretar el valor inicial de una funcion desde una tabla. Paso 1: identifica que valor de x se debe mirar: x = 0. Paso 2: busca en la tabla la columna donde x vale 0. Paso 3: lee el valor correspondiente de f(x), que es 3. Por eso la alternativa correcta es B. Un error frecuente es elegir 0 porque aparece en la fila de x, pero el valor inicial de la funcion es la salida f(0), no la entrada. Para mejorar, separa siempre entrada y salida antes de interpretar una representacion.',
+        },
+      },
+      {
+        key: 'q2',
+        stem:
+          'Una funcion tiene los valores de la tabla. Cual regla representa correctamente la relacion entre x y g(x)?',
+        tableStimulus: {
+          caption: 'Valores de g(x)',
+          headers: ['x', '0', '1', '2'],
+          rows: [
+            ['g(x)', '4', '7', '10'],
+          ],
+        },
+        options: [
+          { label: 'A', text: 'g(x) = 4 + 3x' },
+          { label: 'B', text: 'g(x) = 3 + 4x' },
+          { label: 'C', text: 'g(x) = 7x' },
+          { label: 'D', text: 'g(x) = 4x - 3' },
+        ],
+        correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m2_functions_graph_behavior_entry_q2_brief_v1',
+          completeId: 'paes_m2_functions_graph_behavior_entry_q2_complete_v1',
+          version: 'm2-c03-authored-feedback-v1',
+          brief:
+            'La tabla empieza en 4 cuando x = 0 y aumenta de 3 en 3, por eso la regla es g(x) = 4 + 3x.',
+          complete:
+            'El item pide cambiar desde una tabla a una regla funcional. Paso 1: lee el valor inicial: cuando x = 0, g(x) = 4. Paso 2: observa el cambio constante: de 4 a 7 aumenta 3, y de 7 a 10 aumenta 3. Paso 3: una funcion lineal con valor inicial 4 y cambio 3 por cada unidad se escribe g(x) = 4 + 3x. Por eso la alternativa correcta es A. Un error probable es invertir el valor inicial y el cambio, como en 3 + 4x. Para mejorar, marca primero el valor cuando x = 0 y luego calcula cuanto cambia la salida cuando x aumenta en 1.',
+        },
+      },
+      {
+        key: 'q3',
+        stem:
+          'El costo de arriendo de una sala se modela por A(h) = 5000 + 1200h, donde h es la cantidad de horas. ' +
+          'Luego la tarifa por hora sube y el modelo pasa a ser B(h) = 5000 + 1500h. Cual afirmacion interpreta correctamente el cambio?',
+        options: [
+          { label: 'A', text: 'El costo inicial baja y el costo por hora se mantiene.' },
+          { label: 'B', text: 'El costo inicial se mantiene y el costo por hora aumenta.' },
+          { label: 'C', text: 'El costo inicial aumenta y el costo por hora baja.' },
+          { label: 'D', text: 'Ambos modelos tienen siempre el mismo costo total.' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_functions_graph_behavior_entry_q3_brief_v1',
+          completeId: 'paes_m2_functions_graph_behavior_entry_q3_complete_v1',
+          version: 'm2-c03-authored-feedback-v1',
+          brief:
+            'El numero fijo 5000 no cambia; lo que cambia es el coeficiente de h, de 1200 a 1500.',
+          complete:
+            'El item pide interpretar un cambio de parametro en dos modelos funcionales. Paso 1: identifica el valor fijo en A(h): 5000. Paso 2: identifica el valor fijo en B(h): tambien 5000. Por lo tanto, el costo inicial se mantiene. Paso 3: compara el numero que multiplica a h: antes era 1200 y despues es 1500. Eso significa que el costo por hora aumenta. Por eso la alternativa correcta es B. Un error frecuente es pensar que cualquier cambio en la formula modifica el costo inicial, pero aqui el termino fijo no cambio. Para mejorar, separa termino fijo y coeficiente de la variable antes de comparar modelos.',
+        },
+      },
+      {
+        key: 'q4',
+        stem:
+          'Dos servicios de reparto modelan el costo segun la distancia k, medida en kilometros. El servicio A usa C_A(k) = 2000 + 800k. ' +
+          'El servicio B se resume en la tabla. Cual comparacion es correcta?',
+        tableStimulus: {
+          caption: 'Costo del servicio B',
+          headers: ['k', '0', '1', '2', '3'],
+          rows: [
+            ['C_B(k)', '1000', '2100', '3200', '4300'],
+          ],
+        },
+        options: [
+          { label: 'A', text: 'A tiene menor costo inicial y mayor aumento por kilometro que B.' },
+          { label: 'B', text: 'A tiene mayor costo inicial y menor aumento por kilometro que B.' },
+          { label: 'C', text: 'A y B tienen el mismo costo inicial y el mismo aumento por kilometro.' },
+          { label: 'D', text: 'B tiene costo inicial 2100 porque ese es el valor cuando k = 1.' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_functions_graph_behavior_entry_q4_brief_v1',
+          completeId: 'paes_m2_functions_graph_behavior_entry_q4_complete_v1',
+          version: 'm2-c03-authored-feedback-v1',
+          brief:
+            'A parte en 2000 y aumenta 800 por kilometro. B parte en 1000 y aumenta 1100 por kilometro.',
+          complete:
+            'El item pide comparar dos representaciones: una regla y una tabla. Paso 1: interpreta el servicio A: en C_A(k) = 2000 + 800k, el costo inicial es 2000 y el aumento por kilometro es 800. Paso 2: interpreta el servicio B desde la tabla: cuando k = 0, C_B(k) = 1000, entonces su costo inicial es 1000. Paso 3: calcula el aumento de B: de 1000 a 2100 aumenta 1100, y el mismo aumento se repite. Paso 4: compara: A tiene mayor costo inicial que B, pero menor aumento por kilometro. Por eso la alternativa correcta es B. Un error probable es tomar 2100 como costo inicial, pero ese valor corresponde a k = 1, no a k = 0. Para mejorar, cuando compares representaciones, identifica primero el valor inicial y luego el cambio constante.',
         },
       },
     ],
