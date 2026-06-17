@@ -8,6 +8,72 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-17 - MVP-CONTENT-PAES-M2-C04-HUMAN-UI-SMOKE-READINESS-1
+
+Baseline before:
+
+```text
+7ed155bb3845589d3a5ee8445be9b46e07287d4b
+```
+
+Result/verdict:
+
+```text
+M2_C04_HUMAN_UI_SMOKE_READINESS_PARTIAL_WITH_OBSERVATIONS
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_READINESS_1.md
+```
+
+Scope summary:
+
+Documentation/readiness-only phase for PAES_M2 / M2-C04 human UI smoke. Confirmed content/static readiness, prepared human smoke checklist and evidence template, preserved inherited non-blocking login observation, and found that M2-C04 LOCAL_DEV StudyLoad reachability plus C04-specific safe access tooling are not yet documented.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C04-LOCAL-DEV-ACCESS-READINESS-1
+```
+
+Notes:
+
+- Capsule: M2-C04.
+- Title: PAES M2 - Geometria analitica y relaciones.
+- contentKey: paes_m2_analytic_geometry_relations_entry.
+- Exercise count: 3.
+- AuthoredFeedback present for all 3 items.
+- Human smoke checklist prepared.
+- Direct smoke is not recommended until LOCAL_DEV access readiness/alignment is confirmed.
+- Result: M2_C04_HUMAN_UI_SMOKE_READINESS_PARTIAL_WITH_OBSERVATIONS.
+- Codex did not execute or mutate DB.
+- No code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No DB tooling execution by Codex.
+- No schema/Prisma changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-17 - MVP-CONTENT-PAES-M2-C04-STATIC-REVIEW-1
 
 Baseline before:
