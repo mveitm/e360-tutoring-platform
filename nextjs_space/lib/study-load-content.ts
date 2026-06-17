@@ -160,6 +160,7 @@ const STUDY_LOAD_VISIBLE_CORRELATIVES_BY_CONTENT_KEY: Record<string, string> = {
   paes_m2_modeling_expressions_functions_entry: 'M2-C01',
   paes_m2_data_probability_table_entry: 'M2-C02',
   paes_m2_functions_graph_behavior_entry: 'M2-C03',
+  paes_m2_analytic_geometry_relations_entry: 'M2-C04',
 }
 
 function getStudyLoadDisplayBaseTitle(content: StudyLoadContent): string {
@@ -1890,6 +1891,104 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
             'A parte en 2000 y aumenta 800 por kilometro. B parte en 1000 y aumenta 1100 por kilometro.',
           complete:
             'El item pide comparar dos representaciones: una regla y una tabla. Paso 1: interpreta el servicio A: en C_A(k) = 2000 + 800k, el costo inicial es 2000 y el aumento por kilometro es 800. Paso 2: interpreta el servicio B desde la tabla: cuando k = 0, C_B(k) = 1000, entonces su costo inicial es 1000. Paso 3: calcula el aumento de B: de 1000 a 2100 aumenta 1100, y el mismo aumento se repite. Paso 4: compara: A tiene mayor costo inicial que B, pero menor aumento por kilometro. Por eso la alternativa correcta es B. Un error probable es tomar 2100 como costo inicial, pero ese valor corresponde a k = 1, no a k = 0. Para mejorar, cuando compares representaciones, identifica primero el valor inicial y luego el cambio constante.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revision. ' +
+      'No recibiras puntaje PAES, diagnostico automatico ni declaracion de dominio M2 en esta version.',
+  },
+  'PAES M2 \u2014 Geometria analitica y relaciones': {
+    contentKey: 'paes_m2_analytic_geometry_relations_entry',
+    contentVersion: 'v1',
+    contentType: 'practice',
+    title: 'PAES M2 \u2014 Geometria analitica y relaciones',
+    program: 'PAES_M2',
+    skillFamily: 'geometry/coordinate reasoning',
+    topic: 'Geometria analitica y relaciones',
+    estimatedMinutes: '8-12 minutos',
+    instructions:
+      'Esta actividad tiene 3 ejercicios de opcion multiple sobre coordenadas, variaciones y relaciones simples entre puntos.\n\n' +
+      '1. Lee cada par ordenado como (x, y).\n' +
+      '2. Compara primero la coordenada x y luego la coordenada y.\n' +
+      '3. Si aparece pendiente, interpretala como cambio vertical dividido por cambio horizontal.\n' +
+      '4. No necesitas figuras ni imagenes: toda la informacion esta en el texto o en la tabla.\n' +
+      '5. Envia tus respuestas.\n' +
+      '6. Luego revisa la retroalimentacion y deja tu autorreporte si corresponde.',
+    items: [
+      {
+        key: 'q1',
+        stem:
+          'En un plano cartesiano se ubican los puntos A(2, 3) y B(6, 3). ' +
+          'Sin usar una figura, que relacion describe correctamente el cambio desde A hasta B?',
+        options: [
+          { label: 'A', text: 'Se avanza 4 unidades horizontalmente y no cambia la coordenada y.' },
+          { label: 'B', text: 'Se avanza 4 unidades verticalmente y no cambia la coordenada x.' },
+          { label: 'C', text: 'Se avanza 2 unidades horizontalmente y 3 verticalmente.' },
+          { label: 'D', text: 'No hay cambio porque ambos puntos tienen coordenada y = 3.' },
+        ],
+        correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m2_analytic_geometry_relations_entry_q1_brief_v1',
+          completeId: 'paes_m2_analytic_geometry_relations_entry_q1_complete_v1',
+          version: 'm2-c04-authored-feedback-v1',
+          brief:
+            'Compara coordenada por coordenada: x cambia de 2 a 6 y la coordenada y se mantiene en 3.',
+          complete:
+            'El item pide describir el cambio desde A hasta B. Paso 1: identifica el punto A(2, 3), donde x = 2 e y = 3. Paso 2: identifica el punto B(6, 3), donde x = 6 e y = 3. Paso 3: compara las coordenadas x: 6 - 2 = 4, por eso hay un avance horizontal de 4 unidades. Paso 4: compara las coordenadas y: 3 - 3 = 0, por eso no hay cambio vertical. Por eso la alternativa correcta es A. La alternativa B cambia horizontal por vertical, la C lee coordenadas como si fueran cambios y la D ignora que la coordenada x si cambia. Para mejorar, compara siempre x con x e y con y antes de decidir.',
+        },
+      },
+      {
+        key: 'q2',
+        stem:
+          'Una recta pasa por P(1, 2) y Q(5, 10). Si se interpreta la pendiente como cambio vertical dividido por cambio horizontal, ' +
+          'cual es la pendiente de la recta?',
+        options: [
+          { label: 'A', text: '1/2' },
+          { label: 'B', text: '2' },
+          { label: 'C', text: '4' },
+          { label: 'D', text: '8' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_analytic_geometry_relations_entry_q2_brief_v1',
+          completeId: 'paes_m2_analytic_geometry_relations_entry_q2_complete_v1',
+          version: 'm2-c04-authored-feedback-v1',
+          brief:
+            'La pendiente compara cambio vertical con cambio horizontal: 8 dividido por 4 da 2.',
+          complete:
+            'El item pide calcular la pendiente usando dos puntos. Paso 1: calcula el cambio horizontal con las coordenadas x: 5 - 1 = 4. Paso 2: calcula el cambio vertical con las coordenadas y: 10 - 2 = 8. Paso 3: usa la relacion pendiente = cambio vertical / cambio horizontal, entonces pendiente = 8 / 4 = 2. Por eso la alternativa correcta es B. La alternativa A invierte la relacion, la C usa solo el cambio horizontal y la D usa solo el cambio vertical. Para mejorar, escribe primero "vertical / horizontal" y luego reemplaza los valores. Esta idea prepara la lectura de tasas de cambio en coordenadas y funciones.',
+        },
+      },
+      {
+        key: 'q3',
+        stem:
+          'La tabla muestra la posicion de una persona que camina en linea recta dentro de una plaza. ' +
+          'La coordenada x indica metros hacia el este y la coordenada y indica metros hacia el norte.\n\n' +
+          'Cual interpretacion describe mejor el desplazamiento desde Inicio hasta Final?',
+        tableStimulus: {
+          caption: 'Posicion en el plano',
+          headers: ['Punto', 'x', 'y'],
+          rows: [
+            ['Inicio', '1', '2'],
+            ['Final', '7', '5'],
+          ],
+        },
+        options: [
+          { label: 'A', text: 'Avanza 6 metros hacia el este y 3 metros hacia el norte.' },
+          { label: 'B', text: 'Avanza 3 metros hacia el este y 6 metros hacia el norte.' },
+          { label: 'C', text: 'Avanza 7 metros hacia el este y 5 metros hacia el norte.' },
+          { label: 'D', text: 'Avanza 1 metro hacia el este y 2 metros hacia el norte.' },
+        ],
+        correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m2_analytic_geometry_relations_entry_q3_brief_v1',
+          completeId: 'paes_m2_analytic_geometry_relations_entry_q3_complete_v1',
+          version: 'm2-c04-authored-feedback-v1',
+          brief:
+            'El desplazamiento se calcula con diferencias: 7 - 1 = 6 hacia el este y 5 - 2 = 3 hacia el norte.',
+          complete:
+            'El item pide interpretar el desplazamiento, no copiar las coordenadas finales. Paso 1: identifica la posicion inicial: x = 1, y = 2. Paso 2: identifica la posicion final: x = 7, y = 5. Paso 3: calcula el cambio hacia el este con la coordenada x: 7 - 1 = 6. Paso 4: calcula el cambio hacia el norte con la coordenada y: 5 - 2 = 3. Por eso la alternativa correcta es A. La alternativa B intercambia los cambios, la C copia las coordenadas finales y la D copia las coordenadas iniciales. Para mejorar, cuando el enunciado diga "desde ... hasta ...", resta final menos inicial en cada coordenada. Esta relacion ayuda a interpretar movimientos y cambios en el plano sin depender de una figura.',
         },
       },
     ],
