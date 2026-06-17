@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-M2-C04-READINESS-1`
+`MVP-CONTENT-PAES-M2-C04-AUTHORED-READINESS-1`
 
 Result:
-`M2_C04_READINESS_PARTIAL_WITH_OBSERVATIONS`
+`M2_C04_AUTHORED_READINESS_OK`
 
 Commit:
 `see final git log after commit/push`
@@ -18,22 +18,39 @@ Working tree:
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_AUTHORED_READINESS_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_READINESS_1.md`
+`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_AUTHORED_READINESS_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
-Candidate capsule:
+Capsule:
 `M2-C04`
 
-Candidate title/contentKey:
-`Geometria analitica y relaciones / contentKey NOT_FOUND_AS_IMPLEMENTED_ARTIFACT`
+Final proposed title:
+`PAES M2 - Geometria analitica y relaciones`
 
-Source of truth:
-`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_AUTHORED_SEED_PLAN_1.md`
+Final proposed contentKey:
+`paes_m2_analytic_geometry_relations_entry`
+
+Exercise count:
+`3`
+
+Representation strategy:
+`Text-first coordinate representation using ordered pairs, coordinate differences, compact table/text, and slope as vertical/horizontal change. No new assets or required figures.`
+
+Files read:
+- `PHASE_LOG.md`
+- `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_AUTHORED_SEED_PLAN_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_AUTHORED_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_AUTHORED_IMPLEMENT_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C02_AUTHORED_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C02_AUTHORED_IMPLEMENT_1.md`
+- `nextjs_space/lib/study-load-content.ts`
 
 Validation:
 - `git diff --check`: passed.
@@ -60,10 +77,10 @@ UI changes:
 Asset changes:
 `NOT_PERFORMED`
 
-Pedagogical capsule content changes:
+Implemented pedagogical capsule content changes:
 `NOT_PERFORMED`
 
-AuthoredFeedback changes:
+Implemented authoredFeedback changes:
 `NOT_PERFORMED`
 
 Payment/subscription changes:
@@ -73,16 +90,16 @@ StudentAccess changes:
 `NOT_PERFORMED`
 
 Readiness summary:
-`M2-C04 is identified as the next PAES_M2 candidate after M2-C03, but only at planning level. It is not implemented in the runtime registry and lacks final contentKey, exercises/items, answer keys and authoredFeedback.`
+`M2-C04 authored readiness is specified with final proposed identity, text-first geometry representation, 3 exercise designs, expected authoredFeedback and implementation acceptance criteria. The specification is sufficient for a future authored implementation phase.`
 
 Blocking issues:
-`No implemented M2-C04 registry entry; no final contentKey; no final exercises/items; no authoredFeedback; geometry/figure or coordinate-notation path must be planned before implementation/smoke.`
+`None for authored implementation readiness. Implementation must still validate contentKey against the live registry and must not introduce figure/assets dependency without separate authorization.`
 
 Non-blocking observations:
-`Suggested 3-exercise count is compatible with the M1/M2 max-4 standard. Candidate order and pedagogical family are coherent in the seed plan.`
+`The requested Spanish slug was adjusted to current PAES_M2 registry convention: English descriptor tokens plus _entry suffix. Title remains Geometria analitica y relaciones.`
 
 Follow-up/blocker:
-`MVP-CONTENT-PAES-M2-C04-AUTHORED-READINESS-1`
+`MVP-CONTENT-PAES-M2-C04-AUTHORED-IMPLEMENT-1`
 
 Scope safety:
-Documentation-only readiness audit. Codex did not execute DB, mutate DB, execute DB tooling, or modify code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess. No production/staging action and no secrets printed.
+Documentation-only authored readiness. Codex did not execute DB, mutate DB, execute DB tooling, or modify code/tooling/schema/UI/assets/implemented content/implemented authoredFeedback/payment/subscription/StudentAccess. No production/staging action and no secrets printed.
