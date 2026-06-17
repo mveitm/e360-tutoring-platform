@@ -8,6 +8,67 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-17 - MVP-SALES-PILOT-M2-C03-CLOSEOUT-1
+
+Baseline before:
+
+```text
+58474b4f1541ec12cbf2bb973313ddc860360b6e
+```
+
+Result/verdict:
+
+```text
+M2_C03_FORMALLY_CLOSED_WITH_NON_BLOCKING_LOGIN_OBSERVATION
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C03_CLOSEOUT_1.md
+```
+
+Scope summary:
+
+Documentation-only closeout for PAES_M2 / M2-C03. The phase consolidated authored readiness, authored implementation, static review, safe LOCAL_DEV tooling, human authorization, human-local alignment, StudyLoad reachability and human UI smoke. The login LP-to-dashboard observation was recorded as non-blocking.
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-C04-READINESS-1
+```
+
+Notes:
+
+- M2-C03 formally closed as implemented, reviewed, LOCAL_DEV-aligned and human-smoked.
+- Result: M2_C03_FORMALLY_CLOSED_WITH_NON_BLOCKING_LOGIN_OBSERVATION.
+- Codex did not execute or mutate DB.
+- No code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No DB tooling execution by Codex.
+- No StudyLoad mutation during this closeout phase.
+- No schema/Prisma changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-17 - MVP-CONTENT-PAES-M2-C03-HUMAN-UI-SMOKE-1
 
 Baseline before:

@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-M2-C03-HUMAN-UI-SMOKE-1`
+`MVP-SALES-PILOT-M2-C03-CLOSEOUT-1`
 
 Result:
-`M2_C03_HUMAN_UI_SMOKE_COMPLETED_WITH_NON_BLOCKING_OBSERVATION`
+`M2_C03_FORMALLY_CLOSED_WITH_NON_BLOCKING_LOGIN_OBSERVATION`
 
 Commit:
 `see final git log after commit/push`
@@ -18,10 +18,10 @@ Working tree:
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_HUMAN_UI_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C03_CLOSEOUT_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_HUMAN_UI_SMOKE_1.md`
+`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C03_CLOSEOUT_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
@@ -35,12 +35,6 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
-
-DB execution by human during this phase:
-`NOT_EXECUTED_BY_HUMAN_DURING_UI_SMOKE`
-
-DB mutation by human during this phase:
-`NOT_EXECUTED_BY_HUMAN_DURING_UI_SMOKE`
 
 Code changes:
 `NOT_PERFORMED`
@@ -69,8 +63,11 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
+Non-blocking observation:
+`Login lleva a LP en vez de DB, pero boton Iniciar de LP lleva correctamente al dashboard del usuario.`
+
 Follow-up/blocker:
-`MVP-SALES-PILOT-M2-C03-CLOSEOUT-1`
+`MVP-CONTENT-PAES-M2-C04-READINESS-1`
 
 Scope safety:
-Human UI smoke documentation phase for PAES_M2 C03. Codex did not execute DB, mutate DB, execute DB tooling, or modify code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess. Human evidence was sanitized and reported the full central flow passed, with login routing through LP to dashboard recorded as non-blocking.
+Documentation-only closeout for PAES_M2 C03. Codex did not execute DB, mutate DB, execute DB tooling, or modify code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess. No production/staging action and no secrets printed.
