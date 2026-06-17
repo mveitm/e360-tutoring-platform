@@ -101,6 +101,66 @@ Commit hash after closeout:
 See final git log after commit/push.
 ```
 
+## 2026-06-17 - MVP-SALES-PILOT-M2-C01-CLOSEOUT-1
+
+Baseline before:
+
+```text
+d18884c5a78a558c6a11709708cf09511f4f35c9
+```
+
+Result/verdict:
+
+```text
+M2_C01_CLOSEOUT_COMPLETED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C01_CLOSEOUT_1.md
+```
+
+Scope summary:
+
+Documentation-only closeout for PAES_M2 / M2-C01 as implemented, statically reviewed, access-aligned, smoke-completed, feedback/self-report verified, post-completion-navigation verified, and covered by responsive/branding prerequisites.
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-C02-READINESS-1
+```
+
+Notes:
+
+- Documentation-only closeout for PAES_M2 / M2-C01.
+- M2-C01 content/access/UI smoke/feedback/autorreporte/navigation/responsive/branding prerequisites consolidated.
+- Codex did not execute or mutate DB.
+- No code/assets/schema/content/payment/subscription/StudentAccess changes.
+- Next phase recommendation documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No base de datos command.
+- No code changes.
+- No asset changes.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-BRANDING-LOGO-SIZE-POLISH-2-HUMAN-SMOKE-1
 
 Baseline before:
