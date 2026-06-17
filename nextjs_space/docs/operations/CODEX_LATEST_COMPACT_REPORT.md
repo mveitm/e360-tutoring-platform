@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-M2-C04-LOCAL-DEV-ACCESS-READINESS-1`
+`MVP-GOV-LOCAL-DEV-SAFE-DB-M2-C04-ACCESS-TOOLING-1`
 
 Result:
-`M2_C04_LOCAL_DEV_ACCESS_READINESS_NEEDS_TOOLING`
+`M2_C04_LOCAL_DEV_SAFE_ACCESS_TOOLING_READY`
 
 Commit:
 `see final git log after commit/push`
@@ -15,13 +15,8 @@ Final HEAD:
 Working tree:
 `clean after commit/push`
 
-Files changed:
-- `PHASE_LOG.md`
-- `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_READINESS_1.md`
-
 Full report path:
-`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_READINESS_1.md`
+`nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C04_ACCESS_TOOLING_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
@@ -35,28 +30,37 @@ Title:
 contentKey:
 `paes_m2_analytic_geometry_relations_entry`
 
-Exercise count:
-`3`
+Tooling modes added:
+`m2-c04-access-precheck; plan-m2-c04-access; align-m2-c04-access; m2-c04-access-postcheck; --confirm-m2-c04-access-only`
 
-AuthoredFeedback status:
-`present for all 3 items`
+Confirm-only mode:
+`m2-c04-access-precheck and m2-c04-access-postcheck; both are read-only and require --confirm-read-only`
+
+Mutating mode:
+`align-m2-c04-access; human-only for a future authorized LOCAL_DEV phase; not executed by Codex`
 
 Files read:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_STATIC_REVIEW_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_AUTHORED_IMPLEMENT_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_HUMAN_UI_SMOKE_1.md`
 - `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C03_CLOSEOUT_1.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C03_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
-- `nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C03_ACCESS_TOOLING_1.md`
 - `nextjs_space/lib/study-load-content.ts`
 - `nextjs_space/scripts/local-dev-safe-db-tool.ts`
 
+Files changed:
+- `nextjs_space/scripts/local-dev-safe-db-tool.ts`
+- `PHASE_LOG.md`
+- `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
+- `nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C04_ACCESS_TOOLING_1.md`
+
 Validation:
+- `npx.cmd tsc --noEmit`: passed.
 - `git diff --check`: passed.
-- Secret-pattern scan over modified documentation files: passed.
+- Secret-pattern scan over modified files: passed.
 
 DB execution by Codex:
 `NOT_EXECUTED_BY_CODEX`
@@ -65,10 +69,10 @@ DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
 
 Code changes:
-`NOT_PERFORMED`
+`LIMITED_TO_SAFE_LOCAL_DEV_TOOLING`
 
 Tooling changes:
-`NOT_PERFORMED`
+`PERFORMED`
 
 Schema changes:
 `NOT_PERFORMED`
@@ -91,23 +95,17 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-LOCAL_DEV tooling summary:
-`Existing safe tooling path is nextjs_space/scripts/local-dev-safe-db-tool.ts. It has LOCAL_DEV, no-production/no-staging, read-only and mutation guards; sanitized outputs; and C01/C02/C03 access modes. It does not have m2-c04-access-precheck, plan-m2-c04-access, align-m2-c04-access, m2-c04-access-postcheck, or --confirm-m2-c04-access-only.`
+LOCAL_DEV safety summary:
+`M2-C04 modes inherit LOCAL_DEV, no-production/no-staging, read-only and mutation guards from the existing safe tool. Output is sanitized and includes expectedContentKey without printing DB URLs, secrets, credentials, or target identifiers. The C04 align mode requires --confirm-m2-c04-access-only and is limited to M2-C04 StudyLoad only.`
 
-Human access/reachability path:
-`No safe human path exists yet for M2-C04. Human should not execute C03 tooling for C04. Next phase must extend safe tooling for C04 before human authorization/alignment and UI smoke.`
-
-Inherited non-blocking observation:
-`Login lleva a LP en vez de DB, pero boton "Iniciar" de LP lleva correctamente al dashboard del usuario.`
+Human execution instructions:
+`Do not execute C04 tooling yet. Next phase should document human authorization. A later human-local phase may run precheck, plan, align only if authorized and needed, and postcheck with sanitized evidence.`
 
 Blocking issues:
-`No C04-specific safe tooling; no documented M2-C04 LOCAL_DEV StudyLoad reachability; no safe current command to confirm or align M2-C04.`
+`None for tooling readiness.`
 
 Non-blocking observations:
-`M2-C04 content/static readiness remains OK with 3 exercises and authoredFeedback present.`
+`Tooling was not executed in this phase; M2-C04 LOCAL_DEV reachability remains unverified until human-local authorization/alignment.`
 
 Follow-up/blocker:
-`MVP-GOV-LOCAL-DEV-SAFE-DB-M2-C04-ACCESS-TOOLING-1`
-
-Scope safety:
-Documentation-only LOCAL_DEV access readiness. Codex did not execute DB, mutate DB, execute DB tooling, or modify code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess. No production/staging action and no secrets printed.
+`MVP-SALES-PILOT-M2-C04-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-1`
