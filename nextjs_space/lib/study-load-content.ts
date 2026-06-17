@@ -158,6 +158,7 @@ const STUDY_LOAD_VISIBLE_CORRELATIVES_BY_CONTENT_KEY: Record<string, string> = {
   paes_m1_data_representation_entry: 'M1-C07',
   paes_m1_data_representation_entry_ii: 'M1-C08',
   paes_m2_modeling_expressions_functions_entry: 'M2-C01',
+  paes_m2_data_probability_table_entry: 'M2-C02',
 }
 
 function getStudyLoadDisplayBaseTitle(content: StudyLoadContent): string {
@@ -1611,6 +1612,151 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
             'En 15000 + 1200n, el numero que multiplica a n indica cuanto aumenta el precio por cada invitacion.',
           complete:
             'El item pide interpretar un parametro del modelo. Paso 1: identifica que n representa la cantidad de invitaciones. Paso 2: observa que 1200 multiplica a n, por lo que cambia cuando cambia la cantidad de invitaciones. Paso 3: interpreta ese valor como el costo adicional por cada invitacion. Por eso la alternativa correcta es B. Un error tipico es confundir 1200 con el costo fijo; el costo fijo es 15000 porque no depende de n.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revision. ' +
+      'No recibiras puntaje PAES, diagnostico automatico ni declaracion de dominio M2 en esta version.',
+  },
+  'PAES M2 \u2014 Analisis de datos y probabilidad en tabla': {
+    contentKey: 'paes_m2_data_probability_table_entry',
+    contentVersion: 'v1',
+    contentType: 'practice',
+    title: 'PAES M2 \u2014 Analisis de datos y probabilidad en tabla',
+    program: 'PAES_M2',
+    skillFamily: 'data/probability/statistics',
+    topic: 'Analisis de datos y probabilidad en tabla',
+    estimatedMinutes: '10-14 minutos',
+    instructions:
+      'Esta actividad tiene 4 ejercicios de opcion multiple sobre lectura de tablas, proporciones y probabilidad simple.\n\n' +
+      '1. Lee con calma la tabla antes de mirar las alternativas.\n' +
+      '2. Identifica si el total relevante es toda la tabla, una fila o una columna.\n' +
+      '3. Escribe la fraccion o proporcion que corresponde al evento pedido.\n' +
+      '4. Compara usando el mismo denominador cuando sea necesario.\n' +
+      '5. Envia tus respuestas.\n' +
+      '6. Luego revisa la retroalimentacion y deja tu autorreporte si corresponde.\n\n' +
+      'No necesitas graficos ni figuras para resolver esta capsula.',
+    items: [
+      {
+        key: 'q1',
+        stem:
+          'La tabla muestra las preferencias de transporte de 80 estudiantes de 1 medio y 2 medio.\n\n' +
+          'Si se elige al azar un estudiante solo entre quienes son de 2 medio, cual es el total que debe usarse como denominador?',
+        tableStimulus: {
+          caption: 'Preferencias de transporte por curso',
+          headers: ['Curso', 'Bus', 'Metro', 'Bicicleta', 'Total'],
+          rows: [
+            ['1 medio', '12', '18', '10', '40'],
+            ['2 medio', '15', '20', '5', '40'],
+            ['Total', '27', '38', '15', '80'],
+          ],
+        },
+        options: [
+          { label: 'A', text: '15' },
+          { label: 'B', text: '40' },
+          { label: 'C', text: '80' },
+          { label: 'D', text: '27' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_data_probability_table_entry_q1_brief_v1',
+          completeId: 'paes_m2_data_probability_table_entry_q1_complete_v1',
+          version: 'm2-c02-authored-feedback-v1',
+          brief:
+            'La condicion dice solo estudiantes de 2 medio, por eso el denominador es el total de esa fila: 40.',
+          complete:
+            'El item pide elegir el denominador correcto antes de calcular una probabilidad. Paso 1: lee la condicion: se elige un estudiante solo entre quienes son de 2 medio. Paso 2: busca la fila 2 medio en la tabla. Paso 3: usa el total de esa fila, que es 40, porque ese es el grupo completo desde donde se elige. Por eso la alternativa correcta es B. Un error frecuente es usar 80, que corresponde a toda la tabla, pero aqui el universo queda restringido a 2 medio. Para mejorar, subraya primero la condicion que define desde que grupo se selecciona.',
+        },
+      },
+      {
+        key: 'q2',
+        stem:
+          'Usando la misma tabla, si se elige al azar un estudiante del total de 80 estudiantes, cual es la probabilidad de que prefiera bicicleta?',
+        tableStimulus: {
+          caption: 'Preferencias de transporte por curso',
+          headers: ['Curso', 'Bus', 'Metro', 'Bicicleta', 'Total'],
+          rows: [
+            ['1 medio', '12', '18', '10', '40'],
+            ['2 medio', '15', '20', '5', '40'],
+            ['Total', '27', '38', '15', '80'],
+          ],
+        },
+        options: [
+          { label: 'A', text: '15/80' },
+          { label: 'B', text: '15/40' },
+          { label: 'C', text: '5/80' },
+          { label: 'D', text: '27/80' },
+        ],
+        correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m2_data_probability_table_entry_q2_brief_v1',
+          completeId: 'paes_m2_data_probability_table_entry_q2_complete_v1',
+          version: 'm2-c02-authored-feedback-v1',
+          brief:
+            'El evento es preferir bicicleta en todo el grupo: hay 15 estudiantes de 80, entonces la probabilidad es 15/80.',
+          complete:
+            'El item pide una probabilidad usando toda la tabla. Paso 1: identifica el universo: el enunciado dice del total de 80 estudiantes, por lo tanto el denominador es 80. Paso 2: identifica el evento: preferir bicicleta. En la fila Total, la columna Bicicleta tiene 15 estudiantes. Paso 3: escribe probabilidad = casos favorables / casos posibles = 15/80. Por eso la alternativa correcta es A. Un error probable es usar 15/40, que tomaria solo un curso como denominador aunque el enunciado pide el total de estudiantes. Para mejorar, decide siempre si el problema pide una fila, una columna o toda la tabla.',
+        },
+      },
+      {
+        key: 'q3',
+        stem:
+          'En que curso es mayor la proporcion de estudiantes que prefieren metro?',
+        tableStimulus: {
+          caption: 'Preferencias de transporte por curso',
+          headers: ['Curso', 'Bus', 'Metro', 'Bicicleta', 'Total'],
+          rows: [
+            ['1 medio', '12', '18', '10', '40'],
+            ['2 medio', '15', '20', '5', '40'],
+            ['Total', '27', '38', '15', '80'],
+          ],
+        },
+        options: [
+          { label: 'A', text: 'En 1 medio, porque 18/40 es mayor que 20/40' },
+          { label: 'B', text: 'En 2 medio, porque 20/40 es mayor que 18/40' },
+          { label: 'C', text: 'Son iguales, porque ambos cursos tienen total 40' },
+          { label: 'D', text: 'No se puede comparar con los datos de la tabla' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_data_probability_table_entry_q3_brief_v1',
+          completeId: 'paes_m2_data_probability_table_entry_q3_complete_v1',
+          version: 'm2-c02-authored-feedback-v1',
+          brief:
+            'Compara la parte de metro dentro de cada curso: 1 medio tiene 18/40 y 2 medio tiene 20/40.',
+          complete:
+            'El item pide comparar proporciones, no solo mirar una columna aislada. Paso 1: en 1 medio, 18 de 40 estudiantes prefieren metro, por eso la proporcion es 18/40. Paso 2: en 2 medio, 20 de 40 estudiantes prefieren metro, por eso la proporcion es 20/40. Paso 3: como los denominadores son iguales, basta comparar 18 y 20; 20/40 es mayor. Por eso la alternativa correcta es B. Un error frecuente es decir que son iguales solo porque los cursos tienen el mismo total, pero tambien importa cuantos estudiantes cumplen el evento en cada curso. Para mejorar, escribe siempre las dos fracciones antes de comparar.',
+        },
+      },
+      {
+        key: 'q4',
+        stem:
+          'Si se elige al azar un estudiante entre quienes prefieren bus, cual es la probabilidad de que sea de 2 medio?',
+        tableStimulus: {
+          caption: 'Preferencias de transporte por curso',
+          headers: ['Curso', 'Bus', 'Metro', 'Bicicleta', 'Total'],
+          rows: [
+            ['1 medio', '12', '18', '10', '40'],
+            ['2 medio', '15', '20', '5', '40'],
+            ['Total', '27', '38', '15', '80'],
+          ],
+        },
+        options: [
+          { label: 'A', text: '15/80' },
+          { label: 'B', text: '15/27' },
+          { label: 'C', text: '27/80' },
+          { label: 'D', text: '12/27' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_data_probability_table_entry_q4_brief_v1',
+          completeId: 'paes_m2_data_probability_table_entry_q4_complete_v1',
+          version: 'm2-c02-authored-feedback-v1',
+          brief:
+            'La seleccion se hace solo entre quienes prefieren bus: el denominador es 27 y, de ellos, 15 son de 2 medio.',
+          complete:
+            'El item pide una probabilidad condicionada por el grupo de seleccion. Paso 1: lee la condicion: se elige entre quienes prefieren bus, por lo tanto el denominador no es 80, sino el total de la columna Bus. Paso 2: en la fila Total, la columna Bus tiene 27 estudiantes. Paso 3: de esos estudiantes que prefieren bus, los de 2 medio son 15. Paso 4: escribe probabilidad = 15/27. Por eso la alternativa correcta es B. Un error probable es responder 15/80, que usa toda la tabla como denominador y no respeta la condicion entre quienes prefieren bus. Para mejorar, identifica primero la frase que empieza con entre quienes o solo entre, porque suele definir el denominador correcto.',
         },
       },
     ],
