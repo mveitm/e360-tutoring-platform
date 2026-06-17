@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-BRANDING-LOGO-SIZE-POLISH-2-HUMAN-SMOKE-1`
+`MVP-UI-M2-C01-BRANDING-BASELINE-CLOSEOUT-1`
 
 Result:
-`BRANDING_LOGO_SIZE_POLISH_2_HUMAN_SMOKE_PASSED`
+`UI_M2_C01_BRANDING_BASELINE_CLOSED`
 
 Commit:
 `see final git log after commit/push`
@@ -18,20 +18,20 @@ Working tree:
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_BRANDING_LOGO_SIZE_POLISH_2_HUMAN_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_UI_M2_C01_BRANDING_BASELINE_CLOSEOUT_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_BRANDING_LOGO_SIZE_POLISH_2_HUMAN_SMOKE_1.md`
+`nextjs_space/docs/operations/MVP_UI_M2_C01_BRANDING_BASELINE_CLOSEOUT_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `f6ecb1111199e0c31f5edd84b2c606790f48a457`.
+- Preflight passed at `a8696763e1e9cbab84325dbd445f98268a331095`.
 - Context gate read.
-- Sanitized human visual evidence documented.
+- Full source reports for the dashboard multi-tutoring, M2-C01 smoke, post-completion navigation, tutoring UI, capsule responsive and branding/logo block were read.
 - `git diff --check`: passed.
-- High-risk secret-pattern scan over changed files: passed.
+- Secret-pattern scan over changed files: passed.
 
 DB execution by Codex:
 `NOT_EXECUTED_BY_CODEX`
@@ -40,6 +40,9 @@ DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
 
 Code changes:
+`NOT_PERFORMED`
+
+Asset changes:
 `NOT_PERFORMED`
 
 Schema changes:
@@ -55,7 +58,7 @@ StudentAccess changes:
 `NOT_PERFORMED`
 
 Follow-up/blocker:
-`PAUSE_CLEAN_POINT`
+`MVP-SALES-PILOT-M2-C01-CLOSEOUT-1`
 
 Scope safety:
-Documentation-only human smoke closeout. No base de datos command, no DB mutation, no code changes, no logo file modification, no logo replacement or generated image, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action and no secrets printed.
+Documentation-only baseline closeout. No DB execution, no DB mutation, no code changes, no asset changes, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action and no secrets printed.

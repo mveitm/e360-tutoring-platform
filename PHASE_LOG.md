@@ -42,6 +42,65 @@ Future entries should record:
 - explicit non-actions when relevant;
 - commit hash after closeout.
 
+## 2026-06-17 - MVP-UI-M2-C01-BRANDING-BASELINE-CLOSEOUT-1
+
+Baseline before:
+
+```text
+a8696763e1e9cbab84325dbd445f98268a331095
+```
+
+Result/verdict:
+
+```text
+UI_M2_C01_BRANDING_BASELINE_CLOSED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_UI_M2_C01_BRANDING_BASELINE_CLOSEOUT_1.md
+```
+
+Scope summary:
+
+Documentation-only baseline closeout for dashboard multi-tutoring, M2-C01 UI smoke, post-completion navigation, capsule responsive layout, and branding/logo.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C01-CLOSEOUT-1
+```
+
+Notes:
+
+- Documentation-only baseline closeout for dashboard multi-tutoring, M2-C01 UI smoke, post-completion navigation, capsule responsive layout, and branding/logo.
+- Codex did not execute or mutate DB.
+- No code/assets/schema/content/payment/subscription/StudentAccess changes.
+- Next phase recommendation documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation.
+- No base de datos command.
+- No code changes.
+- No asset changes.
+- No schema/Prisma changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-16 - MVP-BRANDING-LOGO-SIZE-POLISH-2-HUMAN-SMOKE-1
 
 Baseline before:
