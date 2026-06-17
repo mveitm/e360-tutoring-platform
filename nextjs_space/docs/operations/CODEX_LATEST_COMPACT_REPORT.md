@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-M2-C02-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1`
+`MVP-CONTENT-PAES-M2-C02-HUMAN-UI-SMOKE-1`
 
 Result:
-`M2_C02_LOCAL_DEV_ACCESS_HUMAN_ALIGNED`
+`M2_C02_HUMAN_UI_SMOKE_COMPLETED`
 
 Commit:
 `see final git log after commit/push`
@@ -18,18 +18,18 @@ Working tree:
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C02_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C02_HUMAN_UI_SMOKE_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C02_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
+`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C02_HUMAN_UI_SMOKE_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
-- Preflight passed at `342986b7c8577292a74babc004725649b8effb04`.
+- Preflight passed at `3f72e0b6776c23e1838131f4ff78eebb6c14d792`.
 - Context gate read.
-- Safe DB tooling inspected read-only.
+- Human UI smoke evidence documented.
 - `git diff --check`: passed.
 - Secret-pattern scan over modified documentation files: passed.
 - No code/content/tooling file modified, so build/tsc were not required.
@@ -39,12 +39,6 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
-
-Human-local DB execution:
-`EXECUTED_BY_HUMAN_LOCAL`
-
-Human-local DB mutation:
-`EXECUTED_BY_HUMAN_LOCAL_LIMITED_TO_M2_C02_ACCESS`
 
 Code changes:
 `NOT_PERFORMED`
@@ -71,7 +65,7 @@ StudentAccess changes:
 `NOT_PERFORMED`
 
 Follow-up/blocker:
-`MVP-CONTENT-PAES-M2-C02-HUMAN-UI-SMOKE-1`
+`MVP-SALES-PILOT-M2-C02-CLOSEOUT-1`
 
 Scope safety:
-Human-local alignment phase for PAES_M2 C02 LOCAL_DEV access. Human-local evidence shows safe tooling precheck, plan, authorized align and postcheck completed. Codex did not execute or mutate DB. Human-local mutation was limited to M2-C02 StudyLoad only. No code changes, no tooling changes, no asset changes, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action and no secrets printed.
+Human UI smoke for PAES_M2 C02 completed with sanitized evidence. Codex did not execute or mutate DB. No code changes, no tooling changes, no asset changes, no schema/Prisma changes, no pedagogical capsule content changes, no authoredFeedback changes, no StudentAccess changes, no payment/subscription changes, no production/staging action and no secrets printed.
