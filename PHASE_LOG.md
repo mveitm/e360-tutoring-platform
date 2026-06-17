@@ -8,6 +8,70 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-17 - MVP-CONTENT-PAES-M2-C03-HUMAN-UI-SMOKE-1
+
+Baseline before:
+
+```text
+ff1ec4ad3b7f44d796e3d8d0283b7cc739474e7d
+```
+
+Result/verdict:
+
+```text
+M2_C03_HUMAN_UI_SMOKE_COMPLETED_WITH_NON_BLOCKING_OBSERVATION
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_HUMAN_UI_SMOKE_1.md
+```
+
+Scope summary:
+
+Human UI smoke was documented for PAES_M2 C03. The human evidence reported M2-C03 reachable, openable, completable, with feedback, autorreporte, completed/reviewable UI and post-completion navigation passing. Login routing through LP to dashboard was documented as non-blocking.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C03-CLOSEOUT-1
+```
+
+Notes:
+
+- Human UI smoke documented for PAES_M2 C03.
+- M2-C03 was reachable in LOCAL_DEV after prior human-local alignment.
+- Human smoke covered login, dashboard, PAES_M2, ST M2, M2-C03, 4 exercises, feedback, autorreporte and post-completion navigation.
+- Codex did not execute or mutate DB.
+- No DB execution/mutation was performed during this UI smoke phase.
+- No code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess changes.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No DB execution or mutation by human during this UI smoke phase.
+- No DB tooling execution by Codex.
+- No StudyLoad mutation during this UI smoke phase.
+- No schema/Prisma changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-17 - MVP-SALES-PILOT-M2-C03-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1
 
 Baseline before:

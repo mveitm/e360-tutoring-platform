@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-M2-C03-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1`
+`MVP-CONTENT-PAES-M2-C03-HUMAN-UI-SMOKE-1`
 
 Result:
-`M2_C03_LOCAL_DEV_ACCESS_HUMAN_ALIGNED`
+`M2_C03_HUMAN_UI_SMOKE_COMPLETED_WITH_NON_BLOCKING_OBSERVATION`
 
 Commit:
 `see final git log after commit/push`
@@ -18,10 +18,10 @@ Working tree:
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C03_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_HUMAN_UI_SMOKE_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C03_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
+`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_HUMAN_UI_SMOKE_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
@@ -36,11 +36,11 @@ DB execution by Codex:
 DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
 
-Human-local DB execution:
-`EXECUTED_BY_HUMAN_LOCAL`
+DB execution by human during this phase:
+`NOT_EXECUTED_BY_HUMAN_DURING_UI_SMOKE`
 
-Human-local DB mutation:
-`EXECUTED_BY_HUMAN_LOCAL_LIMITED_TO_M2_C03_ACCESS`
+DB mutation by human during this phase:
+`NOT_EXECUTED_BY_HUMAN_DURING_UI_SMOKE`
 
 Code changes:
 `NOT_PERFORMED`
@@ -70,7 +70,7 @@ StudentAccess changes:
 `NOT_PERFORMED`
 
 Follow-up/blocker:
-`MVP-CONTENT-PAES-M2-C03-HUMAN-UI-SMOKE-1`
+`MVP-SALES-PILOT-M2-C03-CLOSEOUT-1`
 
 Scope safety:
-Human-local alignment phase for PAES_M2 C03 LOCAL_DEV access. Codex did not execute tooling, execute DB commands or mutate DB. Sanitized evidence shows human-local safe tooling created or aligned only M2-C03 StudyLoad, leaving StudentAccess, payment/subscription, schema, UI, assets, content and authoredFeedback unchanged.
+Human UI smoke documentation phase for PAES_M2 C03. Codex did not execute DB, mutate DB, execute DB tooling, or modify code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess. Human evidence was sanitized and reported the full central flow passed, with login routing through LP to dashboard recorded as non-blocking.
