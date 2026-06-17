@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-M2-C04-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1`
+`MVP-CONTENT-PAES-M2-C04-HUMAN-UI-SMOKE-1`
 
 Result:
-`M2_C04_HUMAN_LOCAL_DEV_ALIGNMENT_READY_FOR_SMOKE`
+`M2_C04_HUMAN_UI_SMOKE_COMPLETED_WITH_NON_BLOCKING_OBSERVATION`
 
 Commit:
 `see final git log after commit/push`
@@ -16,7 +16,7 @@ Working tree:
 `clean after commit/push`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
+`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
@@ -30,46 +30,52 @@ Title:
 contentKey:
 `paes_m2_analytic_geometry_relations_entry`
 
-Authorization phrase received:
-`YES - CONFIRMO_LOCAL_DEV_SEGURO_PARA_M2_C04_ACCESS_TOOLING_SIN_SECRETS`
-
-Human commands executed:
-`plan-m2-c04-access; align-m2-c04-access; m2-c04-access-postcheck`
-
-Precheck result:
-`NOT_EVIDENCED_SEPARATELY; non-blocking because plan was read-only and postcheck confirmed final reachability`
-
-Plan result:
-`LOCAL_DEV_SAFE_DB_M2_C04_ACCESS_PLAN_COMPLETED; read-only; C04-only StudyLoad creation needed; no StudentAccess mutation; no blockers; no scope expansion`
-
-Align executed:
-`YES_BY_HUMAN_LOCAL`
-
-Align result:
-`LOCAL_DEV_SAFE_DB_M2_C04_ACCESS_ALIGNMENT_COMPLETED; mutationScope M2-C04 StudyLoad only; studyLoadMutated true; StudentAccess/payment/enrollment/StudentProgramInstance/LearningCycle not mutated; prod/staging not touched; secrets not printed`
-
-Postcheck result:
-`LOCAL_DEV_SAFE_DB_M2_C04_ACCESS_POSTCHECK_COMPLETED; read-only; M2-C04 present/pending/practice/M2_C04/reachable candidate true`
-
-M2-C04 StudyLoad final status:
+Initial StudyLoad status:
 `present / pending / practice / M2_C04 / reachable candidate true`
 
-Ready for human UI smoke:
-`YES`
+Login:
+`PASSED/OK as part of content/flow verification`
+
+Dashboard reached:
+`PASSED/OK`
+
+Capsule shown:
+`PASSED/OK`
+
+Exercise count observed:
+`PASSED/OK; expected 3`
+
+Exercises completed:
+`PASSED/OK`
+
+Brief feedback observed:
+`PASSED/OK`
+
+Full feedback/authoredFeedback observed:
+`PASSED/OK`
+
+Broken assets/images:
+`NONE_REPORTED`
+
+Completion:
+`PASSED/OK`
+
+Next visible state/capsule:
+`NOT_DETAILED_BY_HUMAN`
 
 Files read:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_1.md`
-- `nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C04_ACCESS_TOOLING_1.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_READINESS_1.md`
-- `nextjs_space/scripts/local-dev-safe-db-tool.ts`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_STATIC_REVIEW_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_AUTHORED_IMPLEMENT_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_HUMAN_UI_SMOKE_1.md`
 
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_1.md`
 
 Validation:
 - `git diff --check`: passed.
@@ -81,11 +87,11 @@ DB execution by Codex:
 DB mutation by Codex:
 `NOT_EXECUTED_BY_CODEX`
 
-DB execution by human:
-`EXECUTED_LOCAL_DEV_TOOLING`
+DB execution by human during smoke:
+`NOT_REPORTED_AS_EXECUTED_DURING_UI_SMOKE`
 
-DB mutation by human:
-`PERFORMED_M2_C04_STUDYLOAD_ONLY`
+DB mutation by human during smoke:
+`NOT_REPORTED_AS_MUTATED_DURING_UI_SMOKE`
 
 Code changes:
 `NOT_PERFORMED`
@@ -118,10 +124,10 @@ Inherited non-blocking observation:
 `Login lleva a LP en vez de DB, pero boton "Iniciar" de LP lleva correctamente al dashboard del usuario.`
 
 Blocking issues:
-`None for LOCAL_DEV access alignment.`
+`None reported.`
 
 Non-blocking observations:
-`Separate m2-c04-access-precheck evidence was not received; accepted as non-blocking because the read-only plan provided pre-alignment state and postcheck confirmed final reachability.`
+`Inherited login observation remains documented. Next visible state/capsule was not detailed by human.`
 
 Follow-up/blocker:
-`MVP-CONTENT-PAES-M2-C04-HUMAN-UI-SMOKE-1`
+`MVP-SALES-PILOT-M2-C04-CLOSEOUT-1`

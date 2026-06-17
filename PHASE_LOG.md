@@ -8,6 +8,76 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-17 - MVP-CONTENT-PAES-M2-C04-HUMAN-UI-SMOKE-1
+
+Baseline before:
+
+```text
+53c058e75b6173f95b0363e16e714d7406b0acc7
+```
+
+Result/verdict:
+
+```text
+M2_C04_HUMAN_UI_SMOKE_COMPLETED_WITH_NON_BLOCKING_OBSERVATION
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_1.md
+```
+
+Scope summary:
+
+Documented human UI smoke evidence for PAES_M2 / M2-C04 in LOCAL_DEV. Human reported all content and flow verification points passed/OK for C04. Codex did not execute DB, mutate DB, run LOCAL_DEV tooling, or modify app behavior.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C04-CLOSEOUT-1
+```
+
+Notes:
+
+- Capsule: M2-C04.
+- Title: PAES M2 - Geometria analitica y relaciones.
+- contentKey: paes_m2_analytic_geometry_relations_entry.
+- Initial StudyLoad status: present / pending / practice / M2_C04 / reachable candidate true.
+- Expected exercise count: 3.
+- Human evidence: todos los puntos de verificacion de contenido y flujo passed/ok para C04.
+- Broken assets/images: none reported.
+- Blocking issues: none reported.
+- Inherited login observation remains non-blocking.
+- Result: M2_C04_HUMAN_UI_SMOKE_COMPLETED_WITH_NON_BLOCKING_OBSERVATION.
+- Codex did not execute or mutate DB.
+- No DB execution/mutation was reported by the human during this UI smoke phase.
+- No code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess changes by Codex.
+- Follow-up documented.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No DB tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action by Codex.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-17 - MVP-SALES-PILOT-M2-C04-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1
 
 Baseline before:
