@@ -1,10 +1,10 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-M2-C04-HUMAN-UI-SMOKE-READINESS-1`
+`MVP-SALES-PILOT-M2-C04-LOCAL-DEV-ACCESS-READINESS-1`
 
 Result:
-`M2_C04_HUMAN_UI_SMOKE_READINESS_PARTIAL_WITH_OBSERVATIONS`
+`M2_C04_LOCAL_DEV_ACCESS_READINESS_NEEDS_TOOLING`
 
 Commit:
 `see final git log after commit/push`
@@ -18,10 +18,10 @@ Working tree:
 Files changed:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_READINESS_1.md`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_READINESS_1.md`
+`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_READINESS_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
@@ -44,10 +44,9 @@ AuthoredFeedback status:
 Files read:
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_STATIC_REVIEW_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_AUTHORED_IMPLEMENT_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_AUTHORED_READINESS_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_HUMAN_UI_SMOKE_1.md`
 - `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C03_CLOSEOUT_1.md`
 - `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C03_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
@@ -92,20 +91,23 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-Human smoke readiness summary:
-`M2-C04 content/static readiness is OK and the human smoke checklist/evidence template is prepared. Direct smoke is not recommended yet because LOCAL_DEV M2-C04 StudyLoad reachability is not documented and C04-specific safe access tooling is not present in local-dev-safe-db-tool.ts.`
+LOCAL_DEV tooling summary:
+`Existing safe tooling path is nextjs_space/scripts/local-dev-safe-db-tool.ts. It has LOCAL_DEV, no-production/no-staging, read-only and mutation guards; sanitized outputs; and C01/C02/C03 access modes. It does not have m2-c04-access-precheck, plan-m2-c04-access, align-m2-c04-access, m2-c04-access-postcheck, or --confirm-m2-c04-access-only.`
+
+Human access/reachability path:
+`No safe human path exists yet for M2-C04. Human should not execute C03 tooling for C04. Next phase must extend safe tooling for C04 before human authorization/alignment and UI smoke.`
 
 Inherited non-blocking observation:
 `Login lleva a LP en vez de DB, pero boton "Iniciar" de LP lleva correctamente al dashboard del usuario.`
 
 Blocking issues:
-`No documented M2-C04 LOCAL_DEV StudyLoad reachability; no m2-c04-access safe tooling modes found.`
+`No C04-specific safe tooling; no documented M2-C04 LOCAL_DEV StudyLoad reachability; no safe current command to confirm or align M2-C04.`
 
 Non-blocking observations:
-`M2-C04 itself remains implemented and statically reviewed with 3 exercises and authoredFeedback present.`
+`M2-C04 content/static readiness remains OK with 3 exercises and authoredFeedback present.`
 
 Follow-up/blocker:
-`MVP-SALES-PILOT-M2-C04-LOCAL-DEV-ACCESS-READINESS-1`
+`MVP-GOV-LOCAL-DEV-SAFE-DB-M2-C04-ACCESS-TOOLING-1`
 
 Scope safety:
-Documentation-only smoke readiness. Codex did not execute DB, mutate DB, execute DB tooling, or modify code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess. No production/staging action and no secrets printed.
+Documentation-only LOCAL_DEV access readiness. Codex did not execute DB, mutate DB, execute DB tooling, or modify code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess. No production/staging action and no secrets printed.
