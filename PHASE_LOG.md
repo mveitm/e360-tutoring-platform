@@ -8,6 +8,72 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-GOV-LOCAL-DEV-SAFE-DB-M2-C05-ACCESS-TOOLING-1
+
+Baseline before:
+
+```text
+d1d985036f3378513884534dc9918dea22754979
+```
+
+Result/verdict:
+
+```text
+M2_C05_LOCAL_DEV_SAFE_ACCESS_TOOLING_READY
+```
+
+Document/files changed:
+
+```text
+nextjs_space/scripts/local-dev-safe-db-tool.ts
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_TOOLING_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Extended the existing safe LOCAL_DEV DB tooling to support PAES_M2 / M2-C05 access checks and future human-local alignment. Added C05-specific read-only/precheck/plan/postcheck modes, a C05-specific align mode, expected contentKey, StudyLoad summary, C05-only mutation guard, and mutation scope limited to M2-C05 StudyLoad only.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C05-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-1
+```
+
+Notes:
+
+- Capsule: M2-C05.
+- Title: PAES M2 - Sistemas y restricciones en contexto.
+- contentKey: paes_m2_systems_restrictions_context_entry.
+- Tooling modes added: m2-c05-access-precheck, plan-m2-c05-access, align-m2-c05-access, m2-c05-access-postcheck.
+- Confirm/mutation guard added: --confirm-m2-c05-access-only.
+- Mutating mode is human-only and limited to M2-C05 StudyLoad only.
+- Codex did not execute or mutate DB.
+- Codex did not execute LOCAL_DEV tooling modes.
+- No schema/UI/assets/pedagogical content/authoredFeedback/payment/subscription/StudentAccess changes.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action by Codex.
+- No secrets printed.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-CONTENT-PAES-M2-C05-HUMAN-UI-SMOKE-READINESS-1
 
 Baseline before:

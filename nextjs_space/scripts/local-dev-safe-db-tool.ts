@@ -24,6 +24,10 @@ type Mode =
   | 'plan-m2-c04-access'
   | 'align-m2-c04-access'
   | 'm2-c04-access-postcheck'
+  | 'm2-c05-access-precheck'
+  | 'plan-m2-c05-access'
+  | 'align-m2-c05-access'
+  | 'm2-c05-access-postcheck'
 
 interface Args {
   mode?: string
@@ -39,6 +43,7 @@ interface Args {
   confirmM2C02AccessOnly: boolean
   confirmM2C03AccessOnly: boolean
   confirmM2C04AccessOnly: boolean
+  confirmM2C05AccessOnly: boolean
   confirmNoPayment: boolean
   executeMutation: boolean
   targetStudentEmail?: string
@@ -63,9 +68,11 @@ const M2_C01_STUDY_LOAD_TITLE = 'PAES M2 \u2014 Modelacion con expresiones y fun
 const M2_C02_STUDY_LOAD_TITLE = 'PAES M2 \u2014 Analisis de datos y probabilidad en tabla'
 const M2_C03_STUDY_LOAD_TITLE = 'PAES M2 \u2014 Funciones y comportamiento grafico inicial'
 const M2_C04_STUDY_LOAD_TITLE = 'PAES M2 \u2014 Geometria analitica y relaciones'
+const M2_C05_STUDY_LOAD_TITLE = 'PAES M2 \u2014 Sistemas y restricciones en contexto'
 const M2_C04_CONTENT_KEY = 'paes_m2_analytic_geometry_relations_entry'
+const M2_C05_CONTENT_KEY = 'paes_m2_systems_restrictions_context_entry'
 
-type M2StudyLoadKey = 'C01' | 'C02' | 'C03' | 'C04'
+type M2StudyLoadKey = 'C01' | 'C02' | 'C03' | 'C04' | 'C05'
 
 const M2_STUDY_LOADS: Record<M2StudyLoadKey, { title: string; titleClass: string }> = {
   C01: {
@@ -83,6 +90,10 @@ const M2_STUDY_LOADS: Record<M2StudyLoadKey, { title: string; titleClass: string
   C04: {
     title: M2_C04_STUDY_LOAD_TITLE,
     titleClass: 'M2_C04',
+  },
+  C05: {
+    title: M2_C05_STUDY_LOAD_TITLE,
+    titleClass: 'M2_C05',
   },
 }
 
@@ -109,6 +120,7 @@ function parseArgs(argv: string[]): Args {
     confirmM2C02AccessOnly: argv.includes('--confirm-m2-c02-access-only'),
     confirmM2C03AccessOnly: argv.includes('--confirm-m2-c03-access-only'),
     confirmM2C04AccessOnly: argv.includes('--confirm-m2-c04-access-only'),
+    confirmM2C05AccessOnly: argv.includes('--confirm-m2-c05-access-only'),
     confirmNoPayment: argv.includes('--confirm-no-payment'),
     executeMutation: argv.includes('--execute-mutation'),
     targetStudentEmail: readValue(argv, '--target-student-email'),
@@ -170,7 +182,11 @@ function assertCommonGuards(args: Args): asserts args is Args & { mode: Mode } {
     args.mode !== 'm2-c04-access-precheck' &&
     args.mode !== 'plan-m2-c04-access' &&
     args.mode !== 'align-m2-c04-access' &&
-    args.mode !== 'm2-c04-access-postcheck'
+    args.mode !== 'm2-c04-access-postcheck' &&
+    args.mode !== 'm2-c05-access-precheck' &&
+    args.mode !== 'plan-m2-c05-access' &&
+    args.mode !== 'align-m2-c05-access' &&
+    args.mode !== 'm2-c05-access-postcheck'
   ) {
     stop('LOCAL_DEV_SAFE_DB_TOOL_BLOCKED', { reason: 'unsupported_mode' })
   }
@@ -283,6 +299,23 @@ function assertM2C04AccessMutationGuards(args: Args): asserts args is Args & { p
   }
 }
 
+function assertM2C05AccessMutationGuards(args: Args): asserts args is Args & { phase: string } {
+  if (
+    !args.executeMutation ||
+    !args.confirmMutation ||
+    !args.confirmM2C05AccessOnly ||
+    !args.confirmNoPayment ||
+    !args.phase ||
+    !args.targetStudentEmail
+  ) {
+    stop('LOCAL_DEV_SAFE_DB_MUTATION_BLOCKED', {
+      reason: 'm2_c05_access_mutation_guard_missing',
+      mutationExecuted: false,
+      targetStudentIdentifierPrinted: false,
+    })
+  }
+}
+
 async function createPrismaClient() {
   loadLocalEnvPrivate()
 
@@ -389,6 +422,7 @@ function classifyM2StudyLoadTitle(title: string) {
   if (title === M2_STUDY_LOADS.C02.title) return M2_STUDY_LOADS.C02.titleClass
   if (title === M2_STUDY_LOADS.C03.title) return M2_STUDY_LOADS.C03.titleClass
   if (title === M2_STUDY_LOADS.C04.title) return M2_STUDY_LOADS.C04.titleClass
+  if (title === M2_STUDY_LOADS.C05.title) return M2_STUDY_LOADS.C05.titleClass
   return 'other'
 }
 
@@ -477,6 +511,7 @@ async function readM2AccessState(prisma: Awaited<ReturnType<typeof createPrismaC
   const m2C02StudyLoad = await readStudyLoad(M2_STUDY_LOADS.C02.title)
   const m2C03StudyLoad = await readStudyLoad(M2_STUDY_LOADS.C03.title)
   const m2C04StudyLoad = await readStudyLoad(M2_STUDY_LOADS.C04.title)
+  const m2C05StudyLoad = await readStudyLoad(M2_STUDY_LOADS.C05.title)
 
   return {
     program,
@@ -488,6 +523,7 @@ async function readM2AccessState(prisma: Awaited<ReturnType<typeof createPrismaC
     m2C02StudyLoad,
     m2C03StudyLoad,
     m2C04StudyLoad,
+    m2C05StudyLoad,
   }
 }
 
@@ -516,6 +552,11 @@ function summarizeM2AccessState(state: Awaited<ReturnType<typeof readM2AccessSta
     m2C04StudyLoad: summarizeStudyLoad(state.m2C04StudyLoad),
     m2C04StudyLoadReachableCandidate: {
       present: Boolean(state.enrollment && state.cycle && state.m2C04StudyLoad),
+    },
+    m2C05ExpectedContentKey: M2_C05_CONTENT_KEY,
+    m2C05StudyLoad: summarizeStudyLoad(state.m2C05StudyLoad),
+    m2C05StudyLoadReachableCandidate: {
+      present: Boolean(state.enrollment && state.cycle && state.m2C05StudyLoad),
     },
   }
 }
@@ -716,6 +757,63 @@ function summarizeM2C04AccessPlan(state: Awaited<ReturnType<typeof readM2AccessS
     blockedByMissingM2C03,
     blockedByIncompleteM2C03,
     blockedByExistingM2C04,
+    scopeExpansionRequired,
+    requiresFutureAuthorization: Boolean(mutationRequired || scopeExpansionRequired),
+    targetStudentRequired: !targetStudentResolved,
+  }
+}
+
+function summarizeM2C05AccessPlan(state: Awaited<ReturnType<typeof readM2AccessState>>) {
+  const targetStudentResolved = Boolean(state.student)
+  const programActive = Boolean(state.program && state.program.status === PAES_M2_PROGRAM.status)
+  const hasEnrollment = Boolean(state.enrollment)
+  const hasActiveEnrollment = Boolean(state.enrollment && state.enrollment.status === 'active')
+  const hasOpenCycle = Boolean(state.cycle && state.cycle.status === 'open')
+  const hasM2C04StudyLoad = Boolean(state.m2C04StudyLoad)
+  const hasCompletedM2C04StudyLoad = Boolean(state.m2C04StudyLoad && state.m2C04StudyLoad.status === 'completed')
+  const hasM2C05StudyLoad = Boolean(state.m2C05StudyLoad)
+  const blockedByMissingM2Enrollment = targetStudentResolved && programActive && !hasActiveEnrollment
+  const blockedByMissingM2Cycle =
+    targetStudentResolved &&
+    programActive &&
+    hasActiveEnrollment &&
+    !hasOpenCycle
+  const blockedByMissingM2C04 = targetStudentResolved && programActive && hasActiveEnrollment && hasOpenCycle && !hasM2C04StudyLoad
+  const blockedByIncompleteM2C04 =
+    targetStudentResolved &&
+    programActive &&
+    hasActiveEnrollment &&
+    hasOpenCycle &&
+    hasM2C04StudyLoad &&
+    !hasCompletedM2C04StudyLoad
+  const blockedByExistingM2C05 = hasM2C05StudyLoad
+  const wouldCreateStudyLoad =
+    targetStudentResolved &&
+    programActive &&
+    hasActiveEnrollment &&
+    hasOpenCycle &&
+    hasCompletedM2C04StudyLoad &&
+    !hasM2C05StudyLoad
+  const mutationRequired = Boolean(wouldCreateStudyLoad)
+  const scopeExpansionRequired = Boolean(
+    targetStudentResolved &&
+      programActive &&
+      (!hasEnrollment || !hasActiveEnrollment || !hasOpenCycle),
+  )
+
+  return {
+    targetStudentResolved,
+    targetStudentIdentifierPrinted: false,
+    expectedContentKey: M2_C05_CONTENT_KEY,
+    programRequired: !programActive,
+    wouldCreateStudyLoad,
+    wouldMutateStudentAccess: false,
+    mutationRequired,
+    blockedByMissingM2Enrollment,
+    blockedByMissingM2Cycle,
+    blockedByMissingM2C04,
+    blockedByIncompleteM2C04,
+    blockedByExistingM2C05,
     scopeExpansionRequired,
     requiresFutureAuthorization: Boolean(mutationRequired || scopeExpansionRequired),
     targetStudentRequired: !targetStudentResolved,
@@ -943,6 +1041,38 @@ async function m2C04AccessReadOnly(
   }
 }
 
+async function m2C05AccessReadOnly(
+  mode: 'm2-c05-access-precheck' | 'm2-c05-access-postcheck',
+  args: Args,
+): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const state = await readM2AccessState(prisma, args)
+
+    printJson({
+      status: mode === 'm2-c05-access-precheck'
+        ? 'LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_PRECHECK_COMPLETED'
+        : 'LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_POSTCHECK_COMPLETED',
+      mode,
+      expectedContentKey: M2_C05_CONTENT_KEY,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: false,
+      ...summarizeM2AccessState(state),
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_CHECK_FAILED', {
+      mode,
+      expectedContentKey: M2_C05_CONTENT_KEY,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
 async function planM2C01Access(args: Args): Promise<void> {
   const prisma = await createPrismaClient()
   try {
@@ -1040,6 +1170,34 @@ async function planM2C04Access(args: Args): Promise<void> {
     stop('LOCAL_DEV_SAFE_DB_M2_C04_ACCESS_PLAN_FAILED', {
       mode: 'plan-m2-c04-access',
       expectedContentKey: M2_C04_CONTENT_KEY,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
+async function planM2C05Access(args: Args): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const state = await readM2AccessState(prisma, args)
+
+    printJson({
+      status: 'LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_PLAN_COMPLETED',
+      mode: 'plan-m2-c05-access',
+      expectedContentKey: M2_C05_CONTENT_KEY,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: false,
+      ...summarizeM2AccessState(state),
+      plan: summarizeM2C05AccessPlan(state),
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_PLAN_FAILED', {
+      mode: 'plan-m2-c05-access',
+      expectedContentKey: M2_C05_CONTENT_KEY,
       databaseUrlPresent: true,
       databaseUrlValuePrinted: false,
       ...classifyError(error),
@@ -1683,6 +1841,147 @@ async function alignM2C04Access(args: Args & { phase: string }): Promise<void> {
   }
 }
 
+async function alignM2C05Access(args: Args & { phase: string }): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const state = await readM2AccessState(prisma, args)
+
+    if (!state.student) {
+      stop('LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-m2-c05-access',
+        phase: args.phase,
+        reason: 'target_student_unresolved',
+        targetStudentIdentifierPrinted: false,
+        expectedContentKey: M2_C05_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+      })
+    }
+
+    if (!state.program || state.program.status !== PAES_M2_PROGRAM.status) {
+      stop('LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-m2-c05-access',
+        phase: args.phase,
+        reason: 'paes_m2_program_not_active',
+        expectedContentKey: M2_C05_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+      })
+    }
+
+    if (!state.enrollment || state.enrollment.status !== 'active') {
+      stop('LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-m2-c05-access',
+        phase: args.phase,
+        reason: 'active_paes_m2_enrollment_required',
+        expectedContentKey: M2_C05_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+        scopeExpansionRequired: true,
+      })
+    }
+
+    if (!state.cycle || state.cycle.status !== 'open') {
+      stop('LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-m2-c05-access',
+        phase: args.phase,
+        reason: 'open_m2_learning_cycle_required',
+        expectedContentKey: M2_C05_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+        scopeExpansionRequired: true,
+      })
+    }
+
+    if (!state.m2C04StudyLoad) {
+      stop('LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-m2-c05-access',
+        phase: args.phase,
+        reason: 'm2_c04_study_load_required',
+        expectedContentKey: M2_C05_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+        scopeExpansionRequired: false,
+      })
+    }
+
+    if (state.m2C04StudyLoad.status !== 'completed') {
+      stop('LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-m2-c05-access',
+        phase: args.phase,
+        reason: 'm2_c04_completed_required',
+        expectedContentKey: M2_C05_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+        scopeExpansionRequired: false,
+      })
+    }
+
+    const mutationFlags = await prisma.$transaction(async (tx) => {
+      let studyLoadMutated = false
+
+      const existingStudyLoad = await tx.studyLoad.findFirst({
+        where: {
+          title: M2_STUDY_LOADS.C05.title,
+          learningCycle: { enrollmentId: state.enrollment!.id },
+        },
+        select: { id: true },
+      })
+
+      if (!existingStudyLoad) {
+        await tx.studyLoad.create({
+          data: {
+            learningCycleId: state.cycle!.id,
+            title: M2_STUDY_LOADS.C05.title,
+            loadType: 'practice',
+            status: 'pending',
+          },
+          select: { id: true },
+        })
+        studyLoadMutated = true
+      }
+
+      return {
+        studyLoadMutated,
+      }
+    })
+
+    const finalState = await readM2AccessState(prisma, args)
+
+    printJson({
+      status: 'LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_ALIGNMENT_COMPLETED',
+      mode: 'align-m2-c05-access',
+      phase: args.phase,
+      expectedContentKey: M2_C05_CONTENT_KEY,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: mutationFlags.studyLoadMutated,
+      mutationScope: 'M2-C05 StudyLoad only',
+      studentAccessMutated: false,
+      enrollmentMutated: false,
+      studentProgramInstanceMutated: false,
+      learningCycleMutated: false,
+      studyLoadMutated: mutationFlags.studyLoadMutated,
+      paymentMutated: false,
+      prodTouched: false,
+      stagingTouched: false,
+      ...summarizeM2AccessState(finalState),
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_ALIGNMENT_FAILED', {
+      mode: 'align-m2-c05-access',
+      phase: args.phase,
+      expectedContentKey: M2_C05_CONTENT_KEY,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      mutationResultUnknown: true,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2))
   assertCommonGuards(args)
@@ -1738,6 +2037,13 @@ async function main(): Promise<void> {
     return
   }
 
+  if (args.mode === 'm2-c05-access-precheck' || args.mode === 'm2-c05-access-postcheck') {
+    assertReadOnlyGuards(args)
+    assertTargetStudentEmail(args)
+    await m2C05AccessReadOnly(args.mode, args)
+    return
+  }
+
   if (args.mode === 'plan-m2-c01-access') {
     assertReadOnlyGuards(args)
     await planM2C01Access(args)
@@ -1765,6 +2071,13 @@ async function main(): Promise<void> {
     return
   }
 
+  if (args.mode === 'plan-m2-c05-access') {
+    assertReadOnlyGuards(args)
+    assertTargetStudentEmail(args)
+    await planM2C05Access(args)
+    return
+  }
+
   if (args.mode === 'align-m2-c01-access') {
     assertM2AccessMutationGuards(args)
     await alignM2C01Access(args)
@@ -1786,6 +2099,12 @@ async function main(): Promise<void> {
   if (args.mode === 'align-m2-c04-access') {
     assertM2C04AccessMutationGuards(args)
     await alignM2C04Access(args)
+    return
+  }
+
+  if (args.mode === 'align-m2-c05-access') {
+    assertM2C05AccessMutationGuards(args)
+    await alignM2C05Access(args)
     return
   }
 
