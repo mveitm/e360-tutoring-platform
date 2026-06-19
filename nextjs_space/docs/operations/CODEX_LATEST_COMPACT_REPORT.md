@@ -1,22 +1,16 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-M2-C04-HUMAN-UI-SMOKE-1`
+`MVP-SALES-PILOT-M2-C04-CLOSEOUT-1`
 
 Result:
-`M2_C04_HUMAN_UI_SMOKE_COMPLETED_WITH_NON_BLOCKING_OBSERVATION`
+`M2_C04_FORMALLY_CLOSED_WITH_NON_BLOCKING_OBSERVATIONS`
 
 Commit:
 `see final git log after commit/push`
 
-Final HEAD:
-`see final git log after commit/push`
-
-Working tree:
-`clean after commit/push`
-
 Full report path:
-`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_1.md`
+`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_CLOSEOUT_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
@@ -30,52 +24,36 @@ Title:
 contentKey:
 `paes_m2_analytic_geometry_relations_entry`
 
-Initial StudyLoad status:
-`present / pending / practice / M2_C04 / reachable candidate true`
+Exercise count:
+`3`
 
-Login:
-`PASSED/OK as part of content/flow verification`
+AuthoredFeedback status:
+`present / smoke OK`
 
-Dashboard reached:
-`PASSED/OK`
+Human UI smoke:
+`COMPLETED_WITH_NON_BLOCKING_OBSERVATION`
 
-Capsule shown:
-`PASSED/OK`
-
-Exercise count observed:
-`PASSED/OK; expected 3`
-
-Exercises completed:
-`PASSED/OK`
-
-Brief feedback observed:
-`PASSED/OK`
-
-Full feedback/authoredFeedback observed:
-`PASSED/OK`
-
-Broken assets/images:
-`NONE_REPORTED`
-
-Completion:
-`PASSED/OK`
-
-Next visible state/capsule:
-`NOT_DETAILED_BY_HUMAN`
+LOCAL_DEV alignment:
+`StudyLoad present / pending / practice / M2_C04 / reachable candidate true before smoke; human-local alignment ready for smoke`
 
 Files read:
-- `PHASE_LOG.md`
-- `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_1.md`
 - `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_STATIC_REVIEW_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_AUTHORED_IMPLEMENT_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C03_HUMAN_UI_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_AUTHORED_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_READINESS_1.md`
+- `PHASE_LOG.md`
+- `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C04_ACCESS_TOOLING_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_1.md`
 
 Files changed:
 - `PHASE_LOG.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C04_CLOSEOUT_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_1.md`
 
 Validation:
 - `git diff --check`: passed.
@@ -85,7 +63,13 @@ DB execution by Codex:
 `NOT_EXECUTED_BY_CODEX`
 
 DB mutation by Codex:
-`NOT_EXECUTED_BY_CODEX`
+`NOT_MUTATED_BY_CODEX`
+
+DB execution by human during alignment:
+`EXECUTED_LOCAL_DEV_TOOLING`
+
+DB mutation by human during alignment:
+`PERFORMED_M2_C04_STUDYLOAD_ONLY`
 
 DB execution by human during smoke:
 `NOT_REPORTED_AS_EXECUTED_DURING_UI_SMOKE`
@@ -120,14 +104,17 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-Inherited non-blocking observation:
-`Login lleva a LP en vez de DB, pero boton "Iniciar" de LP lleva correctamente al dashboard del usuario.`
+Closeout summary:
+`M2-C04 queda cerrada como capsula implementada, revisada, alineada en LOCAL_DEV y smokeada exitosamente.`
 
 Blocking issues:
 `None reported.`
 
 Non-blocking observations:
-`Inherited login observation remains documented. Next visible state/capsule was not detailed by human.`
+`1. Login lleva a LP en vez de DB, pero boton "Iniciar" de LP lleva correctamente al dashboard del usuario. 2. Next visible state/capsule no fue detallado por humano durante el smoke.`
 
-Follow-up/blocker:
-`MVP-SALES-PILOT-M2-C04-CLOSEOUT-1`
+Final git status:
+`clean after commit/push`
+
+Notes / unresolved issues:
+`Next natural step: continue with the next PAES_M2 capsule/readiness decision after M2-C04.`
