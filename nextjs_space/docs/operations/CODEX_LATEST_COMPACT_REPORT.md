@@ -1,16 +1,16 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-M2-C05-HUMAN-UI-SMOKE-1`
+`MVP-SALES-PILOT-M2-C05-CLOSEOUT-1`
 
 Result:
-`M2_C05_HUMAN_UI_SMOKE_COMPLETED`
+`M2_C05_FORMALLY_CLOSED`
 
 Commit:
 `see final git log after commit/push`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_HUMAN_UI_SMOKE_1.md`
+`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_CLOSEOUT_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
@@ -24,29 +24,11 @@ Title:
 contentKey:
 `paes_m2_systems_restrictions_context_entry`
 
-Initial StudyLoad status:
-`present / pending / practice / M2_C05 / reachable candidate true`
+Exercise count:
+`3`
 
-Login:
-`PASSED/OK`
-
-Dashboard reached:
-`PASSED/OK`
-
-Capsule shown:
-`PASSED/OK`
-
-Exercise count observed:
-`PASSED/OK; expected 3`
-
-Exercises completed:
-`PASSED/OK`
-
-Brief feedback observed:
-`PASSED/OK`
-
-Full feedback/authoredFeedback observed:
-`PASSED/OK`
+AuthoredFeedback status:
+`present / smoke OK`
 
 Notation legibility:
 `PASSED/OK`
@@ -54,28 +36,28 @@ Notation legibility:
 Condition-by-condition reasoning:
 `PASSED/OK`
 
-Broken assets/images:
-`NONE_REPORTED`
+Human UI smoke:
+`COMPLETED`
 
-Completion:
-`PASSED/OK`
-
-Next visible state/capsule:
-`NOT_DETAILED_BY_HUMAN`
+LOCAL_DEV alignment:
+`StudyLoad present / pending / practice / M2_C05 / reachable candidate true before smoke`
 
 Files read:
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_HUMAN_UI_SMOKE_1.md`
 - `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_1.md`
+- `nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_TOOLING_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_HUMAN_UI_SMOKE_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_STATIC_REVIEW_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_AUTHORED_IMPLEMENT_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_AUTHORED_READINESS_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C04_HUMAN_UI_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_READINESS_1.md`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Files changed:
 - `PHASE_LOG.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_HUMAN_UI_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_CLOSEOUT_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
@@ -87,6 +69,12 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_MUTATED_BY_CODEX`
+
+DB execution by human during alignment:
+`EXECUTED_LOCAL_DEV_TOOLING`
+
+DB mutation by human during alignment:
+`PERFORMED_M2_C05_STUDYLOAD_ONLY`
 
 DB execution by human during smoke:
 `NOT_REPORTED_AS_EXECUTED_DURING_UI_SMOKE`
@@ -121,17 +109,17 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-Inherited non-blocking observations:
-`Login lands on LP before dashboard via "Iniciar"; next visible state/capsule was not detailed during M2-C04 smoke.`
+Closeout summary:
+`M2-C05 queda cerrada como capsula implementada, revisada, alineada en LOCAL_DEV y smokeada exitosamente.`
 
 Blocking issues:
-`None reported.`
+`None.`
 
 Non-blocking observations:
-`None reported by human.`
+`Inherited flow observations remain documented. M2-C05 human reported Obs: none; next visible state/capsule for M2-C05 was not detailed by human.`
 
 Final git status:
 `clean after commit/push`
 
 Notes / unresolved issues:
-`Next natural step: MVP-SALES-PILOT-M2-C05-CLOSEOUT-1.`
+`Next natural step: continue with the next PAES_M2 capsule/readiness decision after M2-C05.`

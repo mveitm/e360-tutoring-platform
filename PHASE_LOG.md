@@ -8,6 +8,80 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-SALES-PILOT-M2-C05-CLOSEOUT-1
+
+Baseline before:
+
+```text
+0d21d8cdbd2c39543f66f87aeac5f201572d095d
+```
+
+Result/verdict:
+
+```text
+M2_C05_FORMALLY_CLOSED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_CLOSEOUT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation-only formal closeout for PAES_M2 / M2-C05. Consolidated readiness, authored readiness, authored implementation, static review, safe LOCAL_DEV tooling, human authorization, human-local alignment and human UI smoke evidence. M2-C05 is formally closed as implemented, reviewed, LOCAL_DEV-aligned and successfully smoke-tested.
+
+Next recommended phase:
+
+```text
+Continue with the next PAES_M2 capsule/readiness decision after M2-C05.
+```
+
+Notes:
+
+- Capsule: M2-C05.
+- Title: PAES M2 - Sistemas y restricciones en contexto.
+- contentKey: paes_m2_systems_restrictions_context_entry.
+- Exercise count: 3.
+- AuthoredFeedback status: present / smoke OK.
+- Notation legibility: PASSED/OK.
+- Condition-by-condition reasoning: PASSED/OK.
+- StudyLoad before smoke: present / pending / practice / M2_C05 / reachable candidate true.
+- Human UI smoke: completed.
+- Human-local DB mutation during alignment was limited to M2-C05 StudyLoad only.
+- No DB execution/mutation was reported by the human during smoke.
+- Human reported all M2-C05 smoke checkpoints passed/ok and `Obs: none`.
+- Next visible state/capsule for M2-C05 was not detailed by human; recorded as evidence detail, not a blocking issue.
+- Result: M2_C05_FORMALLY_CLOSED.
+- Codex did not execute or mutate DB.
+- No code/tooling/schema/UI/assets/pedagogical content/authoredFeedback/payment/subscription/StudentAccess changes by Codex.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No code changes.
+- No tooling changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action by Codex.
+- No secrets printed by Codex.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-CONTENT-PAES-M2-C05-HUMAN-UI-SMOKE-1
 
 Baseline before:
