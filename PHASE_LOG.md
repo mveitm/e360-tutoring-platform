@@ -8,6 +8,76 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-CONTENT-PAES-M2-C06-AUTHORED-READINESS-1
+
+Baseline before:
+
+```text
+0e4c49fb799999c3991b17790e691c9953cae7bd
+```
+
+Result/verdict:
+
+```text
+M2_C06_AUTHORED_READINESS_OK
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_READINESS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation/authored-readiness-only specification for PAES_M2 / M2-C06. Defines final proposed title, contentKey, purpose, prerequisites, compact table/mobile strategy, 3-exercise design, authoredFeedback expectations, risks and implementation gates. No app behavior or executable content changed.
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-C06-AUTHORED-IMPLEMENT-1
+```
+
+Notes:
+
+- Capsule: M2-C06.
+- Final proposed title: PAES M2 - Estadistica comparativa simple.
+- Final proposed contentKey: paes_m2_simple_comparative_statistics_entry.
+- Exercise count target: 3.
+- Table/mobile strategy: compact tables only when they improve readability; compact lists for one-series data; avoid wide tables, long cells, graphs/images/assets.
+- Representation strategy: text contexts, compact tables/lists, small whole-number comparisons, range and simple totals.
+- AuthoredFeedback expected for all 3 items with brief and complete feedback.
+- The seed plan suggested 4 exercises, but readiness selects 3 to avoid table/mobile overload while preserving skill coverage.
+- Result: M2_C06_AUTHORED_READINESS_OK.
+- Codex did not execute or mutate DB.
+- No code/tooling/schema/UI/assets/implemented content/implemented authoredFeedback/payment/subscription/StudentAccess changes by Codex.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No code changes.
+- No tooling changes.
+- No UI changes.
+- No asset changes.
+- No implemented pedagogical capsule content changes.
+- No implemented authoredFeedback changes.
+- No executable registry entries created or edited.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action by Codex.
+- No secrets printed by Codex.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-CONTENT-PAES-M2-C06-READINESS-1
 
 Baseline before:
