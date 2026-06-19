@@ -1,63 +1,54 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-M2-C06-CLOSEOUT-1`
+`MVP-CONTENT-PAES-M2-C07-READINESS-1`
 
 Result:
-`M2_C06_FORMALLY_CLOSED_WITH_NON_BLOCKING_OBSERVATIONS`
+`M2_C07_READINESS_PARTIAL_WITH_OBSERVATIONS`
 
 Commit:
 `see final git log after commit/push`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_CLOSEOUT_1.md`
+`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C07_READINESS_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
-Capsule:
+Previous capsule:
 `M2-C06`
 
-Title:
-`PAES M2 - Estadistica comparativa simple`
+Candidate capsule:
+`M2-C07`
 
-contentKey:
-`paes_m2_simple_comparative_statistics_entry`
+Candidate title:
+`Geometria con figura compuesta`
 
-Exercise count:
-`3`
+Candidate contentKey:
+`NOT_FOUND_AS_FINAL_OR_IMPLEMENTED_ARTIFACT`
 
-AuthoredFeedback status:
-`present / smoke OK`
+Source of truth:
+`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_AUTHORED_SEED_PLAN_1.md`
 
-Table/list readability:
-`PASSED/OK in smoke with observations`
-
-Feedback references visible values:
-`PASSED/OK`
-
-Human UI smoke:
-`COMPLETED_WITH_NON_BLOCKING_OBSERVATIONS`
-
-LOCAL_DEV alignment:
-`StudyLoad present / pending / practice / M2_C06 / reachable candidate true before smoke`
+Confidence level:
+`HIGH_FOR_SEQUENCE_AND_TITLE; LOW_FOR_FINAL_CONTENTKEY_AND_FINAL_ITEMS`
 
 Files read:
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_HUMAN_UI_SMOKE_1.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_1.md`
-- `nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C06_ACCESS_TOOLING_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_HUMAN_UI_SMOKE_READINESS_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_STATIC_REVIEW_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_IMPLEMENT_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_READINESS_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_READINESS_1.md`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_CLOSEOUT_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_HUMAN_UI_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_STATIC_REVIEW_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_AUTHORED_SEED_PLAN_1.md`
+- `nextjs_space/lib/study-load-content.ts`
+- `nextjs_space/docs/operations/BPCPV1_PAES_M2_PRECONTRACT.md`
+- `nextjs_space/docs/operations/BPCPV1_PAES_M2_DERIVATION_GOVERNING_DOCUMENT.md`
+- `nextjs_space/docs/operations/MVP_GOV_PAES_FIGURE_SPEC_AND_QA_STANDARD_1.md`
+- `nextjs_space/docs/operations/MVP_GOV_PAES_VISUAL_STIMULUS_STANDARD_1.md`
 
 Files changed:
 - `PHASE_LOG.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_CLOSEOUT_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C07_READINESS_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
@@ -69,18 +60,6 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_MUTATED_BY_CODEX`
-
-DB execution by human during alignment:
-`EXECUTED_LOCAL_DEV_TOOLING`
-
-DB mutation by human during alignment:
-`PERFORMED_M2_C06_STUDYLOAD_ONLY`
-
-DB execution by human during smoke:
-`NOT_REPORTED_AS_EXECUTED_DURING_UI_SMOKE`
-
-DB mutation by human during smoke:
-`NOT_REPORTED_AS_MUTATED_DURING_UI_SMOKE`
 
 Code changes:
 `NOT_PERFORMED`
@@ -109,17 +88,17 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-Closeout summary:
-`M2-C06 is formally closed as implemented, reviewed, aligned in LOCAL_DEV and smoke-tested successfully, with non-blocking observations preserved for follow-up.`
+Readiness summary:
+`M2-C07 is identified from the seed plan as the planned PAES_M2 capsule after M2-C06, but it has no final contentKey, final items, authoredFeedback, registry entry, StudyLoad access evidence or smoke path. It can advance to authored readiness with explicit FigureSpec/geometry figure observations.`
 
 Blocking issues:
-`None.`
+`None blocking authored readiness. Direct implementation, LOCAL_DEV alignment and human UI smoke are not ready.`
 
 Non-blocking observations:
-`Inherited flow observations remain documented. M2-C06-specific follow-ups: ST M2 lacks container for last 3 completed capsules and should be checked against M1; review why C05 and C06 have 3 exercises. The 3-exercise point is not a blocker because current M1/M2 standard allows maximum 4 and prefers 3 when sufficient.`
+`M2-C07 is GEOMETRY_FIGURE_REQUIRED_NEEDS_PLAN and must not be implemented as student-facing content without deterministic/approved FigureSpec planning. Inherited flow/product observations remain documented, including ST M2 completed-capsule container follow-up and C05/C06 3-exercise pedagogical/consistency follow-up.`
 
 Final git status:
 `pending commit/push`
 
 Notes / unresolved issues:
-`Next natural step: continue with the next PAES_M2 capsule/readiness decision after M2-C06, while tracking ST M2 container and C05/C06 exercise-count follow-ups separately.`
+`Next natural step: MVP-CONTENT-PAES-M2-C07-AUTHORED-READINESS-1. That phase should decide whether to specify a deterministic/approved geometry figure path, a non-visual text-bridge alternative that does not assess visual geometry, or defer implementation until a visual dependency plan is complete.`
