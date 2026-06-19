@@ -8,6 +8,73 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-GOV-LOCAL-DEV-SAFE-DB-M2-C06-ACCESS-TOOLING-1
+
+Baseline before:
+
+```text
+0f426ee172b337342c93e1a01b4f71c81833bae5
+```
+
+Result/verdict:
+
+```text
+M2_C06_LOCAL_DEV_SAFE_ACCESS_TOOLING_READY
+```
+
+Document/files changed:
+
+```text
+nextjs_space/scripts/local-dev-safe-db-tool.ts
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C06_ACCESS_TOOLING_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Safe LOCAL_DEV tooling phase for PAES_M2 / M2-C06 access. Added C06-specific read-only precheck/postcheck, read-only plan, human-only align mode and C06-only mutation guard. Codex did not execute DB, mutate DB, or run LOCAL_DEV tooling.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C06-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-1
+```
+
+Notes:
+
+- Capsule: M2-C06.
+- Title: PAES M2 - Estadistica comparativa simple.
+- contentKey: paes_m2_simple_comparative_statistics_entry.
+- Tooling modes added: m2-c06-access-precheck; plan-m2-c06-access; align-m2-c06-access; m2-c06-access-postcheck.
+- Confirm-only / C06-only guard: --confirm-m2-c06-access-only.
+- Mutating mode: align-m2-c06-access; human-only; mutation scope M2-C06 StudyLoad only.
+- Safety: LOCAL_DEV/no-prod/no-staging guards, read-only separation, sanitized output, no secret/DB URL printing, no C05 tooling reuse for C06.
+- Result: M2_C06_LOCAL_DEV_SAFE_ACCESS_TOOLING_READY.
+- Codex did not execute or mutate DB.
+- No schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess changes by Codex.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action by Codex.
+- No secrets printed by Codex.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-CONTENT-PAES-M2-C06-HUMAN-UI-SMOKE-READINESS-1
 
 Baseline before:
