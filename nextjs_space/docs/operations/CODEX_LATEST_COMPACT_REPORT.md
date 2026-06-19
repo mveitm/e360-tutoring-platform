@@ -1,16 +1,16 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-M2-C07-AUTHORED-READINESS-1`
+`MVP-CONTENT-PAES-M2-C07-FIGURESPEC-READINESS-1`
 
 Result:
-`M2_C07_AUTHORED_READINESS_PARTIAL_WITH_OBSERVATIONS`
+`M2_C07_FIGURESPEC_BLOCKED_NEEDS_TECHNICAL_DECISION`
 
 Commit:
 `see final git log after commit/push`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C07_AUTHORED_READINESS_1.md`
+`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C07_FIGURESPEC_READINESS_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
@@ -18,26 +18,26 @@ Compact report path:
 Capsule:
 `M2-C07`
 
-Final proposed title:
+Candidate title:
 `PAES M2 - Geometria con figura compuesta`
 
-Final proposed contentKey:
+Candidate contentKey:
 `paes_m2_composite_geometry_figures_entry`
 
-Exercise count:
-`3`
+Visual need:
+`Geometry figure required; composite-figure reasoning cannot be final text-only without changing the assessed skill.`
 
-Representation strategy:
-`Deterministic or approved geometry figures with FigureSpec; text_bridge only as explicitly authorized temporary bridge, not final visual-geometry compliance.`
+Recommended representation strategy:
+`Blocked until visual support decision; document visualSpec now, defer implementation until deterministic SVG/template support, approved static asset path, or explicitly scoped text_bridge route is decided.`
 
-FigureSpec strategy:
-`Required before student-facing implementation; every item needs stable stimulusId/version/type/sourceType/itemRefs/capsuleRefs/status/review metadata and visible labels/dimensions matching stem/options/key/feedback.`
+visualSpec / fallback:
+`q1 paes-m2-c07-q1-l-shape-two-rectangles; q2 paes-m2-c07-q2-rectangle-square-shared-side; q3 paes-m2-c07-q3-partitioned-rectangle-two-zones. Text fallback is accessibility/review support only, not final visual-geometry compliance.`
 
 Files read:
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C07_AUTHORED_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C07_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_AUTHORED_SEED_PLAN_1.md`
 - `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_CLOSEOUT_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_IMPLEMENT_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_STATIC_REVIEW_1.md`
 - `nextjs_space/lib/study-load-content.ts`
@@ -48,7 +48,7 @@ Files read:
 
 Files changed:
 - `PHASE_LOG.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C07_AUTHORED_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C07_FIGURESPEC_READINESS_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
@@ -76,6 +76,9 @@ UI changes:
 Asset changes:
 `NOT_PERFORMED`
 
+New assets:
+`NOT_CREATED`
+
 Implemented pedagogical capsule content changes:
 `NOT_PERFORMED`
 
@@ -88,17 +91,17 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-Readiness summary:
-`M2-C07 authored readiness defines identity, proposed contentKey, 3-exercise design, feedback expectations and FigureSpec gates, but remains partial because the deterministic/approved geometry figure path is unresolved.`
+FigureSpec readiness summary:
+`M2-C07 has a documented visualSpec target for three geometry-figure exercises, but current StudyLoadContent supports text/tableStimulus only and no executable geometry figure/visualSpec field or rendering path was found. Direct implementation remains blocked pending technical decision.`
 
 Blocking issues:
-`None for documenting authored readiness. Direct implementation is blocked until FigureSpec/deterministic figure path or approved static asset path is available, unless a separate phase explicitly authorizes a narrower text_bridge route.`
+`No supported geometry-figure content/rendering path exists in current canonical StudyLoad registry.`
 
 Non-blocking observations:
-`M2-C07 is geometry-figure dependent and has high visual validity risk. Static review must later verify figure/stem/options/key/feedback consistency, mobile legibility and absence of draft/free-form figure dependencies.`
+`Inherited flow/product observations remain documented. C05/C06 3-exercise follow-up is not a blocker by itself because the current standard allows maximum 4 and prefers 3 when sufficient.`
 
 Final git status:
 `pending commit/push`
 
 Notes / unresolved issues:
-`Next natural step: MVP-CONTENT-PAES-M2-C07-FIGURESPEC-READINESS-1. Alternative: MVP-CONTENT-PAES-M2-VISUAL-DEPENDENCY-PLAN-1 if a broader visual-dependency decision is preferred.`
+`Next natural step: MVP-GOV-PAES-GEOMETRY-FIGURE-TECHNICAL-DECISION-1. Decide deterministic SVG/template support, approved static asset path, or explicitly scoped text_bridge route before returning to M2-C07 implementation.`

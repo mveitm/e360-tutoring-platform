@@ -8,6 +8,78 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-CONTENT-PAES-M2-C07-FIGURESPEC-READINESS-1
+
+Baseline before:
+
+```text
+906fb5ca84d1a7af09a25541472bf6cb57f321f2
+```
+
+Result/verdict:
+
+```text
+M2_C07_FIGURESPEC_BLOCKED_NEEDS_TECHNICAL_DECISION
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C07_FIGURESPEC_READINESS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation/FigureSpec readiness phase for PAES_M2 / M2-C07. Identified that M2-C07 is explicitly geometry-figure dependent and that the current StudyLoad content registry supports text/tableStimulus but not geometry figures, visualSpec, assetPath, svg_template or stimulusId fields. A documentary visualSpec target was defined, but implementation remains blocked until a technical visual support decision is made.
+
+Next recommended phase:
+
+```text
+MVP-GOV-PAES-GEOMETRY-FIGURE-TECHNICAL-DECISION-1
+```
+
+Notes:
+
+- Capsule: M2-C07.
+- Candidate title: PAES M2 - Geometria con figura compuesta.
+- Candidate contentKey: paes_m2_composite_geometry_figures_entry.
+- Reason authored readiness is partial: deterministic/approved geometry figure path unresolved.
+- Recommended representation strategy: blocked until visual support decision.
+- Rejected final text-only strategy because M2-C07 assesses composite-figure reasoning.
+- Rejected table/list strategy because it does not preserve spatial relations.
+- Current repo support observed: text stems, options, authoredFeedback, readingText and tableStimulus; no implemented geometry figure stimulus support.
+- visualSpec ids documented for q1 L-shape, q2 rectangle/square shared side and q3 partitioned rectangle.
+- Result blocks direct M2-C07 implementation, not documentation.
+- Codex did not execute or mutate DB.
+- No code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess changes by Codex.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No code changes.
+- No tooling changes.
+- No UI changes.
+- No asset changes.
+- No new assets created.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No executable registry entries created or edited.
+- No prod/staging action by Codex.
+- No secrets printed by Codex.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-CONTENT-PAES-M2-C07-AUTHORED-READINESS-1
 
 Baseline before:
