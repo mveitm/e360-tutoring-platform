@@ -163,6 +163,7 @@ const STUDY_LOAD_VISIBLE_CORRELATIVES_BY_CONTENT_KEY: Record<string, string> = {
   paes_m2_analytic_geometry_relations_entry: 'M2-C04',
   paes_m2_systems_restrictions_context_entry: 'M2-C05',
   paes_m2_simple_comparative_statistics_entry: 'M2-C06',
+  paes_m2_composite_geometry_figures_entry: 'M2-C07',
 }
 
 function getStudyLoadDisplayBaseTitle(content: StudyLoadContent): string {
@@ -2206,6 +2207,114 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
             'Ambos cursos suman 36 correctas; la conclusion valida es que empatan en total, aunque difieren por pregunta.',
           complete:
             'El item pide elegir una conclusion apoyada por la tabla. Paso 1: lee los valores del Curso A: 12, 14 y 10. Su total es 12 + 14 + 10 = 36. Paso 2: lee los valores del Curso B: 10, 15 y 11. Su total es 10 + 15 + 11 = 36. Paso 3: compara los totales: ambos cursos tienen 36 correctas. Paso 4: revisa por pregunta: Curso A tiene mas en P1, pero Curso B tiene mas en P2 y P3. Por eso la alternativa correcta es D. La alternativa A es falsa porque A no gana todas las preguntas. La B es falsa porque B tampoco gana todas. La C parece usar el total 36, pero dice mayor total aunque 36 contra 36 es empate. Para mejorar, verifica palabras como "todas", "mayor" o "mismo" con los datos exactos de la tabla. Esta habilidad ayuda a justificar conclusiones estadisticas simples.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revision. ' +
+      'No recibiras puntaje PAES, diagnostico automatico ni declaracion de dominio M2 en esta version.',
+  },
+  'PAES M2 - Geometria con figura compuesta': {
+    contentKey: 'paes_m2_composite_geometry_figures_entry',
+    contentVersion: 'v1',
+    contentType: 'practice',
+    title: 'PAES M2 - Geometria con figura compuesta',
+    program: 'PAES_M2',
+    skillFamily: 'geometry/figures bridge',
+    topic: 'Geometria con figura compuesta',
+    estimatedMinutes: '8-12 minutos',
+    instructions:
+      'Esta actividad tiene 3 ejercicios de opcion multiple sobre geometria con formas compuestas descritas en texto y tablas compactas.\n\n' +
+      '1. Lee cada descripcion o tabla con calma.\n' +
+      '2. Identifica las partes, medidas y relaciones que aparecen escritas.\n' +
+      '3. Calcula area o perimetro solo con los datos visibles.\n' +
+      '4. No necesitas imagenes ni graficos: toda la informacion necesaria esta en el texto o en la tabla.\n' +
+      '5. Envia tus respuestas.\n' +
+      '6. Luego revisa la retroalimentacion y deja tu autorreporte si corresponde.',
+    items: [
+      {
+        key: 'q1',
+        stem:
+          'La tabla de partes describe una forma compuesta por dos rectangulos unidos sin superponerse.\n\n' +
+          'Segun esas medidas, cual es el area total?',
+        tableStimulus: {
+          caption: 'Partes de la forma compuesta',
+          headers: ['Parte', 'Medidas', 'Relacion'],
+          rows: [
+            ['Rectangulo A', '6 cm por 4 cm', 'parte principal'],
+            ['Rectangulo B', '3 cm por 2 cm', 'unido a A sin superponerse'],
+          ],
+        },
+        options: [
+          { label: 'A', text: '24 cm2' },
+          { label: 'B', text: '30 cm2' },
+          { label: 'C', text: '36 cm2' },
+          { label: 'D', text: '48 cm2' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_composite_geometry_figures_entry_q1_brief_v1',
+          completeId: 'paes_m2_composite_geometry_figures_entry_q1_complete_v1',
+          version: 'm2-c07-authored-feedback-v1',
+          brief:
+            'Suma las areas de las dos partes: 6 * 4 = 24 y 3 * 2 = 6; como no se superponen, el total es 30 cm2.',
+          complete:
+            'El item pide calcular el area total de una forma compuesta descrita por partes. Paso 1: lee la fila del Rectangulo A: sus medidas son 6 cm por 4 cm. Paso 2: calcula su area: 6 * 4 = 24 cm2. Paso 3: lee la fila del Rectangulo B: sus medidas son 3 cm por 2 cm. Paso 4: calcula su area: 3 * 2 = 6 cm2. Paso 5: usa la relacion visible en la tabla: el Rectangulo B esta unido a A sin superponerse, entonces las areas se suman. Paso 6: calcula 24 + 6 = 30 cm2. Por eso la alternativa correcta es B. La alternativa A usa solo el Rectangulo A. La C puede aparecer si se combinan medidas sin respetar las partes. La D puede aparecer al multiplicar dimensiones que no pertenecen al mismo rectangulo o al sobrecontar. Para mejorar, separa cada parte rectangular antes de sumar areas. Esta estrategia tambien ayuda cuando luego debas decidir que bordes cuentan para un perimetro.',
+        },
+      },
+      {
+        key: 'q2',
+        stem:
+          'La descripcion geometrica indica lo siguiente:\n\n' +
+          '- Hay un rectangulo de 8 cm por 5 cm.\n' +
+          '- A un costado se une un cuadrado de 3 cm de lado.\n' +
+          '- El lado de contacto mide 3 cm y queda por dentro, por lo tanto no forma parte del borde exterior.\n\n' +
+          'Cual expresion calcula el perimetro exterior?',
+        options: [
+          { label: 'A', text: '2 * (8 + 5) + 4 * 3' },
+          { label: 'B', text: '2 * (8 + 5) + 4 * 3 - 2 * 3' },
+          { label: 'C', text: '8 * 5 + 3 * 3' },
+          { label: 'D', text: '8 + 5 + 3' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_composite_geometry_figures_entry_q2_brief_v1',
+          completeId: 'paes_m2_composite_geometry_figures_entry_q2_complete_v1',
+          version: 'm2-c07-authored-feedback-v1',
+          brief:
+            'El lado compartido queda dentro de la forma, por eso se resta dos veces: una por cada perimetro que lo contaba.',
+          complete:
+            'El item pide una expresion para el perimetro exterior, no para el area. Paso 1: lee que el rectangulo mide 8 cm por 5 cm, por eso su perimetro separado seria 2 * (8 + 5). Paso 2: lee que el cuadrado tiene lado 3 cm, por eso su perimetro separado seria 4 * 3. Paso 3: identifica la condicion clave: el lado de contacto mide 3 cm y queda por dentro, asi que no forma parte del borde exterior. Paso 4: si sumas los perimetros separados, ese lado interno queda contado una vez por el rectangulo y una vez por el cuadrado. Paso 5: por eso se resta 2 * 3. La expresion correcta es 2 * (8 + 5) + 4 * 3 - 2 * 3, alternativa B. La A mantiene el lado interno, la C calcula area y la D solo suma algunos datos visibles. Para mejorar, en perimetro marca mentalmente que segmentos estan en el borde exterior antes de elegir una expresion.',
+        },
+      },
+      {
+        key: 'q3',
+        stem:
+          'La tabla describe un patio rectangular dividido en dos zonas. Ambas zonas tienen el mismo ancho y no se superponen.\n\n' +
+          'Cual conclusion esta mejor apoyada por los datos?',
+        tableStimulus: {
+          caption: 'Zonas del patio',
+          headers: ['Zona', 'Ancho', 'Alto'],
+          rows: [
+            ['Pasto', '10 m', '4 m'],
+            ['Juegos', '10 m', '2 m'],
+          ],
+        },
+        options: [
+          { label: 'A', text: 'La zona de juegos tiene mayor area que la zona de pasto.' },
+          { label: 'B', text: 'La zona de pasto mide el doble de area que la zona de juegos.' },
+          { label: 'C', text: 'Ambas zonas tienen la misma area.' },
+          { label: 'D', text: 'El area total es 16 m2.' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_composite_geometry_figures_entry_q3_brief_v1',
+          completeId: 'paes_m2_composite_geometry_figures_entry_q3_complete_v1',
+          version: 'm2-c07-authored-feedback-v1',
+          brief:
+            'Pasto mide 10 * 4 = 40 m2 y Juegos mide 10 * 2 = 20 m2; 40 es el doble de 20.',
+          complete:
+            'El item pide elegir una conclusion apoyada por los datos de la tabla. Paso 1: lee la fila Pasto: ancho 10 m y alto 4 m. Paso 2: calcula su area: 10 * 4 = 40 m2. Paso 3: lee la fila Juegos: ancho 10 m y alto 2 m. Paso 4: calcula su area: 10 * 2 = 20 m2. Paso 5: compara 40 y 20: 40 es el doble de 20. Por eso la alternativa correcta es B. La A invierte la comparacion, la C ignora que las alturas son distintas y la D suma numeros visibles en vez de calcular areas. Para mejorar, cuando compares areas, calcula cada area antes de elegir una conclusion. Esta misma forma de leer partes y relaciones prepara comparaciones geometricas mas complejas.',
         },
       },
     ],
