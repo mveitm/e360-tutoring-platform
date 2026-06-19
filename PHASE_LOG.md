@@ -8,6 +8,73 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-GOV-PAES-GEOMETRY-FIGURE-TECHNICAL-DECISION-1
+
+Baseline before:
+
+```text
+7eaaf8dfe8120bdf92cd01ec07d431abbaf2abc9
+```
+
+Result/verdict:
+
+```text
+PAES_GEOMETRY_FIGURE_TECHNICAL_DECISION_READY
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_GOV_PAES_GEOMETRY_FIGURE_TECHNICAL_DECISION_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation/governance technical decision for PAES geometry figures. Accepted the hybrid strategy: M2-C07 may proceed through an explicit structured text/table geometry bridge now, while the broader PAES geometry figure system remains reserved for a later deterministic parametric SVG/template or approved static asset strategy.
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-C07-AUTHORED-READINESS-RETRY-1
+```
+
+Notes:
+
+- Decision: Hybrid immediate text/table fallback + future parametric figure strategy.
+- Immediate M2-C07 bridge must not claim a rendered figure is shown.
+- Bridge should use structured text/table descriptions for part dimensions, no-overlap, shared-side/internal-side and partition relationships.
+- Future preferred path remains deterministic VisualStimulusSpec-compatible parametric SVG/template renderer with QA approval.
+- Static assets remain secondary and require custody, review, versioning and replacement rules.
+- No renderer, SVG, UI, schema, app code, assets, registry content, implemented authoredFeedback or DB changes were made.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No code changes.
+- No tooling changes.
+- No UI changes.
+- No asset changes.
+- No new assets created.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No executable registry entries created or edited.
+- No figure renderer implemented.
+- No prod/staging action by Codex.
+- No secrets printed by Codex.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-CONTENT-PAES-M2-C07-FIGURESPEC-READINESS-1
 
 Baseline before:
