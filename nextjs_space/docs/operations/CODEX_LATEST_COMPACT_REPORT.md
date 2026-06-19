@@ -1,16 +1,16 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-M2-C06-HUMAN-UI-SMOKE-1`
+`MVP-SALES-PILOT-M2-C06-CLOSEOUT-1`
 
 Result:
-`M2_C06_HUMAN_UI_SMOKE_COMPLETED_WITH_NON_BLOCKING_OBSERVATIONS`
+`M2_C06_FORMALLY_CLOSED_WITH_NON_BLOCKING_OBSERVATIONS`
 
 Commit:
 `see final git log after commit/push`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_HUMAN_UI_SMOKE_1.md`
+`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_CLOSEOUT_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
@@ -24,61 +24,40 @@ Title:
 contentKey:
 `paes_m2_simple_comparative_statistics_entry`
 
-Initial StudyLoad status:
-`present / pending / practice / M2_C06 / reachable candidate true`
+Exercise count:
+`3`
 
-Login:
-`PASSED/OK`
+AuthoredFeedback status:
+`present / smoke OK`
 
-Dashboard reached:
-`PASSED/OK`
-
-Capsule shown:
-`PASSED/OK`
-
-Exercise count observed:
-`PASSED/OK; expected 3`
-
-Exercises completed:
-`PASSED/OK`
-
-Brief feedback observed:
-`PASSED/OK`
-
-Full feedback/authoredFeedback observed:
-`PASSED/OK`
-
-Table/list readability active view:
-`PASSED/OK`
-
-Table/list readability completed view:
-`PASSED/OK if applicable / not blocking`
+Table/list readability:
+`PASSED/OK in smoke with observations`
 
 Feedback references visible values:
 `PASSED/OK`
 
-Broken assets/images/graphs/figures:
-`NONE_REPORTED`
+Human UI smoke:
+`COMPLETED_WITH_NON_BLOCKING_OBSERVATIONS`
 
-Completion:
-`PASSED/OK`
-
-Next visible state/capsule:
-`NOT_DETAILED_BY_HUMAN`
+LOCAL_DEV alignment:
+`StudyLoad present / pending / practice / M2_C06 / reachable candidate true before smoke`
 
 Files read:
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_HUMAN_UI_SMOKE_1.md`
 - `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_1.md`
+- `nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C06_ACCESS_TOOLING_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_HUMAN_UI_SMOKE_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_STATIC_REVIEW_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_IMPLEMENT_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_READINESS_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_HUMAN_UI_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_READINESS_1.md`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Files changed:
 - `PHASE_LOG.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_HUMAN_UI_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_CLOSEOUT_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
@@ -90,6 +69,12 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_MUTATED_BY_CODEX`
+
+DB execution by human during alignment:
+`EXECUTED_LOCAL_DEV_TOOLING`
+
+DB mutation by human during alignment:
+`PERFORMED_M2_C06_STUDYLOAD_ONLY`
 
 DB execution by human during smoke:
 `NOT_REPORTED_AS_EXECUTED_DURING_UI_SMOKE`
@@ -124,20 +109,17 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-Inherited non-blocking observations:
-`Login lands on LP before dashboard via "Iniciar"; next visible state/capsule was not detailed during M2-C04 smoke; next visible state/capsule for M2-C05 was not detailed by human.`
-
-Human non-blocking observations:
-`ST M2 lacks container for last 3 completed capsules and should be checked against M1; review why C05 and C06 have 3 exercises. The 3-exercise observation is not a smoke blocker because current M1/M2 standard allows maximum 4 and prefers 3 when coverage is sufficient.`
+Closeout summary:
+`M2-C06 is formally closed as implemented, reviewed, aligned in LOCAL_DEV and smoke-tested successfully, with non-blocking observations preserved for follow-up.`
 
 Blocking issues:
-`None reported.`
+`None.`
 
 Non-blocking observations:
-`Human observations documented as non-blocking follow-ups; C05/C06 3-exercise point is a pedagogical/consistency audit follow-up, not a functional blocker.`
+`Inherited flow observations remain documented. M2-C06-specific follow-ups: ST M2 lacks container for last 3 completed capsules and should be checked against M1; review why C05 and C06 have 3 exercises. The 3-exercise point is not a blocker because current M1/M2 standard allows maximum 4 and prefers 3 when sufficient.`
 
 Final git status:
 `pending commit/push`
 
 Notes / unresolved issues:
-`Next natural step: MVP-SALES-PILOT-M2-C06-CLOSEOUT-1.`
+`Next natural step: continue with the next PAES_M2 capsule/readiness decision after M2-C06, while tracking ST M2 container and C05/C06 exercise-count follow-ups separately.`

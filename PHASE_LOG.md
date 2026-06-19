@@ -8,6 +8,81 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-SALES-PILOT-M2-C06-CLOSEOUT-1
+
+Baseline before:
+
+```text
+727bba8620f45f7e17c78767447552d17b5c3819
+```
+
+Result/verdict:
+
+```text
+M2_C06_FORMALLY_CLOSED_WITH_NON_BLOCKING_OBSERVATIONS
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C06_CLOSEOUT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation closeout phase for PAES_M2 / M2-C06. M2-C06 is formally closed as implemented, reviewed, aligned in LOCAL_DEV and smoke-tested successfully, with non-blocking observations preserved for follow-up. Codex did not execute DB, mutate DB, run LOCAL_DEV tooling, or change app behavior.
+
+Next recommended phase:
+
+```text
+Continue with the next PAES_M2 capsule/readiness decision after M2-C06.
+```
+
+Notes:
+
+- Capsule: M2-C06.
+- Title: PAES M2 - Estadistica comparativa simple.
+- contentKey: paes_m2_simple_comparative_statistics_entry.
+- Exercise count: 3.
+- authoredFeedback: present / smoke OK.
+- Table/list readability: PASSED/OK in smoke with observations.
+- Feedback references visible values: PASSED/OK.
+- LOCAL_DEV alignment: StudyLoad present / pending / practice / M2_C06 / reachable candidate true before smoke.
+- Human UI smoke: COMPLETED_WITH_NON_BLOCKING_OBSERVATIONS.
+- DB execution by human during alignment: EXECUTED_LOCAL_DEV_TOOLING.
+- DB mutation by human during alignment: PERFORMED_M2_C06_STUDYLOAD_ONLY.
+- DB execution by human during smoke: NOT_REPORTED_AS_EXECUTED_DURING_UI_SMOKE.
+- DB mutation by human during smoke: NOT_REPORTED_AS_MUTATED_DURING_UI_SMOKE.
+- Non-blocking observations: inherited flow observations remain documented; ST M2 lacks container for last 3 completed capsules and should be checked against M1; C05/C06 3-exercise count should be reviewed as pedagogical/consistency follow-up.
+- C05/C06 3-exercise observation is not a closeout blocker because current M1/M2 standard allows maximum 4 and prefers 3 when sufficient.
+- Codex did not execute or mutate DB.
+- No code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess changes by Codex.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No code changes.
+- No tooling changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action by Codex.
+- No secrets printed by Codex.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-CONTENT-PAES-M2-C06-HUMAN-UI-SMOKE-1
 
 Baseline before:
