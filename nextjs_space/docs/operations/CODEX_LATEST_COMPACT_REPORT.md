@@ -1,63 +1,51 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-M2-C05-CLOSEOUT-1`
+`MVP-CONTENT-PAES-M2-C06-READINESS-1`
 
 Result:
-`M2_C05_FORMALLY_CLOSED`
+`M2_C06_READINESS_PARTIAL_WITH_OBSERVATIONS`
 
 Commit:
 `see final git log after commit/push`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_CLOSEOUT_1.md`
+`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_READINESS_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
-Capsule:
+Previous capsule:
 `M2-C05`
 
-Title:
-`PAES M2 - Sistemas y restricciones en contexto`
+Candidate capsule:
+`M2-C06`
 
-contentKey:
-`paes_m2_systems_restrictions_context_entry`
+Candidate title:
+`Estadistica comparativa simple`
 
-Exercise count:
-`3`
+Candidate contentKey:
+`NOT_FOUND_AS_FINAL_OR_IMPLEMENTED_ARTIFACT`
 
-AuthoredFeedback status:
-`present / smoke OK`
+Source of truth:
+`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_AUTHORED_SEED_PLAN_1.md`
 
-Notation legibility:
-`PASSED/OK`
-
-Condition-by-condition reasoning:
-`PASSED/OK`
-
-Human UI smoke:
-`COMPLETED`
-
-LOCAL_DEV alignment:
-`StudyLoad present / pending / practice / M2_C05 / reachable candidate true before smoke`
+Confidence level:
+`HIGH_FOR_SEQUENCE_AND_TITLE; LOW_FOR_FINAL_CONTENTKEY_AND_FINAL_ITEMS`
 
 Files read:
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_HUMAN_UI_SMOKE_1.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_1.md`
-- `nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C05_ACCESS_TOOLING_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_HUMAN_UI_SMOKE_READINESS_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_STATIC_REVIEW_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_AUTHORED_IMPLEMENT_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_AUTHORED_READINESS_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_READINESS_1.md`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
+- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_CLOSEOUT_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_HUMAN_UI_SMOKE_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_STATIC_REVIEW_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_AUTHORED_SEED_PLAN_1.md`
+- `nextjs_space/lib/study-load-content.ts`
+- M2 blueprint/precontract/roadmap/governance docs
 
 Files changed:
 - `PHASE_LOG.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_CLOSEOUT_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_READINESS_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
@@ -69,18 +57,6 @@ DB execution by Codex:
 
 DB mutation by Codex:
 `NOT_MUTATED_BY_CODEX`
-
-DB execution by human during alignment:
-`EXECUTED_LOCAL_DEV_TOOLING`
-
-DB mutation by human during alignment:
-`PERFORMED_M2_C05_STUDYLOAD_ONLY`
-
-DB execution by human during smoke:
-`NOT_REPORTED_AS_EXECUTED_DURING_UI_SMOKE`
-
-DB mutation by human during smoke:
-`NOT_REPORTED_AS_MUTATED_DURING_UI_SMOKE`
 
 Code changes:
 `NOT_PERFORMED`
@@ -109,17 +85,17 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-Closeout summary:
-`M2-C05 queda cerrada como capsula implementada, revisada, alineada en LOCAL_DEV y smokeada exitosamente.`
+Readiness summary:
+`M2-C06 is identified from the seed plan as the next planned PAES_M2 capsule after M2-C05, but has no final contentKey, final items, authoredFeedback, or registry entry. It can advance to authored readiness with table/mobile-readability observations.`
 
 Blocking issues:
-`None.`
+`None blocking authored readiness. Direct implementation, LOCAL_DEV alignment, and human UI smoke are not ready.`
 
 Non-blocking observations:
-`Inherited flow observations remain documented. M2-C05 human reported Obs: none; next visible state/capsule for M2-C05 was not detailed by human.`
+`Inherited flow observations remain documented. M2-C06 is TABLE_REQUIRED_SUPPORTED and must manage compact table/mobile readability risk.`
 
 Final git status:
 `clean after commit/push`
 
 Notes / unresolved issues:
-`Next natural step: continue with the next PAES_M2 capsule/readiness decision after M2-C05.`
+`Next natural step: MVP-CONTENT-PAES-M2-C06-AUTHORED-READINESS-1.`
