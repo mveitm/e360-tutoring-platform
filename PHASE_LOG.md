@@ -8,6 +8,80 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-SALES-PILOT-M2-C05-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1
+
+Baseline before:
+
+```text
+cdbbe95c8ba5922bd83a2120e568161938d1bb68
+```
+
+Result/verdict:
+
+```text
+M2_C05_HUMAN_LOCAL_DEV_ALIGNMENT_READY_FOR_SMOKE
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation-only recording of human LOCAL_DEV access alignment for PAES_M2 / M2-C05. Human provided sanitized evidence for precheck, plan, align and postcheck. Precheck and plan were read-only, align was executed by human only, and postcheck confirmed M2-C05 StudyLoad present / pending / practice / M2_C05 / reachable candidate true.
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-C05-HUMAN-UI-SMOKE-1
+```
+
+Notes:
+
+- Capsule: M2-C05.
+- Title: PAES M2 - Sistemas y restricciones en contexto.
+- contentKey: paes_m2_systems_restrictions_context_entry.
+- Authorization phrase received: CONFIRMO_LOCAL_DEV_SEGURO_PARA_M2_C05_ACCESS_TOOLING_SIN_SECRETS.
+- Human commands executed: m2-c05-access-precheck, plan-m2-c05-access, align-m2-c05-access, m2-c05-access-postcheck.
+- DB execution by human: EXECUTED_LOCAL_DEV_TOOLING.
+- DB mutation by human: PERFORMED_M2_C05_STUDYLOAD_ONLY.
+- Human mutation scope was M2-C05 StudyLoad only.
+- StudentAccess, payment, enrollment, StudentProgramInstance and LearningCycle were not mutated.
+- Prod/staging were not touched.
+- No secrets were reported as printed.
+- Result: M2_C05_HUMAN_LOCAL_DEV_ALIGNMENT_READY_FOR_SMOKE.
+- Codex did not execute or mutate DB.
+- Codex did not execute LOCAL_DEV tooling.
+- No code/tooling/schema/UI/assets/pedagogical content/authoredFeedback/payment/subscription/StudentAccess changes by Codex.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No precheck/plan/align/postcheck execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No code changes.
+- No tooling changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action by Codex.
+- No secrets printed by Codex.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-SALES-PILOT-M2-C05-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-1
 
 Baseline before:
