@@ -8,6 +8,76 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-CONTENT-PAES-M2-C07-AUTHORED-READINESS-1
+
+Baseline before:
+
+```text
+619464514e6b7d978f59904e9b607ee79cc69a79
+```
+
+Result/verdict:
+
+```text
+M2_C07_AUTHORED_READINESS_PARTIAL_WITH_OBSERVATIONS
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C07_AUTHORED_READINESS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation/authored-readiness-only specification for PAES_M2 / M2-C07. Defines proposed title, contentKey, purpose, 3-exercise design, authoredFeedback expectations and FigureSpec requirements. The phase remains partial because M2-C07 requires a deterministic/approved geometry figure path before student-facing implementation.
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-C07-FIGURESPEC-READINESS-1
+```
+
+Notes:
+
+- Program: PAES_M2.
+- Capsule: M2-C07.
+- Final proposed title: PAES M2 - Geometria con figura compuesta.
+- Final proposed contentKey: paes_m2_composite_geometry_figures_entry.
+- Exercise count target: 3.
+- Representation strategy: deterministic or approved geometry figures with FigureSpec; text_bridge only as explicitly authorized temporary bridge, not final visual-geometry compliance.
+- AuthoredFeedback expectations defined for q1/q2/q3.
+- Implementation gate: do not implement student-facing M2-C07 until FigureSpec/deterministic figure path or approved static asset path is available.
+- Result is partial with observations because the figure path is still unresolved.
+- Codex did not execute or mutate DB.
+- No code/tooling/schema/UI/assets/content/authoredFeedback/payment/subscription/StudentAccess changes by Codex.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No code changes.
+- No tooling changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No executable registry entries created or edited.
+- No prod/staging action by Codex.
+- No secrets printed by Codex.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-CONTENT-PAES-M2-C07-READINESS-1
 
 Baseline before:
