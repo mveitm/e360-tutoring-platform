@@ -8,6 +8,85 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-CONTENT-PAES-M2-C05-HUMAN-UI-SMOKE-1
+
+Baseline before:
+
+```text
+3c75001c6a0fe0d46af9909ef3741535b628d3ce
+```
+
+Result/verdict:
+
+```text
+M2_C05_HUMAN_UI_SMOKE_COMPLETED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_HUMAN_UI_SMOKE_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation-only recording of human UI smoke evidence for PAES_M2 / M2-C05 in LOCAL_DEV. Human reported all verification points passed/ok and no observations. Codex did not execute DB, mutate DB, run LOCAL_DEV tooling or navigate UI.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C05-CLOSEOUT-1
+```
+
+Notes:
+
+- Capsule: M2-C05.
+- Title: PAES M2 - Sistemas y restricciones en contexto.
+- contentKey: paes_m2_systems_restrictions_context_entry.
+- Initial StudyLoad status: present / pending / practice / M2_C05 / reachable candidate true.
+- Exercise count expected/observed: 3 / passed ok.
+- Human evidence: todos los puntos de verificacion passed ok.
+- Login: PASSED/OK.
+- Dashboard reached: PASSED/OK.
+- Capsule shown: PASSED/OK.
+- Exercises completed: PASSED/OK.
+- Brief feedback observed: PASSED/OK.
+- Full feedback/authoredFeedback observed: PASSED/OK.
+- Notation legibility: PASSED/OK.
+- Condition-by-condition reasoning: PASSED/OK.
+- Broken assets/images: NONE_REPORTED.
+- Completion: PASSED/OK.
+- Next visible state/capsule: NOT_DETAILED_BY_HUMAN.
+- Result: M2_C05_HUMAN_UI_SMOKE_COMPLETED.
+- DB execution/mutation by human during smoke was not reported.
+- Codex did not execute or mutate DB.
+- No code/tooling/schema/UI/assets/pedagogical content/authoredFeedback/payment/subscription/StudentAccess changes by Codex.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No code changes.
+- No tooling changes.
+- No UI changes.
+- No asset changes.
+- No pedagogical capsule content changes.
+- No authoredFeedback changes.
+- No StudentAccess changes.
+- No payment/subscription changes.
+- No prod/staging action by Codex.
+- No secrets printed by Codex.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-SALES-PILOT-M2-C05-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1
 
 Baseline before:
