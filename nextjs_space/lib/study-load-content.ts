@@ -161,6 +161,7 @@ const STUDY_LOAD_VISIBLE_CORRELATIVES_BY_CONTENT_KEY: Record<string, string> = {
   paes_m2_data_probability_table_entry: 'M2-C02',
   paes_m2_functions_graph_behavior_entry: 'M2-C03',
   paes_m2_analytic_geometry_relations_entry: 'M2-C04',
+  paes_m2_systems_restrictions_context_entry: 'M2-C05',
 }
 
 function getStudyLoadDisplayBaseTitle(content: StudyLoadContent): string {
@@ -1989,6 +1990,105 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
             'El desplazamiento se calcula con diferencias: 7 - 1 = 6 hacia el este y 5 - 2 = 3 hacia el norte.',
           complete:
             'El item pide interpretar el desplazamiento, no copiar las coordenadas finales. Paso 1: identifica la posicion inicial: x = 1, y = 2. Paso 2: identifica la posicion final: x = 7, y = 5. Paso 3: calcula el cambio hacia el este con la coordenada x: 7 - 1 = 6. Paso 4: calcula el cambio hacia el norte con la coordenada y: 5 - 2 = 3. Por eso la alternativa correcta es A. La alternativa B intercambia los cambios, la C copia las coordenadas finales y la D copia las coordenadas iniciales. Para mejorar, cuando el enunciado diga "desde ... hasta ...", resta final menos inicial en cada coordenada. Esta relacion ayuda a interpretar movimientos y cambios en el plano sin depender de una figura.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revision. ' +
+      'No recibiras puntaje PAES, diagnostico automatico ni declaracion de dominio M2 en esta version.',
+  },
+  'PAES M2 \u2014 Sistemas y restricciones en contexto': {
+    contentKey: 'paes_m2_systems_restrictions_context_entry',
+    contentVersion: 'v1',
+    contentType: 'practice',
+    title: 'PAES M2 \u2014 Sistemas y restricciones en contexto',
+    program: 'PAES_M2',
+    skillFamily: 'algebra/modelling',
+    topic: 'Sistemas y restricciones en contexto',
+    estimatedMinutes: '8-12 minutos',
+    instructions:
+      'Esta actividad tiene 3 ejercicios de opcion multiple sobre sistemas simples y restricciones en contexto.\n\n' +
+      '1. Lee primero que representa cada cantidad o variable.\n' +
+      '2. Revisa cada condicion por separado.\n' +
+      '3. Verifica que la alternativa elegida cumpla todas las condiciones, no solo una.\n' +
+      '4. No necesitas graficos ni imagenes: toda la informacion esta en el texto.\n' +
+      '5. Envia tus respuestas.\n' +
+      '6. Luego revisa la retroalimentacion y deja tu autorreporte si corresponde.',
+    items: [
+      {
+        key: 'q1',
+        stem:
+          'Una estudiante arma un plan de estudio para una semana con horas de algebra y horas de geometria. ' +
+          'Quiere cumplir estas dos condiciones:\n\n' +
+          '1. Estudiar 6 horas en total.\n' +
+          '2. Dedicar al menos 2 horas a geometria.\n\n' +
+          'Cual opcion cumple ambas condiciones?',
+        options: [
+          { label: 'A', text: '5 horas de algebra y 1 hora de geometria.' },
+          { label: 'B', text: '4 horas de algebra y 2 horas de geometria.' },
+          { label: 'C', text: '3 horas de algebra y 4 horas de geometria.' },
+          { label: 'D', text: '2 horas de algebra y 1 hora de geometria.' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_systems_restrictions_context_entry_q1_brief_v1',
+          completeId: 'paes_m2_systems_restrictions_context_entry_q1_complete_v1',
+          version: 'm2-c05-authored-feedback-v1',
+          brief:
+            'La opcion B cumple las dos condiciones: 4 + 2 = 6 y geometria tiene al menos 2 horas.',
+          complete:
+            'El item pide elegir una opcion que cumpla dos condiciones al mismo tiempo. Paso 1: identifica la primera condicion: el total debe ser 6 horas. Paso 2: identifica la segunda condicion: geometria debe tener al menos 2 horas. Paso 3: revisa la opcion B: 4 horas de algebra + 2 horas de geometria = 6 horas, y 2 horas de geometria cumple el minimo. Por eso la alternativa correcta es B. La alternativa A suma 6, pero geometria tiene solo 1 hora. La C tiene al menos 2 horas de geometria, pero suma 7 horas. La D no cumple el total ni el minimo de geometria. Para mejorar, revisa las condiciones una por una y no te detengas cuando una sola condicion parezca cumplirse.',
+        },
+      },
+      {
+        key: 'q2',
+        stem:
+          'En una feria, x representa la cantidad de entradas de estudiante e y representa la cantidad de entradas de adulto. ' +
+          'Se deben cumplir estas dos condiciones:\n\n' +
+          '1. x + y = 10\n' +
+          '2. 1000x + 2000y = 14000\n\n' +
+          'Cual par (x, y) cumple ambas condiciones?',
+        options: [
+          { label: 'A', text: '(6, 4)' },
+          { label: 'B', text: '(4, 6)' },
+          { label: 'C', text: '(8, 2)' },
+          { label: 'D', text: '(5, 5)' },
+        ],
+        correctOptionKey: 'A',
+        authoredFeedback: {
+          briefId: 'paes_m2_systems_restrictions_context_entry_q2_brief_v1',
+          completeId: 'paes_m2_systems_restrictions_context_entry_q2_complete_v1',
+          version: 'm2-c05-authored-feedback-v1',
+          brief:
+            'El par (6, 4) cumple ambas ecuaciones: suma 10 entradas y da un costo total de 14000.',
+          complete:
+            'El item pide encontrar el par que satisface dos condiciones. Paso 1: recuerda que x es la cantidad de entradas de estudiante e y es la cantidad de entradas de adulto. Paso 2: revisa el par (6, 4): 6 + 4 = 10, entonces cumple la cantidad total de entradas. Paso 3: revisa el costo: 1000 * 6 + 2000 * 4 = 6000 + 8000 = 14000, entonces tambien cumple el costo total. Por eso la alternativa correcta es A. La alternativa B suma 10, pero su costo es 16000. La C suma 10, pero su costo es 12000. La D suma 10, pero su costo es 15000. Para mejorar, sustituye el par candidato en todas las condiciones antes de decidir. Esta verificacion es una base segura para trabajar con sistemas simples.',
+        },
+      },
+      {
+        key: 'q3',
+        stem:
+          'Un curso comprara cuadernos y lapices para una actividad. Cada cuaderno cuesta $1200 y cada lapiz cuesta $300. ' +
+          'El curso debe cumplir estas restricciones:\n\n' +
+          '1. Comprar exactamente 8 articulos en total.\n' +
+          '2. Gastar como maximo $6000.\n' +
+          '3. Comprar al menos 3 cuadernos.\n\n' +
+          'Cual alternativa es valida?',
+        options: [
+          { label: 'A', text: '2 cuadernos y 6 lapices.' },
+          { label: 'B', text: '3 cuadernos y 5 lapices.' },
+          { label: 'C', text: '4 cuadernos y 5 lapices.' },
+          { label: 'D', text: '5 cuadernos y 3 lapices.' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_systems_restrictions_context_entry_q3_brief_v1',
+          completeId: 'paes_m2_systems_restrictions_context_entry_q3_complete_v1',
+          version: 'm2-c05-authored-feedback-v1',
+          brief:
+            'La opcion B cumple las tres restricciones: 8 articulos, 3 cuadernos y un gasto de $5100.',
+          complete:
+            'El item pide elegir una alternativa que cumpla todas las restricciones. Paso 1: identifica las restricciones: exactamente 8 articulos, gastar como maximo $6000 y comprar al menos 3 cuadernos. Paso 2: revisa la opcion B: 3 cuadernos + 5 lapices = 8 articulos. Paso 3: revisa el minimo de cuadernos: 3 cuadernos cumple al menos 3. Paso 4: calcula el gasto: 3 * 1200 + 5 * 300 = 3600 + 1500 = 5100, que no supera $6000. Por eso la alternativa correcta es B. La alternativa A tiene 8 articulos, pero solo 2 cuadernos. La C tiene 9 articulos. La D tiene 8 articulos y al menos 3 cuadernos, pero cuesta $6900 y supera el presupuesto. Para mejorar, usa una lista de verificacion y marca cada restriccion antes de elegir.',
         },
       },
     ],
