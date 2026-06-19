@@ -162,6 +162,7 @@ const STUDY_LOAD_VISIBLE_CORRELATIVES_BY_CONTENT_KEY: Record<string, string> = {
   paes_m2_functions_graph_behavior_entry: 'M2-C03',
   paes_m2_analytic_geometry_relations_entry: 'M2-C04',
   paes_m2_systems_restrictions_context_entry: 'M2-C05',
+  paes_m2_simple_comparative_statistics_entry: 'M2-C06',
 }
 
 function getStudyLoadDisplayBaseTitle(content: StudyLoadContent): string {
@@ -2089,6 +2090,122 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
             'La opcion B cumple las tres restricciones: 8 articulos, 3 cuadernos y un gasto de $5100.',
           complete:
             'El item pide elegir una alternativa que cumpla todas las restricciones. Paso 1: identifica las restricciones: exactamente 8 articulos, gastar como maximo $6000 y comprar al menos 3 cuadernos. Paso 2: revisa la opcion B: 3 cuadernos + 5 lapices = 8 articulos. Paso 3: revisa el minimo de cuadernos: 3 cuadernos cumple al menos 3. Paso 4: calcula el gasto: 3 * 1200 + 5 * 300 = 3600 + 1500 = 5100, que no supera $6000. Por eso la alternativa correcta es B. La alternativa A tiene 8 articulos, pero solo 2 cuadernos. La C tiene 9 articulos. La D tiene 8 articulos y al menos 3 cuadernos, pero cuesta $6900 y supera el presupuesto. Para mejorar, usa una lista de verificacion y marca cada restriccion antes de elegir.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revision. ' +
+      'No recibiras puntaje PAES, diagnostico automatico ni declaracion de dominio M2 en esta version.',
+  },
+  'PAES M2 \u2014 Estadistica comparativa simple': {
+    contentKey: 'paes_m2_simple_comparative_statistics_entry',
+    contentVersion: 'v1',
+    contentType: 'practice',
+    title: 'PAES M2 \u2014 Estadistica comparativa simple',
+    program: 'PAES_M2',
+    skillFamily: 'statistics/data interpretation',
+    topic: 'Estadistica comparativa simple',
+    estimatedMinutes: '8-12 minutos',
+    instructions:
+      'Esta actividad tiene 3 ejercicios de opcion multiple sobre comparacion de datos simples.\n\n' +
+      '1. Lee primero la tabla o lista completa.\n' +
+      '2. Identifica los valores que se deben comparar.\n' +
+      '3. Si el ejercicio pide rango o total, realiza el calculo con calma.\n' +
+      '4. Elige la conclusion que coincida con todos los datos visibles.\n' +
+      '5. No necesitas graficos ni imagenes: toda la informacion esta en tablas o listas compactas.\n' +
+      '6. Envia tus respuestas.\n' +
+      '7. Luego revisa la retroalimentacion y deja tu autorreporte si corresponde.',
+    items: [
+      {
+        key: 'q1',
+        stem:
+          'La tabla muestra la cantidad de colaciones vendidas en un kiosco durante una manana.\n\n' +
+          'Segun la tabla, cual colacion tuvo la mayor venta?',
+        tableStimulus: {
+          caption: 'Colaciones vendidas',
+          headers: ['Colacion', 'Cantidad vendida'],
+          rows: [
+            ['Barra de cereal', '18'],
+            ['Yogur', '24'],
+            ['Fruta', '21'],
+            ['Sandwich', '15'],
+          ],
+        },
+        options: [
+          { label: 'A', text: 'Barra de cereal' },
+          { label: 'B', text: 'Yogur' },
+          { label: 'C', text: 'Fruta' },
+          { label: 'D', text: 'Sandwich' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_simple_comparative_statistics_entry_q1_brief_v1',
+          completeId: 'paes_m2_simple_comparative_statistics_entry_q1_complete_v1',
+          version: 'm2-c06-authored-feedback-v1',
+          brief:
+            'La mayor cantidad es 24, y en la tabla corresponde a Yogur.',
+          complete:
+            'El item pide identificar la colacion con mayor venta usando la tabla. Paso 1: lee cada valor visible: Barra de cereal tiene 18, Yogur tiene 24, Fruta tiene 21 y Sandwich tiene 15. Paso 2: compara esos cuatro numeros. Paso 3: el mayor valor es 24. Paso 4: vuelve a la fila de la tabla: 24 corresponde a Yogur. Por eso la alternativa correcta es B. Las otras opciones tienen cantidades menores: 18, 21 o 15. Para mejorar, compara primero los numeros y luego confirma a que fila pertenece el mayor. Esta lectura ordenada prepara comparaciones que despues requieren calculos simples.',
+        },
+      },
+      {
+        key: 'q2',
+        stem:
+          'Un grupo registro la temperatura a mediodia durante cuatro dias:\n\n' +
+          '- Lunes: 18 grados\n' +
+          '- Martes: 22 grados\n' +
+          '- Miercoles: 20 grados\n' +
+          '- Jueves: 25 grados\n\n' +
+          'Cual es el rango de temperaturas registradas?',
+        options: [
+          { label: 'A', text: '3 grados' },
+          { label: 'B', text: '5 grados' },
+          { label: 'C', text: '7 grados' },
+          { label: 'D', text: '85 grados' },
+        ],
+        correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m2_simple_comparative_statistics_entry_q2_brief_v1',
+          completeId: 'paes_m2_simple_comparative_statistics_entry_q2_complete_v1',
+          version: 'm2-c06-authored-feedback-v1',
+          brief:
+            'El rango se obtiene restando el menor valor al mayor: 25 - 18 = 7 grados.',
+          complete:
+            'El item pide calcular el rango de una lista breve de temperaturas. Paso 1: recuerda que el rango es el mayor valor menos el menor valor. Paso 2: lee la lista y encuentra el mayor valor: Jueves tiene 25 grados. Paso 3: encuentra el menor valor: Lunes tiene 18 grados. Paso 4: calcula 25 - 18 = 7. Por eso la alternativa correcta es C. La alternativa A compara solo valores cercanos, la B usa 25 - 20 y la D suma todos los valores, pero el rango no es una suma. Para mejorar, cuando te pidan rango, busca primero maximo y minimo antes de calcular. Esto ayuda a comparar que tan dispersos estan datos pequenos.',
+        },
+      },
+      {
+        key: 'q3',
+        stem:
+          'Dos cursos respondieron tres preguntas de practica. La tabla muestra cuantas respuestas correctas tuvo cada curso en cada pregunta.\n\n' +
+          'Cual conclusion esta mejor apoyada por los datos?',
+        tableStimulus: {
+          caption: 'Respuestas correctas por pregunta',
+          headers: ['Curso', 'P1', 'P2', 'P3'],
+          rows: [
+            ['Curso A', '12', '14', '10'],
+            ['Curso B', '10', '15', '11'],
+          ],
+        },
+        options: [
+          { label: 'A', text: 'El Curso A tuvo mas correctas en todas las preguntas.' },
+          { label: 'B', text: 'El Curso B tuvo mas correctas en todas las preguntas.' },
+          { label: 'C', text: 'El Curso A tuvo mayor total de correctas: 36 contra 36.' },
+          {
+            label: 'D',
+            text:
+              'Los cursos tuvieron el mismo total de correctas, aunque no ganaron las mismas preguntas.',
+          },
+        ],
+        correctOptionKey: 'D',
+        authoredFeedback: {
+          briefId: 'paes_m2_simple_comparative_statistics_entry_q3_brief_v1',
+          completeId: 'paes_m2_simple_comparative_statistics_entry_q3_complete_v1',
+          version: 'm2-c06-authored-feedback-v1',
+          brief:
+            'Ambos cursos suman 36 correctas; la conclusion valida es que empatan en total, aunque difieren por pregunta.',
+          complete:
+            'El item pide elegir una conclusion apoyada por la tabla. Paso 1: lee los valores del Curso A: 12, 14 y 10. Su total es 12 + 14 + 10 = 36. Paso 2: lee los valores del Curso B: 10, 15 y 11. Su total es 10 + 15 + 11 = 36. Paso 3: compara los totales: ambos cursos tienen 36 correctas. Paso 4: revisa por pregunta: Curso A tiene mas en P1, pero Curso B tiene mas en P2 y P3. Por eso la alternativa correcta es D. La alternativa A es falsa porque A no gana todas las preguntas. La B es falsa porque B tampoco gana todas. La C parece usar el total 36, pero dice mayor total aunque 36 contra 36 es empate. Para mejorar, verifica palabras como "todas", "mayor" o "mismo" con los datos exactos de la tabla. Esta habilidad ayuda a justificar conclusiones estadisticas simples.',
         },
       },
     ],

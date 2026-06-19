@@ -1,16 +1,16 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-M2-C06-AUTHORED-READINESS-1`
+`MVP-CONTENT-PAES-M2-C06-AUTHORED-IMPLEMENT-1`
 
 Result:
-`M2_C06_AUTHORED_READINESS_OK`
+`M2_C06_AUTHORED_IMPLEMENTED`
 
 Commit:
 `see final git log after commit/push`
 
 Full report path:
-`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_READINESS_1.md`
+`nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_IMPLEMENT_1.md`
 
 Compact report path:
 `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
@@ -18,40 +18,42 @@ Compact report path:
 Capsule:
 `M2-C06`
 
-Final proposed title:
+Title:
 `PAES M2 - Estadistica comparativa simple`
 
-Final proposed contentKey:
+contentKey:
 `paes_m2_simple_comparative_statistics_entry`
 
 Exercise count:
 `3`
 
 Table/mobile strategy:
-`Use compact tables only when they improve readability; prefer 2-4 rows and 2-3 columns; use compact lists for one-series data; avoid wide tables, long cells, images, assets, graphs and figures.`
+`Compact tables for q1/q3 and compact list for q2; no wide tables, long cells, images, assets, graphs or figures.`
 
 Representation strategy:
-`Text contexts, compact tables/lists, small whole-number comparisons, simple range and total calculations; no images/assets/graphs/figures.`
+`Text contexts, compact tables/lists, small whole-number comparisons, simple range and total calculations.`
 
 Files read:
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_AUTHORED_SEED_PLAN_1.md`
 - `nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C05_CLOSEOUT_1.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_AUTHORED_READINESS_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_AUTHORED_IMPLEMENT_1.md`
 - `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C05_STATIC_REVIEW_1.md`
 - `nextjs_space/lib/study-load-content.ts`
 - `PHASE_LOG.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
-- M2 blueprint/precontract/roadmap/governance docs
 
 Files changed:
+- `nextjs_space/lib/study-load-content.ts`
 - `PHASE_LOG.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_READINESS_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C06_AUTHORED_IMPLEMENT_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Validation:
 - `git diff --check`: passed.
+- `npx.cmd tsc --noEmit`: passed.
+- Source C06 placeholder/TODO scan: passed.
 - Secret-pattern scan over modified files: passed.
 
 DB execution by Codex:
@@ -61,7 +63,7 @@ DB mutation by Codex:
 `NOT_MUTATED_BY_CODEX`
 
 Code changes:
-`NOT_PERFORMED`
+`LIMITED_TO_CANONICAL_CONTENT_REGISTRY_FOR_M2_C06`
 
 Tooling changes:
 `NOT_PERFORMED`
@@ -75,11 +77,11 @@ UI changes:
 Asset changes:
 `NOT_PERFORMED`
 
-Implemented pedagogical capsule content changes:
-`NOT_PERFORMED`
+Pedagogical capsule content changes:
+`PERFORMED_FOR_M2_C06_ONLY`
 
-Implemented authoredFeedback changes:
-`NOT_PERFORMED`
+AuthoredFeedback changes:
+`PERFORMED_FOR_M2_C06_ONLY`
 
 Payment/subscription changes:
 `NOT_PERFORMED`
@@ -87,17 +89,17 @@ Payment/subscription changes:
 StudentAccess changes:
 `NOT_PERFORMED`
 
-Readiness summary:
-`M2-C06 authored readiness is closed with a concrete 3-exercise specification, final proposed title/contentKey, compact table/list strategy, authoredFeedback expectations, risks and implementation gates.`
+Implementation summary:
+`M2-C06 was registered with 3 exercises, compact table/list data representations and complete authoredFeedback, following the closed authored readiness contract.`
 
 Blocking issues:
-`None for authored implementation readiness.`
+`None.`
 
 Non-blocking observations:
-`Implementation must validate contentKey uniqueness and table/list legibility. Static review must verify mobile readability, tableStimulus compactness and feedback references to the same visible values. Inherited flow observations remain documented.`
+`Static review should verify mobile readability, table/list legibility and feedback references to visible values before LOCAL_DEV alignment.`
 
 Final git status:
 `clean after commit/push`
 
 Notes / unresolved issues:
-`Next natural step: MVP-CONTENT-PAES-M2-C06-AUTHORED-IMPLEMENT-1.`
+`Next natural step: MVP-CONTENT-PAES-M2-C06-STATIC-REVIEW-1.`
