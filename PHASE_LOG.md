@@ -8,6 +8,73 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-19 - MVP-GOV-LOCAL-DEV-SAFE-DB-M2-C07-ACCESS-TOOLING-1
+
+Baseline before:
+
+```text
+78e04e182cbfce0461f1109bb393304938a84cce
+```
+
+Result/verdict:
+
+```text
+M2_C07_LOCAL_DEV_SAFE_ACCESS_TOOLING_READY
+```
+
+Document/files changed:
+
+```text
+nextjs_space/scripts/local-dev-safe-db-tool.ts
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C07_ACCESS_TOOLING_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Added M2-C07-specific safe LOCAL_DEV access tooling modes following the C06 pattern. The modes support human-only precheck, plan, align and postcheck for M2-C07 reachability/access, with mutation guarded and limited to M2-C07 StudyLoad only.
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C07-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-1
+```
+
+Notes:
+
+- Program: PAES_M2.
+- Capsule: M2-C07.
+- Title: PAES M2 - Geometria con figura compuesta.
+- contentKey: paes_m2_composite_geometry_figures_entry.
+- Modes added: m2-c07-access-precheck; plan-m2-c07-access; align-m2-c07-access; m2-c07-access-postcheck.
+- C07-specific guard added: --confirm-m2-c07-access-only.
+- Align blocks unless M2-C06 StudyLoad exists and is completed.
+- Allowed mutation scope: M2-C07 StudyLoad only.
+- Codex did not execute or mutate DB.
+
+Explicit non-actions:
+
+- No DB execution or mutation by Codex.
+- No LOCAL_DEV tooling execution by Codex.
+- No scripts that read/write DB executed by Codex.
+- No schema/Prisma changes.
+- No UI changes.
+- No asset changes.
+- No content/authoredFeedback implementation changes.
+- No StudentAccess changes.
+- No User/Student changes.
+- No payment/subscription changes.
+- No enrollment/SPI/LearningCycle mutation by Codex.
+- No prod/staging action by Codex.
+- No secrets printed by Codex.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-19 - MVP-CONTENT-PAES-M2-C07-HUMAN-UI-SMOKE-READINESS-1
 
 Baseline before:
