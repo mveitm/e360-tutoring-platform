@@ -1,22 +1,22 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-L1-SPECIFIC-PEDAGOGICAL-DERIVATION-DOCUMENTATION-1`
+`MVP-CONTENT-PAES-L1-APPROVAL-CONTINUITY-GUARDRAILS-1`
 
 Result:
-`L1_SPECIFIC_PEDAGOGICAL_DERIVATION_DOCUMENTED`
+`L1_APPROVAL_CONTINUITY_GUARDRAILS_DEFINED`
 
 Baseline:
-`HEAD = origin/main = 932da32c9e09a4f2f692c12844d5f4f50228233f; working tree clean`
+`HEAD = origin/main = d0163fa99edc863cc94e8e681b3e75f79000d26c; working tree clean`
 
 Documents read:
-`PHASE_LOG.md; CODEX_LATEST_COMPACT_REPORT.md; BPCPI; BPTT; M2 blueprint/precontract/governing/index; MVP_CONTENT_PAES_L1_READINESS_1.md; nextjs_space/lib/study-load-content.ts`
+`PHASE_LOG.md; CODEX_LATEST_COMPACT_REPORT.md; L1 blueprint/precontract/governing/index; nextjs_space/lib/study-load-content.ts`
 
 L1:
-`PAES L1 - Localizacion de informacion - Piloto interno 01; l1_locating_information_pilot_set_01; 3 items`
+`l1_locating_information_pilot_set_01; 3 items; internal_pilot_candidate_only`
 
-L1 branch:
-`DOCUMENTED: blueprint/precontract/governing/index`
+Guardrails:
+`DEFINED: approval/student-use/product-use/continuity/rights-source/pedagogical/static-review-entry`
 
 Approval:
 `studentUseApproved=false; productUseApproved=false; approvalMetadata not changed`
@@ -24,19 +24,18 @@ Approval:
 Continuity:
 `NO_AUTOMATIC_NEXT_WITH_ONE_SET`
 
+Decision:
+`A - L1_GUARDRAILS_DEFINED_READY_FOR_STATIC_REVIEW`
+
 Next phase:
-`MVP-CONTENT-PAES-L1-APPROVAL-CONTINUITY-GUARDRAILS-1`
+`MVP-CONTENT-PAES-L1-STATIC-REVIEW-1`
 
 Expected next result:
-`L1_APPROVAL_CONTINUITY_GUARDRAILS_DEFINED`
+`L1_STATIC_REVIEW_PASSED`
 
 Files changed:
 - `PHASE_LOG.md`
-- `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_L1_INTEGRADO.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_L1_PRECONTRACT.md`
-- `nextjs_space/docs/operations/BPCPV1_PAES_L1_DERIVATION_GOVERNING_DOCUMENT.md`
-- `nextjs_space/docs/operations/PAES_L1_PEDAGOGICAL_BRANCH_INDEX.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_L1_SPECIFIC_PEDAGOGICAL_DERIVATION_DOCUMENTATION_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_L1_APPROVAL_CONTINUITY_GUARDRAILS_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Commit:
