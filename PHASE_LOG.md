@@ -8,6 +8,62 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-20 - MVP-CONTENT-PAES-M1-M2-C08-ALIGNMENT-AND-L1-START-DECISION-1
+
+Baseline before:
+
+```text
+1a595430d5414832b3aac0a7a3ea227756364483
+```
+
+Result/verdict:
+
+```text
+M1_M2_C08_ALIGNED_L1_START_RECOMMENDED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M1_M2_C08_ALIGNMENT_AND_L1_START_DECISION_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation-only alignment and roadmap decision. Verified current registry and phase evidence: PAES_M1 is implemented through M1-C08, PAES_M2 is closed through M2-C08 with human UI smoke passed, and PAES_L1 currently has only an internal pilot candidate with student/product approval flags false. Determined that M1/M2 are aligned to C08 and L1 should open with a readiness/document-only phase, not implementation or product enablement.
+
+Decision:
+
+```text
+A - M1_M2_C08_ALIGNED_L1_START_RECOMMENDED
+```
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-L1-READINESS-1
+```
+
+Expected next result:
+
+```text
+L1_READINESS_DECISION_RECORDED
+```
+
+Notes:
+
+- M1 last: M1-C08 / PAES M1 - Lectura de tablas y graficos II / paes_m1_data_representation_entry_ii / 4 items.
+- M2 last: M2-C08 / PAES M2 - Funcion cuadratica o no lineal inicial / paes_m2_quadratic_nonlinear_initial_entry / 3 items / human UI smoke passed.
+- L1 current: PAES L1 - Localizacion de informacion - Piloto interno 01 / l1_locating_information_pilot_set_01 / internal pilot candidate only.
+- L1 approval: studentUseApproved false; productUseApproved false.
+- L1 continuityPolicy: no_automatic_next_l1_studyload_without_second_reviewed_registry_ready_set.
+- Codex DB/tooling/UI execution: NOT_EXECUTED_BY_CODEX.
+- Product code changed: NO.
+- Pedagogical content changed: NO.
+- Secrets printed: NO.
+
 ## 2026-06-20 - MVP-CONTENT-PAES-M2-C08-HUMAN-UI-SMOKE-1
 
 Baseline before:
