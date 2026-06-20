@@ -9,6 +9,10 @@ type Mode =
   | 'check-programs'
   | 'plan-paes-m2-program'
   | 'align-paes-m2-program'
+  | 'paes-l1-program-precheck'
+  | 'plan-paes-l1-program'
+  | 'align-paes-l1-program'
+  | 'paes-l1-program-postcheck'
   | 'm2-access-precheck'
   | 'plan-m2-c01-access'
   | 'align-m2-c01-access'
@@ -55,6 +59,7 @@ interface Args {
   confirmReadOnly: boolean
   confirmMutation: boolean
   confirmProgramOnly: boolean
+  confirmPaesL1ProgramOnly: boolean
   confirmNoEnrollment: boolean
   confirmM2C01AccessOnly: boolean
   confirmM2C02AccessOnly: boolean
@@ -104,6 +109,8 @@ const L1_C01_CONTINUITY_POLICY = 'no_automatic_next_l1_studyload_without_second_
 
 const PAES_L1_PROGRAM = {
   code: 'PAES_L1',
+  name: 'PAES Competencia Lectora',
+  vertical: 'PAES',
   status: 'active',
 } as const
 
@@ -162,6 +169,7 @@ function parseArgs(argv: string[]): Args {
     confirmReadOnly: argv.includes('--confirm-read-only'),
     confirmMutation: argv.includes('--confirm-local-dev-mutation'),
     confirmProgramOnly: argv.includes('--confirm-program-only'),
+    confirmPaesL1ProgramOnly: argv.includes('--confirm-paes-l1-program-only'),
     confirmNoEnrollment: argv.includes('--confirm-no-enrollment'),
     confirmM2C01AccessOnly: argv.includes('--confirm-m2-c01-access-only'),
     confirmM2C02AccessOnly: argv.includes('--confirm-m2-c02-access-only'),
@@ -218,6 +226,10 @@ function assertCommonGuards(args: Args): asserts args is Args & { mode: Mode } {
     args.mode !== 'check-programs' &&
     args.mode !== 'plan-paes-m2-program' &&
     args.mode !== 'align-paes-m2-program' &&
+    args.mode !== 'paes-l1-program-precheck' &&
+    args.mode !== 'plan-paes-l1-program' &&
+    args.mode !== 'align-paes-l1-program' &&
+    args.mode !== 'paes-l1-program-postcheck' &&
     args.mode !== 'm2-access-precheck' &&
     args.mode !== 'plan-m2-c01-access' &&
     args.mode !== 'align-m2-c01-access' &&
@@ -295,6 +307,22 @@ function assertMutationGuards(args: Args): asserts args is Args & { phase: strin
   ) {
     stop('LOCAL_DEV_SAFE_DB_MUTATION_BLOCKED', {
       reason: 'mutation_guard_missing',
+      mutationExecuted: false,
+    })
+  }
+}
+
+function assertPaesL1ProgramMutationGuards(args: Args): asserts args is Args & { phase: string } {
+  if (
+    !args.executeMutation ||
+    !args.confirmMutation ||
+    !args.confirmPaesL1ProgramOnly ||
+    !args.confirmNoEnrollment ||
+    !args.confirmNoPayment ||
+    !args.phase
+  ) {
+    stop('LOCAL_DEV_SAFE_DB_MUTATION_BLOCKED', {
+      reason: 'paes_l1_program_mutation_guard_missing',
       mutationExecuted: false,
     })
   }
@@ -501,13 +529,14 @@ async function readProgramRows(prisma: Awaited<ReturnType<typeof createPrismaCli
   const rows = await prisma.$queryRaw<ProgramSummary[]>`
     SELECT code, name, vertical, status
     FROM programs
-    WHERE code IN ('PAES_M1', 'PAES_M2')
+    WHERE code IN ('PAES_M1', 'PAES_M2', 'PAES_L1')
     ORDER BY code ASC
   `
 
   return {
     PAES_M1: rows.find((program) => program.code === 'PAES_M1') ?? null,
     PAES_M2: rows.find((program) => program.code === 'PAES_M2') ?? null,
+    PAES_L1: rows.find((program) => program.code === 'PAES_L1') ?? null,
   }
 }
 
@@ -2060,6 +2089,157 @@ async function alignPaesM2Program(phase: string): Promise<void> {
   }
 }
 
+function summarizePaesL1ProgramPlan(program: ProgramSummary | null) {
+  const metadataMatches = isAligned(program, PAES_L1_PROGRAM)
+  const programPresent = Boolean(program)
+  return {
+    programPresent,
+    metadataMatches,
+    mutationRequired: !metadataMatches,
+    wouldCreateProgram: !programPresent,
+    wouldAlignProgramMetadata: programPresent && !metadataMatches,
+    scopeExpansionRequired: false,
+    requiresFutureAuthorization: !metadataMatches,
+    wouldMutateProgram: !metadataMatches,
+    wouldMutateEnrollment: false,
+    wouldMutateStudentAccess: false,
+    wouldMutateStudentProgramInstance: false,
+    wouldMutateLearningCycle: false,
+    wouldMutateStudyLoad: false,
+    wouldMutateAxis: false,
+    wouldMutateSkill: false,
+    wouldMutateApprovalMetadata: false,
+    wouldMutateRegistry: false,
+    wouldMutatePayment: false,
+  }
+}
+
+async function paesL1ProgramReadOnly(mode: 'paes-l1-program-precheck' | 'paes-l1-program-postcheck'): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const programs = await readProgramRows(prisma)
+    const program = programs.PAES_L1
+    const metadataMatches = isAligned(program, PAES_L1_PROGRAM)
+
+    printJson({
+      status: mode === 'paes-l1-program-precheck'
+        ? 'LOCAL_DEV_SAFE_DB_PAES_L1_PROGRAM_PRECHECK_COMPLETED'
+        : 'LOCAL_DEV_SAFE_DB_PAES_L1_PROGRAM_POSTCHECK_COMPLETED',
+      mode,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: false,
+      expectedProgram: PAES_L1_PROGRAM,
+      programPresent: Boolean(program),
+      metadataMatches,
+      program: summarizeProgram(program),
+      postcheckReady: mode === 'paes-l1-program-postcheck' ? metadataMatches : undefined,
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_PAES_L1_PROGRAM_READ_ONLY_FAILED', {
+      mode,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
+async function planPaesL1Program(): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const programs = await readProgramRows(prisma)
+    const program = programs.PAES_L1
+
+    printJson({
+      status: 'LOCAL_DEV_SAFE_DB_PAES_L1_PROGRAM_PLAN_COMPLETED',
+      mode: 'plan-paes-l1-program',
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: false,
+      expectedProgram: PAES_L1_PROGRAM,
+      currentProgram: summarizeProgram(program),
+      plan: summarizePaesL1ProgramPlan(program),
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_PAES_L1_PROGRAM_PLAN_FAILED', {
+      mode: 'plan-paes-l1-program',
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
+async function alignPaesL1Program(args: Args & { phase: string }): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const before = await readProgramRows(prisma)
+    const programMutated = !isAligned(before.PAES_L1, PAES_L1_PROGRAM)
+
+    if (programMutated) {
+      await prisma.$executeRaw`
+        INSERT INTO programs (id, code, name, vertical, status, "createdAt", "updatedAt")
+        VALUES (
+          ${randomUUID()},
+          ${PAES_L1_PROGRAM.code},
+          ${PAES_L1_PROGRAM.name},
+          ${PAES_L1_PROGRAM.vertical},
+          ${PAES_L1_PROGRAM.status},
+          NOW(),
+          NOW()
+        )
+        ON CONFLICT (code) DO UPDATE SET
+          name = EXCLUDED.name,
+          vertical = EXCLUDED.vertical,
+          status = EXCLUDED.status,
+          "updatedAt" = NOW()
+      `
+    }
+
+    const after = await readProgramRows(prisma)
+
+    printJson({
+      status: 'LOCAL_DEV_SAFE_DB_PAES_L1_PROGRAM_ALIGNMENT_COMPLETED',
+      mode: 'align-paes-l1-program',
+      phase: args.phase,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: programMutated,
+      mutationScope: 'Program PAES_L1 only',
+      programMutated,
+      enrollmentMutated: false,
+      studentAccessMutated: false,
+      studentProgramInstanceMutated: false,
+      learningCycleMutated: false,
+      studyLoadMutated: false,
+      axisMutated: false,
+      skillMutated: false,
+      approvalMetadataMutated: false,
+      registryMutated: false,
+      paymentMutated: false,
+      prodTouched: false,
+      stagingTouched: false,
+      program: summarizeProgram(after.PAES_L1),
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_PAES_L1_PROGRAM_ALIGNMENT_FAILED', {
+      mode: 'align-paes-l1-program',
+      phase: args.phase,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      mutationResultUnknown: true,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
 async function alignM2C01Access(args: Args & { phase: string }): Promise<void> {
   const prisma = await createPrismaClient()
   try {
@@ -3343,6 +3523,18 @@ async function main(): Promise<void> {
     return
   }
 
+  if (args.mode === 'paes-l1-program-precheck' || args.mode === 'paes-l1-program-postcheck') {
+    assertReadOnlyGuards(args)
+    await paesL1ProgramReadOnly(args.mode)
+    return
+  }
+
+  if (args.mode === 'plan-paes-l1-program') {
+    assertReadOnlyGuards(args)
+    await planPaesL1Program()
+    return
+  }
+
   if (args.mode === 'm2-access-precheck' || args.mode === 'm2-access-postcheck') {
     assertReadOnlyGuards(args)
     await m2AccessReadOnly(args.mode, args)
@@ -3518,6 +3710,12 @@ async function main(): Promise<void> {
   if (args.mode === 'align-l1-c01-access') {
     assertL1C01AccessMutationGuards(args)
     await alignL1C01Access(args)
+    return
+  }
+
+  if (args.mode === 'align-paes-l1-program') {
+    assertPaesL1ProgramMutationGuards(args)
+    await alignPaesL1Program(args)
     return
   }
 

@@ -1,44 +1,36 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-SALES-PILOT-L1-C01-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-1`
+`MVP-GOV-LOCAL-DEV-SAFE-DB-PAES-L1-PROGRAM-ALIGNMENT-TOOLING-1`
 
 Result:
-`L1_C01_HUMAN_AUTHORIZATION_PACKET_READY`
+`PAES_L1_PROGRAM_SAFE_ALIGNMENT_TOOLING_READY`
 
 Baseline:
-`HEAD = origin/main = f10baf614b7fcc2b35773be54c1f0fe3a5278d69; working tree clean`
+`HEAD = origin/main = b401fc66726bd79438e48ae4df8084185f517142; working tree clean`
 
 Documents read:
-`PHASE_LOG.md; CODEX_LATEST_COMPACT_REPORT.md; L1 access tooling report; local-dev-safe-db-tool.ts read-only; package.json read-only; L1 branch/guardrails/static/readiness docs`
-
-L1:
-`l1_locating_information_pilot_set_01; 3 items`
+`PHASE_LOG.md; prior compact report; local-dev-safe-db-tool.ts; schema.prisma; seed.ts; L1 branch/guardrails/static/readiness/access docs; package.json`
 
 Tooling:
-`referenced: l1-c01-access-precheck; plan-l1-c01-access; align-l1-c01-access; l1-c01-access-postcheck`
+`READY: paes-l1-program-precheck; plan-paes-l1-program; align-paes-l1-program; paes-l1-program-postcheck`
 
-Authorization phrase:
-`CONFIRMO_LOCAL_DEV_SEGURO_PARA_L1_C01_ACCESS_TOOLING_SIN_SECRETS`
+Program:
+`PAES_L1 / PAES Competencia Lectora / PAES / active`
 
 Mutation limit:
-`L1-C01 StudyLoad only`
+`Program PAES_L1 only`
 
-Approval:
-`studentUseApproved=false; productUseApproved=false; approvalMetadata not changed`
+Validation:
+`tsc --noEmit passed; rg inspection passed; git diff --check passed; secret/email scans passed`
 
-Continuity:
-`NO_AUTOMATIC_NEXT_WITH_ONE_SET`
-
-Next phase:
-`MVP-SALES-PILOT-L1-C01-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1`
-
-Expected next result:
-`L1_C01_HUMAN_LOCAL_DEV_ALIGNMENT_READY_FOR_SMOKE`
+Scope safety:
+`No DB, no LOCAL_DEV tooling modes, no UI automation, no app server, no npm test/build, no prod/staging, no data mutation, no content/registry/approvalMetadata/schema/migration/seed changes, no secrets printed.`
 
 Files changed:
+- `nextjs_space/scripts/local-dev-safe-db-tool.ts`
 - `PHASE_LOG.md`
-- `nextjs_space/docs/operations/MVP_SALES_PILOT_L1_C01_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_1.md`
+- `nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_PAES_L1_PROGRAM_ALIGNMENT_TOOLING_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Commit:
@@ -47,8 +39,8 @@ Commit:
 Push:
 `pending`
 
-Final status:
-`pending commit and push`
+Next phase:
+`MVP-SALES-PILOT-L1-C01-LOCAL-DEV-PAES-L1-PROGRAM-DATA-HUMAN-AUTHORIZATION-1`
 
-Scope safety:
-`No DB, no LOCAL_DEV tooling modes, no UI automation, no app server, no npm test/build, no prod/staging, no data mutation, no code/tooling/content/registry/approvalMetadata changes, no secrets printed.`
+Expected next result:
+`PAES_L1_PROGRAM_DATA_HUMAN_AUTHORIZATION_PACKET_READY`
