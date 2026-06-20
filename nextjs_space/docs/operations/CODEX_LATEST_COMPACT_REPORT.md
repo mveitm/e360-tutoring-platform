@@ -1,38 +1,27 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-M2-C08-GRAPH-MATH-GUARDRAILS-1`
-
-Result:
-`M2_C08_GRAPH_MATH_GUARDRAILS_DEFINED`
-
-Baseline:
-`HEAD = origin/main = 88a3f600a12da99bc3f6bb8d5d3d8e1702d3ace1; working tree clean`
-
-Documents read:
-`PHASE_LOG.md; CODEX_LATEST_COMPACT_REPORT.md; MVP_CONTENT_PAES_M2_C08_READINESS_1.md; MVP_CONTENT_PAES_M2_AUTHORED_SEED_PLAN_1.md; MVP_GOV_PAES_VISUAL_STIMULUS_STANDARD_1.md; MVP_GOV_PAES_FIGURE_SPEC_AND_QA_STANDARD_1.md; MVP_GOV_PAES_CAPSULE_PEDAGOGICAL_STANDARD_1.md; M2 C03/C05/C07 readiness/guardrail references`
-
-C08 identification:
-`M2-C08 - Funcion cuadratica o no lineal inicial; functions/advanced representation; simple non-linear relation; graph and/or rendered math risk; final contentKey not found`
-
-Guardrails decision:
-`C08_GRAPH_MATH_GUARDRAILS_DEFINED_READY_FOR_AUTHORED_IMPLEMENTATION`
-
-Visual/bridge decision:
-`BRIDGE_FIRST_NO_FINAL_GRAPH_CLAIM_UNLESS_APPROVED_DETERMINISTIC_VISUAL_EXISTS`
-
-QA requirements:
-`Define/validate title, contentKey, max 3-4 items, one correct key per item, brief/complete feedback, stimulus classification, no false graph/render claim, no ambiguous notation, feedback-stimulus consistency, mobile readability, no leakage/overclaims.`
-
-Next phase:
 `MVP-CONTENT-PAES-M2-C08-AUTHORED-IMPLEMENT-1`
 
-Expected next result:
+Result:
 `M2_C08_AUTHORED_IMPLEMENTED`
 
+Baseline:
+`HEAD = origin/main = 22b26d39bd825fa307d3258cea5fa8e83507d1eb; working tree clean`
+
+C08:
+`PAES M2 - Funcion cuadratica o no lineal inicial; contentKey paes_m2_quadratic_nonlinear_initial_entry; 3 items`
+
+Visual mode:
+`BRIDGE_FIRST; compact tables/text; no final graph claim; no assets/FigureSpec executable`
+
+Validation:
+`git diff --check passed; nextjs_space tsc --noEmit passed; C08 has 3 items/3 feedback/2 tables; contentKey assignment unique; no false graph claim; no email/secrets; scope scans passed`
+
 Files changed:
+- `nextjs_space/lib/study-load-content.ts`
 - `PHASE_LOG.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C08_GRAPH_MATH_GUARDRAILS_1.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C08_AUTHORED_IMPLEMENT_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Commit:
@@ -42,7 +31,7 @@ Push:
 `pending`
 
 Final status:
-`pending validation, commit and push`
+`pending commit and push`
 
 Scope safety:
-`No DB, no LOCAL_DEV tooling, no UI automation, no product code, no executable pedagogical content, no C08 implementation, no final authored content, no assets/images/FigureSpec executable changes, no schema/migrations/seeds/scripts/tests, no npm test/build/dev, no prod/staging, no secrets printed. Codex UI/DB/tooling execution: NOT_EXECUTED_BY_CODEX.`
+`No DB, no LOCAL_DEV tooling, no UI automation, no prod/staging, no schema/migrations/data, no auth/access/StudentAccess/enrollment/payment/cycles runtime, no assets/FigureSpec executable, no secrets printed.`

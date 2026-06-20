@@ -164,6 +164,7 @@ const STUDY_LOAD_VISIBLE_CORRELATIVES_BY_CONTENT_KEY: Record<string, string> = {
   paes_m2_systems_restrictions_context_entry: 'M2-C05',
   paes_m2_simple_comparative_statistics_entry: 'M2-C06',
   paes_m2_composite_geometry_figures_entry: 'M2-C07',
+  paes_m2_quadratic_nonlinear_initial_entry: 'M2-C08',
 }
 
 function getStudyLoadDisplayBaseTitle(content: StudyLoadContent): string {
@@ -2315,6 +2316,107 @@ const CONTENT_REGISTRY: Record<string, StudyLoadContent> = {
             'Pasto mide 10 * 4 = 40 m2 y Juegos mide 10 * 2 = 20 m2; 40 es el doble de 20.',
           complete:
             'El item pide elegir una conclusion apoyada por los datos de la tabla. Paso 1: lee la fila Pasto: ancho 10 m y alto 4 m. Paso 2: calcula su area: 10 * 4 = 40 m2. Paso 3: lee la fila Juegos: ancho 10 m y alto 2 m. Paso 4: calcula su area: 10 * 2 = 20 m2. Paso 5: compara 40 y 20: 40 es el doble de 20. Por eso la alternativa correcta es B. La A invierte la comparacion, la C ignora que las alturas son distintas y la D suma numeros visibles en vez de calcular areas. Para mejorar, cuando compares areas, calcula cada area antes de elegir una conclusion. Esta misma forma de leer partes y relaciones prepara comparaciones geometricas mas complejas.',
+        },
+      },
+    ],
+    currentLimitationNotice:
+      'Tus respuestas se guardan como evidencia para revision. ' +
+      'No recibiras puntaje PAES, diagnostico automatico ni declaracion de dominio M2 en esta version.',
+  },
+  'PAES M2 - Funcion cuadratica o no lineal inicial': {
+    contentKey: 'paes_m2_quadratic_nonlinear_initial_entry',
+    contentVersion: 'v1',
+    contentType: 'practice',
+    title: 'PAES M2 - Funcion cuadratica o no lineal inicial',
+    program: 'PAES_M2',
+    skillFamily: 'functions/advanced representation bridge',
+    topic: 'Funcion cuadratica o no lineal inicial',
+    estimatedMinutes: '8-12 minutos',
+    instructions:
+      'Esta actividad tiene 3 ejercicios de opcion multiple sobre relaciones no lineales iniciales descritas en tablas y texto.\n\n' +
+      '1. Lee la tabla o descripcion antes de mirar las alternativas.\n' +
+      '2. Compara cambios entre valores consecutivos, no solo valores aislados.\n' +
+      '3. Si aparece x^2, leelo como x * x.\n' +
+      '4. No necesitas graficos ni figuras: toda la informacion necesaria esta en el texto o en tablas compactas.\n' +
+      '5. Envia tus respuestas.\n' +
+      '6. Luego revisa la retroalimentacion y deja tu autorreporte si corresponde.',
+    items: [
+      {
+        key: 'q1',
+        stem:
+          'La tabla muestra valores de una relacion entre x y f(x). Sin usar un grafico, cual conclusion esta mejor apoyada por la tabla?',
+        tableStimulus: {
+          caption: 'Valores de f(x)',
+          headers: ['x', '-2', '-1', '0', '1', '2'],
+          rows: [
+            ['f(x)', '4', '1', '0', '1', '4'],
+          ],
+        },
+        options: [
+          { label: 'A', text: 'f(x) aumenta siempre que x aumenta.' },
+          { label: 'B', text: 'f(x) baja hasta x = 0 y luego vuelve a subir.' },
+          { label: 'C', text: 'f(x) cambia siempre en la misma cantidad.' },
+          { label: 'D', text: 'f(x) vale 0 para todos los valores de x.' },
+        ],
+        correctOptionKey: 'B',
+        authoredFeedback: {
+          briefId: 'paes_m2_quadratic_nonlinear_initial_entry_q1_brief_v1',
+          completeId: 'paes_m2_quadratic_nonlinear_initial_entry_q1_complete_v1',
+          version: 'm2-c08-authored-feedback-v1',
+          brief:
+            'La tabla baja de 4 a 1 y 0, y despues sube de 0 a 1 y 4; por eso no aumenta siempre.',
+          complete:
+            'El item pide interpretar una relacion no lineal usando solo la tabla. Paso 1: lee los valores de f(x) de izquierda a derecha: 4, 1, 0, 1 y 4. Paso 2: observa que primero bajan, porque 4 pasa a 1 y luego a 0. Paso 3: despues suben, porque 0 pasa a 1 y luego a 4. Paso 4: la conclusion que coincide con todos los datos visibles es que f(x) baja hasta x = 0 y luego vuelve a subir. Por eso la alternativa correcta es B. La A ignora la primera bajada, la C supone cambio constante y la D usa solo el valor central. Para mejorar, revisa toda la secuencia antes de elegir una conclusion sobre comportamiento.',
+        },
+      },
+      {
+        key: 'q2',
+        stem:
+          'Una relacion se define por f(x) = x^2 + 2. En esta actividad, x^2 significa x * x.\n\n' +
+          'Cual es el valor de f(3)?',
+        options: [
+          { label: 'A', text: '5' },
+          { label: 'B', text: '8' },
+          { label: 'C', text: '11' },
+          { label: 'D', text: '18' },
+        ],
+        correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m2_quadratic_nonlinear_initial_entry_q2_brief_v1',
+          completeId: 'paes_m2_quadratic_nonlinear_initial_entry_q2_complete_v1',
+          version: 'm2-c08-authored-feedback-v1',
+          brief:
+            'Reemplaza x por 3: 3^2 significa 3 * 3 = 9; luego 9 + 2 = 11.',
+          complete:
+            'El item pide evaluar una expresion cuadratica inicial. Paso 1: identifica la regla f(x) = x^2 + 2. Paso 2: reemplaza x por 3, entonces f(3) = 3^2 + 2. Paso 3: usa la aclaracion del enunciado: 3^2 significa 3 * 3, que da 9. Paso 4: suma 2, entonces 9 + 2 = 11. Por eso la alternativa correcta es C. La A puede aparecer si se suma 3 + 2, la B si se calcula 3 * 2 + 2, y la D si se duplica 9. Para mejorar, resuelve primero la potencia y despues suma el termino fijo.',
+        },
+      },
+      {
+        key: 'q3',
+        stem:
+          'La tabla muestra valores de p(x). Cual razon permite decir que esta relacion no se comporta como una funcion lineal de cambio constante?',
+        tableStimulus: {
+          caption: 'Valores de p(x)',
+          headers: ['x', '0', '1', '2', '3'],
+          rows: [
+            ['p(x)', '1', '2', '5', '10'],
+          ],
+        },
+        options: [
+          { label: 'A', text: 'Porque los valores de x aumentan de 1 en 1.' },
+          { label: 'B', text: 'Porque p(x) siempre aumenta.' },
+          { label: 'C', text: 'Porque los aumentos de p(x) son 1, 3 y 5, y no son iguales.' },
+          { label: 'D', text: 'Porque el primer valor de p(x) es 1.' },
+        ],
+        correctOptionKey: 'C',
+        authoredFeedback: {
+          briefId: 'paes_m2_quadratic_nonlinear_initial_entry_q3_brief_v1',
+          completeId: 'paes_m2_quadratic_nonlinear_initial_entry_q3_complete_v1',
+          version: 'm2-c08-authored-feedback-v1',
+          brief:
+            'Cuando x aumenta de 1 en 1, p(x) aumenta primero 1, despues 3 y despues 5; el cambio no es constante.',
+          complete:
+            'El item pide justificar por que la relacion no tiene cambio constante. Paso 1: lee la fila de p(x): 1, 2, 5 y 10. Paso 2: calcula el primer aumento: de 1 a 2 aumenta 1. Paso 3: calcula el segundo aumento: de 2 a 5 aumenta 3. Paso 4: calcula el tercer aumento: de 5 a 10 aumenta 5. Paso 5: como los aumentos 1, 3 y 5 no son iguales, la relacion no se comporta como una funcion lineal de cambio constante. Por eso la alternativa correcta es C. La A solo describe la fila de x, la B no distingue cambio constante de aumento general y la D usa un dato aislado. Para mejorar, compara diferencias consecutivas cuando quieras decidir si una relacion es lineal o no lineal.',
         },
       },
     ],
