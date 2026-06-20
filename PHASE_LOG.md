@@ -8,6 +8,77 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-20 - MVP-CONTENT-PAES-M2-C08-GRAPH-MATH-GUARDRAILS-1
+
+Baseline before:
+
+```text
+88a3f600a12da99bc3f6bb8d5d3d8e1702d3ace1
+```
+
+Result/verdict:
+
+```text
+M2_C08_GRAPH_MATH_GUARDRAILS_DEFINED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C08_GRAPH_MATH_GUARDRAILS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation-only guardrails phase for PAES_M2 / M2-C08. Defined graph/math/rendered-math/visual guardrails for `Funcion cuadratica o no lineal inicial` and determined that authored implementation may open only under a conservative bridge-first contract unless a deterministic/auditable graph or math-render path is explicitly available and approved.
+
+Guardrails decision:
+
+```text
+C08_GRAPH_MATH_GUARDRAILS_DEFINED_READY_FOR_AUTHORED_IMPLEMENTATION
+```
+
+Visual/bridge decision:
+
+```text
+BRIDGE_FIRST_NO_FINAL_GRAPH_CLAIM_UNLESS_APPROVED_DETERMINISTIC_VISUAL_EXISTS
+```
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-C08-AUTHORED-IMPLEMENT-1
+```
+
+Expected next result:
+
+```text
+M2_C08_AUTHORED_IMPLEMENTED
+```
+
+Notes:
+
+- C08 identification: M2-C08 - Funcion cuadratica o no lineal inicial.
+- Graph/math dependency: graph and/or rendered math risk; avoid final graph-reading assessment unless deterministic/auditable visual support exists.
+- Authored implementation guardrail: may implement only simple non-linear/quadratic reasoning through explicit text/table/value bridge and unambiguous notation, with no claim that a rendered graph is shown.
+- contentKey: final C08 contentKey not found; define during implementation using established PAES_M2 convention and validate uniqueness.
+- Codex DB execution: NOT_EXECUTED_BY_CODEX.
+- Codex tooling execution: NOT_EXECUTED_BY_CODEX.
+- Codex UI execution: NOT_EXECUTED_BY_CODEX.
+- Product code changed: NO.
+- Pedagogical executable content changed: NO.
+- Assets/FigureSpec executable changed: NO.
+- Prod/staging touched: NO.
+- Secrets printed: NO.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-20 - MVP-CONTENT-PAES-M2-C08-READINESS-1
 
 Baseline before:
