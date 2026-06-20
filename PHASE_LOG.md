@@ -8,6 +8,77 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-20 - MVP-SALES-PILOT-L1-C01-LOCAL-DEV-PAES-L1-PROGRAM-DATA-HUMAN-ALIGNMENT-1
+
+Baseline before:
+
+```text
+81d1e682bf62a666907632ea7f91acd52af8c74e
+```
+
+Result/verdict:
+
+```text
+PAES_L1_PROGRAM_LOCAL_DEV_HUMAN_ALIGNED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_L1_C01_LOCAL_DEV_PAES_L1_PROGRAM_DATA_HUMAN_ALIGNMENT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation-only closure of human LOCAL_DEV alignment for `Program PAES_L1`. Human evidence reports precheck, plan, align and postcheck completed; Program PAES_L1 is present with expected metadata after human mutation. Codex did not execute DB, tooling or UI and did not mutate data.
+
+Human authorization:
+
+```text
+AUTORIZO_ALINEAR_PROGRAM_PAES_L1_LOCAL_DEV_BAJO_CONTRATO_PEDAGOGICO_ACEPTADO_SIN_PROD_SIN_STAGING_SIN_SECRETOS_SIN_SCHEMA_SIN_RESET_SIN_ENROLLMENT
+```
+
+Program:
+
+```text
+PAES_L1 / PAES Competencia Lectora / PAES / active
+```
+
+Human mutation scope:
+
+```text
+Program PAES_L1 only
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-L1-C01-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-2
+```
+
+Expected next result:
+
+```text
+L1_C01_HUMAN_AUTHORIZATION_PACKET_READY_AFTER_PROGRAM_ALIGNMENT
+```
+
+Notes:
+
+- Human DB execution: EXECUTED_LOCAL_DEV_TOOLING.
+- Human DB mutation: PROGRAM_PAES_L1_ONLY.
+- Enrollment mutated: false.
+- StudentAccess mutated: false.
+- StudentProgramInstance mutated: false.
+- LearningCycle mutated: false.
+- StudyLoad mutated: false.
+- approvalMetadata changed: NO.
+- Registry changed: NO.
+- Codex DB/tooling/UI execution: NOT_EXECUTED_BY_CODEX.
+- Data mutated by Codex: NO.
+- Secrets printed: NO.
+
 ## 2026-06-20 - MVP-SALES-PILOT-L1-C01-LOCAL-DEV-PAES-L1-PROGRAM-DATA-HUMAN-AUTHORIZATION-1
 
 Baseline before:
