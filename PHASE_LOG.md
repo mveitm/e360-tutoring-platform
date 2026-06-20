@@ -8,6 +8,63 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-20 - MVP-SALES-PILOT-M2-C08-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-1
+
+Baseline before:
+
+```text
+123d8bbb747d4d649b751194841fef9d92b48da9
+```
+
+Result/verdict:
+
+```text
+M2_C08_HUMAN_AUTHORIZATION_PACKET_READY
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C08_LOCAL_DEV_ACCESS_HUMAN_AUTHORIZATION_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation-only human authorization packet for future PAES_M2 / M2-C08 LOCAL_DEV access tooling execution. Confirmed C08 safe modes and guard flags, documented the exact authorization phrase, human-only command sequence, align conditions, sanitized evidence template and safety boundaries. Codex did not execute DB, LOCAL_DEV tooling, scripts, UI automation, app server, precheck, plan, align or postcheck.
+
+Human authorization phrase:
+
+```text
+CONFIRMO_LOCAL_DEV_SEGURO_PARA_M2_C08_ACCESS_TOOLING_SIN_SECRETS
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C08-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1
+```
+
+Expected next result:
+
+```text
+M2_C08_HUMAN_LOCAL_DEV_ALIGNMENT_READY_FOR_SMOKE
+```
+
+Notes:
+
+- C08 contentKey: paes_m2_quadratic_nonlinear_initial_entry.
+- C08 modes authorized for later human-only use: precheck, plan, align, postcheck.
+- Target student identifier in docs: placeholder only, <TARGET_STUDENT_EMAIL>.
+- Future align may run only if plan allows M2-C08 StudyLoad only and no blockers/scope expansion exist.
+- Codex DB execution: NOT_EXECUTED_BY_CODEX.
+- Codex tooling execution: NOT_EXECUTED_BY_CODEX.
+- Codex UI execution: NOT_EXECUTED_BY_CODEX.
+- Product code changed in this phase: NO.
+- Pedagogical content changed in this phase: NO.
+- Secrets printed: NO.
+
 ## 2026-06-20 - MVP-GOV-LOCAL-DEV-SAFE-DB-M2-C08-ACCESS-TOOLING-1
 
 Baseline before:
