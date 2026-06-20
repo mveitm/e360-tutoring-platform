@@ -1,28 +1,28 @@
 # Codex Latest Compact Report
 
 Phase:
-`MVP-CONTENT-PAES-L1-READINESS-1`
+`MVP-CONTENT-PAES-L1-SPECIFIC-PEDAGOGICAL-DERIVATION-DOCUMENTATION-1`
 
 Result:
-`L1_READINESS_DECISION_RECORDED`
+`L1_SPECIFIC_PEDAGOGICAL_DERIVATION_DOCUMENTED`
 
 Baseline:
-`HEAD = origin/main = 0670fbd227fef1f725b325ea26d2a4a4e3250469; working tree clean`
+`HEAD = origin/main = 932da32c9e09a4f2f692c12844d5f4f50228233f; working tree clean`
 
 Documents read:
-`PHASE_LOG.md; CODEX_LATEST_COMPACT_REPORT.md; MVP_CONTENT_PAES_M1_M2_C08_ALIGNMENT_AND_L1_START_DECISION_1.md; MVP_GOV_PAES_CAPSULE_PEDAGOGICAL_STANDARD_1.md; nextjs_space/lib/study-load-content.ts; rg read-only searches`
+`PHASE_LOG.md; CODEX_LATEST_COMPACT_REPORT.md; BPCPI; BPTT; M2 blueprint/precontract/governing/index; MVP_CONTENT_PAES_L1_READINESS_1.md; nextjs_space/lib/study-load-content.ts`
 
 L1:
-`PAES L1 - Localizacion de informacion - Piloto interno 01; l1_locating_information_pilot_set_01; reading_l1_locating_information; 3 items`
+`PAES L1 - Localizacion de informacion - Piloto interno 01; l1_locating_information_pilot_set_01; 3 items`
 
-Source/rights:
-`original_bexauri_created_candidate; rightsBasis=original_bexauri_created; officialSourceDependency=none; copyrightedSourceDependency=none`
+L1 branch:
+`DOCUMENTED: blueprint/precontract/governing/index`
 
 Approval:
-`registryScope=internal_pilot_candidate_only; studentUseApproved=false; productUseApproved=false; continuityPolicy=no_automatic_next_l1_studyload_without_second_reviewed_registry_ready_set`
+`studentUseApproved=false; productUseApproved=false; approvalMetadata not changed`
 
-Readiness:
-`B - L1_NEEDS_APPROVAL_AND_CONTINUITY_GUARDRAILS_BEFORE_STATIC_REVIEW`
+Continuity:
+`NO_AUTOMATIC_NEXT_WITH_ONE_SET`
 
 Next phase:
 `MVP-CONTENT-PAES-L1-APPROVAL-CONTINUITY-GUARDRAILS-1`
@@ -32,7 +32,11 @@ Expected next result:
 
 Files changed:
 - `PHASE_LOG.md`
-- `nextjs_space/docs/operations/MVP_CONTENT_PAES_L1_READINESS_1.md`
+- `nextjs_space/docs/operations/BLUEPRINT_TACTICO_PEDAGOGICO_L1_INTEGRADO.md`
+- `nextjs_space/docs/operations/BPCPV1_PAES_L1_PRECONTRACT.md`
+- `nextjs_space/docs/operations/BPCPV1_PAES_L1_DERIVATION_GOVERNING_DOCUMENT.md`
+- `nextjs_space/docs/operations/PAES_L1_PEDAGOGICAL_BRANCH_INDEX.md`
+- `nextjs_space/docs/operations/MVP_CONTENT_PAES_L1_SPECIFIC_PEDAGOGICAL_DERIVATION_DOCUMENTATION_1.md`
 - `nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md`
 
 Commit:
