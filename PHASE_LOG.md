@@ -8,6 +8,58 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-20 - MVP-CONTENT-PAES-M2-C08-HUMAN-UI-SMOKE-1
+
+Baseline before:
+
+```text
+8f3d4caad924ebdb8be5153087750c9bc62d9e85
+```
+
+Result/verdict:
+
+```text
+M2_C08_HUMAN_UI_SMOKE_PASSED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C08_HUMAN_UI_SMOKE_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation-only recording of the human LOCAL_DEV UI smoke for PAES_M2 / M2-C08. Human evidence reported all verification points passed ok, human UI smoke executed, result passed ok, and no blocking or non-blocking issues. Evidence is human-reported and sanitized; no screenshots, literal UI text, answer content, feedback literal, duration or identifiers were separately provided.
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-POST-C08-ROADMAP-DECISION-1
+```
+
+Expected next result:
+
+```text
+M2_POST_C08_NEXT_PHASE_IDENTIFIED
+```
+
+Notes:
+
+- C08 contentKey: paes_m2_quadratic_nonlinear_initial_entry.
+- C08 title: Funcion cuadratica o no lineal inicial.
+- C08 items: 3.
+- C08 visual mode: BRIDGE_FIRST.
+- Human UI smoke: EXECUTED_LOCAL_DEV_UI_SMOKE.
+- Human result: PASSED_OK.
+- Blocking issues: NONE_REPORTED.
+- Non-blocking issues: NONE_REPORTED.
+- Codex DB/tooling/UI execution: NOT_EXECUTED_BY_CODEX.
+- Target student identifier documented: NO.
+- Secrets printed: NO.
+
 ## 2026-06-20 - MVP-SALES-PILOT-M2-C08-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1
 
 Baseline before:
