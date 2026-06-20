@@ -8,6 +8,70 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-20 - MVP-CONTENT-PAES-M2-C08-READINESS-1
+
+Baseline before:
+
+```text
+0a79f7570e02dce756b158f0f30a0c37a435b70c
+```
+
+Result/verdict:
+
+```text
+M2_C08_READINESS_DECISION_RECORDED
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_CONTENT_PAES_M2_C08_READINESS_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation-only readiness decision for PAES_M2 / M2-C08. Confirmed C08 is identified by the current PAES_M2 seed plan as `Funcion cuadratica o no lineal inicial`, but direct authored implementation is not ready because graph/rendered math dependencies must be scoped first.
+
+Readiness decision:
+
+```text
+C08_NEEDS_GRAPH_MATH_GUARDRAILS_BEFORE_IMPLEMENTATION
+```
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-C08-GRAPH-MATH-GUARDRAILS-1
+```
+
+Expected next result:
+
+```text
+M2_C08_GRAPH_MATH_GUARDRAILS_DEFINED
+```
+
+Notes:
+
+- C08 identification: M2-C08 - Funcion cuadratica o no lineal inicial.
+- Concept/class: functions/advanced representation; simple non-linear relation; medium-high; suggested 3 exercises.
+- contentKey: no final contentKey found; existing PAES_M2 convention is `paes_m2_<english_descriptor>_entry`.
+- Guardrails required: graph/visual stimulus classification, rendered math/LaTeX ambiguity check, deterministic/auditable visual path or explicit non-misleading bridge, feedback-to-visible-stimulus consistency, mobile readability and QA approval.
+- Codex DB execution: NOT_EXECUTED_BY_CODEX.
+- Codex tooling execution: NOT_EXECUTED_BY_CODEX.
+- Codex UI execution: NOT_EXECUTED_BY_CODEX.
+- Product code changed: NO.
+- Pedagogical executable content changed: NO.
+- Prod/staging touched: NO.
+- Secrets printed: NO.
+
+Commit hash after closeout:
+
+```text
+See final git log after commit/push.
+```
+
 ## 2026-06-20 - MVP-CONTENT-PAES-M2-POST-C07-ROADMAP-DECISION-1
 
 Baseline before:
