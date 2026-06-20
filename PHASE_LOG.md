@@ -8,6 +8,67 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-20 - MVP-GOV-LOCAL-DEV-SAFE-DB-M2-C08-ACCESS-TOOLING-1
+
+Baseline before:
+
+```text
+84016a83213f9e86df120ca1e4a0060fa078bce1
+```
+
+Result/verdict:
+
+```text
+M2_C08_LOCAL_DEV_SAFE_ACCESS_TOOLING_READY
+```
+
+Document/files changed:
+
+```text
+nextjs_space/scripts/local-dev-safe-db-tool.ts
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_GOV_LOCAL_DEV_SAFE_DB_M2_C08_ACCESS_TOOLING_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Prepared safe LOCAL_DEV DB tooling support for PAES_M2 / M2-C08 access following the M2-C07 pattern. Added C08-specific read-only precheck, read-only plan, human-only guarded align and read-only postcheck modes, plus the explicit C08-only mutation guard. The future align path is limited to M2-C08 StudyLoad creation/alignment only and requires M2-C07 completed.
+
+Modes prepared:
+
+```text
+m2-c08-access-precheck
+plan-m2-c08-access
+align-m2-c08-access
+m2-c08-access-postcheck
+```
+
+Next recommended phase:
+
+```text
+MVP-SALES-PILOT-M2-C08-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-1
+```
+
+Expected next result:
+
+```text
+M2_C08_HUMAN_AUTHORIZATION_PACKET_READY
+```
+
+Notes:
+
+- C08 contentKey: paes_m2_quadratic_nonlinear_initial_entry.
+- C08 StudyLoad title: PAES M2 - Funcion cuadratica o no lineal inicial.
+- C08 titleClass: M2_C08.
+- Required mutation guard for future human-only align: --confirm-m2-c08-access-only.
+- Future mutation scope: M2-C08 StudyLoad only.
+- Codex DB execution: NOT_EXECUTED_BY_CODEX.
+- Codex tooling execution: NOT_EXECUTED_BY_CODEX.
+- Codex UI execution: NOT_EXECUTED_BY_CODEX.
+- Prod/staging touched: NO.
+- Secrets printed: NO.
+
 ## 2026-06-20 - MVP-CONTENT-PAES-M2-C08-HUMAN-UI-SMOKE-READINESS-1
 
 Baseline before:
