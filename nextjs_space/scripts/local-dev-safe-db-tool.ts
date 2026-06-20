@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto'
 import { loadLocalEnvPrivate } from './lib/load-local-env-private'
+import { getStudyLoadContentByKey } from '../lib/study-load-content'
 
 type Mode =
   | 'confirm-local-dev'
@@ -40,6 +41,10 @@ type Mode =
   | 'plan-m2-c08-access'
   | 'align-m2-c08-access'
   | 'm2-c08-access-postcheck'
+  | 'l1-c01-access-precheck'
+  | 'plan-l1-c01-access'
+  | 'align-l1-c01-access'
+  | 'l1-c01-access-postcheck'
 
 interface Args {
   mode?: string
@@ -59,6 +64,7 @@ interface Args {
   confirmM2C06AccessOnly: boolean
   confirmM2C07AccessOnly: boolean
   confirmM2C08AccessOnly: boolean
+  confirmL1C01AccessOnly: boolean
   confirmNoPayment: boolean
   executeMutation: boolean
   targetStudentEmail?: string
@@ -92,6 +98,14 @@ const M2_C05_CONTENT_KEY = 'paes_m2_systems_restrictions_context_entry'
 const M2_C06_CONTENT_KEY = 'paes_m2_simple_comparative_statistics_entry'
 const M2_C07_CONTENT_KEY = 'paes_m2_composite_geometry_figures_entry'
 const M2_C08_CONTENT_KEY = 'paes_m2_quadratic_nonlinear_initial_entry'
+const L1_C01_CONTENT_KEY = 'l1_locating_information_pilot_set_01'
+const L1_C01_STUDY_LOAD_TITLE = 'PAES L1 - Localizacion de informacion - Piloto interno 01'
+const L1_C01_CONTINUITY_POLICY = 'no_automatic_next_l1_studyload_without_second_reviewed_registry_ready_set'
+
+const PAES_L1_PROGRAM = {
+  code: 'PAES_L1',
+  status: 'active',
+} as const
 
 type M2StudyLoadKey = 'C01' | 'C02' | 'C03' | 'C04' | 'C05' | 'C06' | 'C07' | 'C08'
 
@@ -157,6 +171,7 @@ function parseArgs(argv: string[]): Args {
     confirmM2C06AccessOnly: argv.includes('--confirm-m2-c06-access-only'),
     confirmM2C07AccessOnly: argv.includes('--confirm-m2-c07-access-only'),
     confirmM2C08AccessOnly: argv.includes('--confirm-m2-c08-access-only'),
+    confirmL1C01AccessOnly: argv.includes('--confirm-l1-c01-access-only'),
     confirmNoPayment: argv.includes('--confirm-no-payment'),
     executeMutation: argv.includes('--execute-mutation'),
     targetStudentEmail: readValue(argv, '--target-student-email'),
@@ -234,7 +249,11 @@ function assertCommonGuards(args: Args): asserts args is Args & { mode: Mode } {
     args.mode !== 'm2-c08-access-precheck' &&
     args.mode !== 'plan-m2-c08-access' &&
     args.mode !== 'align-m2-c08-access' &&
-    args.mode !== 'm2-c08-access-postcheck'
+    args.mode !== 'm2-c08-access-postcheck' &&
+    args.mode !== 'l1-c01-access-precheck' &&
+    args.mode !== 'plan-l1-c01-access' &&
+    args.mode !== 'align-l1-c01-access' &&
+    args.mode !== 'l1-c01-access-postcheck'
   ) {
     stop('LOCAL_DEV_SAFE_DB_TOOL_BLOCKED', { reason: 'unsupported_mode' })
   }
@@ -415,6 +434,23 @@ function assertM2C08AccessMutationGuards(args: Args): asserts args is Args & { p
   }
 }
 
+function assertL1C01AccessMutationGuards(args: Args): asserts args is Args & { phase: string } {
+  if (
+    !args.executeMutation ||
+    !args.confirmMutation ||
+    !args.confirmL1C01AccessOnly ||
+    !args.confirmNoPayment ||
+    !args.phase ||
+    !args.targetStudentEmail
+  ) {
+    stop('LOCAL_DEV_SAFE_DB_MUTATION_BLOCKED', {
+      reason: 'l1_c01_access_mutation_guard_missing',
+      mutationExecuted: false,
+      targetStudentIdentifierPrinted: false,
+    })
+  }
+}
+
 async function createPrismaClient() {
   loadLocalEnvPrivate()
 
@@ -525,6 +561,7 @@ function classifyM2StudyLoadTitle(title: string) {
   if (title === M2_STUDY_LOADS.C06.title) return M2_STUDY_LOADS.C06.titleClass
   if (title === M2_STUDY_LOADS.C07.title) return M2_STUDY_LOADS.C07.titleClass
   if (title === M2_STUDY_LOADS.C08.title) return M2_STUDY_LOADS.C08.titleClass
+  if (title === L1_C01_STUDY_LOAD_TITLE) return 'L1_C01'
   return 'other'
 }
 
@@ -1114,6 +1151,215 @@ function summarizeM2C08AccessPlan(state: Awaited<ReturnType<typeof readM2AccessS
   }
 }
 
+function summarizeL1C01Artifact() {
+  const content = getStudyLoadContentByKey(L1_C01_CONTENT_KEY)
+  const approval = content?.approvalMetadata
+  const readingText = content?.readingText
+
+  return {
+    present: Boolean(content),
+    contentKey: content?.contentKey ?? L1_C01_CONTENT_KEY,
+    contentType: content?.contentType ?? null,
+    titleClass: content?.title === L1_C01_STUDY_LOAD_TITLE ? 'L1_C01' : 'unexpected_title',
+    itemCount: content?.items.length ?? 0,
+    readingTextPresent: Boolean(readingText),
+    textIdPresent: Boolean(readingText?.textId),
+    sourceClass: readingText?.sourceClass ?? null,
+    rightsBasis: readingText?.rightsBasis ?? null,
+    officialSourceDependency: readingText?.officialSourceDependency ?? null,
+    copyrightedSourceDependency: readingText?.copyrightedSourceDependency ?? null,
+    reviewStatus: readingText?.reviewStatus ?? null,
+    approvalMetadataPresent: Boolean(approval),
+    registryScope: approval?.registryScope ?? null,
+    studentUseApproved: approval?.studentUseApproved ?? null,
+    productUseApproved: approval?.productUseApproved ?? null,
+    salesReadyImplication: approval?.salesReadyImplication ?? null,
+    continuityPolicy: approval?.continuityPolicy ?? null,
+  }
+}
+
+function l1C01ArtifactReadyForAccess() {
+  const artifact = summarizeL1C01Artifact()
+  return Boolean(
+    artifact.present &&
+      artifact.contentType === 'reading_l1_locating_information' &&
+      artifact.titleClass === 'L1_C01' &&
+      artifact.itemCount === 3 &&
+      artifact.readingTextPresent &&
+      artifact.officialSourceDependency === 'none' &&
+      artifact.copyrightedSourceDependency === 'none' &&
+      artifact.studentUseApproved === false &&
+      artifact.productUseApproved === false &&
+      artifact.salesReadyImplication === 'none' &&
+      artifact.continuityPolicy === L1_C01_CONTINUITY_POLICY,
+  )
+}
+
+async function readL1C01AccessState(prisma: Awaited<ReturnType<typeof createPrismaClient>>, args: Args) {
+  const program = await prisma.program.findUnique({
+    where: { code: PAES_L1_PROGRAM.code },
+    select: { id: true, code: true, name: true, vertical: true, status: true },
+  })
+
+  const where = targetStudentWhere(args)
+  const student = where
+    ? await prisma.student.findUnique({
+        where,
+        select: {
+          id: true,
+          access: {
+            select: {
+              accessStatus: true,
+              trialStatus: true,
+              subscriptionStatus: true,
+            },
+          },
+        },
+      })
+    : null
+
+  const enrollment = student
+    ? await prisma.studentProgramInstance.findFirst({
+        where: {
+          studentId: student.id,
+          program: { code: PAES_L1_PROGRAM.code },
+        },
+        orderBy: [{ startedAt: 'desc' }, { createdAt: 'desc' }],
+        select: {
+          id: true,
+          status: true,
+          currentCycleId: true,
+        },
+      })
+    : null
+
+  const cycle = enrollment
+    ? await prisma.learningCycle.findFirst({
+        where: {
+          enrollmentId: enrollment.id,
+          status: 'open',
+        },
+        orderBy: { cycleNumber: 'asc' },
+        select: {
+          id: true,
+          status: true,
+          cycleNumber: true,
+        },
+      })
+    : null
+
+  const l1C01StudyLoad = enrollment
+    ? await prisma.studyLoad.findFirst({
+        where: {
+          title: L1_C01_STUDY_LOAD_TITLE,
+          learningCycle: { enrollmentId: enrollment.id },
+        },
+        orderBy: [{ createdAt: 'asc' }, { id: 'asc' }],
+        select: {
+          id: true,
+          status: true,
+          loadType: true,
+          title: true,
+        },
+      })
+    : null
+
+  return {
+    program,
+    student,
+    access: student?.access ?? null,
+    enrollment,
+    cycle,
+    l1C01StudyLoad,
+    artifact: summarizeL1C01Artifact(),
+  }
+}
+
+function summarizeL1C01AccessState(state: Awaited<ReturnType<typeof readL1C01AccessState>>) {
+  return {
+    ...summarizeTargetStudent(state.student),
+    expectedContentKey: L1_C01_CONTENT_KEY,
+    l1C01Artifact: state.artifact,
+    l1C01ArtifactReadyForAccess: l1C01ArtifactReadyForAccess(),
+    programs: {
+      PAES_L1: summarizeProgram(state.program),
+    },
+    studentAccess: summarizeAccess(state.access),
+    paesL1StudentProgramInstance: summarizeEnrollment(state.enrollment),
+    l1LearningCycle: summarizeCycle(state.cycle),
+    l1C01StudyLoad: summarizeStudyLoad(state.l1C01StudyLoad),
+    l1C01StudyLoadReachableCandidate: {
+      present: Boolean(state.enrollment && state.cycle && state.l1C01StudyLoad),
+    },
+    approvalMetadataMutated: false,
+    registryMutated: false,
+    continuityPolicy: L1_C01_CONTINUITY_POLICY,
+  }
+}
+
+function summarizeL1C01AccessPlan(state: Awaited<ReturnType<typeof readL1C01AccessState>>) {
+  const targetStudentResolved = Boolean(state.student)
+  const artifactReady = l1C01ArtifactReadyForAccess()
+  const programActive = Boolean(state.program && state.program.status === PAES_L1_PROGRAM.status)
+  const hasEnrollment = Boolean(state.enrollment)
+  const hasActiveEnrollment = Boolean(state.enrollment && state.enrollment.status === 'active')
+  const hasOpenCycle = Boolean(state.cycle && state.cycle.status === 'open')
+  const hasL1C01StudyLoad = Boolean(state.l1C01StudyLoad)
+  const blockedByMissingL1Artifact = !artifactReady
+  const blockedByMissingTargetStudent = !targetStudentResolved
+  const blockedByMissingL1Program = targetStudentResolved && !programActive
+  const blockedByMissingL1Enrollment = targetStudentResolved && programActive && !hasActiveEnrollment
+  const blockedByMissingL1Cycle =
+    targetStudentResolved &&
+    programActive &&
+    hasActiveEnrollment &&
+    !hasOpenCycle
+  const blockedByExistingL1C01 = hasL1C01StudyLoad
+  const blockedByStaticReviewMissing = false
+  const blockedByApprovalContinuity = !artifactReady
+  const wouldCreateStudyLoad =
+    targetStudentResolved &&
+    artifactReady &&
+    programActive &&
+    hasActiveEnrollment &&
+    hasOpenCycle &&
+    !hasL1C01StudyLoad
+  const mutationRequired = Boolean(wouldCreateStudyLoad)
+  const scopeExpansionRequired = Boolean(
+    targetStudentResolved &&
+      artifactReady &&
+      (!programActive || !hasEnrollment || !hasActiveEnrollment || !hasOpenCycle),
+  )
+
+  return {
+    targetStudentResolved,
+    targetStudentIdentifierPrinted: false,
+    expectedContentKey: L1_C01_CONTENT_KEY,
+    mutationRequired,
+    wouldCreateStudyLoad,
+    wouldMutateStudentAccess: false,
+    wouldMutateEnrollment: false,
+    wouldMutateProgram: false,
+    wouldMutateApprovalMetadata: false,
+    wouldMutateRegistry: false,
+    blockers: {
+      missingL1Artifact: blockedByMissingL1Artifact,
+      missingTargetStudent: blockedByMissingTargetStudent,
+      missingCompatibleProgram: blockedByMissingL1Program,
+      missingCompatibleEnrollment: blockedByMissingL1Enrollment,
+      missingCompatibleCycle: blockedByMissingL1Cycle,
+      existingL1C01StudyLoad: blockedByExistingL1C01,
+      staticReviewMissing: blockedByStaticReviewMissing,
+      approvalOrContinuityBlocker: blockedByApprovalContinuity,
+    },
+    scopeExpansionRequired,
+    requiresFutureAuthorization: true,
+    studentUseApproved: false,
+    productUseApproved: false,
+    continuityPolicy: L1_C01_CONTINUITY_POLICY,
+  }
+}
+
 async function confirmLocalDev(): Promise<void> {
   const prisma = await createPrismaClient()
   try {
@@ -1672,6 +1918,67 @@ async function planM2C08Access(args: Args): Promise<void> {
     stop('LOCAL_DEV_SAFE_DB_M2_C08_ACCESS_PLAN_FAILED', {
       mode: 'plan-m2-c08-access',
       expectedContentKey: M2_C08_CONTENT_KEY,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
+async function l1C01AccessReadOnly(
+  mode: 'l1-c01-access-precheck' | 'l1-c01-access-postcheck',
+  args: Args,
+): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const state = await readL1C01AccessState(prisma, args)
+
+    printJson({
+      status: mode === 'l1-c01-access-precheck'
+        ? 'LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_PRECHECK_COMPLETED'
+        : 'LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_POSTCHECK_COMPLETED',
+      mode,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: false,
+      studentUseApprovedChanged: false,
+      productUseApprovedChanged: false,
+      continuityChanged: false,
+      ...summarizeL1C01AccessState(state),
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_CHECK_FAILED', {
+      mode,
+      expectedContentKey: L1_C01_CONTENT_KEY,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
+async function planL1C01Access(args: Args): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const state = await readL1C01AccessState(prisma, args)
+
+    printJson({
+      status: 'LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_PLAN_COMPLETED',
+      mode: 'plan-l1-c01-access',
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: false,
+      ...summarizeL1C01AccessState(state),
+      plan: summarizeL1C01AccessPlan(state),
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_PLAN_FAILED', {
+      mode: 'plan-l1-c01-access',
+      expectedContentKey: L1_C01_CONTENT_KEY,
       databaseUrlPresent: true,
       databaseUrlValuePrinted: false,
       ...classifyError(error),
@@ -2879,6 +3186,135 @@ async function alignM2C08Access(args: Args & { phase: string }): Promise<void> {
   }
 }
 
+async function alignL1C01Access(args: Args & { phase: string }): Promise<void> {
+  const prisma = await createPrismaClient()
+  try {
+    const state = await readL1C01AccessState(prisma, args)
+
+    if (!state.student) {
+      stop('LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-l1-c01-access',
+        phase: args.phase,
+        reason: 'target_student_unresolved',
+        targetStudentIdentifierPrinted: false,
+        expectedContentKey: L1_C01_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+      })
+    }
+
+    if (!l1C01ArtifactReadyForAccess()) {
+      stop('LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-l1-c01-access',
+        phase: args.phase,
+        reason: 'l1_c01_artifact_or_guardrails_not_ready',
+        expectedContentKey: L1_C01_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+        scopeExpansionRequired: false,
+      })
+    }
+
+    if (!state.program || state.program.status !== PAES_L1_PROGRAM.status) {
+      stop('LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-l1-c01-access',
+        phase: args.phase,
+        reason: 'paes_l1_program_not_active',
+        expectedContentKey: L1_C01_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+        scopeExpansionRequired: true,
+      })
+    }
+
+    if (!state.enrollment || state.enrollment.status !== 'active') {
+      stop('LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-l1-c01-access',
+        phase: args.phase,
+        reason: 'active_paes_l1_enrollment_required',
+        expectedContentKey: L1_C01_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+        scopeExpansionRequired: true,
+      })
+    }
+
+    if (!state.cycle || state.cycle.status !== 'open') {
+      stop('LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-l1-c01-access',
+        phase: args.phase,
+        reason: 'open_l1_learning_cycle_required',
+        expectedContentKey: L1_C01_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+        scopeExpansionRequired: true,
+      })
+    }
+
+    if (state.l1C01StudyLoad) {
+      stop('LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_ALIGNMENT_BLOCKED', {
+        mode: 'align-l1-c01-access',
+        phase: args.phase,
+        reason: 'l1_c01_study_load_already_exists',
+        expectedContentKey: L1_C01_CONTENT_KEY,
+        databaseUrlPresent: true,
+        databaseUrlValuePrinted: false,
+        scopeExpansionRequired: false,
+      })
+    }
+
+    const mutationFlags = await prisma.$transaction(async (tx) => {
+      await tx.studyLoad.create({
+        data: {
+          learningCycleId: state.cycle!.id,
+          title: L1_C01_STUDY_LOAD_TITLE,
+          loadType: 'practice',
+          status: 'pending',
+        },
+        select: { id: true },
+      })
+
+      return {
+        studyLoadMutated: true,
+      }
+    })
+
+    const finalState = await readL1C01AccessState(prisma, args)
+
+    printJson({
+      status: 'LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_ALIGNMENT_COMPLETED',
+      mode: 'align-l1-c01-access',
+      phase: args.phase,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      dataMutated: mutationFlags.studyLoadMutated,
+      mutationScope: 'L1-C01 StudyLoad only',
+      studentAccessMutated: false,
+      enrollmentMutated: false,
+      studentProgramInstanceMutated: false,
+      learningCycleMutated: false,
+      programMutated: false,
+      studyLoadMutated: mutationFlags.studyLoadMutated,
+      paymentMutated: false,
+      prodTouched: false,
+      stagingTouched: false,
+      ...summarizeL1C01AccessState(finalState),
+    })
+  } catch (error) {
+    stop('LOCAL_DEV_SAFE_DB_L1_C01_ACCESS_ALIGNMENT_FAILED', {
+      mode: 'align-l1-c01-access',
+      phase: args.phase,
+      expectedContentKey: L1_C01_CONTENT_KEY,
+      databaseUrlPresent: true,
+      databaseUrlValuePrinted: false,
+      mutationResultUnknown: true,
+      ...classifyError(error),
+    }, 1)
+  } finally {
+    await prisma.$disconnect().catch(() => undefined)
+  }
+}
+
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2))
   assertCommonGuards(args)
@@ -2962,6 +3398,13 @@ async function main(): Promise<void> {
     return
   }
 
+  if (args.mode === 'l1-c01-access-precheck' || args.mode === 'l1-c01-access-postcheck') {
+    assertReadOnlyGuards(args)
+    assertTargetStudentEmail(args)
+    await l1C01AccessReadOnly(args.mode, args)
+    return
+  }
+
   if (args.mode === 'plan-m2-c01-access') {
     assertReadOnlyGuards(args)
     await planM2C01Access(args)
@@ -3017,6 +3460,13 @@ async function main(): Promise<void> {
     return
   }
 
+  if (args.mode === 'plan-l1-c01-access') {
+    assertReadOnlyGuards(args)
+    assertTargetStudentEmail(args)
+    await planL1C01Access(args)
+    return
+  }
+
   if (args.mode === 'align-m2-c01-access') {
     assertM2AccessMutationGuards(args)
     await alignM2C01Access(args)
@@ -3062,6 +3512,12 @@ async function main(): Promise<void> {
   if (args.mode === 'align-m2-c08-access') {
     assertM2C08AccessMutationGuards(args)
     await alignM2C08Access(args)
+    return
+  }
+
+  if (args.mode === 'align-l1-c01-access') {
+    assertL1C01AccessMutationGuards(args)
+    await alignL1C01Access(args)
     return
   }
 
