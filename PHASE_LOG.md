@@ -8,6 +8,63 @@ The pre-compaction file had become a full historical memory. From this point for
 
 The full historical record was preserved before compaction. No historical content was intentionally discarded; it was moved to the archive file listed below.
 
+## 2026-06-20 - MVP-SALES-PILOT-M2-C08-LOCAL-DEV-ACCESS-HUMAN-ALIGNMENT-1
+
+Baseline before:
+
+```text
+61748977f28844b52e5f660ee4aa216cf5d64e08
+```
+
+Result/verdict:
+
+```text
+M2_C08_HUMAN_LOCAL_DEV_ALIGNMENT_READY_FOR_SMOKE
+```
+
+Document/files changed:
+
+```text
+PHASE_LOG.md
+nextjs_space/docs/operations/MVP_SALES_PILOT_M2_C08_LOCAL_DEV_ACCESS_HUMAN_ALIGNMENT_1.md
+nextjs_space/docs/operations/CODEX_LATEST_COMPACT_REPORT.md
+```
+
+Scope summary:
+
+Documentation-only recording of sanitized human LOCAL_DEV access alignment evidence for PAES_M2 / M2-C08. Human evidence reports authorized precheck, plan, align and postcheck completed. Align created/aligned only the M2-C08 StudyLoad, leaving StudentAccess, payment, enrollment, StudentProgramInstance and LearningCycle unmutated. Postcheck reports M2-C08 present / pending / practice / M2_C08 and reachable candidate true.
+
+Conclusion:
+
+```text
+M2-C08 LOCAL_DEV access alignment is ready for smoke.
+```
+
+Next recommended phase:
+
+```text
+MVP-CONTENT-PAES-M2-C08-HUMAN-UI-SMOKE-1
+```
+
+Expected next result:
+
+```text
+M2_C08_HUMAN_UI_SMOKE_PASSED
+```
+
+Notes:
+
+- Human DB execution: EXECUTED_LOCAL_DEV_TOOLING.
+- Human DB mutation: PERFORMED_M2_C08_STUDYLOAD_ONLY.
+- C08 contentKey: paes_m2_quadratic_nonlinear_initial_entry.
+- C08 access: present / pending / practice / M2_C08 / reachable candidate true.
+- Target student identifier printed/documented: NO.
+- Codex DB execution/mutation: NOT_EXECUTED_BY_CODEX.
+- Codex tooling execution: NOT_EXECUTED_BY_CODEX.
+- Codex UI execution: NOT_EXECUTED_BY_CODEX.
+- Scope deviation: NONE_REPORTED.
+- Secrets printed: NO.
+
 ## 2026-06-20 - MVP-SALES-PILOT-M2-C08-LOCAL-DEV-ACCESS-HUMAN-AUTHORIZATION-1
 
 Baseline before:
